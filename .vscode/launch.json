@@ -16,6 +16,13 @@
             "request": "launch",
             "type": "dart",
             "program": "example/jelly_dart_example.dart"
+        },
+        {
+            "name": "mpv_shim",
+            "cwd": "packages/mpv_shim",
+            "request": "launch",
+            "type": "dart",
+            "program": "example/mpv_shim_example.dart"
         }
     ]
 }

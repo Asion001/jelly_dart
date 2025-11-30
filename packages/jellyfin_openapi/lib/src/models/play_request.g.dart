@@ -1,0 +1,32 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'play_request.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_PlayRequest _$PlayRequestFromJson(Map<String, dynamic> json) => _PlayRequest(
+  playCommand: PlayRequestPlayCommand.fromJson(json['PlayCommand']),
+  controllingUserId: json['ControllingUserId'] as String,
+  itemIds: (json['ItemIds'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  startPositionTicks: (json['StartPositionTicks'] as num?)?.toInt(),
+  subtitleStreamIndex: (json['SubtitleStreamIndex'] as num?)?.toInt(),
+  audioStreamIndex: (json['AudioStreamIndex'] as num?)?.toInt(),
+  mediaSourceId: json['MediaSourceId'] as String?,
+  startIndex: (json['StartIndex'] as num?)?.toInt(),
+);
+
+Map<String, dynamic> _$PlayRequestToJson(_PlayRequest instance) =>
+    <String, dynamic>{
+      'PlayCommand': instance.playCommand.toJson(),
+      'ControllingUserId': instance.controllingUserId,
+      'ItemIds': ?instance.itemIds,
+      'StartPositionTicks': ?instance.startPositionTicks,
+      'SubtitleStreamIndex': ?instance.subtitleStreamIndex,
+      'AudioStreamIndex': ?instance.audioStreamIndex,
+      'MediaSourceId': ?instance.mediaSourceId,
+      'StartIndex': ?instance.startIndex,
+    };

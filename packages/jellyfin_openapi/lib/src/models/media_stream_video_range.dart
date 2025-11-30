@@ -1,0 +1,29 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+/// Gets the video range.
+@JsonEnum()
+enum MediaStreamVideoRange {
+  @JsonValue('Unknown')
+  unknown('Unknown'),
+  @JsonValue('SDR')
+  sdr('SDR'),
+  @JsonValue('HDR')
+  hdr('HDR'),
+  /// Default value for all unparsed values, allows backward compatibility when adding new values on the backend.
+  $unknown(null);
+
+  const MediaStreamVideoRange(this.json);
+
+  factory MediaStreamVideoRange.fromJson(dynamic json) => values.firstWhere(
+        (e) => e.json == json,
+        orElse: () => $unknown,
+      );
+
+  final dynamic json;
+
+  dynamic toJson() => json;
+}

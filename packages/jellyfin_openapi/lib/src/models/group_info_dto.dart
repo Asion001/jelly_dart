@@ -1,0 +1,38 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'group_info_dto_state.dart';
+
+part 'group_info_dto.freezed.dart';
+part 'group_info_dto.g.dart';
+
+/// Class GroupInfoDto.
+@Freezed()
+abstract class GroupInfoDto with _$GroupInfoDto {
+  const factory GroupInfoDto({
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId')
+    required String groupId,
+
+    /// Gets the group name.
+    @JsonKey(name: 'GroupName')
+    required String groupName,
+
+    /// Gets the group state.
+    @JsonKey(name: 'State')
+    required GroupInfoDtoState state,
+
+    /// Gets the participants.
+    @JsonKey(name: 'Participants')
+    required List<String> participants,
+
+    /// Gets the date when this DTO has been created.
+    @JsonKey(name: 'LastUpdatedAt')
+    required DateTime lastUpdatedAt,
+  }) = _GroupInfoDto;
+  
+  factory GroupInfoDto.fromJson(Map<String, Object?> json) => _$GroupInfoDtoFromJson(json);
+}

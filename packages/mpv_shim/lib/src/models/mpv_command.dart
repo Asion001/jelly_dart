@@ -19,7 +19,16 @@ enum MpvCommand {
   seek('seek'),
 
   /// Stop playback
-  stop('stop')
+  stop('stop'),
+
+  /// Send script message
+  scriptMessage('script-message'),
+
+  /// Add overlay
+  overlayAdd('overlay-add'),
+
+  /// Remove overlay
+  overlayRemove('overlay-remove')
   ;
 
   const MpvCommand(this.value);

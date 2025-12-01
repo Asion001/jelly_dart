@@ -15,6 +15,8 @@ class JellyfinSocket {
     this.deviceId,
     this.deviceName,
     this.clientName = 'JellyfinSocketDart',
+    this.userId,
+    this.version = '1.0.0',
     this.logger,
     this.onMessage,
     Dio? dio,
@@ -41,6 +43,12 @@ class JellyfinSocket {
   /// Client name to identify this application
   final String clientName;
 
+  /// Optional user ID for this client
+  final String? userId;
+
+  /// Client version
+  final String version;
+
   /// Optional logger for logging messages
   final JellyfinSocketLogger? logger;
 
@@ -63,22 +71,6 @@ class JellyfinSocket {
   bool get isConnected =>
       _socket != null && _socket!.readyState == WebSocket.open;
 
-  /// Builds the X-Emby-Authorization header value
-  String _buildAuthHeader({String? token}) {
-    final parts = <String>[
-      'MediaBrowser Client="$clientName"',
-      'Device="${deviceName ?? 'Unknown'}"',
-      'DeviceId="${deviceId ?? 'unknown'}"',
-      'Version="$packageVersion"',
-    ];
-
-    if (token != null) {
-      parts.add('Token="$token"');
-    }
-
-    return parts.join(', ');
-  }
-
   Future<void> connect(String token) async {
     _accessToken = token;
     logger?.info('Connecting to Jellyfin socket at $uri');
@@ -88,23 +80,35 @@ class JellyfinSocket {
       path: '${uri.path}/socket',
     );
 
-    // Add authentication query parameters
-    final authenticatedUri = wsUri.replace(
-      queryParameters: {
-        'api_key': _accessToken,
-        'deviceId': deviceId,
-      },
-    );
+    // Add authentication query parameters - matching working implementation
+    final queryParams = <String, dynamic>{
+      'api_key': _accessToken,
+      if (deviceId != null) 'deviceId': deviceId,
+      if (deviceName != null) 'deviceName': deviceName,
+      if (clientName.isNotEmpty) 'client': clientName,
+      'version': version,
+      if (userId != null) 'userId': userId,
+    };
 
-    logger?.debug('WebSocket URI: $authenticatedUri');
+    final authenticatedUri = wsUri.replace(queryParameters: queryParams);
+
+    logger?.debug('WebSocket URL: $authenticatedUri');
+
+    // Add X-Emby-Authorization header like working implementation
+    final headers = <String, dynamic>{
+      'X-Emby-Authorization':
+          'MediaBrowser Client="$clientName", '
+          'Device="${deviceName ?? 'Unknown'}", '
+          'DeviceId="${deviceId ?? 'unknown'}", '
+          'Version="$version"'
+          '${userId != null ? ', UserId="$userId"' : ''}',
+    };
+
+    logger?.debug('WebSocket headers: $headers');
 
     _socket = await WebSocket.connect(
       authenticatedUri.toString(),
-      headers: {
-        'X-Emby-Token': _accessToken,
-        'X-Emby-Client': clientName,
-        'X-Emby-Device-Id': deviceId,
-      },
+      headers: headers,
     );
     _socket?.listen(_onData);
 
@@ -165,9 +169,13 @@ class JellyfinSocket {
   }) async {
     logger?.info('Authenticating user: $username');
 
-    // Create API client with proper authentication header
-    final authHeader = _buildAuthHeader();
-    logger?.debug('Using X-Emby-Authorization: $authHeader');
+    // Use setMediaBrowserAuth to configure authentication
+    _apiClient.setMediaBrowserAuth(
+      deviceId: deviceId ?? 'unknown',
+      version: packageVersion,
+      client: clientName,
+      device: deviceName ?? 'Unknown',
+    );
 
     // Authenticate user by name
     final authRequest = AuthenticateUserByName(
@@ -178,9 +186,6 @@ class JellyfinSocket {
     try {
       final response = await _apiClient.getUserApi().authenticateUserByName(
         authenticateUserByName: authRequest,
-        headers: {
-          'X-Emby-Authorization': authHeader,
-        },
       );
 
       if (response.data?.accessToken == null) {

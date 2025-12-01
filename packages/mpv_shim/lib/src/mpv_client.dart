@@ -183,6 +183,34 @@ class MpvClient {
     _eventController.add(const PlaybackEvent.stopped());
   }
 
+  /// Send script message to Lua scripts
+  Future<void> scriptMessage(String scriptName, List<String> args) async {
+    await _sendCommand(MpvCommand.scriptMessage, [scriptName, ...args]);
+  }
+
+  /// Add raw image overlay
+  Future<void> overlayAdd({
+    required int id,
+    required int x,
+    required int y,
+    required String file,
+    required int offset,
+    required String format,
+    required int width,
+    required int height,
+    required int stride,
+  }) async {
+    await _sendCommand(
+      MpvCommand.overlayAdd,
+      [id, x, y, file, offset, format, width, height, stride],
+    );
+  }
+
+  /// Remove overlay
+  Future<void> overlayRemove(int id) async {
+    await _sendCommand(MpvCommand.overlayRemove, [id]);
+  }
+
   /// Get property value
   Future<T?> getProperty<T>(MpvProperty property) async {
     final result = await _sendCommand(MpvCommand.getProperty, [property.value]);

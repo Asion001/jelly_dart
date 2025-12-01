@@ -1,0 +1,6 @@
+index_generator:
+  exclude:
+    - "**.g.dart"
+    - "**.freezed.dart"
+  libraries:
+    - directory_path: lib

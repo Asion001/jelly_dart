@@ -23,6 +23,16 @@
             "request": "launch",
             "type": "dart",
             "program": "example/mpv_shim_example.dart"
+        },
+        {
+            "name": "jellyfin_mpv_shim_cli",
+            "cwd": "packages/jellyfin_mpv_shim_cli",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/jellyfin_mpv_shim_cli.dart",
+            "args": [
+                "start"
+            ]
         }
     ]
 }

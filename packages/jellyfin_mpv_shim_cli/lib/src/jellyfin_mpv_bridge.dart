@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:jellyfin_dart/jellyfin_dart.dart' as jf;
 import 'package:jellyfin_mpv_shim_cli/src/lua_scripts.dart';
 import 'package:jellyfin_mpv_shim_cli/src/models/credentials.dart';
-import 'package:jellyfin_mpv_shim_cli/src/trickplay_manager.dart';
 import 'package:jellyfin_openapi/jellyfin_openapi.dart' hide PlayMethod;
 import 'package:jellyfin_socket_dart/jellyfin_socket_dart.dart';
 import 'package:mason_logger/mason_logger.dart';
@@ -33,7 +32,6 @@ class JellyfinMpvBridge {
   JellyfinSocket? _jellyfinSocket;
   MpvClient? _mpvClient;
   jf.JellyfinDart? _apiClient;
-  TrickplayManager? _trickplayManager;
   Timer? _progressTimer;
   String? _currentItemId;
   String? _currentPlaySessionId;
@@ -65,13 +63,6 @@ class JellyfinMpvBridge {
 
     // Announce client capabilities
     await _announceCapabilities();
-
-    // Initialize trickplay manager
-    _trickplayManager = TrickplayManager(
-      serverUrl: credentials.serverUrl,
-      accessToken: credentials.accessToken,
-      logger: _logger,
-    );
 
     // Initialize Jellyfin WebSocket
     _jellyfinSocket = JellyfinSocket(
@@ -196,75 +187,8 @@ class JellyfinMpvBridge {
 
       // Notify Jellyfin that playback started
       await _reportPlaybackStart();
-
-      // Setup trickplay thumbnails (async, non-blocking)
-      // Note: We fetch item details to get the trickplay manifest
-      if (_trickplayManager != null && _apiClient != null) {
-        unawaited(_fetchAndSetupTrickplay(itemId));
-      }
     } catch (e) {
       _logger.err('Failed to play item: $e');
-    }
-  }
-
-  /// Fetch item details and setup trickplay
-  Future<void> _fetchAndSetupTrickplay(String itemId) async {
-    try {
-      // Fetch only trickplay data using a simpler approach
-      // Instead of parsing the full BaseItemDto, just extract the trickplay field
-      final url =
-          '${credentials.serverUrl}/Users/${credentials.userId}/Items/$itemId'
-          '?Fields=Trickplay';
-      final response = await _apiClient!.dio.get<Map<String, dynamic>>(
-        url,
-        queryParameters: {'api_key': credentials.accessToken},
-      );
-
-      if (response.data == null) {
-        _logger.detail('No item data returned');
-        return;
-      }
-
-      final data = response.data!;
-
-      // Extract trickplay data manually to avoid BaseItemDto parsing issues
-      final trickplayRaw = data['Trickplay'] as Map<String, dynamic>?;
-
-      if (trickplayRaw == null || trickplayRaw.isEmpty) {
-        _logger.detail('No trickplay data available for this item');
-        return;
-      }
-
-      // Parse trickplay data structure
-      final trickplayData = <String, Map<String, TrickplayInfoDto>>{};
-
-      for (final mediaSourceEntry in trickplayRaw.entries) {
-        final mediaSourceId = mediaSourceEntry.key;
-        final widthsMap = mediaSourceEntry.value as Map<String, dynamic>;
-        final widthEntries = <String, TrickplayInfoDto>{};
-
-        for (final widthEntry in widthsMap.entries) {
-          final width = widthEntry.key;
-          final infoJson = widthEntry.value as Map<String, dynamic>;
-          widthEntries[width] = TrickplayInfoDto.fromJson(infoJson);
-        }
-
-        trickplayData[mediaSourceId] = widthEntries;
-      }
-
-      // Get media source ID (use first one or fall back to itemId)
-      final mediaSourceId = trickplayData.keys.first;
-
-      // Use the raw data approach to avoid BaseItemDto parsing issues
-      await _trickplayManager!.setupTrickplayFromRaw(
-        itemId,
-        trickplayData,
-        mediaSourceId,
-        _mpvClient!,
-      );
-    } catch (e, stack) {
-      _logger.detail('Failed to setup trickplay: $e');
-      _logger.detail('Stack: $stack');
     }
   }
 
@@ -287,7 +211,6 @@ class JellyfinMpvBridge {
           await _mpvClient!.stopPlayback();
           await _reportPlaybackStop();
           _stopProgressReporting();
-          await _trickplayManager?.clear(_mpvClient);
         case PlaystateRequestCommand.seek:
           final seekPosTicks = request.seekPositionTicks;
           if (seekPosTicks != null) {
@@ -331,7 +254,6 @@ class JellyfinMpvBridge {
       stopped: (_) async {
         await _reportPlaybackStop();
         _stopProgressReporting();
-        await _trickplayManager?.clear(_mpvClient);
       },
     );
   }
@@ -505,7 +427,6 @@ class JellyfinMpvBridge {
       await _reportPlaybackStop();
     }
 
-    await _trickplayManager?.dispose(_mpvClient);
     await _mpvClient?.dispose();
     await _jellyfinSocket?.disconnect();
 
@@ -515,7 +436,6 @@ class JellyfinMpvBridge {
     _mpvClient = null;
     _jellyfinSocket = null;
     _apiClient = null;
-    _trickplayManager = null;
 
     _logger.success('Shutdown complete');
   }

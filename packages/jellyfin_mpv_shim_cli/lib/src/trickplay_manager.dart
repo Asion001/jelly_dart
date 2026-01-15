@@ -208,8 +208,9 @@ class TrickplayManager {
 
       _logger.detail('Sent trickplay data to MPV');
     } catch (e, stackTrace) {
-      _logger.err('Failed to process trickplay: $e');
-      _logger.detail('Stack trace: $stackTrace');
+      _logger
+        ..err('Failed to process trickplay: $e')
+        ..detail('Stack trace: $stackTrace');
       // Disable trickplay on error
       try {
         await mpvClient.scriptMessage('shim-trickplay-clear', []);
@@ -339,17 +340,19 @@ void _decompressTilesIsolate(_TrickplayIsolateParams params) {
 
               if (pixelX >= tileImage.width || pixelY >= tileImage.height) {
                 // Pad with black if out of bounds
-                sink.writeByteSync(0); // B
-                sink.writeByteSync(0); // G
-                sink.writeByteSync(0); // R
-                sink.writeByteSync(255); // A
+                sink
+                  ..writeByteSync(0) // B
+                  ..writeByteSync(0) // G
+                  ..writeByteSync(0) // R
+                  ..writeByteSync(255); // A
               } else {
                 final pixel = tileImage.getPixel(pixelX, pixelY);
                 // Write as BGRA
-                sink.writeByteSync(pixel.b.toInt());
-                sink.writeByteSync(pixel.g.toInt());
-                sink.writeByteSync(pixel.r.toInt());
-                sink.writeByteSync(pixel.a.toInt());
+                sink
+                  ..writeByteSync(pixel.b.toInt())
+                  ..writeByteSync(pixel.g.toInt())
+                  ..writeByteSync(pixel.r.toInt())
+                  ..writeByteSync(pixel.a.toInt());
               }
             }
           }

@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -38,21 +38,13 @@ abstract class TranscodingProfile with _$TranscodingProfile {
     @JsonKey(name: 'Protocol')
     required TranscodingProfileProtocol protocol,
 
-    /// Gets or sets the transcoding seek info mode.
-    @JsonKey(name: 'TranscodeSeekInfo')
-    required TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-
-    /// Gets or sets the encoding context.
-    @JsonKey(name: 'Context')
-    required TranscodingProfileContext context,
+    /// Gets or sets the maximum audio channels.
+    @JsonKey(name: 'MaxAudioChannels')
+    required String? maxAudioChannels,
 
     /// Gets or sets the profile conditions.
     @JsonKey(name: 'Conditions')
     required List<ProfileCondition> conditions,
-
-    /// Gets or sets the maximum audio channels.
-    @JsonKey(name: 'MaxAudioChannels')
-    String? maxAudioChannels,
 
     /// Gets or sets a value indicating whether the content length should be estimated.
     @JsonKey(name: 'EstimateContentLength')
@@ -64,10 +56,20 @@ abstract class TranscodingProfile with _$TranscodingProfile {
     @Default(false)
     bool enableMpegtsM2TsMode,
 
+    /// Gets or sets the transcoding seek info mode.
+    @JsonKey(name: 'TranscodeSeekInfo')
+    @Default(TranscodingProfileTranscodeSeekInfo.auto)
+    TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
+
     /// Gets or sets a value indicating whether timestamps should be copied.
     @JsonKey(name: 'CopyTimestamps')
     @Default(false)
     bool copyTimestamps,
+
+    /// Gets or sets the encoding context.
+    @JsonKey(name: 'Context')
+    @Default(TranscodingProfileContext.streaming)
+    TranscodingProfileContext context,
 
     /// Gets or sets a value indicating whether subtitles are allowed in the manifest.
     @JsonKey(name: 'EnableSubtitlesInManifest')

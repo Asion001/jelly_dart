@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -21,6 +21,10 @@ abstract class PluginInfo with _$PluginInfo {
     @JsonKey(name: 'Version')
     required String version,
 
+    /// Gets or sets the name of the configuration file.
+    @JsonKey(name: 'ConfigurationFileName')
+    required String? configurationFileName,
+
     /// Gets or sets the description.
     @JsonKey(name: 'Description')
     required String description,
@@ -40,10 +44,6 @@ abstract class PluginInfo with _$PluginInfo {
     /// Gets or sets a value indicating the status of the plugin.
     @JsonKey(name: 'Status')
     required PluginInfoStatus status,
-
-    /// Gets or sets the name of the configuration file.
-    @JsonKey(name: 'ConfigurationFileName')
-    String? configurationFileName,
   }) = _PluginInfo;
   
   factory PluginInfo.fromJson(Map<String, Object?> json) => _$PluginInfoFromJson(json);

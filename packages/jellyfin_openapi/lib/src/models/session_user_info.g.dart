@@ -8,12 +8,12 @@ part of 'session_user_info.dart';
 
 _SessionUserInfo _$SessionUserInfoFromJson(Map<String, dynamic> json) =>
     _SessionUserInfo(
-      userId: json['UserId'] as String,
+      userId: json['UserId'] as String?,
       userName: json['UserName'] as String?,
     );
 
 Map<String, dynamic> _$SessionUserInfoToJson(_SessionUserInfo instance) =>
     <String, dynamic>{
-      'UserId': instance.userId,
+      'UserId': ?instance.userId,
       'UserName': ?instance.userName,
     };

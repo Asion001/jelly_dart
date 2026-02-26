@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -22,26 +22,6 @@ part 'device_profile.g.dart';
 @Freezed()
 abstract class DeviceProfile with _$DeviceProfile {
   const factory DeviceProfile({
-    /// Gets or sets the direct play profiles.
-    @JsonKey(name: 'DirectPlayProfiles')
-    required List<DirectPlayProfile> directPlayProfiles,
-
-    /// Gets or sets the transcoding profiles.
-    @JsonKey(name: 'TranscodingProfiles')
-    required List<TranscodingProfile> transcodingProfiles,
-
-    /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
-    @JsonKey(name: 'ContainerProfiles')
-    required List<ContainerProfile> containerProfiles,
-
-    /// Gets or sets the codec profiles.
-    @JsonKey(name: 'CodecProfiles')
-    required List<CodecProfile> codecProfiles,
-
-    /// Gets or sets the subtitle profiles.
-    @JsonKey(name: 'SubtitleProfiles')
-    required List<SubtitleProfile> subtitleProfiles,
-
     /// Gets or sets the name of this device profile. User profiles must have a unique name.
     @JsonKey(name: 'Name')
     String? name,
@@ -65,6 +45,26 @@ abstract class DeviceProfile with _$DeviceProfile {
     /// Gets or sets the maximum allowed bitrate for statically streamed (= direct played) music files.
     @JsonKey(name: 'MaxStaticMusicBitrate')
     int? maxStaticMusicBitrate,
+
+    /// Gets or sets the direct play profiles.
+    @JsonKey(name: 'DirectPlayProfiles')
+    List<DirectPlayProfile>? directPlayProfiles,
+
+    /// Gets or sets the transcoding profiles.
+    @JsonKey(name: 'TranscodingProfiles')
+    List<TranscodingProfile>? transcodingProfiles,
+
+    /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
+    @JsonKey(name: 'ContainerProfiles')
+    List<ContainerProfile>? containerProfiles,
+
+    /// Gets or sets the codec profiles.
+    @JsonKey(name: 'CodecProfiles')
+    List<CodecProfile>? codecProfiles,
+
+    /// Gets or sets the subtitle profiles.
+    @JsonKey(name: 'SubtitleProfiles')
+    List<SubtitleProfile>? subtitleProfiles,
   }) = _DeviceProfile;
   
   factory DeviceProfile.fromJson(Map<String, Object?> json) => _$DeviceProfileFromJson(json);

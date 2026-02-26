@@ -21,6 +21,10 @@ mixin _$SyncPlayGroupDoesNotExistUpdate {
   @JsonKey(name: 'Data')
   String get data;
 
+  /// Enum GroupUpdateType.
+  @JsonKey(name: 'Type')
+  SyncPlayGroupDoesNotExistUpdateType get type;
+
   /// Create a copy of SyncPlayGroupDoesNotExistUpdate
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -40,16 +44,17 @@ mixin _$SyncPlayGroupDoesNotExistUpdate {
         (other.runtimeType == runtimeType &&
             other is SyncPlayGroupDoesNotExistUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayGroupDoesNotExistUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayGroupDoesNotExistUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -63,6 +68,7 @@ abstract mixin class $SyncPlayGroupDoesNotExistUpdateCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'Type') SyncPlayGroupDoesNotExistUpdateType type,
   });
 }
 
@@ -78,7 +84,11 @@ class _$SyncPlayGroupDoesNotExistUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _self.copyWith(
         groupId: null == groupId
@@ -89,6 +99,10 @@ class _$SyncPlayGroupDoesNotExistUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupDoesNotExistUpdateType,
       ),
     );
   }
@@ -191,6 +205,7 @@ extension SyncPlayGroupDoesNotExistUpdatePatterns
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'Type') SyncPlayGroupDoesNotExistUpdateType type,
     )?
     $default, {
     required TResult orElse(),
@@ -198,7 +213,7 @@ extension SyncPlayGroupDoesNotExistUpdatePatterns
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupDoesNotExistUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return orElse();
     }
@@ -222,13 +237,14 @@ extension SyncPlayGroupDoesNotExistUpdatePatterns
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'Type') SyncPlayGroupDoesNotExistUpdateType type,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupDoesNotExistUpdate():
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -251,13 +267,14 @@ extension SyncPlayGroupDoesNotExistUpdatePatterns
     TResult? Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'Type') SyncPlayGroupDoesNotExistUpdateType type,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupDoesNotExistUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return null;
     }
@@ -271,6 +288,8 @@ class _SyncPlayGroupDoesNotExistUpdate
   const _SyncPlayGroupDoesNotExistUpdate({
     @JsonKey(name: 'GroupId') required this.groupId,
     @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'Type')
+    this.type = SyncPlayGroupDoesNotExistUpdateType.groupDoesNotExist,
   });
   factory _SyncPlayGroupDoesNotExistUpdate.fromJson(
     Map<String, dynamic> json,
@@ -285,6 +304,11 @@ class _SyncPlayGroupDoesNotExistUpdate
   @override
   @JsonKey(name: 'Data')
   final String data;
+
+  /// Enum GroupUpdateType.
+  @override
+  @JsonKey(name: 'Type')
+  final SyncPlayGroupDoesNotExistUpdateType type;
 
   /// Create a copy of SyncPlayGroupDoesNotExistUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -308,16 +332,17 @@ class _SyncPlayGroupDoesNotExistUpdate
         (other.runtimeType == runtimeType &&
             other is _SyncPlayGroupDoesNotExistUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayGroupDoesNotExistUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayGroupDoesNotExistUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -333,6 +358,7 @@ abstract mixin class _$SyncPlayGroupDoesNotExistUpdateCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'Type') SyncPlayGroupDoesNotExistUpdateType type,
   });
 }
 
@@ -348,7 +374,11 @@ class __$SyncPlayGroupDoesNotExistUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _SyncPlayGroupDoesNotExistUpdate(
         groupId: null == groupId
@@ -359,6 +389,10 @@ class __$SyncPlayGroupDoesNotExistUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupDoesNotExistUpdateType,
       ),
     );
   }

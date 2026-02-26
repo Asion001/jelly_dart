@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,19 +20,19 @@ abstract class TaskTriggerInfo with _$TaskTriggerInfo {
 
     /// Gets or sets the time of day.
     @JsonKey(name: 'TimeOfDayTicks')
-    int? timeOfDayTicks,
+    required int? timeOfDayTicks,
 
     /// Gets or sets the interval.
     @JsonKey(name: 'IntervalTicks')
-    int? intervalTicks,
+    required int? intervalTicks,
 
     /// Gets or sets the day of week.
     @JsonKey(name: 'DayOfWeek')
-    TaskTriggerInfoDayOfWeek? dayOfWeek,
+    required TaskTriggerInfoDayOfWeek? dayOfWeek,
 
     /// Gets or sets the maximum runtime ticks.
     @JsonKey(name: 'MaxRuntimeTicks')
-    int? maxRuntimeTicks,
+    required int? maxRuntimeTicks,
   }) = _TaskTriggerInfo;
   
   factory TaskTriggerInfo.fromJson(Map<String, Object?> json) => _$TaskTriggerInfoFromJson(json);

@@ -13,21 +13,34 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MediaSourceInfo {
-  /// Media streaming protocol.
-  ///
-  /// Lowercase for backwards compatibility.
-  @JsonKey(name: 'TranscodingSubProtocol')
-  MediaSourceInfoTranscodingSubProtocol get transcodingSubProtocol;
-  @JsonKey(name: 'Type')
-  MediaSourceInfoType get type;
   @JsonKey(name: 'GenPtsInput')
   bool get genPtsInput;
+  @JsonKey(name: 'Id')
+  String? get id;
+  @JsonKey(name: 'Path')
+  String? get path;
+  @JsonKey(name: 'EncoderPath')
+  String? get encoderPath;
+  @JsonKey(name: 'EncoderProtocol')
+  MediaSourceInfoEncoderProtocol? get encoderProtocol;
+  @JsonKey(name: 'Type')
+  MediaSourceInfoType get type;
+  @JsonKey(name: 'Container')
+  String? get container;
+  @JsonKey(name: 'Size')
+  int? get size;
+  @JsonKey(name: 'Name')
+  String? get name;
 
   /// Gets or sets a value indicating whether the media is remote.
   ///
   /// Differentiate internet url vs local network.
   @JsonKey(name: 'IsRemote')
   bool get isRemote;
+  @JsonKey(name: 'ETag')
+  String? get eTag;
+  @JsonKey(name: 'RunTimeTicks')
+  int? get runTimeTicks;
   @JsonKey(name: 'ReadAtNativeFramerate')
   bool get readAtNativeFramerate;
   @JsonKey(name: 'IgnoreDts')
@@ -44,42 +57,26 @@ mixin _$MediaSourceInfo {
   bool get supportsDirectPlay;
   @JsonKey(name: 'IsInfiniteStream')
   bool get isInfiniteStream;
-  @JsonKey(name: 'RequiresOpening')
-  bool get requiresOpening;
-  @JsonKey(name: 'RequiresClosing')
-  bool get requiresClosing;
-  @JsonKey(name: 'RequiresLooping')
-  bool get requiresLooping;
-  @JsonKey(name: 'SupportsProbing')
-  bool get supportsProbing;
-  @JsonKey(name: 'HasSegments')
-  bool get hasSegments;
-  @JsonKey(name: 'Size')
-  int? get size;
-  @JsonKey(name: 'ETag')
-  String? get eTag;
-  @JsonKey(name: 'RunTimeTicks')
-  int? get runTimeTicks;
   @JsonKey(name: 'DefaultSubtitleStreamIndex')
   int? get defaultSubtitleStreamIndex;
-  @JsonKey(name: 'EncoderProtocol')
-  MediaSourceInfoEncoderProtocol? get encoderProtocol;
+  @JsonKey(name: 'RequiresOpening')
+  bool get requiresOpening;
   @JsonKey(name: 'OpenToken')
   String? get openToken;
-  @JsonKey(name: 'Id')
-  String? get id;
+  @JsonKey(name: 'RequiresClosing')
+  bool get requiresClosing;
   @JsonKey(name: 'LiveStreamId')
   String? get liveStreamId;
   @JsonKey(name: 'BufferMs')
   int? get bufferMs;
-  @JsonKey(name: 'Container')
-  String? get container;
-  @JsonKey(name: 'Path')
-  String? get path;
+  @JsonKey(name: 'RequiresLooping')
+  bool get requiresLooping;
+  @JsonKey(name: 'SupportsProbing')
+  bool get supportsProbing;
   @JsonKey(name: 'VideoType')
   MediaSourceInfoVideoType? get videoType;
-  @JsonKey(name: 'Name')
-  String? get name;
+  @JsonKey(name: 'HasSegments')
+  bool get hasSegments;
   @JsonKey(name: 'Video3DFormat')
   MediaSourceInfoVideo3DFormat? get video3DFormat;
   @JsonKey(name: 'MediaStreams')
@@ -98,8 +95,12 @@ mixin _$MediaSourceInfo {
   Map<String, String?>? get requiredHttpHeaders;
   @JsonKey(name: 'TranscodingUrl')
   String? get transcodingUrl;
-  @JsonKey(name: 'EncoderPath')
-  String? get encoderPath;
+
+  /// Media streaming protocol.
+  ///
+  /// Lowercase for backwards compatibility.
+  @JsonKey(name: 'TranscodingSubProtocol')
+  MediaSourceInfoTranscodingSubProtocol get transcodingSubProtocol;
   @JsonKey(name: 'TranscodingContainer')
   String? get transcodingContainer;
   @JsonKey(name: 'AnalyzeDurationMs')
@@ -129,13 +130,24 @@ mixin _$MediaSourceInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MediaSourceInfo &&
-            (identical(other.transcodingSubProtocol, transcodingSubProtocol) ||
-                other.transcodingSubProtocol == transcodingSubProtocol) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.genPtsInput, genPtsInput) ||
                 other.genPtsInput == genPtsInput) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.encoderPath, encoderPath) ||
+                other.encoderPath == encoderPath) &&
+            (identical(other.encoderProtocol, encoderProtocol) ||
+                other.encoderProtocol == encoderProtocol) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.isRemote, isRemote) ||
                 other.isRemote == isRemote) &&
+            (identical(other.eTag, eTag) || other.eTag == eTag) &&
+            (identical(other.runTimeTicks, runTimeTicks) ||
+                other.runTimeTicks == runTimeTicks) &&
             (identical(other.readAtNativeFramerate, readAtNativeFramerate) ||
                 other.readAtNativeFramerate == readAtNativeFramerate) &&
             (identical(other.ignoreDts, ignoreDts) ||
@@ -152,41 +164,30 @@ mixin _$MediaSourceInfo {
                 other.supportsDirectPlay == supportsDirectPlay) &&
             (identical(other.isInfiniteStream, isInfiniteStream) ||
                 other.isInfiniteStream == isInfiniteStream) &&
-            (identical(other.requiresOpening, requiresOpening) ||
-                other.requiresOpening == requiresOpening) &&
-            (identical(other.requiresClosing, requiresClosing) ||
-                other.requiresClosing == requiresClosing) &&
-            (identical(other.requiresLooping, requiresLooping) ||
-                other.requiresLooping == requiresLooping) &&
-            (identical(other.supportsProbing, supportsProbing) ||
-                other.supportsProbing == supportsProbing) &&
-            (identical(other.hasSegments, hasSegments) ||
-                other.hasSegments == hasSegments) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.eTag, eTag) || other.eTag == eTag) &&
-            (identical(other.runTimeTicks, runTimeTicks) ||
-                other.runTimeTicks == runTimeTicks) &&
             (identical(
                   other.defaultSubtitleStreamIndex,
                   defaultSubtitleStreamIndex,
                 ) ||
                 other.defaultSubtitleStreamIndex ==
                     defaultSubtitleStreamIndex) &&
-            (identical(other.encoderProtocol, encoderProtocol) ||
-                other.encoderProtocol == encoderProtocol) &&
+            (identical(other.requiresOpening, requiresOpening) ||
+                other.requiresOpening == requiresOpening) &&
             (identical(other.openToken, openToken) ||
                 other.openToken == openToken) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.requiresClosing, requiresClosing) ||
+                other.requiresClosing == requiresClosing) &&
             (identical(other.liveStreamId, liveStreamId) ||
                 other.liveStreamId == liveStreamId) &&
             (identical(other.bufferMs, bufferMs) ||
                 other.bufferMs == bufferMs) &&
-            (identical(other.container, container) ||
-                other.container == container) &&
-            (identical(other.path, path) || other.path == path) &&
+            (identical(other.requiresLooping, requiresLooping) ||
+                other.requiresLooping == requiresLooping) &&
+            (identical(other.supportsProbing, supportsProbing) ||
+                other.supportsProbing == supportsProbing) &&
             (identical(other.videoType, videoType) ||
                 other.videoType == videoType) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.hasSegments, hasSegments) ||
+                other.hasSegments == hasSegments) &&
             (identical(other.video3DFormat, video3DFormat) ||
                 other.video3DFormat == video3DFormat) &&
             const DeepCollectionEquality().equals(
@@ -213,8 +214,8 @@ mixin _$MediaSourceInfo {
             ) &&
             (identical(other.transcodingUrl, transcodingUrl) ||
                 other.transcodingUrl == transcodingUrl) &&
-            (identical(other.encoderPath, encoderPath) ||
-                other.encoderPath == encoderPath) &&
+            (identical(other.transcodingSubProtocol, transcodingSubProtocol) ||
+                other.transcodingSubProtocol == transcodingSubProtocol) &&
             (identical(other.transcodingContainer, transcodingContainer) ||
                 other.transcodingContainer == transcodingContainer) &&
             (identical(other.analyzeDurationMs, analyzeDurationMs) ||
@@ -237,10 +238,18 @@ mixin _$MediaSourceInfo {
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    transcodingSubProtocol,
-    type,
     genPtsInput,
+    id,
+    path,
+    encoderPath,
+    encoderProtocol,
+    type,
+    container,
+    size,
+    name,
     isRemote,
+    eTag,
+    runTimeTicks,
     readAtNativeFramerate,
     ignoreDts,
     ignoreIndex,
@@ -249,24 +258,16 @@ mixin _$MediaSourceInfo {
     supportsDirectStream,
     supportsDirectPlay,
     isInfiniteStream,
-    requiresOpening,
-    requiresClosing,
-    requiresLooping,
-    supportsProbing,
-    hasSegments,
-    size,
-    eTag,
-    runTimeTicks,
     defaultSubtitleStreamIndex,
-    encoderProtocol,
+    requiresOpening,
     openToken,
-    id,
+    requiresClosing,
     liveStreamId,
     bufferMs,
-    container,
-    path,
+    requiresLooping,
+    supportsProbing,
     videoType,
-    name,
+    hasSegments,
     video3DFormat,
     const DeepCollectionEquality().hash(mediaStreams),
     const DeepCollectionEquality().hash(mediaAttachments),
@@ -276,7 +277,7 @@ mixin _$MediaSourceInfo {
     timestamp,
     const DeepCollectionEquality().hash(requiredHttpHeaders),
     transcodingUrl,
-    encoderPath,
+    transcodingSubProtocol,
     transcodingContainer,
     analyzeDurationMs,
     defaultAudioStreamIndex,
@@ -286,7 +287,7 @@ mixin _$MediaSourceInfo {
 
   @override
   String toString() {
-    return 'MediaSourceInfo(transcodingSubProtocol: $transcodingSubProtocol, type: $type, genPtsInput: $genPtsInput, isRemote: $isRemote, readAtNativeFramerate: $readAtNativeFramerate, ignoreDts: $ignoreDts, ignoreIndex: $ignoreIndex, protocol: $protocol, supportsTranscoding: $supportsTranscoding, supportsDirectStream: $supportsDirectStream, supportsDirectPlay: $supportsDirectPlay, isInfiniteStream: $isInfiniteStream, requiresOpening: $requiresOpening, requiresClosing: $requiresClosing, requiresLooping: $requiresLooping, supportsProbing: $supportsProbing, hasSegments: $hasSegments, size: $size, eTag: $eTag, runTimeTicks: $runTimeTicks, defaultSubtitleStreamIndex: $defaultSubtitleStreamIndex, encoderProtocol: $encoderProtocol, openToken: $openToken, id: $id, liveStreamId: $liveStreamId, bufferMs: $bufferMs, container: $container, path: $path, videoType: $videoType, name: $name, video3DFormat: $video3DFormat, mediaStreams: $mediaStreams, mediaAttachments: $mediaAttachments, formats: $formats, bitrate: $bitrate, fallbackMaxStreamingBitrate: $fallbackMaxStreamingBitrate, timestamp: $timestamp, requiredHttpHeaders: $requiredHttpHeaders, transcodingUrl: $transcodingUrl, encoderPath: $encoderPath, transcodingContainer: $transcodingContainer, analyzeDurationMs: $analyzeDurationMs, defaultAudioStreamIndex: $defaultAudioStreamIndex, isoType: $isoType, useMostCompatibleTranscodingProfile: $useMostCompatibleTranscodingProfile)';
+    return 'MediaSourceInfo(genPtsInput: $genPtsInput, id: $id, path: $path, encoderPath: $encoderPath, encoderProtocol: $encoderProtocol, type: $type, container: $container, size: $size, name: $name, isRemote: $isRemote, eTag: $eTag, runTimeTicks: $runTimeTicks, readAtNativeFramerate: $readAtNativeFramerate, ignoreDts: $ignoreDts, ignoreIndex: $ignoreIndex, protocol: $protocol, supportsTranscoding: $supportsTranscoding, supportsDirectStream: $supportsDirectStream, supportsDirectPlay: $supportsDirectPlay, isInfiniteStream: $isInfiniteStream, defaultSubtitleStreamIndex: $defaultSubtitleStreamIndex, requiresOpening: $requiresOpening, openToken: $openToken, requiresClosing: $requiresClosing, liveStreamId: $liveStreamId, bufferMs: $bufferMs, requiresLooping: $requiresLooping, supportsProbing: $supportsProbing, videoType: $videoType, hasSegments: $hasSegments, video3DFormat: $video3DFormat, mediaStreams: $mediaStreams, mediaAttachments: $mediaAttachments, formats: $formats, bitrate: $bitrate, fallbackMaxStreamingBitrate: $fallbackMaxStreamingBitrate, timestamp: $timestamp, requiredHttpHeaders: $requiredHttpHeaders, transcodingUrl: $transcodingUrl, transcodingSubProtocol: $transcodingSubProtocol, transcodingContainer: $transcodingContainer, analyzeDurationMs: $analyzeDurationMs, defaultAudioStreamIndex: $defaultAudioStreamIndex, isoType: $isoType, useMostCompatibleTranscodingProfile: $useMostCompatibleTranscodingProfile)';
   }
 }
 
@@ -298,11 +299,19 @@ abstract mixin class $MediaSourceInfoCopyWith<$Res> {
   ) = _$MediaSourceInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'TranscodingSubProtocol')
-    MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-    @JsonKey(name: 'Type') MediaSourceInfoType type,
     @JsonKey(name: 'GenPtsInput') bool genPtsInput,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'EncoderPath') String? encoderPath,
+    @JsonKey(name: 'EncoderProtocol')
+    MediaSourceInfoEncoderProtocol? encoderProtocol,
+    @JsonKey(name: 'Type') MediaSourceInfoType type,
+    @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'Size') int? size,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'IsRemote') bool isRemote,
+    @JsonKey(name: 'ETag') String? eTag,
+    @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'ReadAtNativeFramerate') bool readAtNativeFramerate,
     @JsonKey(name: 'IgnoreDts') bool ignoreDts,
     @JsonKey(name: 'IgnoreIndex') bool ignoreIndex,
@@ -311,26 +320,17 @@ abstract mixin class $MediaSourceInfoCopyWith<$Res> {
     @JsonKey(name: 'SupportsDirectStream') bool supportsDirectStream,
     @JsonKey(name: 'SupportsDirectPlay') bool supportsDirectPlay,
     @JsonKey(name: 'IsInfiniteStream') bool isInfiniteStream,
-    @JsonKey(name: 'RequiresOpening') bool requiresOpening,
-    @JsonKey(name: 'RequiresClosing') bool requiresClosing,
-    @JsonKey(name: 'RequiresLooping') bool requiresLooping,
-    @JsonKey(name: 'SupportsProbing') bool supportsProbing,
-    @JsonKey(name: 'HasSegments') bool hasSegments,
-    @JsonKey(name: 'Size') int? size,
-    @JsonKey(name: 'ETag') String? eTag,
-    @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'DefaultSubtitleStreamIndex')
     int? defaultSubtitleStreamIndex,
-    @JsonKey(name: 'EncoderProtocol')
-    MediaSourceInfoEncoderProtocol? encoderProtocol,
+    @JsonKey(name: 'RequiresOpening') bool requiresOpening,
     @JsonKey(name: 'OpenToken') String? openToken,
-    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'RequiresClosing') bool requiresClosing,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'BufferMs') int? bufferMs,
-    @JsonKey(name: 'Container') String? container,
-    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'RequiresLooping') bool requiresLooping,
+    @JsonKey(name: 'SupportsProbing') bool supportsProbing,
     @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
-    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'HasSegments') bool hasSegments,
     @JsonKey(name: 'Video3DFormat') MediaSourceInfoVideo3DFormat? video3DFormat,
     @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
     @JsonKey(name: 'MediaAttachments') List<MediaAttachment>? mediaAttachments,
@@ -342,7 +342,8 @@ abstract mixin class $MediaSourceInfoCopyWith<$Res> {
     @JsonKey(name: 'RequiredHttpHeaders')
     Map<String, String?>? requiredHttpHeaders,
     @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
-    @JsonKey(name: 'EncoderPath') String? encoderPath,
+    @JsonKey(name: 'TranscodingSubProtocol')
+    MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
     @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
     @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
     @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
@@ -365,10 +366,18 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transcodingSubProtocol = null,
-    Object? type = null,
     Object? genPtsInput = null,
+    Object? id = freezed,
+    Object? path = freezed,
+    Object? encoderPath = freezed,
+    Object? encoderProtocol = freezed,
+    Object? type = null,
+    Object? container = freezed,
+    Object? size = freezed,
+    Object? name = freezed,
     Object? isRemote = null,
+    Object? eTag = freezed,
+    Object? runTimeTicks = freezed,
     Object? readAtNativeFramerate = null,
     Object? ignoreDts = null,
     Object? ignoreIndex = null,
@@ -377,24 +386,16 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
     Object? supportsDirectStream = null,
     Object? supportsDirectPlay = null,
     Object? isInfiniteStream = null,
-    Object? requiresOpening = null,
-    Object? requiresClosing = null,
-    Object? requiresLooping = null,
-    Object? supportsProbing = null,
-    Object? hasSegments = null,
-    Object? size = freezed,
-    Object? eTag = freezed,
-    Object? runTimeTicks = freezed,
     Object? defaultSubtitleStreamIndex = freezed,
-    Object? encoderProtocol = freezed,
+    Object? requiresOpening = null,
     Object? openToken = freezed,
-    Object? id = freezed,
+    Object? requiresClosing = null,
     Object? liveStreamId = freezed,
     Object? bufferMs = freezed,
-    Object? container = freezed,
-    Object? path = freezed,
+    Object? requiresLooping = null,
+    Object? supportsProbing = null,
     Object? videoType = freezed,
-    Object? name = freezed,
+    Object? hasSegments = null,
     Object? video3DFormat = freezed,
     Object? mediaStreams = freezed,
     Object? mediaAttachments = freezed,
@@ -404,7 +405,7 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
     Object? timestamp = freezed,
     Object? requiredHttpHeaders = freezed,
     Object? transcodingUrl = freezed,
-    Object? encoderPath = freezed,
+    Object? transcodingSubProtocol = null,
     Object? transcodingContainer = freezed,
     Object? analyzeDurationMs = freezed,
     Object? defaultAudioStreamIndex = freezed,
@@ -413,22 +414,54 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        transcodingSubProtocol: null == transcodingSubProtocol
-            ? _self.transcodingSubProtocol
-            : transcodingSubProtocol // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoTranscodingSubProtocol,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoType,
         genPtsInput: null == genPtsInput
             ? _self.genPtsInput
             : genPtsInput // ignore: cast_nullable_to_non_nullable
                   as bool,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        path: freezed == path
+            ? _self.path
+            : path // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        encoderPath: freezed == encoderPath
+            ? _self.encoderPath
+            : encoderPath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        encoderProtocol: freezed == encoderProtocol
+            ? _self.encoderProtocol
+            : encoderProtocol // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoEncoderProtocol?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoType,
+        container: freezed == container
+            ? _self.container
+            : container // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        size: freezed == size
+            ? _self.size
+            : size // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        name: freezed == name
+            ? _self.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
         isRemote: null == isRemote
             ? _self.isRemote
             : isRemote // ignore: cast_nullable_to_non_nullable
                   as bool,
+        eTag: freezed == eTag
+            ? _self.eTag
+            : eTag // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        runTimeTicks: freezed == runTimeTicks
+            ? _self.runTimeTicks
+            : runTimeTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
         readAtNativeFramerate: null == readAtNativeFramerate
             ? _self.readAtNativeFramerate
             : readAtNativeFramerate // ignore: cast_nullable_to_non_nullable
@@ -461,54 +494,22 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.isInfiniteStream
             : isInfiniteStream // ignore: cast_nullable_to_non_nullable
                   as bool,
-        requiresOpening: null == requiresOpening
-            ? _self.requiresOpening
-            : requiresOpening // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        requiresClosing: null == requiresClosing
-            ? _self.requiresClosing
-            : requiresClosing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        requiresLooping: null == requiresLooping
-            ? _self.requiresLooping
-            : requiresLooping // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        supportsProbing: null == supportsProbing
-            ? _self.supportsProbing
-            : supportsProbing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasSegments: null == hasSegments
-            ? _self.hasSegments
-            : hasSegments // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        size: freezed == size
-            ? _self.size
-            : size // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        eTag: freezed == eTag
-            ? _self.eTag
-            : eTag // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        runTimeTicks: freezed == runTimeTicks
-            ? _self.runTimeTicks
-            : runTimeTicks // ignore: cast_nullable_to_non_nullable
-                  as int?,
         defaultSubtitleStreamIndex: freezed == defaultSubtitleStreamIndex
             ? _self.defaultSubtitleStreamIndex
             : defaultSubtitleStreamIndex // ignore: cast_nullable_to_non_nullable
                   as int?,
-        encoderProtocol: freezed == encoderProtocol
-            ? _self.encoderProtocol
-            : encoderProtocol // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoEncoderProtocol?,
+        requiresOpening: null == requiresOpening
+            ? _self.requiresOpening
+            : requiresOpening // ignore: cast_nullable_to_non_nullable
+                  as bool,
         openToken: freezed == openToken
             ? _self.openToken
             : openToken // ignore: cast_nullable_to_non_nullable
                   as String?,
-        id: freezed == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        requiresClosing: null == requiresClosing
+            ? _self.requiresClosing
+            : requiresClosing // ignore: cast_nullable_to_non_nullable
+                  as bool,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
@@ -517,22 +518,22 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.bufferMs
             : bufferMs // ignore: cast_nullable_to_non_nullable
                   as int?,
-        container: freezed == container
-            ? _self.container
-            : container // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        path: freezed == path
-            ? _self.path
-            : path // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        requiresLooping: null == requiresLooping
+            ? _self.requiresLooping
+            : requiresLooping // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        supportsProbing: null == supportsProbing
+            ? _self.supportsProbing
+            : supportsProbing // ignore: cast_nullable_to_non_nullable
+                  as bool,
         videoType: freezed == videoType
             ? _self.videoType
             : videoType // ignore: cast_nullable_to_non_nullable
                   as MediaSourceInfoVideoType?,
-        name: freezed == name
-            ? _self.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        hasSegments: null == hasSegments
+            ? _self.hasSegments
+            : hasSegments // ignore: cast_nullable_to_non_nullable
+                  as bool,
         video3DFormat: freezed == video3DFormat
             ? _self.video3DFormat
             : video3DFormat // ignore: cast_nullable_to_non_nullable
@@ -569,10 +570,10 @@ class _$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.transcodingUrl
             : transcodingUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
-        encoderPath: freezed == encoderPath
-            ? _self.encoderPath
-            : encoderPath // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        transcodingSubProtocol: null == transcodingSubProtocol
+            ? _self.transcodingSubProtocol
+            : transcodingSubProtocol // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoTranscodingSubProtocol,
         transcodingContainer: freezed == transcodingContainer
             ? _self.transcodingContainer
             : transcodingContainer // ignore: cast_nullable_to_non_nullable
@@ -693,11 +694,19 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'TranscodingSubProtocol')
-      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-      @JsonKey(name: 'Type') MediaSourceInfoType type,
       @JsonKey(name: 'GenPtsInput') bool genPtsInput,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'EncoderProtocol')
+      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'Type') MediaSourceInfoType type,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Size') int? size,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsRemote') bool isRemote,
+      @JsonKey(name: 'ETag') String? eTag,
+      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'ReadAtNativeFramerate') bool readAtNativeFramerate,
       @JsonKey(name: 'IgnoreDts') bool ignoreDts,
       @JsonKey(name: 'IgnoreIndex') bool ignoreIndex,
@@ -706,26 +715,17 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'SupportsDirectStream') bool supportsDirectStream,
       @JsonKey(name: 'SupportsDirectPlay') bool supportsDirectPlay,
       @JsonKey(name: 'IsInfiniteStream') bool isInfiniteStream,
-      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
-      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
-      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
-      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
-      @JsonKey(name: 'HasSegments') bool hasSegments,
-      @JsonKey(name: 'Size') int? size,
-      @JsonKey(name: 'ETag') String? eTag,
-      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'DefaultSubtitleStreamIndex')
       int? defaultSubtitleStreamIndex,
-      @JsonKey(name: 'EncoderProtocol')
-      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
       @JsonKey(name: 'OpenToken') String? openToken,
-      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'BufferMs') int? bufferMs,
-      @JsonKey(name: 'Container') String? container,
-      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
+      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
       @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
-      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'HasSegments') bool hasSegments,
       @JsonKey(name: 'Video3DFormat')
       MediaSourceInfoVideo3DFormat? video3DFormat,
       @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
@@ -739,7 +739,8 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'RequiredHttpHeaders')
       Map<String, String?>? requiredHttpHeaders,
       @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
-      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'TranscodingSubProtocol')
+      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
       @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
       @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
       @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
@@ -754,10 +755,18 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
     switch (_that) {
       case _MediaSourceInfo() when $default != null:
         return $default(
-          _that.transcodingSubProtocol,
-          _that.type,
           _that.genPtsInput,
+          _that.id,
+          _that.path,
+          _that.encoderPath,
+          _that.encoderProtocol,
+          _that.type,
+          _that.container,
+          _that.size,
+          _that.name,
           _that.isRemote,
+          _that.eTag,
+          _that.runTimeTicks,
           _that.readAtNativeFramerate,
           _that.ignoreDts,
           _that.ignoreIndex,
@@ -766,24 +775,16 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.supportsDirectStream,
           _that.supportsDirectPlay,
           _that.isInfiniteStream,
-          _that.requiresOpening,
-          _that.requiresClosing,
-          _that.requiresLooping,
-          _that.supportsProbing,
-          _that.hasSegments,
-          _that.size,
-          _that.eTag,
-          _that.runTimeTicks,
           _that.defaultSubtitleStreamIndex,
-          _that.encoderProtocol,
+          _that.requiresOpening,
           _that.openToken,
-          _that.id,
+          _that.requiresClosing,
           _that.liveStreamId,
           _that.bufferMs,
-          _that.container,
-          _that.path,
+          _that.requiresLooping,
+          _that.supportsProbing,
           _that.videoType,
-          _that.name,
+          _that.hasSegments,
           _that.video3DFormat,
           _that.mediaStreams,
           _that.mediaAttachments,
@@ -793,7 +794,7 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.timestamp,
           _that.requiredHttpHeaders,
           _that.transcodingUrl,
-          _that.encoderPath,
+          _that.transcodingSubProtocol,
           _that.transcodingContainer,
           _that.analyzeDurationMs,
           _that.defaultAudioStreamIndex,
@@ -821,11 +822,19 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'TranscodingSubProtocol')
-      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-      @JsonKey(name: 'Type') MediaSourceInfoType type,
       @JsonKey(name: 'GenPtsInput') bool genPtsInput,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'EncoderProtocol')
+      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'Type') MediaSourceInfoType type,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Size') int? size,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsRemote') bool isRemote,
+      @JsonKey(name: 'ETag') String? eTag,
+      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'ReadAtNativeFramerate') bool readAtNativeFramerate,
       @JsonKey(name: 'IgnoreDts') bool ignoreDts,
       @JsonKey(name: 'IgnoreIndex') bool ignoreIndex,
@@ -834,26 +843,17 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'SupportsDirectStream') bool supportsDirectStream,
       @JsonKey(name: 'SupportsDirectPlay') bool supportsDirectPlay,
       @JsonKey(name: 'IsInfiniteStream') bool isInfiniteStream,
-      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
-      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
-      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
-      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
-      @JsonKey(name: 'HasSegments') bool hasSegments,
-      @JsonKey(name: 'Size') int? size,
-      @JsonKey(name: 'ETag') String? eTag,
-      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'DefaultSubtitleStreamIndex')
       int? defaultSubtitleStreamIndex,
-      @JsonKey(name: 'EncoderProtocol')
-      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
       @JsonKey(name: 'OpenToken') String? openToken,
-      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'BufferMs') int? bufferMs,
-      @JsonKey(name: 'Container') String? container,
-      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
+      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
       @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
-      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'HasSegments') bool hasSegments,
       @JsonKey(name: 'Video3DFormat')
       MediaSourceInfoVideo3DFormat? video3DFormat,
       @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
@@ -867,7 +867,8 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'RequiredHttpHeaders')
       Map<String, String?>? requiredHttpHeaders,
       @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
-      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'TranscodingSubProtocol')
+      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
       @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
       @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
       @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
@@ -881,10 +882,18 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
     switch (_that) {
       case _MediaSourceInfo():
         return $default(
-          _that.transcodingSubProtocol,
-          _that.type,
           _that.genPtsInput,
+          _that.id,
+          _that.path,
+          _that.encoderPath,
+          _that.encoderProtocol,
+          _that.type,
+          _that.container,
+          _that.size,
+          _that.name,
           _that.isRemote,
+          _that.eTag,
+          _that.runTimeTicks,
           _that.readAtNativeFramerate,
           _that.ignoreDts,
           _that.ignoreIndex,
@@ -893,24 +902,16 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.supportsDirectStream,
           _that.supportsDirectPlay,
           _that.isInfiniteStream,
-          _that.requiresOpening,
-          _that.requiresClosing,
-          _that.requiresLooping,
-          _that.supportsProbing,
-          _that.hasSegments,
-          _that.size,
-          _that.eTag,
-          _that.runTimeTicks,
           _that.defaultSubtitleStreamIndex,
-          _that.encoderProtocol,
+          _that.requiresOpening,
           _that.openToken,
-          _that.id,
+          _that.requiresClosing,
           _that.liveStreamId,
           _that.bufferMs,
-          _that.container,
-          _that.path,
+          _that.requiresLooping,
+          _that.supportsProbing,
           _that.videoType,
-          _that.name,
+          _that.hasSegments,
           _that.video3DFormat,
           _that.mediaStreams,
           _that.mediaAttachments,
@@ -920,7 +921,7 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.timestamp,
           _that.requiredHttpHeaders,
           _that.transcodingUrl,
-          _that.encoderPath,
+          _that.transcodingSubProtocol,
           _that.transcodingContainer,
           _that.analyzeDurationMs,
           _that.defaultAudioStreamIndex,
@@ -947,11 +948,19 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'TranscodingSubProtocol')
-      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-      @JsonKey(name: 'Type') MediaSourceInfoType type,
       @JsonKey(name: 'GenPtsInput') bool genPtsInput,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'EncoderProtocol')
+      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'Type') MediaSourceInfoType type,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Size') int? size,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsRemote') bool isRemote,
+      @JsonKey(name: 'ETag') String? eTag,
+      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'ReadAtNativeFramerate') bool readAtNativeFramerate,
       @JsonKey(name: 'IgnoreDts') bool ignoreDts,
       @JsonKey(name: 'IgnoreIndex') bool ignoreIndex,
@@ -960,26 +969,17 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'SupportsDirectStream') bool supportsDirectStream,
       @JsonKey(name: 'SupportsDirectPlay') bool supportsDirectPlay,
       @JsonKey(name: 'IsInfiniteStream') bool isInfiniteStream,
-      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
-      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
-      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
-      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
-      @JsonKey(name: 'HasSegments') bool hasSegments,
-      @JsonKey(name: 'Size') int? size,
-      @JsonKey(name: 'ETag') String? eTag,
-      @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'DefaultSubtitleStreamIndex')
       int? defaultSubtitleStreamIndex,
-      @JsonKey(name: 'EncoderProtocol')
-      MediaSourceInfoEncoderProtocol? encoderProtocol,
+      @JsonKey(name: 'RequiresOpening') bool requiresOpening,
       @JsonKey(name: 'OpenToken') String? openToken,
-      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'RequiresClosing') bool requiresClosing,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'BufferMs') int? bufferMs,
-      @JsonKey(name: 'Container') String? container,
-      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'RequiresLooping') bool requiresLooping,
+      @JsonKey(name: 'SupportsProbing') bool supportsProbing,
       @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
-      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'HasSegments') bool hasSegments,
       @JsonKey(name: 'Video3DFormat')
       MediaSourceInfoVideo3DFormat? video3DFormat,
       @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
@@ -993,7 +993,8 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
       @JsonKey(name: 'RequiredHttpHeaders')
       Map<String, String?>? requiredHttpHeaders,
       @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
-      @JsonKey(name: 'EncoderPath') String? encoderPath,
+      @JsonKey(name: 'TranscodingSubProtocol')
+      MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
       @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
       @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
       @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
@@ -1007,10 +1008,18 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
     switch (_that) {
       case _MediaSourceInfo() when $default != null:
         return $default(
-          _that.transcodingSubProtocol,
-          _that.type,
           _that.genPtsInput,
+          _that.id,
+          _that.path,
+          _that.encoderPath,
+          _that.encoderProtocol,
+          _that.type,
+          _that.container,
+          _that.size,
+          _that.name,
           _that.isRemote,
+          _that.eTag,
+          _that.runTimeTicks,
           _that.readAtNativeFramerate,
           _that.ignoreDts,
           _that.ignoreIndex,
@@ -1019,24 +1028,16 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.supportsDirectStream,
           _that.supportsDirectPlay,
           _that.isInfiniteStream,
-          _that.requiresOpening,
-          _that.requiresClosing,
-          _that.requiresLooping,
-          _that.supportsProbing,
-          _that.hasSegments,
-          _that.size,
-          _that.eTag,
-          _that.runTimeTicks,
           _that.defaultSubtitleStreamIndex,
-          _that.encoderProtocol,
+          _that.requiresOpening,
           _that.openToken,
-          _that.id,
+          _that.requiresClosing,
           _that.liveStreamId,
           _that.bufferMs,
-          _that.container,
-          _that.path,
+          _that.requiresLooping,
+          _that.supportsProbing,
           _that.videoType,
-          _that.name,
+          _that.hasSegments,
           _that.video3DFormat,
           _that.mediaStreams,
           _that.mediaAttachments,
@@ -1046,7 +1047,7 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
           _that.timestamp,
           _that.requiredHttpHeaders,
           _that.transcodingUrl,
-          _that.encoderPath,
+          _that.transcodingSubProtocol,
           _that.transcodingContainer,
           _that.analyzeDurationMs,
           _that.defaultAudioStreamIndex,
@@ -1063,11 +1064,18 @@ extension MediaSourceInfoPatterns on MediaSourceInfo {
 @JsonSerializable()
 class _MediaSourceInfo implements MediaSourceInfo {
   const _MediaSourceInfo({
-    @JsonKey(name: 'TranscodingSubProtocol')
-    required this.transcodingSubProtocol,
-    @JsonKey(name: 'Type') required this.type,
     @JsonKey(name: 'GenPtsInput') required this.genPtsInput,
+    @JsonKey(name: 'Id') required this.id,
+    @JsonKey(name: 'Path') required this.path,
+    @JsonKey(name: 'EncoderPath') required this.encoderPath,
+    @JsonKey(name: 'EncoderProtocol') required this.encoderProtocol,
+    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'Container') required this.container,
+    @JsonKey(name: 'Size') required this.size,
+    @JsonKey(name: 'Name') required this.name,
     @JsonKey(name: 'IsRemote') required this.isRemote,
+    @JsonKey(name: 'ETag') required this.eTag,
+    @JsonKey(name: 'RunTimeTicks') required this.runTimeTicks,
     @JsonKey(name: 'ReadAtNativeFramerate') required this.readAtNativeFramerate,
     @JsonKey(name: 'IgnoreDts') required this.ignoreDts,
     @JsonKey(name: 'IgnoreIndex') required this.ignoreIndex,
@@ -1076,42 +1084,37 @@ class _MediaSourceInfo implements MediaSourceInfo {
     @JsonKey(name: 'SupportsDirectStream') required this.supportsDirectStream,
     @JsonKey(name: 'SupportsDirectPlay') required this.supportsDirectPlay,
     @JsonKey(name: 'IsInfiniteStream') required this.isInfiniteStream,
+    @JsonKey(name: 'DefaultSubtitleStreamIndex')
+    required this.defaultSubtitleStreamIndex,
     @JsonKey(name: 'RequiresOpening') required this.requiresOpening,
+    @JsonKey(name: 'OpenToken') required this.openToken,
     @JsonKey(name: 'RequiresClosing') required this.requiresClosing,
+    @JsonKey(name: 'LiveStreamId') required this.liveStreamId,
+    @JsonKey(name: 'BufferMs') required this.bufferMs,
     @JsonKey(name: 'RequiresLooping') required this.requiresLooping,
     @JsonKey(name: 'SupportsProbing') required this.supportsProbing,
+    @JsonKey(name: 'VideoType') required this.videoType,
     @JsonKey(name: 'HasSegments') required this.hasSegments,
-    @JsonKey(name: 'Size') this.size,
-    @JsonKey(name: 'ETag') this.eTag,
-    @JsonKey(name: 'RunTimeTicks') this.runTimeTicks,
-    @JsonKey(name: 'DefaultSubtitleStreamIndex')
-    this.defaultSubtitleStreamIndex,
-    @JsonKey(name: 'EncoderProtocol') this.encoderProtocol,
-    @JsonKey(name: 'OpenToken') this.openToken,
-    @JsonKey(name: 'Id') this.id,
-    @JsonKey(name: 'LiveStreamId') this.liveStreamId,
-    @JsonKey(name: 'BufferMs') this.bufferMs,
-    @JsonKey(name: 'Container') this.container,
-    @JsonKey(name: 'Path') this.path,
-    @JsonKey(name: 'VideoType') this.videoType,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'Video3DFormat') this.video3DFormat,
-    @JsonKey(name: 'MediaStreams') final List<MediaStream>? mediaStreams,
+    @JsonKey(name: 'Video3DFormat') required this.video3DFormat,
+    @JsonKey(name: 'MediaStreams')
+    required final List<MediaStream>? mediaStreams,
     @JsonKey(name: 'MediaAttachments')
-    final List<MediaAttachment>? mediaAttachments,
-    @JsonKey(name: 'Formats') final List<String>? formats,
-    @JsonKey(name: 'Bitrate') this.bitrate,
+    required final List<MediaAttachment>? mediaAttachments,
+    @JsonKey(name: 'Formats') required final List<String>? formats,
+    @JsonKey(name: 'Bitrate') required this.bitrate,
     @JsonKey(name: 'FallbackMaxStreamingBitrate')
-    this.fallbackMaxStreamingBitrate,
-    @JsonKey(name: 'Timestamp') this.timestamp,
+    required this.fallbackMaxStreamingBitrate,
+    @JsonKey(name: 'Timestamp') required this.timestamp,
     @JsonKey(name: 'RequiredHttpHeaders')
-    final Map<String, String?>? requiredHttpHeaders,
-    @JsonKey(name: 'TranscodingUrl') this.transcodingUrl,
-    @JsonKey(name: 'EncoderPath') this.encoderPath,
-    @JsonKey(name: 'TranscodingContainer') this.transcodingContainer,
-    @JsonKey(name: 'AnalyzeDurationMs') this.analyzeDurationMs,
-    @JsonKey(name: 'DefaultAudioStreamIndex') this.defaultAudioStreamIndex,
-    @JsonKey(name: 'IsoType') this.isoType,
+    required final Map<String, String?>? requiredHttpHeaders,
+    @JsonKey(name: 'TranscodingUrl') required this.transcodingUrl,
+    @JsonKey(name: 'TranscodingSubProtocol')
+    required this.transcodingSubProtocol,
+    @JsonKey(name: 'TranscodingContainer') required this.transcodingContainer,
+    @JsonKey(name: 'AnalyzeDurationMs') required this.analyzeDurationMs,
+    @JsonKey(name: 'DefaultAudioStreamIndex')
+    required this.defaultAudioStreamIndex,
+    @JsonKey(name: 'IsoType') required this.isoType,
     @JsonKey(name: 'UseMostCompatibleTranscodingProfile')
     this.useMostCompatibleTranscodingProfile = false,
   }) : _mediaStreams = mediaStreams,
@@ -1121,18 +1124,33 @@ class _MediaSourceInfo implements MediaSourceInfo {
   factory _MediaSourceInfo.fromJson(Map<String, dynamic> json) =>
       _$MediaSourceInfoFromJson(json);
 
-  /// Media streaming protocol.
-  ///
-  /// Lowercase for backwards compatibility.
   @override
-  @JsonKey(name: 'TranscodingSubProtocol')
-  final MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol;
+  @JsonKey(name: 'GenPtsInput')
+  final bool genPtsInput;
+  @override
+  @JsonKey(name: 'Id')
+  final String? id;
+  @override
+  @JsonKey(name: 'Path')
+  final String? path;
+  @override
+  @JsonKey(name: 'EncoderPath')
+  final String? encoderPath;
+  @override
+  @JsonKey(name: 'EncoderProtocol')
+  final MediaSourceInfoEncoderProtocol? encoderProtocol;
   @override
   @JsonKey(name: 'Type')
   final MediaSourceInfoType type;
   @override
-  @JsonKey(name: 'GenPtsInput')
-  final bool genPtsInput;
+  @JsonKey(name: 'Container')
+  final String? container;
+  @override
+  @JsonKey(name: 'Size')
+  final int? size;
+  @override
+  @JsonKey(name: 'Name')
+  final String? name;
 
   /// Gets or sets a value indicating whether the media is remote.
   ///
@@ -1140,6 +1158,12 @@ class _MediaSourceInfo implements MediaSourceInfo {
   @override
   @JsonKey(name: 'IsRemote')
   final bool isRemote;
+  @override
+  @JsonKey(name: 'ETag')
+  final String? eTag;
+  @override
+  @JsonKey(name: 'RunTimeTicks')
+  final int? runTimeTicks;
   @override
   @JsonKey(name: 'ReadAtNativeFramerate')
   final bool readAtNativeFramerate;
@@ -1165,41 +1189,17 @@ class _MediaSourceInfo implements MediaSourceInfo {
   @JsonKey(name: 'IsInfiniteStream')
   final bool isInfiniteStream;
   @override
-  @JsonKey(name: 'RequiresOpening')
-  final bool requiresOpening;
-  @override
-  @JsonKey(name: 'RequiresClosing')
-  final bool requiresClosing;
-  @override
-  @JsonKey(name: 'RequiresLooping')
-  final bool requiresLooping;
-  @override
-  @JsonKey(name: 'SupportsProbing')
-  final bool supportsProbing;
-  @override
-  @JsonKey(name: 'HasSegments')
-  final bool hasSegments;
-  @override
-  @JsonKey(name: 'Size')
-  final int? size;
-  @override
-  @JsonKey(name: 'ETag')
-  final String? eTag;
-  @override
-  @JsonKey(name: 'RunTimeTicks')
-  final int? runTimeTicks;
-  @override
   @JsonKey(name: 'DefaultSubtitleStreamIndex')
   final int? defaultSubtitleStreamIndex;
   @override
-  @JsonKey(name: 'EncoderProtocol')
-  final MediaSourceInfoEncoderProtocol? encoderProtocol;
+  @JsonKey(name: 'RequiresOpening')
+  final bool requiresOpening;
   @override
   @JsonKey(name: 'OpenToken')
   final String? openToken;
   @override
-  @JsonKey(name: 'Id')
-  final String? id;
+  @JsonKey(name: 'RequiresClosing')
+  final bool requiresClosing;
   @override
   @JsonKey(name: 'LiveStreamId')
   final String? liveStreamId;
@@ -1207,17 +1207,17 @@ class _MediaSourceInfo implements MediaSourceInfo {
   @JsonKey(name: 'BufferMs')
   final int? bufferMs;
   @override
-  @JsonKey(name: 'Container')
-  final String? container;
+  @JsonKey(name: 'RequiresLooping')
+  final bool requiresLooping;
   @override
-  @JsonKey(name: 'Path')
-  final String? path;
+  @JsonKey(name: 'SupportsProbing')
+  final bool supportsProbing;
   @override
   @JsonKey(name: 'VideoType')
   final MediaSourceInfoVideoType? videoType;
   @override
-  @JsonKey(name: 'Name')
-  final String? name;
+  @JsonKey(name: 'HasSegments')
+  final bool hasSegments;
   @override
   @JsonKey(name: 'Video3DFormat')
   final MediaSourceInfoVideo3DFormat? video3DFormat;
@@ -1279,9 +1279,13 @@ class _MediaSourceInfo implements MediaSourceInfo {
   @override
   @JsonKey(name: 'TranscodingUrl')
   final String? transcodingUrl;
+
+  /// Media streaming protocol.
+  ///
+  /// Lowercase for backwards compatibility.
   @override
-  @JsonKey(name: 'EncoderPath')
-  final String? encoderPath;
+  @JsonKey(name: 'TranscodingSubProtocol')
+  final MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol;
   @override
   @JsonKey(name: 'TranscodingContainer')
   final String? transcodingContainer;
@@ -1316,13 +1320,24 @@ class _MediaSourceInfo implements MediaSourceInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MediaSourceInfo &&
-            (identical(other.transcodingSubProtocol, transcodingSubProtocol) ||
-                other.transcodingSubProtocol == transcodingSubProtocol) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.genPtsInput, genPtsInput) ||
                 other.genPtsInput == genPtsInput) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.encoderPath, encoderPath) ||
+                other.encoderPath == encoderPath) &&
+            (identical(other.encoderProtocol, encoderProtocol) ||
+                other.encoderProtocol == encoderProtocol) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.isRemote, isRemote) ||
                 other.isRemote == isRemote) &&
+            (identical(other.eTag, eTag) || other.eTag == eTag) &&
+            (identical(other.runTimeTicks, runTimeTicks) ||
+                other.runTimeTicks == runTimeTicks) &&
             (identical(other.readAtNativeFramerate, readAtNativeFramerate) ||
                 other.readAtNativeFramerate == readAtNativeFramerate) &&
             (identical(other.ignoreDts, ignoreDts) ||
@@ -1339,41 +1354,30 @@ class _MediaSourceInfo implements MediaSourceInfo {
                 other.supportsDirectPlay == supportsDirectPlay) &&
             (identical(other.isInfiniteStream, isInfiniteStream) ||
                 other.isInfiniteStream == isInfiniteStream) &&
-            (identical(other.requiresOpening, requiresOpening) ||
-                other.requiresOpening == requiresOpening) &&
-            (identical(other.requiresClosing, requiresClosing) ||
-                other.requiresClosing == requiresClosing) &&
-            (identical(other.requiresLooping, requiresLooping) ||
-                other.requiresLooping == requiresLooping) &&
-            (identical(other.supportsProbing, supportsProbing) ||
-                other.supportsProbing == supportsProbing) &&
-            (identical(other.hasSegments, hasSegments) ||
-                other.hasSegments == hasSegments) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.eTag, eTag) || other.eTag == eTag) &&
-            (identical(other.runTimeTicks, runTimeTicks) ||
-                other.runTimeTicks == runTimeTicks) &&
             (identical(
                   other.defaultSubtitleStreamIndex,
                   defaultSubtitleStreamIndex,
                 ) ||
                 other.defaultSubtitleStreamIndex ==
                     defaultSubtitleStreamIndex) &&
-            (identical(other.encoderProtocol, encoderProtocol) ||
-                other.encoderProtocol == encoderProtocol) &&
+            (identical(other.requiresOpening, requiresOpening) ||
+                other.requiresOpening == requiresOpening) &&
             (identical(other.openToken, openToken) ||
                 other.openToken == openToken) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.requiresClosing, requiresClosing) ||
+                other.requiresClosing == requiresClosing) &&
             (identical(other.liveStreamId, liveStreamId) ||
                 other.liveStreamId == liveStreamId) &&
             (identical(other.bufferMs, bufferMs) ||
                 other.bufferMs == bufferMs) &&
-            (identical(other.container, container) ||
-                other.container == container) &&
-            (identical(other.path, path) || other.path == path) &&
+            (identical(other.requiresLooping, requiresLooping) ||
+                other.requiresLooping == requiresLooping) &&
+            (identical(other.supportsProbing, supportsProbing) ||
+                other.supportsProbing == supportsProbing) &&
             (identical(other.videoType, videoType) ||
                 other.videoType == videoType) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.hasSegments, hasSegments) ||
+                other.hasSegments == hasSegments) &&
             (identical(other.video3DFormat, video3DFormat) ||
                 other.video3DFormat == video3DFormat) &&
             const DeepCollectionEquality().equals(
@@ -1400,8 +1404,8 @@ class _MediaSourceInfo implements MediaSourceInfo {
             ) &&
             (identical(other.transcodingUrl, transcodingUrl) ||
                 other.transcodingUrl == transcodingUrl) &&
-            (identical(other.encoderPath, encoderPath) ||
-                other.encoderPath == encoderPath) &&
+            (identical(other.transcodingSubProtocol, transcodingSubProtocol) ||
+                other.transcodingSubProtocol == transcodingSubProtocol) &&
             (identical(other.transcodingContainer, transcodingContainer) ||
                 other.transcodingContainer == transcodingContainer) &&
             (identical(other.analyzeDurationMs, analyzeDurationMs) ||
@@ -1424,10 +1428,18 @@ class _MediaSourceInfo implements MediaSourceInfo {
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    transcodingSubProtocol,
-    type,
     genPtsInput,
+    id,
+    path,
+    encoderPath,
+    encoderProtocol,
+    type,
+    container,
+    size,
+    name,
     isRemote,
+    eTag,
+    runTimeTicks,
     readAtNativeFramerate,
     ignoreDts,
     ignoreIndex,
@@ -1436,24 +1448,16 @@ class _MediaSourceInfo implements MediaSourceInfo {
     supportsDirectStream,
     supportsDirectPlay,
     isInfiniteStream,
-    requiresOpening,
-    requiresClosing,
-    requiresLooping,
-    supportsProbing,
-    hasSegments,
-    size,
-    eTag,
-    runTimeTicks,
     defaultSubtitleStreamIndex,
-    encoderProtocol,
+    requiresOpening,
     openToken,
-    id,
+    requiresClosing,
     liveStreamId,
     bufferMs,
-    container,
-    path,
+    requiresLooping,
+    supportsProbing,
     videoType,
-    name,
+    hasSegments,
     video3DFormat,
     const DeepCollectionEquality().hash(_mediaStreams),
     const DeepCollectionEquality().hash(_mediaAttachments),
@@ -1463,7 +1467,7 @@ class _MediaSourceInfo implements MediaSourceInfo {
     timestamp,
     const DeepCollectionEquality().hash(_requiredHttpHeaders),
     transcodingUrl,
-    encoderPath,
+    transcodingSubProtocol,
     transcodingContainer,
     analyzeDurationMs,
     defaultAudioStreamIndex,
@@ -1473,7 +1477,7 @@ class _MediaSourceInfo implements MediaSourceInfo {
 
   @override
   String toString() {
-    return 'MediaSourceInfo(transcodingSubProtocol: $transcodingSubProtocol, type: $type, genPtsInput: $genPtsInput, isRemote: $isRemote, readAtNativeFramerate: $readAtNativeFramerate, ignoreDts: $ignoreDts, ignoreIndex: $ignoreIndex, protocol: $protocol, supportsTranscoding: $supportsTranscoding, supportsDirectStream: $supportsDirectStream, supportsDirectPlay: $supportsDirectPlay, isInfiniteStream: $isInfiniteStream, requiresOpening: $requiresOpening, requiresClosing: $requiresClosing, requiresLooping: $requiresLooping, supportsProbing: $supportsProbing, hasSegments: $hasSegments, size: $size, eTag: $eTag, runTimeTicks: $runTimeTicks, defaultSubtitleStreamIndex: $defaultSubtitleStreamIndex, encoderProtocol: $encoderProtocol, openToken: $openToken, id: $id, liveStreamId: $liveStreamId, bufferMs: $bufferMs, container: $container, path: $path, videoType: $videoType, name: $name, video3DFormat: $video3DFormat, mediaStreams: $mediaStreams, mediaAttachments: $mediaAttachments, formats: $formats, bitrate: $bitrate, fallbackMaxStreamingBitrate: $fallbackMaxStreamingBitrate, timestamp: $timestamp, requiredHttpHeaders: $requiredHttpHeaders, transcodingUrl: $transcodingUrl, encoderPath: $encoderPath, transcodingContainer: $transcodingContainer, analyzeDurationMs: $analyzeDurationMs, defaultAudioStreamIndex: $defaultAudioStreamIndex, isoType: $isoType, useMostCompatibleTranscodingProfile: $useMostCompatibleTranscodingProfile)';
+    return 'MediaSourceInfo(genPtsInput: $genPtsInput, id: $id, path: $path, encoderPath: $encoderPath, encoderProtocol: $encoderProtocol, type: $type, container: $container, size: $size, name: $name, isRemote: $isRemote, eTag: $eTag, runTimeTicks: $runTimeTicks, readAtNativeFramerate: $readAtNativeFramerate, ignoreDts: $ignoreDts, ignoreIndex: $ignoreIndex, protocol: $protocol, supportsTranscoding: $supportsTranscoding, supportsDirectStream: $supportsDirectStream, supportsDirectPlay: $supportsDirectPlay, isInfiniteStream: $isInfiniteStream, defaultSubtitleStreamIndex: $defaultSubtitleStreamIndex, requiresOpening: $requiresOpening, openToken: $openToken, requiresClosing: $requiresClosing, liveStreamId: $liveStreamId, bufferMs: $bufferMs, requiresLooping: $requiresLooping, supportsProbing: $supportsProbing, videoType: $videoType, hasSegments: $hasSegments, video3DFormat: $video3DFormat, mediaStreams: $mediaStreams, mediaAttachments: $mediaAttachments, formats: $formats, bitrate: $bitrate, fallbackMaxStreamingBitrate: $fallbackMaxStreamingBitrate, timestamp: $timestamp, requiredHttpHeaders: $requiredHttpHeaders, transcodingUrl: $transcodingUrl, transcodingSubProtocol: $transcodingSubProtocol, transcodingContainer: $transcodingContainer, analyzeDurationMs: $analyzeDurationMs, defaultAudioStreamIndex: $defaultAudioStreamIndex, isoType: $isoType, useMostCompatibleTranscodingProfile: $useMostCompatibleTranscodingProfile)';
   }
 }
 
@@ -1487,11 +1491,19 @@ abstract mixin class _$MediaSourceInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'TranscodingSubProtocol')
-    MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-    @JsonKey(name: 'Type') MediaSourceInfoType type,
     @JsonKey(name: 'GenPtsInput') bool genPtsInput,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'EncoderPath') String? encoderPath,
+    @JsonKey(name: 'EncoderProtocol')
+    MediaSourceInfoEncoderProtocol? encoderProtocol,
+    @JsonKey(name: 'Type') MediaSourceInfoType type,
+    @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'Size') int? size,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'IsRemote') bool isRemote,
+    @JsonKey(name: 'ETag') String? eTag,
+    @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'ReadAtNativeFramerate') bool readAtNativeFramerate,
     @JsonKey(name: 'IgnoreDts') bool ignoreDts,
     @JsonKey(name: 'IgnoreIndex') bool ignoreIndex,
@@ -1500,26 +1512,17 @@ abstract mixin class _$MediaSourceInfoCopyWith<$Res>
     @JsonKey(name: 'SupportsDirectStream') bool supportsDirectStream,
     @JsonKey(name: 'SupportsDirectPlay') bool supportsDirectPlay,
     @JsonKey(name: 'IsInfiniteStream') bool isInfiniteStream,
-    @JsonKey(name: 'RequiresOpening') bool requiresOpening,
-    @JsonKey(name: 'RequiresClosing') bool requiresClosing,
-    @JsonKey(name: 'RequiresLooping') bool requiresLooping,
-    @JsonKey(name: 'SupportsProbing') bool supportsProbing,
-    @JsonKey(name: 'HasSegments') bool hasSegments,
-    @JsonKey(name: 'Size') int? size,
-    @JsonKey(name: 'ETag') String? eTag,
-    @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'DefaultSubtitleStreamIndex')
     int? defaultSubtitleStreamIndex,
-    @JsonKey(name: 'EncoderProtocol')
-    MediaSourceInfoEncoderProtocol? encoderProtocol,
+    @JsonKey(name: 'RequiresOpening') bool requiresOpening,
     @JsonKey(name: 'OpenToken') String? openToken,
-    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'RequiresClosing') bool requiresClosing,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'BufferMs') int? bufferMs,
-    @JsonKey(name: 'Container') String? container,
-    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'RequiresLooping') bool requiresLooping,
+    @JsonKey(name: 'SupportsProbing') bool supportsProbing,
     @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
-    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'HasSegments') bool hasSegments,
     @JsonKey(name: 'Video3DFormat') MediaSourceInfoVideo3DFormat? video3DFormat,
     @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
     @JsonKey(name: 'MediaAttachments') List<MediaAttachment>? mediaAttachments,
@@ -1531,7 +1534,8 @@ abstract mixin class _$MediaSourceInfoCopyWith<$Res>
     @JsonKey(name: 'RequiredHttpHeaders')
     Map<String, String?>? requiredHttpHeaders,
     @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
-    @JsonKey(name: 'EncoderPath') String? encoderPath,
+    @JsonKey(name: 'TranscodingSubProtocol')
+    MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
     @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
     @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
     @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
@@ -1554,10 +1558,18 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? transcodingSubProtocol = null,
-    Object? type = null,
     Object? genPtsInput = null,
+    Object? id = freezed,
+    Object? path = freezed,
+    Object? encoderPath = freezed,
+    Object? encoderProtocol = freezed,
+    Object? type = null,
+    Object? container = freezed,
+    Object? size = freezed,
+    Object? name = freezed,
     Object? isRemote = null,
+    Object? eTag = freezed,
+    Object? runTimeTicks = freezed,
     Object? readAtNativeFramerate = null,
     Object? ignoreDts = null,
     Object? ignoreIndex = null,
@@ -1566,24 +1578,16 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
     Object? supportsDirectStream = null,
     Object? supportsDirectPlay = null,
     Object? isInfiniteStream = null,
-    Object? requiresOpening = null,
-    Object? requiresClosing = null,
-    Object? requiresLooping = null,
-    Object? supportsProbing = null,
-    Object? hasSegments = null,
-    Object? size = freezed,
-    Object? eTag = freezed,
-    Object? runTimeTicks = freezed,
     Object? defaultSubtitleStreamIndex = freezed,
-    Object? encoderProtocol = freezed,
+    Object? requiresOpening = null,
     Object? openToken = freezed,
-    Object? id = freezed,
+    Object? requiresClosing = null,
     Object? liveStreamId = freezed,
     Object? bufferMs = freezed,
-    Object? container = freezed,
-    Object? path = freezed,
+    Object? requiresLooping = null,
+    Object? supportsProbing = null,
     Object? videoType = freezed,
-    Object? name = freezed,
+    Object? hasSegments = null,
     Object? video3DFormat = freezed,
     Object? mediaStreams = freezed,
     Object? mediaAttachments = freezed,
@@ -1593,7 +1597,7 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
     Object? timestamp = freezed,
     Object? requiredHttpHeaders = freezed,
     Object? transcodingUrl = freezed,
-    Object? encoderPath = freezed,
+    Object? transcodingSubProtocol = null,
     Object? transcodingContainer = freezed,
     Object? analyzeDurationMs = freezed,
     Object? defaultAudioStreamIndex = freezed,
@@ -1602,22 +1606,54 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
   }) {
     return _then(
       _MediaSourceInfo(
-        transcodingSubProtocol: null == transcodingSubProtocol
-            ? _self.transcodingSubProtocol
-            : transcodingSubProtocol // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoTranscodingSubProtocol,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoType,
         genPtsInput: null == genPtsInput
             ? _self.genPtsInput
             : genPtsInput // ignore: cast_nullable_to_non_nullable
                   as bool,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        path: freezed == path
+            ? _self.path
+            : path // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        encoderPath: freezed == encoderPath
+            ? _self.encoderPath
+            : encoderPath // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        encoderProtocol: freezed == encoderProtocol
+            ? _self.encoderProtocol
+            : encoderProtocol // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoEncoderProtocol?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoType,
+        container: freezed == container
+            ? _self.container
+            : container // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        size: freezed == size
+            ? _self.size
+            : size // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        name: freezed == name
+            ? _self.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
         isRemote: null == isRemote
             ? _self.isRemote
             : isRemote // ignore: cast_nullable_to_non_nullable
                   as bool,
+        eTag: freezed == eTag
+            ? _self.eTag
+            : eTag // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        runTimeTicks: freezed == runTimeTicks
+            ? _self.runTimeTicks
+            : runTimeTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
         readAtNativeFramerate: null == readAtNativeFramerate
             ? _self.readAtNativeFramerate
             : readAtNativeFramerate // ignore: cast_nullable_to_non_nullable
@@ -1650,54 +1686,22 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.isInfiniteStream
             : isInfiniteStream // ignore: cast_nullable_to_non_nullable
                   as bool,
-        requiresOpening: null == requiresOpening
-            ? _self.requiresOpening
-            : requiresOpening // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        requiresClosing: null == requiresClosing
-            ? _self.requiresClosing
-            : requiresClosing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        requiresLooping: null == requiresLooping
-            ? _self.requiresLooping
-            : requiresLooping // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        supportsProbing: null == supportsProbing
-            ? _self.supportsProbing
-            : supportsProbing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasSegments: null == hasSegments
-            ? _self.hasSegments
-            : hasSegments // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        size: freezed == size
-            ? _self.size
-            : size // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        eTag: freezed == eTag
-            ? _self.eTag
-            : eTag // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        runTimeTicks: freezed == runTimeTicks
-            ? _self.runTimeTicks
-            : runTimeTicks // ignore: cast_nullable_to_non_nullable
-                  as int?,
         defaultSubtitleStreamIndex: freezed == defaultSubtitleStreamIndex
             ? _self.defaultSubtitleStreamIndex
             : defaultSubtitleStreamIndex // ignore: cast_nullable_to_non_nullable
                   as int?,
-        encoderProtocol: freezed == encoderProtocol
-            ? _self.encoderProtocol
-            : encoderProtocol // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfoEncoderProtocol?,
+        requiresOpening: null == requiresOpening
+            ? _self.requiresOpening
+            : requiresOpening // ignore: cast_nullable_to_non_nullable
+                  as bool,
         openToken: freezed == openToken
             ? _self.openToken
             : openToken // ignore: cast_nullable_to_non_nullable
                   as String?,
-        id: freezed == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        requiresClosing: null == requiresClosing
+            ? _self.requiresClosing
+            : requiresClosing // ignore: cast_nullable_to_non_nullable
+                  as bool,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
@@ -1706,22 +1710,22 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.bufferMs
             : bufferMs // ignore: cast_nullable_to_non_nullable
                   as int?,
-        container: freezed == container
-            ? _self.container
-            : container // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        path: freezed == path
-            ? _self.path
-            : path // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        requiresLooping: null == requiresLooping
+            ? _self.requiresLooping
+            : requiresLooping // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        supportsProbing: null == supportsProbing
+            ? _self.supportsProbing
+            : supportsProbing // ignore: cast_nullable_to_non_nullable
+                  as bool,
         videoType: freezed == videoType
             ? _self.videoType
             : videoType // ignore: cast_nullable_to_non_nullable
                   as MediaSourceInfoVideoType?,
-        name: freezed == name
-            ? _self.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        hasSegments: null == hasSegments
+            ? _self.hasSegments
+            : hasSegments // ignore: cast_nullable_to_non_nullable
+                  as bool,
         video3DFormat: freezed == video3DFormat
             ? _self.video3DFormat
             : video3DFormat // ignore: cast_nullable_to_non_nullable
@@ -1758,10 +1762,10 @@ class __$MediaSourceInfoCopyWithImpl<$Res>
             ? _self.transcodingUrl
             : transcodingUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
-        encoderPath: freezed == encoderPath
-            ? _self.encoderPath
-            : encoderPath // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        transcodingSubProtocol: null == transcodingSubProtocol
+            ? _self.transcodingSubProtocol
+            : transcodingSubProtocol // ignore: cast_nullable_to_non_nullable
+                  as MediaSourceInfoTranscodingSubProtocol,
         transcodingContainer: freezed == transcodingContainer
             ? _self.transcodingContainer
             : transcodingContainer // ignore: cast_nullable_to_non_nullable

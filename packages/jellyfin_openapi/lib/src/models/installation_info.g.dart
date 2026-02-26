@@ -14,9 +14,9 @@ _InstallationInfo _$InstallationInfoFromJson(Map<String, dynamic> json) =>
       changelog: json['Changelog'] as String?,
       sourceUrl: json['SourceUrl'] as String?,
       checksum: json['Checksum'] as String?,
-      packageInfo: json['PackageInfo'] == null
-          ? null
-          : PackageInfo.fromJson(json['PackageInfo'] as Map<String, dynamic>),
+      packageInfo: PackageInfo.fromJson(
+        json['PackageInfo'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$InstallationInfoToJson(_InstallationInfo instance) =>
@@ -27,5 +27,5 @@ Map<String, dynamic> _$InstallationInfoToJson(_InstallationInfo instance) =>
       'Changelog': ?instance.changelog,
       'SourceUrl': ?instance.sourceUrl,
       'Checksum': ?instance.checksum,
-      'PackageInfo': ?instance.packageInfo?.toJson(),
+      'PackageInfo': instance.packageInfo.toJson(),
     };

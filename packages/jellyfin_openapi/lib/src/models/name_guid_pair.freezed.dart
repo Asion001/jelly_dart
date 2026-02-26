@@ -13,10 +13,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$NameGuidPair {
-  @JsonKey(name: 'Id')
-  String get id;
   @JsonKey(name: 'Name')
   String? get name;
+  @JsonKey(name: 'Id')
+  String? get id;
 
   /// Create a copy of NameGuidPair
   /// with the given fields replaced by the non-null parameter values.
@@ -36,17 +36,17 @@ mixin _$NameGuidPair {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is NameGuidPair &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, name, id);
 
   @override
   String toString() {
-    return 'NameGuidPair(id: $id, name: $name)';
+    return 'NameGuidPair(name: $name, id: $id)';
   }
 }
 
@@ -58,8 +58,8 @@ abstract mixin class $NameGuidPairCopyWith<$Res> {
   ) = _$NameGuidPairCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Id') String? id,
   });
 }
 
@@ -74,16 +74,16 @@ class _$NameGuidPairCopyWithImpl<$Res> implements $NameGuidPairCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? id = null, Object? name = freezed}) {
+  $Res call({Object? name = freezed, Object? id = freezed}) {
     return _then(
       _self.copyWith(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );
@@ -184,8 +184,8 @@ extension NameGuidPairPatterns on NameGuidPair {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String? id,
     )?
     $default, {
     required TResult orElse(),
@@ -193,7 +193,7 @@ extension NameGuidPairPatterns on NameGuidPair {
     final _that = this;
     switch (_that) {
       case _NameGuidPair() when $default != null:
-        return $default(_that.id, _that.name);
+        return $default(_that.name, _that.id);
       case _:
         return orElse();
     }
@@ -215,15 +215,15 @@ extension NameGuidPairPatterns on NameGuidPair {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String? id,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _NameGuidPair():
-        return $default(_that.id, _that.name);
+        return $default(_that.name, _that.id);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -244,15 +244,15 @@ extension NameGuidPairPatterns on NameGuidPair {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String? id,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _NameGuidPair() when $default != null:
-        return $default(_that.id, _that.name);
+        return $default(_that.name, _that.id);
       case _:
         return null;
     }
@@ -263,18 +263,18 @@ extension NameGuidPairPatterns on NameGuidPair {
 @JsonSerializable()
 class _NameGuidPair implements NameGuidPair {
   const _NameGuidPair({
-    @JsonKey(name: 'Id') required this.id,
     @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Id') this.id,
   });
   factory _NameGuidPair.fromJson(Map<String, dynamic> json) =>
       _$NameGuidPairFromJson(json);
 
   @override
-  @JsonKey(name: 'Id')
-  final String id;
-  @override
   @JsonKey(name: 'Name')
   final String? name;
+  @override
+  @JsonKey(name: 'Id')
+  final String? id;
 
   /// Create a copy of NameGuidPair
   /// with the given fields replaced by the non-null parameter values.
@@ -294,17 +294,17 @@ class _NameGuidPair implements NameGuidPair {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NameGuidPair &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, name, id);
 
   @override
   String toString() {
-    return 'NameGuidPair(id: $id, name: $name)';
+    return 'NameGuidPair(name: $name, id: $id)';
   }
 }
 
@@ -318,8 +318,8 @@ abstract mixin class _$NameGuidPairCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Id') String? id,
   });
 }
 
@@ -335,16 +335,16 @@ class __$NameGuidPairCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? id = null, Object? name = freezed}) {
+  $Res call({Object? name = freezed, Object? id = freezed}) {
     return _then(
       _NameGuidPair(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );

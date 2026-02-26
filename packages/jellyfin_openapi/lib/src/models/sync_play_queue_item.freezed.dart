@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$SyncPlayQueueItem {
   /// Gets the item identifier.
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets the playlist identifier of the item.
   @JsonKey(name: 'PlaylistItemId')
-  String get playlistItemId;
+  String? get playlistItemId;
 
   /// Create a copy of SyncPlayQueueItem
   /// with the given fields replaced by the non-null parameter values.
@@ -62,8 +62,8 @@ abstract mixin class $SyncPlayQueueItemCopyWith<$Res> {
   ) = _$SyncPlayQueueItemCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ItemId') String itemId,
-    @JsonKey(name: 'PlaylistItemId') String playlistItemId,
+    @JsonKey(name: 'ItemId') String? itemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   });
 }
 
@@ -79,17 +79,17 @@ class _$SyncPlayQueueItemCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? itemId = null, Object? playlistItemId = null}) {
+  $Res call({Object? itemId = freezed, Object? playlistItemId = freezed}) {
     return _then(
       _self.copyWith(
-        itemId: null == itemId
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        playlistItemId: null == playlistItemId
+                  as String?,
+        playlistItemId: freezed == playlistItemId
             ? _self.playlistItemId
             : playlistItemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -189,8 +189,8 @@ extension SyncPlayQueueItemPatterns on SyncPlayQueueItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )?
     $default, {
     required TResult orElse(),
@@ -220,8 +220,8 @@ extension SyncPlayQueueItemPatterns on SyncPlayQueueItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )
     $default,
   ) {
@@ -249,8 +249,8 @@ extension SyncPlayQueueItemPatterns on SyncPlayQueueItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )?
     $default,
   ) {
@@ -268,8 +268,8 @@ extension SyncPlayQueueItemPatterns on SyncPlayQueueItem {
 @JsonSerializable()
 class _SyncPlayQueueItem implements SyncPlayQueueItem {
   const _SyncPlayQueueItem({
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'PlaylistItemId') required this.playlistItemId,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'PlaylistItemId') this.playlistItemId,
   });
   factory _SyncPlayQueueItem.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayQueueItemFromJson(json);
@@ -277,12 +277,12 @@ class _SyncPlayQueueItem implements SyncPlayQueueItem {
   /// Gets the item identifier.
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets the playlist identifier of the item.
   @override
   @JsonKey(name: 'PlaylistItemId')
-  final String playlistItemId;
+  final String? playlistItemId;
 
   /// Create a copy of SyncPlayQueueItem
   /// with the given fields replaced by the non-null parameter values.
@@ -327,8 +327,8 @@ abstract mixin class _$SyncPlayQueueItemCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ItemId') String itemId,
-    @JsonKey(name: 'PlaylistItemId') String playlistItemId,
+    @JsonKey(name: 'ItemId') String? itemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   });
 }
 
@@ -344,17 +344,17 @@ class __$SyncPlayQueueItemCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? itemId = null, Object? playlistItemId = null}) {
+  $Res call({Object? itemId = freezed, Object? playlistItemId = freezed}) {
     return _then(
       _SyncPlayQueueItem(
-        itemId: null == itemId
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        playlistItemId: null == playlistItemId
+                  as String?,
+        playlistItemId: freezed == playlistItemId
             ? _self.playlistItemId
             : playlistItemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }

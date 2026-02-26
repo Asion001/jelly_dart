@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -17,10 +17,10 @@ abstract class ProfileCondition with _$ProfileCondition {
     required ProfileConditionCondition condition,
     @JsonKey(name: 'Property')
     required ProfileConditionProperty property,
+    @JsonKey(name: 'Value')
+    required String? value,
     @JsonKey(name: 'IsRequired')
     required bool isRequired,
-    @JsonKey(name: 'Value')
-    String? value,
   }) = _ProfileCondition;
   
   factory ProfileCondition.fromJson(Map<String, Object?> json) => _$ProfileConditionFromJson(json);

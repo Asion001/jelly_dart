@@ -660,8 +660,8 @@ extension OutboundWebSocketMessageUnionPatterns
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     activityLogEntry,
     TResult Function(
@@ -670,76 +670,76 @@ extension OutboundWebSocketMessageUnionPatterns
     )?
     forceKeepAlive,
     TResult Function(
+      @JsonKey(name: 'Data') GeneralCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') GeneralCommand? data,
     )?
     generalCommand,
     TResult Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
     )?
     libraryChanged,
     TResult Function(@JsonKey(name: 'MessageId') String messageId)? keepAlive,
     TResult Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
     )?
     play,
     TResult Function(
+      @JsonKey(name: 'Data') PlaystateRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlaystateRequest? data,
     )?
     playstate,
     TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationCancelled,
     TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationCompleted,
     TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationFailed,
     TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstalling,
     TResult Function(
+      @JsonKey(name: 'Data') PluginInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PluginInfo? data,
     )?
     packageUninstalled,
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     refreshProgress,
     TResult Function(@JsonKey(name: 'MessageId') String messageId)?
     restartRequired,
     TResult Function(
+      @JsonKey(name: 'Data') TaskResult data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TaskResult? data,
     )?
     scheduledTaskEnded,
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     scheduledTasksInfo,
     TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     seriesTimerCancelled,
     TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     seriesTimerCreated,
     TResult Function(@JsonKey(name: 'MessageId') String messageId)?
@@ -747,28 +747,28 @@ extension OutboundWebSocketMessageUnionPatterns
     TResult Function(@JsonKey(name: 'MessageId') String messageId)?
     serverShuttingDown,
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     sessions,
     TResult Function(
+      @JsonKey(name: 'Data') SendCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') SendCommand? data,
     )?
     syncPlayCommand,
     TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     timerCancelled,
     TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     timerCreated,
     TResult Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
     )?
     userDataChanged,
     TResult Function(
@@ -777,8 +777,8 @@ extension OutboundWebSocketMessageUnionPatterns
     )?
     userDeleted,
     TResult Function(
+      @JsonKey(name: 'Data') UserDto data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDto? data,
     )?
     userUpdated,
     TResult Function(
@@ -792,55 +792,55 @@ extension OutboundWebSocketMessageUnionPatterns
     switch (_that) {
       case OutboundWebSocketMessageUnionActivityLogEntry()
           when activityLogEntry != null:
-        return activityLogEntry(_that.messageId, _that.data);
+        return activityLogEntry(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionForceKeepAlive()
           when forceKeepAlive != null:
         return forceKeepAlive(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionGeneralCommand()
           when generalCommand != null:
-        return generalCommand(_that.messageId, _that.data);
+        return generalCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionLibraryChanged()
           when libraryChanged != null:
-        return libraryChanged(_that.messageId, _that.data);
+        return libraryChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionKeepAlive() when keepAlive != null:
         return keepAlive(_that.messageId);
       case OutboundWebSocketMessageUnionPlay() when play != null:
-        return play(_that.messageId, _that.data);
+        return play(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPlaystate() when playstate != null:
-        return playstate(_that.messageId, _that.data);
+        return playstate(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCancelled()
           when packageInstallationCancelled != null:
-        return packageInstallationCancelled(_that.messageId, _that.data);
+        return packageInstallationCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCompleted()
           when packageInstallationCompleted != null:
-        return packageInstallationCompleted(_that.messageId, _that.data);
+        return packageInstallationCompleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationFailed()
           when packageInstallationFailed != null:
-        return packageInstallationFailed(_that.messageId, _that.data);
+        return packageInstallationFailed(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstalling()
           when packageInstalling != null:
-        return packageInstalling(_that.messageId, _that.data);
+        return packageInstalling(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageUninstalled()
           when packageUninstalled != null:
-        return packageUninstalled(_that.messageId, _that.data);
+        return packageUninstalled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRefreshProgress()
           when refreshProgress != null:
-        return refreshProgress(_that.messageId, _that.data);
+        return refreshProgress(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRestartRequired()
           when restartRequired != null:
         return restartRequired(_that.messageId);
       case OutboundWebSocketMessageUnionScheduledTaskEnded()
           when scheduledTaskEnded != null:
-        return scheduledTaskEnded(_that.messageId, _that.data);
+        return scheduledTaskEnded(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionScheduledTasksInfo()
           when scheduledTasksInfo != null:
-        return scheduledTasksInfo(_that.messageId, _that.data);
+        return scheduledTasksInfo(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCancelled()
           when seriesTimerCancelled != null:
-        return seriesTimerCancelled(_that.messageId, _that.data);
+        return seriesTimerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCreated()
           when seriesTimerCreated != null:
-        return seriesTimerCreated(_that.messageId, _that.data);
+        return seriesTimerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionServerRestarting()
           when serverRestarting != null:
         return serverRestarting(_that.messageId);
@@ -848,23 +848,23 @@ extension OutboundWebSocketMessageUnionPatterns
           when serverShuttingDown != null:
         return serverShuttingDown(_that.messageId);
       case OutboundWebSocketMessageUnionSessions() when sessions != null:
-        return sessions(_that.messageId, _that.data);
+        return sessions(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayCommand()
           when syncPlayCommand != null:
-        return syncPlayCommand(_that.messageId, _that.data);
+        return syncPlayCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCancelled()
           when timerCancelled != null:
-        return timerCancelled(_that.messageId, _that.data);
+        return timerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCreated()
           when timerCreated != null:
-        return timerCreated(_that.messageId, _that.data);
+        return timerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDataChanged()
           when userDataChanged != null:
-        return userDataChanged(_that.messageId, _that.data);
+        return userDataChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDeleted() when userDeleted != null:
         return userDeleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserUpdated() when userUpdated != null:
-        return userUpdated(_that.messageId, _that.data);
+        return userUpdated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayGroupUpdate()
           when syncPlayGroupUpdate != null:
         return syncPlayGroupUpdate(_that.data, _that.messageId);
@@ -889,8 +889,8 @@ extension OutboundWebSocketMessageUnionPatterns
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )
     activityLogEntry,
     required TResult Function(
@@ -899,77 +899,77 @@ extension OutboundWebSocketMessageUnionPatterns
     )
     forceKeepAlive,
     required TResult Function(
+      @JsonKey(name: 'Data') GeneralCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') GeneralCommand? data,
     )
     generalCommand,
     required TResult Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
     )
     libraryChanged,
     required TResult Function(@JsonKey(name: 'MessageId') String messageId)
     keepAlive,
     required TResult Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
     )
     play,
     required TResult Function(
+      @JsonKey(name: 'Data') PlaystateRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlaystateRequest? data,
     )
     playstate,
     required TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )
     packageInstallationCancelled,
     required TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )
     packageInstallationCompleted,
     required TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )
     packageInstallationFailed,
     required TResult Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )
     packageInstalling,
     required TResult Function(
+      @JsonKey(name: 'Data') PluginInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PluginInfo? data,
     )
     packageUninstalled,
     required TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )
     refreshProgress,
     required TResult Function(@JsonKey(name: 'MessageId') String messageId)
     restartRequired,
     required TResult Function(
+      @JsonKey(name: 'Data') TaskResult data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TaskResult? data,
     )
     scheduledTaskEnded,
     required TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )
     scheduledTasksInfo,
     required TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )
     seriesTimerCancelled,
     required TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )
     seriesTimerCreated,
     required TResult Function(@JsonKey(name: 'MessageId') String messageId)
@@ -977,28 +977,28 @@ extension OutboundWebSocketMessageUnionPatterns
     required TResult Function(@JsonKey(name: 'MessageId') String messageId)
     serverShuttingDown,
     required TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )
     sessions,
     required TResult Function(
+      @JsonKey(name: 'Data') SendCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') SendCommand? data,
     )
     syncPlayCommand,
     required TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )
     timerCancelled,
     required TResult Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )
     timerCreated,
     required TResult Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
     )
     userDataChanged,
     required TResult Function(
@@ -1007,8 +1007,8 @@ extension OutboundWebSocketMessageUnionPatterns
     )
     userDeleted,
     required TResult Function(
+      @JsonKey(name: 'Data') UserDto data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDto? data,
     )
     userUpdated,
     required TResult Function(
@@ -1020,59 +1020,59 @@ extension OutboundWebSocketMessageUnionPatterns
     final _that = this;
     switch (_that) {
       case OutboundWebSocketMessageUnionActivityLogEntry():
-        return activityLogEntry(_that.messageId, _that.data);
+        return activityLogEntry(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionForceKeepAlive():
         return forceKeepAlive(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionGeneralCommand():
-        return generalCommand(_that.messageId, _that.data);
+        return generalCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionLibraryChanged():
-        return libraryChanged(_that.messageId, _that.data);
+        return libraryChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionKeepAlive():
         return keepAlive(_that.messageId);
       case OutboundWebSocketMessageUnionPlay():
-        return play(_that.messageId, _that.data);
+        return play(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPlaystate():
-        return playstate(_that.messageId, _that.data);
+        return playstate(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCancelled():
-        return packageInstallationCancelled(_that.messageId, _that.data);
+        return packageInstallationCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCompleted():
-        return packageInstallationCompleted(_that.messageId, _that.data);
+        return packageInstallationCompleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationFailed():
-        return packageInstallationFailed(_that.messageId, _that.data);
+        return packageInstallationFailed(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstalling():
-        return packageInstalling(_that.messageId, _that.data);
+        return packageInstalling(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageUninstalled():
-        return packageUninstalled(_that.messageId, _that.data);
+        return packageUninstalled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRefreshProgress():
-        return refreshProgress(_that.messageId, _that.data);
+        return refreshProgress(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRestartRequired():
         return restartRequired(_that.messageId);
       case OutboundWebSocketMessageUnionScheduledTaskEnded():
-        return scheduledTaskEnded(_that.messageId, _that.data);
+        return scheduledTaskEnded(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionScheduledTasksInfo():
-        return scheduledTasksInfo(_that.messageId, _that.data);
+        return scheduledTasksInfo(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCancelled():
-        return seriesTimerCancelled(_that.messageId, _that.data);
+        return seriesTimerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCreated():
-        return seriesTimerCreated(_that.messageId, _that.data);
+        return seriesTimerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionServerRestarting():
         return serverRestarting(_that.messageId);
       case OutboundWebSocketMessageUnionServerShuttingDown():
         return serverShuttingDown(_that.messageId);
       case OutboundWebSocketMessageUnionSessions():
-        return sessions(_that.messageId, _that.data);
+        return sessions(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayCommand():
-        return syncPlayCommand(_that.messageId, _that.data);
+        return syncPlayCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCancelled():
-        return timerCancelled(_that.messageId, _that.data);
+        return timerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCreated():
-        return timerCreated(_that.messageId, _that.data);
+        return timerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDataChanged():
-        return userDataChanged(_that.messageId, _that.data);
+        return userDataChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDeleted():
         return userDeleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserUpdated():
-        return userUpdated(_that.messageId, _that.data);
+        return userUpdated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayGroupUpdate():
         return syncPlayGroupUpdate(_that.data, _that.messageId);
     }
@@ -1093,8 +1093,8 @@ extension OutboundWebSocketMessageUnionPatterns
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     activityLogEntry,
     TResult? Function(
@@ -1103,76 +1103,76 @@ extension OutboundWebSocketMessageUnionPatterns
     )?
     forceKeepAlive,
     TResult? Function(
+      @JsonKey(name: 'Data') GeneralCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') GeneralCommand? data,
     )?
     generalCommand,
     TResult? Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
     )?
     libraryChanged,
     TResult? Function(@JsonKey(name: 'MessageId') String messageId)? keepAlive,
     TResult? Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
     )?
     play,
     TResult? Function(
+      @JsonKey(name: 'Data') PlaystateRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlaystateRequest? data,
     )?
     playstate,
     TResult? Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationCancelled,
     TResult? Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationCompleted,
     TResult? Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstallationFailed,
     TResult? Function(
+      @JsonKey(name: 'Data') InstallationInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') InstallationInfo? data,
     )?
     packageInstalling,
     TResult? Function(
+      @JsonKey(name: 'Data') PluginInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PluginInfo? data,
     )?
     packageUninstalled,
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     refreshProgress,
     TResult? Function(@JsonKey(name: 'MessageId') String messageId)?
     restartRequired,
     TResult? Function(
+      @JsonKey(name: 'Data') TaskResult data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TaskResult? data,
     )?
     scheduledTaskEnded,
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     scheduledTasksInfo,
     TResult? Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     seriesTimerCancelled,
     TResult? Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     seriesTimerCreated,
     TResult? Function(@JsonKey(name: 'MessageId') String messageId)?
@@ -1180,28 +1180,28 @@ extension OutboundWebSocketMessageUnionPatterns
     TResult? Function(@JsonKey(name: 'MessageId') String messageId)?
     serverShuttingDown,
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String messageId,
     )?
     sessions,
     TResult? Function(
+      @JsonKey(name: 'Data') SendCommand data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') SendCommand? data,
     )?
     syncPlayCommand,
     TResult? Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     timerCancelled,
     TResult? Function(
+      @JsonKey(name: 'Data') TimerEventInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') TimerEventInfo? data,
     )?
     timerCreated,
     TResult? Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
     )?
     userDataChanged,
     TResult? Function(
@@ -1210,8 +1210,8 @@ extension OutboundWebSocketMessageUnionPatterns
     )?
     userDeleted,
     TResult? Function(
+      @JsonKey(name: 'Data') UserDto data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDto? data,
     )?
     userUpdated,
     TResult? Function(
@@ -1224,55 +1224,55 @@ extension OutboundWebSocketMessageUnionPatterns
     switch (_that) {
       case OutboundWebSocketMessageUnionActivityLogEntry()
           when activityLogEntry != null:
-        return activityLogEntry(_that.messageId, _that.data);
+        return activityLogEntry(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionForceKeepAlive()
           when forceKeepAlive != null:
         return forceKeepAlive(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionGeneralCommand()
           when generalCommand != null:
-        return generalCommand(_that.messageId, _that.data);
+        return generalCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionLibraryChanged()
           when libraryChanged != null:
-        return libraryChanged(_that.messageId, _that.data);
+        return libraryChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionKeepAlive() when keepAlive != null:
         return keepAlive(_that.messageId);
       case OutboundWebSocketMessageUnionPlay() when play != null:
-        return play(_that.messageId, _that.data);
+        return play(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPlaystate() when playstate != null:
-        return playstate(_that.messageId, _that.data);
+        return playstate(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCancelled()
           when packageInstallationCancelled != null:
-        return packageInstallationCancelled(_that.messageId, _that.data);
+        return packageInstallationCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationCompleted()
           when packageInstallationCompleted != null:
-        return packageInstallationCompleted(_that.messageId, _that.data);
+        return packageInstallationCompleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstallationFailed()
           when packageInstallationFailed != null:
-        return packageInstallationFailed(_that.messageId, _that.data);
+        return packageInstallationFailed(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageInstalling()
           when packageInstalling != null:
-        return packageInstalling(_that.messageId, _that.data);
+        return packageInstalling(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionPackageUninstalled()
           when packageUninstalled != null:
-        return packageUninstalled(_that.messageId, _that.data);
+        return packageUninstalled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRefreshProgress()
           when refreshProgress != null:
-        return refreshProgress(_that.messageId, _that.data);
+        return refreshProgress(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionRestartRequired()
           when restartRequired != null:
         return restartRequired(_that.messageId);
       case OutboundWebSocketMessageUnionScheduledTaskEnded()
           when scheduledTaskEnded != null:
-        return scheduledTaskEnded(_that.messageId, _that.data);
+        return scheduledTaskEnded(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionScheduledTasksInfo()
           when scheduledTasksInfo != null:
-        return scheduledTasksInfo(_that.messageId, _that.data);
+        return scheduledTasksInfo(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCancelled()
           when seriesTimerCancelled != null:
-        return seriesTimerCancelled(_that.messageId, _that.data);
+        return seriesTimerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSeriesTimerCreated()
           when seriesTimerCreated != null:
-        return seriesTimerCreated(_that.messageId, _that.data);
+        return seriesTimerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionServerRestarting()
           when serverRestarting != null:
         return serverRestarting(_that.messageId);
@@ -1280,23 +1280,23 @@ extension OutboundWebSocketMessageUnionPatterns
           when serverShuttingDown != null:
         return serverShuttingDown(_that.messageId);
       case OutboundWebSocketMessageUnionSessions() when sessions != null:
-        return sessions(_that.messageId, _that.data);
+        return sessions(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayCommand()
           when syncPlayCommand != null:
-        return syncPlayCommand(_that.messageId, _that.data);
+        return syncPlayCommand(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCancelled()
           when timerCancelled != null:
-        return timerCancelled(_that.messageId, _that.data);
+        return timerCancelled(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionTimerCreated()
           when timerCreated != null:
-        return timerCreated(_that.messageId, _that.data);
+        return timerCreated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDataChanged()
           when userDataChanged != null:
-        return userDataChanged(_that.messageId, _that.data);
+        return userDataChanged(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserDeleted() when userDeleted != null:
         return userDeleted(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionUserUpdated() when userUpdated != null:
-        return userUpdated(_that.messageId, _that.data);
+        return userUpdated(_that.data, _that.messageId);
       case OutboundWebSocketMessageUnionSyncPlayGroupUpdate()
           when syncPlayGroupUpdate != null:
         return syncPlayGroupUpdate(_that.data, _that.messageId);
@@ -1311,19 +1311,14 @@ extension OutboundWebSocketMessageUnionPatterns
 class OutboundWebSocketMessageUnionActivityLogEntry
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionActivityLogEntry({
+    @JsonKey(name: 'Data') required final List<ActivityLogEntry>? data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') final List<ActivityLogEntry>? data,
     final String? $type,
   }) : _data = data,
        $type = $type ?? 'ActivityLogEntry';
   factory OutboundWebSocketMessageUnionActivityLogEntry.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionActivityLogEntryFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// Gets or sets the data.
   final List<ActivityLogEntry>? _data;
@@ -1337,6 +1332,11 @@ class OutboundWebSocketMessageUnionActivityLogEntry
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String messageId;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -1364,22 +1364,22 @@ class OutboundWebSocketMessageUnionActivityLogEntry
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionActivityLogEntry &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    messageId,
     const DeepCollectionEquality().hash(_data),
+    messageId,
   );
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.activityLogEntry(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.activityLogEntry(data: $data, messageId: $messageId)';
   }
 }
 
@@ -1395,8 +1395,8 @@ abstract mixin class $OutboundWebSocketMessageUnionActivityLogEntryCopyWith<
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
+    @JsonKey(name: 'MessageId') String messageId,
   });
 }
 
@@ -1415,17 +1415,17 @@ class _$OutboundWebSocketMessageUnionActivityLogEntryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionActivityLogEntry(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         data: freezed == data
             ? _self._data
             : data // ignore: cast_nullable_to_non_nullable
                   as List<ActivityLogEntry>?,
+        messageId: null == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -1545,22 +1545,22 @@ class _$OutboundWebSocketMessageUnionForceKeepAliveCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionGeneralCommand
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionGeneralCommand({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'GeneralCommand';
   factory OutboundWebSocketMessageUnionGeneralCommand.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionGeneralCommandFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final GeneralCommand data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final GeneralCommand? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -1588,18 +1588,18 @@ class OutboundWebSocketMessageUnionGeneralCommand
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionGeneralCommand &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.generalCommand(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.generalCommand(data: $data, messageId: $messageId)';
   }
 }
 
@@ -1613,11 +1613,11 @@ abstract mixin class $OutboundWebSocketMessageUnionGeneralCommandCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') GeneralCommand data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') GeneralCommand? data,
   });
 
-  $GeneralCommandCopyWith<$Res>? get data;
+  $GeneralCommandCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -1635,17 +1635,17 @@ class _$OutboundWebSocketMessageUnionGeneralCommandCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionGeneralCommand(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as GeneralCommand,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as GeneralCommand?,
       ),
     );
   }
@@ -1654,12 +1654,8 @@ class _$OutboundWebSocketMessageUnionGeneralCommandCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GeneralCommandCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $GeneralCommandCopyWith<$Res>(_self.data!, (value) {
+  $GeneralCommandCopyWith<$Res> get data {
+    return $GeneralCommandCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -1670,22 +1666,22 @@ class _$OutboundWebSocketMessageUnionGeneralCommandCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionLibraryChanged
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionLibraryChanged({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'LibraryChanged';
   factory OutboundWebSocketMessageUnionLibraryChanged.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionLibraryChangedFromJson(json);
 
+  /// Class LibraryUpdateInfo.
+  @JsonKey(name: 'Data')
+  final LibraryUpdateInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class LibraryUpdateInfo.
-  @JsonKey(name: 'Data')
-  final LibraryUpdateInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -1713,18 +1709,18 @@ class OutboundWebSocketMessageUnionLibraryChanged
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionLibraryChanged &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.libraryChanged(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.libraryChanged(data: $data, messageId: $messageId)';
   }
 }
 
@@ -1738,11 +1734,11 @@ abstract mixin class $OutboundWebSocketMessageUnionLibraryChangedCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') LibraryUpdateInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') LibraryUpdateInfo? data,
   });
 
-  $LibraryUpdateInfoCopyWith<$Res>? get data;
+  $LibraryUpdateInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -1760,17 +1756,17 @@ class _$OutboundWebSocketMessageUnionLibraryChangedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionLibraryChanged(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LibraryUpdateInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LibraryUpdateInfo?,
       ),
     );
   }
@@ -1779,12 +1775,8 @@ class _$OutboundWebSocketMessageUnionLibraryChangedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryUpdateInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $LibraryUpdateInfoCopyWith<$Res>(_self.data!, (value) {
+  $LibraryUpdateInfoCopyWith<$Res> get data {
+    return $LibraryUpdateInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -1888,22 +1880,22 @@ class _$OutboundWebSocketMessageUnionKeepAliveCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionPlay
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPlay({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'Play';
   factory OutboundWebSocketMessageUnionPlay.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionPlayFromJson(json);
 
+  /// Class PlayRequest.
+  @JsonKey(name: 'Data')
+  final PlayRequest data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class PlayRequest.
-  @JsonKey(name: 'Data')
-  final PlayRequest? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -1929,18 +1921,18 @@ class OutboundWebSocketMessageUnionPlay
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionPlay &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.play(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.play(data: $data, messageId: $messageId)';
   }
 }
 
@@ -1954,11 +1946,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPlayCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') PlayRequest data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') PlayRequest? data,
   });
 
-  $PlayRequestCopyWith<$Res>? get data;
+  $PlayRequestCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -1973,17 +1965,17 @@ class _$OutboundWebSocketMessageUnionPlayCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPlay(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PlayRequest,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PlayRequest?,
       ),
     );
   }
@@ -1992,12 +1984,8 @@ class _$OutboundWebSocketMessageUnionPlayCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayRequestCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $PlayRequestCopyWith<$Res>(_self.data!, (value) {
+  $PlayRequestCopyWith<$Res> get data {
+    return $PlayRequestCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2008,22 +1996,22 @@ class _$OutboundWebSocketMessageUnionPlayCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionPlaystate
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPlaystate({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'Playstate';
   factory OutboundWebSocketMessageUnionPlaystate.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionPlaystateFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final PlaystateRequest data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final PlaystateRequest? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2051,18 +2039,18 @@ class OutboundWebSocketMessageUnionPlaystate
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionPlaystate &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.playstate(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.playstate(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2076,11 +2064,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPlaystateCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') PlaystateRequest data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') PlaystateRequest? data,
   });
 
-  $PlaystateRequestCopyWith<$Res>? get data;
+  $PlaystateRequestCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2095,17 +2083,17 @@ class _$OutboundWebSocketMessageUnionPlaystateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPlaystate(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PlaystateRequest,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PlaystateRequest?,
       ),
     );
   }
@@ -2114,12 +2102,8 @@ class _$OutboundWebSocketMessageUnionPlaystateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlaystateRequestCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $PlaystateRequestCopyWith<$Res>(_self.data!, (value) {
+  $PlaystateRequestCopyWith<$Res> get data {
+    return $PlaystateRequestCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2130,8 +2114,8 @@ class _$OutboundWebSocketMessageUnionPlaystateCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionPackageInstallationCancelled
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPackageInstallationCancelled({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PackageInstallationCancelled';
   factory OutboundWebSocketMessageUnionPackageInstallationCancelled.fromJson(
@@ -2139,14 +2123,14 @@ class OutboundWebSocketMessageUnionPackageInstallationCancelled
   ) =>
       _$OutboundWebSocketMessageUnionPackageInstallationCancelledFromJson(json);
 
+  /// Class InstallationInfo.
+  @JsonKey(name: 'Data')
+  final InstallationInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class InstallationInfo.
-  @JsonKey(name: 'Data')
-  final InstallationInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2177,18 +2161,18 @@ class OutboundWebSocketMessageUnionPackageInstallationCancelled
         (other.runtimeType == runtimeType &&
             other
                 is OutboundWebSocketMessageUnionPackageInstallationCancelled &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.packageInstallationCancelled(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.packageInstallationCancelled(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2205,11 +2189,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPackageInstallationCancelledC
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') InstallationInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') InstallationInfo? data,
   });
 
-  $InstallationInfoCopyWith<$Res>? get data;
+  $InstallationInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2233,17 +2217,17 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCancelledCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPackageInstallationCancelled(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo?,
       ),
     );
   }
@@ -2252,12 +2236,8 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCancelledCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
+  $InstallationInfoCopyWith<$Res> get data {
+    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2268,8 +2248,8 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCancelledCopyWithImpl<
 class OutboundWebSocketMessageUnionPackageInstallationCompleted
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPackageInstallationCompleted({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PackageInstallationCompleted';
   factory OutboundWebSocketMessageUnionPackageInstallationCompleted.fromJson(
@@ -2277,14 +2257,14 @@ class OutboundWebSocketMessageUnionPackageInstallationCompleted
   ) =>
       _$OutboundWebSocketMessageUnionPackageInstallationCompletedFromJson(json);
 
+  /// Class InstallationInfo.
+  @JsonKey(name: 'Data')
+  final InstallationInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class InstallationInfo.
-  @JsonKey(name: 'Data')
-  final InstallationInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2315,18 +2295,18 @@ class OutboundWebSocketMessageUnionPackageInstallationCompleted
         (other.runtimeType == runtimeType &&
             other
                 is OutboundWebSocketMessageUnionPackageInstallationCompleted &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.packageInstallationCompleted(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.packageInstallationCompleted(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2343,11 +2323,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPackageInstallationCompletedC
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') InstallationInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') InstallationInfo? data,
   });
 
-  $InstallationInfoCopyWith<$Res>? get data;
+  $InstallationInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2371,17 +2351,17 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCompletedCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPackageInstallationCompleted(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo?,
       ),
     );
   }
@@ -2390,12 +2370,8 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCompletedCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
+  $InstallationInfoCopyWith<$Res> get data {
+    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2406,22 +2382,22 @@ class _$OutboundWebSocketMessageUnionPackageInstallationCompletedCopyWithImpl<
 class OutboundWebSocketMessageUnionPackageInstallationFailed
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPackageInstallationFailed({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PackageInstallationFailed';
   factory OutboundWebSocketMessageUnionPackageInstallationFailed.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionPackageInstallationFailedFromJson(json);
 
+  /// Class InstallationInfo.
+  @JsonKey(name: 'Data')
+  final InstallationInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class InstallationInfo.
-  @JsonKey(name: 'Data')
-  final InstallationInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2449,18 +2425,18 @@ class OutboundWebSocketMessageUnionPackageInstallationFailed
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionPackageInstallationFailed &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.packageInstallationFailed(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.packageInstallationFailed(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2476,11 +2452,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPackageInstallationFailedCopy
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') InstallationInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') InstallationInfo? data,
   });
 
-  $InstallationInfoCopyWith<$Res>? get data;
+  $InstallationInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2500,17 +2476,17 @@ class _$OutboundWebSocketMessageUnionPackageInstallationFailedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPackageInstallationFailed(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo?,
       ),
     );
   }
@@ -2519,12 +2495,8 @@ class _$OutboundWebSocketMessageUnionPackageInstallationFailedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
+  $InstallationInfoCopyWith<$Res> get data {
+    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2535,22 +2507,22 @@ class _$OutboundWebSocketMessageUnionPackageInstallationFailedCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionPackageInstalling
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPackageInstalling({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PackageInstalling';
   factory OutboundWebSocketMessageUnionPackageInstalling.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionPackageInstallingFromJson(json);
 
+  /// Class InstallationInfo.
+  @JsonKey(name: 'Data')
+  final InstallationInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class InstallationInfo.
-  @JsonKey(name: 'Data')
-  final InstallationInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2578,18 +2550,18 @@ class OutboundWebSocketMessageUnionPackageInstalling
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionPackageInstalling &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.packageInstalling(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.packageInstalling(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2605,11 +2577,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPackageInstallingCopyWith<
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') InstallationInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') InstallationInfo? data,
   });
 
-  $InstallationInfoCopyWith<$Res>? get data;
+  $InstallationInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2627,17 +2599,17 @@ class _$OutboundWebSocketMessageUnionPackageInstallingCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPackageInstalling(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo?,
       ),
     );
   }
@@ -2646,12 +2618,8 @@ class _$OutboundWebSocketMessageUnionPackageInstallingCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
+  $InstallationInfoCopyWith<$Res> get data {
+    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2662,22 +2630,22 @@ class _$OutboundWebSocketMessageUnionPackageInstallingCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionPackageUninstalled
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionPackageUninstalled({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PackageUninstalled';
   factory OutboundWebSocketMessageUnionPackageUninstalled.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionPackageUninstalledFromJson(json);
 
+  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
+  @JsonKey(name: 'Data')
+  final PluginInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
-  @JsonKey(name: 'Data')
-  final PluginInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2705,18 +2673,18 @@ class OutboundWebSocketMessageUnionPackageUninstalled
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionPackageUninstalled &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.packageUninstalled(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.packageUninstalled(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2732,11 +2700,11 @@ abstract mixin class $OutboundWebSocketMessageUnionPackageUninstalledCopyWith<
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') PluginInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') PluginInfo? data,
   });
 
-  $PluginInfoCopyWith<$Res>? get data;
+  $PluginInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -2754,17 +2722,17 @@ class _$OutboundWebSocketMessageUnionPackageUninstalledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionPackageUninstalled(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PluginInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PluginInfo?,
       ),
     );
   }
@@ -2773,12 +2741,8 @@ class _$OutboundWebSocketMessageUnionPackageUninstalledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PluginInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $PluginInfoCopyWith<$Res>(_self.data!, (value) {
+  $PluginInfoCopyWith<$Res> get data {
+    return $PluginInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -2789,19 +2753,14 @@ class _$OutboundWebSocketMessageUnionPackageUninstalledCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionRefreshProgress
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionRefreshProgress({
+    @JsonKey(name: 'Data') required final Map<String, String?>? data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') final Map<String, String?>? data,
     final String? $type,
   }) : _data = data,
        $type = $type ?? 'RefreshProgress';
   factory OutboundWebSocketMessageUnionRefreshProgress.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionRefreshProgressFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// Gets or sets the data.
   final Map<String, String?>? _data;
@@ -2815,6 +2774,11 @@ class OutboundWebSocketMessageUnionRefreshProgress
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String messageId;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -2842,22 +2806,22 @@ class OutboundWebSocketMessageUnionRefreshProgress
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionRefreshProgress &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    messageId,
     const DeepCollectionEquality().hash(_data),
+    messageId,
   );
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.refreshProgress(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.refreshProgress(data: $data, messageId: $messageId)';
   }
 }
 
@@ -2871,8 +2835,8 @@ abstract mixin class $OutboundWebSocketMessageUnionRefreshProgressCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'Data') Map<String, String?>? data,
+    @JsonKey(name: 'MessageId') String messageId,
   });
 }
 
@@ -2891,17 +2855,17 @@ class _$OutboundWebSocketMessageUnionRefreshProgressCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionRefreshProgress(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         data: freezed == data
             ? _self._data
             : data // ignore: cast_nullable_to_non_nullable
                   as Map<String, String?>?,
+        messageId: null == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -3008,22 +2972,22 @@ class _$OutboundWebSocketMessageUnionRestartRequiredCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionScheduledTaskEnded
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionScheduledTaskEnded({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'ScheduledTaskEnded';
   factory OutboundWebSocketMessageUnionScheduledTaskEnded.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionScheduledTaskEndedFromJson(json);
 
+  /// Class TaskExecutionInfo.
+  @JsonKey(name: 'Data')
+  final TaskResult data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class TaskExecutionInfo.
-  @JsonKey(name: 'Data')
-  final TaskResult? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3051,18 +3015,18 @@ class OutboundWebSocketMessageUnionScheduledTaskEnded
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionScheduledTaskEnded &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.scheduledTaskEnded(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.scheduledTaskEnded(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3078,11 +3042,11 @@ abstract mixin class $OutboundWebSocketMessageUnionScheduledTaskEndedCopyWith<
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') TaskResult data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') TaskResult? data,
   });
 
-  $TaskResultCopyWith<$Res>? get data;
+  $TaskResultCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -3100,17 +3064,17 @@ class _$OutboundWebSocketMessageUnionScheduledTaskEndedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionScheduledTaskEnded(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TaskResult,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TaskResult?,
       ),
     );
   }
@@ -3119,12 +3083,8 @@ class _$OutboundWebSocketMessageUnionScheduledTaskEndedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TaskResultCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $TaskResultCopyWith<$Res>(_self.data!, (value) {
+  $TaskResultCopyWith<$Res> get data {
+    return $TaskResultCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -3135,19 +3095,14 @@ class _$OutboundWebSocketMessageUnionScheduledTaskEndedCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionScheduledTasksInfo
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionScheduledTasksInfo({
+    @JsonKey(name: 'Data') required final List<TaskInfo>? data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') final List<TaskInfo>? data,
     final String? $type,
   }) : _data = data,
        $type = $type ?? 'ScheduledTasksInfo';
   factory OutboundWebSocketMessageUnionScheduledTasksInfo.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionScheduledTasksInfoFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// Gets or sets the data.
   final List<TaskInfo>? _data;
@@ -3161,6 +3116,11 @@ class OutboundWebSocketMessageUnionScheduledTasksInfo
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String messageId;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3188,22 +3148,22 @@ class OutboundWebSocketMessageUnionScheduledTasksInfo
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionScheduledTasksInfo &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    messageId,
     const DeepCollectionEquality().hash(_data),
+    messageId,
   );
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.scheduledTasksInfo(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.scheduledTasksInfo(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3219,8 +3179,8 @@ abstract mixin class $OutboundWebSocketMessageUnionScheduledTasksInfoCopyWith<
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'Data') List<TaskInfo>? data,
+    @JsonKey(name: 'MessageId') String messageId,
   });
 }
 
@@ -3239,17 +3199,17 @@ class _$OutboundWebSocketMessageUnionScheduledTasksInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionScheduledTasksInfo(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         data: freezed == data
             ? _self._data
             : data // ignore: cast_nullable_to_non_nullable
                   as List<TaskInfo>?,
+        messageId: null == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -3260,22 +3220,22 @@ class _$OutboundWebSocketMessageUnionScheduledTasksInfoCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionSeriesTimerCancelled
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionSeriesTimerCancelled({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'SeriesTimerCancelled';
   factory OutboundWebSocketMessageUnionSeriesTimerCancelled.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionSeriesTimerCancelledFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final TimerEventInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final TimerEventInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3303,18 +3263,18 @@ class OutboundWebSocketMessageUnionSeriesTimerCancelled
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionSeriesTimerCancelled &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.seriesTimerCancelled(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.seriesTimerCancelled(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3330,11 +3290,11 @@ abstract mixin class $OutboundWebSocketMessageUnionSeriesTimerCancelledCopyWith<
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') TimerEventInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') TimerEventInfo? data,
   });
 
-  $TimerEventInfoCopyWith<$Res>? get data;
+  $TimerEventInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -3353,17 +3313,17 @@ class _$OutboundWebSocketMessageUnionSeriesTimerCancelledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionSeriesTimerCancelled(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo?,
       ),
     );
   }
@@ -3372,12 +3332,8 @@ class _$OutboundWebSocketMessageUnionSeriesTimerCancelledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
+  $TimerEventInfoCopyWith<$Res> get data {
+    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -3388,22 +3344,22 @@ class _$OutboundWebSocketMessageUnionSeriesTimerCancelledCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionSeriesTimerCreated
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionSeriesTimerCreated({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'SeriesTimerCreated';
   factory OutboundWebSocketMessageUnionSeriesTimerCreated.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionSeriesTimerCreatedFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final TimerEventInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final TimerEventInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3431,18 +3387,18 @@ class OutboundWebSocketMessageUnionSeriesTimerCreated
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionSeriesTimerCreated &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.seriesTimerCreated(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.seriesTimerCreated(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3458,11 +3414,11 @@ abstract mixin class $OutboundWebSocketMessageUnionSeriesTimerCreatedCopyWith<
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') TimerEventInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') TimerEventInfo? data,
   });
 
-  $TimerEventInfoCopyWith<$Res>? get data;
+  $TimerEventInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -3480,17 +3436,17 @@ class _$OutboundWebSocketMessageUnionSeriesTimerCreatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionSeriesTimerCreated(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo?,
       ),
     );
   }
@@ -3499,12 +3455,8 @@ class _$OutboundWebSocketMessageUnionSeriesTimerCreatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
+  $TimerEventInfoCopyWith<$Res> get data {
+    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -3711,19 +3663,14 @@ class _$OutboundWebSocketMessageUnionServerShuttingDownCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionSessions
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionSessions({
+    @JsonKey(name: 'Data') required final List<SessionInfoDto>? data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') final List<SessionInfoDto>? data,
     final String? $type,
   }) : _data = data,
        $type = $type ?? 'Sessions';
   factory OutboundWebSocketMessageUnionSessions.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionSessionsFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// Gets or sets the data.
   final List<SessionInfoDto>? _data;
@@ -3737,6 +3684,11 @@ class OutboundWebSocketMessageUnionSessions
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String messageId;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3764,22 +3716,22 @@ class OutboundWebSocketMessageUnionSessions
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionSessions &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    messageId,
     const DeepCollectionEquality().hash(_data),
+    messageId,
   );
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.sessions(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.sessions(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3793,8 +3745,8 @@ abstract mixin class $OutboundWebSocketMessageUnionSessionsCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+    @JsonKey(name: 'MessageId') String messageId,
   });
 }
 
@@ -3810,17 +3762,17 @@ class _$OutboundWebSocketMessageUnionSessionsCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionSessions(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         data: freezed == data
             ? _self._data
             : data // ignore: cast_nullable_to_non_nullable
                   as List<SessionInfoDto>?,
+        messageId: null == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -3831,22 +3783,22 @@ class _$OutboundWebSocketMessageUnionSessionsCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionSyncPlayCommand
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionSyncPlayCommand({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'SyncPlayCommand';
   factory OutboundWebSocketMessageUnionSyncPlayCommand.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionSyncPlayCommandFromJson(json);
 
+  /// Class SendCommand.
+  @JsonKey(name: 'Data')
+  final SendCommand data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class SendCommand.
-  @JsonKey(name: 'Data')
-  final SendCommand? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3874,18 +3826,18 @@ class OutboundWebSocketMessageUnionSyncPlayCommand
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionSyncPlayCommand &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.syncPlayCommand(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.syncPlayCommand(data: $data, messageId: $messageId)';
   }
 }
 
@@ -3899,11 +3851,11 @@ abstract mixin class $OutboundWebSocketMessageUnionSyncPlayCommandCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') SendCommand data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') SendCommand? data,
   });
 
-  $SendCommandCopyWith<$Res>? get data;
+  $SendCommandCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -3921,17 +3873,17 @@ class _$OutboundWebSocketMessageUnionSyncPlayCommandCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionSyncPlayCommand(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as SendCommand,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as SendCommand?,
       ),
     );
   }
@@ -3940,12 +3892,8 @@ class _$OutboundWebSocketMessageUnionSyncPlayCommandCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SendCommandCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $SendCommandCopyWith<$Res>(_self.data!, (value) {
+  $SendCommandCopyWith<$Res> get data {
+    return $SendCommandCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -3956,22 +3904,22 @@ class _$OutboundWebSocketMessageUnionSyncPlayCommandCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionTimerCancelled
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionTimerCancelled({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'TimerCancelled';
   factory OutboundWebSocketMessageUnionTimerCancelled.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionTimerCancelledFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final TimerEventInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final TimerEventInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -3999,18 +3947,18 @@ class OutboundWebSocketMessageUnionTimerCancelled
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionTimerCancelled &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.timerCancelled(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.timerCancelled(data: $data, messageId: $messageId)';
   }
 }
 
@@ -4024,11 +3972,11 @@ abstract mixin class $OutboundWebSocketMessageUnionTimerCancelledCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') TimerEventInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') TimerEventInfo? data,
   });
 
-  $TimerEventInfoCopyWith<$Res>? get data;
+  $TimerEventInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -4046,17 +3994,17 @@ class _$OutboundWebSocketMessageUnionTimerCancelledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionTimerCancelled(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo?,
       ),
     );
   }
@@ -4065,12 +4013,8 @@ class _$OutboundWebSocketMessageUnionTimerCancelledCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
+  $TimerEventInfoCopyWith<$Res> get data {
+    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -4081,22 +4025,22 @@ class _$OutboundWebSocketMessageUnionTimerCancelledCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionTimerCreated
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionTimerCreated({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'TimerCreated';
   factory OutboundWebSocketMessageUnionTimerCreated.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionTimerCreatedFromJson(json);
 
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  final TimerEventInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  final TimerEventInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -4124,18 +4068,18 @@ class OutboundWebSocketMessageUnionTimerCreated
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionTimerCreated &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.timerCreated(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.timerCreated(data: $data, messageId: $messageId)';
   }
 }
 
@@ -4149,11 +4093,11 @@ abstract mixin class $OutboundWebSocketMessageUnionTimerCreatedCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') TimerEventInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') TimerEventInfo? data,
   });
 
-  $TimerEventInfoCopyWith<$Res>? get data;
+  $TimerEventInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -4171,17 +4115,17 @@ class _$OutboundWebSocketMessageUnionTimerCreatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionTimerCreated(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo?,
       ),
     );
   }
@@ -4190,12 +4134,8 @@ class _$OutboundWebSocketMessageUnionTimerCreatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
+  $TimerEventInfoCopyWith<$Res> get data {
+    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -4206,22 +4146,22 @@ class _$OutboundWebSocketMessageUnionTimerCreatedCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionUserDataChanged
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionUserDataChanged({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'UserDataChanged';
   factory OutboundWebSocketMessageUnionUserDataChanged.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionUserDataChangedFromJson(json);
 
+  /// Class UserDataChangeInfo.
+  @JsonKey(name: 'Data')
+  final UserDataChangeInfo data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class UserDataChangeInfo.
-  @JsonKey(name: 'Data')
-  final UserDataChangeInfo? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -4249,18 +4189,18 @@ class OutboundWebSocketMessageUnionUserDataChanged
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionUserDataChanged &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.userDataChanged(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.userDataChanged(data: $data, messageId: $messageId)';
   }
 }
 
@@ -4274,11 +4214,11 @@ abstract mixin class $OutboundWebSocketMessageUnionUserDataChangedCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') UserDataChangeInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') UserDataChangeInfo? data,
   });
 
-  $UserDataChangeInfoCopyWith<$Res>? get data;
+  $UserDataChangeInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -4296,17 +4236,17 @@ class _$OutboundWebSocketMessageUnionUserDataChangedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionUserDataChanged(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as UserDataChangeInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as UserDataChangeInfo?,
       ),
     );
   }
@@ -4315,12 +4255,8 @@ class _$OutboundWebSocketMessageUnionUserDataChangedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDataChangeInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $UserDataChangeInfoCopyWith<$Res>(_self.data!, (value) {
+  $UserDataChangeInfoCopyWith<$Res> get data {
+    return $UserDataChangeInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -4440,22 +4376,22 @@ class _$OutboundWebSocketMessageUnionUserDeletedCopyWithImpl<$Res>
 class OutboundWebSocketMessageUnionUserUpdated
     implements OutboundWebSocketMessageUnion {
   const OutboundWebSocketMessageUnionUserUpdated({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'UserUpdated';
   factory OutboundWebSocketMessageUnionUserUpdated.fromJson(
     Map<String, dynamic> json,
   ) => _$OutboundWebSocketMessageUnionUserUpdatedFromJson(json);
 
+  /// Class UserDto.
+  @JsonKey(name: 'Data')
+  final UserDto data;
+
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
-
-  /// Class UserDto.
-  @JsonKey(name: 'Data')
-  final UserDto? data;
 
   @JsonKey(name: 'MessageType')
   final String $type;
@@ -4483,18 +4419,18 @@ class OutboundWebSocketMessageUnionUserUpdated
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundWebSocketMessageUnionUserUpdated &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId);
 
   @override
   String toString() {
-    return 'OutboundWebSocketMessageUnion.userUpdated(messageId: $messageId, data: $data)';
+    return 'OutboundWebSocketMessageUnion.userUpdated(data: $data, messageId: $messageId)';
   }
 }
 
@@ -4508,11 +4444,11 @@ abstract mixin class $OutboundWebSocketMessageUnionUserUpdatedCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') UserDto data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') UserDto? data,
   });
 
-  $UserDtoCopyWith<$Res>? get data;
+  $UserDtoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -4530,17 +4466,17 @@ class _$OutboundWebSocketMessageUnionUserUpdatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({Object? data = null, Object? messageId = null}) {
     return _then(
       OutboundWebSocketMessageUnionUserUpdated(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as UserDto,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as UserDto?,
       ),
     );
   }
@@ -4549,12 +4485,8 @@ class _$OutboundWebSocketMessageUnionUserUpdatedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDtoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $UserDtoCopyWith<$Res>(_self.data!, (value) {
+  $UserDtoCopyWith<$Res> get data {
+    return $UserDtoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

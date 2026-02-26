@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,6 +14,10 @@ part 'player_state_info.g.dart';
 @Freezed()
 abstract class PlayerStateInfo with _$PlayerStateInfo {
   const factory PlayerStateInfo({
+    /// Gets or sets the now playing position ticks.
+    @JsonKey(name: 'PositionTicks')
+    required int? positionTicks,
+
     /// Gets or sets a value indicating whether this instance can seek.
     @JsonKey(name: 'CanSeek')
     required bool canSeek,
@@ -26,6 +30,26 @@ abstract class PlayerStateInfo with _$PlayerStateInfo {
     @JsonKey(name: 'IsMuted')
     required bool isMuted,
 
+    /// Gets or sets the volume level.
+    @JsonKey(name: 'VolumeLevel')
+    required int? volumeLevel,
+
+    /// Gets or sets the index of the now playing audio stream.
+    @JsonKey(name: 'AudioStreamIndex')
+    required int? audioStreamIndex,
+
+    /// Gets or sets the index of the now playing subtitle stream.
+    @JsonKey(name: 'SubtitleStreamIndex')
+    required int? subtitleStreamIndex,
+
+    /// Gets or sets the now playing media version identifier.
+    @JsonKey(name: 'MediaSourceId')
+    required String? mediaSourceId,
+
+    /// Gets or sets the play method.
+    @JsonKey(name: 'PlayMethod')
+    required PlayerStateInfoPlayMethod? playMethod,
+
     /// Gets or sets the repeat mode.
     @JsonKey(name: 'RepeatMode')
     required PlayerStateInfoRepeatMode repeatMode,
@@ -34,33 +58,9 @@ abstract class PlayerStateInfo with _$PlayerStateInfo {
     @JsonKey(name: 'PlaybackOrder')
     required PlayerStateInfoPlaybackOrder playbackOrder,
 
-    /// Gets or sets the now playing position ticks.
-    @JsonKey(name: 'PositionTicks')
-    int? positionTicks,
-
-    /// Gets or sets the volume level.
-    @JsonKey(name: 'VolumeLevel')
-    int? volumeLevel,
-
-    /// Gets or sets the index of the now playing audio stream.
-    @JsonKey(name: 'AudioStreamIndex')
-    int? audioStreamIndex,
-
-    /// Gets or sets the index of the now playing subtitle stream.
-    @JsonKey(name: 'SubtitleStreamIndex')
-    int? subtitleStreamIndex,
-
-    /// Gets or sets the now playing media version identifier.
-    @JsonKey(name: 'MediaSourceId')
-    String? mediaSourceId,
-
-    /// Gets or sets the play method.
-    @JsonKey(name: 'PlayMethod')
-    PlayerStateInfoPlayMethod? playMethod,
-
     /// Gets or sets the now playing live stream identifier.
     @JsonKey(name: 'LiveStreamId')
-    String? liveStreamId,
+    required String? liveStreamId,
   }) = _PlayerStateInfo;
   
   factory PlayerStateInfo.fromJson(Map<String, Object?> json) => _$PlayerStateInfoFromJson(json);

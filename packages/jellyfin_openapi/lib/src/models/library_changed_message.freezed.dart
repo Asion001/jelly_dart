@@ -13,13 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$LibraryChangedMessage {
+  /// Class LibraryUpdateInfo.
+  @JsonKey(name: 'Data')
+  LibraryUpdateInfo get data;
+
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
   String get messageId;
 
-  /// Class LibraryUpdateInfo.
-  @JsonKey(name: 'Data')
-  LibraryUpdateInfo? get data;
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  LibraryChangedMessageMessageType get messageType;
 
   /// Create a copy of LibraryChangedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -39,18 +43,20 @@ mixin _$LibraryChangedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is LibraryChangedMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'LibraryChangedMessage(messageId: $messageId, data: $data)';
+    return 'LibraryChangedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -62,11 +68,12 @@ abstract mixin class $LibraryChangedMessageCopyWith<$Res> {
   ) = _$LibraryChangedMessageCopyWithImpl;
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') LibraryUpdateInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+    @JsonKey(name: 'MessageType') LibraryChangedMessageMessageType messageType,
   });
 
-  $LibraryUpdateInfoCopyWith<$Res>? get data;
+  $LibraryUpdateInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -81,17 +88,25 @@ class _$LibraryChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _self.copyWith(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LibraryUpdateInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LibraryUpdateInfo?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as LibraryChangedMessageMessageType,
       ),
     );
   }
@@ -100,12 +115,8 @@ class _$LibraryChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryUpdateInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $LibraryUpdateInfoCopyWith<$Res>(_self.data!, (value) {
+  $LibraryUpdateInfoCopyWith<$Res> get data {
+    return $LibraryUpdateInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -205,8 +216,10 @@ extension LibraryChangedMessagePatterns on LibraryChangedMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+      @JsonKey(name: 'MessageType')
+      LibraryChangedMessageMessageType messageType,
     )?
     $default, {
     required TResult orElse(),
@@ -214,7 +227,7 @@ extension LibraryChangedMessagePatterns on LibraryChangedMessage {
     final _that = this;
     switch (_that) {
       case _LibraryChangedMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -236,15 +249,17 @@ extension LibraryChangedMessagePatterns on LibraryChangedMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+      @JsonKey(name: 'MessageType')
+      LibraryChangedMessageMessageType messageType,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _LibraryChangedMessage():
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -265,15 +280,17 @@ extension LibraryChangedMessagePatterns on LibraryChangedMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+      @JsonKey(name: 'Data') LibraryUpdateInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+      @JsonKey(name: 'MessageType')
+      LibraryChangedMessageMessageType messageType,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _LibraryChangedMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -284,21 +301,28 @@ extension LibraryChangedMessagePatterns on LibraryChangedMessage {
 @JsonSerializable()
 class _LibraryChangedMessage implements LibraryChangedMessage {
   const _LibraryChangedMessage({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageType')
+    this.messageType = LibraryChangedMessageMessageType.libraryChanged,
   });
   factory _LibraryChangedMessage.fromJson(Map<String, dynamic> json) =>
       _$LibraryChangedMessageFromJson(json);
+
+  /// Class LibraryUpdateInfo.
+  @override
+  @JsonKey(name: 'Data')
+  final LibraryUpdateInfo data;
 
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
 
-  /// Class LibraryUpdateInfo.
+  /// The different kinds of messages that are used in the WebSocket api.
   @override
-  @JsonKey(name: 'Data')
-  final LibraryUpdateInfo? data;
+  @JsonKey(name: 'MessageType')
+  final LibraryChangedMessageMessageType messageType;
 
   /// Create a copy of LibraryChangedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -321,18 +345,20 @@ class _LibraryChangedMessage implements LibraryChangedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LibraryChangedMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'LibraryChangedMessage(messageId: $messageId, data: $data)';
+    return 'LibraryChangedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -346,12 +372,13 @@ abstract mixin class _$LibraryChangedMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') LibraryUpdateInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+    @JsonKey(name: 'MessageType') LibraryChangedMessageMessageType messageType,
   });
 
   @override
-  $LibraryUpdateInfoCopyWith<$Res>? get data;
+  $LibraryUpdateInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -366,17 +393,25 @@ class __$LibraryChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _LibraryChangedMessage(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as LibraryUpdateInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as LibraryUpdateInfo?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as LibraryChangedMessageMessageType,
       ),
     );
   }
@@ -385,12 +420,8 @@ class __$LibraryChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryUpdateInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $LibraryUpdateInfoCopyWith<$Res>(_self.data!, (value) {
+  $LibraryUpdateInfoCopyWith<$Res> get data {
+    return $LibraryUpdateInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

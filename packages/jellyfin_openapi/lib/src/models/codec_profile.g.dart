@@ -8,7 +8,7 @@ part of 'codec_profile.dart';
 
 _CodecProfile _$CodecProfileFromJson(Map<String, dynamic> json) =>
     _CodecProfile(
-      type: CodecProfileType.fromJson(json['Type']),
+      type: $enumDecode(_$CodecProfileTypeEnumMap, json['Type']),
       conditions: (json['Conditions'] as List<dynamic>)
           .map((e) => ProfileCondition.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -29,4 +29,10 @@ Map<String, dynamic> _$CodecProfileToJson(
   'Codec': ?instance.codec,
   'Container': ?instance.container,
   'SubContainer': ?instance.subContainer,
+};
+
+const _$CodecProfileTypeEnumMap = {
+  CodecProfileType.video: 'Video',
+  CodecProfileType.videoAudio: 'VideoAudio',
+  CodecProfileType.audio: 'Audio',
 };

@@ -11,6 +11,9 @@ _SyncPlayPlayQueueUpdate _$SyncPlayPlayQueueUpdateFromJson(
 ) => _SyncPlayPlayQueueUpdate(
   groupId: json['GroupId'] as String,
   data: PlayQueueUpdate.fromJson(json['Data'] as Map<String, dynamic>),
+  type:
+      $enumDecodeNullable(_$SyncPlayPlayQueueUpdateTypeEnumMap, json['Type']) ??
+      SyncPlayPlayQueueUpdateType.playQueue,
 );
 
 Map<String, dynamic> _$SyncPlayPlayQueueUpdateToJson(
@@ -18,4 +21,17 @@ Map<String, dynamic> _$SyncPlayPlayQueueUpdateToJson(
 ) => <String, dynamic>{
   'GroupId': instance.groupId,
   'Data': instance.data.toJson(),
+  'Type': instance.type.toJson(),
+};
+
+const _$SyncPlayPlayQueueUpdateTypeEnumMap = {
+  SyncPlayPlayQueueUpdateType.userJoined: 'UserJoined',
+  SyncPlayPlayQueueUpdateType.userLeft: 'UserLeft',
+  SyncPlayPlayQueueUpdateType.groupJoined: 'GroupJoined',
+  SyncPlayPlayQueueUpdateType.groupLeft: 'GroupLeft',
+  SyncPlayPlayQueueUpdateType.stateUpdate: 'StateUpdate',
+  SyncPlayPlayQueueUpdateType.playQueue: 'PlayQueue',
+  SyncPlayPlayQueueUpdateType.notInGroup: 'NotInGroup',
+  SyncPlayPlayQueueUpdateType.groupDoesNotExist: 'GroupDoesNotExist',
+  SyncPlayPlayQueueUpdateType.libraryAccessDenied: 'LibraryAccessDenied',
 };

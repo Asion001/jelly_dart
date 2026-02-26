@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,6 +14,18 @@ part 'transcoding_info.g.dart';
 @Freezed()
 abstract class TranscodingInfo with _$TranscodingInfo {
   const factory TranscodingInfo({
+    /// Gets or sets the thread count used for encoding.
+    @JsonKey(name: 'AudioCodec')
+    required String? audioCodec,
+
+    /// Gets or sets the thread count used for encoding.
+    @JsonKey(name: 'VideoCodec')
+    required String? videoCodec,
+
+    /// Gets or sets the thread count used for encoding.
+    @JsonKey(name: 'Container')
+    required String? container,
+
     /// Gets or sets a value indicating whether the video is passed through.
     @JsonKey(name: 'IsVideoDirect')
     required bool isVideoDirect,
@@ -22,49 +34,37 @@ abstract class TranscodingInfo with _$TranscodingInfo {
     @JsonKey(name: 'IsAudioDirect')
     required bool isAudioDirect,
 
-    /// Gets or sets the transcode reasons.
-    @JsonKey(name: 'TranscodeReasons')
-    required List<TranscodeReason> transcodeReasons,
-
-    /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'AudioCodec')
-    String? audioCodec,
-
-    /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'VideoCodec')
-    String? videoCodec,
-
-    /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'Container')
-    String? container,
-
     /// Gets or sets the bitrate.
     @JsonKey(name: 'Bitrate')
-    int? bitrate,
+    required int? bitrate,
 
     /// Gets or sets the framerate.
     @JsonKey(name: 'Framerate')
-    double? framerate,
+    required double? framerate,
 
     /// Gets or sets the completion percentage.
     @JsonKey(name: 'CompletionPercentage')
-    double? completionPercentage,
+    required double? completionPercentage,
 
     /// Gets or sets the video width.
     @JsonKey(name: 'Width')
-    int? width,
+    required int? width,
 
     /// Gets or sets the video height.
     @JsonKey(name: 'Height')
-    int? height,
+    required int? height,
 
     /// Gets or sets the audio channels.
     @JsonKey(name: 'AudioChannels')
-    int? audioChannels,
+    required int? audioChannels,
 
     /// Gets or sets the hardware acceleration type.
     @JsonKey(name: 'HardwareAccelerationType')
-    TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+    required TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+
+    /// Gets or sets the transcode reasons.
+    @JsonKey(name: 'TranscodeReasons')
+    required List<TranscodeReason> transcodeReasons,
   }) = _TranscodingInfo;
   
   factory TranscodingInfo.fromJson(Map<String, Object?> json) => _$TranscodingInfoFromJson(json);

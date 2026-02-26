@@ -11,6 +11,12 @@ _SyncPlayGroupJoinedUpdate _$SyncPlayGroupJoinedUpdateFromJson(
 ) => _SyncPlayGroupJoinedUpdate(
   groupId: json['GroupId'] as String,
   data: GroupInfoDto.fromJson(json['Data'] as Map<String, dynamic>),
+  type:
+      $enumDecodeNullable(
+        _$SyncPlayGroupJoinedUpdateTypeEnumMap,
+        json['Type'],
+      ) ??
+      SyncPlayGroupJoinedUpdateType.groupJoined,
 );
 
 Map<String, dynamic> _$SyncPlayGroupJoinedUpdateToJson(
@@ -18,4 +24,17 @@ Map<String, dynamic> _$SyncPlayGroupJoinedUpdateToJson(
 ) => <String, dynamic>{
   'GroupId': instance.groupId,
   'Data': instance.data.toJson(),
+  'Type': instance.type.toJson(),
+};
+
+const _$SyncPlayGroupJoinedUpdateTypeEnumMap = {
+  SyncPlayGroupJoinedUpdateType.userJoined: 'UserJoined',
+  SyncPlayGroupJoinedUpdateType.userLeft: 'UserLeft',
+  SyncPlayGroupJoinedUpdateType.groupJoined: 'GroupJoined',
+  SyncPlayGroupJoinedUpdateType.groupLeft: 'GroupLeft',
+  SyncPlayGroupJoinedUpdateType.stateUpdate: 'StateUpdate',
+  SyncPlayGroupJoinedUpdateType.playQueue: 'PlayQueue',
+  SyncPlayGroupJoinedUpdateType.notInGroup: 'NotInGroup',
+  SyncPlayGroupJoinedUpdateType.groupDoesNotExist: 'GroupDoesNotExist',
+  SyncPlayGroupJoinedUpdateType.libraryAccessDenied: 'LibraryAccessDenied',
 };

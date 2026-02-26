@@ -13,22 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserDto {
-  /// Gets or sets the id.
-  @JsonKey(name: 'Id')
-  String get id;
-
-  /// Gets or sets a value indicating whether this instance has password.
-  @JsonKey(name: 'HasPassword')
-  bool get hasPassword;
-
-  /// Gets or sets a value indicating whether this instance has configured password.
-  @JsonKey(name: 'HasConfiguredPassword')
-  bool get hasConfiguredPassword;
-
-  /// Gets or sets a value indicating whether this instance has configured easy password.
-  @JsonKey(name: 'HasConfiguredEasyPassword')
-  bool get hasConfiguredEasyPassword;
-
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
   String? get name;
@@ -43,9 +27,26 @@ mixin _$UserDto {
   @JsonKey(name: 'ServerName')
   String? get serverName;
 
+  /// Gets or sets the id.
+  @JsonKey(name: 'Id')
+  String get id;
+
   /// Gets or sets the primary image tag.
   @JsonKey(name: 'PrimaryImageTag')
   String? get primaryImageTag;
+
+  /// Gets or sets a value indicating whether this instance has password.
+  @JsonKey(name: 'HasPassword')
+  bool get hasPassword;
+
+  /// Gets or sets a value indicating whether this instance has configured password.
+  @JsonKey(name: 'HasConfiguredPassword')
+  bool get hasConfiguredPassword;
+
+  /// Gets or sets a value indicating whether this instance has configured easy password.
+  @JsonKey(name: 'HasConfiguredEasyPassword')
+  @Deprecated('This is marked as deprecated')
+  bool get hasConfiguredEasyPassword;
 
   /// Gets or sets whether async login is enabled or not.
   @JsonKey(name: 'EnableAutoLogin')
@@ -61,11 +62,11 @@ mixin _$UserDto {
 
   /// Gets or sets the configuration.
   @JsonKey(name: 'Configuration')
-  UserConfiguration? get configuration;
+  UserConfiguration get configuration;
 
   /// Gets or sets the policy.
   @JsonKey(name: 'Policy')
-  UserPolicy? get policy;
+  UserPolicy get policy;
 
   /// Gets or sets the primary image aspect ratio.
   @JsonKey(name: 'PrimaryImageAspectRatio')
@@ -86,7 +87,14 @@ mixin _$UserDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.serverId, serverId) ||
+                other.serverId == serverId) &&
+            (identical(other.serverName, serverName) ||
+                other.serverName == serverName) &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.primaryImageTag, primaryImageTag) ||
+                other.primaryImageTag == primaryImageTag) &&
             (identical(other.hasPassword, hasPassword) ||
                 other.hasPassword == hasPassword) &&
             (identical(other.hasConfiguredPassword, hasConfiguredPassword) ||
@@ -96,13 +104,6 @@ mixin _$UserDto {
                   hasConfiguredEasyPassword,
                 ) ||
                 other.hasConfiguredEasyPassword == hasConfiguredEasyPassword) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.serverId, serverId) ||
-                other.serverId == serverId) &&
-            (identical(other.serverName, serverName) ||
-                other.serverName == serverName) &&
-            (identical(other.primaryImageTag, primaryImageTag) ||
-                other.primaryImageTag == primaryImageTag) &&
             (identical(other.enableAutoLogin, enableAutoLogin) ||
                 other.enableAutoLogin == enableAutoLogin) &&
             (identical(other.lastLoginDate, lastLoginDate) ||
@@ -123,14 +124,14 @@ mixin _$UserDto {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    hasPassword,
-    hasConfiguredPassword,
-    hasConfiguredEasyPassword,
     name,
     serverId,
     serverName,
+    id,
     primaryImageTag,
+    hasPassword,
+    hasConfiguredPassword,
+    hasConfiguredEasyPassword,
     enableAutoLogin,
     lastLoginDate,
     lastActivityDate,
@@ -141,7 +142,7 @@ mixin _$UserDto {
 
   @override
   String toString() {
-    return 'UserDto(id: $id, hasPassword: $hasPassword, hasConfiguredPassword: $hasConfiguredPassword, hasConfiguredEasyPassword: $hasConfiguredEasyPassword, name: $name, serverId: $serverId, serverName: $serverName, primaryImageTag: $primaryImageTag, enableAutoLogin: $enableAutoLogin, lastLoginDate: $lastLoginDate, lastActivityDate: $lastActivityDate, configuration: $configuration, policy: $policy, primaryImageAspectRatio: $primaryImageAspectRatio)';
+    return 'UserDto(name: $name, serverId: $serverId, serverName: $serverName, id: $id, primaryImageTag: $primaryImageTag, hasPassword: $hasPassword, hasConfiguredPassword: $hasConfiguredPassword, hasConfiguredEasyPassword: $hasConfiguredEasyPassword, enableAutoLogin: $enableAutoLogin, lastLoginDate: $lastLoginDate, lastActivityDate: $lastActivityDate, configuration: $configuration, policy: $policy, primaryImageAspectRatio: $primaryImageAspectRatio)';
   }
 }
 
@@ -151,24 +152,26 @@ abstract mixin class $UserDtoCopyWith<$Res> {
       _$UserDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'HasPassword') bool hasPassword,
-    @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
-    @JsonKey(name: 'HasConfiguredEasyPassword') bool hasConfiguredEasyPassword,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ServerName') String? serverName,
+    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+    @JsonKey(name: 'HasPassword') bool hasPassword,
+    @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
+    @JsonKey(name: 'HasConfiguredEasyPassword')
+    @Deprecated('This is marked as deprecated')
+    bool hasConfiguredEasyPassword,
     @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
     @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
     @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
-    @JsonKey(name: 'Configuration') UserConfiguration? configuration,
-    @JsonKey(name: 'Policy') UserPolicy? policy,
+    @JsonKey(name: 'Configuration') UserConfiguration configuration,
+    @JsonKey(name: 'Policy') UserPolicy policy,
     @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
   });
 
-  $UserConfigurationCopyWith<$Res>? get configuration;
-  $UserPolicyCopyWith<$Res>? get policy;
+  $UserConfigurationCopyWith<$Res> get configuration;
+  $UserPolicyCopyWith<$Res> get policy;
 }
 
 /// @nodoc
@@ -183,39 +186,23 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? hasPassword = null,
-    Object? hasConfiguredPassword = null,
-    Object? hasConfiguredEasyPassword = null,
     Object? name = freezed,
     Object? serverId = freezed,
     Object? serverName = freezed,
+    Object? id = null,
     Object? primaryImageTag = freezed,
+    Object? hasPassword = null,
+    Object? hasConfiguredPassword = null,
+    Object? hasConfiguredEasyPassword = null,
     Object? enableAutoLogin = freezed,
     Object? lastLoginDate = freezed,
     Object? lastActivityDate = freezed,
-    Object? configuration = freezed,
-    Object? policy = freezed,
+    Object? configuration = null,
+    Object? policy = null,
     Object? primaryImageAspectRatio = freezed,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        hasPassword: null == hasPassword
-            ? _self.hasPassword
-            : hasPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasConfiguredPassword: null == hasConfiguredPassword
-            ? _self.hasConfiguredPassword
-            : hasConfiguredPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasConfiguredEasyPassword: null == hasConfiguredEasyPassword
-            ? _self.hasConfiguredEasyPassword
-            : hasConfiguredEasyPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -228,10 +215,26 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
             ? _self.serverName
             : serverName // ignore: cast_nullable_to_non_nullable
                   as String?,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
         primaryImageTag: freezed == primaryImageTag
             ? _self.primaryImageTag
             : primaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
+        hasPassword: null == hasPassword
+            ? _self.hasPassword
+            : hasPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasConfiguredPassword: null == hasConfiguredPassword
+            ? _self.hasConfiguredPassword
+            : hasConfiguredPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasConfiguredEasyPassword: null == hasConfiguredEasyPassword
+            ? _self.hasConfiguredEasyPassword
+            : hasConfiguredEasyPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
         enableAutoLogin: freezed == enableAutoLogin
             ? _self.enableAutoLogin
             : enableAutoLogin // ignore: cast_nullable_to_non_nullable
@@ -244,14 +247,14 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
             ? _self.lastActivityDate
             : lastActivityDate // ignore: cast_nullable_to_non_nullable
                   as DateTime?,
-        configuration: freezed == configuration
+        configuration: null == configuration
             ? _self.configuration
             : configuration // ignore: cast_nullable_to_non_nullable
-                  as UserConfiguration?,
-        policy: freezed == policy
+                  as UserConfiguration,
+        policy: null == policy
             ? _self.policy
             : policy // ignore: cast_nullable_to_non_nullable
-                  as UserPolicy?,
+                  as UserPolicy,
         primaryImageAspectRatio: freezed == primaryImageAspectRatio
             ? _self.primaryImageAspectRatio
             : primaryImageAspectRatio // ignore: cast_nullable_to_non_nullable
@@ -264,12 +267,8 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserConfigurationCopyWith<$Res>? get configuration {
-    if (_self.configuration == null) {
-      return null;
-    }
-
-    return $UserConfigurationCopyWith<$Res>(_self.configuration!, (value) {
+  $UserConfigurationCopyWith<$Res> get configuration {
+    return $UserConfigurationCopyWith<$Res>(_self.configuration, (value) {
       return _then(_self.copyWith(configuration: value));
     });
   }
@@ -278,12 +277,8 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserPolicyCopyWith<$Res>? get policy {
-    if (_self.policy == null) {
-      return null;
-    }
-
-    return $UserPolicyCopyWith<$Res>(_self.policy!, (value) {
+  $UserPolicyCopyWith<$Res> get policy {
+    return $UserPolicyCopyWith<$Res>(_self.policy, (value) {
       return _then(_self.copyWith(policy: value));
     });
   }
@@ -383,20 +378,21 @@ extension UserDtoPatterns on UserDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'HasPassword') bool hasPassword,
-      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
-      @JsonKey(name: 'HasConfiguredEasyPassword')
-      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+      @JsonKey(name: 'HasPassword') bool hasPassword,
+      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
+      @JsonKey(name: 'HasConfiguredEasyPassword')
+      @Deprecated('This is marked as deprecated')
+      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
       @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
       @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
-      @JsonKey(name: 'Configuration') UserConfiguration? configuration,
-      @JsonKey(name: 'Policy') UserPolicy? policy,
+      @JsonKey(name: 'Configuration') UserConfiguration configuration,
+      @JsonKey(name: 'Policy') UserPolicy policy,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
     )?
     $default, {
@@ -406,14 +402,14 @@ extension UserDtoPatterns on UserDto {
     switch (_that) {
       case _UserDto() when $default != null:
         return $default(
-          _that.id,
-          _that.hasPassword,
-          _that.hasConfiguredPassword,
-          _that.hasConfiguredEasyPassword,
           _that.name,
           _that.serverId,
           _that.serverName,
+          _that.id,
           _that.primaryImageTag,
+          _that.hasPassword,
+          _that.hasConfiguredPassword,
+          _that.hasConfiguredEasyPassword,
           _that.enableAutoLogin,
           _that.lastLoginDate,
           _that.lastActivityDate,
@@ -442,20 +438,21 @@ extension UserDtoPatterns on UserDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'HasPassword') bool hasPassword,
-      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
-      @JsonKey(name: 'HasConfiguredEasyPassword')
-      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+      @JsonKey(name: 'HasPassword') bool hasPassword,
+      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
+      @JsonKey(name: 'HasConfiguredEasyPassword')
+      @Deprecated('This is marked as deprecated')
+      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
       @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
       @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
-      @JsonKey(name: 'Configuration') UserConfiguration? configuration,
-      @JsonKey(name: 'Policy') UserPolicy? policy,
+      @JsonKey(name: 'Configuration') UserConfiguration configuration,
+      @JsonKey(name: 'Policy') UserPolicy policy,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
     )
     $default,
@@ -464,14 +461,14 @@ extension UserDtoPatterns on UserDto {
     switch (_that) {
       case _UserDto():
         return $default(
-          _that.id,
-          _that.hasPassword,
-          _that.hasConfiguredPassword,
-          _that.hasConfiguredEasyPassword,
           _that.name,
           _that.serverId,
           _that.serverName,
+          _that.id,
           _that.primaryImageTag,
+          _that.hasPassword,
+          _that.hasConfiguredPassword,
+          _that.hasConfiguredEasyPassword,
           _that.enableAutoLogin,
           _that.lastLoginDate,
           _that.lastActivityDate,
@@ -499,20 +496,21 @@ extension UserDtoPatterns on UserDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'HasPassword') bool hasPassword,
-      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
-      @JsonKey(name: 'HasConfiguredEasyPassword')
-      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+      @JsonKey(name: 'HasPassword') bool hasPassword,
+      @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
+      @JsonKey(name: 'HasConfiguredEasyPassword')
+      @Deprecated('This is marked as deprecated')
+      bool hasConfiguredEasyPassword,
       @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
       @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
       @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
-      @JsonKey(name: 'Configuration') UserConfiguration? configuration,
-      @JsonKey(name: 'Policy') UserPolicy? policy,
+      @JsonKey(name: 'Configuration') UserConfiguration configuration,
+      @JsonKey(name: 'Policy') UserPolicy policy,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
     )?
     $default,
@@ -521,14 +519,14 @@ extension UserDtoPatterns on UserDto {
     switch (_that) {
       case _UserDto() when $default != null:
         return $default(
-          _that.id,
-          _that.hasPassword,
-          _that.hasConfiguredPassword,
-          _that.hasConfiguredEasyPassword,
           _that.name,
           _that.serverId,
           _that.serverName,
+          _that.id,
           _that.primaryImageTag,
+          _that.hasPassword,
+          _that.hasConfiguredPassword,
+          _that.hasConfiguredEasyPassword,
           _that.enableAutoLogin,
           _that.lastLoginDate,
           _that.lastActivityDate,
@@ -546,44 +544,26 @@ extension UserDtoPatterns on UserDto {
 @JsonSerializable()
 class _UserDto implements UserDto {
   const _UserDto({
+    @JsonKey(name: 'Name') required this.name,
+    @JsonKey(name: 'ServerId') required this.serverId,
+    @JsonKey(name: 'ServerName') required this.serverName,
     @JsonKey(name: 'Id') required this.id,
+    @JsonKey(name: 'PrimaryImageTag') required this.primaryImageTag,
     @JsonKey(name: 'HasPassword') required this.hasPassword,
     @JsonKey(name: 'HasConfiguredPassword') required this.hasConfiguredPassword,
     @JsonKey(name: 'HasConfiguredEasyPassword')
+    @Deprecated('This is marked as deprecated')
     required this.hasConfiguredEasyPassword,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'ServerId') this.serverId,
-    @JsonKey(name: 'ServerName') this.serverName,
-    @JsonKey(name: 'PrimaryImageTag') this.primaryImageTag,
-    @JsonKey(name: 'EnableAutoLogin') this.enableAutoLogin,
-    @JsonKey(name: 'LastLoginDate') this.lastLoginDate,
-    @JsonKey(name: 'LastActivityDate') this.lastActivityDate,
-    @JsonKey(name: 'Configuration') this.configuration,
-    @JsonKey(name: 'Policy') this.policy,
-    @JsonKey(name: 'PrimaryImageAspectRatio') this.primaryImageAspectRatio,
+    @JsonKey(name: 'EnableAutoLogin') required this.enableAutoLogin,
+    @JsonKey(name: 'LastLoginDate') required this.lastLoginDate,
+    @JsonKey(name: 'LastActivityDate') required this.lastActivityDate,
+    @JsonKey(name: 'Configuration') required this.configuration,
+    @JsonKey(name: 'Policy') required this.policy,
+    @JsonKey(name: 'PrimaryImageAspectRatio')
+    required this.primaryImageAspectRatio,
   });
   factory _UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
-
-  /// Gets or sets the id.
-  @override
-  @JsonKey(name: 'Id')
-  final String id;
-
-  /// Gets or sets a value indicating whether this instance has password.
-  @override
-  @JsonKey(name: 'HasPassword')
-  final bool hasPassword;
-
-  /// Gets or sets a value indicating whether this instance has configured password.
-  @override
-  @JsonKey(name: 'HasConfiguredPassword')
-  final bool hasConfiguredPassword;
-
-  /// Gets or sets a value indicating whether this instance has configured easy password.
-  @override
-  @JsonKey(name: 'HasConfiguredEasyPassword')
-  final bool hasConfiguredEasyPassword;
 
   /// Gets or sets the name.
   @override
@@ -602,10 +582,31 @@ class _UserDto implements UserDto {
   @JsonKey(name: 'ServerName')
   final String? serverName;
 
+  /// Gets or sets the id.
+  @override
+  @JsonKey(name: 'Id')
+  final String id;
+
   /// Gets or sets the primary image tag.
   @override
   @JsonKey(name: 'PrimaryImageTag')
   final String? primaryImageTag;
+
+  /// Gets or sets a value indicating whether this instance has password.
+  @override
+  @JsonKey(name: 'HasPassword')
+  final bool hasPassword;
+
+  /// Gets or sets a value indicating whether this instance has configured password.
+  @override
+  @JsonKey(name: 'HasConfiguredPassword')
+  final bool hasConfiguredPassword;
+
+  /// Gets or sets a value indicating whether this instance has configured easy password.
+  @override
+  @JsonKey(name: 'HasConfiguredEasyPassword')
+  @Deprecated('This is marked as deprecated')
+  final bool hasConfiguredEasyPassword;
 
   /// Gets or sets whether async login is enabled or not.
   @override
@@ -625,12 +626,12 @@ class _UserDto implements UserDto {
   /// Gets or sets the configuration.
   @override
   @JsonKey(name: 'Configuration')
-  final UserConfiguration? configuration;
+  final UserConfiguration configuration;
 
   /// Gets or sets the policy.
   @override
   @JsonKey(name: 'Policy')
-  final UserPolicy? policy;
+  final UserPolicy policy;
 
   /// Gets or sets the primary image aspect ratio.
   @override
@@ -655,7 +656,14 @@ class _UserDto implements UserDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.serverId, serverId) ||
+                other.serverId == serverId) &&
+            (identical(other.serverName, serverName) ||
+                other.serverName == serverName) &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.primaryImageTag, primaryImageTag) ||
+                other.primaryImageTag == primaryImageTag) &&
             (identical(other.hasPassword, hasPassword) ||
                 other.hasPassword == hasPassword) &&
             (identical(other.hasConfiguredPassword, hasConfiguredPassword) ||
@@ -665,13 +673,6 @@ class _UserDto implements UserDto {
                   hasConfiguredEasyPassword,
                 ) ||
                 other.hasConfiguredEasyPassword == hasConfiguredEasyPassword) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.serverId, serverId) ||
-                other.serverId == serverId) &&
-            (identical(other.serverName, serverName) ||
-                other.serverName == serverName) &&
-            (identical(other.primaryImageTag, primaryImageTag) ||
-                other.primaryImageTag == primaryImageTag) &&
             (identical(other.enableAutoLogin, enableAutoLogin) ||
                 other.enableAutoLogin == enableAutoLogin) &&
             (identical(other.lastLoginDate, lastLoginDate) ||
@@ -692,14 +693,14 @@ class _UserDto implements UserDto {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    hasPassword,
-    hasConfiguredPassword,
-    hasConfiguredEasyPassword,
     name,
     serverId,
     serverName,
+    id,
     primaryImageTag,
+    hasPassword,
+    hasConfiguredPassword,
+    hasConfiguredEasyPassword,
     enableAutoLogin,
     lastLoginDate,
     lastActivityDate,
@@ -710,7 +711,7 @@ class _UserDto implements UserDto {
 
   @override
   String toString() {
-    return 'UserDto(id: $id, hasPassword: $hasPassword, hasConfiguredPassword: $hasConfiguredPassword, hasConfiguredEasyPassword: $hasConfiguredEasyPassword, name: $name, serverId: $serverId, serverName: $serverName, primaryImageTag: $primaryImageTag, enableAutoLogin: $enableAutoLogin, lastLoginDate: $lastLoginDate, lastActivityDate: $lastActivityDate, configuration: $configuration, policy: $policy, primaryImageAspectRatio: $primaryImageAspectRatio)';
+    return 'UserDto(name: $name, serverId: $serverId, serverName: $serverName, id: $id, primaryImageTag: $primaryImageTag, hasPassword: $hasPassword, hasConfiguredPassword: $hasConfiguredPassword, hasConfiguredEasyPassword: $hasConfiguredEasyPassword, enableAutoLogin: $enableAutoLogin, lastLoginDate: $lastLoginDate, lastActivityDate: $lastActivityDate, configuration: $configuration, policy: $policy, primaryImageAspectRatio: $primaryImageAspectRatio)';
   }
 }
 
@@ -721,26 +722,28 @@ abstract mixin class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'HasPassword') bool hasPassword,
-    @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
-    @JsonKey(name: 'HasConfiguredEasyPassword') bool hasConfiguredEasyPassword,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ServerName') String? serverName,
+    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+    @JsonKey(name: 'HasPassword') bool hasPassword,
+    @JsonKey(name: 'HasConfiguredPassword') bool hasConfiguredPassword,
+    @JsonKey(name: 'HasConfiguredEasyPassword')
+    @Deprecated('This is marked as deprecated')
+    bool hasConfiguredEasyPassword,
     @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
     @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
     @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
-    @JsonKey(name: 'Configuration') UserConfiguration? configuration,
-    @JsonKey(name: 'Policy') UserPolicy? policy,
+    @JsonKey(name: 'Configuration') UserConfiguration configuration,
+    @JsonKey(name: 'Policy') UserPolicy policy,
     @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
   });
 
   @override
-  $UserConfigurationCopyWith<$Res>? get configuration;
+  $UserConfigurationCopyWith<$Res> get configuration;
   @override
-  $UserPolicyCopyWith<$Res>? get policy;
+  $UserPolicyCopyWith<$Res> get policy;
 }
 
 /// @nodoc
@@ -755,39 +758,23 @@ class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? hasPassword = null,
-    Object? hasConfiguredPassword = null,
-    Object? hasConfiguredEasyPassword = null,
     Object? name = freezed,
     Object? serverId = freezed,
     Object? serverName = freezed,
+    Object? id = null,
     Object? primaryImageTag = freezed,
+    Object? hasPassword = null,
+    Object? hasConfiguredPassword = null,
+    Object? hasConfiguredEasyPassword = null,
     Object? enableAutoLogin = freezed,
     Object? lastLoginDate = freezed,
     Object? lastActivityDate = freezed,
-    Object? configuration = freezed,
-    Object? policy = freezed,
+    Object? configuration = null,
+    Object? policy = null,
     Object? primaryImageAspectRatio = freezed,
   }) {
     return _then(
       _UserDto(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        hasPassword: null == hasPassword
-            ? _self.hasPassword
-            : hasPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasConfiguredPassword: null == hasConfiguredPassword
-            ? _self.hasConfiguredPassword
-            : hasConfiguredPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasConfiguredEasyPassword: null == hasConfiguredEasyPassword
-            ? _self.hasConfiguredEasyPassword
-            : hasConfiguredEasyPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -800,10 +787,26 @@ class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
             ? _self.serverName
             : serverName // ignore: cast_nullable_to_non_nullable
                   as String?,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
         primaryImageTag: freezed == primaryImageTag
             ? _self.primaryImageTag
             : primaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
+        hasPassword: null == hasPassword
+            ? _self.hasPassword
+            : hasPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasConfiguredPassword: null == hasConfiguredPassword
+            ? _self.hasConfiguredPassword
+            : hasConfiguredPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasConfiguredEasyPassword: null == hasConfiguredEasyPassword
+            ? _self.hasConfiguredEasyPassword
+            : hasConfiguredEasyPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
         enableAutoLogin: freezed == enableAutoLogin
             ? _self.enableAutoLogin
             : enableAutoLogin // ignore: cast_nullable_to_non_nullable
@@ -816,14 +819,14 @@ class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
             ? _self.lastActivityDate
             : lastActivityDate // ignore: cast_nullable_to_non_nullable
                   as DateTime?,
-        configuration: freezed == configuration
+        configuration: null == configuration
             ? _self.configuration
             : configuration // ignore: cast_nullable_to_non_nullable
-                  as UserConfiguration?,
-        policy: freezed == policy
+                  as UserConfiguration,
+        policy: null == policy
             ? _self.policy
             : policy // ignore: cast_nullable_to_non_nullable
-                  as UserPolicy?,
+                  as UserPolicy,
         primaryImageAspectRatio: freezed == primaryImageAspectRatio
             ? _self.primaryImageAspectRatio
             : primaryImageAspectRatio // ignore: cast_nullable_to_non_nullable
@@ -836,12 +839,8 @@ class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserConfigurationCopyWith<$Res>? get configuration {
-    if (_self.configuration == null) {
-      return null;
-    }
-
-    return $UserConfigurationCopyWith<$Res>(_self.configuration!, (value) {
+  $UserConfigurationCopyWith<$Res> get configuration {
+    return $UserConfigurationCopyWith<$Res>(_self.configuration, (value) {
       return _then(_self.copyWith(configuration: value));
     });
   }
@@ -850,12 +849,8 @@ class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserPolicyCopyWith<$Res>? get policy {
-    if (_self.policy == null) {
-      return null;
-    }
-
-    return $UserPolicyCopyWith<$Res>(_self.policy!, (value) {
+  $UserPolicyCopyWith<$Res> get policy {
+    return $UserPolicyCopyWith<$Res>(_self.policy, (value) {
       return _then(_self.copyWith(policy: value));
     });
   }

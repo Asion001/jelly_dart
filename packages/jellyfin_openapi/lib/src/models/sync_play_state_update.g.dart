@@ -10,6 +10,9 @@ _SyncPlayStateUpdate _$SyncPlayStateUpdateFromJson(Map<String, dynamic> json) =>
     _SyncPlayStateUpdate(
       groupId: json['GroupId'] as String,
       data: GroupStateUpdate.fromJson(json['Data'] as Map<String, dynamic>),
+      type:
+          $enumDecodeNullable(_$SyncPlayStateUpdateTypeEnumMap, json['Type']) ??
+          SyncPlayStateUpdateType.stateUpdate,
     );
 
 Map<String, dynamic> _$SyncPlayStateUpdateToJson(
@@ -17,4 +20,17 @@ Map<String, dynamic> _$SyncPlayStateUpdateToJson(
 ) => <String, dynamic>{
   'GroupId': instance.groupId,
   'Data': instance.data.toJson(),
+  'Type': instance.type.toJson(),
+};
+
+const _$SyncPlayStateUpdateTypeEnumMap = {
+  SyncPlayStateUpdateType.userJoined: 'UserJoined',
+  SyncPlayStateUpdateType.userLeft: 'UserLeft',
+  SyncPlayStateUpdateType.groupJoined: 'GroupJoined',
+  SyncPlayStateUpdateType.groupLeft: 'GroupLeft',
+  SyncPlayStateUpdateType.stateUpdate: 'StateUpdate',
+  SyncPlayStateUpdateType.playQueue: 'PlayQueue',
+  SyncPlayStateUpdateType.notInGroup: 'NotInGroup',
+  SyncPlayStateUpdateType.groupDoesNotExist: 'GroupDoesNotExist',
+  SyncPlayStateUpdateType.libraryAccessDenied: 'LibraryAccessDenied',
 };

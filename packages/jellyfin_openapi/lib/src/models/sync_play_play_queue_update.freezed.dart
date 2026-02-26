@@ -21,6 +21,10 @@ mixin _$SyncPlayPlayQueueUpdate {
   @JsonKey(name: 'Data')
   PlayQueueUpdate get data;
 
+  /// Enum GroupUpdateType.
+  @JsonKey(name: 'Type')
+  SyncPlayPlayQueueUpdateType get type;
+
   /// Create a copy of SyncPlayPlayQueueUpdate
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -40,16 +44,17 @@ mixin _$SyncPlayPlayQueueUpdate {
         (other.runtimeType == runtimeType &&
             other is SyncPlayPlayQueueUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayPlayQueueUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayPlayQueueUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -63,6 +68,7 @@ abstract mixin class $SyncPlayPlayQueueUpdateCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') PlayQueueUpdate data,
+    @JsonKey(name: 'Type') SyncPlayPlayQueueUpdateType type,
   });
 
   $PlayQueueUpdateCopyWith<$Res> get data;
@@ -80,7 +86,11 @@ class _$SyncPlayPlayQueueUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _self.copyWith(
         groupId: null == groupId
@@ -91,6 +101,10 @@ class _$SyncPlayPlayQueueUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as PlayQueueUpdate,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayPlayQueueUpdateType,
       ),
     );
   }
@@ -202,6 +216,7 @@ extension SyncPlayPlayQueueUpdatePatterns on SyncPlayPlayQueueUpdate {
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'Type') SyncPlayPlayQueueUpdateType type,
     )?
     $default, {
     required TResult orElse(),
@@ -209,7 +224,7 @@ extension SyncPlayPlayQueueUpdatePatterns on SyncPlayPlayQueueUpdate {
     final _that = this;
     switch (_that) {
       case _SyncPlayPlayQueueUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return orElse();
     }
@@ -233,13 +248,14 @@ extension SyncPlayPlayQueueUpdatePatterns on SyncPlayPlayQueueUpdate {
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'Type') SyncPlayPlayQueueUpdateType type,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayPlayQueueUpdate():
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -262,13 +278,14 @@ extension SyncPlayPlayQueueUpdatePatterns on SyncPlayPlayQueueUpdate {
     TResult? Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'Type') SyncPlayPlayQueueUpdateType type,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayPlayQueueUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return null;
     }
@@ -281,6 +298,7 @@ class _SyncPlayPlayQueueUpdate implements SyncPlayPlayQueueUpdate {
   const _SyncPlayPlayQueueUpdate({
     @JsonKey(name: 'GroupId') required this.groupId,
     @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'Type') this.type = SyncPlayPlayQueueUpdateType.playQueue,
   });
   factory _SyncPlayPlayQueueUpdate.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayPlayQueueUpdateFromJson(json);
@@ -294,6 +312,11 @@ class _SyncPlayPlayQueueUpdate implements SyncPlayPlayQueueUpdate {
   @override
   @JsonKey(name: 'Data')
   final PlayQueueUpdate data;
+
+  /// Enum GroupUpdateType.
+  @override
+  @JsonKey(name: 'Type')
+  final SyncPlayPlayQueueUpdateType type;
 
   /// Create a copy of SyncPlayPlayQueueUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -317,16 +340,17 @@ class _SyncPlayPlayQueueUpdate implements SyncPlayPlayQueueUpdate {
         (other.runtimeType == runtimeType &&
             other is _SyncPlayPlayQueueUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayPlayQueueUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayPlayQueueUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -342,6 +366,7 @@ abstract mixin class _$SyncPlayPlayQueueUpdateCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') PlayQueueUpdate data,
+    @JsonKey(name: 'Type') SyncPlayPlayQueueUpdateType type,
   });
 
   @override
@@ -360,7 +385,11 @@ class __$SyncPlayPlayQueueUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _SyncPlayPlayQueueUpdate(
         groupId: null == groupId
@@ -371,6 +400,10 @@ class __$SyncPlayPlayQueueUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as PlayQueueUpdate,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayPlayQueueUpdateType,
       ),
     );
   }

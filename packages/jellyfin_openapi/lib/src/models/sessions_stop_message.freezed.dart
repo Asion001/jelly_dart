@@ -13,31 +13,76 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SessionsStopMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  SessionsStopMessageMessageType get messageType;
+
+  /// Create a copy of SessionsStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SessionsStopMessageCopyWith<SessionsStopMessage> get copyWith =>
+      _$SessionsStopMessageCopyWithImpl<SessionsStopMessage>(
+        this as SessionsStopMessage,
+        _$identity,
+      );
+
   /// Serializes this SessionsStopMessage to a JSON map.
   Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SessionsStopMessage);
+        (other.runtimeType == runtimeType &&
+            other is SessionsStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'SessionsStopMessage()';
+    return 'SessionsStopMessage(messageType: $messageType)';
   }
 }
 
 /// @nodoc
-class $SessionsStopMessageCopyWith<$Res> {
-  $SessionsStopMessageCopyWith(
-    SessionsStopMessage _,
-    $Res Function(SessionsStopMessage) __,
-  );
+abstract mixin class $SessionsStopMessageCopyWith<$Res> {
+  factory $SessionsStopMessageCopyWith(
+    SessionsStopMessage value,
+    $Res Function(SessionsStopMessage) _then,
+  ) = _$SessionsStopMessageCopyWithImpl;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType') SessionsStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class _$SessionsStopMessageCopyWithImpl<$Res>
+    implements $SessionsStopMessageCopyWith<$Res> {
+  _$SessionsStopMessageCopyWithImpl(this._self, this._then);
+
+  final SessionsStopMessage _self;
+  final $Res Function(SessionsStopMessage) _then;
+
+  /// Create a copy of SessionsStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _self.copyWith(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SessionsStopMessageMessageType,
+      ),
+    );
+  }
 }
 
 /// Adds pattern-matching-related methods to [SessionsStopMessage].
@@ -133,13 +178,16 @@ extension SessionsStopMessagePatterns on SessionsStopMessage {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(
+      @JsonKey(name: 'MessageType') SessionsStopMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _SessionsStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return orElse();
     }
@@ -159,11 +207,16 @@ extension SessionsStopMessagePatterns on SessionsStopMessage {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(TResult Function() $default) {
+  TResult when<TResult extends Object?>(
+    TResult Function(
+      @JsonKey(name: 'MessageType') SessionsStopMessageMessageType messageType,
+    )
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _SessionsStopMessage():
-        return $default();
+        return $default(_that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -182,11 +235,16 @@ extension SessionsStopMessagePatterns on SessionsStopMessage {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(TResult? Function()? $default) {
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+      @JsonKey(name: 'MessageType') SessionsStopMessageMessageType messageType,
+    )?
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _SessionsStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return null;
     }
@@ -196,9 +254,28 @@ extension SessionsStopMessagePatterns on SessionsStopMessage {
 /// @nodoc
 @JsonSerializable()
 class _SessionsStopMessage implements SessionsStopMessage {
-  const _SessionsStopMessage();
+  const _SessionsStopMessage({
+    @JsonKey(name: 'MessageType')
+    this.messageType = SessionsStopMessageMessageType.sessionsStop,
+  });
   factory _SessionsStopMessage.fromJson(Map<String, dynamic> json) =>
       _$SessionsStopMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final SessionsStopMessageMessageType messageType;
+
+  /// Create a copy of SessionsStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SessionsStopMessageCopyWith<_SessionsStopMessage> get copyWith =>
+      __$SessionsStopMessageCopyWithImpl<_SessionsStopMessage>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
@@ -208,15 +285,56 @@ class _SessionsStopMessage implements SessionsStopMessage {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _SessionsStopMessage);
+        (other.runtimeType == runtimeType &&
+            other is _SessionsStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'SessionsStopMessage()';
+    return 'SessionsStopMessage(messageType: $messageType)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$SessionsStopMessageCopyWith<$Res>
+    implements $SessionsStopMessageCopyWith<$Res> {
+  factory _$SessionsStopMessageCopyWith(
+    _SessionsStopMessage value,
+    $Res Function(_SessionsStopMessage) _then,
+  ) = __$SessionsStopMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType') SessionsStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class __$SessionsStopMessageCopyWithImpl<$Res>
+    implements _$SessionsStopMessageCopyWith<$Res> {
+  __$SessionsStopMessageCopyWithImpl(this._self, this._then);
+
+  final _SessionsStopMessage _self;
+  final $Res Function(_SessionsStopMessage) _then;
+
+  /// Create a copy of SessionsStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _SessionsStopMessage(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SessionsStopMessageMessageType,
+      ),
+    );
   }
 }

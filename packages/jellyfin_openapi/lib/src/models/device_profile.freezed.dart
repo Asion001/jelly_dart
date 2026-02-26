@@ -13,26 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$DeviceProfile {
-  /// Gets or sets the direct play profiles.
-  @JsonKey(name: 'DirectPlayProfiles')
-  List<DirectPlayProfile> get directPlayProfiles;
-
-  /// Gets or sets the transcoding profiles.
-  @JsonKey(name: 'TranscodingProfiles')
-  List<TranscodingProfile> get transcodingProfiles;
-
-  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
-  @JsonKey(name: 'ContainerProfiles')
-  List<ContainerProfile> get containerProfiles;
-
-  /// Gets or sets the codec profiles.
-  @JsonKey(name: 'CodecProfiles')
-  List<CodecProfile> get codecProfiles;
-
-  /// Gets or sets the subtitle profiles.
-  @JsonKey(name: 'SubtitleProfiles')
-  List<SubtitleProfile> get subtitleProfiles;
-
   /// Gets or sets the name of this device profile. User profiles must have a unique name.
   @JsonKey(name: 'Name')
   String? get name;
@@ -57,6 +37,26 @@ mixin _$DeviceProfile {
   @JsonKey(name: 'MaxStaticMusicBitrate')
   int? get maxStaticMusicBitrate;
 
+  /// Gets or sets the direct play profiles.
+  @JsonKey(name: 'DirectPlayProfiles')
+  List<DirectPlayProfile>? get directPlayProfiles;
+
+  /// Gets or sets the transcoding profiles.
+  @JsonKey(name: 'TranscodingProfiles')
+  List<TranscodingProfile>? get transcodingProfiles;
+
+  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
+  @JsonKey(name: 'ContainerProfiles')
+  List<ContainerProfile>? get containerProfiles;
+
+  /// Gets or sets the codec profiles.
+  @JsonKey(name: 'CodecProfiles')
+  List<CodecProfile>? get codecProfiles;
+
+  /// Gets or sets the subtitle profiles.
+  @JsonKey(name: 'SubtitleProfiles')
+  List<SubtitleProfile>? get subtitleProfiles;
+
   /// Create a copy of DeviceProfile
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -75,6 +75,20 @@ mixin _$DeviceProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is DeviceProfile &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.maxStreamingBitrate, maxStreamingBitrate) ||
+                other.maxStreamingBitrate == maxStreamingBitrate) &&
+            (identical(other.maxStaticBitrate, maxStaticBitrate) ||
+                other.maxStaticBitrate == maxStaticBitrate) &&
+            (identical(
+                  other.musicStreamingTranscodingBitrate,
+                  musicStreamingTranscodingBitrate,
+                ) ||
+                other.musicStreamingTranscodingBitrate ==
+                    musicStreamingTranscodingBitrate) &&
+            (identical(other.maxStaticMusicBitrate, maxStaticMusicBitrate) ||
+                other.maxStaticMusicBitrate == maxStaticMusicBitrate) &&
             const DeepCollectionEquality().equals(
               other.directPlayProfiles,
               directPlayProfiles,
@@ -94,43 +108,29 @@ mixin _$DeviceProfile {
             const DeepCollectionEquality().equals(
               other.subtitleProfiles,
               subtitleProfiles,
-            ) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.maxStreamingBitrate, maxStreamingBitrate) ||
-                other.maxStreamingBitrate == maxStreamingBitrate) &&
-            (identical(other.maxStaticBitrate, maxStaticBitrate) ||
-                other.maxStaticBitrate == maxStaticBitrate) &&
-            (identical(
-                  other.musicStreamingTranscodingBitrate,
-                  musicStreamingTranscodingBitrate,
-                ) ||
-                other.musicStreamingTranscodingBitrate ==
-                    musicStreamingTranscodingBitrate) &&
-            (identical(other.maxStaticMusicBitrate, maxStaticMusicBitrate) ||
-                other.maxStaticMusicBitrate == maxStaticMusicBitrate));
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    const DeepCollectionEquality().hash(directPlayProfiles),
-    const DeepCollectionEquality().hash(transcodingProfiles),
-    const DeepCollectionEquality().hash(containerProfiles),
-    const DeepCollectionEquality().hash(codecProfiles),
-    const DeepCollectionEquality().hash(subtitleProfiles),
     name,
     id,
     maxStreamingBitrate,
     maxStaticBitrate,
     musicStreamingTranscodingBitrate,
     maxStaticMusicBitrate,
+    const DeepCollectionEquality().hash(directPlayProfiles),
+    const DeepCollectionEquality().hash(transcodingProfiles),
+    const DeepCollectionEquality().hash(containerProfiles),
+    const DeepCollectionEquality().hash(codecProfiles),
+    const DeepCollectionEquality().hash(subtitleProfiles),
   );
 
   @override
   String toString() {
-    return 'DeviceProfile(directPlayProfiles: $directPlayProfiles, transcodingProfiles: $transcodingProfiles, containerProfiles: $containerProfiles, codecProfiles: $codecProfiles, subtitleProfiles: $subtitleProfiles, name: $name, id: $id, maxStreamingBitrate: $maxStreamingBitrate, maxStaticBitrate: $maxStaticBitrate, musicStreamingTranscodingBitrate: $musicStreamingTranscodingBitrate, maxStaticMusicBitrate: $maxStaticMusicBitrate)';
+    return 'DeviceProfile(name: $name, id: $id, maxStreamingBitrate: $maxStreamingBitrate, maxStaticBitrate: $maxStaticBitrate, musicStreamingTranscodingBitrate: $musicStreamingTranscodingBitrate, maxStaticMusicBitrate: $maxStaticMusicBitrate, directPlayProfiles: $directPlayProfiles, transcodingProfiles: $transcodingProfiles, containerProfiles: $containerProfiles, codecProfiles: $codecProfiles, subtitleProfiles: $subtitleProfiles)';
   }
 }
 
@@ -142,14 +142,6 @@ abstract mixin class $DeviceProfileCopyWith<$Res> {
   ) = _$DeviceProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'DirectPlayProfiles')
-    List<DirectPlayProfile> directPlayProfiles,
-    @JsonKey(name: 'TranscodingProfiles')
-    List<TranscodingProfile> transcodingProfiles,
-    @JsonKey(name: 'ContainerProfiles')
-    List<ContainerProfile> containerProfiles,
-    @JsonKey(name: 'CodecProfiles') List<CodecProfile> codecProfiles,
-    @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile> subtitleProfiles,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Id') String? id,
     @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
@@ -157,6 +149,14 @@ abstract mixin class $DeviceProfileCopyWith<$Res> {
     @JsonKey(name: 'MusicStreamingTranscodingBitrate')
     int? musicStreamingTranscodingBitrate,
     @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
+    @JsonKey(name: 'DirectPlayProfiles')
+    List<DirectPlayProfile>? directPlayProfiles,
+    @JsonKey(name: 'TranscodingProfiles')
+    List<TranscodingProfile>? transcodingProfiles,
+    @JsonKey(name: 'ContainerProfiles')
+    List<ContainerProfile>? containerProfiles,
+    @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
+    @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile>? subtitleProfiles,
   });
 }
 
@@ -173,40 +173,20 @@ class _$DeviceProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? directPlayProfiles = null,
-    Object? transcodingProfiles = null,
-    Object? containerProfiles = null,
-    Object? codecProfiles = null,
-    Object? subtitleProfiles = null,
     Object? name = freezed,
     Object? id = freezed,
     Object? maxStreamingBitrate = freezed,
     Object? maxStaticBitrate = freezed,
     Object? musicStreamingTranscodingBitrate = freezed,
     Object? maxStaticMusicBitrate = freezed,
+    Object? directPlayProfiles = freezed,
+    Object? transcodingProfiles = freezed,
+    Object? containerProfiles = freezed,
+    Object? codecProfiles = freezed,
+    Object? subtitleProfiles = freezed,
   }) {
     return _then(
       _self.copyWith(
-        directPlayProfiles: null == directPlayProfiles
-            ? _self.directPlayProfiles
-            : directPlayProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<DirectPlayProfile>,
-        transcodingProfiles: null == transcodingProfiles
-            ? _self.transcodingProfiles
-            : transcodingProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<TranscodingProfile>,
-        containerProfiles: null == containerProfiles
-            ? _self.containerProfiles
-            : containerProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<ContainerProfile>,
-        codecProfiles: null == codecProfiles
-            ? _self.codecProfiles
-            : codecProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<CodecProfile>,
-        subtitleProfiles: null == subtitleProfiles
-            ? _self.subtitleProfiles
-            : subtitleProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<SubtitleProfile>,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -232,6 +212,26 @@ class _$DeviceProfileCopyWithImpl<$Res>
             ? _self.maxStaticMusicBitrate
             : maxStaticMusicBitrate // ignore: cast_nullable_to_non_nullable
                   as int?,
+        directPlayProfiles: freezed == directPlayProfiles
+            ? _self.directPlayProfiles
+            : directPlayProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<DirectPlayProfile>?,
+        transcodingProfiles: freezed == transcodingProfiles
+            ? _self.transcodingProfiles
+            : transcodingProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<TranscodingProfile>?,
+        containerProfiles: freezed == containerProfiles
+            ? _self.containerProfiles
+            : containerProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<ContainerProfile>?,
+        codecProfiles: freezed == codecProfiles
+            ? _self.codecProfiles
+            : codecProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<CodecProfile>?,
+        subtitleProfiles: freezed == subtitleProfiles
+            ? _self.subtitleProfiles
+            : subtitleProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<SubtitleProfile>?,
       ),
     );
   }
@@ -331,14 +331,6 @@ extension DeviceProfilePatterns on DeviceProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'DirectPlayProfiles')
-      List<DirectPlayProfile> directPlayProfiles,
-      @JsonKey(name: 'TranscodingProfiles')
-      List<TranscodingProfile> transcodingProfiles,
-      @JsonKey(name: 'ContainerProfiles')
-      List<ContainerProfile> containerProfiles,
-      @JsonKey(name: 'CodecProfiles') List<CodecProfile> codecProfiles,
-      @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile> subtitleProfiles,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
@@ -346,6 +338,15 @@ extension DeviceProfilePatterns on DeviceProfile {
       @JsonKey(name: 'MusicStreamingTranscodingBitrate')
       int? musicStreamingTranscodingBitrate,
       @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
+      @JsonKey(name: 'DirectPlayProfiles')
+      List<DirectPlayProfile>? directPlayProfiles,
+      @JsonKey(name: 'TranscodingProfiles')
+      List<TranscodingProfile>? transcodingProfiles,
+      @JsonKey(name: 'ContainerProfiles')
+      List<ContainerProfile>? containerProfiles,
+      @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
+      @JsonKey(name: 'SubtitleProfiles')
+      List<SubtitleProfile>? subtitleProfiles,
     )?
     $default, {
     required TResult orElse(),
@@ -354,17 +355,17 @@ extension DeviceProfilePatterns on DeviceProfile {
     switch (_that) {
       case _DeviceProfile() when $default != null:
         return $default(
-          _that.directPlayProfiles,
-          _that.transcodingProfiles,
-          _that.containerProfiles,
-          _that.codecProfiles,
-          _that.subtitleProfiles,
           _that.name,
           _that.id,
           _that.maxStreamingBitrate,
           _that.maxStaticBitrate,
           _that.musicStreamingTranscodingBitrate,
           _that.maxStaticMusicBitrate,
+          _that.directPlayProfiles,
+          _that.transcodingProfiles,
+          _that.containerProfiles,
+          _that.codecProfiles,
+          _that.subtitleProfiles,
         );
       case _:
         return orElse();
@@ -387,14 +388,6 @@ extension DeviceProfilePatterns on DeviceProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'DirectPlayProfiles')
-      List<DirectPlayProfile> directPlayProfiles,
-      @JsonKey(name: 'TranscodingProfiles')
-      List<TranscodingProfile> transcodingProfiles,
-      @JsonKey(name: 'ContainerProfiles')
-      List<ContainerProfile> containerProfiles,
-      @JsonKey(name: 'CodecProfiles') List<CodecProfile> codecProfiles,
-      @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile> subtitleProfiles,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
@@ -402,6 +395,15 @@ extension DeviceProfilePatterns on DeviceProfile {
       @JsonKey(name: 'MusicStreamingTranscodingBitrate')
       int? musicStreamingTranscodingBitrate,
       @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
+      @JsonKey(name: 'DirectPlayProfiles')
+      List<DirectPlayProfile>? directPlayProfiles,
+      @JsonKey(name: 'TranscodingProfiles')
+      List<TranscodingProfile>? transcodingProfiles,
+      @JsonKey(name: 'ContainerProfiles')
+      List<ContainerProfile>? containerProfiles,
+      @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
+      @JsonKey(name: 'SubtitleProfiles')
+      List<SubtitleProfile>? subtitleProfiles,
     )
     $default,
   ) {
@@ -409,17 +411,17 @@ extension DeviceProfilePatterns on DeviceProfile {
     switch (_that) {
       case _DeviceProfile():
         return $default(
-          _that.directPlayProfiles,
-          _that.transcodingProfiles,
-          _that.containerProfiles,
-          _that.codecProfiles,
-          _that.subtitleProfiles,
           _that.name,
           _that.id,
           _that.maxStreamingBitrate,
           _that.maxStaticBitrate,
           _that.musicStreamingTranscodingBitrate,
           _that.maxStaticMusicBitrate,
+          _that.directPlayProfiles,
+          _that.transcodingProfiles,
+          _that.containerProfiles,
+          _that.codecProfiles,
+          _that.subtitleProfiles,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -441,14 +443,6 @@ extension DeviceProfilePatterns on DeviceProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'DirectPlayProfiles')
-      List<DirectPlayProfile> directPlayProfiles,
-      @JsonKey(name: 'TranscodingProfiles')
-      List<TranscodingProfile> transcodingProfiles,
-      @JsonKey(name: 'ContainerProfiles')
-      List<ContainerProfile> containerProfiles,
-      @JsonKey(name: 'CodecProfiles') List<CodecProfile> codecProfiles,
-      @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile> subtitleProfiles,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
@@ -456,6 +450,15 @@ extension DeviceProfilePatterns on DeviceProfile {
       @JsonKey(name: 'MusicStreamingTranscodingBitrate')
       int? musicStreamingTranscodingBitrate,
       @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
+      @JsonKey(name: 'DirectPlayProfiles')
+      List<DirectPlayProfile>? directPlayProfiles,
+      @JsonKey(name: 'TranscodingProfiles')
+      List<TranscodingProfile>? transcodingProfiles,
+      @JsonKey(name: 'ContainerProfiles')
+      List<ContainerProfile>? containerProfiles,
+      @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
+      @JsonKey(name: 'SubtitleProfiles')
+      List<SubtitleProfile>? subtitleProfiles,
     )?
     $default,
   ) {
@@ -463,17 +466,17 @@ extension DeviceProfilePatterns on DeviceProfile {
     switch (_that) {
       case _DeviceProfile() when $default != null:
         return $default(
-          _that.directPlayProfiles,
-          _that.transcodingProfiles,
-          _that.containerProfiles,
-          _that.codecProfiles,
-          _that.subtitleProfiles,
           _that.name,
           _that.id,
           _that.maxStreamingBitrate,
           _that.maxStaticBitrate,
           _that.musicStreamingTranscodingBitrate,
           _that.maxStaticMusicBitrate,
+          _that.directPlayProfiles,
+          _that.transcodingProfiles,
+          _that.containerProfiles,
+          _that.codecProfiles,
+          _that.subtitleProfiles,
         );
       case _:
         return null;
@@ -485,16 +488,6 @@ extension DeviceProfilePatterns on DeviceProfile {
 @JsonSerializable()
 class _DeviceProfile implements DeviceProfile {
   const _DeviceProfile({
-    @JsonKey(name: 'DirectPlayProfiles')
-    required final List<DirectPlayProfile> directPlayProfiles,
-    @JsonKey(name: 'TranscodingProfiles')
-    required final List<TranscodingProfile> transcodingProfiles,
-    @JsonKey(name: 'ContainerProfiles')
-    required final List<ContainerProfile> containerProfiles,
-    @JsonKey(name: 'CodecProfiles')
-    required final List<CodecProfile> codecProfiles,
-    @JsonKey(name: 'SubtitleProfiles')
-    required final List<SubtitleProfile> subtitleProfiles,
     @JsonKey(name: 'Name') this.name,
     @JsonKey(name: 'Id') this.id,
     @JsonKey(name: 'MaxStreamingBitrate') this.maxStreamingBitrate,
@@ -502,6 +495,15 @@ class _DeviceProfile implements DeviceProfile {
     @JsonKey(name: 'MusicStreamingTranscodingBitrate')
     this.musicStreamingTranscodingBitrate,
     @JsonKey(name: 'MaxStaticMusicBitrate') this.maxStaticMusicBitrate,
+    @JsonKey(name: 'DirectPlayProfiles')
+    final List<DirectPlayProfile>? directPlayProfiles,
+    @JsonKey(name: 'TranscodingProfiles')
+    final List<TranscodingProfile>? transcodingProfiles,
+    @JsonKey(name: 'ContainerProfiles')
+    final List<ContainerProfile>? containerProfiles,
+    @JsonKey(name: 'CodecProfiles') final List<CodecProfile>? codecProfiles,
+    @JsonKey(name: 'SubtitleProfiles')
+    final List<SubtitleProfile>? subtitleProfiles,
   }) : _directPlayProfiles = directPlayProfiles,
        _transcodingProfiles = transcodingProfiles,
        _containerProfiles = containerProfiles,
@@ -509,70 +511,6 @@ class _DeviceProfile implements DeviceProfile {
        _subtitleProfiles = subtitleProfiles;
   factory _DeviceProfile.fromJson(Map<String, dynamic> json) =>
       _$DeviceProfileFromJson(json);
-
-  /// Gets or sets the direct play profiles.
-  final List<DirectPlayProfile> _directPlayProfiles;
-
-  /// Gets or sets the direct play profiles.
-  @override
-  @JsonKey(name: 'DirectPlayProfiles')
-  List<DirectPlayProfile> get directPlayProfiles {
-    if (_directPlayProfiles is EqualUnmodifiableListView)
-      return _directPlayProfiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_directPlayProfiles);
-  }
-
-  /// Gets or sets the transcoding profiles.
-  final List<TranscodingProfile> _transcodingProfiles;
-
-  /// Gets or sets the transcoding profiles.
-  @override
-  @JsonKey(name: 'TranscodingProfiles')
-  List<TranscodingProfile> get transcodingProfiles {
-    if (_transcodingProfiles is EqualUnmodifiableListView)
-      return _transcodingProfiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_transcodingProfiles);
-  }
-
-  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
-  final List<ContainerProfile> _containerProfiles;
-
-  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
-  @override
-  @JsonKey(name: 'ContainerProfiles')
-  List<ContainerProfile> get containerProfiles {
-    if (_containerProfiles is EqualUnmodifiableListView)
-      return _containerProfiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_containerProfiles);
-  }
-
-  /// Gets or sets the codec profiles.
-  final List<CodecProfile> _codecProfiles;
-
-  /// Gets or sets the codec profiles.
-  @override
-  @JsonKey(name: 'CodecProfiles')
-  List<CodecProfile> get codecProfiles {
-    if (_codecProfiles is EqualUnmodifiableListView) return _codecProfiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_codecProfiles);
-  }
-
-  /// Gets or sets the subtitle profiles.
-  final List<SubtitleProfile> _subtitleProfiles;
-
-  /// Gets or sets the subtitle profiles.
-  @override
-  @JsonKey(name: 'SubtitleProfiles')
-  List<SubtitleProfile> get subtitleProfiles {
-    if (_subtitleProfiles is EqualUnmodifiableListView)
-      return _subtitleProfiles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subtitleProfiles);
-  }
 
   /// Gets or sets the name of this device profile. User profiles must have a unique name.
   @override
@@ -604,6 +542,80 @@ class _DeviceProfile implements DeviceProfile {
   @JsonKey(name: 'MaxStaticMusicBitrate')
   final int? maxStaticMusicBitrate;
 
+  /// Gets or sets the direct play profiles.
+  final List<DirectPlayProfile>? _directPlayProfiles;
+
+  /// Gets or sets the direct play profiles.
+  @override
+  @JsonKey(name: 'DirectPlayProfiles')
+  List<DirectPlayProfile>? get directPlayProfiles {
+    final value = _directPlayProfiles;
+    if (value == null) return null;
+    if (_directPlayProfiles is EqualUnmodifiableListView)
+      return _directPlayProfiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Gets or sets the transcoding profiles.
+  final List<TranscodingProfile>? _transcodingProfiles;
+
+  /// Gets or sets the transcoding profiles.
+  @override
+  @JsonKey(name: 'TranscodingProfiles')
+  List<TranscodingProfile>? get transcodingProfiles {
+    final value = _transcodingProfiles;
+    if (value == null) return null;
+    if (_transcodingProfiles is EqualUnmodifiableListView)
+      return _transcodingProfiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
+  final List<ContainerProfile>? _containerProfiles;
+
+  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
+  @override
+  @JsonKey(name: 'ContainerProfiles')
+  List<ContainerProfile>? get containerProfiles {
+    final value = _containerProfiles;
+    if (value == null) return null;
+    if (_containerProfiles is EqualUnmodifiableListView)
+      return _containerProfiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Gets or sets the codec profiles.
+  final List<CodecProfile>? _codecProfiles;
+
+  /// Gets or sets the codec profiles.
+  @override
+  @JsonKey(name: 'CodecProfiles')
+  List<CodecProfile>? get codecProfiles {
+    final value = _codecProfiles;
+    if (value == null) return null;
+    if (_codecProfiles is EqualUnmodifiableListView) return _codecProfiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Gets or sets the subtitle profiles.
+  final List<SubtitleProfile>? _subtitleProfiles;
+
+  /// Gets or sets the subtitle profiles.
+  @override
+  @JsonKey(name: 'SubtitleProfiles')
+  List<SubtitleProfile>? get subtitleProfiles {
+    final value = _subtitleProfiles;
+    if (value == null) return null;
+    if (_subtitleProfiles is EqualUnmodifiableListView)
+      return _subtitleProfiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// Create a copy of DeviceProfile
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -622,6 +634,20 @@ class _DeviceProfile implements DeviceProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeviceProfile &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.maxStreamingBitrate, maxStreamingBitrate) ||
+                other.maxStreamingBitrate == maxStreamingBitrate) &&
+            (identical(other.maxStaticBitrate, maxStaticBitrate) ||
+                other.maxStaticBitrate == maxStaticBitrate) &&
+            (identical(
+                  other.musicStreamingTranscodingBitrate,
+                  musicStreamingTranscodingBitrate,
+                ) ||
+                other.musicStreamingTranscodingBitrate ==
+                    musicStreamingTranscodingBitrate) &&
+            (identical(other.maxStaticMusicBitrate, maxStaticMusicBitrate) ||
+                other.maxStaticMusicBitrate == maxStaticMusicBitrate) &&
             const DeepCollectionEquality().equals(
               other._directPlayProfiles,
               _directPlayProfiles,
@@ -641,43 +667,29 @@ class _DeviceProfile implements DeviceProfile {
             const DeepCollectionEquality().equals(
               other._subtitleProfiles,
               _subtitleProfiles,
-            ) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.maxStreamingBitrate, maxStreamingBitrate) ||
-                other.maxStreamingBitrate == maxStreamingBitrate) &&
-            (identical(other.maxStaticBitrate, maxStaticBitrate) ||
-                other.maxStaticBitrate == maxStaticBitrate) &&
-            (identical(
-                  other.musicStreamingTranscodingBitrate,
-                  musicStreamingTranscodingBitrate,
-                ) ||
-                other.musicStreamingTranscodingBitrate ==
-                    musicStreamingTranscodingBitrate) &&
-            (identical(other.maxStaticMusicBitrate, maxStaticMusicBitrate) ||
-                other.maxStaticMusicBitrate == maxStaticMusicBitrate));
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    const DeepCollectionEquality().hash(_directPlayProfiles),
-    const DeepCollectionEquality().hash(_transcodingProfiles),
-    const DeepCollectionEquality().hash(_containerProfiles),
-    const DeepCollectionEquality().hash(_codecProfiles),
-    const DeepCollectionEquality().hash(_subtitleProfiles),
     name,
     id,
     maxStreamingBitrate,
     maxStaticBitrate,
     musicStreamingTranscodingBitrate,
     maxStaticMusicBitrate,
+    const DeepCollectionEquality().hash(_directPlayProfiles),
+    const DeepCollectionEquality().hash(_transcodingProfiles),
+    const DeepCollectionEquality().hash(_containerProfiles),
+    const DeepCollectionEquality().hash(_codecProfiles),
+    const DeepCollectionEquality().hash(_subtitleProfiles),
   );
 
   @override
   String toString() {
-    return 'DeviceProfile(directPlayProfiles: $directPlayProfiles, transcodingProfiles: $transcodingProfiles, containerProfiles: $containerProfiles, codecProfiles: $codecProfiles, subtitleProfiles: $subtitleProfiles, name: $name, id: $id, maxStreamingBitrate: $maxStreamingBitrate, maxStaticBitrate: $maxStaticBitrate, musicStreamingTranscodingBitrate: $musicStreamingTranscodingBitrate, maxStaticMusicBitrate: $maxStaticMusicBitrate)';
+    return 'DeviceProfile(name: $name, id: $id, maxStreamingBitrate: $maxStreamingBitrate, maxStaticBitrate: $maxStaticBitrate, musicStreamingTranscodingBitrate: $musicStreamingTranscodingBitrate, maxStaticMusicBitrate: $maxStaticMusicBitrate, directPlayProfiles: $directPlayProfiles, transcodingProfiles: $transcodingProfiles, containerProfiles: $containerProfiles, codecProfiles: $codecProfiles, subtitleProfiles: $subtitleProfiles)';
   }
 }
 
@@ -691,14 +703,6 @@ abstract mixin class _$DeviceProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'DirectPlayProfiles')
-    List<DirectPlayProfile> directPlayProfiles,
-    @JsonKey(name: 'TranscodingProfiles')
-    List<TranscodingProfile> transcodingProfiles,
-    @JsonKey(name: 'ContainerProfiles')
-    List<ContainerProfile> containerProfiles,
-    @JsonKey(name: 'CodecProfiles') List<CodecProfile> codecProfiles,
-    @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile> subtitleProfiles,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Id') String? id,
     @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
@@ -706,6 +710,14 @@ abstract mixin class _$DeviceProfileCopyWith<$Res>
     @JsonKey(name: 'MusicStreamingTranscodingBitrate')
     int? musicStreamingTranscodingBitrate,
     @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
+    @JsonKey(name: 'DirectPlayProfiles')
+    List<DirectPlayProfile>? directPlayProfiles,
+    @JsonKey(name: 'TranscodingProfiles')
+    List<TranscodingProfile>? transcodingProfiles,
+    @JsonKey(name: 'ContainerProfiles')
+    List<ContainerProfile>? containerProfiles,
+    @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
+    @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile>? subtitleProfiles,
   });
 }
 
@@ -722,40 +734,20 @@ class __$DeviceProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? directPlayProfiles = null,
-    Object? transcodingProfiles = null,
-    Object? containerProfiles = null,
-    Object? codecProfiles = null,
-    Object? subtitleProfiles = null,
     Object? name = freezed,
     Object? id = freezed,
     Object? maxStreamingBitrate = freezed,
     Object? maxStaticBitrate = freezed,
     Object? musicStreamingTranscodingBitrate = freezed,
     Object? maxStaticMusicBitrate = freezed,
+    Object? directPlayProfiles = freezed,
+    Object? transcodingProfiles = freezed,
+    Object? containerProfiles = freezed,
+    Object? codecProfiles = freezed,
+    Object? subtitleProfiles = freezed,
   }) {
     return _then(
       _DeviceProfile(
-        directPlayProfiles: null == directPlayProfiles
-            ? _self._directPlayProfiles
-            : directPlayProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<DirectPlayProfile>,
-        transcodingProfiles: null == transcodingProfiles
-            ? _self._transcodingProfiles
-            : transcodingProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<TranscodingProfile>,
-        containerProfiles: null == containerProfiles
-            ? _self._containerProfiles
-            : containerProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<ContainerProfile>,
-        codecProfiles: null == codecProfiles
-            ? _self._codecProfiles
-            : codecProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<CodecProfile>,
-        subtitleProfiles: null == subtitleProfiles
-            ? _self._subtitleProfiles
-            : subtitleProfiles // ignore: cast_nullable_to_non_nullable
-                  as List<SubtitleProfile>,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -781,6 +773,26 @@ class __$DeviceProfileCopyWithImpl<$Res>
             ? _self.maxStaticMusicBitrate
             : maxStaticMusicBitrate // ignore: cast_nullable_to_non_nullable
                   as int?,
+        directPlayProfiles: freezed == directPlayProfiles
+            ? _self._directPlayProfiles
+            : directPlayProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<DirectPlayProfile>?,
+        transcodingProfiles: freezed == transcodingProfiles
+            ? _self._transcodingProfiles
+            : transcodingProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<TranscodingProfile>?,
+        containerProfiles: freezed == containerProfiles
+            ? _self._containerProfiles
+            : containerProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<ContainerProfile>?,
+        codecProfiles: freezed == codecProfiles
+            ? _self._codecProfiles
+            : codecProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<CodecProfile>?,
+        subtitleProfiles: freezed == subtitleProfiles
+            ? _self._subtitleProfiles
+            : subtitleProfiles // ignore: cast_nullable_to_non_nullable
+                  as List<SubtitleProfile>?,
       ),
     );
   }

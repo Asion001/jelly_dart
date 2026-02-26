@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,9 +13,17 @@ part 'user_configuration.g.dart';
 @Freezed()
 abstract class UserConfiguration with _$UserConfiguration {
   const factory UserConfiguration({
+    /// Gets or sets the audio language preference.
+    @JsonKey(name: 'AudioLanguagePreference')
+    required String? audioLanguagePreference,
+
     /// Gets or sets a value indicating whether [play default audio track].
     @JsonKey(name: 'PlayDefaultAudioTrack')
     required bool playDefaultAudioTrack,
+
+    /// Gets or sets the subtitle language preference.
+    @JsonKey(name: 'SubtitleLanguagePreference')
+    required String? subtitleLanguagePreference,
     @JsonKey(name: 'DisplayMissingEpisodes')
     required bool displayMissingEpisodes,
     @JsonKey(name: 'GroupedFolders')
@@ -43,17 +51,9 @@ abstract class UserConfiguration with _$UserConfiguration {
     @JsonKey(name: 'EnableNextEpisodeAutoPlay')
     required bool enableNextEpisodeAutoPlay,
 
-    /// Gets or sets the audio language preference.
-    @JsonKey(name: 'AudioLanguagePreference')
-    String? audioLanguagePreference,
-
-    /// Gets or sets the subtitle language preference.
-    @JsonKey(name: 'SubtitleLanguagePreference')
-    String? subtitleLanguagePreference,
-
     /// Gets or sets the id of the selected cast receiver.
     @JsonKey(name: 'CastReceiverId')
-    String? castReceiverId,
+    required String? castReceiverId,
   }) = _UserConfiguration;
   
   factory UserConfiguration.fromJson(Map<String, Object?> json) => _$UserConfigurationFromJson(json);

@@ -13,9 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserConfiguration {
+  /// Gets or sets the audio language preference.
+  @JsonKey(name: 'AudioLanguagePreference')
+  String? get audioLanguagePreference;
+
   /// Gets or sets a value indicating whether [play default audio track].
   @JsonKey(name: 'PlayDefaultAudioTrack')
   bool get playDefaultAudioTrack;
+
+  /// Gets or sets the subtitle language preference.
+  @JsonKey(name: 'SubtitleLanguagePreference')
+  String? get subtitleLanguagePreference;
   @JsonKey(name: 'DisplayMissingEpisodes')
   bool get displayMissingEpisodes;
   @JsonKey(name: 'GroupedFolders')
@@ -43,14 +51,6 @@ mixin _$UserConfiguration {
   @JsonKey(name: 'EnableNextEpisodeAutoPlay')
   bool get enableNextEpisodeAutoPlay;
 
-  /// Gets or sets the audio language preference.
-  @JsonKey(name: 'AudioLanguagePreference')
-  String? get audioLanguagePreference;
-
-  /// Gets or sets the subtitle language preference.
-  @JsonKey(name: 'SubtitleLanguagePreference')
-  String? get subtitleLanguagePreference;
-
   /// Gets or sets the id of the selected cast receiver.
   @JsonKey(name: 'CastReceiverId')
   String? get castReceiverId;
@@ -73,8 +73,19 @@ mixin _$UserConfiguration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserConfiguration &&
+            (identical(
+                  other.audioLanguagePreference,
+                  audioLanguagePreference,
+                ) ||
+                other.audioLanguagePreference == audioLanguagePreference) &&
             (identical(other.playDefaultAudioTrack, playDefaultAudioTrack) ||
                 other.playDefaultAudioTrack == playDefaultAudioTrack) &&
+            (identical(
+                  other.subtitleLanguagePreference,
+                  subtitleLanguagePreference,
+                ) ||
+                other.subtitleLanguagePreference ==
+                    subtitleLanguagePreference) &&
             (identical(other.displayMissingEpisodes, displayMissingEpisodes) ||
                 other.displayMissingEpisodes == displayMissingEpisodes) &&
             const DeepCollectionEquality().equals(
@@ -117,17 +128,6 @@ mixin _$UserConfiguration {
                   enableNextEpisodeAutoPlay,
                 ) ||
                 other.enableNextEpisodeAutoPlay == enableNextEpisodeAutoPlay) &&
-            (identical(
-                  other.audioLanguagePreference,
-                  audioLanguagePreference,
-                ) ||
-                other.audioLanguagePreference == audioLanguagePreference) &&
-            (identical(
-                  other.subtitleLanguagePreference,
-                  subtitleLanguagePreference,
-                ) ||
-                other.subtitleLanguagePreference ==
-                    subtitleLanguagePreference) &&
             (identical(other.castReceiverId, castReceiverId) ||
                 other.castReceiverId == castReceiverId));
   }
@@ -136,7 +136,9 @@ mixin _$UserConfiguration {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    audioLanguagePreference,
     playDefaultAudioTrack,
+    subtitleLanguagePreference,
     displayMissingEpisodes,
     const DeepCollectionEquality().hash(groupedFolders),
     subtitleMode,
@@ -149,14 +151,12 @@ mixin _$UserConfiguration {
     rememberAudioSelections,
     rememberSubtitleSelections,
     enableNextEpisodeAutoPlay,
-    audioLanguagePreference,
-    subtitleLanguagePreference,
     castReceiverId,
   );
 
   @override
   String toString() {
-    return 'UserConfiguration(playDefaultAudioTrack: $playDefaultAudioTrack, displayMissingEpisodes: $displayMissingEpisodes, groupedFolders: $groupedFolders, subtitleMode: $subtitleMode, displayCollectionsView: $displayCollectionsView, enableLocalPassword: $enableLocalPassword, orderedViews: $orderedViews, latestItemsExcludes: $latestItemsExcludes, myMediaExcludes: $myMediaExcludes, hidePlayedInLatest: $hidePlayedInLatest, rememberAudioSelections: $rememberAudioSelections, rememberSubtitleSelections: $rememberSubtitleSelections, enableNextEpisodeAutoPlay: $enableNextEpisodeAutoPlay, audioLanguagePreference: $audioLanguagePreference, subtitleLanguagePreference: $subtitleLanguagePreference, castReceiverId: $castReceiverId)';
+    return 'UserConfiguration(audioLanguagePreference: $audioLanguagePreference, playDefaultAudioTrack: $playDefaultAudioTrack, subtitleLanguagePreference: $subtitleLanguagePreference, displayMissingEpisodes: $displayMissingEpisodes, groupedFolders: $groupedFolders, subtitleMode: $subtitleMode, displayCollectionsView: $displayCollectionsView, enableLocalPassword: $enableLocalPassword, orderedViews: $orderedViews, latestItemsExcludes: $latestItemsExcludes, myMediaExcludes: $myMediaExcludes, hidePlayedInLatest: $hidePlayedInLatest, rememberAudioSelections: $rememberAudioSelections, rememberSubtitleSelections: $rememberSubtitleSelections, enableNextEpisodeAutoPlay: $enableNextEpisodeAutoPlay, castReceiverId: $castReceiverId)';
   }
 }
 
@@ -168,7 +168,10 @@ abstract mixin class $UserConfigurationCopyWith<$Res> {
   ) = _$UserConfigurationCopyWithImpl;
   @useResult
   $Res call({
+    @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
     @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+    @JsonKey(name: 'SubtitleLanguagePreference')
+    String? subtitleLanguagePreference,
     @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
     @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
     @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
@@ -182,9 +185,6 @@ abstract mixin class $UserConfigurationCopyWith<$Res> {
     @JsonKey(name: 'RememberSubtitleSelections')
     bool rememberSubtitleSelections,
     @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool enableNextEpisodeAutoPlay,
-    @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-    @JsonKey(name: 'SubtitleLanguagePreference')
-    String? subtitleLanguagePreference,
     @JsonKey(name: 'CastReceiverId') String? castReceiverId,
   });
 }
@@ -202,7 +202,9 @@ class _$UserConfigurationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? audioLanguagePreference = freezed,
     Object? playDefaultAudioTrack = null,
+    Object? subtitleLanguagePreference = freezed,
     Object? displayMissingEpisodes = null,
     Object? groupedFolders = null,
     Object? subtitleMode = null,
@@ -215,16 +217,22 @@ class _$UserConfigurationCopyWithImpl<$Res>
     Object? rememberAudioSelections = null,
     Object? rememberSubtitleSelections = null,
     Object? enableNextEpisodeAutoPlay = null,
-    Object? audioLanguagePreference = freezed,
-    Object? subtitleLanguagePreference = freezed,
     Object? castReceiverId = freezed,
   }) {
     return _then(
       _self.copyWith(
+        audioLanguagePreference: freezed == audioLanguagePreference
+            ? _self.audioLanguagePreference
+            : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
+                  as String?,
         playDefaultAudioTrack: null == playDefaultAudioTrack
             ? _self.playDefaultAudioTrack
             : playDefaultAudioTrack // ignore: cast_nullable_to_non_nullable
                   as bool,
+        subtitleLanguagePreference: freezed == subtitleLanguagePreference
+            ? _self.subtitleLanguagePreference
+            : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
+                  as String?,
         displayMissingEpisodes: null == displayMissingEpisodes
             ? _self.displayMissingEpisodes
             : displayMissingEpisodes // ignore: cast_nullable_to_non_nullable
@@ -273,14 +281,6 @@ class _$UserConfigurationCopyWithImpl<$Res>
             ? _self.enableNextEpisodeAutoPlay
             : enableNextEpisodeAutoPlay // ignore: cast_nullable_to_non_nullable
                   as bool,
-        audioLanguagePreference: freezed == audioLanguagePreference
-            ? _self.audioLanguagePreference
-            : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        subtitleLanguagePreference: freezed == subtitleLanguagePreference
-            ? _self.subtitleLanguagePreference
-            : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
-                  as String?,
         castReceiverId: freezed == castReceiverId
             ? _self.castReceiverId
             : castReceiverId // ignore: cast_nullable_to_non_nullable
@@ -384,7 +384,10 @@ extension UserConfigurationPatterns on UserConfiguration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
       @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'SubtitleLanguagePreference')
+      String? subtitleLanguagePreference,
       @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
       @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
       @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
@@ -399,9 +402,6 @@ extension UserConfigurationPatterns on UserConfiguration {
       bool rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
       bool enableNextEpisodeAutoPlay,
-      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'SubtitleLanguagePreference')
-      String? subtitleLanguagePreference,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )?
     $default, {
@@ -411,7 +411,9 @@ extension UserConfigurationPatterns on UserConfiguration {
     switch (_that) {
       case _UserConfiguration() when $default != null:
         return $default(
+          _that.audioLanguagePreference,
           _that.playDefaultAudioTrack,
+          _that.subtitleLanguagePreference,
           _that.displayMissingEpisodes,
           _that.groupedFolders,
           _that.subtitleMode,
@@ -424,8 +426,6 @@ extension UserConfigurationPatterns on UserConfiguration {
           _that.rememberAudioSelections,
           _that.rememberSubtitleSelections,
           _that.enableNextEpisodeAutoPlay,
-          _that.audioLanguagePreference,
-          _that.subtitleLanguagePreference,
           _that.castReceiverId,
         );
       case _:
@@ -449,7 +449,10 @@ extension UserConfigurationPatterns on UserConfiguration {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
       @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'SubtitleLanguagePreference')
+      String? subtitleLanguagePreference,
       @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
       @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
       @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
@@ -464,9 +467,6 @@ extension UserConfigurationPatterns on UserConfiguration {
       bool rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
       bool enableNextEpisodeAutoPlay,
-      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'SubtitleLanguagePreference')
-      String? subtitleLanguagePreference,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )
     $default,
@@ -475,7 +475,9 @@ extension UserConfigurationPatterns on UserConfiguration {
     switch (_that) {
       case _UserConfiguration():
         return $default(
+          _that.audioLanguagePreference,
           _that.playDefaultAudioTrack,
+          _that.subtitleLanguagePreference,
           _that.displayMissingEpisodes,
           _that.groupedFolders,
           _that.subtitleMode,
@@ -488,8 +490,6 @@ extension UserConfigurationPatterns on UserConfiguration {
           _that.rememberAudioSelections,
           _that.rememberSubtitleSelections,
           _that.enableNextEpisodeAutoPlay,
-          _that.audioLanguagePreference,
-          _that.subtitleLanguagePreference,
           _that.castReceiverId,
         );
       case _:
@@ -512,7 +512,10 @@ extension UserConfigurationPatterns on UserConfiguration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
       @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'SubtitleLanguagePreference')
+      String? subtitleLanguagePreference,
       @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
       @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
       @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
@@ -527,9 +530,6 @@ extension UserConfigurationPatterns on UserConfiguration {
       bool rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
       bool enableNextEpisodeAutoPlay,
-      @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'SubtitleLanguagePreference')
-      String? subtitleLanguagePreference,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )?
     $default,
@@ -538,7 +538,9 @@ extension UserConfigurationPatterns on UserConfiguration {
     switch (_that) {
       case _UserConfiguration() when $default != null:
         return $default(
+          _that.audioLanguagePreference,
           _that.playDefaultAudioTrack,
+          _that.subtitleLanguagePreference,
           _that.displayMissingEpisodes,
           _that.groupedFolders,
           _that.subtitleMode,
@@ -551,8 +553,6 @@ extension UserConfigurationPatterns on UserConfiguration {
           _that.rememberAudioSelections,
           _that.rememberSubtitleSelections,
           _that.enableNextEpisodeAutoPlay,
-          _that.audioLanguagePreference,
-          _that.subtitleLanguagePreference,
           _that.castReceiverId,
         );
       case _:
@@ -565,7 +565,11 @@ extension UserConfigurationPatterns on UserConfiguration {
 @JsonSerializable()
 class _UserConfiguration implements UserConfiguration {
   const _UserConfiguration({
+    @JsonKey(name: 'AudioLanguagePreference')
+    required this.audioLanguagePreference,
     @JsonKey(name: 'PlayDefaultAudioTrack') required this.playDefaultAudioTrack,
+    @JsonKey(name: 'SubtitleLanguagePreference')
+    required this.subtitleLanguagePreference,
     @JsonKey(name: 'DisplayMissingEpisodes')
     required this.displayMissingEpisodes,
     @JsonKey(name: 'GroupedFolders') required final List<String> groupedFolders,
@@ -585,10 +589,7 @@ class _UserConfiguration implements UserConfiguration {
     required this.rememberSubtitleSelections,
     @JsonKey(name: 'EnableNextEpisodeAutoPlay')
     required this.enableNextEpisodeAutoPlay,
-    @JsonKey(name: 'AudioLanguagePreference') this.audioLanguagePreference,
-    @JsonKey(name: 'SubtitleLanguagePreference')
-    this.subtitleLanguagePreference,
-    @JsonKey(name: 'CastReceiverId') this.castReceiverId,
+    @JsonKey(name: 'CastReceiverId') required this.castReceiverId,
   }) : _groupedFolders = groupedFolders,
        _orderedViews = orderedViews,
        _latestItemsExcludes = latestItemsExcludes,
@@ -596,10 +597,20 @@ class _UserConfiguration implements UserConfiguration {
   factory _UserConfiguration.fromJson(Map<String, dynamic> json) =>
       _$UserConfigurationFromJson(json);
 
+  /// Gets or sets the audio language preference.
+  @override
+  @JsonKey(name: 'AudioLanguagePreference')
+  final String? audioLanguagePreference;
+
   /// Gets or sets a value indicating whether [play default audio track].
   @override
   @JsonKey(name: 'PlayDefaultAudioTrack')
   final bool playDefaultAudioTrack;
+
+  /// Gets or sets the subtitle language preference.
+  @override
+  @JsonKey(name: 'SubtitleLanguagePreference')
+  final String? subtitleLanguagePreference;
   @override
   @JsonKey(name: 'DisplayMissingEpisodes')
   final bool displayMissingEpisodes;
@@ -663,16 +674,6 @@ class _UserConfiguration implements UserConfiguration {
   @JsonKey(name: 'EnableNextEpisodeAutoPlay')
   final bool enableNextEpisodeAutoPlay;
 
-  /// Gets or sets the audio language preference.
-  @override
-  @JsonKey(name: 'AudioLanguagePreference')
-  final String? audioLanguagePreference;
-
-  /// Gets or sets the subtitle language preference.
-  @override
-  @JsonKey(name: 'SubtitleLanguagePreference')
-  final String? subtitleLanguagePreference;
-
   /// Gets or sets the id of the selected cast receiver.
   @override
   @JsonKey(name: 'CastReceiverId')
@@ -696,8 +697,19 @@ class _UserConfiguration implements UserConfiguration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserConfiguration &&
+            (identical(
+                  other.audioLanguagePreference,
+                  audioLanguagePreference,
+                ) ||
+                other.audioLanguagePreference == audioLanguagePreference) &&
             (identical(other.playDefaultAudioTrack, playDefaultAudioTrack) ||
                 other.playDefaultAudioTrack == playDefaultAudioTrack) &&
+            (identical(
+                  other.subtitleLanguagePreference,
+                  subtitleLanguagePreference,
+                ) ||
+                other.subtitleLanguagePreference ==
+                    subtitleLanguagePreference) &&
             (identical(other.displayMissingEpisodes, displayMissingEpisodes) ||
                 other.displayMissingEpisodes == displayMissingEpisodes) &&
             const DeepCollectionEquality().equals(
@@ -740,17 +752,6 @@ class _UserConfiguration implements UserConfiguration {
                   enableNextEpisodeAutoPlay,
                 ) ||
                 other.enableNextEpisodeAutoPlay == enableNextEpisodeAutoPlay) &&
-            (identical(
-                  other.audioLanguagePreference,
-                  audioLanguagePreference,
-                ) ||
-                other.audioLanguagePreference == audioLanguagePreference) &&
-            (identical(
-                  other.subtitleLanguagePreference,
-                  subtitleLanguagePreference,
-                ) ||
-                other.subtitleLanguagePreference ==
-                    subtitleLanguagePreference) &&
             (identical(other.castReceiverId, castReceiverId) ||
                 other.castReceiverId == castReceiverId));
   }
@@ -759,7 +760,9 @@ class _UserConfiguration implements UserConfiguration {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    audioLanguagePreference,
     playDefaultAudioTrack,
+    subtitleLanguagePreference,
     displayMissingEpisodes,
     const DeepCollectionEquality().hash(_groupedFolders),
     subtitleMode,
@@ -772,14 +775,12 @@ class _UserConfiguration implements UserConfiguration {
     rememberAudioSelections,
     rememberSubtitleSelections,
     enableNextEpisodeAutoPlay,
-    audioLanguagePreference,
-    subtitleLanguagePreference,
     castReceiverId,
   );
 
   @override
   String toString() {
-    return 'UserConfiguration(playDefaultAudioTrack: $playDefaultAudioTrack, displayMissingEpisodes: $displayMissingEpisodes, groupedFolders: $groupedFolders, subtitleMode: $subtitleMode, displayCollectionsView: $displayCollectionsView, enableLocalPassword: $enableLocalPassword, orderedViews: $orderedViews, latestItemsExcludes: $latestItemsExcludes, myMediaExcludes: $myMediaExcludes, hidePlayedInLatest: $hidePlayedInLatest, rememberAudioSelections: $rememberAudioSelections, rememberSubtitleSelections: $rememberSubtitleSelections, enableNextEpisodeAutoPlay: $enableNextEpisodeAutoPlay, audioLanguagePreference: $audioLanguagePreference, subtitleLanguagePreference: $subtitleLanguagePreference, castReceiverId: $castReceiverId)';
+    return 'UserConfiguration(audioLanguagePreference: $audioLanguagePreference, playDefaultAudioTrack: $playDefaultAudioTrack, subtitleLanguagePreference: $subtitleLanguagePreference, displayMissingEpisodes: $displayMissingEpisodes, groupedFolders: $groupedFolders, subtitleMode: $subtitleMode, displayCollectionsView: $displayCollectionsView, enableLocalPassword: $enableLocalPassword, orderedViews: $orderedViews, latestItemsExcludes: $latestItemsExcludes, myMediaExcludes: $myMediaExcludes, hidePlayedInLatest: $hidePlayedInLatest, rememberAudioSelections: $rememberAudioSelections, rememberSubtitleSelections: $rememberSubtitleSelections, enableNextEpisodeAutoPlay: $enableNextEpisodeAutoPlay, castReceiverId: $castReceiverId)';
   }
 }
 
@@ -793,7 +794,10 @@ abstract mixin class _$UserConfigurationCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
     @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+    @JsonKey(name: 'SubtitleLanguagePreference')
+    String? subtitleLanguagePreference,
     @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
     @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
     @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
@@ -807,9 +811,6 @@ abstract mixin class _$UserConfigurationCopyWith<$Res>
     @JsonKey(name: 'RememberSubtitleSelections')
     bool rememberSubtitleSelections,
     @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool enableNextEpisodeAutoPlay,
-    @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-    @JsonKey(name: 'SubtitleLanguagePreference')
-    String? subtitleLanguagePreference,
     @JsonKey(name: 'CastReceiverId') String? castReceiverId,
   });
 }
@@ -827,7 +828,9 @@ class __$UserConfigurationCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
+    Object? audioLanguagePreference = freezed,
     Object? playDefaultAudioTrack = null,
+    Object? subtitleLanguagePreference = freezed,
     Object? displayMissingEpisodes = null,
     Object? groupedFolders = null,
     Object? subtitleMode = null,
@@ -840,16 +843,22 @@ class __$UserConfigurationCopyWithImpl<$Res>
     Object? rememberAudioSelections = null,
     Object? rememberSubtitleSelections = null,
     Object? enableNextEpisodeAutoPlay = null,
-    Object? audioLanguagePreference = freezed,
-    Object? subtitleLanguagePreference = freezed,
     Object? castReceiverId = freezed,
   }) {
     return _then(
       _UserConfiguration(
+        audioLanguagePreference: freezed == audioLanguagePreference
+            ? _self.audioLanguagePreference
+            : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
+                  as String?,
         playDefaultAudioTrack: null == playDefaultAudioTrack
             ? _self.playDefaultAudioTrack
             : playDefaultAudioTrack // ignore: cast_nullable_to_non_nullable
                   as bool,
+        subtitleLanguagePreference: freezed == subtitleLanguagePreference
+            ? _self.subtitleLanguagePreference
+            : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
+                  as String?,
         displayMissingEpisodes: null == displayMissingEpisodes
             ? _self.displayMissingEpisodes
             : displayMissingEpisodes // ignore: cast_nullable_to_non_nullable
@@ -898,14 +907,6 @@ class __$UserConfigurationCopyWithImpl<$Res>
             ? _self.enableNextEpisodeAutoPlay
             : enableNextEpisodeAutoPlay // ignore: cast_nullable_to_non_nullable
                   as bool,
-        audioLanguagePreference: freezed == audioLanguagePreference
-            ? _self.audioLanguagePreference
-            : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        subtitleLanguagePreference: freezed == subtitleLanguagePreference
-            ? _self.subtitleLanguagePreference
-            : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
-                  as String?,
         castReceiverId: freezed == castReceiverId
             ? _self.castReceiverId
             : castReceiverId // ignore: cast_nullable_to_non_nullable

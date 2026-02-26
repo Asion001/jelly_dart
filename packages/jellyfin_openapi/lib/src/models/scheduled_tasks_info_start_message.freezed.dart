@@ -17,6 +17,10 @@ mixin _$ScheduledTasksInfoStartMessage {
   @JsonKey(name: 'Data')
   String? get data;
 
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  ScheduledTasksInfoStartMessageMessageType get messageType;
+
   /// Create a copy of ScheduledTasksInfoStartMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -35,16 +39,18 @@ mixin _$ScheduledTasksInfoStartMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ScheduledTasksInfoStartMessage &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, messageType);
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoStartMessage(data: $data)';
+    return 'ScheduledTasksInfoStartMessage(data: $data, messageType: $messageType)';
   }
 }
 
@@ -55,7 +61,11 @@ abstract mixin class $ScheduledTasksInfoStartMessageCopyWith<$Res> {
     $Res Function(ScheduledTasksInfoStartMessage) _then,
   ) = _$ScheduledTasksInfoStartMessageCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'Data') String? data});
+  $Res call({
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageType')
+    ScheduledTasksInfoStartMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -70,13 +80,17 @@ class _$ScheduledTasksInfoStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageType = null}) {
     return _then(
       _self.copyWith(
         data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ScheduledTasksInfoStartMessageMessageType,
       ),
     );
   }
@@ -176,13 +190,18 @@ extension ScheduledTasksInfoStartMessagePatterns
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Data') String? data)? $default, {
+    TResult Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStartMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStartMessage() when $default != null:
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         return orElse();
     }
@@ -203,12 +222,17 @@ extension ScheduledTasksInfoStartMessagePatterns
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Data') String? data) $default,
+    TResult Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStartMessageMessageType messageType,
+    )
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStartMessage():
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,12 +252,17 @@ extension ScheduledTasksInfoStartMessagePatterns
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'Data') String? data)? $default,
+    TResult? Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStartMessageMessageType messageType,
+    )?
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStartMessage() when $default != null:
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         return null;
     }
@@ -244,7 +273,12 @@ extension ScheduledTasksInfoStartMessagePatterns
 @JsonSerializable()
 class _ScheduledTasksInfoStartMessage
     implements ScheduledTasksInfoStartMessage {
-  const _ScheduledTasksInfoStartMessage({@JsonKey(name: 'Data') this.data});
+  const _ScheduledTasksInfoStartMessage({
+    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'MessageType')
+    this.messageType =
+        ScheduledTasksInfoStartMessageMessageType.scheduledTasksInfoStart,
+  });
   factory _ScheduledTasksInfoStartMessage.fromJson(Map<String, dynamic> json) =>
       _$ScheduledTasksInfoStartMessageFromJson(json);
 
@@ -252,6 +286,11 @@ class _ScheduledTasksInfoStartMessage
   @override
   @JsonKey(name: 'Data')
   final String? data;
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final ScheduledTasksInfoStartMessageMessageType messageType;
 
   /// Create a copy of ScheduledTasksInfoStartMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -274,16 +313,18 @@ class _ScheduledTasksInfoStartMessage
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ScheduledTasksInfoStartMessage &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, messageType);
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoStartMessage(data: $data)';
+    return 'ScheduledTasksInfoStartMessage(data: $data, messageType: $messageType)';
   }
 }
 
@@ -296,7 +337,11 @@ abstract mixin class _$ScheduledTasksInfoStartMessageCopyWith<$Res>
   ) = __$ScheduledTasksInfoStartMessageCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'Data') String? data});
+  $Res call({
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageType')
+    ScheduledTasksInfoStartMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -311,13 +356,17 @@ class __$ScheduledTasksInfoStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageType = null}) {
     return _then(
       _ScheduledTasksInfoStartMessage(
         data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ScheduledTasksInfoStartMessageMessageType,
       ),
     );
   }

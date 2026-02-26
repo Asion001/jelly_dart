@@ -1,0 +1,5 @@
+dependency_overrides:
+  retrofit_generator:
+    path: /home/asion/dev/my/retrofit.dart/generator
+  swagger_parser:
+    path: /home/asion/dev/my/swagger_parser/swagger_parser

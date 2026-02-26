@@ -21,6 +21,10 @@ mixin _$SyncPlayGroupJoinedUpdate {
   @JsonKey(name: 'Data')
   GroupInfoDto get data;
 
+  /// Enum GroupUpdateType.
+  @JsonKey(name: 'Type')
+  SyncPlayGroupJoinedUpdateType get type;
+
   /// Create a copy of SyncPlayGroupJoinedUpdate
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -40,16 +44,17 @@ mixin _$SyncPlayGroupJoinedUpdate {
         (other.runtimeType == runtimeType &&
             other is SyncPlayGroupJoinedUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayGroupJoinedUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayGroupJoinedUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -63,6 +68,7 @@ abstract mixin class $SyncPlayGroupJoinedUpdateCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') GroupInfoDto data,
+    @JsonKey(name: 'Type') SyncPlayGroupJoinedUpdateType type,
   });
 
   $GroupInfoDtoCopyWith<$Res> get data;
@@ -80,7 +86,11 @@ class _$SyncPlayGroupJoinedUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _self.copyWith(
         groupId: null == groupId
@@ -91,6 +101,10 @@ class _$SyncPlayGroupJoinedUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as GroupInfoDto,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupJoinedUpdateType,
       ),
     );
   }
@@ -202,6 +216,7 @@ extension SyncPlayGroupJoinedUpdatePatterns on SyncPlayGroupJoinedUpdate {
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'Type') SyncPlayGroupJoinedUpdateType type,
     )?
     $default, {
     required TResult orElse(),
@@ -209,7 +224,7 @@ extension SyncPlayGroupJoinedUpdatePatterns on SyncPlayGroupJoinedUpdate {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupJoinedUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return orElse();
     }
@@ -233,13 +248,14 @@ extension SyncPlayGroupJoinedUpdatePatterns on SyncPlayGroupJoinedUpdate {
     TResult Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'Type') SyncPlayGroupJoinedUpdateType type,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupJoinedUpdate():
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -262,13 +278,14 @@ extension SyncPlayGroupJoinedUpdatePatterns on SyncPlayGroupJoinedUpdate {
     TResult? Function(
       @JsonKey(name: 'GroupId') String groupId,
       @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'Type') SyncPlayGroupJoinedUpdateType type,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupJoinedUpdate() when $default != null:
-        return $default(_that.groupId, _that.data);
+        return $default(_that.groupId, _that.data, _that.type);
       case _:
         return null;
     }
@@ -281,6 +298,8 @@ class _SyncPlayGroupJoinedUpdate implements SyncPlayGroupJoinedUpdate {
   const _SyncPlayGroupJoinedUpdate({
     @JsonKey(name: 'GroupId') required this.groupId,
     @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'Type')
+    this.type = SyncPlayGroupJoinedUpdateType.groupJoined,
   });
   factory _SyncPlayGroupJoinedUpdate.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayGroupJoinedUpdateFromJson(json);
@@ -294,6 +313,11 @@ class _SyncPlayGroupJoinedUpdate implements SyncPlayGroupJoinedUpdate {
   @override
   @JsonKey(name: 'Data')
   final GroupInfoDto data;
+
+  /// Enum GroupUpdateType.
+  @override
+  @JsonKey(name: 'Type')
+  final SyncPlayGroupJoinedUpdateType type;
 
   /// Create a copy of SyncPlayGroupJoinedUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -318,16 +342,17 @@ class _SyncPlayGroupJoinedUpdate implements SyncPlayGroupJoinedUpdate {
         (other.runtimeType == runtimeType &&
             other is _SyncPlayGroupJoinedUpdate &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data);
+  int get hashCode => Object.hash(runtimeType, groupId, data, type);
 
   @override
   String toString() {
-    return 'SyncPlayGroupJoinedUpdate(groupId: $groupId, data: $data)';
+    return 'SyncPlayGroupJoinedUpdate(groupId: $groupId, data: $data, type: $type)';
   }
 }
 
@@ -343,6 +368,7 @@ abstract mixin class _$SyncPlayGroupJoinedUpdateCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'GroupId') String groupId,
     @JsonKey(name: 'Data') GroupInfoDto data,
+    @JsonKey(name: 'Type') SyncPlayGroupJoinedUpdateType type,
   });
 
   @override
@@ -361,7 +387,11 @@ class __$SyncPlayGroupJoinedUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({
+    Object? groupId = null,
+    Object? data = null,
+    Object? type = null,
+  }) {
     return _then(
       _SyncPlayGroupJoinedUpdate(
         groupId: null == groupId
@@ -372,6 +402,10 @@ class __$SyncPlayGroupJoinedUpdateCopyWithImpl<$Res>
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as GroupInfoDto,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupJoinedUpdateType,
       ),
     );
   }

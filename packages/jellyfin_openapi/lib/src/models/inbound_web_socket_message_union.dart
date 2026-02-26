@@ -1,16 +1,23 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'activity_log_entry_start_message.dart';
+import 'activity_log_entry_start_message_message_type.dart';
 import 'activity_log_entry_stop_message.dart';
+import 'activity_log_entry_stop_message_message_type.dart';
 import 'inbound_keep_alive_message.dart';
+import 'inbound_keep_alive_message_message_type.dart';
 import 'scheduled_tasks_info_start_message.dart';
+import 'scheduled_tasks_info_start_message_message_type.dart';
 import 'scheduled_tasks_info_stop_message.dart';
+import 'scheduled_tasks_info_stop_message_message_type.dart';
 import 'sessions_start_message.dart';
+import 'sessions_start_message_message_type.dart';
 import 'sessions_stop_message.dart';
+import 'sessions_stop_message_message_type.dart';
 
 part 'inbound_web_socket_message_union.freezed.dart';
 part 'inbound_web_socket_message_union.g.dart';
@@ -21,7 +28,7 @@ sealed class InboundWebSocketMessageUnion with _$InboundWebSocketMessageUnion {
   const factory InboundWebSocketMessageUnion.activityLogEntryStart({
     /// Gets or sets the data.
     @JsonKey(name: 'Data')
-    String? data,
+    required String? data,
   }) = InboundWebSocketMessageUnionActivityLogEntryStart;
 
   @FreezedUnionValue('ActivityLogEntryStop')
@@ -34,7 +41,7 @@ sealed class InboundWebSocketMessageUnion with _$InboundWebSocketMessageUnion {
   const factory InboundWebSocketMessageUnion.scheduledTasksInfoStart({
     /// Gets or sets the data.
     @JsonKey(name: 'Data')
-    String? data,
+    required String? data,
   }) = InboundWebSocketMessageUnionScheduledTasksInfoStart;
 
   @FreezedUnionValue('ScheduledTasksInfoStop')
@@ -44,7 +51,7 @@ sealed class InboundWebSocketMessageUnion with _$InboundWebSocketMessageUnion {
   const factory InboundWebSocketMessageUnion.sessionsStart({
     /// Gets or sets the data.
     @JsonKey(name: 'Data')
-    String? data,
+    required String? data,
   }) = InboundWebSocketMessageUnionSessionsStart;
 
   @FreezedUnionValue('SessionsStop')

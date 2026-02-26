@@ -7,7 +7,7 @@ part of 'name_guid_pair.dart';
 // **************************************************************************
 
 _NameGuidPair _$NameGuidPairFromJson(Map<String, dynamic> json) =>
-    _NameGuidPair(id: json['Id'] as String, name: json['Name'] as String?);
+    _NameGuidPair(name: json['Name'] as String?, id: json['Id'] as String?);
 
 Map<String, dynamic> _$NameGuidPairToJson(_NameGuidPair instance) =>
-    <String, dynamic>{'Id': instance.id, 'Name': ?instance.name};
+    <String, dynamic>{'Name': ?instance.name, 'Id': ?instance.id};

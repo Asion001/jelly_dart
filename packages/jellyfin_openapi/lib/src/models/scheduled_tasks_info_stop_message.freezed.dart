@@ -13,6 +13,20 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ScheduledTasksInfoStopMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  ScheduledTasksInfoStopMessageMessageType get messageType;
+
+  /// Create a copy of ScheduledTasksInfoStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ScheduledTasksInfoStopMessageCopyWith<ScheduledTasksInfoStopMessage>
+  get copyWith =>
+      _$ScheduledTasksInfoStopMessageCopyWithImpl<
+        ScheduledTasksInfoStopMessage
+      >(this as ScheduledTasksInfoStopMessage, _$identity);
+
   /// Serializes this ScheduledTasksInfoStopMessage to a JSON map.
   Map<String, dynamic> toJson();
 
@@ -20,25 +34,56 @@ mixin _$ScheduledTasksInfoStopMessage {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ScheduledTasksInfoStopMessage);
+            other is ScheduledTasksInfoStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoStopMessage()';
+    return 'ScheduledTasksInfoStopMessage(messageType: $messageType)';
   }
 }
 
 /// @nodoc
-class $ScheduledTasksInfoStopMessageCopyWith<$Res> {
-  $ScheduledTasksInfoStopMessageCopyWith(
-    ScheduledTasksInfoStopMessage _,
-    $Res Function(ScheduledTasksInfoStopMessage) __,
-  );
+abstract mixin class $ScheduledTasksInfoStopMessageCopyWith<$Res> {
+  factory $ScheduledTasksInfoStopMessageCopyWith(
+    ScheduledTasksInfoStopMessage value,
+    $Res Function(ScheduledTasksInfoStopMessage) _then,
+  ) = _$ScheduledTasksInfoStopMessageCopyWithImpl;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType')
+    ScheduledTasksInfoStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class _$ScheduledTasksInfoStopMessageCopyWithImpl<$Res>
+    implements $ScheduledTasksInfoStopMessageCopyWith<$Res> {
+  _$ScheduledTasksInfoStopMessageCopyWithImpl(this._self, this._then);
+
+  final ScheduledTasksInfoStopMessage _self;
+  final $Res Function(ScheduledTasksInfoStopMessage) _then;
+
+  /// Create a copy of ScheduledTasksInfoStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _self.copyWith(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ScheduledTasksInfoStopMessageMessageType,
+      ),
+    );
+  }
 }
 
 /// Adds pattern-matching-related methods to [ScheduledTasksInfoStopMessage].
@@ -135,13 +180,17 @@ extension ScheduledTasksInfoStopMessagePatterns
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStopMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return orElse();
     }
@@ -161,11 +210,17 @@ extension ScheduledTasksInfoStopMessagePatterns
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(TResult Function() $default) {
+  TResult when<TResult extends Object?>(
+    TResult Function(
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStopMessageMessageType messageType,
+    )
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStopMessage():
-        return $default();
+        return $default(_that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -184,11 +239,17 @@ extension ScheduledTasksInfoStopMessagePatterns
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(TResult? Function()? $default) {
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+      @JsonKey(name: 'MessageType')
+      ScheduledTasksInfoStopMessageMessageType messageType,
+    )?
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return null;
     }
@@ -198,9 +259,29 @@ extension ScheduledTasksInfoStopMessagePatterns
 /// @nodoc
 @JsonSerializable()
 class _ScheduledTasksInfoStopMessage implements ScheduledTasksInfoStopMessage {
-  const _ScheduledTasksInfoStopMessage();
+  const _ScheduledTasksInfoStopMessage({
+    @JsonKey(name: 'MessageType')
+    this.messageType =
+        ScheduledTasksInfoStopMessageMessageType.scheduledTasksInfoStop,
+  });
   factory _ScheduledTasksInfoStopMessage.fromJson(Map<String, dynamic> json) =>
       _$ScheduledTasksInfoStopMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final ScheduledTasksInfoStopMessageMessageType messageType;
+
+  /// Create a copy of ScheduledTasksInfoStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ScheduledTasksInfoStopMessageCopyWith<_ScheduledTasksInfoStopMessage>
+  get copyWith =>
+      __$ScheduledTasksInfoStopMessageCopyWithImpl<
+        _ScheduledTasksInfoStopMessage
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -211,15 +292,56 @@ class _ScheduledTasksInfoStopMessage implements ScheduledTasksInfoStopMessage {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScheduledTasksInfoStopMessage);
+            other is _ScheduledTasksInfoStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoStopMessage()';
+    return 'ScheduledTasksInfoStopMessage(messageType: $messageType)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ScheduledTasksInfoStopMessageCopyWith<$Res>
+    implements $ScheduledTasksInfoStopMessageCopyWith<$Res> {
+  factory _$ScheduledTasksInfoStopMessageCopyWith(
+    _ScheduledTasksInfoStopMessage value,
+    $Res Function(_ScheduledTasksInfoStopMessage) _then,
+  ) = __$ScheduledTasksInfoStopMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType')
+    ScheduledTasksInfoStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class __$ScheduledTasksInfoStopMessageCopyWithImpl<$Res>
+    implements _$ScheduledTasksInfoStopMessageCopyWith<$Res> {
+  __$ScheduledTasksInfoStopMessageCopyWithImpl(this._self, this._then);
+
+  final _ScheduledTasksInfoStopMessage _self;
+  final $Res Function(_ScheduledTasksInfoStopMessage) _then;
+
+  /// Create a copy of ScheduledTasksInfoStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _ScheduledTasksInfoStopMessage(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ScheduledTasksInfoStopMessageMessageType,
+      ),
+    );
   }
 }

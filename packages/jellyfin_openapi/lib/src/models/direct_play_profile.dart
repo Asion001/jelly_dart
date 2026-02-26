@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -17,17 +17,17 @@ abstract class DirectPlayProfile with _$DirectPlayProfile {
     @JsonKey(name: 'Container')
     required String container,
 
-    /// Gets or sets the Dlna profile type.
-    @JsonKey(name: 'Type')
-    required DirectPlayProfileType type,
-
     /// Gets or sets the audio codec.
     @JsonKey(name: 'AudioCodec')
-    String? audioCodec,
+    required String? audioCodec,
 
     /// Gets or sets the video codec.
     @JsonKey(name: 'VideoCodec')
-    String? videoCodec,
+    required String? videoCodec,
+
+    /// Gets or sets the Dlna profile type.
+    @JsonKey(name: 'Type')
+    required DirectPlayProfileType type,
   }) = _DirectPlayProfile;
   
   factory DirectPlayProfile.fromJson(Map<String, Object?> json) => _$DirectPlayProfileFromJson(json);

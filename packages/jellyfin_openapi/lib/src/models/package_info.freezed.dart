@@ -14,27 +14,27 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PackageInfo {
   /// Gets or sets the name.
-  String get name;
+  String? get name;
 
   /// Gets or sets a long description of the plugin containing features or helpful explanations.
-  String get description;
+  String? get description;
 
   /// Gets or sets a short overview of what the plugin does.
-  String get overview;
+  String? get overview;
 
   /// Gets or sets the owner.
-  String get owner;
+  String? get owner;
 
   /// Gets or sets the category.
-  String get category;
+  String? get category;
 
   /// Gets or sets the guid of the assembly associated with this plugin.
   ///
   /// This is used to identify the proper item for automatic updates.
-  String get guid;
+  String? get guid;
 
   /// Gets or sets the versions.
-  List<VersionInfo> get versions;
+  List<VersionInfo>? get versions;
 
   /// Gets or sets the image url for the package.
   String? get imageUrl;
@@ -96,13 +96,13 @@ abstract mixin class $PackageInfoCopyWith<$Res> {
   ) = _$PackageInfoCopyWithImpl;
   @useResult
   $Res call({
-    String name,
-    String description,
-    String overview,
-    String owner,
-    String category,
-    String guid,
-    List<VersionInfo> versions,
+    String? name,
+    String? description,
+    String? overview,
+    String? owner,
+    String? category,
+    String? guid,
+    List<VersionInfo>? versions,
     String? imageUrl,
   });
 }
@@ -119,45 +119,45 @@ class _$PackageInfoCopyWithImpl<$Res> implements $PackageInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? overview = null,
-    Object? owner = null,
-    Object? category = null,
-    Object? guid = null,
-    Object? versions = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? overview = freezed,
+    Object? owner = freezed,
+    Object? category = freezed,
+    Object? guid = freezed,
+    Object? versions = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: null == description
+                  as String?,
+        description: freezed == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        overview: null == overview
+                  as String?,
+        overview: freezed == overview
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
-                  as String,
-        owner: null == owner
+                  as String?,
+        owner: freezed == owner
             ? _self.owner
             : owner // ignore: cast_nullable_to_non_nullable
-                  as String,
-        category: null == category
+                  as String?,
+        category: freezed == category
             ? _self.category
             : category // ignore: cast_nullable_to_non_nullable
-                  as String,
-        guid: null == guid
+                  as String?,
+        guid: freezed == guid
             ? _self.guid
             : guid // ignore: cast_nullable_to_non_nullable
-                  as String,
-        versions: null == versions
+                  as String?,
+        versions: freezed == versions
             ? _self.versions
             : versions // ignore: cast_nullable_to_non_nullable
-                  as List<VersionInfo>,
+                  as List<VersionInfo>?,
         imageUrl: freezed == imageUrl
             ? _self.imageUrl
             : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -261,13 +261,13 @@ extension PackageInfoPatterns on PackageInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      String name,
-      String description,
-      String overview,
-      String owner,
-      String category,
-      String guid,
-      List<VersionInfo> versions,
+      String? name,
+      String? description,
+      String? overview,
+      String? owner,
+      String? category,
+      String? guid,
+      List<VersionInfo>? versions,
       String? imageUrl,
     )?
     $default, {
@@ -307,13 +307,13 @@ extension PackageInfoPatterns on PackageInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      String name,
-      String description,
-      String overview,
-      String owner,
-      String category,
-      String guid,
-      List<VersionInfo> versions,
+      String? name,
+      String? description,
+      String? overview,
+      String? owner,
+      String? category,
+      String? guid,
+      List<VersionInfo>? versions,
       String? imageUrl,
     )
     $default,
@@ -351,13 +351,13 @@ extension PackageInfoPatterns on PackageInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      String name,
-      String description,
-      String overview,
-      String owner,
-      String category,
-      String guid,
-      List<VersionInfo> versions,
+      String? name,
+      String? description,
+      String? overview,
+      String? owner,
+      String? category,
+      String? guid,
+      List<VersionInfo>? versions,
       String? imageUrl,
     )?
     $default,
@@ -385,13 +385,13 @@ extension PackageInfoPatterns on PackageInfo {
 @JsonSerializable()
 class _PackageInfo implements PackageInfo {
   const _PackageInfo({
-    required this.name,
-    required this.description,
-    required this.overview,
-    required this.owner,
-    required this.category,
-    required this.guid,
-    required final List<VersionInfo> versions,
+    this.name,
+    this.description,
+    this.overview,
+    this.owner,
+    this.category,
+    this.guid,
+    final List<VersionInfo>? versions,
     this.imageUrl,
   }) : _versions = versions;
   factory _PackageInfo.fromJson(Map<String, dynamic> json) =>
@@ -399,39 +399,41 @@ class _PackageInfo implements PackageInfo {
 
   /// Gets or sets the name.
   @override
-  final String name;
+  final String? name;
 
   /// Gets or sets a long description of the plugin containing features or helpful explanations.
   @override
-  final String description;
+  final String? description;
 
   /// Gets or sets a short overview of what the plugin does.
   @override
-  final String overview;
+  final String? overview;
 
   /// Gets or sets the owner.
   @override
-  final String owner;
+  final String? owner;
 
   /// Gets or sets the category.
   @override
-  final String category;
+  final String? category;
 
   /// Gets or sets the guid of the assembly associated with this plugin.
   ///
   /// This is used to identify the proper item for automatic updates.
   @override
-  final String guid;
+  final String? guid;
 
   /// Gets or sets the versions.
-  final List<VersionInfo> _versions;
+  final List<VersionInfo>? _versions;
 
   /// Gets or sets the versions.
   @override
-  List<VersionInfo> get versions {
+  List<VersionInfo>? get versions {
+    final value = _versions;
+    if (value == null) return null;
     if (_versions is EqualUnmodifiableListView) return _versions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_versions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the image url for the package.
@@ -500,13 +502,13 @@ abstract mixin class _$PackageInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String name,
-    String description,
-    String overview,
-    String owner,
-    String category,
-    String guid,
-    List<VersionInfo> versions,
+    String? name,
+    String? description,
+    String? overview,
+    String? owner,
+    String? category,
+    String? guid,
+    List<VersionInfo>? versions,
     String? imageUrl,
   });
 }
@@ -523,45 +525,45 @@ class __$PackageInfoCopyWithImpl<$Res> implements _$PackageInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? overview = null,
-    Object? owner = null,
-    Object? category = null,
-    Object? guid = null,
-    Object? versions = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? overview = freezed,
+    Object? owner = freezed,
+    Object? category = freezed,
+    Object? guid = freezed,
+    Object? versions = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(
       _PackageInfo(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: null == description
+                  as String?,
+        description: freezed == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        overview: null == overview
+                  as String?,
+        overview: freezed == overview
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
-                  as String,
-        owner: null == owner
+                  as String?,
+        owner: freezed == owner
             ? _self.owner
             : owner // ignore: cast_nullable_to_non_nullable
-                  as String,
-        category: null == category
+                  as String?,
+        category: freezed == category
             ? _self.category
             : category // ignore: cast_nullable_to_non_nullable
-                  as String,
-        guid: null == guid
+                  as String?,
+        guid: freezed == guid
             ? _self.guid
             : guid // ignore: cast_nullable_to_non_nullable
-                  as String,
-        versions: null == versions
+                  as String?,
+        versions: freezed == versions
             ? _self._versions
             : versions // ignore: cast_nullable_to_non_nullable
-                  as List<VersionInfo>,
+                  as List<VersionInfo>?,
         imageUrl: freezed == imageUrl
             ? _self.imageUrl
             : imageUrl // ignore: cast_nullable_to_non_nullable

@@ -8,8 +8,64 @@ part of 'restart_required_message.dart';
 
 _RestartRequiredMessage _$RestartRequiredMessageFromJson(
   Map<String, dynamic> json,
-) => _RestartRequiredMessage(messageId: json['MessageId'] as String);
+) => _RestartRequiredMessage(
+  messageId: json['MessageId'] as String,
+  messageType:
+      $enumDecodeNullable(
+        _$RestartRequiredMessageMessageTypeEnumMap,
+        json['MessageType'],
+      ) ??
+      RestartRequiredMessageMessageType.restartRequired,
+);
 
 Map<String, dynamic> _$RestartRequiredMessageToJson(
   _RestartRequiredMessage instance,
-) => <String, dynamic>{'MessageId': instance.messageId};
+) => <String, dynamic>{
+  'MessageId': instance.messageId,
+  'MessageType': instance.messageType.toJson(),
+};
+
+const _$RestartRequiredMessageMessageTypeEnumMap = {
+  RestartRequiredMessageMessageType.forceKeepAlive: 'ForceKeepAlive',
+  RestartRequiredMessageMessageType.generalCommand: 'GeneralCommand',
+  RestartRequiredMessageMessageType.userDataChanged: 'UserDataChanged',
+  RestartRequiredMessageMessageType.sessions: 'Sessions',
+  RestartRequiredMessageMessageType.play: 'Play',
+  RestartRequiredMessageMessageType.syncPlayCommand: 'SyncPlayCommand',
+  RestartRequiredMessageMessageType.syncPlayGroupUpdate: 'SyncPlayGroupUpdate',
+  RestartRequiredMessageMessageType.playstate: 'Playstate',
+  RestartRequiredMessageMessageType.restartRequired: 'RestartRequired',
+  RestartRequiredMessageMessageType.serverShuttingDown: 'ServerShuttingDown',
+  RestartRequiredMessageMessageType.serverRestarting: 'ServerRestarting',
+  RestartRequiredMessageMessageType.libraryChanged: 'LibraryChanged',
+  RestartRequiredMessageMessageType.userDeleted: 'UserDeleted',
+  RestartRequiredMessageMessageType.userUpdated: 'UserUpdated',
+  RestartRequiredMessageMessageType.seriesTimerCreated: 'SeriesTimerCreated',
+  RestartRequiredMessageMessageType.timerCreated: 'TimerCreated',
+  RestartRequiredMessageMessageType.seriesTimerCancelled:
+      'SeriesTimerCancelled',
+  RestartRequiredMessageMessageType.timerCancelled: 'TimerCancelled',
+  RestartRequiredMessageMessageType.refreshProgress: 'RefreshProgress',
+  RestartRequiredMessageMessageType.scheduledTaskEnded: 'ScheduledTaskEnded',
+  RestartRequiredMessageMessageType.packageInstallationCancelled:
+      'PackageInstallationCancelled',
+  RestartRequiredMessageMessageType.packageInstallationFailed:
+      'PackageInstallationFailed',
+  RestartRequiredMessageMessageType.packageInstallationCompleted:
+      'PackageInstallationCompleted',
+  RestartRequiredMessageMessageType.packageInstalling: 'PackageInstalling',
+  RestartRequiredMessageMessageType.packageUninstalled: 'PackageUninstalled',
+  RestartRequiredMessageMessageType.activityLogEntry: 'ActivityLogEntry',
+  RestartRequiredMessageMessageType.scheduledTasksInfo: 'ScheduledTasksInfo',
+  RestartRequiredMessageMessageType.activityLogEntryStart:
+      'ActivityLogEntryStart',
+  RestartRequiredMessageMessageType.activityLogEntryStop:
+      'ActivityLogEntryStop',
+  RestartRequiredMessageMessageType.sessionsStart: 'SessionsStart',
+  RestartRequiredMessageMessageType.sessionsStop: 'SessionsStop',
+  RestartRequiredMessageMessageType.scheduledTasksInfoStart:
+      'ScheduledTasksInfoStart',
+  RestartRequiredMessageMessageType.scheduledTasksInfoStop:
+      'ScheduledTasksInfoStop',
+  RestartRequiredMessageMessageType.keepAlive: 'KeepAlive',
+};

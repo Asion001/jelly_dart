@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,26 +14,26 @@ part 'package_info.g.dart';
 abstract class PackageInfo with _$PackageInfo {
   const factory PackageInfo({
     /// Gets or sets the name.
-    required String name,
+    String? name,
 
     /// Gets or sets a long description of the plugin containing features or helpful explanations.
-    required String description,
+    String? description,
 
     /// Gets or sets a short overview of what the plugin does.
-    required String overview,
+    String? overview,
 
     /// Gets or sets the owner.
-    required String owner,
+    String? owner,
 
     /// Gets or sets the category.
-    required String category,
+    String? category,
 
     /// Gets or sets the guid of the assembly associated with this plugin.    ///
     /// This is used to identify the proper item for automatic updates.
-    required String guid,
+    String? guid,
 
     /// Gets or sets the versions.
-    required List<VersionInfo> versions,
+    List<VersionInfo>? versions,
 
     /// Gets or sets the image url for the package.
     String? imageUrl,

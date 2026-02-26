@@ -21,6 +21,10 @@ mixin _$PluginInfo {
   @JsonKey(name: 'Version')
   String get version;
 
+  /// Gets or sets the name of the configuration file.
+  @JsonKey(name: 'ConfigurationFileName')
+  String? get configurationFileName;
+
   /// Gets or sets the description.
   @JsonKey(name: 'Description')
   String get description;
@@ -41,10 +45,6 @@ mixin _$PluginInfo {
   @JsonKey(name: 'Status')
   PluginInfoStatus get status;
 
-  /// Gets or sets the name of the configuration file.
-  @JsonKey(name: 'ConfigurationFileName')
-  String? get configurationFileName;
-
   /// Create a copy of PluginInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -62,6 +62,8 @@ mixin _$PluginInfo {
             other is PluginInfo &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.version, version) || other.version == version) &&
+            (identical(other.configurationFileName, configurationFileName) ||
+                other.configurationFileName == configurationFileName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.id, id) || other.id == id) &&
@@ -69,9 +71,7 @@ mixin _$PluginInfo {
                 other.canUninstall == canUninstall) &&
             (identical(other.hasImage, hasImage) ||
                 other.hasImage == hasImage) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.configurationFileName, configurationFileName) ||
-                other.configurationFileName == configurationFileName));
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -80,17 +80,17 @@ mixin _$PluginInfo {
     runtimeType,
     name,
     version,
+    configurationFileName,
     description,
     id,
     canUninstall,
     hasImage,
     status,
-    configurationFileName,
   );
 
   @override
   String toString() {
-    return 'PluginInfo(name: $name, version: $version, description: $description, id: $id, canUninstall: $canUninstall, hasImage: $hasImage, status: $status, configurationFileName: $configurationFileName)';
+    return 'PluginInfo(name: $name, version: $version, configurationFileName: $configurationFileName, description: $description, id: $id, canUninstall: $canUninstall, hasImage: $hasImage, status: $status)';
   }
 }
 
@@ -104,12 +104,12 @@ abstract mixin class $PluginInfoCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'Name') String name,
     @JsonKey(name: 'Version') String version,
+    @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
     @JsonKey(name: 'Description') String description,
     @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'CanUninstall') bool canUninstall,
     @JsonKey(name: 'HasImage') bool hasImage,
     @JsonKey(name: 'Status') PluginInfoStatus status,
-    @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
   });
 }
 
@@ -127,12 +127,12 @@ class _$PluginInfoCopyWithImpl<$Res> implements $PluginInfoCopyWith<$Res> {
   $Res call({
     Object? name = null,
     Object? version = null,
+    Object? configurationFileName = freezed,
     Object? description = null,
     Object? id = null,
     Object? canUninstall = null,
     Object? hasImage = null,
     Object? status = null,
-    Object? configurationFileName = freezed,
   }) {
     return _then(
       _self.copyWith(
@@ -144,6 +144,10 @@ class _$PluginInfoCopyWithImpl<$Res> implements $PluginInfoCopyWith<$Res> {
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
                   as String,
+        configurationFileName: freezed == configurationFileName
+            ? _self.configurationFileName
+            : configurationFileName // ignore: cast_nullable_to_non_nullable
+                  as String?,
         description: null == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
@@ -164,10 +168,6 @@ class _$PluginInfoCopyWithImpl<$Res> implements $PluginInfoCopyWith<$Res> {
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
                   as PluginInfoStatus,
-        configurationFileName: freezed == configurationFileName
-            ? _self.configurationFileName
-            : configurationFileName // ignore: cast_nullable_to_non_nullable
-                  as String?,
       ),
     );
   }
@@ -269,12 +269,12 @@ extension PluginInfoPatterns on PluginInfo {
     TResult Function(
       @JsonKey(name: 'Name') String name,
       @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
       @JsonKey(name: 'Description') String description,
       @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'CanUninstall') bool canUninstall,
       @JsonKey(name: 'HasImage') bool hasImage,
       @JsonKey(name: 'Status') PluginInfoStatus status,
-      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
     )?
     $default, {
     required TResult orElse(),
@@ -285,12 +285,12 @@ extension PluginInfoPatterns on PluginInfo {
         return $default(
           _that.name,
           _that.version,
+          _that.configurationFileName,
           _that.description,
           _that.id,
           _that.canUninstall,
           _that.hasImage,
           _that.status,
-          _that.configurationFileName,
         );
       case _:
         return orElse();
@@ -315,12 +315,12 @@ extension PluginInfoPatterns on PluginInfo {
     TResult Function(
       @JsonKey(name: 'Name') String name,
       @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
       @JsonKey(name: 'Description') String description,
       @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'CanUninstall') bool canUninstall,
       @JsonKey(name: 'HasImage') bool hasImage,
       @JsonKey(name: 'Status') PluginInfoStatus status,
-      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
     )
     $default,
   ) {
@@ -330,12 +330,12 @@ extension PluginInfoPatterns on PluginInfo {
         return $default(
           _that.name,
           _that.version,
+          _that.configurationFileName,
           _that.description,
           _that.id,
           _that.canUninstall,
           _that.hasImage,
           _that.status,
-          _that.configurationFileName,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -359,12 +359,12 @@ extension PluginInfoPatterns on PluginInfo {
     TResult? Function(
       @JsonKey(name: 'Name') String name,
       @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
       @JsonKey(name: 'Description') String description,
       @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'CanUninstall') bool canUninstall,
       @JsonKey(name: 'HasImage') bool hasImage,
       @JsonKey(name: 'Status') PluginInfoStatus status,
-      @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
     )?
     $default,
   ) {
@@ -374,12 +374,12 @@ extension PluginInfoPatterns on PluginInfo {
         return $default(
           _that.name,
           _that.version,
+          _that.configurationFileName,
           _that.description,
           _that.id,
           _that.canUninstall,
           _that.hasImage,
           _that.status,
-          _that.configurationFileName,
         );
       case _:
         return null;
@@ -393,12 +393,12 @@ class _PluginInfo implements PluginInfo {
   const _PluginInfo({
     @JsonKey(name: 'Name') required this.name,
     @JsonKey(name: 'Version') required this.version,
+    @JsonKey(name: 'ConfigurationFileName') required this.configurationFileName,
     @JsonKey(name: 'Description') required this.description,
     @JsonKey(name: 'Id') required this.id,
     @JsonKey(name: 'CanUninstall') required this.canUninstall,
     @JsonKey(name: 'HasImage') required this.hasImage,
     @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'ConfigurationFileName') this.configurationFileName,
   });
   factory _PluginInfo.fromJson(Map<String, dynamic> json) =>
       _$PluginInfoFromJson(json);
@@ -412,6 +412,11 @@ class _PluginInfo implements PluginInfo {
   @override
   @JsonKey(name: 'Version')
   final String version;
+
+  /// Gets or sets the name of the configuration file.
+  @override
+  @JsonKey(name: 'ConfigurationFileName')
+  final String? configurationFileName;
 
   /// Gets or sets the description.
   @override
@@ -438,11 +443,6 @@ class _PluginInfo implements PluginInfo {
   @JsonKey(name: 'Status')
   final PluginInfoStatus status;
 
-  /// Gets or sets the name of the configuration file.
-  @override
-  @JsonKey(name: 'ConfigurationFileName')
-  final String? configurationFileName;
-
   /// Create a copy of PluginInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -463,6 +463,8 @@ class _PluginInfo implements PluginInfo {
             other is _PluginInfo &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.version, version) || other.version == version) &&
+            (identical(other.configurationFileName, configurationFileName) ||
+                other.configurationFileName == configurationFileName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.id, id) || other.id == id) &&
@@ -470,9 +472,7 @@ class _PluginInfo implements PluginInfo {
                 other.canUninstall == canUninstall) &&
             (identical(other.hasImage, hasImage) ||
                 other.hasImage == hasImage) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.configurationFileName, configurationFileName) ||
-                other.configurationFileName == configurationFileName));
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -481,17 +481,17 @@ class _PluginInfo implements PluginInfo {
     runtimeType,
     name,
     version,
+    configurationFileName,
     description,
     id,
     canUninstall,
     hasImage,
     status,
-    configurationFileName,
   );
 
   @override
   String toString() {
-    return 'PluginInfo(name: $name, version: $version, description: $description, id: $id, canUninstall: $canUninstall, hasImage: $hasImage, status: $status, configurationFileName: $configurationFileName)';
+    return 'PluginInfo(name: $name, version: $version, configurationFileName: $configurationFileName, description: $description, id: $id, canUninstall: $canUninstall, hasImage: $hasImage, status: $status)';
   }
 }
 
@@ -507,12 +507,12 @@ abstract mixin class _$PluginInfoCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'Name') String name,
     @JsonKey(name: 'Version') String version,
+    @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
     @JsonKey(name: 'Description') String description,
     @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'CanUninstall') bool canUninstall,
     @JsonKey(name: 'HasImage') bool hasImage,
     @JsonKey(name: 'Status') PluginInfoStatus status,
-    @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
   });
 }
 
@@ -530,12 +530,12 @@ class __$PluginInfoCopyWithImpl<$Res> implements _$PluginInfoCopyWith<$Res> {
   $Res call({
     Object? name = null,
     Object? version = null,
+    Object? configurationFileName = freezed,
     Object? description = null,
     Object? id = null,
     Object? canUninstall = null,
     Object? hasImage = null,
     Object? status = null,
-    Object? configurationFileName = freezed,
   }) {
     return _then(
       _PluginInfo(
@@ -547,6 +547,10 @@ class __$PluginInfoCopyWithImpl<$Res> implements _$PluginInfoCopyWith<$Res> {
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
                   as String,
+        configurationFileName: freezed == configurationFileName
+            ? _self.configurationFileName
+            : configurationFileName // ignore: cast_nullable_to_non_nullable
+                  as String?,
         description: null == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
@@ -567,10 +571,6 @@ class __$PluginInfoCopyWithImpl<$Res> implements _$PluginInfoCopyWith<$Res> {
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
                   as PluginInfoStatus,
-        configurationFileName: freezed == configurationFileName
-            ? _self.configurationFileName
-            : configurationFileName // ignore: cast_nullable_to_non_nullable
-                  as String?,
       ),
     );
   }

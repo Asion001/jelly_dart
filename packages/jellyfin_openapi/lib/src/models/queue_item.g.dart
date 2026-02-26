@@ -7,12 +7,12 @@ part of 'queue_item.dart';
 // **************************************************************************
 
 _QueueItem _$QueueItemFromJson(Map<String, dynamic> json) => _QueueItem(
-  id: json['Id'] as String,
+  id: json['Id'] as String?,
   playlistItemId: json['PlaylistItemId'] as String?,
 );
 
 Map<String, dynamic> _$QueueItemToJson(_QueueItem instance) =>
     <String, dynamic>{
-      'Id': instance.id,
+      'Id': ?instance.id,
       'PlaylistItemId': ?instance.playlistItemId,
     };

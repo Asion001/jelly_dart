@@ -10,7 +10,59 @@ _UserDeletedMessage _$UserDeletedMessageFromJson(Map<String, dynamic> json) =>
     _UserDeletedMessage(
       data: json['Data'] as String,
       messageId: json['MessageId'] as String,
+      messageType:
+          $enumDecodeNullable(
+            _$UserDeletedMessageMessageTypeEnumMap,
+            json['MessageType'],
+          ) ??
+          UserDeletedMessageMessageType.userDeleted,
     );
 
 Map<String, dynamic> _$UserDeletedMessageToJson(_UserDeletedMessage instance) =>
-    <String, dynamic>{'Data': instance.data, 'MessageId': instance.messageId};
+    <String, dynamic>{
+      'Data': instance.data,
+      'MessageId': instance.messageId,
+      'MessageType': instance.messageType.toJson(),
+    };
+
+const _$UserDeletedMessageMessageTypeEnumMap = {
+  UserDeletedMessageMessageType.forceKeepAlive: 'ForceKeepAlive',
+  UserDeletedMessageMessageType.generalCommand: 'GeneralCommand',
+  UserDeletedMessageMessageType.userDataChanged: 'UserDataChanged',
+  UserDeletedMessageMessageType.sessions: 'Sessions',
+  UserDeletedMessageMessageType.play: 'Play',
+  UserDeletedMessageMessageType.syncPlayCommand: 'SyncPlayCommand',
+  UserDeletedMessageMessageType.syncPlayGroupUpdate: 'SyncPlayGroupUpdate',
+  UserDeletedMessageMessageType.playstate: 'Playstate',
+  UserDeletedMessageMessageType.restartRequired: 'RestartRequired',
+  UserDeletedMessageMessageType.serverShuttingDown: 'ServerShuttingDown',
+  UserDeletedMessageMessageType.serverRestarting: 'ServerRestarting',
+  UserDeletedMessageMessageType.libraryChanged: 'LibraryChanged',
+  UserDeletedMessageMessageType.userDeleted: 'UserDeleted',
+  UserDeletedMessageMessageType.userUpdated: 'UserUpdated',
+  UserDeletedMessageMessageType.seriesTimerCreated: 'SeriesTimerCreated',
+  UserDeletedMessageMessageType.timerCreated: 'TimerCreated',
+  UserDeletedMessageMessageType.seriesTimerCancelled: 'SeriesTimerCancelled',
+  UserDeletedMessageMessageType.timerCancelled: 'TimerCancelled',
+  UserDeletedMessageMessageType.refreshProgress: 'RefreshProgress',
+  UserDeletedMessageMessageType.scheduledTaskEnded: 'ScheduledTaskEnded',
+  UserDeletedMessageMessageType.packageInstallationCancelled:
+      'PackageInstallationCancelled',
+  UserDeletedMessageMessageType.packageInstallationFailed:
+      'PackageInstallationFailed',
+  UserDeletedMessageMessageType.packageInstallationCompleted:
+      'PackageInstallationCompleted',
+  UserDeletedMessageMessageType.packageInstalling: 'PackageInstalling',
+  UserDeletedMessageMessageType.packageUninstalled: 'PackageUninstalled',
+  UserDeletedMessageMessageType.activityLogEntry: 'ActivityLogEntry',
+  UserDeletedMessageMessageType.scheduledTasksInfo: 'ScheduledTasksInfo',
+  UserDeletedMessageMessageType.activityLogEntryStart: 'ActivityLogEntryStart',
+  UserDeletedMessageMessageType.activityLogEntryStop: 'ActivityLogEntryStop',
+  UserDeletedMessageMessageType.sessionsStart: 'SessionsStart',
+  UserDeletedMessageMessageType.sessionsStop: 'SessionsStop',
+  UserDeletedMessageMessageType.scheduledTasksInfoStart:
+      'ScheduledTasksInfoStart',
+  UserDeletedMessageMessageType.scheduledTasksInfoStop:
+      'ScheduledTasksInfoStop',
+  UserDeletedMessageMessageType.keepAlive: 'KeepAlive',
+};

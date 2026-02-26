@@ -11,6 +11,12 @@ _SyncPlayGroupUpdateMessage _$SyncPlayGroupUpdateMessageFromJson(
 ) => _SyncPlayGroupUpdateMessage(
   data: GroupUpdateUnion.fromJson(json['Data'] as Map<String, dynamic>),
   messageId: json['MessageId'] as String,
+  messageType:
+      $enumDecodeNullable(
+        _$SyncPlayGroupUpdateMessageMessageTypeEnumMap,
+        json['MessageType'],
+      ) ??
+      SyncPlayGroupUpdateMessageMessageType.syncPlayGroupUpdate,
 );
 
 Map<String, dynamic> _$SyncPlayGroupUpdateMessageToJson(
@@ -18,4 +24,56 @@ Map<String, dynamic> _$SyncPlayGroupUpdateMessageToJson(
 ) => <String, dynamic>{
   'Data': instance.data.toJson(),
   'MessageId': instance.messageId,
+  'MessageType': instance.messageType.toJson(),
+};
+
+const _$SyncPlayGroupUpdateMessageMessageTypeEnumMap = {
+  SyncPlayGroupUpdateMessageMessageType.forceKeepAlive: 'ForceKeepAlive',
+  SyncPlayGroupUpdateMessageMessageType.generalCommand: 'GeneralCommand',
+  SyncPlayGroupUpdateMessageMessageType.userDataChanged: 'UserDataChanged',
+  SyncPlayGroupUpdateMessageMessageType.sessions: 'Sessions',
+  SyncPlayGroupUpdateMessageMessageType.play: 'Play',
+  SyncPlayGroupUpdateMessageMessageType.syncPlayCommand: 'SyncPlayCommand',
+  SyncPlayGroupUpdateMessageMessageType.syncPlayGroupUpdate:
+      'SyncPlayGroupUpdate',
+  SyncPlayGroupUpdateMessageMessageType.playstate: 'Playstate',
+  SyncPlayGroupUpdateMessageMessageType.restartRequired: 'RestartRequired',
+  SyncPlayGroupUpdateMessageMessageType.serverShuttingDown:
+      'ServerShuttingDown',
+  SyncPlayGroupUpdateMessageMessageType.serverRestarting: 'ServerRestarting',
+  SyncPlayGroupUpdateMessageMessageType.libraryChanged: 'LibraryChanged',
+  SyncPlayGroupUpdateMessageMessageType.userDeleted: 'UserDeleted',
+  SyncPlayGroupUpdateMessageMessageType.userUpdated: 'UserUpdated',
+  SyncPlayGroupUpdateMessageMessageType.seriesTimerCreated:
+      'SeriesTimerCreated',
+  SyncPlayGroupUpdateMessageMessageType.timerCreated: 'TimerCreated',
+  SyncPlayGroupUpdateMessageMessageType.seriesTimerCancelled:
+      'SeriesTimerCancelled',
+  SyncPlayGroupUpdateMessageMessageType.timerCancelled: 'TimerCancelled',
+  SyncPlayGroupUpdateMessageMessageType.refreshProgress: 'RefreshProgress',
+  SyncPlayGroupUpdateMessageMessageType.scheduledTaskEnded:
+      'ScheduledTaskEnded',
+  SyncPlayGroupUpdateMessageMessageType.packageInstallationCancelled:
+      'PackageInstallationCancelled',
+  SyncPlayGroupUpdateMessageMessageType.packageInstallationFailed:
+      'PackageInstallationFailed',
+  SyncPlayGroupUpdateMessageMessageType.packageInstallationCompleted:
+      'PackageInstallationCompleted',
+  SyncPlayGroupUpdateMessageMessageType.packageInstalling: 'PackageInstalling',
+  SyncPlayGroupUpdateMessageMessageType.packageUninstalled:
+      'PackageUninstalled',
+  SyncPlayGroupUpdateMessageMessageType.activityLogEntry: 'ActivityLogEntry',
+  SyncPlayGroupUpdateMessageMessageType.scheduledTasksInfo:
+      'ScheduledTasksInfo',
+  SyncPlayGroupUpdateMessageMessageType.activityLogEntryStart:
+      'ActivityLogEntryStart',
+  SyncPlayGroupUpdateMessageMessageType.activityLogEntryStop:
+      'ActivityLogEntryStop',
+  SyncPlayGroupUpdateMessageMessageType.sessionsStart: 'SessionsStart',
+  SyncPlayGroupUpdateMessageMessageType.sessionsStop: 'SessionsStop',
+  SyncPlayGroupUpdateMessageMessageType.scheduledTasksInfoStart:
+      'ScheduledTasksInfoStart',
+  SyncPlayGroupUpdateMessageMessageType.scheduledTasksInfoStop:
+      'ScheduledTasksInfoStop',
+  SyncPlayGroupUpdateMessageMessageType.keepAlive: 'KeepAlive',
 };

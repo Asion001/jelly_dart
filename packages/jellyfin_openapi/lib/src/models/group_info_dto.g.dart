@@ -10,7 +10,7 @@ _GroupInfoDto _$GroupInfoDtoFromJson(Map<String, dynamic> json) =>
     _GroupInfoDto(
       groupId: json['GroupId'] as String,
       groupName: json['GroupName'] as String,
-      state: GroupInfoDtoState.fromJson(json['State']),
+      state: $enumDecode(_$GroupInfoDtoStateEnumMap, json['State']),
       participants: (json['Participants'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -25,3 +25,10 @@ Map<String, dynamic> _$GroupInfoDtoToJson(_GroupInfoDto instance) =>
       'Participants': instance.participants,
       'LastUpdatedAt': instance.lastUpdatedAt.toIso8601String(),
     };
+
+const _$GroupInfoDtoStateEnumMap = {
+  GroupInfoDtoState.idle: 'Idle',
+  GroupInfoDtoState.waiting: 'Waiting',
+  GroupInfoDtoState.paused: 'Paused',
+  GroupInfoDtoState.playing: 'Playing',
+};

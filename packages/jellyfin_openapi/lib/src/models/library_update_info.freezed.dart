@@ -15,27 +15,27 @@ T _$identity<T>(T value) => value;
 mixin _$LibraryUpdateInfo {
   /// Gets or sets the folders added to.
   @JsonKey(name: 'FoldersAddedTo')
-  List<String> get foldersAddedTo;
+  List<String>? get foldersAddedTo;
 
   /// Gets or sets the folders removed from.
   @JsonKey(name: 'FoldersRemovedFrom')
-  List<String> get foldersRemovedFrom;
+  List<String>? get foldersRemovedFrom;
 
   /// Gets or sets the items added.
   @JsonKey(name: 'ItemsAdded')
-  List<String> get itemsAdded;
+  List<String>? get itemsAdded;
 
   /// Gets or sets the items removed.
   @JsonKey(name: 'ItemsRemoved')
-  List<String> get itemsRemoved;
+  List<String>? get itemsRemoved;
 
   /// Gets or sets the items updated.
   @JsonKey(name: 'ItemsUpdated')
-  List<String> get itemsUpdated;
+  List<String>? get itemsUpdated;
   @JsonKey(name: 'CollectionFolders')
-  List<String> get collectionFolders;
+  List<String>? get collectionFolders;
   @JsonKey(name: 'IsEmpty')
-  bool get isEmpty;
+  bool? get isEmpty;
 
   /// Create a copy of LibraryUpdateInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -109,13 +109,13 @@ abstract mixin class $LibraryUpdateInfoCopyWith<$Res> {
   ) = _$LibraryUpdateInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'FoldersAddedTo') List<String> foldersAddedTo,
-    @JsonKey(name: 'FoldersRemovedFrom') List<String> foldersRemovedFrom,
-    @JsonKey(name: 'ItemsAdded') List<String> itemsAdded,
-    @JsonKey(name: 'ItemsRemoved') List<String> itemsRemoved,
-    @JsonKey(name: 'ItemsUpdated') List<String> itemsUpdated,
-    @JsonKey(name: 'CollectionFolders') List<String> collectionFolders,
-    @JsonKey(name: 'IsEmpty') bool isEmpty,
+    @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
+    @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
+    @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
+    @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
+    @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+    @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+    @JsonKey(name: 'IsEmpty') bool? isEmpty,
   });
 }
 
@@ -132,44 +132,44 @@ class _$LibraryUpdateInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? foldersAddedTo = null,
-    Object? foldersRemovedFrom = null,
-    Object? itemsAdded = null,
-    Object? itemsRemoved = null,
-    Object? itemsUpdated = null,
-    Object? collectionFolders = null,
-    Object? isEmpty = null,
+    Object? foldersAddedTo = freezed,
+    Object? foldersRemovedFrom = freezed,
+    Object? itemsAdded = freezed,
+    Object? itemsRemoved = freezed,
+    Object? itemsUpdated = freezed,
+    Object? collectionFolders = freezed,
+    Object? isEmpty = freezed,
   }) {
     return _then(
       _self.copyWith(
-        foldersAddedTo: null == foldersAddedTo
+        foldersAddedTo: freezed == foldersAddedTo
             ? _self.foldersAddedTo
             : foldersAddedTo // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        foldersRemovedFrom: null == foldersRemovedFrom
+                  as List<String>?,
+        foldersRemovedFrom: freezed == foldersRemovedFrom
             ? _self.foldersRemovedFrom
             : foldersRemovedFrom // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsAdded: null == itemsAdded
+                  as List<String>?,
+        itemsAdded: freezed == itemsAdded
             ? _self.itemsAdded
             : itemsAdded // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsRemoved: null == itemsRemoved
+                  as List<String>?,
+        itemsRemoved: freezed == itemsRemoved
             ? _self.itemsRemoved
             : itemsRemoved // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsUpdated: null == itemsUpdated
+                  as List<String>?,
+        itemsUpdated: freezed == itemsUpdated
             ? _self.itemsUpdated
             : itemsUpdated // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        collectionFolders: null == collectionFolders
+                  as List<String>?,
+        collectionFolders: freezed == collectionFolders
             ? _self.collectionFolders
             : collectionFolders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        isEmpty: null == isEmpty
+                  as List<String>?,
+        isEmpty: freezed == isEmpty
             ? _self.isEmpty
             : isEmpty // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -269,13 +269,13 @@ extension LibraryUpdateInfoPatterns on LibraryUpdateInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'FoldersAddedTo') List<String> foldersAddedTo,
-      @JsonKey(name: 'FoldersRemovedFrom') List<String> foldersRemovedFrom,
-      @JsonKey(name: 'ItemsAdded') List<String> itemsAdded,
-      @JsonKey(name: 'ItemsRemoved') List<String> itemsRemoved,
-      @JsonKey(name: 'ItemsUpdated') List<String> itemsUpdated,
-      @JsonKey(name: 'CollectionFolders') List<String> collectionFolders,
-      @JsonKey(name: 'IsEmpty') bool isEmpty,
+      @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
+      @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
+      @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
+      @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
+      @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+      @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+      @JsonKey(name: 'IsEmpty') bool? isEmpty,
     )?
     $default, {
     required TResult orElse(),
@@ -313,13 +313,13 @@ extension LibraryUpdateInfoPatterns on LibraryUpdateInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'FoldersAddedTo') List<String> foldersAddedTo,
-      @JsonKey(name: 'FoldersRemovedFrom') List<String> foldersRemovedFrom,
-      @JsonKey(name: 'ItemsAdded') List<String> itemsAdded,
-      @JsonKey(name: 'ItemsRemoved') List<String> itemsRemoved,
-      @JsonKey(name: 'ItemsUpdated') List<String> itemsUpdated,
-      @JsonKey(name: 'CollectionFolders') List<String> collectionFolders,
-      @JsonKey(name: 'IsEmpty') bool isEmpty,
+      @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
+      @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
+      @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
+      @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
+      @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+      @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+      @JsonKey(name: 'IsEmpty') bool? isEmpty,
     )
     $default,
   ) {
@@ -355,13 +355,13 @@ extension LibraryUpdateInfoPatterns on LibraryUpdateInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'FoldersAddedTo') List<String> foldersAddedTo,
-      @JsonKey(name: 'FoldersRemovedFrom') List<String> foldersRemovedFrom,
-      @JsonKey(name: 'ItemsAdded') List<String> itemsAdded,
-      @JsonKey(name: 'ItemsRemoved') List<String> itemsRemoved,
-      @JsonKey(name: 'ItemsUpdated') List<String> itemsUpdated,
-      @JsonKey(name: 'CollectionFolders') List<String> collectionFolders,
-      @JsonKey(name: 'IsEmpty') bool isEmpty,
+      @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
+      @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
+      @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
+      @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
+      @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+      @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+      @JsonKey(name: 'IsEmpty') bool? isEmpty,
     )?
     $default,
   ) {
@@ -387,15 +387,13 @@ extension LibraryUpdateInfoPatterns on LibraryUpdateInfo {
 @JsonSerializable()
 class _LibraryUpdateInfo implements LibraryUpdateInfo {
   const _LibraryUpdateInfo({
-    @JsonKey(name: 'FoldersAddedTo') required final List<String> foldersAddedTo,
-    @JsonKey(name: 'FoldersRemovedFrom')
-    required final List<String> foldersRemovedFrom,
-    @JsonKey(name: 'ItemsAdded') required final List<String> itemsAdded,
-    @JsonKey(name: 'ItemsRemoved') required final List<String> itemsRemoved,
-    @JsonKey(name: 'ItemsUpdated') required final List<String> itemsUpdated,
-    @JsonKey(name: 'CollectionFolders')
-    required final List<String> collectionFolders,
-    @JsonKey(name: 'IsEmpty') required this.isEmpty,
+    @JsonKey(name: 'FoldersAddedTo') final List<String>? foldersAddedTo,
+    @JsonKey(name: 'FoldersRemovedFrom') final List<String>? foldersRemovedFrom,
+    @JsonKey(name: 'ItemsAdded') final List<String>? itemsAdded,
+    @JsonKey(name: 'ItemsRemoved') final List<String>? itemsRemoved,
+    @JsonKey(name: 'ItemsUpdated') final List<String>? itemsUpdated,
+    @JsonKey(name: 'CollectionFolders') final List<String>? collectionFolders,
+    @JsonKey(name: 'IsEmpty') this.isEmpty,
   }) : _foldersAddedTo = foldersAddedTo,
        _foldersRemovedFrom = foldersRemovedFrom,
        _itemsAdded = itemsAdded,
@@ -406,79 +404,91 @@ class _LibraryUpdateInfo implements LibraryUpdateInfo {
       _$LibraryUpdateInfoFromJson(json);
 
   /// Gets or sets the folders added to.
-  final List<String> _foldersAddedTo;
+  final List<String>? _foldersAddedTo;
 
   /// Gets or sets the folders added to.
   @override
   @JsonKey(name: 'FoldersAddedTo')
-  List<String> get foldersAddedTo {
+  List<String>? get foldersAddedTo {
+    final value = _foldersAddedTo;
+    if (value == null) return null;
     if (_foldersAddedTo is EqualUnmodifiableListView) return _foldersAddedTo;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_foldersAddedTo);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the folders removed from.
-  final List<String> _foldersRemovedFrom;
+  final List<String>? _foldersRemovedFrom;
 
   /// Gets or sets the folders removed from.
   @override
   @JsonKey(name: 'FoldersRemovedFrom')
-  List<String> get foldersRemovedFrom {
+  List<String>? get foldersRemovedFrom {
+    final value = _foldersRemovedFrom;
+    if (value == null) return null;
     if (_foldersRemovedFrom is EqualUnmodifiableListView)
       return _foldersRemovedFrom;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_foldersRemovedFrom);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the items added.
-  final List<String> _itemsAdded;
+  final List<String>? _itemsAdded;
 
   /// Gets or sets the items added.
   @override
   @JsonKey(name: 'ItemsAdded')
-  List<String> get itemsAdded {
+  List<String>? get itemsAdded {
+    final value = _itemsAdded;
+    if (value == null) return null;
     if (_itemsAdded is EqualUnmodifiableListView) return _itemsAdded;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_itemsAdded);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the items removed.
-  final List<String> _itemsRemoved;
+  final List<String>? _itemsRemoved;
 
   /// Gets or sets the items removed.
   @override
   @JsonKey(name: 'ItemsRemoved')
-  List<String> get itemsRemoved {
+  List<String>? get itemsRemoved {
+    final value = _itemsRemoved;
+    if (value == null) return null;
     if (_itemsRemoved is EqualUnmodifiableListView) return _itemsRemoved;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_itemsRemoved);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the items updated.
-  final List<String> _itemsUpdated;
+  final List<String>? _itemsUpdated;
 
   /// Gets or sets the items updated.
   @override
   @JsonKey(name: 'ItemsUpdated')
-  List<String> get itemsUpdated {
+  List<String>? get itemsUpdated {
+    final value = _itemsUpdated;
+    if (value == null) return null;
     if (_itemsUpdated is EqualUnmodifiableListView) return _itemsUpdated;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_itemsUpdated);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _collectionFolders;
+  final List<String>? _collectionFolders;
   @override
   @JsonKey(name: 'CollectionFolders')
-  List<String> get collectionFolders {
+  List<String>? get collectionFolders {
+    final value = _collectionFolders;
+    if (value == null) return null;
     if (_collectionFolders is EqualUnmodifiableListView)
       return _collectionFolders;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_collectionFolders);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'IsEmpty')
-  final bool isEmpty;
+  final bool? isEmpty;
 
   /// Create a copy of LibraryUpdateInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -554,13 +564,13 @@ abstract mixin class _$LibraryUpdateInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'FoldersAddedTo') List<String> foldersAddedTo,
-    @JsonKey(name: 'FoldersRemovedFrom') List<String> foldersRemovedFrom,
-    @JsonKey(name: 'ItemsAdded') List<String> itemsAdded,
-    @JsonKey(name: 'ItemsRemoved') List<String> itemsRemoved,
-    @JsonKey(name: 'ItemsUpdated') List<String> itemsUpdated,
-    @JsonKey(name: 'CollectionFolders') List<String> collectionFolders,
-    @JsonKey(name: 'IsEmpty') bool isEmpty,
+    @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
+    @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
+    @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
+    @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
+    @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+    @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+    @JsonKey(name: 'IsEmpty') bool? isEmpty,
   });
 }
 
@@ -577,44 +587,44 @@ class __$LibraryUpdateInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? foldersAddedTo = null,
-    Object? foldersRemovedFrom = null,
-    Object? itemsAdded = null,
-    Object? itemsRemoved = null,
-    Object? itemsUpdated = null,
-    Object? collectionFolders = null,
-    Object? isEmpty = null,
+    Object? foldersAddedTo = freezed,
+    Object? foldersRemovedFrom = freezed,
+    Object? itemsAdded = freezed,
+    Object? itemsRemoved = freezed,
+    Object? itemsUpdated = freezed,
+    Object? collectionFolders = freezed,
+    Object? isEmpty = freezed,
   }) {
     return _then(
       _LibraryUpdateInfo(
-        foldersAddedTo: null == foldersAddedTo
+        foldersAddedTo: freezed == foldersAddedTo
             ? _self._foldersAddedTo
             : foldersAddedTo // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        foldersRemovedFrom: null == foldersRemovedFrom
+                  as List<String>?,
+        foldersRemovedFrom: freezed == foldersRemovedFrom
             ? _self._foldersRemovedFrom
             : foldersRemovedFrom // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsAdded: null == itemsAdded
+                  as List<String>?,
+        itemsAdded: freezed == itemsAdded
             ? _self._itemsAdded
             : itemsAdded // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsRemoved: null == itemsRemoved
+                  as List<String>?,
+        itemsRemoved: freezed == itemsRemoved
             ? _self._itemsRemoved
             : itemsRemoved // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        itemsUpdated: null == itemsUpdated
+                  as List<String>?,
+        itemsUpdated: freezed == itemsUpdated
             ? _self._itemsUpdated
             : itemsUpdated // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        collectionFolders: null == collectionFolders
+                  as List<String>?,
+        collectionFolders: freezed == collectionFolders
             ? _self._collectionFolders
             : collectionFolders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        isEmpty: null == isEmpty
+                  as List<String>?,
+        isEmpty: freezed == isEmpty
             ? _self.isEmpty
             : isEmpty // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }

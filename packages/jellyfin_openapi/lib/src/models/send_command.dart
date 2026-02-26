@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,6 +26,10 @@ abstract class SendCommand with _$SendCommand {
     @JsonKey(name: 'When')
     required DateTime whenValue,
 
+    /// Gets the position ticks.
+    @JsonKey(name: 'PositionTicks')
+    required int? positionTicks,
+
     /// Gets the command.
     @JsonKey(name: 'Command')
     required SendCommandCommand command,
@@ -33,10 +37,6 @@ abstract class SendCommand with _$SendCommand {
     /// Gets the UTC time when this command has been emitted.
     @JsonKey(name: 'EmittedAt')
     required DateTime emittedAt,
-
-    /// Gets the position ticks.
-    @JsonKey(name: 'PositionTicks')
-    int? positionTicks,
   }) = _SendCommand;
   
   factory SendCommand.fromJson(Map<String, Object?> json) => _$SendCommandFromJson(json);

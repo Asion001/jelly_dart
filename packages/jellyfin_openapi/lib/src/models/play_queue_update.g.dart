@@ -8,7 +8,7 @@ part of 'play_queue_update.dart';
 
 _PlayQueueUpdate _$PlayQueueUpdateFromJson(Map<String, dynamic> json) =>
     _PlayQueueUpdate(
-      reason: PlayQueueUpdateReason.fromJson(json['Reason']),
+      reason: $enumDecode(_$PlayQueueUpdateReasonEnumMap, json['Reason']),
       lastUpdate: DateTime.parse(json['LastUpdate'] as String),
       playlist: (json['Playlist'] as List<dynamic>)
           .map((e) => SyncPlayQueueItem.fromJson(e as Map<String, dynamic>))
@@ -16,8 +16,14 @@ _PlayQueueUpdate _$PlayQueueUpdateFromJson(Map<String, dynamic> json) =>
       playingItemIndex: (json['PlayingItemIndex'] as num).toInt(),
       startPositionTicks: (json['StartPositionTicks'] as num).toInt(),
       isPlaying: json['IsPlaying'] as bool,
-      shuffleMode: PlayQueueUpdateShuffleMode.fromJson(json['ShuffleMode']),
-      repeatMode: PlayQueueUpdateRepeatMode.fromJson(json['RepeatMode']),
+      shuffleMode: $enumDecode(
+        _$PlayQueueUpdateShuffleModeEnumMap,
+        json['ShuffleMode'],
+      ),
+      repeatMode: $enumDecode(
+        _$PlayQueueUpdateRepeatModeEnumMap,
+        json['RepeatMode'],
+      ),
     );
 
 Map<String, dynamic> _$PlayQueueUpdateToJson(_PlayQueueUpdate instance) =>
@@ -31,3 +37,27 @@ Map<String, dynamic> _$PlayQueueUpdateToJson(_PlayQueueUpdate instance) =>
       'ShuffleMode': instance.shuffleMode.toJson(),
       'RepeatMode': instance.repeatMode.toJson(),
     };
+
+const _$PlayQueueUpdateReasonEnumMap = {
+  PlayQueueUpdateReason.newPlaylist: 'NewPlaylist',
+  PlayQueueUpdateReason.setCurrentItem: 'SetCurrentItem',
+  PlayQueueUpdateReason.removeItems: 'RemoveItems',
+  PlayQueueUpdateReason.moveItem: 'MoveItem',
+  PlayQueueUpdateReason.queue: 'Queue',
+  PlayQueueUpdateReason.queueNext: 'QueueNext',
+  PlayQueueUpdateReason.nextItem: 'NextItem',
+  PlayQueueUpdateReason.previousItem: 'PreviousItem',
+  PlayQueueUpdateReason.repeatMode: 'RepeatMode',
+  PlayQueueUpdateReason.shuffleMode: 'ShuffleMode',
+};
+
+const _$PlayQueueUpdateShuffleModeEnumMap = {
+  PlayQueueUpdateShuffleMode.sorted: 'Sorted',
+  PlayQueueUpdateShuffleMode.shuffle: 'Shuffle',
+};
+
+const _$PlayQueueUpdateRepeatModeEnumMap = {
+  PlayQueueUpdateRepeatMode.repeatOne: 'RepeatOne',
+  PlayQueueUpdateRepeatMode.repeatAll: 'RepeatAll',
+  PlayQueueUpdateRepeatMode.repeatNone: 'RepeatNone',
+};

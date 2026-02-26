@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,11 +15,11 @@ abstract class UserDataChangeInfo with _$UserDataChangeInfo {
   const factory UserDataChangeInfo({
     /// Gets or sets the user id.
     @JsonKey(name: 'UserId')
-    required String userId,
+    String? userId,
 
     /// Gets or sets the user data list.
     @JsonKey(name: 'UserDataList')
-    required List<UserItemDataDto> userDataList,
+    List<UserItemDataDto>? userDataList,
   }) = _UserDataChangeInfo;
   
   factory UserDataChangeInfo.fromJson(Map<String, Object?> json) => _$UserDataChangeInfoFromJson(json);

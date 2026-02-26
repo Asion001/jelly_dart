@@ -14,9 +14,9 @@ analyzer:
     document_ignores: ignore
     unnecessary_library_directive: ignore
     invalid_annotation_target: ignore
-  exclude:
-    - "**/*_generated.dart"
-    - "**/*.freezed.dart"
-    - "**/*.g.dart"
-    - "**/*.gen.dart"
-    - "**/generated/**"
+  # exclude:
+  #   - "**/*_generated.dart"
+  #   - "**/*.freezed.dart"
+  #   - "**/*.g.dart"
+  #   - "**/*.gen.dart"
+  #   - "**/generated/**"

@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$UserDataChangeInfo {
   /// Gets or sets the user id.
   @JsonKey(name: 'UserId')
-  String get userId;
+  String? get userId;
 
   /// Gets or sets the user data list.
   @JsonKey(name: 'UserDataList')
-  List<UserItemDataDto> get userDataList;
+  List<UserItemDataDto>? get userDataList;
 
   /// Create a copy of UserDataChangeInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -68,8 +68,8 @@ abstract mixin class $UserDataChangeInfoCopyWith<$Res> {
   ) = _$UserDataChangeInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'UserId') String userId,
-    @JsonKey(name: 'UserDataList') List<UserItemDataDto> userDataList,
+    @JsonKey(name: 'UserId') String? userId,
+    @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
   });
 }
 
@@ -85,17 +85,17 @@ class _$UserDataChangeInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? userId = null, Object? userDataList = null}) {
+  $Res call({Object? userId = freezed, Object? userDataList = freezed}) {
     return _then(
       _self.copyWith(
-        userId: null == userId
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        userDataList: null == userDataList
+                  as String?,
+        userDataList: freezed == userDataList
             ? _self.userDataList
             : userDataList // ignore: cast_nullable_to_non_nullable
-                  as List<UserItemDataDto>,
+                  as List<UserItemDataDto>?,
       ),
     );
   }
@@ -195,8 +195,8 @@ extension UserDataChangeInfoPatterns on UserDataChangeInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'UserDataList') List<UserItemDataDto> userDataList,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
     )?
     $default, {
     required TResult orElse(),
@@ -226,8 +226,8 @@ extension UserDataChangeInfoPatterns on UserDataChangeInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'UserDataList') List<UserItemDataDto> userDataList,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
     )
     $default,
   ) {
@@ -255,8 +255,8 @@ extension UserDataChangeInfoPatterns on UserDataChangeInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'UserDataList') List<UserItemDataDto> userDataList,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
     )?
     $default,
   ) {
@@ -274,9 +274,8 @@ extension UserDataChangeInfoPatterns on UserDataChangeInfo {
 @JsonSerializable()
 class _UserDataChangeInfo implements UserDataChangeInfo {
   const _UserDataChangeInfo({
-    @JsonKey(name: 'UserId') required this.userId,
-    @JsonKey(name: 'UserDataList')
-    required final List<UserItemDataDto> userDataList,
+    @JsonKey(name: 'UserId') this.userId,
+    @JsonKey(name: 'UserDataList') final List<UserItemDataDto>? userDataList,
   }) : _userDataList = userDataList;
   factory _UserDataChangeInfo.fromJson(Map<String, dynamic> json) =>
       _$UserDataChangeInfoFromJson(json);
@@ -284,18 +283,20 @@ class _UserDataChangeInfo implements UserDataChangeInfo {
   /// Gets or sets the user id.
   @override
   @JsonKey(name: 'UserId')
-  final String userId;
+  final String? userId;
 
   /// Gets or sets the user data list.
-  final List<UserItemDataDto> _userDataList;
+  final List<UserItemDataDto>? _userDataList;
 
   /// Gets or sets the user data list.
   @override
   @JsonKey(name: 'UserDataList')
-  List<UserItemDataDto> get userDataList {
+  List<UserItemDataDto>? get userDataList {
+    final value = _userDataList;
+    if (value == null) return null;
     if (_userDataList is EqualUnmodifiableListView) return _userDataList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_userDataList);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Create a copy of UserDataChangeInfo
@@ -347,8 +348,8 @@ abstract mixin class _$UserDataChangeInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'UserId') String userId,
-    @JsonKey(name: 'UserDataList') List<UserItemDataDto> userDataList,
+    @JsonKey(name: 'UserId') String? userId,
+    @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
   });
 }
 
@@ -364,17 +365,17 @@ class __$UserDataChangeInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? userId = null, Object? userDataList = null}) {
+  $Res call({Object? userId = freezed, Object? userDataList = freezed}) {
     return _then(
       _UserDataChangeInfo(
-        userId: null == userId
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        userDataList: null == userDataList
+                  as String?,
+        userDataList: freezed == userDataList
             ? _self._userDataList
             : userDataList // ignore: cast_nullable_to_non_nullable
-                  as List<UserItemDataDto>,
+                  as List<UserItemDataDto>?,
       ),
     );
   }

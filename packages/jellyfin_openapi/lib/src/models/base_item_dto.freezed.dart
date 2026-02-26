@@ -13,21 +13,19 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$BaseItemDto {
-  /// Gets or sets the type of the media.
-  @JsonKey(name: 'MediaType')
-  BaseItemDtoMediaType get mediaType;
+  /// Gets or sets a value indicating whether this instance is HD.
+  @JsonKey(name: 'IsHD')
+  bool? get isHd;
+  @JsonKey(name: 'OriginalTitle')
+  String? get originalTitle;
+
+  /// Gets or sets the server identifier.
+  @JsonKey(name: 'ServerId')
+  String? get serverId;
 
   /// Gets or sets the id.
   @JsonKey(name: 'Id')
   String get id;
-
-  /// Gets or sets the type.
-  @JsonKey(name: 'Type')
-  BaseItemDtoType get type;
-
-  /// Gets or sets a value indicating whether this instance is HD.
-  @JsonKey(name: 'IsHD')
-  bool? get isHD;
 
   /// Gets or sets the etag.
   @JsonKey(name: 'Etag')
@@ -195,9 +193,9 @@ mixin _$BaseItemDto {
   @JsonKey(name: 'ParentId')
   String? get parentId;
 
-  /// Gets or sets the server identifier.
-  @JsonKey(name: 'ServerId')
-  String? get serverId;
+  /// Gets or sets the type.
+  @JsonKey(name: 'Type')
+  BaseItemDtoType get type;
 
   /// Gets or sets the people.
   @JsonKey(name: 'People')
@@ -227,7 +225,7 @@ mixin _$BaseItemDto {
 
   /// Gets or sets the user data for this item based on the user it's being requested for.
   @JsonKey(name: 'UserData')
-  UserItemDataDto? get userData;
+  UserItemDataDto get userData;
 
   /// Gets or sets the recursive item count.
   @JsonKey(name: 'RecursiveItemCount')
@@ -383,7 +381,7 @@ mixin _$BaseItemDto {
 
   /// Gets or sets the current program.
   @JsonKey(name: 'CurrentProgram')
-  BaseItemDto? get currentProgram;
+  BaseItemDto get currentProgram;
 
   /// Gets or sets the parent primary image tag.
   @JsonKey(name: 'ParentPrimaryImageTag')
@@ -404,8 +402,10 @@ mixin _$BaseItemDto {
   /// Gets or sets the type of the iso.
   @JsonKey(name: 'IsoType')
   BaseItemDtoIsoType? get isoType;
-  @JsonKey(name: 'OriginalTitle')
-  String? get originalTitle;
+
+  /// Gets or sets the gain required for audio normalization.
+  @JsonKey(name: 'NormalizationGain')
+  double? get normalizationGain;
 
   /// Gets or sets the end date.
   @JsonKey(name: 'EndDate')
@@ -547,13 +547,13 @@ mixin _$BaseItemDto {
   @JsonKey(name: 'TimerId')
   String? get timerId;
 
-  /// Gets or sets the gain required for audio normalization.
-  @JsonKey(name: 'NormalizationGain')
-  double? get normalizationGain;
-
   /// Gets or sets the parent primary image item identifier.
   @JsonKey(name: 'ParentPrimaryImageItemId')
   String? get parentPrimaryImageItemId;
+
+  /// Gets or sets the type of the media.
+  @JsonKey(name: 'MediaType')
+  BaseItemDtoMediaType get mediaType;
 
   /// Create a copy of BaseItemDto
   /// with the given fields replaced by the non-null parameter values.
@@ -570,11 +570,12 @@ mixin _$BaseItemDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is BaseItemDto &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType) &&
+            (identical(other.isHd, isHd) || other.isHd == isHd) &&
+            (identical(other.originalTitle, originalTitle) ||
+                other.originalTitle == originalTitle) &&
+            (identical(other.serverId, serverId) ||
+                other.serverId == serverId) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.isHD, isHD) || other.isHD == isHD) &&
             (identical(other.etag, etag) || other.etag == etag) &&
             (identical(other.sourceType, sourceType) ||
                 other.sourceType == sourceType) &&
@@ -692,8 +693,7 @@ mixin _$BaseItemDto {
                 other.isFolder == isFolder) &&
             (identical(other.parentId, parentId) ||
                 other.parentId == parentId) &&
-            (identical(other.serverId, serverId) ||
-                other.serverId == serverId) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other.people, people) &&
             const DeepCollectionEquality().equals(other.studios, studios) &&
             const DeepCollectionEquality().equals(
@@ -802,8 +802,8 @@ mixin _$BaseItemDto {
             (identical(other.locationType, locationType) ||
                 other.locationType == locationType) &&
             (identical(other.isoType, isoType) || other.isoType == isoType) &&
-            (identical(other.originalTitle, originalTitle) ||
-                other.originalTitle == originalTitle) &&
+            (identical(other.normalizationGain, normalizationGain) ||
+                other.normalizationGain == normalizationGain) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             const DeepCollectionEquality().equals(
               other.lockedFields,
@@ -883,23 +883,23 @@ mixin _$BaseItemDto {
             (identical(other.isPremiere, isPremiere) ||
                 other.isPremiere == isPremiere) &&
             (identical(other.timerId, timerId) || other.timerId == timerId) &&
-            (identical(other.normalizationGain, normalizationGain) ||
-                other.normalizationGain == normalizationGain) &&
             (identical(
                   other.parentPrimaryImageItemId,
                   parentPrimaryImageItemId,
                 ) ||
-                other.parentPrimaryImageItemId == parentPrimaryImageItemId));
+                other.parentPrimaryImageItemId == parentPrimaryImageItemId) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    mediaType,
+    isHd,
+    originalTitle,
+    serverId,
     id,
-    type,
-    isHD,
     etag,
     sourceType,
     playlistItemId,
@@ -950,7 +950,7 @@ mixin _$BaseItemDto {
     name,
     isFolder,
     parentId,
-    serverId,
+    type,
     const DeepCollectionEquality().hash(people),
     const DeepCollectionEquality().hash(studios),
     const DeepCollectionEquality().hash(genreItems),
@@ -1003,7 +1003,7 @@ mixin _$BaseItemDto {
     const DeepCollectionEquality().hash(trickplay),
     locationType,
     isoType,
-    originalTitle,
+    normalizationGain,
     endDate,
     const DeepCollectionEquality().hash(lockedFields),
     trailerCount,
@@ -1047,13 +1047,13 @@ mixin _$BaseItemDto {
     isKids,
     isPremiere,
     timerId,
-    normalizationGain,
     parentPrimaryImageItemId,
+    mediaType,
   ]);
 
   @override
   String toString() {
-    return 'BaseItemDto(mediaType: $mediaType, id: $id, type: $type, isHD: $isHD, etag: $etag, sourceType: $sourceType, playlistItemId: $playlistItemId, dateCreated: $dateCreated, dateLastMediaAdded: $dateLastMediaAdded, extraType: $extraType, airsBeforeSeasonNumber: $airsBeforeSeasonNumber, airsAfterSeasonNumber: $airsAfterSeasonNumber, airsBeforeEpisodeNumber: $airsBeforeEpisodeNumber, canDelete: $canDelete, canDownload: $canDownload, hasLyrics: $hasLyrics, hasSubtitles: $hasSubtitles, preferredMetadataLanguage: $preferredMetadataLanguage, preferredMetadataCountryCode: $preferredMetadataCountryCode, container: $container, sortName: $sortName, forcedSortName: $forcedSortName, video3DFormat: $video3DFormat, premiereDate: $premiereDate, externalUrls: $externalUrls, mediaSources: $mediaSources, criticRating: $criticRating, productionLocations: $productionLocations, path: $path, enableMediaSourceDisplay: $enableMediaSourceDisplay, officialRating: $officialRating, customRating: $customRating, channelId: $channelId, channelName: $channelName, overview: $overview, taglines: $taglines, genres: $genres, communityRating: $communityRating, cumulativeRunTimeTicks: $cumulativeRunTimeTicks, runTimeTicks: $runTimeTicks, playAccess: $playAccess, aspectRatio: $aspectRatio, productionYear: $productionYear, isPlaceHolder: $isPlaceHolder, number: $number, channelNumber: $channelNumber, indexNumber: $indexNumber, indexNumberEnd: $indexNumberEnd, parentIndexNumber: $parentIndexNumber, remoteTrailers: $remoteTrailers, providerIds: $providerIds, name: $name, isFolder: $isFolder, parentId: $parentId, serverId: $serverId, people: $people, studios: $studios, genreItems: $genreItems, parentLogoItemId: $parentLogoItemId, parentBackdropItemId: $parentBackdropItemId, parentBackdropImageTags: $parentBackdropImageTags, localTrailerCount: $localTrailerCount, userData: $userData, recursiveItemCount: $recursiveItemCount, childCount: $childCount, seriesName: $seriesName, seriesId: $seriesId, seasonId: $seasonId, specialFeatureCount: $specialFeatureCount, displayPreferencesId: $displayPreferencesId, status: $status, airTime: $airTime, airDays: $airDays, tags: $tags, primaryImageAspectRatio: $primaryImageAspectRatio, artists: $artists, artistItems: $artistItems, album: $album, collectionType: $collectionType, displayOrder: $displayOrder, albumId: $albumId, albumPrimaryImageTag: $albumPrimaryImageTag, seriesPrimaryImageTag: $seriesPrimaryImageTag, albumArtist: $albumArtist, albumArtists: $albumArtists, seasonName: $seasonName, mediaStreams: $mediaStreams, videoType: $videoType, partCount: $partCount, mediaSourceCount: $mediaSourceCount, imageTags: $imageTags, backdropImageTags: $backdropImageTags, screenshotImageTags: $screenshotImageTags, parentLogoImageTag: $parentLogoImageTag, parentArtItemId: $parentArtItemId, parentArtImageTag: $parentArtImageTag, seriesThumbImageTag: $seriesThumbImageTag, imageBlurHashes: $imageBlurHashes, seriesStudio: $seriesStudio, parentThumbItemId: $parentThumbItemId, parentThumbImageTag: $parentThumbImageTag, currentProgram: $currentProgram, parentPrimaryImageTag: $parentPrimaryImageTag, chapters: $chapters, trickplay: $trickplay, locationType: $locationType, isoType: $isoType, originalTitle: $originalTitle, endDate: $endDate, lockedFields: $lockedFields, trailerCount: $trailerCount, movieCount: $movieCount, seriesCount: $seriesCount, programCount: $programCount, episodeCount: $episodeCount, songCount: $songCount, albumCount: $albumCount, artistCount: $artistCount, musicVideoCount: $musicVideoCount, lockData: $lockData, width: $width, height: $height, cameraMake: $cameraMake, cameraModel: $cameraModel, software: $software, exposureTime: $exposureTime, focalLength: $focalLength, imageOrientation: $imageOrientation, aperture: $aperture, shutterSpeed: $shutterSpeed, latitude: $latitude, longitude: $longitude, altitude: $altitude, isoSpeedRating: $isoSpeedRating, seriesTimerId: $seriesTimerId, programId: $programId, channelPrimaryImageTag: $channelPrimaryImageTag, startDate: $startDate, completionPercentage: $completionPercentage, isRepeat: $isRepeat, episodeTitle: $episodeTitle, channelType: $channelType, audio: $audio, isMovie: $isMovie, isSports: $isSports, isSeries: $isSeries, isLive: $isLive, isNews: $isNews, isKids: $isKids, isPremiere: $isPremiere, timerId: $timerId, normalizationGain: $normalizationGain, parentPrimaryImageItemId: $parentPrimaryImageItemId)';
+    return 'BaseItemDto(isHd: $isHd, originalTitle: $originalTitle, serverId: $serverId, id: $id, etag: $etag, sourceType: $sourceType, playlistItemId: $playlistItemId, dateCreated: $dateCreated, dateLastMediaAdded: $dateLastMediaAdded, extraType: $extraType, airsBeforeSeasonNumber: $airsBeforeSeasonNumber, airsAfterSeasonNumber: $airsAfterSeasonNumber, airsBeforeEpisodeNumber: $airsBeforeEpisodeNumber, canDelete: $canDelete, canDownload: $canDownload, hasLyrics: $hasLyrics, hasSubtitles: $hasSubtitles, preferredMetadataLanguage: $preferredMetadataLanguage, preferredMetadataCountryCode: $preferredMetadataCountryCode, container: $container, sortName: $sortName, forcedSortName: $forcedSortName, video3DFormat: $video3DFormat, premiereDate: $premiereDate, externalUrls: $externalUrls, mediaSources: $mediaSources, criticRating: $criticRating, productionLocations: $productionLocations, path: $path, enableMediaSourceDisplay: $enableMediaSourceDisplay, officialRating: $officialRating, customRating: $customRating, channelId: $channelId, channelName: $channelName, overview: $overview, taglines: $taglines, genres: $genres, communityRating: $communityRating, cumulativeRunTimeTicks: $cumulativeRunTimeTicks, runTimeTicks: $runTimeTicks, playAccess: $playAccess, aspectRatio: $aspectRatio, productionYear: $productionYear, isPlaceHolder: $isPlaceHolder, number: $number, channelNumber: $channelNumber, indexNumber: $indexNumber, indexNumberEnd: $indexNumberEnd, parentIndexNumber: $parentIndexNumber, remoteTrailers: $remoteTrailers, providerIds: $providerIds, name: $name, isFolder: $isFolder, parentId: $parentId, type: $type, people: $people, studios: $studios, genreItems: $genreItems, parentLogoItemId: $parentLogoItemId, parentBackdropItemId: $parentBackdropItemId, parentBackdropImageTags: $parentBackdropImageTags, localTrailerCount: $localTrailerCount, userData: $userData, recursiveItemCount: $recursiveItemCount, childCount: $childCount, seriesName: $seriesName, seriesId: $seriesId, seasonId: $seasonId, specialFeatureCount: $specialFeatureCount, displayPreferencesId: $displayPreferencesId, status: $status, airTime: $airTime, airDays: $airDays, tags: $tags, primaryImageAspectRatio: $primaryImageAspectRatio, artists: $artists, artistItems: $artistItems, album: $album, collectionType: $collectionType, displayOrder: $displayOrder, albumId: $albumId, albumPrimaryImageTag: $albumPrimaryImageTag, seriesPrimaryImageTag: $seriesPrimaryImageTag, albumArtist: $albumArtist, albumArtists: $albumArtists, seasonName: $seasonName, mediaStreams: $mediaStreams, videoType: $videoType, partCount: $partCount, mediaSourceCount: $mediaSourceCount, imageTags: $imageTags, backdropImageTags: $backdropImageTags, screenshotImageTags: $screenshotImageTags, parentLogoImageTag: $parentLogoImageTag, parentArtItemId: $parentArtItemId, parentArtImageTag: $parentArtImageTag, seriesThumbImageTag: $seriesThumbImageTag, imageBlurHashes: $imageBlurHashes, seriesStudio: $seriesStudio, parentThumbItemId: $parentThumbItemId, parentThumbImageTag: $parentThumbImageTag, currentProgram: $currentProgram, parentPrimaryImageTag: $parentPrimaryImageTag, chapters: $chapters, trickplay: $trickplay, locationType: $locationType, isoType: $isoType, normalizationGain: $normalizationGain, endDate: $endDate, lockedFields: $lockedFields, trailerCount: $trailerCount, movieCount: $movieCount, seriesCount: $seriesCount, programCount: $programCount, episodeCount: $episodeCount, songCount: $songCount, albumCount: $albumCount, artistCount: $artistCount, musicVideoCount: $musicVideoCount, lockData: $lockData, width: $width, height: $height, cameraMake: $cameraMake, cameraModel: $cameraModel, software: $software, exposureTime: $exposureTime, focalLength: $focalLength, imageOrientation: $imageOrientation, aperture: $aperture, shutterSpeed: $shutterSpeed, latitude: $latitude, longitude: $longitude, altitude: $altitude, isoSpeedRating: $isoSpeedRating, seriesTimerId: $seriesTimerId, programId: $programId, channelPrimaryImageTag: $channelPrimaryImageTag, startDate: $startDate, completionPercentage: $completionPercentage, isRepeat: $isRepeat, episodeTitle: $episodeTitle, channelType: $channelType, audio: $audio, isMovie: $isMovie, isSports: $isSports, isSeries: $isSeries, isLive: $isLive, isNews: $isNews, isKids: $isKids, isPremiere: $isPremiere, timerId: $timerId, parentPrimaryImageItemId: $parentPrimaryImageItemId, mediaType: $mediaType)';
   }
 }
 
@@ -1065,10 +1065,10 @@ abstract mixin class $BaseItemDtoCopyWith<$Res> {
   ) = _$BaseItemDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
+    @JsonKey(name: 'IsHD') bool? isHd,
+    @JsonKey(name: 'OriginalTitle') String? originalTitle,
+    @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Type') BaseItemDtoType type,
-    @JsonKey(name: 'IsHD') bool? isHD,
     @JsonKey(name: 'Etag') String? etag,
     @JsonKey(name: 'SourceType') String? sourceType,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
@@ -1121,7 +1121,7 @@ abstract mixin class $BaseItemDtoCopyWith<$Res> {
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'IsFolder') bool? isFolder,
     @JsonKey(name: 'ParentId') String? parentId,
-    @JsonKey(name: 'ServerId') String? serverId,
+    @JsonKey(name: 'Type') BaseItemDtoType type,
     @JsonKey(name: 'People') List<BaseItemPerson>? people,
     @JsonKey(name: 'Studios') List<NameGuidPair>? studios,
     @JsonKey(name: 'GenreItems') List<NameGuidPair>? genreItems,
@@ -1130,7 +1130,7 @@ abstract mixin class $BaseItemDtoCopyWith<$Res> {
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
     @JsonKey(name: 'LocalTrailerCount') int? localTrailerCount,
-    @JsonKey(name: 'UserData') UserItemDataDto? userData,
+    @JsonKey(name: 'UserData') UserItemDataDto userData,
     @JsonKey(name: 'RecursiveItemCount') int? recursiveItemCount,
     @JsonKey(name: 'ChildCount') int? childCount,
     @JsonKey(name: 'SeriesName') String? seriesName,
@@ -1169,14 +1169,14 @@ abstract mixin class $BaseItemDtoCopyWith<$Res> {
     @JsonKey(name: 'SeriesStudio') String? seriesStudio,
     @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
     @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
-    @JsonKey(name: 'CurrentProgram') BaseItemDto? currentProgram,
+    @JsonKey(name: 'CurrentProgram') BaseItemDto currentProgram,
     @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
     @JsonKey(name: 'Chapters') List<ChapterInfo>? chapters,
     @JsonKey(name: 'Trickplay')
     Map<String, Map<String, TrickplayInfoDto>>? trickplay,
     @JsonKey(name: 'LocationType') BaseItemDtoLocationType? locationType,
     @JsonKey(name: 'IsoType') BaseItemDtoIsoType? isoType,
-    @JsonKey(name: 'OriginalTitle') String? originalTitle,
+    @JsonKey(name: 'NormalizationGain') double? normalizationGain,
     @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'LockedFields') List<MetadataField>? lockedFields,
     @JsonKey(name: 'TrailerCount') int? trailerCount,
@@ -1221,13 +1221,13 @@ abstract mixin class $BaseItemDtoCopyWith<$Res> {
     @JsonKey(name: 'IsKids') bool? isKids,
     @JsonKey(name: 'IsPremiere') bool? isPremiere,
     @JsonKey(name: 'TimerId') String? timerId,
-    @JsonKey(name: 'NormalizationGain') double? normalizationGain,
     @JsonKey(name: 'ParentPrimaryImageItemId') String? parentPrimaryImageItemId,
+    @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
   });
 
-  $UserItemDataDtoCopyWith<$Res>? get userData;
+  $UserItemDataDtoCopyWith<$Res> get userData;
   $ImageBlurHashesCopyWith<$Res>? get imageBlurHashes;
-  $BaseItemDtoCopyWith<$Res>? get currentProgram;
+  $BaseItemDtoCopyWith<$Res> get currentProgram;
 }
 
 /// @nodoc
@@ -1242,10 +1242,10 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mediaType = null,
+    Object? isHd = freezed,
+    Object? originalTitle = freezed,
+    Object? serverId = freezed,
     Object? id = null,
-    Object? type = null,
-    Object? isHD = freezed,
     Object? etag = freezed,
     Object? sourceType = freezed,
     Object? playlistItemId = freezed,
@@ -1296,7 +1296,7 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
     Object? name = freezed,
     Object? isFolder = freezed,
     Object? parentId = freezed,
-    Object? serverId = freezed,
+    Object? type = null,
     Object? people = freezed,
     Object? studios = freezed,
     Object? genreItems = freezed,
@@ -1304,7 +1304,7 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
     Object? localTrailerCount = freezed,
-    Object? userData = freezed,
+    Object? userData = null,
     Object? recursiveItemCount = freezed,
     Object? childCount = freezed,
     Object? seriesName = freezed,
@@ -1343,13 +1343,13 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
     Object? seriesStudio = freezed,
     Object? parentThumbItemId = freezed,
     Object? parentThumbImageTag = freezed,
-    Object? currentProgram = freezed,
+    Object? currentProgram = null,
     Object? parentPrimaryImageTag = freezed,
     Object? chapters = freezed,
     Object? trickplay = freezed,
     Object? locationType = freezed,
     Object? isoType = freezed,
-    Object? originalTitle = freezed,
+    Object? normalizationGain = freezed,
     Object? endDate = freezed,
     Object? lockedFields = freezed,
     Object? trailerCount = freezed,
@@ -1393,27 +1393,27 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
     Object? isKids = freezed,
     Object? isPremiere = freezed,
     Object? timerId = freezed,
-    Object? normalizationGain = freezed,
     Object? parentPrimaryImageItemId = freezed,
+    Object? mediaType = null,
   }) {
     return _then(
       _self.copyWith(
-        mediaType: null == mediaType
-            ? _self.mediaType
-            : mediaType // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDtoMediaType,
+        isHd: freezed == isHd
+            ? _self.isHd
+            : isHd // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        originalTitle: freezed == originalTitle
+            ? _self.originalTitle
+            : originalTitle // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        serverId: freezed == serverId
+            ? _self.serverId
+            : serverId // ignore: cast_nullable_to_non_nullable
+                  as String?,
         id: null == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDtoType,
-        isHD: freezed == isHD
-            ? _self.isHD
-            : isHD // ignore: cast_nullable_to_non_nullable
-                  as bool?,
         etag: freezed == etag
             ? _self.etag
             : etag // ignore: cast_nullable_to_non_nullable
@@ -1614,10 +1614,10 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
             ? _self.parentId
             : parentId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        serverId: freezed == serverId
-            ? _self.serverId
-            : serverId // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as BaseItemDtoType,
         people: freezed == people
             ? _self.people
             : people // ignore: cast_nullable_to_non_nullable
@@ -1646,10 +1646,10 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
             ? _self.localTrailerCount
             : localTrailerCount // ignore: cast_nullable_to_non_nullable
                   as int?,
-        userData: freezed == userData
+        userData: null == userData
             ? _self.userData
             : userData // ignore: cast_nullable_to_non_nullable
-                  as UserItemDataDto?,
+                  as UserItemDataDto,
         recursiveItemCount: freezed == recursiveItemCount
             ? _self.recursiveItemCount
             : recursiveItemCount // ignore: cast_nullable_to_non_nullable
@@ -1802,10 +1802,10 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
             ? _self.parentThumbImageTag
             : parentThumbImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        currentProgram: freezed == currentProgram
+        currentProgram: null == currentProgram
             ? _self.currentProgram
             : currentProgram // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto?,
+                  as BaseItemDto,
         parentPrimaryImageTag: freezed == parentPrimaryImageTag
             ? _self.parentPrimaryImageTag
             : parentPrimaryImageTag // ignore: cast_nullable_to_non_nullable
@@ -1826,10 +1826,10 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
             ? _self.isoType
             : isoType // ignore: cast_nullable_to_non_nullable
                   as BaseItemDtoIsoType?,
-        originalTitle: freezed == originalTitle
-            ? _self.originalTitle
-            : originalTitle // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        normalizationGain: freezed == normalizationGain
+            ? _self.normalizationGain
+            : normalizationGain // ignore: cast_nullable_to_non_nullable
+                  as double?,
         endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
@@ -2002,14 +2002,14 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
             ? _self.timerId
             : timerId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        normalizationGain: freezed == normalizationGain
-            ? _self.normalizationGain
-            : normalizationGain // ignore: cast_nullable_to_non_nullable
-                  as double?,
         parentPrimaryImageItemId: freezed == parentPrimaryImageItemId
             ? _self.parentPrimaryImageItemId
             : parentPrimaryImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
+        mediaType: null == mediaType
+            ? _self.mediaType
+            : mediaType // ignore: cast_nullable_to_non_nullable
+                  as BaseItemDtoMediaType,
       ),
     );
   }
@@ -2018,12 +2018,8 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserItemDataDtoCopyWith<$Res>? get userData {
-    if (_self.userData == null) {
-      return null;
-    }
-
-    return $UserItemDataDtoCopyWith<$Res>(_self.userData!, (value) {
+  $UserItemDataDtoCopyWith<$Res> get userData {
+    return $UserItemDataDtoCopyWith<$Res>(_self.userData, (value) {
       return _then(_self.copyWith(userData: value));
     });
   }
@@ -2046,12 +2042,8 @@ class _$BaseItemDtoCopyWithImpl<$Res> implements $BaseItemDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res>? get currentProgram {
-    if (_self.currentProgram == null) {
-      return null;
-    }
-
-    return $BaseItemDtoCopyWith<$Res>(_self.currentProgram!, (value) {
+  $BaseItemDtoCopyWith<$Res> get currentProgram {
+    return $BaseItemDtoCopyWith<$Res>(_self.currentProgram, (value) {
       return _then(_self.copyWith(currentProgram: value));
     });
   }
@@ -2151,10 +2143,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
+      @JsonKey(name: 'IsHD') bool? isHd,
+      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemDtoType type,
-      @JsonKey(name: 'IsHD') bool? isHD,
       @JsonKey(name: 'Etag') String? etag,
       @JsonKey(name: 'SourceType') String? sourceType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
@@ -2207,7 +2199,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'ParentId') String? parentId,
-      @JsonKey(name: 'ServerId') String? serverId,
+      @JsonKey(name: 'Type') BaseItemDtoType type,
       @JsonKey(name: 'People') List<BaseItemPerson>? people,
       @JsonKey(name: 'Studios') List<NameGuidPair>? studios,
       @JsonKey(name: 'GenreItems') List<NameGuidPair>? genreItems,
@@ -2216,7 +2208,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
       @JsonKey(name: 'LocalTrailerCount') int? localTrailerCount,
-      @JsonKey(name: 'UserData') UserItemDataDto? userData,
+      @JsonKey(name: 'UserData') UserItemDataDto userData,
       @JsonKey(name: 'RecursiveItemCount') int? recursiveItemCount,
       @JsonKey(name: 'ChildCount') int? childCount,
       @JsonKey(name: 'SeriesName') String? seriesName,
@@ -2256,14 +2248,14 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'SeriesStudio') String? seriesStudio,
       @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
-      @JsonKey(name: 'CurrentProgram') BaseItemDto? currentProgram,
+      @JsonKey(name: 'CurrentProgram') BaseItemDto currentProgram,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
       @JsonKey(name: 'Chapters') List<ChapterInfo>? chapters,
       @JsonKey(name: 'Trickplay')
       Map<String, Map<String, TrickplayInfoDto>>? trickplay,
       @JsonKey(name: 'LocationType') BaseItemDtoLocationType? locationType,
       @JsonKey(name: 'IsoType') BaseItemDtoIsoType? isoType,
-      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'LockedFields') List<MetadataField>? lockedFields,
       @JsonKey(name: 'TrailerCount') int? trailerCount,
@@ -2308,9 +2300,9 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'IsKids') bool? isKids,
       @JsonKey(name: 'IsPremiere') bool? isPremiere,
       @JsonKey(name: 'TimerId') String? timerId,
-      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
+      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
     )?
     $default, {
     required TResult orElse(),
@@ -2319,10 +2311,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
     switch (_that) {
       case _BaseItemDto() when $default != null:
         return $default(
-          _that.mediaType,
+          _that.isHd,
+          _that.originalTitle,
+          _that.serverId,
           _that.id,
-          _that.type,
-          _that.isHD,
           _that.etag,
           _that.sourceType,
           _that.playlistItemId,
@@ -2373,7 +2365,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.name,
           _that.isFolder,
           _that.parentId,
-          _that.serverId,
+          _that.type,
           _that.people,
           _that.studios,
           _that.genreItems,
@@ -2426,7 +2418,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.trickplay,
           _that.locationType,
           _that.isoType,
-          _that.originalTitle,
+          _that.normalizationGain,
           _that.endDate,
           _that.lockedFields,
           _that.trailerCount,
@@ -2470,8 +2462,8 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.isKids,
           _that.isPremiere,
           _that.timerId,
-          _that.normalizationGain,
           _that.parentPrimaryImageItemId,
+          _that.mediaType,
         );
       case _:
         return orElse();
@@ -2494,10 +2486,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
+      @JsonKey(name: 'IsHD') bool? isHd,
+      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemDtoType type,
-      @JsonKey(name: 'IsHD') bool? isHD,
       @JsonKey(name: 'Etag') String? etag,
       @JsonKey(name: 'SourceType') String? sourceType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
@@ -2550,7 +2542,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'ParentId') String? parentId,
-      @JsonKey(name: 'ServerId') String? serverId,
+      @JsonKey(name: 'Type') BaseItemDtoType type,
       @JsonKey(name: 'People') List<BaseItemPerson>? people,
       @JsonKey(name: 'Studios') List<NameGuidPair>? studios,
       @JsonKey(name: 'GenreItems') List<NameGuidPair>? genreItems,
@@ -2559,7 +2551,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
       @JsonKey(name: 'LocalTrailerCount') int? localTrailerCount,
-      @JsonKey(name: 'UserData') UserItemDataDto? userData,
+      @JsonKey(name: 'UserData') UserItemDataDto userData,
       @JsonKey(name: 'RecursiveItemCount') int? recursiveItemCount,
       @JsonKey(name: 'ChildCount') int? childCount,
       @JsonKey(name: 'SeriesName') String? seriesName,
@@ -2599,14 +2591,14 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'SeriesStudio') String? seriesStudio,
       @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
-      @JsonKey(name: 'CurrentProgram') BaseItemDto? currentProgram,
+      @JsonKey(name: 'CurrentProgram') BaseItemDto currentProgram,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
       @JsonKey(name: 'Chapters') List<ChapterInfo>? chapters,
       @JsonKey(name: 'Trickplay')
       Map<String, Map<String, TrickplayInfoDto>>? trickplay,
       @JsonKey(name: 'LocationType') BaseItemDtoLocationType? locationType,
       @JsonKey(name: 'IsoType') BaseItemDtoIsoType? isoType,
-      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'LockedFields') List<MetadataField>? lockedFields,
       @JsonKey(name: 'TrailerCount') int? trailerCount,
@@ -2651,9 +2643,9 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'IsKids') bool? isKids,
       @JsonKey(name: 'IsPremiere') bool? isPremiere,
       @JsonKey(name: 'TimerId') String? timerId,
-      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
+      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
     )
     $default,
   ) {
@@ -2661,10 +2653,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
     switch (_that) {
       case _BaseItemDto():
         return $default(
-          _that.mediaType,
+          _that.isHd,
+          _that.originalTitle,
+          _that.serverId,
           _that.id,
-          _that.type,
-          _that.isHD,
           _that.etag,
           _that.sourceType,
           _that.playlistItemId,
@@ -2715,7 +2707,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.name,
           _that.isFolder,
           _that.parentId,
-          _that.serverId,
+          _that.type,
           _that.people,
           _that.studios,
           _that.genreItems,
@@ -2768,7 +2760,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.trickplay,
           _that.locationType,
           _that.isoType,
-          _that.originalTitle,
+          _that.normalizationGain,
           _that.endDate,
           _that.lockedFields,
           _that.trailerCount,
@@ -2812,8 +2804,8 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.isKids,
           _that.isPremiere,
           _that.timerId,
-          _that.normalizationGain,
           _that.parentPrimaryImageItemId,
+          _that.mediaType,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -2835,10 +2827,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
+      @JsonKey(name: 'IsHD') bool? isHd,
+      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemDtoType type,
-      @JsonKey(name: 'IsHD') bool? isHD,
       @JsonKey(name: 'Etag') String? etag,
       @JsonKey(name: 'SourceType') String? sourceType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
@@ -2891,7 +2883,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'ParentId') String? parentId,
-      @JsonKey(name: 'ServerId') String? serverId,
+      @JsonKey(name: 'Type') BaseItemDtoType type,
       @JsonKey(name: 'People') List<BaseItemPerson>? people,
       @JsonKey(name: 'Studios') List<NameGuidPair>? studios,
       @JsonKey(name: 'GenreItems') List<NameGuidPair>? genreItems,
@@ -2900,7 +2892,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
       @JsonKey(name: 'LocalTrailerCount') int? localTrailerCount,
-      @JsonKey(name: 'UserData') UserItemDataDto? userData,
+      @JsonKey(name: 'UserData') UserItemDataDto userData,
       @JsonKey(name: 'RecursiveItemCount') int? recursiveItemCount,
       @JsonKey(name: 'ChildCount') int? childCount,
       @JsonKey(name: 'SeriesName') String? seriesName,
@@ -2940,14 +2932,14 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'SeriesStudio') String? seriesStudio,
       @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
-      @JsonKey(name: 'CurrentProgram') BaseItemDto? currentProgram,
+      @JsonKey(name: 'CurrentProgram') BaseItemDto currentProgram,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
       @JsonKey(name: 'Chapters') List<ChapterInfo>? chapters,
       @JsonKey(name: 'Trickplay')
       Map<String, Map<String, TrickplayInfoDto>>? trickplay,
       @JsonKey(name: 'LocationType') BaseItemDtoLocationType? locationType,
       @JsonKey(name: 'IsoType') BaseItemDtoIsoType? isoType,
-      @JsonKey(name: 'OriginalTitle') String? originalTitle,
+      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'LockedFields') List<MetadataField>? lockedFields,
       @JsonKey(name: 'TrailerCount') int? trailerCount,
@@ -2992,9 +2984,9 @@ extension BaseItemDtoPatterns on BaseItemDto {
       @JsonKey(name: 'IsKids') bool? isKids,
       @JsonKey(name: 'IsPremiere') bool? isPremiere,
       @JsonKey(name: 'TimerId') String? timerId,
-      @JsonKey(name: 'NormalizationGain') double? normalizationGain,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
+      @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
     )?
     $default,
   ) {
@@ -3002,10 +2994,10 @@ extension BaseItemDtoPatterns on BaseItemDto {
     switch (_that) {
       case _BaseItemDto() when $default != null:
         return $default(
-          _that.mediaType,
+          _that.isHd,
+          _that.originalTitle,
+          _that.serverId,
           _that.id,
-          _that.type,
-          _that.isHD,
           _that.etag,
           _that.sourceType,
           _that.playlistItemId,
@@ -3056,7 +3048,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.name,
           _that.isFolder,
           _that.parentId,
-          _that.serverId,
+          _that.type,
           _that.people,
           _that.studios,
           _that.genreItems,
@@ -3109,7 +3101,7 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.trickplay,
           _that.locationType,
           _that.isoType,
-          _that.originalTitle,
+          _that.normalizationGain,
           _that.endDate,
           _that.lockedFields,
           _that.trailerCount,
@@ -3153,8 +3145,8 @@ extension BaseItemDtoPatterns on BaseItemDto {
           _that.isKids,
           _that.isPremiere,
           _that.timerId,
-          _that.normalizationGain,
           _that.parentPrimaryImageItemId,
+          _that.mediaType,
         );
       case _:
         return null;
@@ -3166,164 +3158,181 @@ extension BaseItemDtoPatterns on BaseItemDto {
 @JsonSerializable()
 class _BaseItemDto implements BaseItemDto {
   const _BaseItemDto({
-    @JsonKey(name: 'MediaType') required this.mediaType,
+    @JsonKey(name: 'IsHD') required this.isHd,
+    @JsonKey(name: 'OriginalTitle') required this.originalTitle,
+    @JsonKey(name: 'ServerId') required this.serverId,
     @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'IsHD') this.isHD,
-    @JsonKey(name: 'Etag') this.etag,
-    @JsonKey(name: 'SourceType') this.sourceType,
-    @JsonKey(name: 'PlaylistItemId') this.playlistItemId,
-    @JsonKey(name: 'DateCreated') this.dateCreated,
-    @JsonKey(name: 'DateLastMediaAdded') this.dateLastMediaAdded,
-    @JsonKey(name: 'ExtraType') this.extraType,
-    @JsonKey(name: 'AirsBeforeSeasonNumber') this.airsBeforeSeasonNumber,
-    @JsonKey(name: 'AirsAfterSeasonNumber') this.airsAfterSeasonNumber,
-    @JsonKey(name: 'AirsBeforeEpisodeNumber') this.airsBeforeEpisodeNumber,
-    @JsonKey(name: 'CanDelete') this.canDelete,
-    @JsonKey(name: 'CanDownload') this.canDownload,
-    @JsonKey(name: 'HasLyrics') this.hasLyrics,
-    @JsonKey(name: 'HasSubtitles') this.hasSubtitles,
-    @JsonKey(name: 'PreferredMetadataLanguage') this.preferredMetadataLanguage,
+    @JsonKey(name: 'Etag') required this.etag,
+    @JsonKey(name: 'SourceType') required this.sourceType,
+    @JsonKey(name: 'PlaylistItemId') required this.playlistItemId,
+    @JsonKey(name: 'DateCreated') required this.dateCreated,
+    @JsonKey(name: 'DateLastMediaAdded') required this.dateLastMediaAdded,
+    @JsonKey(name: 'ExtraType') required this.extraType,
+    @JsonKey(name: 'AirsBeforeSeasonNumber')
+    required this.airsBeforeSeasonNumber,
+    @JsonKey(name: 'AirsAfterSeasonNumber') required this.airsAfterSeasonNumber,
+    @JsonKey(name: 'AirsBeforeEpisodeNumber')
+    required this.airsBeforeEpisodeNumber,
+    @JsonKey(name: 'CanDelete') required this.canDelete,
+    @JsonKey(name: 'CanDownload') required this.canDownload,
+    @JsonKey(name: 'HasLyrics') required this.hasLyrics,
+    @JsonKey(name: 'HasSubtitles') required this.hasSubtitles,
+    @JsonKey(name: 'PreferredMetadataLanguage')
+    required this.preferredMetadataLanguage,
     @JsonKey(name: 'PreferredMetadataCountryCode')
-    this.preferredMetadataCountryCode,
-    @JsonKey(name: 'Container') this.container,
-    @JsonKey(name: 'SortName') this.sortName,
-    @JsonKey(name: 'ForcedSortName') this.forcedSortName,
-    @JsonKey(name: 'Video3DFormat') this.video3DFormat,
-    @JsonKey(name: 'PremiereDate') this.premiereDate,
-    @JsonKey(name: 'ExternalUrls') final List<ExternalUrl>? externalUrls,
-    @JsonKey(name: 'MediaSources') final List<MediaSourceInfo>? mediaSources,
-    @JsonKey(name: 'CriticRating') this.criticRating,
+    required this.preferredMetadataCountryCode,
+    @JsonKey(name: 'Container') required this.container,
+    @JsonKey(name: 'SortName') required this.sortName,
+    @JsonKey(name: 'ForcedSortName') required this.forcedSortName,
+    @JsonKey(name: 'Video3DFormat') required this.video3DFormat,
+    @JsonKey(name: 'PremiereDate') required this.premiereDate,
+    @JsonKey(name: 'ExternalUrls')
+    required final List<ExternalUrl>? externalUrls,
+    @JsonKey(name: 'MediaSources')
+    required final List<MediaSourceInfo>? mediaSources,
+    @JsonKey(name: 'CriticRating') required this.criticRating,
     @JsonKey(name: 'ProductionLocations')
-    final List<String>? productionLocations,
-    @JsonKey(name: 'Path') this.path,
-    @JsonKey(name: 'EnableMediaSourceDisplay') this.enableMediaSourceDisplay,
-    @JsonKey(name: 'OfficialRating') this.officialRating,
-    @JsonKey(name: 'CustomRating') this.customRating,
-    @JsonKey(name: 'ChannelId') this.channelId,
-    @JsonKey(name: 'ChannelName') this.channelName,
-    @JsonKey(name: 'Overview') this.overview,
-    @JsonKey(name: 'Taglines') final List<String>? taglines,
-    @JsonKey(name: 'Genres') final List<String>? genres,
-    @JsonKey(name: 'CommunityRating') this.communityRating,
-    @JsonKey(name: 'CumulativeRunTimeTicks') this.cumulativeRunTimeTicks,
-    @JsonKey(name: 'RunTimeTicks') this.runTimeTicks,
-    @JsonKey(name: 'PlayAccess') this.playAccess,
-    @JsonKey(name: 'AspectRatio') this.aspectRatio,
-    @JsonKey(name: 'ProductionYear') this.productionYear,
-    @JsonKey(name: 'IsPlaceHolder') this.isPlaceHolder,
-    @JsonKey(name: 'Number') this.number,
-    @JsonKey(name: 'ChannelNumber') this.channelNumber,
-    @JsonKey(name: 'IndexNumber') this.indexNumber,
-    @JsonKey(name: 'IndexNumberEnd') this.indexNumberEnd,
-    @JsonKey(name: 'ParentIndexNumber') this.parentIndexNumber,
-    @JsonKey(name: 'RemoteTrailers') final List<MediaUrl>? remoteTrailers,
-    @JsonKey(name: 'ProviderIds') final Map<String, String?>? providerIds,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'IsFolder') this.isFolder,
-    @JsonKey(name: 'ParentId') this.parentId,
-    @JsonKey(name: 'ServerId') this.serverId,
-    @JsonKey(name: 'People') final List<BaseItemPerson>? people,
-    @JsonKey(name: 'Studios') final List<NameGuidPair>? studios,
-    @JsonKey(name: 'GenreItems') final List<NameGuidPair>? genreItems,
-    @JsonKey(name: 'ParentLogoItemId') this.parentLogoItemId,
-    @JsonKey(name: 'ParentBackdropItemId') this.parentBackdropItemId,
+    required final List<String>? productionLocations,
+    @JsonKey(name: 'Path') required this.path,
+    @JsonKey(name: 'EnableMediaSourceDisplay')
+    required this.enableMediaSourceDisplay,
+    @JsonKey(name: 'OfficialRating') required this.officialRating,
+    @JsonKey(name: 'CustomRating') required this.customRating,
+    @JsonKey(name: 'ChannelId') required this.channelId,
+    @JsonKey(name: 'ChannelName') required this.channelName,
+    @JsonKey(name: 'Overview') required this.overview,
+    @JsonKey(name: 'Taglines') required final List<String>? taglines,
+    @JsonKey(name: 'Genres') required final List<String>? genres,
+    @JsonKey(name: 'CommunityRating') required this.communityRating,
+    @JsonKey(name: 'CumulativeRunTimeTicks')
+    required this.cumulativeRunTimeTicks,
+    @JsonKey(name: 'RunTimeTicks') required this.runTimeTicks,
+    @JsonKey(name: 'PlayAccess') required this.playAccess,
+    @JsonKey(name: 'AspectRatio') required this.aspectRatio,
+    @JsonKey(name: 'ProductionYear') required this.productionYear,
+    @JsonKey(name: 'IsPlaceHolder') required this.isPlaceHolder,
+    @JsonKey(name: 'Number') required this.number,
+    @JsonKey(name: 'ChannelNumber') required this.channelNumber,
+    @JsonKey(name: 'IndexNumber') required this.indexNumber,
+    @JsonKey(name: 'IndexNumberEnd') required this.indexNumberEnd,
+    @JsonKey(name: 'ParentIndexNumber') required this.parentIndexNumber,
+    @JsonKey(name: 'RemoteTrailers')
+    required final List<MediaUrl>? remoteTrailers,
+    @JsonKey(name: 'ProviderIds')
+    required final Map<String, String?>? providerIds,
+    @JsonKey(name: 'Name') required this.name,
+    @JsonKey(name: 'IsFolder') required this.isFolder,
+    @JsonKey(name: 'ParentId') required this.parentId,
+    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'People') required final List<BaseItemPerson>? people,
+    @JsonKey(name: 'Studios') required final List<NameGuidPair>? studios,
+    @JsonKey(name: 'GenreItems') required final List<NameGuidPair>? genreItems,
+    @JsonKey(name: 'ParentLogoItemId') required this.parentLogoItemId,
+    @JsonKey(name: 'ParentBackdropItemId') required this.parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
-    final List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'LocalTrailerCount') this.localTrailerCount,
-    @JsonKey(name: 'UserData') this.userData,
-    @JsonKey(name: 'RecursiveItemCount') this.recursiveItemCount,
-    @JsonKey(name: 'ChildCount') this.childCount,
-    @JsonKey(name: 'SeriesName') this.seriesName,
-    @JsonKey(name: 'SeriesId') this.seriesId,
-    @JsonKey(name: 'SeasonId') this.seasonId,
-    @JsonKey(name: 'SpecialFeatureCount') this.specialFeatureCount,
-    @JsonKey(name: 'DisplayPreferencesId') this.displayPreferencesId,
-    @JsonKey(name: 'Status') this.status,
-    @JsonKey(name: 'AirTime') this.airTime,
-    @JsonKey(name: 'AirDays') final List<DayOfWeek>? airDays,
-    @JsonKey(name: 'Tags') final List<String>? tags,
-    @JsonKey(name: 'PrimaryImageAspectRatio') this.primaryImageAspectRatio,
-    @JsonKey(name: 'Artists') final List<String>? artists,
-    @JsonKey(name: 'ArtistItems') final List<NameGuidPair>? artistItems,
-    @JsonKey(name: 'Album') this.album,
-    @JsonKey(name: 'CollectionType') this.collectionType,
-    @JsonKey(name: 'DisplayOrder') this.displayOrder,
-    @JsonKey(name: 'AlbumId') this.albumId,
-    @JsonKey(name: 'AlbumPrimaryImageTag') this.albumPrimaryImageTag,
-    @JsonKey(name: 'SeriesPrimaryImageTag') this.seriesPrimaryImageTag,
-    @JsonKey(name: 'AlbumArtist') this.albumArtist,
-    @JsonKey(name: 'AlbumArtists') final List<NameGuidPair>? albumArtists,
-    @JsonKey(name: 'SeasonName') this.seasonName,
-    @JsonKey(name: 'MediaStreams') final List<MediaStream>? mediaStreams,
-    @JsonKey(name: 'VideoType') this.videoType,
-    @JsonKey(name: 'PartCount') this.partCount,
-    @JsonKey(name: 'MediaSourceCount') this.mediaSourceCount,
-    @JsonKey(name: 'ImageTags') final Map<String, String>? imageTags,
-    @JsonKey(name: 'BackdropImageTags') final List<String>? backdropImageTags,
+    required final List<String>? parentBackdropImageTags,
+    @JsonKey(name: 'LocalTrailerCount') required this.localTrailerCount,
+    @JsonKey(name: 'UserData') required this.userData,
+    @JsonKey(name: 'RecursiveItemCount') required this.recursiveItemCount,
+    @JsonKey(name: 'ChildCount') required this.childCount,
+    @JsonKey(name: 'SeriesName') required this.seriesName,
+    @JsonKey(name: 'SeriesId') required this.seriesId,
+    @JsonKey(name: 'SeasonId') required this.seasonId,
+    @JsonKey(name: 'SpecialFeatureCount') required this.specialFeatureCount,
+    @JsonKey(name: 'DisplayPreferencesId') required this.displayPreferencesId,
+    @JsonKey(name: 'Status') required this.status,
+    @JsonKey(name: 'AirTime') required this.airTime,
+    @JsonKey(name: 'AirDays') required final List<DayOfWeek>? airDays,
+    @JsonKey(name: 'Tags') required final List<String>? tags,
+    @JsonKey(name: 'PrimaryImageAspectRatio')
+    required this.primaryImageAspectRatio,
+    @JsonKey(name: 'Artists') required final List<String>? artists,
+    @JsonKey(name: 'ArtistItems')
+    required final List<NameGuidPair>? artistItems,
+    @JsonKey(name: 'Album') required this.album,
+    @JsonKey(name: 'CollectionType') required this.collectionType,
+    @JsonKey(name: 'DisplayOrder') required this.displayOrder,
+    @JsonKey(name: 'AlbumId') required this.albumId,
+    @JsonKey(name: 'AlbumPrimaryImageTag') required this.albumPrimaryImageTag,
+    @JsonKey(name: 'SeriesPrimaryImageTag') required this.seriesPrimaryImageTag,
+    @JsonKey(name: 'AlbumArtist') required this.albumArtist,
+    @JsonKey(name: 'AlbumArtists')
+    required final List<NameGuidPair>? albumArtists,
+    @JsonKey(name: 'SeasonName') required this.seasonName,
+    @JsonKey(name: 'MediaStreams')
+    required final List<MediaStream>? mediaStreams,
+    @JsonKey(name: 'VideoType') required this.videoType,
+    @JsonKey(name: 'PartCount') required this.partCount,
+    @JsonKey(name: 'MediaSourceCount') required this.mediaSourceCount,
+    @JsonKey(name: 'ImageTags') required final Map<String, String>? imageTags,
+    @JsonKey(name: 'BackdropImageTags')
+    required final List<String>? backdropImageTags,
     @JsonKey(name: 'ScreenshotImageTags')
-    final List<String>? screenshotImageTags,
-    @JsonKey(name: 'ParentLogoImageTag') this.parentLogoImageTag,
-    @JsonKey(name: 'ParentArtItemId') this.parentArtItemId,
-    @JsonKey(name: 'ParentArtImageTag') this.parentArtImageTag,
-    @JsonKey(name: 'SeriesThumbImageTag') this.seriesThumbImageTag,
-    @JsonKey(name: 'ImageBlurHashes') this.imageBlurHashes,
-    @JsonKey(name: 'SeriesStudio') this.seriesStudio,
-    @JsonKey(name: 'ParentThumbItemId') this.parentThumbItemId,
-    @JsonKey(name: 'ParentThumbImageTag') this.parentThumbImageTag,
-    @JsonKey(name: 'CurrentProgram') this.currentProgram,
-    @JsonKey(name: 'ParentPrimaryImageTag') this.parentPrimaryImageTag,
-    @JsonKey(name: 'Chapters') final List<ChapterInfo>? chapters,
+    required final List<String>? screenshotImageTags,
+    @JsonKey(name: 'ParentLogoImageTag') required this.parentLogoImageTag,
+    @JsonKey(name: 'ParentArtItemId') required this.parentArtItemId,
+    @JsonKey(name: 'ParentArtImageTag') required this.parentArtImageTag,
+    @JsonKey(name: 'SeriesThumbImageTag') required this.seriesThumbImageTag,
+    @JsonKey(name: 'ImageBlurHashes') required this.imageBlurHashes,
+    @JsonKey(name: 'SeriesStudio') required this.seriesStudio,
+    @JsonKey(name: 'ParentThumbItemId') required this.parentThumbItemId,
+    @JsonKey(name: 'ParentThumbImageTag') required this.parentThumbImageTag,
+    @JsonKey(name: 'CurrentProgram') required this.currentProgram,
+    @JsonKey(name: 'ParentPrimaryImageTag') required this.parentPrimaryImageTag,
+    @JsonKey(name: 'Chapters') required final List<ChapterInfo>? chapters,
     @JsonKey(name: 'Trickplay')
-    final Map<String, Map<String, TrickplayInfoDto>>? trickplay,
-    @JsonKey(name: 'LocationType') this.locationType,
-    @JsonKey(name: 'IsoType') this.isoType,
-    @JsonKey(name: 'OriginalTitle') this.originalTitle,
-    @JsonKey(name: 'EndDate') this.endDate,
-    @JsonKey(name: 'LockedFields') final List<MetadataField>? lockedFields,
-    @JsonKey(name: 'TrailerCount') this.trailerCount,
-    @JsonKey(name: 'MovieCount') this.movieCount,
-    @JsonKey(name: 'SeriesCount') this.seriesCount,
-    @JsonKey(name: 'ProgramCount') this.programCount,
-    @JsonKey(name: 'EpisodeCount') this.episodeCount,
-    @JsonKey(name: 'SongCount') this.songCount,
-    @JsonKey(name: 'AlbumCount') this.albumCount,
-    @JsonKey(name: 'ArtistCount') this.artistCount,
-    @JsonKey(name: 'MusicVideoCount') this.musicVideoCount,
-    @JsonKey(name: 'LockData') this.lockData,
-    @JsonKey(name: 'Width') this.width,
-    @JsonKey(name: 'Height') this.height,
-    @JsonKey(name: 'CameraMake') this.cameraMake,
-    @JsonKey(name: 'CameraModel') this.cameraModel,
-    @JsonKey(name: 'Software') this.software,
-    @JsonKey(name: 'ExposureTime') this.exposureTime,
-    @JsonKey(name: 'FocalLength') this.focalLength,
-    @JsonKey(name: 'ImageOrientation') this.imageOrientation,
-    @JsonKey(name: 'Aperture') this.aperture,
-    @JsonKey(name: 'ShutterSpeed') this.shutterSpeed,
-    @JsonKey(name: 'Latitude') this.latitude,
-    @JsonKey(name: 'Longitude') this.longitude,
-    @JsonKey(name: 'Altitude') this.altitude,
-    @JsonKey(name: 'IsoSpeedRating') this.isoSpeedRating,
-    @JsonKey(name: 'SeriesTimerId') this.seriesTimerId,
-    @JsonKey(name: 'ProgramId') this.programId,
-    @JsonKey(name: 'ChannelPrimaryImageTag') this.channelPrimaryImageTag,
-    @JsonKey(name: 'StartDate') this.startDate,
-    @JsonKey(name: 'CompletionPercentage') this.completionPercentage,
-    @JsonKey(name: 'IsRepeat') this.isRepeat,
-    @JsonKey(name: 'EpisodeTitle') this.episodeTitle,
-    @JsonKey(name: 'ChannelType') this.channelType,
-    @JsonKey(name: 'Audio') this.audio,
-    @JsonKey(name: 'IsMovie') this.isMovie,
-    @JsonKey(name: 'IsSports') this.isSports,
-    @JsonKey(name: 'IsSeries') this.isSeries,
-    @JsonKey(name: 'IsLive') this.isLive,
-    @JsonKey(name: 'IsNews') this.isNews,
-    @JsonKey(name: 'IsKids') this.isKids,
-    @JsonKey(name: 'IsPremiere') this.isPremiere,
-    @JsonKey(name: 'TimerId') this.timerId,
-    @JsonKey(name: 'NormalizationGain') this.normalizationGain,
-    @JsonKey(name: 'ParentPrimaryImageItemId') this.parentPrimaryImageItemId,
+    required final Map<String, Map<String, TrickplayInfoDto>>? trickplay,
+    @JsonKey(name: 'LocationType') required this.locationType,
+    @JsonKey(name: 'IsoType') required this.isoType,
+    @JsonKey(name: 'NormalizationGain') required this.normalizationGain,
+    @JsonKey(name: 'EndDate') required this.endDate,
+    @JsonKey(name: 'LockedFields')
+    required final List<MetadataField>? lockedFields,
+    @JsonKey(name: 'TrailerCount') required this.trailerCount,
+    @JsonKey(name: 'MovieCount') required this.movieCount,
+    @JsonKey(name: 'SeriesCount') required this.seriesCount,
+    @JsonKey(name: 'ProgramCount') required this.programCount,
+    @JsonKey(name: 'EpisodeCount') required this.episodeCount,
+    @JsonKey(name: 'SongCount') required this.songCount,
+    @JsonKey(name: 'AlbumCount') required this.albumCount,
+    @JsonKey(name: 'ArtistCount') required this.artistCount,
+    @JsonKey(name: 'MusicVideoCount') required this.musicVideoCount,
+    @JsonKey(name: 'LockData') required this.lockData,
+    @JsonKey(name: 'Width') required this.width,
+    @JsonKey(name: 'Height') required this.height,
+    @JsonKey(name: 'CameraMake') required this.cameraMake,
+    @JsonKey(name: 'CameraModel') required this.cameraModel,
+    @JsonKey(name: 'Software') required this.software,
+    @JsonKey(name: 'ExposureTime') required this.exposureTime,
+    @JsonKey(name: 'FocalLength') required this.focalLength,
+    @JsonKey(name: 'ImageOrientation') required this.imageOrientation,
+    @JsonKey(name: 'Aperture') required this.aperture,
+    @JsonKey(name: 'ShutterSpeed') required this.shutterSpeed,
+    @JsonKey(name: 'Latitude') required this.latitude,
+    @JsonKey(name: 'Longitude') required this.longitude,
+    @JsonKey(name: 'Altitude') required this.altitude,
+    @JsonKey(name: 'IsoSpeedRating') required this.isoSpeedRating,
+    @JsonKey(name: 'SeriesTimerId') required this.seriesTimerId,
+    @JsonKey(name: 'ProgramId') required this.programId,
+    @JsonKey(name: 'ChannelPrimaryImageTag')
+    required this.channelPrimaryImageTag,
+    @JsonKey(name: 'StartDate') required this.startDate,
+    @JsonKey(name: 'CompletionPercentage') required this.completionPercentage,
+    @JsonKey(name: 'IsRepeat') required this.isRepeat,
+    @JsonKey(name: 'EpisodeTitle') required this.episodeTitle,
+    @JsonKey(name: 'ChannelType') required this.channelType,
+    @JsonKey(name: 'Audio') required this.audio,
+    @JsonKey(name: 'IsMovie') required this.isMovie,
+    @JsonKey(name: 'IsSports') required this.isSports,
+    @JsonKey(name: 'IsSeries') required this.isSeries,
+    @JsonKey(name: 'IsLive') required this.isLive,
+    @JsonKey(name: 'IsNews') required this.isNews,
+    @JsonKey(name: 'IsKids') required this.isKids,
+    @JsonKey(name: 'IsPremiere') required this.isPremiere,
+    @JsonKey(name: 'TimerId') required this.timerId,
+    @JsonKey(name: 'ParentPrimaryImageItemId')
+    required this.parentPrimaryImageItemId,
+    @JsonKey(name: 'MediaType') this.mediaType = BaseItemDtoMediaType.unknown,
   }) : _externalUrls = externalUrls,
        _mediaSources = mediaSources,
        _productionLocations = productionLocations,
@@ -3350,25 +3359,23 @@ class _BaseItemDto implements BaseItemDto {
   factory _BaseItemDto.fromJson(Map<String, dynamic> json) =>
       _$BaseItemDtoFromJson(json);
 
-  /// Gets or sets the type of the media.
+  /// Gets or sets a value indicating whether this instance is HD.
   @override
-  @JsonKey(name: 'MediaType')
-  final BaseItemDtoMediaType mediaType;
+  @JsonKey(name: 'IsHD')
+  final bool? isHd;
+  @override
+  @JsonKey(name: 'OriginalTitle')
+  final String? originalTitle;
+
+  /// Gets or sets the server identifier.
+  @override
+  @JsonKey(name: 'ServerId')
+  final String? serverId;
 
   /// Gets or sets the id.
   @override
   @JsonKey(name: 'Id')
   final String id;
-
-  /// Gets or sets the type.
-  @override
-  @JsonKey(name: 'Type')
-  final BaseItemDtoType type;
-
-  /// Gets or sets a value indicating whether this instance is HD.
-  @override
-  @JsonKey(name: 'IsHD')
-  final bool? isHD;
 
   /// Gets or sets the etag.
   @override
@@ -3648,10 +3655,10 @@ class _BaseItemDto implements BaseItemDto {
   @JsonKey(name: 'ParentId')
   final String? parentId;
 
-  /// Gets or sets the server identifier.
+  /// Gets or sets the type.
   @override
-  @JsonKey(name: 'ServerId')
-  final String? serverId;
+  @JsonKey(name: 'Type')
+  final BaseItemDtoType type;
 
   /// Gets or sets the people.
   final List<BaseItemPerson>? _people;
@@ -3725,7 +3732,7 @@ class _BaseItemDto implements BaseItemDto {
   /// Gets or sets the user data for this item based on the user it's being requested for.
   @override
   @JsonKey(name: 'UserData')
-  final UserItemDataDto? userData;
+  final UserItemDataDto userData;
 
   /// Gets or sets the recursive item count.
   @override
@@ -4003,7 +4010,7 @@ class _BaseItemDto implements BaseItemDto {
   /// Gets or sets the current program.
   @override
   @JsonKey(name: 'CurrentProgram')
-  final BaseItemDto? currentProgram;
+  final BaseItemDto currentProgram;
 
   /// Gets or sets the parent primary image tag.
   @override
@@ -4047,9 +4054,11 @@ class _BaseItemDto implements BaseItemDto {
   @override
   @JsonKey(name: 'IsoType')
   final BaseItemDtoIsoType? isoType;
+
+  /// Gets or sets the gain required for audio normalization.
   @override
-  @JsonKey(name: 'OriginalTitle')
-  final String? originalTitle;
+  @JsonKey(name: 'NormalizationGain')
+  final double? normalizationGain;
 
   /// Gets or sets the end date.
   @override
@@ -4243,15 +4252,15 @@ class _BaseItemDto implements BaseItemDto {
   @JsonKey(name: 'TimerId')
   final String? timerId;
 
-  /// Gets or sets the gain required for audio normalization.
-  @override
-  @JsonKey(name: 'NormalizationGain')
-  final double? normalizationGain;
-
   /// Gets or sets the parent primary image item identifier.
   @override
   @JsonKey(name: 'ParentPrimaryImageItemId')
   final String? parentPrimaryImageItemId;
+
+  /// Gets or sets the type of the media.
+  @override
+  @JsonKey(name: 'MediaType')
+  final BaseItemDtoMediaType mediaType;
 
   /// Create a copy of BaseItemDto
   /// with the given fields replaced by the non-null parameter values.
@@ -4271,11 +4280,12 @@ class _BaseItemDto implements BaseItemDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _BaseItemDto &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType) &&
+            (identical(other.isHd, isHd) || other.isHd == isHd) &&
+            (identical(other.originalTitle, originalTitle) ||
+                other.originalTitle == originalTitle) &&
+            (identical(other.serverId, serverId) ||
+                other.serverId == serverId) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.isHD, isHD) || other.isHD == isHD) &&
             (identical(other.etag, etag) || other.etag == etag) &&
             (identical(other.sourceType, sourceType) ||
                 other.sourceType == sourceType) &&
@@ -4393,8 +4403,7 @@ class _BaseItemDto implements BaseItemDto {
                 other.isFolder == isFolder) &&
             (identical(other.parentId, parentId) ||
                 other.parentId == parentId) &&
-            (identical(other.serverId, serverId) ||
-                other.serverId == serverId) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._people, _people) &&
             const DeepCollectionEquality().equals(other._studios, _studios) &&
             const DeepCollectionEquality().equals(
@@ -4509,8 +4518,8 @@ class _BaseItemDto implements BaseItemDto {
             (identical(other.locationType, locationType) ||
                 other.locationType == locationType) &&
             (identical(other.isoType, isoType) || other.isoType == isoType) &&
-            (identical(other.originalTitle, originalTitle) ||
-                other.originalTitle == originalTitle) &&
+            (identical(other.normalizationGain, normalizationGain) ||
+                other.normalizationGain == normalizationGain) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             const DeepCollectionEquality().equals(
               other._lockedFields,
@@ -4590,23 +4599,23 @@ class _BaseItemDto implements BaseItemDto {
             (identical(other.isPremiere, isPremiere) ||
                 other.isPremiere == isPremiere) &&
             (identical(other.timerId, timerId) || other.timerId == timerId) &&
-            (identical(other.normalizationGain, normalizationGain) ||
-                other.normalizationGain == normalizationGain) &&
             (identical(
                   other.parentPrimaryImageItemId,
                   parentPrimaryImageItemId,
                 ) ||
-                other.parentPrimaryImageItemId == parentPrimaryImageItemId));
+                other.parentPrimaryImageItemId == parentPrimaryImageItemId) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    mediaType,
+    isHd,
+    originalTitle,
+    serverId,
     id,
-    type,
-    isHD,
     etag,
     sourceType,
     playlistItemId,
@@ -4657,7 +4666,7 @@ class _BaseItemDto implements BaseItemDto {
     name,
     isFolder,
     parentId,
-    serverId,
+    type,
     const DeepCollectionEquality().hash(_people),
     const DeepCollectionEquality().hash(_studios),
     const DeepCollectionEquality().hash(_genreItems),
@@ -4710,7 +4719,7 @@ class _BaseItemDto implements BaseItemDto {
     const DeepCollectionEquality().hash(_trickplay),
     locationType,
     isoType,
-    originalTitle,
+    normalizationGain,
     endDate,
     const DeepCollectionEquality().hash(_lockedFields),
     trailerCount,
@@ -4754,13 +4763,13 @@ class _BaseItemDto implements BaseItemDto {
     isKids,
     isPremiere,
     timerId,
-    normalizationGain,
     parentPrimaryImageItemId,
+    mediaType,
   ]);
 
   @override
   String toString() {
-    return 'BaseItemDto(mediaType: $mediaType, id: $id, type: $type, isHD: $isHD, etag: $etag, sourceType: $sourceType, playlistItemId: $playlistItemId, dateCreated: $dateCreated, dateLastMediaAdded: $dateLastMediaAdded, extraType: $extraType, airsBeforeSeasonNumber: $airsBeforeSeasonNumber, airsAfterSeasonNumber: $airsAfterSeasonNumber, airsBeforeEpisodeNumber: $airsBeforeEpisodeNumber, canDelete: $canDelete, canDownload: $canDownload, hasLyrics: $hasLyrics, hasSubtitles: $hasSubtitles, preferredMetadataLanguage: $preferredMetadataLanguage, preferredMetadataCountryCode: $preferredMetadataCountryCode, container: $container, sortName: $sortName, forcedSortName: $forcedSortName, video3DFormat: $video3DFormat, premiereDate: $premiereDate, externalUrls: $externalUrls, mediaSources: $mediaSources, criticRating: $criticRating, productionLocations: $productionLocations, path: $path, enableMediaSourceDisplay: $enableMediaSourceDisplay, officialRating: $officialRating, customRating: $customRating, channelId: $channelId, channelName: $channelName, overview: $overview, taglines: $taglines, genres: $genres, communityRating: $communityRating, cumulativeRunTimeTicks: $cumulativeRunTimeTicks, runTimeTicks: $runTimeTicks, playAccess: $playAccess, aspectRatio: $aspectRatio, productionYear: $productionYear, isPlaceHolder: $isPlaceHolder, number: $number, channelNumber: $channelNumber, indexNumber: $indexNumber, indexNumberEnd: $indexNumberEnd, parentIndexNumber: $parentIndexNumber, remoteTrailers: $remoteTrailers, providerIds: $providerIds, name: $name, isFolder: $isFolder, parentId: $parentId, serverId: $serverId, people: $people, studios: $studios, genreItems: $genreItems, parentLogoItemId: $parentLogoItemId, parentBackdropItemId: $parentBackdropItemId, parentBackdropImageTags: $parentBackdropImageTags, localTrailerCount: $localTrailerCount, userData: $userData, recursiveItemCount: $recursiveItemCount, childCount: $childCount, seriesName: $seriesName, seriesId: $seriesId, seasonId: $seasonId, specialFeatureCount: $specialFeatureCount, displayPreferencesId: $displayPreferencesId, status: $status, airTime: $airTime, airDays: $airDays, tags: $tags, primaryImageAspectRatio: $primaryImageAspectRatio, artists: $artists, artistItems: $artistItems, album: $album, collectionType: $collectionType, displayOrder: $displayOrder, albumId: $albumId, albumPrimaryImageTag: $albumPrimaryImageTag, seriesPrimaryImageTag: $seriesPrimaryImageTag, albumArtist: $albumArtist, albumArtists: $albumArtists, seasonName: $seasonName, mediaStreams: $mediaStreams, videoType: $videoType, partCount: $partCount, mediaSourceCount: $mediaSourceCount, imageTags: $imageTags, backdropImageTags: $backdropImageTags, screenshotImageTags: $screenshotImageTags, parentLogoImageTag: $parentLogoImageTag, parentArtItemId: $parentArtItemId, parentArtImageTag: $parentArtImageTag, seriesThumbImageTag: $seriesThumbImageTag, imageBlurHashes: $imageBlurHashes, seriesStudio: $seriesStudio, parentThumbItemId: $parentThumbItemId, parentThumbImageTag: $parentThumbImageTag, currentProgram: $currentProgram, parentPrimaryImageTag: $parentPrimaryImageTag, chapters: $chapters, trickplay: $trickplay, locationType: $locationType, isoType: $isoType, originalTitle: $originalTitle, endDate: $endDate, lockedFields: $lockedFields, trailerCount: $trailerCount, movieCount: $movieCount, seriesCount: $seriesCount, programCount: $programCount, episodeCount: $episodeCount, songCount: $songCount, albumCount: $albumCount, artistCount: $artistCount, musicVideoCount: $musicVideoCount, lockData: $lockData, width: $width, height: $height, cameraMake: $cameraMake, cameraModel: $cameraModel, software: $software, exposureTime: $exposureTime, focalLength: $focalLength, imageOrientation: $imageOrientation, aperture: $aperture, shutterSpeed: $shutterSpeed, latitude: $latitude, longitude: $longitude, altitude: $altitude, isoSpeedRating: $isoSpeedRating, seriesTimerId: $seriesTimerId, programId: $programId, channelPrimaryImageTag: $channelPrimaryImageTag, startDate: $startDate, completionPercentage: $completionPercentage, isRepeat: $isRepeat, episodeTitle: $episodeTitle, channelType: $channelType, audio: $audio, isMovie: $isMovie, isSports: $isSports, isSeries: $isSeries, isLive: $isLive, isNews: $isNews, isKids: $isKids, isPremiere: $isPremiere, timerId: $timerId, normalizationGain: $normalizationGain, parentPrimaryImageItemId: $parentPrimaryImageItemId)';
+    return 'BaseItemDto(isHd: $isHd, originalTitle: $originalTitle, serverId: $serverId, id: $id, etag: $etag, sourceType: $sourceType, playlistItemId: $playlistItemId, dateCreated: $dateCreated, dateLastMediaAdded: $dateLastMediaAdded, extraType: $extraType, airsBeforeSeasonNumber: $airsBeforeSeasonNumber, airsAfterSeasonNumber: $airsAfterSeasonNumber, airsBeforeEpisodeNumber: $airsBeforeEpisodeNumber, canDelete: $canDelete, canDownload: $canDownload, hasLyrics: $hasLyrics, hasSubtitles: $hasSubtitles, preferredMetadataLanguage: $preferredMetadataLanguage, preferredMetadataCountryCode: $preferredMetadataCountryCode, container: $container, sortName: $sortName, forcedSortName: $forcedSortName, video3DFormat: $video3DFormat, premiereDate: $premiereDate, externalUrls: $externalUrls, mediaSources: $mediaSources, criticRating: $criticRating, productionLocations: $productionLocations, path: $path, enableMediaSourceDisplay: $enableMediaSourceDisplay, officialRating: $officialRating, customRating: $customRating, channelId: $channelId, channelName: $channelName, overview: $overview, taglines: $taglines, genres: $genres, communityRating: $communityRating, cumulativeRunTimeTicks: $cumulativeRunTimeTicks, runTimeTicks: $runTimeTicks, playAccess: $playAccess, aspectRatio: $aspectRatio, productionYear: $productionYear, isPlaceHolder: $isPlaceHolder, number: $number, channelNumber: $channelNumber, indexNumber: $indexNumber, indexNumberEnd: $indexNumberEnd, parentIndexNumber: $parentIndexNumber, remoteTrailers: $remoteTrailers, providerIds: $providerIds, name: $name, isFolder: $isFolder, parentId: $parentId, type: $type, people: $people, studios: $studios, genreItems: $genreItems, parentLogoItemId: $parentLogoItemId, parentBackdropItemId: $parentBackdropItemId, parentBackdropImageTags: $parentBackdropImageTags, localTrailerCount: $localTrailerCount, userData: $userData, recursiveItemCount: $recursiveItemCount, childCount: $childCount, seriesName: $seriesName, seriesId: $seriesId, seasonId: $seasonId, specialFeatureCount: $specialFeatureCount, displayPreferencesId: $displayPreferencesId, status: $status, airTime: $airTime, airDays: $airDays, tags: $tags, primaryImageAspectRatio: $primaryImageAspectRatio, artists: $artists, artistItems: $artistItems, album: $album, collectionType: $collectionType, displayOrder: $displayOrder, albumId: $albumId, albumPrimaryImageTag: $albumPrimaryImageTag, seriesPrimaryImageTag: $seriesPrimaryImageTag, albumArtist: $albumArtist, albumArtists: $albumArtists, seasonName: $seasonName, mediaStreams: $mediaStreams, videoType: $videoType, partCount: $partCount, mediaSourceCount: $mediaSourceCount, imageTags: $imageTags, backdropImageTags: $backdropImageTags, screenshotImageTags: $screenshotImageTags, parentLogoImageTag: $parentLogoImageTag, parentArtItemId: $parentArtItemId, parentArtImageTag: $parentArtImageTag, seriesThumbImageTag: $seriesThumbImageTag, imageBlurHashes: $imageBlurHashes, seriesStudio: $seriesStudio, parentThumbItemId: $parentThumbItemId, parentThumbImageTag: $parentThumbImageTag, currentProgram: $currentProgram, parentPrimaryImageTag: $parentPrimaryImageTag, chapters: $chapters, trickplay: $trickplay, locationType: $locationType, isoType: $isoType, normalizationGain: $normalizationGain, endDate: $endDate, lockedFields: $lockedFields, trailerCount: $trailerCount, movieCount: $movieCount, seriesCount: $seriesCount, programCount: $programCount, episodeCount: $episodeCount, songCount: $songCount, albumCount: $albumCount, artistCount: $artistCount, musicVideoCount: $musicVideoCount, lockData: $lockData, width: $width, height: $height, cameraMake: $cameraMake, cameraModel: $cameraModel, software: $software, exposureTime: $exposureTime, focalLength: $focalLength, imageOrientation: $imageOrientation, aperture: $aperture, shutterSpeed: $shutterSpeed, latitude: $latitude, longitude: $longitude, altitude: $altitude, isoSpeedRating: $isoSpeedRating, seriesTimerId: $seriesTimerId, programId: $programId, channelPrimaryImageTag: $channelPrimaryImageTag, startDate: $startDate, completionPercentage: $completionPercentage, isRepeat: $isRepeat, episodeTitle: $episodeTitle, channelType: $channelType, audio: $audio, isMovie: $isMovie, isSports: $isSports, isSeries: $isSeries, isLive: $isLive, isNews: $isNews, isKids: $isKids, isPremiere: $isPremiere, timerId: $timerId, parentPrimaryImageItemId: $parentPrimaryImageItemId, mediaType: $mediaType)';
   }
 }
 
@@ -4774,10 +4783,10 @@ abstract mixin class _$BaseItemDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
+    @JsonKey(name: 'IsHD') bool? isHd,
+    @JsonKey(name: 'OriginalTitle') String? originalTitle,
+    @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Type') BaseItemDtoType type,
-    @JsonKey(name: 'IsHD') bool? isHD,
     @JsonKey(name: 'Etag') String? etag,
     @JsonKey(name: 'SourceType') String? sourceType,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
@@ -4830,7 +4839,7 @@ abstract mixin class _$BaseItemDtoCopyWith<$Res>
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'IsFolder') bool? isFolder,
     @JsonKey(name: 'ParentId') String? parentId,
-    @JsonKey(name: 'ServerId') String? serverId,
+    @JsonKey(name: 'Type') BaseItemDtoType type,
     @JsonKey(name: 'People') List<BaseItemPerson>? people,
     @JsonKey(name: 'Studios') List<NameGuidPair>? studios,
     @JsonKey(name: 'GenreItems') List<NameGuidPair>? genreItems,
@@ -4839,7 +4848,7 @@ abstract mixin class _$BaseItemDtoCopyWith<$Res>
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
     @JsonKey(name: 'LocalTrailerCount') int? localTrailerCount,
-    @JsonKey(name: 'UserData') UserItemDataDto? userData,
+    @JsonKey(name: 'UserData') UserItemDataDto userData,
     @JsonKey(name: 'RecursiveItemCount') int? recursiveItemCount,
     @JsonKey(name: 'ChildCount') int? childCount,
     @JsonKey(name: 'SeriesName') String? seriesName,
@@ -4878,14 +4887,14 @@ abstract mixin class _$BaseItemDtoCopyWith<$Res>
     @JsonKey(name: 'SeriesStudio') String? seriesStudio,
     @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
     @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
-    @JsonKey(name: 'CurrentProgram') BaseItemDto? currentProgram,
+    @JsonKey(name: 'CurrentProgram') BaseItemDto currentProgram,
     @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
     @JsonKey(name: 'Chapters') List<ChapterInfo>? chapters,
     @JsonKey(name: 'Trickplay')
     Map<String, Map<String, TrickplayInfoDto>>? trickplay,
     @JsonKey(name: 'LocationType') BaseItemDtoLocationType? locationType,
     @JsonKey(name: 'IsoType') BaseItemDtoIsoType? isoType,
-    @JsonKey(name: 'OriginalTitle') String? originalTitle,
+    @JsonKey(name: 'NormalizationGain') double? normalizationGain,
     @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'LockedFields') List<MetadataField>? lockedFields,
     @JsonKey(name: 'TrailerCount') int? trailerCount,
@@ -4930,16 +4939,16 @@ abstract mixin class _$BaseItemDtoCopyWith<$Res>
     @JsonKey(name: 'IsKids') bool? isKids,
     @JsonKey(name: 'IsPremiere') bool? isPremiere,
     @JsonKey(name: 'TimerId') String? timerId,
-    @JsonKey(name: 'NormalizationGain') double? normalizationGain,
     @JsonKey(name: 'ParentPrimaryImageItemId') String? parentPrimaryImageItemId,
+    @JsonKey(name: 'MediaType') BaseItemDtoMediaType mediaType,
   });
 
   @override
-  $UserItemDataDtoCopyWith<$Res>? get userData;
+  $UserItemDataDtoCopyWith<$Res> get userData;
   @override
   $ImageBlurHashesCopyWith<$Res>? get imageBlurHashes;
   @override
-  $BaseItemDtoCopyWith<$Res>? get currentProgram;
+  $BaseItemDtoCopyWith<$Res> get currentProgram;
 }
 
 /// @nodoc
@@ -4954,10 +4963,10 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? mediaType = null,
+    Object? isHd = freezed,
+    Object? originalTitle = freezed,
+    Object? serverId = freezed,
     Object? id = null,
-    Object? type = null,
-    Object? isHD = freezed,
     Object? etag = freezed,
     Object? sourceType = freezed,
     Object? playlistItemId = freezed,
@@ -5008,7 +5017,7 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
     Object? name = freezed,
     Object? isFolder = freezed,
     Object? parentId = freezed,
-    Object? serverId = freezed,
+    Object? type = null,
     Object? people = freezed,
     Object? studios = freezed,
     Object? genreItems = freezed,
@@ -5016,7 +5025,7 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
     Object? localTrailerCount = freezed,
-    Object? userData = freezed,
+    Object? userData = null,
     Object? recursiveItemCount = freezed,
     Object? childCount = freezed,
     Object? seriesName = freezed,
@@ -5055,13 +5064,13 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
     Object? seriesStudio = freezed,
     Object? parentThumbItemId = freezed,
     Object? parentThumbImageTag = freezed,
-    Object? currentProgram = freezed,
+    Object? currentProgram = null,
     Object? parentPrimaryImageTag = freezed,
     Object? chapters = freezed,
     Object? trickplay = freezed,
     Object? locationType = freezed,
     Object? isoType = freezed,
-    Object? originalTitle = freezed,
+    Object? normalizationGain = freezed,
     Object? endDate = freezed,
     Object? lockedFields = freezed,
     Object? trailerCount = freezed,
@@ -5105,27 +5114,27 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
     Object? isKids = freezed,
     Object? isPremiere = freezed,
     Object? timerId = freezed,
-    Object? normalizationGain = freezed,
     Object? parentPrimaryImageItemId = freezed,
+    Object? mediaType = null,
   }) {
     return _then(
       _BaseItemDto(
-        mediaType: null == mediaType
-            ? _self.mediaType
-            : mediaType // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDtoMediaType,
+        isHd: freezed == isHd
+            ? _self.isHd
+            : isHd // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        originalTitle: freezed == originalTitle
+            ? _self.originalTitle
+            : originalTitle // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        serverId: freezed == serverId
+            ? _self.serverId
+            : serverId // ignore: cast_nullable_to_non_nullable
+                  as String?,
         id: null == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDtoType,
-        isHD: freezed == isHD
-            ? _self.isHD
-            : isHD // ignore: cast_nullable_to_non_nullable
-                  as bool?,
         etag: freezed == etag
             ? _self.etag
             : etag // ignore: cast_nullable_to_non_nullable
@@ -5326,10 +5335,10 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
             ? _self.parentId
             : parentId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        serverId: freezed == serverId
-            ? _self.serverId
-            : serverId // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as BaseItemDtoType,
         people: freezed == people
             ? _self._people
             : people // ignore: cast_nullable_to_non_nullable
@@ -5358,10 +5367,10 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
             ? _self.localTrailerCount
             : localTrailerCount // ignore: cast_nullable_to_non_nullable
                   as int?,
-        userData: freezed == userData
+        userData: null == userData
             ? _self.userData
             : userData // ignore: cast_nullable_to_non_nullable
-                  as UserItemDataDto?,
+                  as UserItemDataDto,
         recursiveItemCount: freezed == recursiveItemCount
             ? _self.recursiveItemCount
             : recursiveItemCount // ignore: cast_nullable_to_non_nullable
@@ -5514,10 +5523,10 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
             ? _self.parentThumbImageTag
             : parentThumbImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        currentProgram: freezed == currentProgram
+        currentProgram: null == currentProgram
             ? _self.currentProgram
             : currentProgram // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto?,
+                  as BaseItemDto,
         parentPrimaryImageTag: freezed == parentPrimaryImageTag
             ? _self.parentPrimaryImageTag
             : parentPrimaryImageTag // ignore: cast_nullable_to_non_nullable
@@ -5538,10 +5547,10 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
             ? _self.isoType
             : isoType // ignore: cast_nullable_to_non_nullable
                   as BaseItemDtoIsoType?,
-        originalTitle: freezed == originalTitle
-            ? _self.originalTitle
-            : originalTitle // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        normalizationGain: freezed == normalizationGain
+            ? _self.normalizationGain
+            : normalizationGain // ignore: cast_nullable_to_non_nullable
+                  as double?,
         endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
@@ -5714,14 +5723,14 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
             ? _self.timerId
             : timerId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        normalizationGain: freezed == normalizationGain
-            ? _self.normalizationGain
-            : normalizationGain // ignore: cast_nullable_to_non_nullable
-                  as double?,
         parentPrimaryImageItemId: freezed == parentPrimaryImageItemId
             ? _self.parentPrimaryImageItemId
             : parentPrimaryImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
+        mediaType: null == mediaType
+            ? _self.mediaType
+            : mediaType // ignore: cast_nullable_to_non_nullable
+                  as BaseItemDtoMediaType,
       ),
     );
   }
@@ -5730,12 +5739,8 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserItemDataDtoCopyWith<$Res>? get userData {
-    if (_self.userData == null) {
-      return null;
-    }
-
-    return $UserItemDataDtoCopyWith<$Res>(_self.userData!, (value) {
+  $UserItemDataDtoCopyWith<$Res> get userData {
+    return $UserItemDataDtoCopyWith<$Res>(_self.userData, (value) {
       return _then(_self.copyWith(userData: value));
     });
   }
@@ -5758,12 +5763,8 @@ class __$BaseItemDtoCopyWithImpl<$Res> implements _$BaseItemDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res>? get currentProgram {
-    if (_self.currentProgram == null) {
-      return null;
-    }
-
-    return $BaseItemDtoCopyWith<$Res>(_self.currentProgram!, (value) {
+  $BaseItemDtoCopyWith<$Res> get currentProgram {
+    return $BaseItemDtoCopyWith<$Res>(_self.currentProgram, (value) {
       return _then(_self.copyWith(currentProgram: value));
     });
   }

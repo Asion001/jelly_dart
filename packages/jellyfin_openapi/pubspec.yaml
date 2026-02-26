@@ -16,6 +16,12 @@ dev_dependencies:
   build_runner: ^2.5.4
   freezed: ^3.1.0
   json_serializable: ^6.11.1
-  retrofit_generator: ^10.2.0
-  swagger_parser: 1.23.2
+  retrofit_generator:
+    git:
+      url: https://github.com/Asion001/retrofit.dart.git
+      path: generator
+  swagger_parser:
+    git:
+      url: https://github.com/Asion001/swagger_parser.git
+      path: swagger_parser
   very_good_analysis: ^10.0.0

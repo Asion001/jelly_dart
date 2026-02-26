@@ -391,7 +391,7 @@ extension InboundWebSocketMessageUnionPatterns on InboundWebSocketMessageUnion {
 class InboundWebSocketMessageUnionActivityLogEntryStart
     implements InboundWebSocketMessageUnion {
   const InboundWebSocketMessageUnionActivityLogEntryStart({
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'Data') required this.data,
     final String? $type,
   }) : $type = $type ?? 'ActivityLogEntryStart';
   factory InboundWebSocketMessageUnionActivityLogEntryStart.fromJson(
@@ -555,7 +555,7 @@ class InboundWebSocketMessageUnionKeepAlive
 class InboundWebSocketMessageUnionScheduledTasksInfoStart
     implements InboundWebSocketMessageUnion {
   const InboundWebSocketMessageUnionScheduledTasksInfoStart({
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'Data') required this.data,
     final String? $type,
   }) : $type = $type ?? 'ScheduledTasksInfoStart';
   factory InboundWebSocketMessageUnionScheduledTasksInfoStart.fromJson(
@@ -686,7 +686,7 @@ class InboundWebSocketMessageUnionScheduledTasksInfoStop
 class InboundWebSocketMessageUnionSessionsStart
     implements InboundWebSocketMessageUnion {
   const InboundWebSocketMessageUnionSessionsStart({
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'Data') required this.data,
     final String? $type,
   }) : $type = $type ?? 'SessionsStart';
   factory InboundWebSocketMessageUnionSessionsStart.fromJson(

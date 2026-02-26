@@ -394,11 +394,11 @@ class _TaskResult implements TaskResult {
     @JsonKey(name: 'StartTimeUtc') required this.startTimeUtc,
     @JsonKey(name: 'EndTimeUtc') required this.endTimeUtc,
     @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'Key') this.key,
-    @JsonKey(name: 'Id') this.id,
-    @JsonKey(name: 'ErrorMessage') this.errorMessage,
-    @JsonKey(name: 'LongErrorMessage') this.longErrorMessage,
+    @JsonKey(name: 'Name') required this.name,
+    @JsonKey(name: 'Key') required this.key,
+    @JsonKey(name: 'Id') required this.id,
+    @JsonKey(name: 'ErrorMessage') required this.errorMessage,
+    @JsonKey(name: 'LongErrorMessage') required this.longErrorMessage,
   });
   factory _TaskResult.fromJson(Map<String, dynamic> json) =>
       _$TaskResultFromJson(json);

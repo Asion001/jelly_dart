@@ -15,31 +15,31 @@ T _$identity<T>(T value) => value;
 mixin _$TrickplayInfoDto {
   /// Gets the width of an individual thumbnail.
   @JsonKey(name: 'Width')
-  int get width;
+  int? get width;
 
   /// Gets the height of an individual thumbnail.
   @JsonKey(name: 'Height')
-  int get height;
+  int? get height;
 
   /// Gets the amount of thumbnails per row.
   @JsonKey(name: 'TileWidth')
-  int get tileWidth;
+  int? get tileWidth;
 
   /// Gets the amount of thumbnails per column.
   @JsonKey(name: 'TileHeight')
-  int get tileHeight;
+  int? get tileHeight;
 
   /// Gets the total amount of non-black thumbnails.
   @JsonKey(name: 'ThumbnailCount')
-  int get thumbnailCount;
+  int? get thumbnailCount;
 
   /// Gets the interval in milliseconds between each trickplay thumbnail.
   @JsonKey(name: 'Interval')
-  int get interval;
+  int? get interval;
 
   /// Gets the peak bandwidth usage in bits per second.
   @JsonKey(name: 'Bandwidth')
-  int get bandwidth;
+  int? get bandwidth;
 
   /// Create a copy of TrickplayInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +100,13 @@ abstract mixin class $TrickplayInfoDtoCopyWith<$Res> {
   ) = _$TrickplayInfoDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Width') int width,
-    @JsonKey(name: 'Height') int height,
-    @JsonKey(name: 'TileWidth') int tileWidth,
-    @JsonKey(name: 'TileHeight') int tileHeight,
-    @JsonKey(name: 'ThumbnailCount') int thumbnailCount,
-    @JsonKey(name: 'Interval') int interval,
-    @JsonKey(name: 'Bandwidth') int bandwidth,
+    @JsonKey(name: 'Width') int? width,
+    @JsonKey(name: 'Height') int? height,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
+    @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
+    @JsonKey(name: 'Interval') int? interval,
+    @JsonKey(name: 'Bandwidth') int? bandwidth,
   });
 }
 
@@ -123,44 +123,44 @@ class _$TrickplayInfoDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? width = null,
-    Object? height = null,
-    Object? tileWidth = null,
-    Object? tileHeight = null,
-    Object? thumbnailCount = null,
-    Object? interval = null,
-    Object? bandwidth = null,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? tileWidth = freezed,
+    Object? tileHeight = freezed,
+    Object? thumbnailCount = freezed,
+    Object? interval = freezed,
+    Object? bandwidth = freezed,
   }) {
     return _then(
       _self.copyWith(
-        width: null == width
+        width: freezed == width
             ? _self.width
             : width // ignore: cast_nullable_to_non_nullable
-                  as int,
-        height: null == height
+                  as int?,
+        height: freezed == height
             ? _self.height
             : height // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileWidth: null == tileWidth
+                  as int?,
+        tileWidth: freezed == tileWidth
             ? _self.tileWidth
             : tileWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileHeight: null == tileHeight
+                  as int?,
+        tileHeight: freezed == tileHeight
             ? _self.tileHeight
             : tileHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        thumbnailCount: null == thumbnailCount
+                  as int?,
+        thumbnailCount: freezed == thumbnailCount
             ? _self.thumbnailCount
             : thumbnailCount // ignore: cast_nullable_to_non_nullable
-                  as int,
-        interval: null == interval
+                  as int?,
+        interval: freezed == interval
             ? _self.interval
             : interval // ignore: cast_nullable_to_non_nullable
-                  as int,
-        bandwidth: null == bandwidth
+                  as int?,
+        bandwidth: freezed == bandwidth
             ? _self.bandwidth
             : bandwidth // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }
@@ -260,13 +260,13 @@ extension TrickplayInfoDtoPatterns on TrickplayInfoDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Width') int width,
-      @JsonKey(name: 'Height') int height,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'ThumbnailCount') int thumbnailCount,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'Bandwidth') int bandwidth,
+      @JsonKey(name: 'Width') int? width,
+      @JsonKey(name: 'Height') int? height,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'Bandwidth') int? bandwidth,
     )?
     $default, {
     required TResult orElse(),
@@ -304,13 +304,13 @@ extension TrickplayInfoDtoPatterns on TrickplayInfoDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Width') int width,
-      @JsonKey(name: 'Height') int height,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'ThumbnailCount') int thumbnailCount,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'Bandwidth') int bandwidth,
+      @JsonKey(name: 'Width') int? width,
+      @JsonKey(name: 'Height') int? height,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'Bandwidth') int? bandwidth,
     )
     $default,
   ) {
@@ -346,13 +346,13 @@ extension TrickplayInfoDtoPatterns on TrickplayInfoDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Width') int width,
-      @JsonKey(name: 'Height') int height,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'ThumbnailCount') int thumbnailCount,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'Bandwidth') int bandwidth,
+      @JsonKey(name: 'Width') int? width,
+      @JsonKey(name: 'Height') int? height,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'Bandwidth') int? bandwidth,
     )?
     $default,
   ) {
@@ -378,13 +378,13 @@ extension TrickplayInfoDtoPatterns on TrickplayInfoDto {
 @JsonSerializable()
 class _TrickplayInfoDto implements TrickplayInfoDto {
   const _TrickplayInfoDto({
-    @JsonKey(name: 'Width') required this.width,
-    @JsonKey(name: 'Height') required this.height,
-    @JsonKey(name: 'TileWidth') required this.tileWidth,
-    @JsonKey(name: 'TileHeight') required this.tileHeight,
-    @JsonKey(name: 'ThumbnailCount') required this.thumbnailCount,
-    @JsonKey(name: 'Interval') required this.interval,
-    @JsonKey(name: 'Bandwidth') required this.bandwidth,
+    @JsonKey(name: 'Width') this.width,
+    @JsonKey(name: 'Height') this.height,
+    @JsonKey(name: 'TileWidth') this.tileWidth,
+    @JsonKey(name: 'TileHeight') this.tileHeight,
+    @JsonKey(name: 'ThumbnailCount') this.thumbnailCount,
+    @JsonKey(name: 'Interval') this.interval,
+    @JsonKey(name: 'Bandwidth') this.bandwidth,
   });
   factory _TrickplayInfoDto.fromJson(Map<String, dynamic> json) =>
       _$TrickplayInfoDtoFromJson(json);
@@ -392,37 +392,37 @@ class _TrickplayInfoDto implements TrickplayInfoDto {
   /// Gets the width of an individual thumbnail.
   @override
   @JsonKey(name: 'Width')
-  final int width;
+  final int? width;
 
   /// Gets the height of an individual thumbnail.
   @override
   @JsonKey(name: 'Height')
-  final int height;
+  final int? height;
 
   /// Gets the amount of thumbnails per row.
   @override
   @JsonKey(name: 'TileWidth')
-  final int tileWidth;
+  final int? tileWidth;
 
   /// Gets the amount of thumbnails per column.
   @override
   @JsonKey(name: 'TileHeight')
-  final int tileHeight;
+  final int? tileHeight;
 
   /// Gets the total amount of non-black thumbnails.
   @override
   @JsonKey(name: 'ThumbnailCount')
-  final int thumbnailCount;
+  final int? thumbnailCount;
 
   /// Gets the interval in milliseconds between each trickplay thumbnail.
   @override
   @JsonKey(name: 'Interval')
-  final int interval;
+  final int? interval;
 
   /// Gets the peak bandwidth usage in bits per second.
   @override
   @JsonKey(name: 'Bandwidth')
-  final int bandwidth;
+  final int? bandwidth;
 
   /// Create a copy of TrickplayInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -485,13 +485,13 @@ abstract mixin class _$TrickplayInfoDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Width') int width,
-    @JsonKey(name: 'Height') int height,
-    @JsonKey(name: 'TileWidth') int tileWidth,
-    @JsonKey(name: 'TileHeight') int tileHeight,
-    @JsonKey(name: 'ThumbnailCount') int thumbnailCount,
-    @JsonKey(name: 'Interval') int interval,
-    @JsonKey(name: 'Bandwidth') int bandwidth,
+    @JsonKey(name: 'Width') int? width,
+    @JsonKey(name: 'Height') int? height,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
+    @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
+    @JsonKey(name: 'Interval') int? interval,
+    @JsonKey(name: 'Bandwidth') int? bandwidth,
   });
 }
 
@@ -508,44 +508,44 @@ class __$TrickplayInfoDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? width = null,
-    Object? height = null,
-    Object? tileWidth = null,
-    Object? tileHeight = null,
-    Object? thumbnailCount = null,
-    Object? interval = null,
-    Object? bandwidth = null,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? tileWidth = freezed,
+    Object? tileHeight = freezed,
+    Object? thumbnailCount = freezed,
+    Object? interval = freezed,
+    Object? bandwidth = freezed,
   }) {
     return _then(
       _TrickplayInfoDto(
-        width: null == width
+        width: freezed == width
             ? _self.width
             : width // ignore: cast_nullable_to_non_nullable
-                  as int,
-        height: null == height
+                  as int?,
+        height: freezed == height
             ? _self.height
             : height // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileWidth: null == tileWidth
+                  as int?,
+        tileWidth: freezed == tileWidth
             ? _self.tileWidth
             : tileWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileHeight: null == tileHeight
+                  as int?,
+        tileHeight: freezed == tileHeight
             ? _self.tileHeight
             : tileHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        thumbnailCount: null == thumbnailCount
+                  as int?,
+        thumbnailCount: freezed == thumbnailCount
             ? _self.thumbnailCount
             : thumbnailCount // ignore: cast_nullable_to_non_nullable
-                  as int,
-        interval: null == interval
+                  as int?,
+        interval: freezed == interval
             ? _self.interval
             : interval // ignore: cast_nullable_to_non_nullable
-                  as int,
-        bandwidth: null == bandwidth
+                  as int?,
+        bandwidth: freezed == bandwidth
             ? _self.bandwidth
             : bandwidth // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }

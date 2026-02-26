@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TimerEventInfo {
   @JsonKey(name: 'Id')
-  String get id;
+  String? get id;
   @JsonKey(name: 'ProgramId')
   String? get programId;
 
@@ -59,7 +59,7 @@ abstract mixin class $TimerEventInfoCopyWith<$Res> {
   ) = _$TimerEventInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
+    @JsonKey(name: 'Id') String? id,
     @JsonKey(name: 'ProgramId') String? programId,
   });
 }
@@ -76,13 +76,13 @@ class _$TimerEventInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? id = null, Object? programId = freezed}) {
+  $Res call({Object? id = freezed, Object? programId = freezed}) {
     return _then(
       _self.copyWith(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         programId: freezed == programId
             ? _self.programId
             : programId // ignore: cast_nullable_to_non_nullable
@@ -186,7 +186,7 @@ extension TimerEventInfoPatterns on TimerEventInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
+      @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'ProgramId') String? programId,
     )?
     $default, {
@@ -217,7 +217,7 @@ extension TimerEventInfoPatterns on TimerEventInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
+      @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'ProgramId') String? programId,
     )
     $default,
@@ -246,7 +246,7 @@ extension TimerEventInfoPatterns on TimerEventInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
+      @JsonKey(name: 'Id') String? id,
       @JsonKey(name: 'ProgramId') String? programId,
     )?
     $default,
@@ -265,7 +265,7 @@ extension TimerEventInfoPatterns on TimerEventInfo {
 @JsonSerializable()
 class _TimerEventInfo implements TimerEventInfo {
   const _TimerEventInfo({
-    @JsonKey(name: 'Id') required this.id,
+    @JsonKey(name: 'Id') this.id,
     @JsonKey(name: 'ProgramId') this.programId,
   });
   factory _TimerEventInfo.fromJson(Map<String, dynamic> json) =>
@@ -273,7 +273,7 @@ class _TimerEventInfo implements TimerEventInfo {
 
   @override
   @JsonKey(name: 'Id')
-  final String id;
+  final String? id;
   @override
   @JsonKey(name: 'ProgramId')
   final String? programId;
@@ -321,7 +321,7 @@ abstract mixin class _$TimerEventInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
+    @JsonKey(name: 'Id') String? id,
     @JsonKey(name: 'ProgramId') String? programId,
   });
 }
@@ -338,13 +338,13 @@ class __$TimerEventInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? id = null, Object? programId = freezed}) {
+  $Res call({Object? id = freezed, Object? programId = freezed}) {
     return _then(
       _TimerEventInfo(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         programId: freezed == programId
             ? _self.programId
             : programId // ignore: cast_nullable_to_non_nullable

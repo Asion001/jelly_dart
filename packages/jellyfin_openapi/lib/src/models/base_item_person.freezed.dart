@@ -13,17 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$BaseItemPerson {
-  /// Gets or sets the identifier.
-  @JsonKey(name: 'Id')
-  String get id;
-
-  /// Gets or sets the type.
-  @JsonKey(name: 'Type')
-  BaseItemPersonType get type;
-
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
   String? get name;
+
+  /// Gets or sets the identifier.
+  @JsonKey(name: 'Id')
+  String get id;
 
   /// Gets or sets the role.
   @JsonKey(name: 'Role')
@@ -36,6 +32,10 @@ mixin _$BaseItemPerson {
   /// Gets or sets the primary image blurhash.
   @JsonKey(name: 'ImageBlurHashes')
   ImageBlurHashes2? get imageBlurHashes;
+
+  /// Gets or sets the type.
+  @JsonKey(name: 'Type')
+  BaseItemPersonType get type;
 
   /// Create a copy of BaseItemPerson
   /// with the given fields replaced by the non-null parameter values.
@@ -55,31 +55,31 @@ mixin _$BaseItemPerson {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is BaseItemPerson &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.primaryImageTag, primaryImageTag) ||
                 other.primaryImageTag == primaryImageTag) &&
             (identical(other.imageBlurHashes, imageBlurHashes) ||
-                other.imageBlurHashes == imageBlurHashes));
+                other.imageBlurHashes == imageBlurHashes) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    type,
     name,
+    id,
     role,
     primaryImageTag,
     imageBlurHashes,
+    type,
   );
 
   @override
   String toString() {
-    return 'BaseItemPerson(id: $id, type: $type, name: $name, role: $role, primaryImageTag: $primaryImageTag, imageBlurHashes: $imageBlurHashes)';
+    return 'BaseItemPerson(name: $name, id: $id, role: $role, primaryImageTag: $primaryImageTag, imageBlurHashes: $imageBlurHashes, type: $type)';
   }
 }
 
@@ -91,12 +91,12 @@ abstract mixin class $BaseItemPersonCopyWith<$Res> {
   ) = _$BaseItemPersonCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Type') BaseItemPersonType type,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'Role') String? role,
     @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
     @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
+    @JsonKey(name: 'Type') BaseItemPersonType type,
   });
 
   $ImageBlurHashes2CopyWith<$Res>? get imageBlurHashes;
@@ -115,27 +115,23 @@ class _$BaseItemPersonCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? type = null,
     Object? name = freezed,
+    Object? id = null,
     Object? role = freezed,
     Object? primaryImageTag = freezed,
     Object? imageBlurHashes = freezed,
+    Object? type = null,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as BaseItemPersonType,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
                   as String?,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
         role: freezed == role
             ? _self.role
             : role // ignore: cast_nullable_to_non_nullable
@@ -148,6 +144,10 @@ class _$BaseItemPersonCopyWithImpl<$Res>
             ? _self.imageBlurHashes
             : imageBlurHashes // ignore: cast_nullable_to_non_nullable
                   as ImageBlurHashes2?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as BaseItemPersonType,
       ),
     );
   }
@@ -261,12 +261,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemPersonType type,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Role') String? role,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
       @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
+      @JsonKey(name: 'Type') BaseItemPersonType type,
     )?
     $default, {
     required TResult orElse(),
@@ -275,12 +275,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
     switch (_that) {
       case _BaseItemPerson() when $default != null:
         return $default(
-          _that.id,
-          _that.type,
           _that.name,
+          _that.id,
           _that.role,
           _that.primaryImageTag,
           _that.imageBlurHashes,
+          _that.type,
         );
       case _:
         return orElse();
@@ -303,12 +303,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemPersonType type,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Role') String? role,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
       @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
+      @JsonKey(name: 'Type') BaseItemPersonType type,
     )
     $default,
   ) {
@@ -316,12 +316,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
     switch (_that) {
       case _BaseItemPerson():
         return $default(
-          _that.id,
-          _that.type,
           _that.name,
+          _that.id,
           _that.role,
           _that.primaryImageTag,
           _that.imageBlurHashes,
+          _that.type,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -343,12 +343,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Type') BaseItemPersonType type,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Id') String id,
       @JsonKey(name: 'Role') String? role,
       @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
       @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
+      @JsonKey(name: 'Type') BaseItemPersonType type,
     )?
     $default,
   ) {
@@ -356,12 +356,12 @@ extension BaseItemPersonPatterns on BaseItemPerson {
     switch (_that) {
       case _BaseItemPerson() when $default != null:
         return $default(
-          _that.id,
-          _that.type,
           _that.name,
+          _that.id,
           _that.role,
           _that.primaryImageTag,
           _that.imageBlurHashes,
+          _that.type,
         );
       case _:
         return null;
@@ -373,30 +373,25 @@ extension BaseItemPersonPatterns on BaseItemPerson {
 @JsonSerializable()
 class _BaseItemPerson implements BaseItemPerson {
   const _BaseItemPerson({
+    @JsonKey(name: 'Name') required this.name,
     @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'Role') this.role,
-    @JsonKey(name: 'PrimaryImageTag') this.primaryImageTag,
-    @JsonKey(name: 'ImageBlurHashes') this.imageBlurHashes,
+    @JsonKey(name: 'Role') required this.role,
+    @JsonKey(name: 'PrimaryImageTag') required this.primaryImageTag,
+    @JsonKey(name: 'ImageBlurHashes') required this.imageBlurHashes,
+    @JsonKey(name: 'Type') this.type = BaseItemPersonType.unknown,
   });
   factory _BaseItemPerson.fromJson(Map<String, dynamic> json) =>
       _$BaseItemPersonFromJson(json);
-
-  /// Gets or sets the identifier.
-  @override
-  @JsonKey(name: 'Id')
-  final String id;
-
-  /// Gets or sets the type.
-  @override
-  @JsonKey(name: 'Type')
-  final BaseItemPersonType type;
 
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
   final String? name;
+
+  /// Gets or sets the identifier.
+  @override
+  @JsonKey(name: 'Id')
+  final String id;
 
   /// Gets or sets the role.
   @override
@@ -412,6 +407,11 @@ class _BaseItemPerson implements BaseItemPerson {
   @override
   @JsonKey(name: 'ImageBlurHashes')
   final ImageBlurHashes2? imageBlurHashes;
+
+  /// Gets or sets the type.
+  @override
+  @JsonKey(name: 'Type')
+  final BaseItemPersonType type;
 
   /// Create a copy of BaseItemPerson
   /// with the given fields replaced by the non-null parameter values.
@@ -431,31 +431,31 @@ class _BaseItemPerson implements BaseItemPerson {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _BaseItemPerson &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.primaryImageTag, primaryImageTag) ||
                 other.primaryImageTag == primaryImageTag) &&
             (identical(other.imageBlurHashes, imageBlurHashes) ||
-                other.imageBlurHashes == imageBlurHashes));
+                other.imageBlurHashes == imageBlurHashes) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    type,
     name,
+    id,
     role,
     primaryImageTag,
     imageBlurHashes,
+    type,
   );
 
   @override
   String toString() {
-    return 'BaseItemPerson(id: $id, type: $type, name: $name, role: $role, primaryImageTag: $primaryImageTag, imageBlurHashes: $imageBlurHashes)';
+    return 'BaseItemPerson(name: $name, id: $id, role: $role, primaryImageTag: $primaryImageTag, imageBlurHashes: $imageBlurHashes, type: $type)';
   }
 }
 
@@ -469,12 +469,12 @@ abstract mixin class _$BaseItemPersonCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Type') BaseItemPersonType type,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Id') String id,
     @JsonKey(name: 'Role') String? role,
     @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
     @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
+    @JsonKey(name: 'Type') BaseItemPersonType type,
   });
 
   @override
@@ -494,27 +494,23 @@ class __$BaseItemPersonCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? type = null,
     Object? name = freezed,
+    Object? id = null,
     Object? role = freezed,
     Object? primaryImageTag = freezed,
     Object? imageBlurHashes = freezed,
+    Object? type = null,
   }) {
     return _then(
       _BaseItemPerson(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as BaseItemPersonType,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
                   as String?,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
         role: freezed == role
             ? _self.role
             : role // ignore: cast_nullable_to_non_nullable
@@ -527,6 +523,10 @@ class __$BaseItemPersonCopyWithImpl<$Res>
             ? _self.imageBlurHashes
             : imageBlurHashes // ignore: cast_nullable_to_non_nullable
                   as ImageBlurHashes2?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as BaseItemPersonType,
       ),
     );
   }

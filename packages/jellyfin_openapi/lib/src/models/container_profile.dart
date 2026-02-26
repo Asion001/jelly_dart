@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -24,11 +24,11 @@ abstract class ContainerProfile with _$ContainerProfile {
 
     /// Gets or sets the container(s) which this container must meet.
     @JsonKey(name: 'Container')
-    String? container,
+    required String? container,
 
     /// Gets or sets the sub container(s) which this container must meet.
     @JsonKey(name: 'SubContainer')
-    String? subContainer,
+    required String? subContainer,
   }) = _ContainerProfile;
   
   factory ContainerProfile.fromJson(Map<String, Object?> json) => _$ContainerProfileFromJson(json);

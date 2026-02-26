@@ -8,7 +8,7 @@ part of 'playstate_request.dart';
 
 _PlaystateRequest _$PlaystateRequestFromJson(Map<String, dynamic> json) =>
     _PlaystateRequest(
-      command: PlaystateRequestCommand.fromJson(json['Command']),
+      command: $enumDecode(_$PlaystateRequestCommandEnumMap, json['Command']),
       seekPositionTicks: (json['SeekPositionTicks'] as num?)?.toInt(),
       controllingUserId: json['ControllingUserId'] as String?,
     );
@@ -19,3 +19,15 @@ Map<String, dynamic> _$PlaystateRequestToJson(_PlaystateRequest instance) =>
       'SeekPositionTicks': ?instance.seekPositionTicks,
       'ControllingUserId': ?instance.controllingUserId,
     };
+
+const _$PlaystateRequestCommandEnumMap = {
+  PlaystateRequestCommand.stop: 'Stop',
+  PlaystateRequestCommand.pause: 'Pause',
+  PlaystateRequestCommand.unpause: 'Unpause',
+  PlaystateRequestCommand.nextTrack: 'NextTrack',
+  PlaystateRequestCommand.previousTrack: 'PreviousTrack',
+  PlaystateRequestCommand.seek: 'Seek',
+  PlaystateRequestCommand.rewind: 'Rewind',
+  PlaystateRequestCommand.fastForward: 'FastForward',
+  PlaystateRequestCommand.playPause: 'PlayPause',
+};

@@ -33,21 +33,13 @@ mixin _$TranscodingProfile {
   @JsonKey(name: 'Protocol')
   TranscodingProfileProtocol get protocol;
 
-  /// Gets or sets the transcoding seek info mode.
-  @JsonKey(name: 'TranscodeSeekInfo')
-  TranscodingProfileTranscodeSeekInfo get transcodeSeekInfo;
-
-  /// Gets or sets the encoding context.
-  @JsonKey(name: 'Context')
-  TranscodingProfileContext get context;
+  /// Gets or sets the maximum audio channels.
+  @JsonKey(name: 'MaxAudioChannels')
+  String? get maxAudioChannels;
 
   /// Gets or sets the profile conditions.
   @JsonKey(name: 'Conditions')
   List<ProfileCondition> get conditions;
-
-  /// Gets or sets the maximum audio channels.
-  @JsonKey(name: 'MaxAudioChannels')
-  String? get maxAudioChannels;
 
   /// Gets or sets a value indicating whether the content length should be estimated.
   @JsonKey(name: 'EstimateContentLength')
@@ -57,9 +49,17 @@ mixin _$TranscodingProfile {
   @JsonKey(name: 'EnableMpegtsM2TsMode')
   bool get enableMpegtsM2TsMode;
 
+  /// Gets or sets the transcoding seek info mode.
+  @JsonKey(name: 'TranscodeSeekInfo')
+  TranscodingProfileTranscodeSeekInfo get transcodeSeekInfo;
+
   /// Gets or sets a value indicating whether timestamps should be copied.
   @JsonKey(name: 'CopyTimestamps')
   bool get copyTimestamps;
+
+  /// Gets or sets the encoding context.
+  @JsonKey(name: 'Context')
+  TranscodingProfileContext get context;
 
   /// Gets or sets a value indicating whether subtitles are allowed in the manifest.
   @JsonKey(name: 'EnableSubtitlesInManifest')
@@ -108,21 +108,21 @@ mixin _$TranscodingProfile {
                 other.audioCodec == audioCodec) &&
             (identical(other.protocol, protocol) ||
                 other.protocol == protocol) &&
-            (identical(other.transcodeSeekInfo, transcodeSeekInfo) ||
-                other.transcodeSeekInfo == transcodeSeekInfo) &&
-            (identical(other.context, context) || other.context == context) &&
+            (identical(other.maxAudioChannels, maxAudioChannels) ||
+                other.maxAudioChannels == maxAudioChannels) &&
             const DeepCollectionEquality().equals(
               other.conditions,
               conditions,
             ) &&
-            (identical(other.maxAudioChannels, maxAudioChannels) ||
-                other.maxAudioChannels == maxAudioChannels) &&
             (identical(other.estimateContentLength, estimateContentLength) ||
                 other.estimateContentLength == estimateContentLength) &&
             (identical(other.enableMpegtsM2TsMode, enableMpegtsM2TsMode) ||
                 other.enableMpegtsM2TsMode == enableMpegtsM2TsMode) &&
+            (identical(other.transcodeSeekInfo, transcodeSeekInfo) ||
+                other.transcodeSeekInfo == transcodeSeekInfo) &&
             (identical(other.copyTimestamps, copyTimestamps) ||
                 other.copyTimestamps == copyTimestamps) &&
+            (identical(other.context, context) || other.context == context) &&
             (identical(
                   other.enableSubtitlesInManifest,
                   enableSubtitlesInManifest,
@@ -147,13 +147,13 @@ mixin _$TranscodingProfile {
     videoCodec,
     audioCodec,
     protocol,
-    transcodeSeekInfo,
-    context,
-    const DeepCollectionEquality().hash(conditions),
     maxAudioChannels,
+    const DeepCollectionEquality().hash(conditions),
     estimateContentLength,
     enableMpegtsM2TsMode,
+    transcodeSeekInfo,
     copyTimestamps,
+    context,
     enableSubtitlesInManifest,
     minSegments,
     segmentLength,
@@ -163,7 +163,7 @@ mixin _$TranscodingProfile {
 
   @override
   String toString() {
-    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, transcodeSeekInfo: $transcodeSeekInfo, context: $context, conditions: $conditions, maxAudioChannels: $maxAudioChannels, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, copyTimestamps: $copyTimestamps, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
+    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
   }
 }
 
@@ -180,14 +180,14 @@ abstract mixin class $TranscodingProfileCopyWith<$Res> {
     @JsonKey(name: 'VideoCodec') String videoCodec,
     @JsonKey(name: 'AudioCodec') String audioCodec,
     @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-    @JsonKey(name: 'TranscodeSeekInfo')
-    TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-    @JsonKey(name: 'Context') TranscodingProfileContext context,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
     @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
+    @JsonKey(name: 'TranscodeSeekInfo')
+    TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
     @JsonKey(name: 'CopyTimestamps') bool copyTimestamps,
+    @JsonKey(name: 'Context') TranscodingProfileContext context,
     @JsonKey(name: 'EnableSubtitlesInManifest') bool enableSubtitlesInManifest,
     @JsonKey(name: 'MinSegments') int minSegments,
     @JsonKey(name: 'SegmentLength') int segmentLength,
@@ -214,13 +214,13 @@ class _$TranscodingProfileCopyWithImpl<$Res>
     Object? videoCodec = null,
     Object? audioCodec = null,
     Object? protocol = null,
-    Object? transcodeSeekInfo = null,
-    Object? context = null,
-    Object? conditions = null,
     Object? maxAudioChannels = freezed,
+    Object? conditions = null,
     Object? estimateContentLength = null,
     Object? enableMpegtsM2TsMode = null,
+    Object? transcodeSeekInfo = null,
     Object? copyTimestamps = null,
+    Object? context = null,
     Object? enableSubtitlesInManifest = null,
     Object? minSegments = null,
     Object? segmentLength = null,
@@ -249,22 +249,14 @@ class _$TranscodingProfileCopyWithImpl<$Res>
             ? _self.protocol
             : protocol // ignore: cast_nullable_to_non_nullable
                   as TranscodingProfileProtocol,
-        transcodeSeekInfo: null == transcodeSeekInfo
-            ? _self.transcodeSeekInfo
-            : transcodeSeekInfo // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileTranscodeSeekInfo,
-        context: null == context
-            ? _self.context
-            : context // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileContext,
-        conditions: null == conditions
-            ? _self.conditions
-            : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
         maxAudioChannels: freezed == maxAudioChannels
             ? _self.maxAudioChannels
             : maxAudioChannels // ignore: cast_nullable_to_non_nullable
                   as String?,
+        conditions: null == conditions
+            ? _self.conditions
+            : conditions // ignore: cast_nullable_to_non_nullable
+                  as List<ProfileCondition>,
         estimateContentLength: null == estimateContentLength
             ? _self.estimateContentLength
             : estimateContentLength // ignore: cast_nullable_to_non_nullable
@@ -273,10 +265,18 @@ class _$TranscodingProfileCopyWithImpl<$Res>
             ? _self.enableMpegtsM2TsMode
             : enableMpegtsM2TsMode // ignore: cast_nullable_to_non_nullable
                   as bool,
+        transcodeSeekInfo: null == transcodeSeekInfo
+            ? _self.transcodeSeekInfo
+            : transcodeSeekInfo // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileTranscodeSeekInfo,
         copyTimestamps: null == copyTimestamps
             ? _self.copyTimestamps
             : copyTimestamps // ignore: cast_nullable_to_non_nullable
                   as bool,
+        context: null == context
+            ? _self.context
+            : context // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileContext,
         enableSubtitlesInManifest: null == enableSubtitlesInManifest
             ? _self.enableSubtitlesInManifest
             : enableSubtitlesInManifest // ignore: cast_nullable_to_non_nullable
@@ -401,14 +401,14 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'VideoCodec') String videoCodec,
       @JsonKey(name: 'AudioCodec') String audioCodec,
       @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'TranscodeSeekInfo')
-      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-      @JsonKey(name: 'Context') TranscodingProfileContext context,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
+      @JsonKey(name: 'TranscodeSeekInfo')
+      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
       @JsonKey(name: 'CopyTimestamps') bool copyTimestamps,
+      @JsonKey(name: 'Context') TranscodingProfileContext context,
       @JsonKey(name: 'EnableSubtitlesInManifest')
       bool enableSubtitlesInManifest,
       @JsonKey(name: 'MinSegments') int minSegments,
@@ -428,13 +428,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.videoCodec,
           _that.audioCodec,
           _that.protocol,
-          _that.transcodeSeekInfo,
-          _that.context,
-          _that.conditions,
           _that.maxAudioChannels,
+          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
+          _that.transcodeSeekInfo,
           _that.copyTimestamps,
+          _that.context,
           _that.enableSubtitlesInManifest,
           _that.minSegments,
           _that.segmentLength,
@@ -467,14 +467,14 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'VideoCodec') String videoCodec,
       @JsonKey(name: 'AudioCodec') String audioCodec,
       @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'TranscodeSeekInfo')
-      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-      @JsonKey(name: 'Context') TranscodingProfileContext context,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
+      @JsonKey(name: 'TranscodeSeekInfo')
+      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
       @JsonKey(name: 'CopyTimestamps') bool copyTimestamps,
+      @JsonKey(name: 'Context') TranscodingProfileContext context,
       @JsonKey(name: 'EnableSubtitlesInManifest')
       bool enableSubtitlesInManifest,
       @JsonKey(name: 'MinSegments') int minSegments,
@@ -493,13 +493,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.videoCodec,
           _that.audioCodec,
           _that.protocol,
-          _that.transcodeSeekInfo,
-          _that.context,
-          _that.conditions,
           _that.maxAudioChannels,
+          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
+          _that.transcodeSeekInfo,
           _that.copyTimestamps,
+          _that.context,
           _that.enableSubtitlesInManifest,
           _that.minSegments,
           _that.segmentLength,
@@ -531,14 +531,14 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'VideoCodec') String videoCodec,
       @JsonKey(name: 'AudioCodec') String audioCodec,
       @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'TranscodeSeekInfo')
-      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-      @JsonKey(name: 'Context') TranscodingProfileContext context,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
+      @JsonKey(name: 'TranscodeSeekInfo')
+      TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
       @JsonKey(name: 'CopyTimestamps') bool copyTimestamps,
+      @JsonKey(name: 'Context') TranscodingProfileContext context,
       @JsonKey(name: 'EnableSubtitlesInManifest')
       bool enableSubtitlesInManifest,
       @JsonKey(name: 'MinSegments') int minSegments,
@@ -557,13 +557,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.videoCodec,
           _that.audioCodec,
           _that.protocol,
-          _that.transcodeSeekInfo,
-          _that.context,
-          _that.conditions,
           _that.maxAudioChannels,
+          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
+          _that.transcodeSeekInfo,
           _that.copyTimestamps,
+          _that.context,
           _that.enableSubtitlesInManifest,
           _that.minSegments,
           _that.segmentLength,
@@ -585,14 +585,16 @@ class _TranscodingProfile implements TranscodingProfile {
     @JsonKey(name: 'VideoCodec') required this.videoCodec,
     @JsonKey(name: 'AudioCodec') required this.audioCodec,
     @JsonKey(name: 'Protocol') required this.protocol,
-    @JsonKey(name: 'TranscodeSeekInfo') required this.transcodeSeekInfo,
-    @JsonKey(name: 'Context') required this.context,
+    @JsonKey(name: 'MaxAudioChannels') required this.maxAudioChannels,
     @JsonKey(name: 'Conditions')
     required final List<ProfileCondition> conditions,
-    @JsonKey(name: 'MaxAudioChannels') this.maxAudioChannels,
     @JsonKey(name: 'EstimateContentLength') this.estimateContentLength = false,
     @JsonKey(name: 'EnableMpegtsM2TsMode') this.enableMpegtsM2TsMode = false,
+    @JsonKey(name: 'TranscodeSeekInfo')
+    this.transcodeSeekInfo = TranscodingProfileTranscodeSeekInfo.auto,
     @JsonKey(name: 'CopyTimestamps') this.copyTimestamps = false,
+    @JsonKey(name: 'Context')
+    this.context = TranscodingProfileContext.streaming,
     @JsonKey(name: 'EnableSubtitlesInManifest')
     this.enableSubtitlesInManifest = false,
     @JsonKey(name: 'MinSegments') this.minSegments = 0,
@@ -628,15 +630,10 @@ class _TranscodingProfile implements TranscodingProfile {
   @JsonKey(name: 'Protocol')
   final TranscodingProfileProtocol protocol;
 
-  /// Gets or sets the transcoding seek info mode.
+  /// Gets or sets the maximum audio channels.
   @override
-  @JsonKey(name: 'TranscodeSeekInfo')
-  final TranscodingProfileTranscodeSeekInfo transcodeSeekInfo;
-
-  /// Gets or sets the encoding context.
-  @override
-  @JsonKey(name: 'Context')
-  final TranscodingProfileContext context;
+  @JsonKey(name: 'MaxAudioChannels')
+  final String? maxAudioChannels;
 
   /// Gets or sets the profile conditions.
   final List<ProfileCondition> _conditions;
@@ -650,11 +647,6 @@ class _TranscodingProfile implements TranscodingProfile {
     return EqualUnmodifiableListView(_conditions);
   }
 
-  /// Gets or sets the maximum audio channels.
-  @override
-  @JsonKey(name: 'MaxAudioChannels')
-  final String? maxAudioChannels;
-
   /// Gets or sets a value indicating whether the content length should be estimated.
   @override
   @JsonKey(name: 'EstimateContentLength')
@@ -665,10 +657,20 @@ class _TranscodingProfile implements TranscodingProfile {
   @JsonKey(name: 'EnableMpegtsM2TsMode')
   final bool enableMpegtsM2TsMode;
 
+  /// Gets or sets the transcoding seek info mode.
+  @override
+  @JsonKey(name: 'TranscodeSeekInfo')
+  final TranscodingProfileTranscodeSeekInfo transcodeSeekInfo;
+
   /// Gets or sets a value indicating whether timestamps should be copied.
   @override
   @JsonKey(name: 'CopyTimestamps')
   final bool copyTimestamps;
+
+  /// Gets or sets the encoding context.
+  @override
+  @JsonKey(name: 'Context')
+  final TranscodingProfileContext context;
 
   /// Gets or sets a value indicating whether subtitles are allowed in the manifest.
   @override
@@ -722,21 +724,21 @@ class _TranscodingProfile implements TranscodingProfile {
                 other.audioCodec == audioCodec) &&
             (identical(other.protocol, protocol) ||
                 other.protocol == protocol) &&
-            (identical(other.transcodeSeekInfo, transcodeSeekInfo) ||
-                other.transcodeSeekInfo == transcodeSeekInfo) &&
-            (identical(other.context, context) || other.context == context) &&
+            (identical(other.maxAudioChannels, maxAudioChannels) ||
+                other.maxAudioChannels == maxAudioChannels) &&
             const DeepCollectionEquality().equals(
               other._conditions,
               _conditions,
             ) &&
-            (identical(other.maxAudioChannels, maxAudioChannels) ||
-                other.maxAudioChannels == maxAudioChannels) &&
             (identical(other.estimateContentLength, estimateContentLength) ||
                 other.estimateContentLength == estimateContentLength) &&
             (identical(other.enableMpegtsM2TsMode, enableMpegtsM2TsMode) ||
                 other.enableMpegtsM2TsMode == enableMpegtsM2TsMode) &&
+            (identical(other.transcodeSeekInfo, transcodeSeekInfo) ||
+                other.transcodeSeekInfo == transcodeSeekInfo) &&
             (identical(other.copyTimestamps, copyTimestamps) ||
                 other.copyTimestamps == copyTimestamps) &&
+            (identical(other.context, context) || other.context == context) &&
             (identical(
                   other.enableSubtitlesInManifest,
                   enableSubtitlesInManifest,
@@ -761,13 +763,13 @@ class _TranscodingProfile implements TranscodingProfile {
     videoCodec,
     audioCodec,
     protocol,
-    transcodeSeekInfo,
-    context,
-    const DeepCollectionEquality().hash(_conditions),
     maxAudioChannels,
+    const DeepCollectionEquality().hash(_conditions),
     estimateContentLength,
     enableMpegtsM2TsMode,
+    transcodeSeekInfo,
     copyTimestamps,
+    context,
     enableSubtitlesInManifest,
     minSegments,
     segmentLength,
@@ -777,7 +779,7 @@ class _TranscodingProfile implements TranscodingProfile {
 
   @override
   String toString() {
-    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, transcodeSeekInfo: $transcodeSeekInfo, context: $context, conditions: $conditions, maxAudioChannels: $maxAudioChannels, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, copyTimestamps: $copyTimestamps, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
+    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
   }
 }
 
@@ -796,14 +798,14 @@ abstract mixin class _$TranscodingProfileCopyWith<$Res>
     @JsonKey(name: 'VideoCodec') String videoCodec,
     @JsonKey(name: 'AudioCodec') String audioCodec,
     @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-    @JsonKey(name: 'TranscodeSeekInfo')
-    TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
-    @JsonKey(name: 'Context') TranscodingProfileContext context,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
     @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
+    @JsonKey(name: 'TranscodeSeekInfo')
+    TranscodingProfileTranscodeSeekInfo transcodeSeekInfo,
     @JsonKey(name: 'CopyTimestamps') bool copyTimestamps,
+    @JsonKey(name: 'Context') TranscodingProfileContext context,
     @JsonKey(name: 'EnableSubtitlesInManifest') bool enableSubtitlesInManifest,
     @JsonKey(name: 'MinSegments') int minSegments,
     @JsonKey(name: 'SegmentLength') int segmentLength,
@@ -830,13 +832,13 @@ class __$TranscodingProfileCopyWithImpl<$Res>
     Object? videoCodec = null,
     Object? audioCodec = null,
     Object? protocol = null,
-    Object? transcodeSeekInfo = null,
-    Object? context = null,
-    Object? conditions = null,
     Object? maxAudioChannels = freezed,
+    Object? conditions = null,
     Object? estimateContentLength = null,
     Object? enableMpegtsM2TsMode = null,
+    Object? transcodeSeekInfo = null,
     Object? copyTimestamps = null,
+    Object? context = null,
     Object? enableSubtitlesInManifest = null,
     Object? minSegments = null,
     Object? segmentLength = null,
@@ -865,22 +867,14 @@ class __$TranscodingProfileCopyWithImpl<$Res>
             ? _self.protocol
             : protocol // ignore: cast_nullable_to_non_nullable
                   as TranscodingProfileProtocol,
-        transcodeSeekInfo: null == transcodeSeekInfo
-            ? _self.transcodeSeekInfo
-            : transcodeSeekInfo // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileTranscodeSeekInfo,
-        context: null == context
-            ? _self.context
-            : context // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileContext,
-        conditions: null == conditions
-            ? _self._conditions
-            : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
         maxAudioChannels: freezed == maxAudioChannels
             ? _self.maxAudioChannels
             : maxAudioChannels // ignore: cast_nullable_to_non_nullable
                   as String?,
+        conditions: null == conditions
+            ? _self._conditions
+            : conditions // ignore: cast_nullable_to_non_nullable
+                  as List<ProfileCondition>,
         estimateContentLength: null == estimateContentLength
             ? _self.estimateContentLength
             : estimateContentLength // ignore: cast_nullable_to_non_nullable
@@ -889,10 +883,18 @@ class __$TranscodingProfileCopyWithImpl<$Res>
             ? _self.enableMpegtsM2TsMode
             : enableMpegtsM2TsMode // ignore: cast_nullable_to_non_nullable
                   as bool,
+        transcodeSeekInfo: null == transcodeSeekInfo
+            ? _self.transcodeSeekInfo
+            : transcodeSeekInfo // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileTranscodeSeekInfo,
         copyTimestamps: null == copyTimestamps
             ? _self.copyTimestamps
             : copyTimestamps // ignore: cast_nullable_to_non_nullable
                   as bool,
+        context: null == context
+            ? _self.context
+            : context // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileContext,
         enableSubtitlesInManifest: null == enableSubtitlesInManifest
             ? _self.enableSubtitlesInManifest
             : enableSubtitlesInManifest // ignore: cast_nullable_to_non_nullable

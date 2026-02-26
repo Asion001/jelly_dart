@@ -8,9 +8,9 @@ part of 'timer_event_info.dart';
 
 _TimerEventInfo _$TimerEventInfoFromJson(Map<String, dynamic> json) =>
     _TimerEventInfo(
-      id: json['Id'] as String,
+      id: json['Id'] as String?,
       programId: json['ProgramId'] as String?,
     );
 
 Map<String, dynamic> _$TimerEventInfoToJson(_TimerEventInfo instance) =>
-    <String, dynamic>{'Id': instance.id, 'ProgramId': ?instance.programId};
+    <String, dynamic>{'Id': ?instance.id, 'ProgramId': ?instance.programId};

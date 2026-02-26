@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,17 +12,11 @@ part 'version_info.g.dart';
 abstract class VersionInfo with _$VersionInfo {
   const factory VersionInfo({
     /// Gets or sets the version.
-    required String version,
+    String? version,
 
     /// Gets the version as a System.Version.
     @JsonKey(name: 'VersionNumber')
-    required String versionNumber,
-
-    /// Gets or sets the repository name.
-    required String repositoryName,
-
-    /// Gets or sets the repository url.
-    required String repositoryUrl,
+    String? versionNumber,
 
     /// Gets or sets the changelog for this version.
     String? changelog,
@@ -38,6 +32,12 @@ abstract class VersionInfo with _$VersionInfo {
 
     /// Gets or sets a timestamp of when the binary was built.
     String? timestamp,
+
+    /// Gets or sets the repository name.
+    String? repositoryName,
+
+    /// Gets or sets the repository url.
+    String? repositoryUrl,
   }) = _VersionInfo;
   
   factory VersionInfo.fromJson(Map<String, Object?> json) => _$VersionInfoFromJson(json);

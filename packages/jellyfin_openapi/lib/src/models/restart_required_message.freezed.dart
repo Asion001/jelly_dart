@@ -17,6 +17,10 @@ mixin _$RestartRequiredMessage {
   @JsonKey(name: 'MessageId')
   String get messageId;
 
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  RestartRequiredMessageMessageType get messageType;
+
   /// Create a copy of RestartRequiredMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -36,16 +40,18 @@ mixin _$RestartRequiredMessage {
         (other.runtimeType == runtimeType &&
             other is RestartRequiredMessage &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId);
+  int get hashCode => Object.hash(runtimeType, messageId, messageType);
 
   @override
   String toString() {
-    return 'RestartRequiredMessage(messageId: $messageId)';
+    return 'RestartRequiredMessage(messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -56,7 +62,10 @@ abstract mixin class $RestartRequiredMessageCopyWith<$Res> {
     $Res Function(RestartRequiredMessage) _then,
   ) = _$RestartRequiredMessageCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'MessageId') String messageId});
+  $Res call({
+    @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType') RestartRequiredMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -71,13 +80,17 @@ class _$RestartRequiredMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null}) {
+  $Res call({Object? messageId = null, Object? messageType = null}) {
     return _then(
       _self.copyWith(
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as RestartRequiredMessageMessageType,
       ),
     );
   }
@@ -176,13 +189,18 @@ extension RestartRequiredMessagePatterns on RestartRequiredMessage {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MessageId') String messageId)? $default, {
+    TResult Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      RestartRequiredMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _RestartRequiredMessage() when $default != null:
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -203,12 +221,17 @@ extension RestartRequiredMessagePatterns on RestartRequiredMessage {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MessageId') String messageId) $default,
+    TResult Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      RestartRequiredMessageMessageType messageType,
+    )
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _RestartRequiredMessage():
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,12 +251,17 @@ extension RestartRequiredMessagePatterns on RestartRequiredMessage {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'MessageId') String messageId)? $default,
+    TResult? Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      RestartRequiredMessageMessageType messageType,
+    )?
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _RestartRequiredMessage() when $default != null:
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -245,6 +273,8 @@ extension RestartRequiredMessagePatterns on RestartRequiredMessage {
 class _RestartRequiredMessage implements RestartRequiredMessage {
   const _RestartRequiredMessage({
     @JsonKey(name: 'MessageId') required this.messageId,
+    @JsonKey(name: 'MessageType')
+    this.messageType = RestartRequiredMessageMessageType.restartRequired,
   });
   factory _RestartRequiredMessage.fromJson(Map<String, dynamic> json) =>
       _$RestartRequiredMessageFromJson(json);
@@ -253,6 +283,11 @@ class _RestartRequiredMessage implements RestartRequiredMessage {
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final RestartRequiredMessageMessageType messageType;
 
   /// Create a copy of RestartRequiredMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -276,16 +311,18 @@ class _RestartRequiredMessage implements RestartRequiredMessage {
         (other.runtimeType == runtimeType &&
             other is _RestartRequiredMessage &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId);
+  int get hashCode => Object.hash(runtimeType, messageId, messageType);
 
   @override
   String toString() {
-    return 'RestartRequiredMessage(messageId: $messageId)';
+    return 'RestartRequiredMessage(messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -298,7 +335,10 @@ abstract mixin class _$RestartRequiredMessageCopyWith<$Res>
   ) = __$RestartRequiredMessageCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'MessageId') String messageId});
+  $Res call({
+    @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType') RestartRequiredMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -313,13 +353,17 @@ class __$RestartRequiredMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null}) {
+  $Res call({Object? messageId = null, Object? messageType = null}) {
     return _then(
       _RestartRequiredMessage(
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as RestartRequiredMessageMessageType,
       ),
     );
   }

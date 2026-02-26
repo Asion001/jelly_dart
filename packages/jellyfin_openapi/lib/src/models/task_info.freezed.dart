@@ -13,17 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$TaskInfo {
-  /// Gets or sets the state of the task.
-  @JsonKey(name: 'State')
-  TaskInfoState get state;
-
-  /// Gets or sets a value indicating whether this instance is hidden.
-  @JsonKey(name: 'IsHidden')
-  bool get isHidden;
-
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
   String? get name;
+
+  /// Gets or sets the state of the task.
+  @JsonKey(name: 'State')
+  TaskInfoState get state;
 
   /// Gets or sets the progress.
   @JsonKey(name: 'CurrentProgressPercentage')
@@ -35,7 +31,7 @@ mixin _$TaskInfo {
 
   /// Gets or sets the last execution result.
   @JsonKey(name: 'LastExecutionResult')
-  TaskResult? get lastExecutionResult;
+  TaskResult get lastExecutionResult;
 
   /// Gets or sets the triggers.
   @JsonKey(name: 'Triggers')
@@ -48,6 +44,10 @@ mixin _$TaskInfo {
   /// Gets or sets the category.
   @JsonKey(name: 'Category')
   String? get category;
+
+  /// Gets or sets a value indicating whether this instance is hidden.
+  @JsonKey(name: 'IsHidden')
+  bool get isHidden;
 
   /// Gets or sets the key.
   @JsonKey(name: 'Key')
@@ -68,10 +68,8 @@ mixin _$TaskInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TaskInfo &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.isHidden, isHidden) ||
-                other.isHidden == isHidden) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.state, state) || other.state == state) &&
             (identical(
                   other.currentProgressPercentage,
                   currentProgressPercentage,
@@ -85,6 +83,8 @@ mixin _$TaskInfo {
                 other.description == description) &&
             (identical(other.category, category) ||
                 other.category == category) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
             (identical(other.key, key) || other.key == key));
   }
 
@@ -92,21 +92,21 @@ mixin _$TaskInfo {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    state,
-    isHidden,
     name,
+    state,
     currentProgressPercentage,
     id,
     lastExecutionResult,
     const DeepCollectionEquality().hash(triggers),
     description,
     category,
+    isHidden,
     key,
   );
 
   @override
   String toString() {
-    return 'TaskInfo(state: $state, isHidden: $isHidden, name: $name, currentProgressPercentage: $currentProgressPercentage, id: $id, lastExecutionResult: $lastExecutionResult, triggers: $triggers, description: $description, category: $category, key: $key)';
+    return 'TaskInfo(name: $name, state: $state, currentProgressPercentage: $currentProgressPercentage, id: $id, lastExecutionResult: $lastExecutionResult, triggers: $triggers, description: $description, category: $category, isHidden: $isHidden, key: $key)';
   }
 }
 
@@ -116,20 +116,20 @@ abstract mixin class $TaskInfoCopyWith<$Res> {
       _$TaskInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'State') TaskInfoState state,
-    @JsonKey(name: 'IsHidden') bool isHidden,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'State') TaskInfoState state,
     @JsonKey(name: 'CurrentProgressPercentage')
     double? currentProgressPercentage,
     @JsonKey(name: 'Id') String? id,
-    @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
+    @JsonKey(name: 'LastExecutionResult') TaskResult lastExecutionResult,
     @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
     @JsonKey(name: 'Description') String? description,
     @JsonKey(name: 'Category') String? category,
+    @JsonKey(name: 'IsHidden') bool isHidden,
     @JsonKey(name: 'Key') String? key,
   });
 
-  $TaskResultCopyWith<$Res>? get lastExecutionResult;
+  $TaskResultCopyWith<$Res> get lastExecutionResult;
 }
 
 /// @nodoc
@@ -144,31 +144,27 @@ class _$TaskInfoCopyWithImpl<$Res> implements $TaskInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? state = null,
-    Object? isHidden = null,
     Object? name = freezed,
+    Object? state = null,
     Object? currentProgressPercentage = freezed,
     Object? id = freezed,
-    Object? lastExecutionResult = freezed,
+    Object? lastExecutionResult = null,
     Object? triggers = freezed,
     Object? description = freezed,
     Object? category = freezed,
+    Object? isHidden = null,
     Object? key = freezed,
   }) {
     return _then(
       _self.copyWith(
-        state: null == state
-            ? _self.state
-            : state // ignore: cast_nullable_to_non_nullable
-                  as TaskInfoState,
-        isHidden: null == isHidden
-            ? _self.isHidden
-            : isHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
                   as String?,
+        state: null == state
+            ? _self.state
+            : state // ignore: cast_nullable_to_non_nullable
+                  as TaskInfoState,
         currentProgressPercentage: freezed == currentProgressPercentage
             ? _self.currentProgressPercentage
             : currentProgressPercentage // ignore: cast_nullable_to_non_nullable
@@ -177,10 +173,10 @@ class _$TaskInfoCopyWithImpl<$Res> implements $TaskInfoCopyWith<$Res> {
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String?,
-        lastExecutionResult: freezed == lastExecutionResult
+        lastExecutionResult: null == lastExecutionResult
             ? _self.lastExecutionResult
             : lastExecutionResult // ignore: cast_nullable_to_non_nullable
-                  as TaskResult?,
+                  as TaskResult,
         triggers: freezed == triggers
             ? _self.triggers
             : triggers // ignore: cast_nullable_to_non_nullable
@@ -193,6 +189,10 @@ class _$TaskInfoCopyWithImpl<$Res> implements $TaskInfoCopyWith<$Res> {
             ? _self.category
             : category // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isHidden: null == isHidden
+            ? _self.isHidden
+            : isHidden // ignore: cast_nullable_to_non_nullable
+                  as bool,
         key: freezed == key
             ? _self.key
             : key // ignore: cast_nullable_to_non_nullable
@@ -205,12 +205,8 @@ class _$TaskInfoCopyWithImpl<$Res> implements $TaskInfoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TaskResultCopyWith<$Res>? get lastExecutionResult {
-    if (_self.lastExecutionResult == null) {
-      return null;
-    }
-
-    return $TaskResultCopyWith<$Res>(_self.lastExecutionResult!, (value) {
+  $TaskResultCopyWith<$Res> get lastExecutionResult {
+    return $TaskResultCopyWith<$Res>(_self.lastExecutionResult, (value) {
       return _then(_self.copyWith(lastExecutionResult: value));
     });
   }
@@ -310,16 +306,16 @@ extension TaskInfoPatterns on TaskInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'State') TaskInfoState state,
-      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'State') TaskInfoState state,
       @JsonKey(name: 'CurrentProgressPercentage')
       double? currentProgressPercentage,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
+      @JsonKey(name: 'LastExecutionResult') TaskResult lastExecutionResult,
       @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
       @JsonKey(name: 'Description') String? description,
       @JsonKey(name: 'Category') String? category,
+      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Key') String? key,
     )?
     $default, {
@@ -329,15 +325,15 @@ extension TaskInfoPatterns on TaskInfo {
     switch (_that) {
       case _TaskInfo() when $default != null:
         return $default(
-          _that.state,
-          _that.isHidden,
           _that.name,
+          _that.state,
           _that.currentProgressPercentage,
           _that.id,
           _that.lastExecutionResult,
           _that.triggers,
           _that.description,
           _that.category,
+          _that.isHidden,
           _that.key,
         );
       case _:
@@ -361,16 +357,16 @@ extension TaskInfoPatterns on TaskInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'State') TaskInfoState state,
-      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'State') TaskInfoState state,
       @JsonKey(name: 'CurrentProgressPercentage')
       double? currentProgressPercentage,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
+      @JsonKey(name: 'LastExecutionResult') TaskResult lastExecutionResult,
       @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
       @JsonKey(name: 'Description') String? description,
       @JsonKey(name: 'Category') String? category,
+      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Key') String? key,
     )
     $default,
@@ -379,15 +375,15 @@ extension TaskInfoPatterns on TaskInfo {
     switch (_that) {
       case _TaskInfo():
         return $default(
-          _that.state,
-          _that.isHidden,
           _that.name,
+          _that.state,
           _that.currentProgressPercentage,
           _that.id,
           _that.lastExecutionResult,
           _that.triggers,
           _that.description,
           _that.category,
+          _that.isHidden,
           _that.key,
         );
       case _:
@@ -410,16 +406,16 @@ extension TaskInfoPatterns on TaskInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'State') TaskInfoState state,
-      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'State') TaskInfoState state,
       @JsonKey(name: 'CurrentProgressPercentage')
       double? currentProgressPercentage,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
+      @JsonKey(name: 'LastExecutionResult') TaskResult lastExecutionResult,
       @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
       @JsonKey(name: 'Description') String? description,
       @JsonKey(name: 'Category') String? category,
+      @JsonKey(name: 'IsHidden') bool isHidden,
       @JsonKey(name: 'Key') String? key,
     )?
     $default,
@@ -428,15 +424,15 @@ extension TaskInfoPatterns on TaskInfo {
     switch (_that) {
       case _TaskInfo() when $default != null:
         return $default(
-          _that.state,
-          _that.isHidden,
           _that.name,
+          _that.state,
           _that.currentProgressPercentage,
           _that.id,
           _that.lastExecutionResult,
           _that.triggers,
           _that.description,
           _that.category,
+          _that.isHidden,
           _that.key,
         );
       case _:
@@ -449,34 +445,30 @@ extension TaskInfoPatterns on TaskInfo {
 @JsonSerializable()
 class _TaskInfo implements TaskInfo {
   const _TaskInfo({
+    @JsonKey(name: 'Name') required this.name,
     @JsonKey(name: 'State') required this.state,
+    @JsonKey(name: 'CurrentProgressPercentage')
+    required this.currentProgressPercentage,
+    @JsonKey(name: 'Id') required this.id,
+    @JsonKey(name: 'LastExecutionResult') required this.lastExecutionResult,
+    @JsonKey(name: 'Triggers') required final List<TaskTriggerInfo>? triggers,
+    @JsonKey(name: 'Description') required this.description,
+    @JsonKey(name: 'Category') required this.category,
     @JsonKey(name: 'IsHidden') required this.isHidden,
-    @JsonKey(name: 'Name') this.name,
-    @JsonKey(name: 'CurrentProgressPercentage') this.currentProgressPercentage,
-    @JsonKey(name: 'Id') this.id,
-    @JsonKey(name: 'LastExecutionResult') this.lastExecutionResult,
-    @JsonKey(name: 'Triggers') final List<TaskTriggerInfo>? triggers,
-    @JsonKey(name: 'Description') this.description,
-    @JsonKey(name: 'Category') this.category,
-    @JsonKey(name: 'Key') this.key,
+    @JsonKey(name: 'Key') required this.key,
   }) : _triggers = triggers;
   factory _TaskInfo.fromJson(Map<String, dynamic> json) =>
       _$TaskInfoFromJson(json);
-
-  /// Gets or sets the state of the task.
-  @override
-  @JsonKey(name: 'State')
-  final TaskInfoState state;
-
-  /// Gets or sets a value indicating whether this instance is hidden.
-  @override
-  @JsonKey(name: 'IsHidden')
-  final bool isHidden;
 
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
   final String? name;
+
+  /// Gets or sets the state of the task.
+  @override
+  @JsonKey(name: 'State')
+  final TaskInfoState state;
 
   /// Gets or sets the progress.
   @override
@@ -491,7 +483,7 @@ class _TaskInfo implements TaskInfo {
   /// Gets or sets the last execution result.
   @override
   @JsonKey(name: 'LastExecutionResult')
-  final TaskResult? lastExecutionResult;
+  final TaskResult lastExecutionResult;
 
   /// Gets or sets the triggers.
   final List<TaskTriggerInfo>? _triggers;
@@ -517,6 +509,11 @@ class _TaskInfo implements TaskInfo {
   @JsonKey(name: 'Category')
   final String? category;
 
+  /// Gets or sets a value indicating whether this instance is hidden.
+  @override
+  @JsonKey(name: 'IsHidden')
+  final bool isHidden;
+
   /// Gets or sets the key.
   @override
   @JsonKey(name: 'Key')
@@ -540,10 +537,8 @@ class _TaskInfo implements TaskInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TaskInfo &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.isHidden, isHidden) ||
-                other.isHidden == isHidden) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.state, state) || other.state == state) &&
             (identical(
                   other.currentProgressPercentage,
                   currentProgressPercentage,
@@ -557,6 +552,8 @@ class _TaskInfo implements TaskInfo {
                 other.description == description) &&
             (identical(other.category, category) ||
                 other.category == category) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
             (identical(other.key, key) || other.key == key));
   }
 
@@ -564,21 +561,21 @@ class _TaskInfo implements TaskInfo {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    state,
-    isHidden,
     name,
+    state,
     currentProgressPercentage,
     id,
     lastExecutionResult,
     const DeepCollectionEquality().hash(_triggers),
     description,
     category,
+    isHidden,
     key,
   );
 
   @override
   String toString() {
-    return 'TaskInfo(state: $state, isHidden: $isHidden, name: $name, currentProgressPercentage: $currentProgressPercentage, id: $id, lastExecutionResult: $lastExecutionResult, triggers: $triggers, description: $description, category: $category, key: $key)';
+    return 'TaskInfo(name: $name, state: $state, currentProgressPercentage: $currentProgressPercentage, id: $id, lastExecutionResult: $lastExecutionResult, triggers: $triggers, description: $description, category: $category, isHidden: $isHidden, key: $key)';
   }
 }
 
@@ -590,21 +587,21 @@ abstract mixin class _$TaskInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'State') TaskInfoState state,
-    @JsonKey(name: 'IsHidden') bool isHidden,
     @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'State') TaskInfoState state,
     @JsonKey(name: 'CurrentProgressPercentage')
     double? currentProgressPercentage,
     @JsonKey(name: 'Id') String? id,
-    @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
+    @JsonKey(name: 'LastExecutionResult') TaskResult lastExecutionResult,
     @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
     @JsonKey(name: 'Description') String? description,
     @JsonKey(name: 'Category') String? category,
+    @JsonKey(name: 'IsHidden') bool isHidden,
     @JsonKey(name: 'Key') String? key,
   });
 
   @override
-  $TaskResultCopyWith<$Res>? get lastExecutionResult;
+  $TaskResultCopyWith<$Res> get lastExecutionResult;
 }
 
 /// @nodoc
@@ -619,31 +616,27 @@ class __$TaskInfoCopyWithImpl<$Res> implements _$TaskInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? state = null,
-    Object? isHidden = null,
     Object? name = freezed,
+    Object? state = null,
     Object? currentProgressPercentage = freezed,
     Object? id = freezed,
-    Object? lastExecutionResult = freezed,
+    Object? lastExecutionResult = null,
     Object? triggers = freezed,
     Object? description = freezed,
     Object? category = freezed,
+    Object? isHidden = null,
     Object? key = freezed,
   }) {
     return _then(
       _TaskInfo(
-        state: null == state
-            ? _self.state
-            : state // ignore: cast_nullable_to_non_nullable
-                  as TaskInfoState,
-        isHidden: null == isHidden
-            ? _self.isHidden
-            : isHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
                   as String?,
+        state: null == state
+            ? _self.state
+            : state // ignore: cast_nullable_to_non_nullable
+                  as TaskInfoState,
         currentProgressPercentage: freezed == currentProgressPercentage
             ? _self.currentProgressPercentage
             : currentProgressPercentage // ignore: cast_nullable_to_non_nullable
@@ -652,10 +645,10 @@ class __$TaskInfoCopyWithImpl<$Res> implements _$TaskInfoCopyWith<$Res> {
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String?,
-        lastExecutionResult: freezed == lastExecutionResult
+        lastExecutionResult: null == lastExecutionResult
             ? _self.lastExecutionResult
             : lastExecutionResult // ignore: cast_nullable_to_non_nullable
-                  as TaskResult?,
+                  as TaskResult,
         triggers: freezed == triggers
             ? _self._triggers
             : triggers // ignore: cast_nullable_to_non_nullable
@@ -668,6 +661,10 @@ class __$TaskInfoCopyWithImpl<$Res> implements _$TaskInfoCopyWith<$Res> {
             ? _self.category
             : category // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isHidden: null == isHidden
+            ? _self.isHidden
+            : isHidden // ignore: cast_nullable_to_non_nullable
+                  as bool,
         key: freezed == key
             ? _self.key
             : key // ignore: cast_nullable_to_non_nullable
@@ -680,12 +677,8 @@ class __$TaskInfoCopyWithImpl<$Res> implements _$TaskInfoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TaskResultCopyWith<$Res>? get lastExecutionResult {
-    if (_self.lastExecutionResult == null) {
-      return null;
-    }
-
-    return $TaskResultCopyWith<$Res>(_self.lastExecutionResult!, (value) {
+  $TaskResultCopyWith<$Res> get lastExecutionResult {
+    return $TaskResultCopyWith<$Res>(_self.lastExecutionResult, (value) {
       return _then(_self.copyWith(lastExecutionResult: value));
     });
   }

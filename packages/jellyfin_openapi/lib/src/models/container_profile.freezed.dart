@@ -327,8 +327,8 @@ class _ContainerProfile implements ContainerProfile {
     @JsonKey(name: 'Type') required this.type,
     @JsonKey(name: 'Conditions')
     required final List<ProfileCondition> conditions,
-    @JsonKey(name: 'Container') this.container,
-    @JsonKey(name: 'SubContainer') this.subContainer,
+    @JsonKey(name: 'Container') required this.container,
+    @JsonKey(name: 'SubContainer') required this.subContainer,
   }) : _conditions = conditions;
   factory _ContainerProfile.fromJson(Map<String, dynamic> json) =>
       _$ContainerProfileFromJson(json);

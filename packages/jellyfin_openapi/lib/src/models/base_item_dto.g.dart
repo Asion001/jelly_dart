@@ -7,10 +7,10 @@ part of 'base_item_dto.dart';
 // **************************************************************************
 
 _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
-  mediaType: BaseItemDtoMediaType.fromJson(json['MediaType']),
+  isHd: json['IsHD'] as bool?,
+  originalTitle: json['OriginalTitle'] as String?,
+  serverId: json['ServerId'] as String?,
   id: json['Id'] as String,
-  type: BaseItemDtoType.fromJson(json['Type']),
-  isHD: json['IsHD'] as bool?,
   etag: json['Etag'] as String?,
   sourceType: json['SourceType'] as String?,
   playlistItemId: json['PlaylistItemId'] as String?,
@@ -20,9 +20,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   dateLastMediaAdded: json['DateLastMediaAdded'] == null
       ? null
       : DateTime.parse(json['DateLastMediaAdded'] as String),
-  extraType: json['ExtraType'] == null
-      ? null
-      : BaseItemDtoExtraType.fromJson(json['ExtraType']),
+  extraType: $enumDecodeNullable(
+    _$BaseItemDtoExtraTypeEnumMap,
+    json['ExtraType'],
+  ),
   airsBeforeSeasonNumber: (json['AirsBeforeSeasonNumber'] as num?)?.toInt(),
   airsAfterSeasonNumber: (json['AirsAfterSeasonNumber'] as num?)?.toInt(),
   airsBeforeEpisodeNumber: (json['AirsBeforeEpisodeNumber'] as num?)?.toInt(),
@@ -35,9 +36,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   container: json['Container'] as String?,
   sortName: json['SortName'] as String?,
   forcedSortName: json['ForcedSortName'] as String?,
-  video3DFormat: json['Video3DFormat'] == null
-      ? null
-      : BaseItemDtoVideo3DFormat.fromJson(json['Video3DFormat']),
+  video3DFormat: $enumDecodeNullable(
+    _$BaseItemDtoVideo3DFormatEnumMap,
+    json['Video3DFormat'],
+  ),
   premiereDate: json['PremiereDate'] == null
       ? null
       : DateTime.parse(json['PremiereDate'] as String),
@@ -65,9 +67,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   communityRating: (json['CommunityRating'] as num?)?.toDouble(),
   cumulativeRunTimeTicks: (json['CumulativeRunTimeTicks'] as num?)?.toInt(),
   runTimeTicks: (json['RunTimeTicks'] as num?)?.toInt(),
-  playAccess: json['PlayAccess'] == null
-      ? null
-      : BaseItemDtoPlayAccess.fromJson(json['PlayAccess']),
+  playAccess: $enumDecodeNullable(
+    _$BaseItemDtoPlayAccessEnumMap,
+    json['PlayAccess'],
+  ),
   aspectRatio: json['AspectRatio'] as String?,
   productionYear: (json['ProductionYear'] as num?)?.toInt(),
   isPlaceHolder: json['IsPlaceHolder'] as bool?,
@@ -85,7 +88,7 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   name: json['Name'] as String?,
   isFolder: json['IsFolder'] as bool?,
   parentId: json['ParentId'] as String?,
-  serverId: json['ServerId'] as String?,
+  type: $enumDecode(_$BaseItemDtoTypeEnumMap, json['Type']),
   people: (json['People'] as List<dynamic>?)
       ?.map((e) => BaseItemPerson.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -101,9 +104,7 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
       ?.map((e) => e as String)
       .toList(),
   localTrailerCount: (json['LocalTrailerCount'] as num?)?.toInt(),
-  userData: json['UserData'] == null
-      ? null
-      : UserItemDataDto.fromJson(json['UserData'] as Map<String, dynamic>),
+  userData: UserItemDataDto.fromJson(json['UserData'] as Map<String, dynamic>),
   recursiveItemCount: (json['RecursiveItemCount'] as num?)?.toInt(),
   childCount: (json['ChildCount'] as num?)?.toInt(),
   seriesName: json['SeriesName'] as String?,
@@ -114,7 +115,7 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   status: json['Status'] as String?,
   airTime: json['AirTime'] as String?,
   airDays: (json['AirDays'] as List<dynamic>?)
-      ?.map((e) => DayOfWeek.fromJson(e as String))
+      ?.map((e) => $enumDecode(_$DayOfWeekEnumMap, e))
       .toList(),
   tags: (json['Tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
   primaryImageAspectRatio: (json['PrimaryImageAspectRatio'] as num?)
@@ -126,9 +127,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
       ?.map((e) => NameGuidPair.fromJson(e as Map<String, dynamic>))
       .toList(),
   album: json['Album'] as String?,
-  collectionType: json['CollectionType'] == null
-      ? null
-      : BaseItemDtoCollectionType.fromJson(json['CollectionType']),
+  collectionType: $enumDecodeNullable(
+    _$BaseItemDtoCollectionTypeEnumMap,
+    json['CollectionType'],
+  ),
   displayOrder: json['DisplayOrder'] as String?,
   albumId: json['AlbumId'] as String?,
   albumPrimaryImageTag: json['AlbumPrimaryImageTag'] as String?,
@@ -141,9 +143,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   mediaStreams: (json['MediaStreams'] as List<dynamic>?)
       ?.map((e) => MediaStream.fromJson(e as Map<String, dynamic>))
       .toList(),
-  videoType: json['VideoType'] == null
-      ? null
-      : BaseItemDtoVideoType.fromJson(json['VideoType']),
+  videoType: $enumDecodeNullable(
+    _$BaseItemDtoVideoTypeEnumMap,
+    json['VideoType'],
+  ),
   partCount: (json['PartCount'] as num?)?.toInt(),
   mediaSourceCount: (json['MediaSourceCount'] as num?)?.toInt(),
   imageTags: (json['ImageTags'] as Map<String, dynamic>?)?.map(
@@ -167,9 +170,9 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   seriesStudio: json['SeriesStudio'] as String?,
   parentThumbItemId: json['ParentThumbItemId'] as String?,
   parentThumbImageTag: json['ParentThumbImageTag'] as String?,
-  currentProgram: json['CurrentProgram'] == null
-      ? null
-      : BaseItemDto.fromJson(json['CurrentProgram'] as Map<String, dynamic>),
+  currentProgram: BaseItemDto.fromJson(
+    json['CurrentProgram'] as Map<String, dynamic>,
+  ),
   parentPrimaryImageTag: json['ParentPrimaryImageTag'] as String?,
   chapters: (json['Chapters'] as List<dynamic>?)
       ?.map((e) => ChapterInfo.fromJson(e as Map<String, dynamic>))
@@ -183,18 +186,17 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
       ),
     ),
   ),
-  locationType: json['LocationType'] == null
-      ? null
-      : BaseItemDtoLocationType.fromJson(json['LocationType']),
-  isoType: json['IsoType'] == null
-      ? null
-      : BaseItemDtoIsoType.fromJson(json['IsoType']),
-  originalTitle: json['OriginalTitle'] as String?,
+  locationType: $enumDecodeNullable(
+    _$BaseItemDtoLocationTypeEnumMap,
+    json['LocationType'],
+  ),
+  isoType: $enumDecodeNullable(_$BaseItemDtoIsoTypeEnumMap, json['IsoType']),
+  normalizationGain: (json['NormalizationGain'] as num?)?.toDouble(),
   endDate: json['EndDate'] == null
       ? null
       : DateTime.parse(json['EndDate'] as String),
   lockedFields: (json['LockedFields'] as List<dynamic>?)
-      ?.map((e) => MetadataField.fromJson(e as String))
+      ?.map((e) => $enumDecode(_$MetadataFieldEnumMap, e))
       .toList(),
   trailerCount: (json['TrailerCount'] as num?)?.toInt(),
   movieCount: (json['MovieCount'] as num?)?.toInt(),
@@ -213,9 +215,10 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   software: json['Software'] as String?,
   exposureTime: (json['ExposureTime'] as num?)?.toDouble(),
   focalLength: (json['FocalLength'] as num?)?.toDouble(),
-  imageOrientation: json['ImageOrientation'] == null
-      ? null
-      : BaseItemDtoImageOrientation.fromJson(json['ImageOrientation']),
+  imageOrientation: $enumDecodeNullable(
+    _$BaseItemDtoImageOrientationEnumMap,
+    json['ImageOrientation'],
+  ),
   aperture: (json['Aperture'] as num?)?.toDouble(),
   shutterSpeed: (json['ShutterSpeed'] as num?)?.toDouble(),
   latitude: (json['Latitude'] as num?)?.toDouble(),
@@ -231,12 +234,11 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   completionPercentage: (json['CompletionPercentage'] as num?)?.toDouble(),
   isRepeat: json['IsRepeat'] as bool?,
   episodeTitle: json['EpisodeTitle'] as String?,
-  channelType: json['ChannelType'] == null
-      ? null
-      : BaseItemDtoChannelType.fromJson(json['ChannelType']),
-  audio: json['Audio'] == null
-      ? null
-      : BaseItemDtoAudio.fromJson(json['Audio']),
+  channelType: $enumDecodeNullable(
+    _$BaseItemDtoChannelTypeEnumMap,
+    json['ChannelType'],
+  ),
+  audio: $enumDecodeNullable(_$BaseItemDtoAudioEnumMap, json['Audio']),
   isMovie: json['IsMovie'] as bool?,
   isSports: json['IsSports'] as bool?,
   isSeries: json['IsSeries'] as bool?,
@@ -245,17 +247,19 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   isKids: json['IsKids'] as bool?,
   isPremiere: json['IsPremiere'] as bool?,
   timerId: json['TimerId'] as String?,
-  normalizationGain: (json['NormalizationGain'] as num?)?.toDouble(),
   parentPrimaryImageItemId: json['ParentPrimaryImageItemId'] as String?,
+  mediaType:
+      $enumDecodeNullable(_$BaseItemDtoMediaTypeEnumMap, json['MediaType']) ??
+      BaseItemDtoMediaType.unknown,
 );
 
 Map<String, dynamic> _$BaseItemDtoToJson(
   _BaseItemDto instance,
 ) => <String, dynamic>{
-  'MediaType': instance.mediaType.toJson(),
+  'IsHD': ?instance.isHd,
+  'OriginalTitle': ?instance.originalTitle,
+  'ServerId': ?instance.serverId,
   'Id': instance.id,
-  'Type': instance.type.toJson(),
-  'IsHD': ?instance.isHD,
   'Etag': ?instance.etag,
   'SourceType': ?instance.sourceType,
   'PlaylistItemId': ?instance.playlistItemId,
@@ -306,7 +310,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'Name': ?instance.name,
   'IsFolder': ?instance.isFolder,
   'ParentId': ?instance.parentId,
-  'ServerId': ?instance.serverId,
+  'Type': instance.type.toJson(),
   'People': ?instance.people?.map((e) => e.toJson()).toList(),
   'Studios': ?instance.studios?.map((e) => e.toJson()).toList(),
   'GenreItems': ?instance.genreItems?.map((e) => e.toJson()).toList(),
@@ -314,7 +318,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'ParentBackdropItemId': ?instance.parentBackdropItemId,
   'ParentBackdropImageTags': ?instance.parentBackdropImageTags,
   'LocalTrailerCount': ?instance.localTrailerCount,
-  'UserData': ?instance.userData?.toJson(),
+  'UserData': instance.userData.toJson(),
   'RecursiveItemCount': ?instance.recursiveItemCount,
   'ChildCount': ?instance.childCount,
   'SeriesName': ?instance.seriesName,
@@ -353,7 +357,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'SeriesStudio': ?instance.seriesStudio,
   'ParentThumbItemId': ?instance.parentThumbItemId,
   'ParentThumbImageTag': ?instance.parentThumbImageTag,
-  'CurrentProgram': ?instance.currentProgram?.toJson(),
+  'CurrentProgram': instance.currentProgram.toJson(),
   'ParentPrimaryImageTag': ?instance.parentPrimaryImageTag,
   'Chapters': ?instance.chapters?.map((e) => e.toJson()).toList(),
   'Trickplay': ?instance.trickplay?.map(
@@ -361,7 +365,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   ),
   'LocationType': ?instance.locationType?.toJson(),
   'IsoType': ?instance.isoType?.toJson(),
-  'OriginalTitle': ?instance.originalTitle,
+  'NormalizationGain': ?instance.normalizationGain,
   'EndDate': ?instance.endDate?.toIso8601String(),
   'LockedFields': ?instance.lockedFields?.map((e) => e.toJson()).toList(),
   'TrailerCount': ?instance.trailerCount,
@@ -405,6 +409,164 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'IsKids': ?instance.isKids,
   'IsPremiere': ?instance.isPremiere,
   'TimerId': ?instance.timerId,
-  'NormalizationGain': ?instance.normalizationGain,
   'ParentPrimaryImageItemId': ?instance.parentPrimaryImageItemId,
+  'MediaType': instance.mediaType.toJson(),
+};
+
+const _$BaseItemDtoExtraTypeEnumMap = {
+  BaseItemDtoExtraType.unknown: 'Unknown',
+  BaseItemDtoExtraType.clip: 'Clip',
+  BaseItemDtoExtraType.trailer: 'Trailer',
+  BaseItemDtoExtraType.behindTheScenes: 'BehindTheScenes',
+  BaseItemDtoExtraType.deletedScene: 'DeletedScene',
+  BaseItemDtoExtraType.interview: 'Interview',
+  BaseItemDtoExtraType.scene: 'Scene',
+  BaseItemDtoExtraType.sample: 'Sample',
+  BaseItemDtoExtraType.themeSong: 'ThemeSong',
+  BaseItemDtoExtraType.themeVideo: 'ThemeVideo',
+  BaseItemDtoExtraType.featurette: 'Featurette',
+  BaseItemDtoExtraType.short: 'Short',
+};
+
+const _$BaseItemDtoVideo3DFormatEnumMap = {
+  BaseItemDtoVideo3DFormat.halfSideBySide: 'HalfSideBySide',
+  BaseItemDtoVideo3DFormat.fullSideBySide: 'FullSideBySide',
+  BaseItemDtoVideo3DFormat.fullTopAndBottom: 'FullTopAndBottom',
+  BaseItemDtoVideo3DFormat.halfTopAndBottom: 'HalfTopAndBottom',
+  BaseItemDtoVideo3DFormat.mvc: 'MVC',
+};
+
+const _$BaseItemDtoPlayAccessEnumMap = {
+  BaseItemDtoPlayAccess.full: 'Full',
+  BaseItemDtoPlayAccess.none: 'None',
+};
+
+const _$BaseItemDtoTypeEnumMap = {
+  BaseItemDtoType.aggregateFolder: 'AggregateFolder',
+  BaseItemDtoType.audio: 'Audio',
+  BaseItemDtoType.audioBook: 'AudioBook',
+  BaseItemDtoType.basePluginFolder: 'BasePluginFolder',
+  BaseItemDtoType.book: 'Book',
+  BaseItemDtoType.boxSet: 'BoxSet',
+  BaseItemDtoType.channel: 'Channel',
+  BaseItemDtoType.channelFolderItem: 'ChannelFolderItem',
+  BaseItemDtoType.collectionFolder: 'CollectionFolder',
+  BaseItemDtoType.episode: 'Episode',
+  BaseItemDtoType.folder: 'Folder',
+  BaseItemDtoType.genre: 'Genre',
+  BaseItemDtoType.manualPlaylistsFolder: 'ManualPlaylistsFolder',
+  BaseItemDtoType.movie: 'Movie',
+  BaseItemDtoType.liveTvChannel: 'LiveTvChannel',
+  BaseItemDtoType.liveTvProgram: 'LiveTvProgram',
+  BaseItemDtoType.musicAlbum: 'MusicAlbum',
+  BaseItemDtoType.musicArtist: 'MusicArtist',
+  BaseItemDtoType.musicGenre: 'MusicGenre',
+  BaseItemDtoType.musicVideo: 'MusicVideo',
+  BaseItemDtoType.person: 'Person',
+  BaseItemDtoType.photo: 'Photo',
+  BaseItemDtoType.photoAlbum: 'PhotoAlbum',
+  BaseItemDtoType.playlist: 'Playlist',
+  BaseItemDtoType.playlistsFolder: 'PlaylistsFolder',
+  BaseItemDtoType.program: 'Program',
+  BaseItemDtoType.recording: 'Recording',
+  BaseItemDtoType.season: 'Season',
+  BaseItemDtoType.series: 'Series',
+  BaseItemDtoType.studio: 'Studio',
+  BaseItemDtoType.trailer: 'Trailer',
+  BaseItemDtoType.tvChannel: 'TvChannel',
+  BaseItemDtoType.tvProgram: 'TvProgram',
+  BaseItemDtoType.userRootFolder: 'UserRootFolder',
+  BaseItemDtoType.userView: 'UserView',
+  BaseItemDtoType.video: 'Video',
+  BaseItemDtoType.year: 'Year',
+};
+
+const _$DayOfWeekEnumMap = {
+  DayOfWeek.sunday: 'Sunday',
+  DayOfWeek.monday: 'Monday',
+  DayOfWeek.tuesday: 'Tuesday',
+  DayOfWeek.wednesday: 'Wednesday',
+  DayOfWeek.thursday: 'Thursday',
+  DayOfWeek.friday: 'Friday',
+  DayOfWeek.saturday: 'Saturday',
+};
+
+const _$BaseItemDtoCollectionTypeEnumMap = {
+  BaseItemDtoCollectionType.unknown: 'unknown',
+  BaseItemDtoCollectionType.movies: 'movies',
+  BaseItemDtoCollectionType.tvshows: 'tvshows',
+  BaseItemDtoCollectionType.music: 'music',
+  BaseItemDtoCollectionType.musicvideos: 'musicvideos',
+  BaseItemDtoCollectionType.trailers: 'trailers',
+  BaseItemDtoCollectionType.homevideos: 'homevideos',
+  BaseItemDtoCollectionType.boxsets: 'boxsets',
+  BaseItemDtoCollectionType.books: 'books',
+  BaseItemDtoCollectionType.photos: 'photos',
+  BaseItemDtoCollectionType.livetv: 'livetv',
+  BaseItemDtoCollectionType.playlists: 'playlists',
+  BaseItemDtoCollectionType.folders: 'folders',
+};
+
+const _$BaseItemDtoVideoTypeEnumMap = {
+  BaseItemDtoVideoType.videoFile: 'VideoFile',
+  BaseItemDtoVideoType.iso: 'Iso',
+  BaseItemDtoVideoType.dvd: 'Dvd',
+  BaseItemDtoVideoType.bluRay: 'BluRay',
+};
+
+const _$BaseItemDtoLocationTypeEnumMap = {
+  BaseItemDtoLocationType.fileSystem: 'FileSystem',
+  BaseItemDtoLocationType.remote: 'Remote',
+  BaseItemDtoLocationType.virtual: 'Virtual',
+  BaseItemDtoLocationType.offline: 'Offline',
+};
+
+const _$BaseItemDtoIsoTypeEnumMap = {
+  BaseItemDtoIsoType.dvd: 'Dvd',
+  BaseItemDtoIsoType.bluRay: 'BluRay',
+};
+
+const _$MetadataFieldEnumMap = {
+  MetadataField.cast: 'Cast',
+  MetadataField.genres: 'Genres',
+  MetadataField.productionLocations: 'ProductionLocations',
+  MetadataField.studios: 'Studios',
+  MetadataField.tags: 'Tags',
+  MetadataField.name: 'Name',
+  MetadataField.overview: 'Overview',
+  MetadataField.runtime: 'Runtime',
+  MetadataField.officialRating: 'OfficialRating',
+};
+
+const _$BaseItemDtoImageOrientationEnumMap = {
+  BaseItemDtoImageOrientation.topLeft: 'TopLeft',
+  BaseItemDtoImageOrientation.topRight: 'TopRight',
+  BaseItemDtoImageOrientation.bottomRight: 'BottomRight',
+  BaseItemDtoImageOrientation.bottomLeft: 'BottomLeft',
+  BaseItemDtoImageOrientation.leftTop: 'LeftTop',
+  BaseItemDtoImageOrientation.rightTop: 'RightTop',
+  BaseItemDtoImageOrientation.rightBottom: 'RightBottom',
+  BaseItemDtoImageOrientation.leftBottom: 'LeftBottom',
+};
+
+const _$BaseItemDtoChannelTypeEnumMap = {
+  BaseItemDtoChannelType.tv: 'TV',
+  BaseItemDtoChannelType.radio: 'Radio',
+};
+
+const _$BaseItemDtoAudioEnumMap = {
+  BaseItemDtoAudio.mono: 'Mono',
+  BaseItemDtoAudio.stereo: 'Stereo',
+  BaseItemDtoAudio.dolby: 'Dolby',
+  BaseItemDtoAudio.dolbyDigital: 'DolbyDigital',
+  BaseItemDtoAudio.thx: 'Thx',
+  BaseItemDtoAudio.atmos: 'Atmos',
+};
+
+const _$BaseItemDtoMediaTypeEnumMap = {
+  BaseItemDtoMediaType.unknown: 'Unknown',
+  BaseItemDtoMediaType.video: 'Video',
+  BaseItemDtoMediaType.audio: 'Audio',
+  BaseItemDtoMediaType.photo: 'Photo',
+  BaseItemDtoMediaType.book: 'Book',
 };

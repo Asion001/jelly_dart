@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,14 +8,23 @@ import 'group_info_dto.dart';
 import 'group_state_update.dart';
 import 'play_queue_update.dart';
 import 'sync_play_group_does_not_exist_update.dart';
+import 'sync_play_group_does_not_exist_update_type.dart';
 import 'sync_play_group_joined_update.dart';
+import 'sync_play_group_joined_update_type.dart';
 import 'sync_play_group_left_update.dart';
+import 'sync_play_group_left_update_type.dart';
 import 'sync_play_library_access_denied_update.dart';
+import 'sync_play_library_access_denied_update_type.dart';
 import 'sync_play_not_in_group_update.dart';
+import 'sync_play_not_in_group_update_type.dart';
 import 'sync_play_play_queue_update.dart';
+import 'sync_play_play_queue_update_type.dart';
 import 'sync_play_state_update.dart';
+import 'sync_play_state_update_type.dart';
 import 'sync_play_user_joined_update.dart';
+import 'sync_play_user_joined_update_type.dart';
 import 'sync_play_user_left_update.dart';
+import 'sync_play_user_left_update_type.dart';
 
 part 'group_update_union.freezed.dart';
 part 'group_update_union.g.dart';

@@ -31,7 +31,7 @@ mixin _$ClientCapabilitiesDto {
 
   /// Gets or sets the device profile.
   @JsonKey(name: 'DeviceProfile')
-  DeviceProfile? get deviceProfile;
+  DeviceProfile get deviceProfile;
 
   /// Gets or sets the app store url.
   @JsonKey(name: 'AppStoreUrl')
@@ -115,12 +115,12 @@ abstract mixin class $ClientCapabilitiesDtoCopyWith<$Res> {
     @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
     bool supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
     @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
-  $DeviceProfileCopyWith<$Res>? get deviceProfile;
+  $DeviceProfileCopyWith<$Res> get deviceProfile;
 }
 
 /// @nodoc
@@ -140,7 +140,7 @@ class _$ClientCapabilitiesDtoCopyWithImpl<$Res>
     Object? supportedCommands = null,
     Object? supportsMediaControl = null,
     Object? supportsPersistentIdentifier = null,
-    Object? deviceProfile = freezed,
+    Object? deviceProfile = null,
     Object? appStoreUrl = freezed,
     Object? iconUrl = freezed,
   }) {
@@ -162,10 +162,10 @@ class _$ClientCapabilitiesDtoCopyWithImpl<$Res>
             ? _self.supportsPersistentIdentifier
             : supportsPersistentIdentifier // ignore: cast_nullable_to_non_nullable
                   as bool,
-        deviceProfile: freezed == deviceProfile
+        deviceProfile: null == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile?,
+                  as DeviceProfile,
         appStoreUrl: freezed == appStoreUrl
             ? _self.appStoreUrl
             : appStoreUrl // ignore: cast_nullable_to_non_nullable
@@ -182,12 +182,8 @@ class _$ClientCapabilitiesDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res>? get deviceProfile {
-    if (_self.deviceProfile == null) {
-      return null;
-    }
-
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
+  $DeviceProfileCopyWith<$Res> get deviceProfile {
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }
@@ -293,7 +289,7 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
       @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
       bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
@@ -339,7 +335,7 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
       @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
       bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )
@@ -383,7 +379,7 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
       @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
       bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
@@ -418,9 +414,9 @@ class _ClientCapabilitiesDto implements ClientCapabilitiesDto {
     @JsonKey(name: 'SupportsMediaControl') required this.supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
     required this.supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') this.deviceProfile,
-    @JsonKey(name: 'AppStoreUrl') this.appStoreUrl,
-    @JsonKey(name: 'IconUrl') this.iconUrl,
+    @JsonKey(name: 'DeviceProfile') required this.deviceProfile,
+    @JsonKey(name: 'AppStoreUrl') required this.appStoreUrl,
+    @JsonKey(name: 'IconUrl') required this.iconUrl,
   }) : _playableMediaTypes = playableMediaTypes,
        _supportedCommands = supportedCommands;
   factory _ClientCapabilitiesDto.fromJson(Map<String, dynamic> json) =>
@@ -465,7 +461,7 @@ class _ClientCapabilitiesDto implements ClientCapabilitiesDto {
   /// Gets or sets the device profile.
   @override
   @JsonKey(name: 'DeviceProfile')
-  final DeviceProfile? deviceProfile;
+  final DeviceProfile deviceProfile;
 
   /// Gets or sets the app store url.
   @override
@@ -556,13 +552,13 @@ abstract mixin class _$ClientCapabilitiesDtoCopyWith<$Res>
     @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
     bool supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
     @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
   @override
-  $DeviceProfileCopyWith<$Res>? get deviceProfile;
+  $DeviceProfileCopyWith<$Res> get deviceProfile;
 }
 
 /// @nodoc
@@ -582,7 +578,7 @@ class __$ClientCapabilitiesDtoCopyWithImpl<$Res>
     Object? supportedCommands = null,
     Object? supportsMediaControl = null,
     Object? supportsPersistentIdentifier = null,
-    Object? deviceProfile = freezed,
+    Object? deviceProfile = null,
     Object? appStoreUrl = freezed,
     Object? iconUrl = freezed,
   }) {
@@ -604,10 +600,10 @@ class __$ClientCapabilitiesDtoCopyWithImpl<$Res>
             ? _self.supportsPersistentIdentifier
             : supportsPersistentIdentifier // ignore: cast_nullable_to_non_nullable
                   as bool,
-        deviceProfile: freezed == deviceProfile
+        deviceProfile: null == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile?,
+                  as DeviceProfile,
         appStoreUrl: freezed == appStoreUrl
             ? _self.appStoreUrl
             : appStoreUrl // ignore: cast_nullable_to_non_nullable
@@ -624,12 +620,8 @@ class __$ClientCapabilitiesDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res>? get deviceProfile {
-    if (_self.deviceProfile == null) {
-      return null;
-    }
-
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
+  $DeviceProfileCopyWith<$Res> get deviceProfile {
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }

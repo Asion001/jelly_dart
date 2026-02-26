@@ -13,13 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SubtitleProfile {
-  /// Gets or sets the delivery method.
-  @JsonKey(name: 'Method')
-  SubtitleProfileMethod get method;
-
   /// Gets or sets the format.
   @JsonKey(name: 'Format')
   String? get format;
+
+  /// Gets or sets the delivery method.
+  @JsonKey(name: 'Method')
+  SubtitleProfileMethod get method;
 
   /// Gets or sets the DIDL mode.
   @JsonKey(name: 'DidlMode')
@@ -51,8 +51,8 @@ mixin _$SubtitleProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SubtitleProfile &&
-            (identical(other.method, method) || other.method == method) &&
             (identical(other.format, format) || other.format == format) &&
+            (identical(other.method, method) || other.method == method) &&
             (identical(other.didlMode, didlMode) ||
                 other.didlMode == didlMode) &&
             (identical(other.language, language) ||
@@ -64,11 +64,11 @@ mixin _$SubtitleProfile {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, method, format, didlMode, language, container);
+      Object.hash(runtimeType, format, method, didlMode, language, container);
 
   @override
   String toString() {
-    return 'SubtitleProfile(method: $method, format: $format, didlMode: $didlMode, language: $language, container: $container)';
+    return 'SubtitleProfile(format: $format, method: $method, didlMode: $didlMode, language: $language, container: $container)';
   }
 }
 
@@ -80,8 +80,8 @@ abstract mixin class $SubtitleProfileCopyWith<$Res> {
   ) = _$SubtitleProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Method') SubtitleProfileMethod method,
     @JsonKey(name: 'Format') String? format,
+    @JsonKey(name: 'Method') SubtitleProfileMethod method,
     @JsonKey(name: 'DidlMode') String? didlMode,
     @JsonKey(name: 'Language') String? language,
     @JsonKey(name: 'Container') String? container,
@@ -101,22 +101,22 @@ class _$SubtitleProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = null,
     Object? format = freezed,
+    Object? method = null,
     Object? didlMode = freezed,
     Object? language = freezed,
     Object? container = freezed,
   }) {
     return _then(
       _self.copyWith(
-        method: null == method
-            ? _self.method
-            : method // ignore: cast_nullable_to_non_nullable
-                  as SubtitleProfileMethod,
         format: freezed == format
             ? _self.format
             : format // ignore: cast_nullable_to_non_nullable
                   as String?,
+        method: null == method
+            ? _self.method
+            : method // ignore: cast_nullable_to_non_nullable
+                  as SubtitleProfileMethod,
         didlMode: freezed == didlMode
             ? _self.didlMode
             : didlMode // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'Format') String? format,
+      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'DidlMode') String? didlMode,
       @JsonKey(name: 'Language') String? language,
       @JsonKey(name: 'Container') String? container,
@@ -241,8 +241,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
     switch (_that) {
       case _SubtitleProfile() when $default != null:
         return $default(
-          _that.method,
           _that.format,
+          _that.method,
           _that.didlMode,
           _that.language,
           _that.container,
@@ -268,8 +268,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'Format') String? format,
+      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'DidlMode') String? didlMode,
       @JsonKey(name: 'Language') String? language,
       @JsonKey(name: 'Container') String? container,
@@ -280,8 +280,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
     switch (_that) {
       case _SubtitleProfile():
         return $default(
-          _that.method,
           _that.format,
+          _that.method,
           _that.didlMode,
           _that.language,
           _that.container,
@@ -306,8 +306,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'Format') String? format,
+      @JsonKey(name: 'Method') SubtitleProfileMethod method,
       @JsonKey(name: 'DidlMode') String? didlMode,
       @JsonKey(name: 'Language') String? language,
       @JsonKey(name: 'Container') String? container,
@@ -318,8 +318,8 @@ extension SubtitleProfilePatterns on SubtitleProfile {
     switch (_that) {
       case _SubtitleProfile() when $default != null:
         return $default(
-          _that.method,
           _that.format,
+          _that.method,
           _that.didlMode,
           _that.language,
           _that.container,
@@ -334,24 +334,24 @@ extension SubtitleProfilePatterns on SubtitleProfile {
 @JsonSerializable()
 class _SubtitleProfile implements SubtitleProfile {
   const _SubtitleProfile({
+    @JsonKey(name: 'Format') required this.format,
     @JsonKey(name: 'Method') required this.method,
-    @JsonKey(name: 'Format') this.format,
-    @JsonKey(name: 'DidlMode') this.didlMode,
-    @JsonKey(name: 'Language') this.language,
-    @JsonKey(name: 'Container') this.container,
+    @JsonKey(name: 'DidlMode') required this.didlMode,
+    @JsonKey(name: 'Language') required this.language,
+    @JsonKey(name: 'Container') required this.container,
   });
   factory _SubtitleProfile.fromJson(Map<String, dynamic> json) =>
       _$SubtitleProfileFromJson(json);
-
-  /// Gets or sets the delivery method.
-  @override
-  @JsonKey(name: 'Method')
-  final SubtitleProfileMethod method;
 
   /// Gets or sets the format.
   @override
   @JsonKey(name: 'Format')
   final String? format;
+
+  /// Gets or sets the delivery method.
+  @override
+  @JsonKey(name: 'Method')
+  final SubtitleProfileMethod method;
 
   /// Gets or sets the DIDL mode.
   @override
@@ -386,8 +386,8 @@ class _SubtitleProfile implements SubtitleProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SubtitleProfile &&
-            (identical(other.method, method) || other.method == method) &&
             (identical(other.format, format) || other.format == format) &&
+            (identical(other.method, method) || other.method == method) &&
             (identical(other.didlMode, didlMode) ||
                 other.didlMode == didlMode) &&
             (identical(other.language, language) ||
@@ -399,11 +399,11 @@ class _SubtitleProfile implements SubtitleProfile {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, method, format, didlMode, language, container);
+      Object.hash(runtimeType, format, method, didlMode, language, container);
 
   @override
   String toString() {
-    return 'SubtitleProfile(method: $method, format: $format, didlMode: $didlMode, language: $language, container: $container)';
+    return 'SubtitleProfile(format: $format, method: $method, didlMode: $didlMode, language: $language, container: $container)';
   }
 }
 
@@ -417,8 +417,8 @@ abstract mixin class _$SubtitleProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Method') SubtitleProfileMethod method,
     @JsonKey(name: 'Format') String? format,
+    @JsonKey(name: 'Method') SubtitleProfileMethod method,
     @JsonKey(name: 'DidlMode') String? didlMode,
     @JsonKey(name: 'Language') String? language,
     @JsonKey(name: 'Container') String? container,
@@ -438,22 +438,22 @@ class __$SubtitleProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? method = null,
     Object? format = freezed,
+    Object? method = null,
     Object? didlMode = freezed,
     Object? language = freezed,
     Object? container = freezed,
   }) {
     return _then(
       _SubtitleProfile(
-        method: null == method
-            ? _self.method
-            : method // ignore: cast_nullable_to_non_nullable
-                  as SubtitleProfileMethod,
         format: freezed == format
             ? _self.format
             : format // ignore: cast_nullable_to_non_nullable
                   as String?,
+        method: null == method
+            ? _self.method
+            : method // ignore: cast_nullable_to_non_nullable
+                  as SubtitleProfileMethod,
         didlMode: freezed == didlMode
             ? _self.didlMode
             : didlMode // ignore: cast_nullable_to_non_nullable

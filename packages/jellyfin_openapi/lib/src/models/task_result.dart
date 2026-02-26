@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,23 +27,23 @@ abstract class TaskResult with _$TaskResult {
 
     /// Gets or sets the name.
     @JsonKey(name: 'Name')
-    String? name,
+    required String? name,
 
     /// Gets or sets the key.
     @JsonKey(name: 'Key')
-    String? key,
+    required String? key,
 
     /// Gets or sets the id.
     @JsonKey(name: 'Id')
-    String? id,
+    required String? id,
 
     /// Gets or sets the error message.
     @JsonKey(name: 'ErrorMessage')
-    String? errorMessage,
+    required String? errorMessage,
 
     /// Gets or sets the long error message.
     @JsonKey(name: 'LongErrorMessage')
-    String? longErrorMessage,
+    required String? longErrorMessage,
   }) = _TaskResult;
   
   factory TaskResult.fromJson(Map<String, Object?> json) => _$TaskResultFromJson(json);

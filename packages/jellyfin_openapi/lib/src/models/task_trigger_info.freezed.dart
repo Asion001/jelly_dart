@@ -342,10 +342,10 @@ extension TaskTriggerInfoPatterns on TaskTriggerInfo {
 class _TaskTriggerInfo implements TaskTriggerInfo {
   const _TaskTriggerInfo({
     @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'TimeOfDayTicks') this.timeOfDayTicks,
-    @JsonKey(name: 'IntervalTicks') this.intervalTicks,
-    @JsonKey(name: 'DayOfWeek') this.dayOfWeek,
-    @JsonKey(name: 'MaxRuntimeTicks') this.maxRuntimeTicks,
+    @JsonKey(name: 'TimeOfDayTicks') required this.timeOfDayTicks,
+    @JsonKey(name: 'IntervalTicks') required this.intervalTicks,
+    @JsonKey(name: 'DayOfWeek') required this.dayOfWeek,
+    @JsonKey(name: 'MaxRuntimeTicks') required this.maxRuntimeTicks,
   });
   factory _TaskTriggerInfo.fromJson(Map<String, dynamic> json) =>
       _$TaskTriggerInfoFromJson(json);

@@ -13,51 +13,52 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MediaStream {
-  /// Gets or sets a value indicating whether this instance is default.
-  @JsonKey(name: 'IsDefault')
-  bool get isDefault;
+  @JsonKey(name: 'NalLengthSize')
+  String? get nalLengthSize;
 
-  /// Gets the video range.
-  @JsonKey(name: 'VideoRange')
-  MediaStreamVideoRange get videoRange;
-  @JsonKey(name: 'IsTextSubtitleStream')
-  bool get isTextSubtitleStream;
+  /// Gets or sets the codec tag.
+  @JsonKey(name: 'CodecTag')
+  String? get codecTag;
 
-  /// Gets or sets a value indicating whether this instance is external.
-  @JsonKey(name: 'IsExternal')
-  bool get isExternal;
+  /// Gets or sets the language.
+  @JsonKey(name: 'Language')
+  String? get language;
 
-  /// Gets or sets the index.
-  @JsonKey(name: 'Index')
-  int get index;
+  /// Gets or sets the color range.
+  @JsonKey(name: 'ColorRange')
+  String? get colorRange;
 
-  /// Gets or sets the type.
-  @JsonKey(name: 'Type')
-  MediaStreamType get type;
+  /// Gets or sets the color space.
+  @JsonKey(name: 'ColorSpace')
+  String? get colorSpace;
 
-  /// Gets or sets a value indicating whether this instance is for the hearing impaired.
-  @JsonKey(name: 'IsHearingImpaired')
-  bool get isHearingImpaired;
+  /// Gets or sets the color transfer.
+  @JsonKey(name: 'ColorTransfer')
+  String? get colorTransfer;
 
-  /// Gets or sets a value indicating whether this instance is forced.
-  @JsonKey(name: 'IsForced')
-  bool get isForced;
+  /// Gets or sets the color primaries.
+  @JsonKey(name: 'ColorPrimaries')
+  String? get colorPrimaries;
 
-  /// Gets or sets a value indicating whether this instance is interlaced.
-  @JsonKey(name: 'IsInterlaced')
-  bool get isInterlaced;
+  /// Gets or sets the Dolby Vision version major.
+  @JsonKey(name: 'DvVersionMajor')
+  int? get dvVersionMajor;
 
-  /// Gets the audio spatial format.
-  @JsonKey(name: 'AudioSpatialFormat')
-  MediaStreamAudioSpatialFormat get audioSpatialFormat;
+  /// Gets or sets the Dolby Vision version minor.
+  @JsonKey(name: 'DvVersionMinor')
+  int? get dvVersionMinor;
 
-  /// Gets or sets a value indicating whether [supports external stream].
-  @JsonKey(name: 'SupportsExternalStream')
-  bool get supportsExternalStream;
+  /// Gets or sets the Dolby Vision profile.
+  @JsonKey(name: 'DvProfile')
+  int? get dvProfile;
 
-  /// Gets the video range type.
-  @JsonKey(name: 'VideoRangeType')
-  MediaStreamVideoRangeType get videoRangeType;
+  /// Gets or sets the Dolby Vision level.
+  @JsonKey(name: 'DvLevel')
+  int? get dvLevel;
+
+  /// Gets or sets the Dolby Vision rpu present flag.
+  @JsonKey(name: 'RpuPresentFlag')
+  int? get rpuPresentFlag;
 
   /// Gets or sets the Dolby Vision el present flag.
   @JsonKey(name: 'ElPresentFlag')
@@ -97,17 +98,17 @@ mixin _$MediaStream {
   @JsonKey(name: 'Codec')
   String? get codec;
 
-  /// Gets or sets the Dolby Vision rpu present flag.
-  @JsonKey(name: 'RpuPresentFlag')
-  int? get rpuPresentFlag;
+  /// Gets or sets the level.
+  @JsonKey(name: 'Level')
+  double? get level;
 
   /// Gets the video dovi title.
   @JsonKey(name: 'VideoDoViTitle')
   String? get videoDoViTitle;
 
-  /// Gets or sets the Dolby Vision profile.
-  @JsonKey(name: 'DvProfile')
-  int? get dvProfile;
+  /// Gets or sets the pixel format.
+  @JsonKey(name: 'PixelFormat')
+  String? get pixelFormat;
   @JsonKey(name: 'LocalizedUndefined')
   String? get localizedUndefined;
   @JsonKey(name: 'LocalizedDefault')
@@ -121,13 +122,13 @@ mixin _$MediaStream {
   @JsonKey(name: 'DisplayTitle')
   String? get displayTitle;
 
-  /// Gets or sets the Dolby Vision level.
-  @JsonKey(name: 'DvLevel')
-  int? get dvLevel;
+  /// Gets or sets a value indicating whether this instance is default.
+  @JsonKey(name: 'IsDefault')
+  bool get isDefault;
 
-  /// Gets or sets the Dolby Vision version minor.
-  @JsonKey(name: 'DvVersionMinor')
-  int? get dvVersionMinor;
+  /// Gets or sets a value indicating whether this instance is interlaced.
+  @JsonKey(name: 'IsInterlaced')
+  bool get isInterlaced;
   @JsonKey(name: 'IsAVC')
   bool? get isAvc;
 
@@ -163,13 +164,13 @@ mixin _$MediaStream {
   @JsonKey(name: 'IsAnamorphic')
   bool? get isAnamorphic;
 
-  /// Gets or sets the Dolby Vision version major.
-  @JsonKey(name: 'DvVersionMajor')
-  int? get dvVersionMajor;
+  /// Gets or sets a value indicating whether this instance is forced.
+  @JsonKey(name: 'IsForced')
+  bool get isForced;
 
-  /// Gets or sets the color primaries.
-  @JsonKey(name: 'ColorPrimaries')
-  String? get colorPrimaries;
+  /// Gets or sets a value indicating whether this instance is for the hearing impaired.
+  @JsonKey(name: 'IsHearingImpaired')
+  bool get isHearingImpaired;
 
   /// Gets or sets the height.
   @JsonKey(name: 'Height')
@@ -199,25 +200,25 @@ mixin _$MediaStream {
   @JsonKey(name: 'Profile')
   String? get profile;
 
-  /// Gets or sets the color transfer.
-  @JsonKey(name: 'ColorTransfer')
-  String? get colorTransfer;
+  /// Gets or sets the type.
+  @JsonKey(name: 'Type')
+  MediaStreamType get type;
 
   /// Gets or sets the aspect ratio.
   @JsonKey(name: 'AspectRatio')
   String? get aspectRatio;
 
-  /// Gets or sets the color space.
-  @JsonKey(name: 'ColorSpace')
-  String? get colorSpace;
+  /// Gets or sets the index.
+  @JsonKey(name: 'Index')
+  int get index;
 
-  /// Gets or sets the score.
-  @JsonKey(name: 'Score')
-  int? get score;
+  /// Gets or sets the filename.
+  @JsonKey(name: 'Path')
+  String? get path;
 
-  /// Gets or sets the color range.
-  @JsonKey(name: 'ColorRange')
-  String? get colorRange;
+  /// Gets or sets a value indicating whether this instance is external.
+  @JsonKey(name: 'IsExternal')
+  bool get isExternal;
 
   /// Gets or sets the method.
   @JsonKey(name: 'DeliveryMethod')
@@ -230,28 +231,28 @@ mixin _$MediaStream {
   /// Gets or sets a value indicating whether this instance is external URL.
   @JsonKey(name: 'IsExternalUrl')
   bool? get isExternalUrl;
+  @JsonKey(name: 'IsTextSubtitleStream')
+  bool get isTextSubtitleStream;
 
-  /// Gets or sets the language.
-  @JsonKey(name: 'Language')
-  String? get language;
+  /// Gets or sets a value indicating whether [supports external stream].
+  @JsonKey(name: 'SupportsExternalStream')
+  bool get supportsExternalStream;
 
-  /// Gets or sets the codec tag.
-  @JsonKey(name: 'CodecTag')
-  String? get codecTag;
+  /// Gets or sets the score.
+  @JsonKey(name: 'Score')
+  int? get score;
 
-  /// Gets or sets the filename.
-  @JsonKey(name: 'Path')
-  String? get path;
+  /// Gets the audio spatial format.
+  @JsonKey(name: 'AudioSpatialFormat')
+  MediaStreamAudioSpatialFormat get audioSpatialFormat;
 
-  /// Gets or sets the pixel format.
-  @JsonKey(name: 'PixelFormat')
-  String? get pixelFormat;
+  /// Gets the video range type.
+  @JsonKey(name: 'VideoRangeType')
+  MediaStreamVideoRangeType get videoRangeType;
 
-  /// Gets or sets the level.
-  @JsonKey(name: 'Level')
-  double? get level;
-  @JsonKey(name: 'NalLengthSize')
-  String? get nalLengthSize;
+  /// Gets the video range.
+  @JsonKey(name: 'VideoRange')
+  MediaStreamVideoRange get videoRange;
 
   /// Create a copy of MediaStream
   /// with the given fields replaced by the non-null parameter values.
@@ -268,28 +269,29 @@ mixin _$MediaStream {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MediaStream &&
-            (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault) &&
-            (identical(other.videoRange, videoRange) ||
-                other.videoRange == videoRange) &&
-            (identical(other.isTextSubtitleStream, isTextSubtitleStream) ||
-                other.isTextSubtitleStream == isTextSubtitleStream) &&
-            (identical(other.isExternal, isExternal) ||
-                other.isExternal == isExternal) &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.isHearingImpaired, isHearingImpaired) ||
-                other.isHearingImpaired == isHearingImpaired) &&
-            (identical(other.isForced, isForced) ||
-                other.isForced == isForced) &&
-            (identical(other.isInterlaced, isInterlaced) ||
-                other.isInterlaced == isInterlaced) &&
-            (identical(other.audioSpatialFormat, audioSpatialFormat) ||
-                other.audioSpatialFormat == audioSpatialFormat) &&
-            (identical(other.supportsExternalStream, supportsExternalStream) ||
-                other.supportsExternalStream == supportsExternalStream) &&
-            (identical(other.videoRangeType, videoRangeType) ||
-                other.videoRangeType == videoRangeType) &&
+            (identical(other.nalLengthSize, nalLengthSize) ||
+                other.nalLengthSize == nalLengthSize) &&
+            (identical(other.codecTag, codecTag) ||
+                other.codecTag == codecTag) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.colorRange, colorRange) ||
+                other.colorRange == colorRange) &&
+            (identical(other.colorSpace, colorSpace) ||
+                other.colorSpace == colorSpace) &&
+            (identical(other.colorTransfer, colorTransfer) ||
+                other.colorTransfer == colorTransfer) &&
+            (identical(other.colorPrimaries, colorPrimaries) ||
+                other.colorPrimaries == colorPrimaries) &&
+            (identical(other.dvVersionMajor, dvVersionMajor) ||
+                other.dvVersionMajor == dvVersionMajor) &&
+            (identical(other.dvVersionMinor, dvVersionMinor) ||
+                other.dvVersionMinor == dvVersionMinor) &&
+            (identical(other.dvProfile, dvProfile) ||
+                other.dvProfile == dvProfile) &&
+            (identical(other.dvLevel, dvLevel) || other.dvLevel == dvLevel) &&
+            (identical(other.rpuPresentFlag, rpuPresentFlag) ||
+                other.rpuPresentFlag == rpuPresentFlag) &&
             (identical(other.elPresentFlag, elPresentFlag) ||
                 other.elPresentFlag == elPresentFlag) &&
             (identical(other.blPresentFlag, blPresentFlag) ||
@@ -310,12 +312,11 @@ mixin _$MediaStream {
             (identical(other.hdr10PlusPresentFlag, hdr10PlusPresentFlag) ||
                 other.hdr10PlusPresentFlag == hdr10PlusPresentFlag) &&
             (identical(other.codec, codec) || other.codec == codec) &&
-            (identical(other.rpuPresentFlag, rpuPresentFlag) ||
-                other.rpuPresentFlag == rpuPresentFlag) &&
+            (identical(other.level, level) || other.level == level) &&
             (identical(other.videoDoViTitle, videoDoViTitle) ||
                 other.videoDoViTitle == videoDoViTitle) &&
-            (identical(other.dvProfile, dvProfile) ||
-                other.dvProfile == dvProfile) &&
+            (identical(other.pixelFormat, pixelFormat) ||
+                other.pixelFormat == pixelFormat) &&
             (identical(other.localizedUndefined, localizedUndefined) ||
                 other.localizedUndefined == localizedUndefined) &&
             (identical(other.localizedDefault, localizedDefault) ||
@@ -331,9 +332,10 @@ mixin _$MediaStream {
                 other.localizedHearingImpaired == localizedHearingImpaired) &&
             (identical(other.displayTitle, displayTitle) ||
                 other.displayTitle == displayTitle) &&
-            (identical(other.dvLevel, dvLevel) || other.dvLevel == dvLevel) &&
-            (identical(other.dvVersionMinor, dvVersionMinor) ||
-                other.dvVersionMinor == dvVersionMinor) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
+            (identical(other.isInterlaced, isInterlaced) ||
+                other.isInterlaced == isInterlaced) &&
             (identical(other.isAvc, isAvc) || other.isAvc == isAvc) &&
             (identical(other.channelLayout, channelLayout) ||
                 other.channelLayout == channelLayout) &&
@@ -350,10 +352,10 @@ mixin _$MediaStream {
                 other.sampleRate == sampleRate) &&
             (identical(other.isAnamorphic, isAnamorphic) ||
                 other.isAnamorphic == isAnamorphic) &&
-            (identical(other.dvVersionMajor, dvVersionMajor) ||
-                other.dvVersionMajor == dvVersionMajor) &&
-            (identical(other.colorPrimaries, colorPrimaries) ||
-                other.colorPrimaries == colorPrimaries) &&
+            (identical(other.isForced, isForced) ||
+                other.isForced == isForced) &&
+            (identical(other.isHearingImpaired, isHearingImpaired) ||
+                other.isHearingImpaired == isHearingImpaired) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.averageFrameRate, averageFrameRate) ||
@@ -363,49 +365,48 @@ mixin _$MediaStream {
             (identical(other.referenceFrameRate, referenceFrameRate) ||
                 other.referenceFrameRate == referenceFrameRate) &&
             (identical(other.profile, profile) || other.profile == profile) &&
-            (identical(other.colorTransfer, colorTransfer) ||
-                other.colorTransfer == colorTransfer) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.aspectRatio, aspectRatio) ||
                 other.aspectRatio == aspectRatio) &&
-            (identical(other.colorSpace, colorSpace) ||
-                other.colorSpace == colorSpace) &&
-            (identical(other.score, score) || other.score == score) &&
-            (identical(other.colorRange, colorRange) ||
-                other.colorRange == colorRange) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.isExternal, isExternal) ||
+                other.isExternal == isExternal) &&
             (identical(other.deliveryMethod, deliveryMethod) ||
                 other.deliveryMethod == deliveryMethod) &&
             (identical(other.deliveryUrl, deliveryUrl) ||
                 other.deliveryUrl == deliveryUrl) &&
             (identical(other.isExternalUrl, isExternalUrl) ||
                 other.isExternalUrl == isExternalUrl) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.codecTag, codecTag) ||
-                other.codecTag == codecTag) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.pixelFormat, pixelFormat) ||
-                other.pixelFormat == pixelFormat) &&
-            (identical(other.level, level) || other.level == level) &&
-            (identical(other.nalLengthSize, nalLengthSize) ||
-                other.nalLengthSize == nalLengthSize));
+            (identical(other.isTextSubtitleStream, isTextSubtitleStream) ||
+                other.isTextSubtitleStream == isTextSubtitleStream) &&
+            (identical(other.supportsExternalStream, supportsExternalStream) ||
+                other.supportsExternalStream == supportsExternalStream) &&
+            (identical(other.score, score) || other.score == score) &&
+            (identical(other.audioSpatialFormat, audioSpatialFormat) ||
+                other.audioSpatialFormat == audioSpatialFormat) &&
+            (identical(other.videoRangeType, videoRangeType) ||
+                other.videoRangeType == videoRangeType) &&
+            (identical(other.videoRange, videoRange) ||
+                other.videoRange == videoRange));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    isDefault,
-    videoRange,
-    isTextSubtitleStream,
-    isExternal,
-    index,
-    type,
-    isHearingImpaired,
-    isForced,
-    isInterlaced,
-    audioSpatialFormat,
-    supportsExternalStream,
-    videoRangeType,
+    nalLengthSize,
+    codecTag,
+    language,
+    colorRange,
+    colorSpace,
+    colorTransfer,
+    colorPrimaries,
+    dvVersionMajor,
+    dvVersionMinor,
+    dvProfile,
+    dvLevel,
+    rpuPresentFlag,
     elPresentFlag,
     blPresentFlag,
     dvBlSignalCompatibilityId,
@@ -416,17 +417,17 @@ mixin _$MediaStream {
     title,
     hdr10PlusPresentFlag,
     codec,
-    rpuPresentFlag,
+    level,
     videoDoViTitle,
-    dvProfile,
+    pixelFormat,
     localizedUndefined,
     localizedDefault,
     localizedForced,
     localizedExternal,
     localizedHearingImpaired,
     displayTitle,
-    dvLevel,
-    dvVersionMinor,
+    isDefault,
+    isInterlaced,
     isAvc,
     channelLayout,
     bitRate,
@@ -436,33 +437,33 @@ mixin _$MediaStream {
     channels,
     sampleRate,
     isAnamorphic,
-    dvVersionMajor,
-    colorPrimaries,
+    isForced,
+    isHearingImpaired,
     height,
     width,
     averageFrameRate,
     realFrameRate,
     referenceFrameRate,
     profile,
-    colorTransfer,
+    type,
     aspectRatio,
-    colorSpace,
-    score,
-    colorRange,
+    index,
+    path,
+    isExternal,
     deliveryMethod,
     deliveryUrl,
     isExternalUrl,
-    language,
-    codecTag,
-    path,
-    pixelFormat,
-    level,
-    nalLengthSize,
+    isTextSubtitleStream,
+    supportsExternalStream,
+    score,
+    audioSpatialFormat,
+    videoRangeType,
+    videoRange,
   ]);
 
   @override
   String toString() {
-    return 'MediaStream(isDefault: $isDefault, videoRange: $videoRange, isTextSubtitleStream: $isTextSubtitleStream, isExternal: $isExternal, index: $index, type: $type, isHearingImpaired: $isHearingImpaired, isForced: $isForced, isInterlaced: $isInterlaced, audioSpatialFormat: $audioSpatialFormat, supportsExternalStream: $supportsExternalStream, videoRangeType: $videoRangeType, elPresentFlag: $elPresentFlag, blPresentFlag: $blPresentFlag, dvBlSignalCompatibilityId: $dvBlSignalCompatibilityId, rotation: $rotation, comment: $comment, timeBase: $timeBase, codecTimeBase: $codecTimeBase, title: $title, hdr10PlusPresentFlag: $hdr10PlusPresentFlag, codec: $codec, rpuPresentFlag: $rpuPresentFlag, videoDoViTitle: $videoDoViTitle, dvProfile: $dvProfile, localizedUndefined: $localizedUndefined, localizedDefault: $localizedDefault, localizedForced: $localizedForced, localizedExternal: $localizedExternal, localizedHearingImpaired: $localizedHearingImpaired, displayTitle: $displayTitle, dvLevel: $dvLevel, dvVersionMinor: $dvVersionMinor, isAvc: $isAvc, channelLayout: $channelLayout, bitRate: $bitRate, bitDepth: $bitDepth, refFrames: $refFrames, packetLength: $packetLength, channels: $channels, sampleRate: $sampleRate, isAnamorphic: $isAnamorphic, dvVersionMajor: $dvVersionMajor, colorPrimaries: $colorPrimaries, height: $height, width: $width, averageFrameRate: $averageFrameRate, realFrameRate: $realFrameRate, referenceFrameRate: $referenceFrameRate, profile: $profile, colorTransfer: $colorTransfer, aspectRatio: $aspectRatio, colorSpace: $colorSpace, score: $score, colorRange: $colorRange, deliveryMethod: $deliveryMethod, deliveryUrl: $deliveryUrl, isExternalUrl: $isExternalUrl, language: $language, codecTag: $codecTag, path: $path, pixelFormat: $pixelFormat, level: $level, nalLengthSize: $nalLengthSize)';
+    return 'MediaStream(nalLengthSize: $nalLengthSize, codecTag: $codecTag, language: $language, colorRange: $colorRange, colorSpace: $colorSpace, colorTransfer: $colorTransfer, colorPrimaries: $colorPrimaries, dvVersionMajor: $dvVersionMajor, dvVersionMinor: $dvVersionMinor, dvProfile: $dvProfile, dvLevel: $dvLevel, rpuPresentFlag: $rpuPresentFlag, elPresentFlag: $elPresentFlag, blPresentFlag: $blPresentFlag, dvBlSignalCompatibilityId: $dvBlSignalCompatibilityId, rotation: $rotation, comment: $comment, timeBase: $timeBase, codecTimeBase: $codecTimeBase, title: $title, hdr10PlusPresentFlag: $hdr10PlusPresentFlag, codec: $codec, level: $level, videoDoViTitle: $videoDoViTitle, pixelFormat: $pixelFormat, localizedUndefined: $localizedUndefined, localizedDefault: $localizedDefault, localizedForced: $localizedForced, localizedExternal: $localizedExternal, localizedHearingImpaired: $localizedHearingImpaired, displayTitle: $displayTitle, isDefault: $isDefault, isInterlaced: $isInterlaced, isAvc: $isAvc, channelLayout: $channelLayout, bitRate: $bitRate, bitDepth: $bitDepth, refFrames: $refFrames, packetLength: $packetLength, channels: $channels, sampleRate: $sampleRate, isAnamorphic: $isAnamorphic, isForced: $isForced, isHearingImpaired: $isHearingImpaired, height: $height, width: $width, averageFrameRate: $averageFrameRate, realFrameRate: $realFrameRate, referenceFrameRate: $referenceFrameRate, profile: $profile, type: $type, aspectRatio: $aspectRatio, index: $index, path: $path, isExternal: $isExternal, deliveryMethod: $deliveryMethod, deliveryUrl: $deliveryUrl, isExternalUrl: $isExternalUrl, isTextSubtitleStream: $isTextSubtitleStream, supportsExternalStream: $supportsExternalStream, score: $score, audioSpatialFormat: $audioSpatialFormat, videoRangeType: $videoRangeType, videoRange: $videoRange)';
   }
 }
 
@@ -474,19 +475,18 @@ abstract mixin class $MediaStreamCopyWith<$Res> {
   ) = _$MediaStreamCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'IsDefault') bool isDefault,
-    @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
-    @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
-    @JsonKey(name: 'IsExternal') bool isExternal,
-    @JsonKey(name: 'Index') int index,
-    @JsonKey(name: 'Type') MediaStreamType type,
-    @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
-    @JsonKey(name: 'IsForced') bool isForced,
-    @JsonKey(name: 'IsInterlaced') bool isInterlaced,
-    @JsonKey(name: 'AudioSpatialFormat')
-    MediaStreamAudioSpatialFormat audioSpatialFormat,
-    @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
-    @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+    @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+    @JsonKey(name: 'CodecTag') String? codecTag,
+    @JsonKey(name: 'Language') String? language,
+    @JsonKey(name: 'ColorRange') String? colorRange,
+    @JsonKey(name: 'ColorSpace') String? colorSpace,
+    @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+    @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+    @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
+    @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+    @JsonKey(name: 'DvProfile') int? dvProfile,
+    @JsonKey(name: 'DvLevel') int? dvLevel,
+    @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
     @JsonKey(name: 'ElPresentFlag') int? elPresentFlag,
     @JsonKey(name: 'BlPresentFlag') int? blPresentFlag,
     @JsonKey(name: 'DvBlSignalCompatibilityId') int? dvBlSignalCompatibilityId,
@@ -497,17 +497,17 @@ abstract mixin class $MediaStreamCopyWith<$Res> {
     @JsonKey(name: 'Title') String? title,
     @JsonKey(name: 'Hdr10PlusPresentFlag') bool? hdr10PlusPresentFlag,
     @JsonKey(name: 'Codec') String? codec,
-    @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
+    @JsonKey(name: 'Level') double? level,
     @JsonKey(name: 'VideoDoViTitle') String? videoDoViTitle,
-    @JsonKey(name: 'DvProfile') int? dvProfile,
+    @JsonKey(name: 'PixelFormat') String? pixelFormat,
     @JsonKey(name: 'LocalizedUndefined') String? localizedUndefined,
     @JsonKey(name: 'LocalizedDefault') String? localizedDefault,
     @JsonKey(name: 'LocalizedForced') String? localizedForced,
     @JsonKey(name: 'LocalizedExternal') String? localizedExternal,
     @JsonKey(name: 'LocalizedHearingImpaired') String? localizedHearingImpaired,
     @JsonKey(name: 'DisplayTitle') String? displayTitle,
-    @JsonKey(name: 'DvLevel') int? dvLevel,
-    @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+    @JsonKey(name: 'IsDefault') bool isDefault,
+    @JsonKey(name: 'IsInterlaced') bool isInterlaced,
     @JsonKey(name: 'IsAVC') bool? isAvc,
     @JsonKey(name: 'ChannelLayout') String? channelLayout,
     @JsonKey(name: 'BitRate') int? bitRate,
@@ -517,28 +517,29 @@ abstract mixin class $MediaStreamCopyWith<$Res> {
     @JsonKey(name: 'Channels') int? channels,
     @JsonKey(name: 'SampleRate') int? sampleRate,
     @JsonKey(name: 'IsAnamorphic') bool? isAnamorphic,
-    @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
-    @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+    @JsonKey(name: 'IsForced') bool isForced,
+    @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
     @JsonKey(name: 'Height') int? height,
     @JsonKey(name: 'Width') int? width,
     @JsonKey(name: 'AverageFrameRate') double? averageFrameRate,
     @JsonKey(name: 'RealFrameRate') double? realFrameRate,
     @JsonKey(name: 'ReferenceFrameRate') double? referenceFrameRate,
     @JsonKey(name: 'Profile') String? profile,
-    @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+    @JsonKey(name: 'Type') MediaStreamType type,
     @JsonKey(name: 'AspectRatio') String? aspectRatio,
-    @JsonKey(name: 'ColorSpace') String? colorSpace,
-    @JsonKey(name: 'Score') int? score,
-    @JsonKey(name: 'ColorRange') String? colorRange,
+    @JsonKey(name: 'Index') int index,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'IsExternal') bool isExternal,
     @JsonKey(name: 'DeliveryMethod') MediaStreamDeliveryMethod? deliveryMethod,
     @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
     @JsonKey(name: 'IsExternalUrl') bool? isExternalUrl,
-    @JsonKey(name: 'Language') String? language,
-    @JsonKey(name: 'CodecTag') String? codecTag,
-    @JsonKey(name: 'Path') String? path,
-    @JsonKey(name: 'PixelFormat') String? pixelFormat,
-    @JsonKey(name: 'Level') double? level,
-    @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+    @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
+    @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
+    @JsonKey(name: 'Score') int? score,
+    @JsonKey(name: 'AudioSpatialFormat')
+    MediaStreamAudioSpatialFormat audioSpatialFormat,
+    @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+    @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
   });
 }
 
@@ -554,18 +555,18 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isDefault = null,
-    Object? videoRange = null,
-    Object? isTextSubtitleStream = null,
-    Object? isExternal = null,
-    Object? index = null,
-    Object? type = null,
-    Object? isHearingImpaired = null,
-    Object? isForced = null,
-    Object? isInterlaced = null,
-    Object? audioSpatialFormat = null,
-    Object? supportsExternalStream = null,
-    Object? videoRangeType = null,
+    Object? nalLengthSize = freezed,
+    Object? codecTag = freezed,
+    Object? language = freezed,
+    Object? colorRange = freezed,
+    Object? colorSpace = freezed,
+    Object? colorTransfer = freezed,
+    Object? colorPrimaries = freezed,
+    Object? dvVersionMajor = freezed,
+    Object? dvVersionMinor = freezed,
+    Object? dvProfile = freezed,
+    Object? dvLevel = freezed,
+    Object? rpuPresentFlag = freezed,
     Object? elPresentFlag = freezed,
     Object? blPresentFlag = freezed,
     Object? dvBlSignalCompatibilityId = freezed,
@@ -576,17 +577,17 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
     Object? title = freezed,
     Object? hdr10PlusPresentFlag = freezed,
     Object? codec = freezed,
-    Object? rpuPresentFlag = freezed,
+    Object? level = freezed,
     Object? videoDoViTitle = freezed,
-    Object? dvProfile = freezed,
+    Object? pixelFormat = freezed,
     Object? localizedUndefined = freezed,
     Object? localizedDefault = freezed,
     Object? localizedForced = freezed,
     Object? localizedExternal = freezed,
     Object? localizedHearingImpaired = freezed,
     Object? displayTitle = freezed,
-    Object? dvLevel = freezed,
-    Object? dvVersionMinor = freezed,
+    Object? isDefault = null,
+    Object? isInterlaced = null,
     Object? isAvc = freezed,
     Object? channelLayout = freezed,
     Object? bitRate = freezed,
@@ -596,79 +597,79 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
     Object? channels = freezed,
     Object? sampleRate = freezed,
     Object? isAnamorphic = freezed,
-    Object? dvVersionMajor = freezed,
-    Object? colorPrimaries = freezed,
+    Object? isForced = null,
+    Object? isHearingImpaired = null,
     Object? height = freezed,
     Object? width = freezed,
     Object? averageFrameRate = freezed,
     Object? realFrameRate = freezed,
     Object? referenceFrameRate = freezed,
     Object? profile = freezed,
-    Object? colorTransfer = freezed,
+    Object? type = null,
     Object? aspectRatio = freezed,
-    Object? colorSpace = freezed,
-    Object? score = freezed,
-    Object? colorRange = freezed,
+    Object? index = null,
+    Object? path = freezed,
+    Object? isExternal = null,
     Object? deliveryMethod = freezed,
     Object? deliveryUrl = freezed,
     Object? isExternalUrl = freezed,
-    Object? language = freezed,
-    Object? codecTag = freezed,
-    Object? path = freezed,
-    Object? pixelFormat = freezed,
-    Object? level = freezed,
-    Object? nalLengthSize = freezed,
+    Object? isTextSubtitleStream = null,
+    Object? supportsExternalStream = null,
+    Object? score = freezed,
+    Object? audioSpatialFormat = null,
+    Object? videoRangeType = null,
+    Object? videoRange = null,
   }) {
     return _then(
       _self.copyWith(
-        isDefault: null == isDefault
-            ? _self.isDefault
-            : isDefault // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        videoRange: null == videoRange
-            ? _self.videoRange
-            : videoRange // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamVideoRange,
-        isTextSubtitleStream: null == isTextSubtitleStream
-            ? _self.isTextSubtitleStream
-            : isTextSubtitleStream // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isExternal: null == isExternal
-            ? _self.isExternal
-            : isExternal // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        index: null == index
-            ? _self.index
-            : index // ignore: cast_nullable_to_non_nullable
-                  as int,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamType,
-        isHearingImpaired: null == isHearingImpaired
-            ? _self.isHearingImpaired
-            : isHearingImpaired // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isForced: null == isForced
-            ? _self.isForced
-            : isForced // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isInterlaced: null == isInterlaced
-            ? _self.isInterlaced
-            : isInterlaced // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        audioSpatialFormat: null == audioSpatialFormat
-            ? _self.audioSpatialFormat
-            : audioSpatialFormat // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamAudioSpatialFormat,
-        supportsExternalStream: null == supportsExternalStream
-            ? _self.supportsExternalStream
-            : supportsExternalStream // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        videoRangeType: null == videoRangeType
-            ? _self.videoRangeType
-            : videoRangeType // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamVideoRangeType,
+        nalLengthSize: freezed == nalLengthSize
+            ? _self.nalLengthSize
+            : nalLengthSize // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        codecTag: freezed == codecTag
+            ? _self.codecTag
+            : codecTag // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        language: freezed == language
+            ? _self.language
+            : language // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorRange: freezed == colorRange
+            ? _self.colorRange
+            : colorRange // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorSpace: freezed == colorSpace
+            ? _self.colorSpace
+            : colorSpace // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorTransfer: freezed == colorTransfer
+            ? _self.colorTransfer
+            : colorTransfer // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorPrimaries: freezed == colorPrimaries
+            ? _self.colorPrimaries
+            : colorPrimaries // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        dvVersionMajor: freezed == dvVersionMajor
+            ? _self.dvVersionMajor
+            : dvVersionMajor // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvVersionMinor: freezed == dvVersionMinor
+            ? _self.dvVersionMinor
+            : dvVersionMinor // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvProfile: freezed == dvProfile
+            ? _self.dvProfile
+            : dvProfile // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvLevel: freezed == dvLevel
+            ? _self.dvLevel
+            : dvLevel // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        rpuPresentFlag: freezed == rpuPresentFlag
+            ? _self.rpuPresentFlag
+            : rpuPresentFlag // ignore: cast_nullable_to_non_nullable
+                  as int?,
         elPresentFlag: freezed == elPresentFlag
             ? _self.elPresentFlag
             : elPresentFlag // ignore: cast_nullable_to_non_nullable
@@ -709,18 +710,18 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable
                   as String?,
-        rpuPresentFlag: freezed == rpuPresentFlag
-            ? _self.rpuPresentFlag
-            : rpuPresentFlag // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        level: freezed == level
+            ? _self.level
+            : level // ignore: cast_nullable_to_non_nullable
+                  as double?,
         videoDoViTitle: freezed == videoDoViTitle
             ? _self.videoDoViTitle
             : videoDoViTitle // ignore: cast_nullable_to_non_nullable
                   as String?,
-        dvProfile: freezed == dvProfile
-            ? _self.dvProfile
-            : dvProfile // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        pixelFormat: freezed == pixelFormat
+            ? _self.pixelFormat
+            : pixelFormat // ignore: cast_nullable_to_non_nullable
+                  as String?,
         localizedUndefined: freezed == localizedUndefined
             ? _self.localizedUndefined
             : localizedUndefined // ignore: cast_nullable_to_non_nullable
@@ -745,14 +746,14 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
             ? _self.displayTitle
             : displayTitle // ignore: cast_nullable_to_non_nullable
                   as String?,
-        dvLevel: freezed == dvLevel
-            ? _self.dvLevel
-            : dvLevel // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        dvVersionMinor: freezed == dvVersionMinor
-            ? _self.dvVersionMinor
-            : dvVersionMinor // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        isDefault: null == isDefault
+            ? _self.isDefault
+            : isDefault // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isInterlaced: null == isInterlaced
+            ? _self.isInterlaced
+            : isInterlaced // ignore: cast_nullable_to_non_nullable
+                  as bool,
         isAvc: freezed == isAvc
             ? _self.isAvc
             : isAvc // ignore: cast_nullable_to_non_nullable
@@ -789,14 +790,14 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
             ? _self.isAnamorphic
             : isAnamorphic // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        dvVersionMajor: freezed == dvVersionMajor
-            ? _self.dvVersionMajor
-            : dvVersionMajor // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        colorPrimaries: freezed == colorPrimaries
-            ? _self.colorPrimaries
-            : colorPrimaries // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isForced: null == isForced
+            ? _self.isForced
+            : isForced // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isHearingImpaired: null == isHearingImpaired
+            ? _self.isHearingImpaired
+            : isHearingImpaired // ignore: cast_nullable_to_non_nullable
+                  as bool,
         height: freezed == height
             ? _self.height
             : height // ignore: cast_nullable_to_non_nullable
@@ -821,26 +822,26 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
             ? _self.profile
             : profile // ignore: cast_nullable_to_non_nullable
                   as String?,
-        colorTransfer: freezed == colorTransfer
-            ? _self.colorTransfer
-            : colorTransfer // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamType,
         aspectRatio: freezed == aspectRatio
             ? _self.aspectRatio
             : aspectRatio // ignore: cast_nullable_to_non_nullable
                   as String?,
-        colorSpace: freezed == colorSpace
-            ? _self.colorSpace
-            : colorSpace // ignore: cast_nullable_to_non_nullable
+        index: null == index
+            ? _self.index
+            : index // ignore: cast_nullable_to_non_nullable
+                  as int,
+        path: freezed == path
+            ? _self.path
+            : path // ignore: cast_nullable_to_non_nullable
                   as String?,
-        score: freezed == score
-            ? _self.score
-            : score // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        colorRange: freezed == colorRange
-            ? _self.colorRange
-            : colorRange // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isExternal: null == isExternal
+            ? _self.isExternal
+            : isExternal // ignore: cast_nullable_to_non_nullable
+                  as bool,
         deliveryMethod: freezed == deliveryMethod
             ? _self.deliveryMethod
             : deliveryMethod // ignore: cast_nullable_to_non_nullable
@@ -853,30 +854,30 @@ class _$MediaStreamCopyWithImpl<$Res> implements $MediaStreamCopyWith<$Res> {
             ? _self.isExternalUrl
             : isExternalUrl // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        language: freezed == language
-            ? _self.language
-            : language // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        codecTag: freezed == codecTag
-            ? _self.codecTag
-            : codecTag // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        path: freezed == path
-            ? _self.path
-            : path // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        pixelFormat: freezed == pixelFormat
-            ? _self.pixelFormat
-            : pixelFormat // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        level: freezed == level
-            ? _self.level
-            : level // ignore: cast_nullable_to_non_nullable
-                  as double?,
-        nalLengthSize: freezed == nalLengthSize
-            ? _self.nalLengthSize
-            : nalLengthSize // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isTextSubtitleStream: null == isTextSubtitleStream
+            ? _self.isTextSubtitleStream
+            : isTextSubtitleStream // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        supportsExternalStream: null == supportsExternalStream
+            ? _self.supportsExternalStream
+            : supportsExternalStream // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        score: freezed == score
+            ? _self.score
+            : score // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        audioSpatialFormat: null == audioSpatialFormat
+            ? _self.audioSpatialFormat
+            : audioSpatialFormat // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamAudioSpatialFormat,
+        videoRangeType: null == videoRangeType
+            ? _self.videoRangeType
+            : videoRangeType // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamVideoRangeType,
+        videoRange: null == videoRange
+            ? _self.videoRange
+            : videoRange // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamVideoRange,
       ),
     );
   }
@@ -976,19 +977,18 @@ extension MediaStreamPatterns on MediaStream {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'IsDefault') bool isDefault,
-      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
-      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
-      @JsonKey(name: 'IsExternal') bool isExternal,
-      @JsonKey(name: 'Index') int index,
-      @JsonKey(name: 'Type') MediaStreamType type,
-      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
-      @JsonKey(name: 'IsForced') bool isForced,
-      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
-      @JsonKey(name: 'AudioSpatialFormat')
-      MediaStreamAudioSpatialFormat audioSpatialFormat,
-      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
-      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'CodecTag') String? codecTag,
+      @JsonKey(name: 'Language') String? language,
+      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'ColorSpace') String? colorSpace,
+      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
+      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'DvLevel') int? dvLevel,
+      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
       @JsonKey(name: 'ElPresentFlag') int? elPresentFlag,
       @JsonKey(name: 'BlPresentFlag') int? blPresentFlag,
       @JsonKey(name: 'DvBlSignalCompatibilityId')
@@ -1000,9 +1000,9 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Title') String? title,
       @JsonKey(name: 'Hdr10PlusPresentFlag') bool? hdr10PlusPresentFlag,
       @JsonKey(name: 'Codec') String? codec,
-      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
+      @JsonKey(name: 'Level') double? level,
       @JsonKey(name: 'VideoDoViTitle') String? videoDoViTitle,
-      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'PixelFormat') String? pixelFormat,
       @JsonKey(name: 'LocalizedUndefined') String? localizedUndefined,
       @JsonKey(name: 'LocalizedDefault') String? localizedDefault,
       @JsonKey(name: 'LocalizedForced') String? localizedForced,
@@ -1010,8 +1010,8 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'LocalizedHearingImpaired')
       String? localizedHearingImpaired,
       @JsonKey(name: 'DisplayTitle') String? displayTitle,
-      @JsonKey(name: 'DvLevel') int? dvLevel,
-      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'IsDefault') bool isDefault,
+      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
       @JsonKey(name: 'IsAVC') bool? isAvc,
       @JsonKey(name: 'ChannelLayout') String? channelLayout,
       @JsonKey(name: 'BitRate') int? bitRate,
@@ -1021,29 +1021,30 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Channels') int? channels,
       @JsonKey(name: 'SampleRate') int? sampleRate,
       @JsonKey(name: 'IsAnamorphic') bool? isAnamorphic,
-      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
-      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'IsForced') bool isForced,
+      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
       @JsonKey(name: 'AverageFrameRate') double? averageFrameRate,
       @JsonKey(name: 'RealFrameRate') double? realFrameRate,
       @JsonKey(name: 'ReferenceFrameRate') double? referenceFrameRate,
       @JsonKey(name: 'Profile') String? profile,
-      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'Type') MediaStreamType type,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'ColorSpace') String? colorSpace,
-      @JsonKey(name: 'Score') int? score,
-      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'Index') int index,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'IsExternal') bool isExternal,
       @JsonKey(name: 'DeliveryMethod')
       MediaStreamDeliveryMethod? deliveryMethod,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
       @JsonKey(name: 'IsExternalUrl') bool? isExternalUrl,
-      @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'CodecTag') String? codecTag,
-      @JsonKey(name: 'Path') String? path,
-      @JsonKey(name: 'PixelFormat') String? pixelFormat,
-      @JsonKey(name: 'Level') double? level,
-      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
+      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
+      @JsonKey(name: 'Score') int? score,
+      @JsonKey(name: 'AudioSpatialFormat')
+      MediaStreamAudioSpatialFormat audioSpatialFormat,
+      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
     )?
     $default, {
     required TResult orElse(),
@@ -1052,18 +1053,18 @@ extension MediaStreamPatterns on MediaStream {
     switch (_that) {
       case _MediaStream() when $default != null:
         return $default(
-          _that.isDefault,
-          _that.videoRange,
-          _that.isTextSubtitleStream,
-          _that.isExternal,
-          _that.index,
-          _that.type,
-          _that.isHearingImpaired,
-          _that.isForced,
-          _that.isInterlaced,
-          _that.audioSpatialFormat,
-          _that.supportsExternalStream,
-          _that.videoRangeType,
+          _that.nalLengthSize,
+          _that.codecTag,
+          _that.language,
+          _that.colorRange,
+          _that.colorSpace,
+          _that.colorTransfer,
+          _that.colorPrimaries,
+          _that.dvVersionMajor,
+          _that.dvVersionMinor,
+          _that.dvProfile,
+          _that.dvLevel,
+          _that.rpuPresentFlag,
           _that.elPresentFlag,
           _that.blPresentFlag,
           _that.dvBlSignalCompatibilityId,
@@ -1074,17 +1075,17 @@ extension MediaStreamPatterns on MediaStream {
           _that.title,
           _that.hdr10PlusPresentFlag,
           _that.codec,
-          _that.rpuPresentFlag,
+          _that.level,
           _that.videoDoViTitle,
-          _that.dvProfile,
+          _that.pixelFormat,
           _that.localizedUndefined,
           _that.localizedDefault,
           _that.localizedForced,
           _that.localizedExternal,
           _that.localizedHearingImpaired,
           _that.displayTitle,
-          _that.dvLevel,
-          _that.dvVersionMinor,
+          _that.isDefault,
+          _that.isInterlaced,
           _that.isAvc,
           _that.channelLayout,
           _that.bitRate,
@@ -1094,28 +1095,28 @@ extension MediaStreamPatterns on MediaStream {
           _that.channels,
           _that.sampleRate,
           _that.isAnamorphic,
-          _that.dvVersionMajor,
-          _that.colorPrimaries,
+          _that.isForced,
+          _that.isHearingImpaired,
           _that.height,
           _that.width,
           _that.averageFrameRate,
           _that.realFrameRate,
           _that.referenceFrameRate,
           _that.profile,
-          _that.colorTransfer,
+          _that.type,
           _that.aspectRatio,
-          _that.colorSpace,
-          _that.score,
-          _that.colorRange,
+          _that.index,
+          _that.path,
+          _that.isExternal,
           _that.deliveryMethod,
           _that.deliveryUrl,
           _that.isExternalUrl,
-          _that.language,
-          _that.codecTag,
-          _that.path,
-          _that.pixelFormat,
-          _that.level,
-          _that.nalLengthSize,
+          _that.isTextSubtitleStream,
+          _that.supportsExternalStream,
+          _that.score,
+          _that.audioSpatialFormat,
+          _that.videoRangeType,
+          _that.videoRange,
         );
       case _:
         return orElse();
@@ -1138,19 +1139,18 @@ extension MediaStreamPatterns on MediaStream {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'IsDefault') bool isDefault,
-      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
-      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
-      @JsonKey(name: 'IsExternal') bool isExternal,
-      @JsonKey(name: 'Index') int index,
-      @JsonKey(name: 'Type') MediaStreamType type,
-      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
-      @JsonKey(name: 'IsForced') bool isForced,
-      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
-      @JsonKey(name: 'AudioSpatialFormat')
-      MediaStreamAudioSpatialFormat audioSpatialFormat,
-      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
-      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'CodecTag') String? codecTag,
+      @JsonKey(name: 'Language') String? language,
+      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'ColorSpace') String? colorSpace,
+      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
+      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'DvLevel') int? dvLevel,
+      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
       @JsonKey(name: 'ElPresentFlag') int? elPresentFlag,
       @JsonKey(name: 'BlPresentFlag') int? blPresentFlag,
       @JsonKey(name: 'DvBlSignalCompatibilityId')
@@ -1162,9 +1162,9 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Title') String? title,
       @JsonKey(name: 'Hdr10PlusPresentFlag') bool? hdr10PlusPresentFlag,
       @JsonKey(name: 'Codec') String? codec,
-      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
+      @JsonKey(name: 'Level') double? level,
       @JsonKey(name: 'VideoDoViTitle') String? videoDoViTitle,
-      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'PixelFormat') String? pixelFormat,
       @JsonKey(name: 'LocalizedUndefined') String? localizedUndefined,
       @JsonKey(name: 'LocalizedDefault') String? localizedDefault,
       @JsonKey(name: 'LocalizedForced') String? localizedForced,
@@ -1172,8 +1172,8 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'LocalizedHearingImpaired')
       String? localizedHearingImpaired,
       @JsonKey(name: 'DisplayTitle') String? displayTitle,
-      @JsonKey(name: 'DvLevel') int? dvLevel,
-      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'IsDefault') bool isDefault,
+      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
       @JsonKey(name: 'IsAVC') bool? isAvc,
       @JsonKey(name: 'ChannelLayout') String? channelLayout,
       @JsonKey(name: 'BitRate') int? bitRate,
@@ -1183,29 +1183,30 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Channels') int? channels,
       @JsonKey(name: 'SampleRate') int? sampleRate,
       @JsonKey(name: 'IsAnamorphic') bool? isAnamorphic,
-      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
-      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'IsForced') bool isForced,
+      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
       @JsonKey(name: 'AverageFrameRate') double? averageFrameRate,
       @JsonKey(name: 'RealFrameRate') double? realFrameRate,
       @JsonKey(name: 'ReferenceFrameRate') double? referenceFrameRate,
       @JsonKey(name: 'Profile') String? profile,
-      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'Type') MediaStreamType type,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'ColorSpace') String? colorSpace,
-      @JsonKey(name: 'Score') int? score,
-      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'Index') int index,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'IsExternal') bool isExternal,
       @JsonKey(name: 'DeliveryMethod')
       MediaStreamDeliveryMethod? deliveryMethod,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
       @JsonKey(name: 'IsExternalUrl') bool? isExternalUrl,
-      @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'CodecTag') String? codecTag,
-      @JsonKey(name: 'Path') String? path,
-      @JsonKey(name: 'PixelFormat') String? pixelFormat,
-      @JsonKey(name: 'Level') double? level,
-      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
+      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
+      @JsonKey(name: 'Score') int? score,
+      @JsonKey(name: 'AudioSpatialFormat')
+      MediaStreamAudioSpatialFormat audioSpatialFormat,
+      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
     )
     $default,
   ) {
@@ -1213,18 +1214,18 @@ extension MediaStreamPatterns on MediaStream {
     switch (_that) {
       case _MediaStream():
         return $default(
-          _that.isDefault,
-          _that.videoRange,
-          _that.isTextSubtitleStream,
-          _that.isExternal,
-          _that.index,
-          _that.type,
-          _that.isHearingImpaired,
-          _that.isForced,
-          _that.isInterlaced,
-          _that.audioSpatialFormat,
-          _that.supportsExternalStream,
-          _that.videoRangeType,
+          _that.nalLengthSize,
+          _that.codecTag,
+          _that.language,
+          _that.colorRange,
+          _that.colorSpace,
+          _that.colorTransfer,
+          _that.colorPrimaries,
+          _that.dvVersionMajor,
+          _that.dvVersionMinor,
+          _that.dvProfile,
+          _that.dvLevel,
+          _that.rpuPresentFlag,
           _that.elPresentFlag,
           _that.blPresentFlag,
           _that.dvBlSignalCompatibilityId,
@@ -1235,17 +1236,17 @@ extension MediaStreamPatterns on MediaStream {
           _that.title,
           _that.hdr10PlusPresentFlag,
           _that.codec,
-          _that.rpuPresentFlag,
+          _that.level,
           _that.videoDoViTitle,
-          _that.dvProfile,
+          _that.pixelFormat,
           _that.localizedUndefined,
           _that.localizedDefault,
           _that.localizedForced,
           _that.localizedExternal,
           _that.localizedHearingImpaired,
           _that.displayTitle,
-          _that.dvLevel,
-          _that.dvVersionMinor,
+          _that.isDefault,
+          _that.isInterlaced,
           _that.isAvc,
           _that.channelLayout,
           _that.bitRate,
@@ -1255,28 +1256,28 @@ extension MediaStreamPatterns on MediaStream {
           _that.channels,
           _that.sampleRate,
           _that.isAnamorphic,
-          _that.dvVersionMajor,
-          _that.colorPrimaries,
+          _that.isForced,
+          _that.isHearingImpaired,
           _that.height,
           _that.width,
           _that.averageFrameRate,
           _that.realFrameRate,
           _that.referenceFrameRate,
           _that.profile,
-          _that.colorTransfer,
+          _that.type,
           _that.aspectRatio,
-          _that.colorSpace,
-          _that.score,
-          _that.colorRange,
+          _that.index,
+          _that.path,
+          _that.isExternal,
           _that.deliveryMethod,
           _that.deliveryUrl,
           _that.isExternalUrl,
-          _that.language,
-          _that.codecTag,
-          _that.path,
-          _that.pixelFormat,
-          _that.level,
-          _that.nalLengthSize,
+          _that.isTextSubtitleStream,
+          _that.supportsExternalStream,
+          _that.score,
+          _that.audioSpatialFormat,
+          _that.videoRangeType,
+          _that.videoRange,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -1298,19 +1299,18 @@ extension MediaStreamPatterns on MediaStream {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'IsDefault') bool isDefault,
-      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
-      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
-      @JsonKey(name: 'IsExternal') bool isExternal,
-      @JsonKey(name: 'Index') int index,
-      @JsonKey(name: 'Type') MediaStreamType type,
-      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
-      @JsonKey(name: 'IsForced') bool isForced,
-      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
-      @JsonKey(name: 'AudioSpatialFormat')
-      MediaStreamAudioSpatialFormat audioSpatialFormat,
-      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
-      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'CodecTag') String? codecTag,
+      @JsonKey(name: 'Language') String? language,
+      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'ColorSpace') String? colorSpace,
+      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
+      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'DvLevel') int? dvLevel,
+      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
       @JsonKey(name: 'ElPresentFlag') int? elPresentFlag,
       @JsonKey(name: 'BlPresentFlag') int? blPresentFlag,
       @JsonKey(name: 'DvBlSignalCompatibilityId')
@@ -1322,9 +1322,9 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Title') String? title,
       @JsonKey(name: 'Hdr10PlusPresentFlag') bool? hdr10PlusPresentFlag,
       @JsonKey(name: 'Codec') String? codec,
-      @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
+      @JsonKey(name: 'Level') double? level,
       @JsonKey(name: 'VideoDoViTitle') String? videoDoViTitle,
-      @JsonKey(name: 'DvProfile') int? dvProfile,
+      @JsonKey(name: 'PixelFormat') String? pixelFormat,
       @JsonKey(name: 'LocalizedUndefined') String? localizedUndefined,
       @JsonKey(name: 'LocalizedDefault') String? localizedDefault,
       @JsonKey(name: 'LocalizedForced') String? localizedForced,
@@ -1332,8 +1332,8 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'LocalizedHearingImpaired')
       String? localizedHearingImpaired,
       @JsonKey(name: 'DisplayTitle') String? displayTitle,
-      @JsonKey(name: 'DvLevel') int? dvLevel,
-      @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+      @JsonKey(name: 'IsDefault') bool isDefault,
+      @JsonKey(name: 'IsInterlaced') bool isInterlaced,
       @JsonKey(name: 'IsAVC') bool? isAvc,
       @JsonKey(name: 'ChannelLayout') String? channelLayout,
       @JsonKey(name: 'BitRate') int? bitRate,
@@ -1343,29 +1343,30 @@ extension MediaStreamPatterns on MediaStream {
       @JsonKey(name: 'Channels') int? channels,
       @JsonKey(name: 'SampleRate') int? sampleRate,
       @JsonKey(name: 'IsAnamorphic') bool? isAnamorphic,
-      @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
-      @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+      @JsonKey(name: 'IsForced') bool isForced,
+      @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
       @JsonKey(name: 'AverageFrameRate') double? averageFrameRate,
       @JsonKey(name: 'RealFrameRate') double? realFrameRate,
       @JsonKey(name: 'ReferenceFrameRate') double? referenceFrameRate,
       @JsonKey(name: 'Profile') String? profile,
-      @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+      @JsonKey(name: 'Type') MediaStreamType type,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'ColorSpace') String? colorSpace,
-      @JsonKey(name: 'Score') int? score,
-      @JsonKey(name: 'ColorRange') String? colorRange,
+      @JsonKey(name: 'Index') int index,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'IsExternal') bool isExternal,
       @JsonKey(name: 'DeliveryMethod')
       MediaStreamDeliveryMethod? deliveryMethod,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
       @JsonKey(name: 'IsExternalUrl') bool? isExternalUrl,
-      @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'CodecTag') String? codecTag,
-      @JsonKey(name: 'Path') String? path,
-      @JsonKey(name: 'PixelFormat') String? pixelFormat,
-      @JsonKey(name: 'Level') double? level,
-      @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+      @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
+      @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
+      @JsonKey(name: 'Score') int? score,
+      @JsonKey(name: 'AudioSpatialFormat')
+      MediaStreamAudioSpatialFormat audioSpatialFormat,
+      @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+      @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
     )?
     $default,
   ) {
@@ -1373,18 +1374,18 @@ extension MediaStreamPatterns on MediaStream {
     switch (_that) {
       case _MediaStream() when $default != null:
         return $default(
-          _that.isDefault,
-          _that.videoRange,
-          _that.isTextSubtitleStream,
-          _that.isExternal,
-          _that.index,
-          _that.type,
-          _that.isHearingImpaired,
-          _that.isForced,
-          _that.isInterlaced,
-          _that.audioSpatialFormat,
-          _that.supportsExternalStream,
-          _that.videoRangeType,
+          _that.nalLengthSize,
+          _that.codecTag,
+          _that.language,
+          _that.colorRange,
+          _that.colorSpace,
+          _that.colorTransfer,
+          _that.colorPrimaries,
+          _that.dvVersionMajor,
+          _that.dvVersionMinor,
+          _that.dvProfile,
+          _that.dvLevel,
+          _that.rpuPresentFlag,
           _that.elPresentFlag,
           _that.blPresentFlag,
           _that.dvBlSignalCompatibilityId,
@@ -1395,17 +1396,17 @@ extension MediaStreamPatterns on MediaStream {
           _that.title,
           _that.hdr10PlusPresentFlag,
           _that.codec,
-          _that.rpuPresentFlag,
+          _that.level,
           _that.videoDoViTitle,
-          _that.dvProfile,
+          _that.pixelFormat,
           _that.localizedUndefined,
           _that.localizedDefault,
           _that.localizedForced,
           _that.localizedExternal,
           _that.localizedHearingImpaired,
           _that.displayTitle,
-          _that.dvLevel,
-          _that.dvVersionMinor,
+          _that.isDefault,
+          _that.isInterlaced,
           _that.isAvc,
           _that.channelLayout,
           _that.bitRate,
@@ -1415,28 +1416,28 @@ extension MediaStreamPatterns on MediaStream {
           _that.channels,
           _that.sampleRate,
           _that.isAnamorphic,
-          _that.dvVersionMajor,
-          _that.colorPrimaries,
+          _that.isForced,
+          _that.isHearingImpaired,
           _that.height,
           _that.width,
           _that.averageFrameRate,
           _that.realFrameRate,
           _that.referenceFrameRate,
           _that.profile,
-          _that.colorTransfer,
+          _that.type,
           _that.aspectRatio,
-          _that.colorSpace,
-          _that.score,
-          _that.colorRange,
+          _that.index,
+          _that.path,
+          _that.isExternal,
           _that.deliveryMethod,
           _that.deliveryUrl,
           _that.isExternalUrl,
-          _that.language,
-          _that.codecTag,
-          _that.path,
-          _that.pixelFormat,
-          _that.level,
-          _that.nalLengthSize,
+          _that.isTextSubtitleStream,
+          _that.supportsExternalStream,
+          _that.score,
+          _that.audioSpatialFormat,
+          _that.videoRangeType,
+          _that.videoRange,
         );
       case _:
         return null;
@@ -1448,132 +1449,138 @@ extension MediaStreamPatterns on MediaStream {
 @JsonSerializable()
 class _MediaStream implements MediaStream {
   const _MediaStream({
+    @JsonKey(name: 'NalLengthSize') required this.nalLengthSize,
+    @JsonKey(name: 'CodecTag') required this.codecTag,
+    @JsonKey(name: 'Language') required this.language,
+    @JsonKey(name: 'ColorRange') required this.colorRange,
+    @JsonKey(name: 'ColorSpace') required this.colorSpace,
+    @JsonKey(name: 'ColorTransfer') required this.colorTransfer,
+    @JsonKey(name: 'ColorPrimaries') required this.colorPrimaries,
+    @JsonKey(name: 'DvVersionMajor') required this.dvVersionMajor,
+    @JsonKey(name: 'DvVersionMinor') required this.dvVersionMinor,
+    @JsonKey(name: 'DvProfile') required this.dvProfile,
+    @JsonKey(name: 'DvLevel') required this.dvLevel,
+    @JsonKey(name: 'RpuPresentFlag') required this.rpuPresentFlag,
+    @JsonKey(name: 'ElPresentFlag') required this.elPresentFlag,
+    @JsonKey(name: 'BlPresentFlag') required this.blPresentFlag,
+    @JsonKey(name: 'DvBlSignalCompatibilityId')
+    required this.dvBlSignalCompatibilityId,
+    @JsonKey(name: 'Rotation') required this.rotation,
+    @JsonKey(name: 'Comment') required this.comment,
+    @JsonKey(name: 'TimeBase') required this.timeBase,
+    @JsonKey(name: 'CodecTimeBase') required this.codecTimeBase,
+    @JsonKey(name: 'Title') required this.title,
+    @JsonKey(name: 'Hdr10PlusPresentFlag') required this.hdr10PlusPresentFlag,
+    @JsonKey(name: 'Codec') required this.codec,
+    @JsonKey(name: 'Level') required this.level,
+    @JsonKey(name: 'VideoDoViTitle') required this.videoDoViTitle,
+    @JsonKey(name: 'PixelFormat') required this.pixelFormat,
+    @JsonKey(name: 'LocalizedUndefined') required this.localizedUndefined,
+    @JsonKey(name: 'LocalizedDefault') required this.localizedDefault,
+    @JsonKey(name: 'LocalizedForced') required this.localizedForced,
+    @JsonKey(name: 'LocalizedExternal') required this.localizedExternal,
+    @JsonKey(name: 'LocalizedHearingImpaired')
+    required this.localizedHearingImpaired,
+    @JsonKey(name: 'DisplayTitle') required this.displayTitle,
     @JsonKey(name: 'IsDefault') required this.isDefault,
-    @JsonKey(name: 'VideoRange') required this.videoRange,
-    @JsonKey(name: 'IsTextSubtitleStream') required this.isTextSubtitleStream,
-    @JsonKey(name: 'IsExternal') required this.isExternal,
-    @JsonKey(name: 'Index') required this.index,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'IsHearingImpaired') required this.isHearingImpaired,
-    @JsonKey(name: 'IsForced') required this.isForced,
     @JsonKey(name: 'IsInterlaced') required this.isInterlaced,
-    @JsonKey(name: 'AudioSpatialFormat') required this.audioSpatialFormat,
+    @JsonKey(name: 'IsAVC') required this.isAvc,
+    @JsonKey(name: 'ChannelLayout') required this.channelLayout,
+    @JsonKey(name: 'BitRate') required this.bitRate,
+    @JsonKey(name: 'BitDepth') required this.bitDepth,
+    @JsonKey(name: 'RefFrames') required this.refFrames,
+    @JsonKey(name: 'PacketLength') required this.packetLength,
+    @JsonKey(name: 'Channels') required this.channels,
+    @JsonKey(name: 'SampleRate') required this.sampleRate,
+    @JsonKey(name: 'IsAnamorphic') required this.isAnamorphic,
+    @JsonKey(name: 'IsForced') required this.isForced,
+    @JsonKey(name: 'IsHearingImpaired') required this.isHearingImpaired,
+    @JsonKey(name: 'Height') required this.height,
+    @JsonKey(name: 'Width') required this.width,
+    @JsonKey(name: 'AverageFrameRate') required this.averageFrameRate,
+    @JsonKey(name: 'RealFrameRate') required this.realFrameRate,
+    @JsonKey(name: 'ReferenceFrameRate') required this.referenceFrameRate,
+    @JsonKey(name: 'Profile') required this.profile,
+    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'AspectRatio') required this.aspectRatio,
+    @JsonKey(name: 'Index') required this.index,
+    @JsonKey(name: 'Path') required this.path,
+    @JsonKey(name: 'IsExternal') required this.isExternal,
+    @JsonKey(name: 'DeliveryMethod') required this.deliveryMethod,
+    @JsonKey(name: 'DeliveryUrl') required this.deliveryUrl,
+    @JsonKey(name: 'IsExternalUrl') required this.isExternalUrl,
+    @JsonKey(name: 'IsTextSubtitleStream') required this.isTextSubtitleStream,
     @JsonKey(name: 'SupportsExternalStream')
     required this.supportsExternalStream,
-    @JsonKey(name: 'VideoRangeType') required this.videoRangeType,
-    @JsonKey(name: 'ElPresentFlag') this.elPresentFlag,
-    @JsonKey(name: 'BlPresentFlag') this.blPresentFlag,
-    @JsonKey(name: 'DvBlSignalCompatibilityId') this.dvBlSignalCompatibilityId,
-    @JsonKey(name: 'Rotation') this.rotation,
-    @JsonKey(name: 'Comment') this.comment,
-    @JsonKey(name: 'TimeBase') this.timeBase,
-    @JsonKey(name: 'CodecTimeBase') this.codecTimeBase,
-    @JsonKey(name: 'Title') this.title,
-    @JsonKey(name: 'Hdr10PlusPresentFlag') this.hdr10PlusPresentFlag,
-    @JsonKey(name: 'Codec') this.codec,
-    @JsonKey(name: 'RpuPresentFlag') this.rpuPresentFlag,
-    @JsonKey(name: 'VideoDoViTitle') this.videoDoViTitle,
-    @JsonKey(name: 'DvProfile') this.dvProfile,
-    @JsonKey(name: 'LocalizedUndefined') this.localizedUndefined,
-    @JsonKey(name: 'LocalizedDefault') this.localizedDefault,
-    @JsonKey(name: 'LocalizedForced') this.localizedForced,
-    @JsonKey(name: 'LocalizedExternal') this.localizedExternal,
-    @JsonKey(name: 'LocalizedHearingImpaired') this.localizedHearingImpaired,
-    @JsonKey(name: 'DisplayTitle') this.displayTitle,
-    @JsonKey(name: 'DvLevel') this.dvLevel,
-    @JsonKey(name: 'DvVersionMinor') this.dvVersionMinor,
-    @JsonKey(name: 'IsAVC') this.isAvc,
-    @JsonKey(name: 'ChannelLayout') this.channelLayout,
-    @JsonKey(name: 'BitRate') this.bitRate,
-    @JsonKey(name: 'BitDepth') this.bitDepth,
-    @JsonKey(name: 'RefFrames') this.refFrames,
-    @JsonKey(name: 'PacketLength') this.packetLength,
-    @JsonKey(name: 'Channels') this.channels,
-    @JsonKey(name: 'SampleRate') this.sampleRate,
-    @JsonKey(name: 'IsAnamorphic') this.isAnamorphic,
-    @JsonKey(name: 'DvVersionMajor') this.dvVersionMajor,
-    @JsonKey(name: 'ColorPrimaries') this.colorPrimaries,
-    @JsonKey(name: 'Height') this.height,
-    @JsonKey(name: 'Width') this.width,
-    @JsonKey(name: 'AverageFrameRate') this.averageFrameRate,
-    @JsonKey(name: 'RealFrameRate') this.realFrameRate,
-    @JsonKey(name: 'ReferenceFrameRate') this.referenceFrameRate,
-    @JsonKey(name: 'Profile') this.profile,
-    @JsonKey(name: 'ColorTransfer') this.colorTransfer,
-    @JsonKey(name: 'AspectRatio') this.aspectRatio,
-    @JsonKey(name: 'ColorSpace') this.colorSpace,
-    @JsonKey(name: 'Score') this.score,
-    @JsonKey(name: 'ColorRange') this.colorRange,
-    @JsonKey(name: 'DeliveryMethod') this.deliveryMethod,
-    @JsonKey(name: 'DeliveryUrl') this.deliveryUrl,
-    @JsonKey(name: 'IsExternalUrl') this.isExternalUrl,
-    @JsonKey(name: 'Language') this.language,
-    @JsonKey(name: 'CodecTag') this.codecTag,
-    @JsonKey(name: 'Path') this.path,
-    @JsonKey(name: 'PixelFormat') this.pixelFormat,
-    @JsonKey(name: 'Level') this.level,
-    @JsonKey(name: 'NalLengthSize') this.nalLengthSize,
+    @JsonKey(name: 'Score') required this.score,
+    @JsonKey(name: 'AudioSpatialFormat')
+    this.audioSpatialFormat = MediaStreamAudioSpatialFormat.none,
+    @JsonKey(name: 'VideoRangeType')
+    this.videoRangeType = MediaStreamVideoRangeType.unknown,
+    @JsonKey(name: 'VideoRange')
+    this.videoRange = MediaStreamVideoRange.unknown,
   });
   factory _MediaStream.fromJson(Map<String, dynamic> json) =>
       _$MediaStreamFromJson(json);
 
-  /// Gets or sets a value indicating whether this instance is default.
   @override
-  @JsonKey(name: 'IsDefault')
-  final bool isDefault;
+  @JsonKey(name: 'NalLengthSize')
+  final String? nalLengthSize;
 
-  /// Gets the video range.
+  /// Gets or sets the codec tag.
   @override
-  @JsonKey(name: 'VideoRange')
-  final MediaStreamVideoRange videoRange;
-  @override
-  @JsonKey(name: 'IsTextSubtitleStream')
-  final bool isTextSubtitleStream;
+  @JsonKey(name: 'CodecTag')
+  final String? codecTag;
 
-  /// Gets or sets a value indicating whether this instance is external.
+  /// Gets or sets the language.
   @override
-  @JsonKey(name: 'IsExternal')
-  final bool isExternal;
+  @JsonKey(name: 'Language')
+  final String? language;
 
-  /// Gets or sets the index.
+  /// Gets or sets the color range.
   @override
-  @JsonKey(name: 'Index')
-  final int index;
+  @JsonKey(name: 'ColorRange')
+  final String? colorRange;
 
-  /// Gets or sets the type.
+  /// Gets or sets the color space.
   @override
-  @JsonKey(name: 'Type')
-  final MediaStreamType type;
+  @JsonKey(name: 'ColorSpace')
+  final String? colorSpace;
 
-  /// Gets or sets a value indicating whether this instance is for the hearing impaired.
+  /// Gets or sets the color transfer.
   @override
-  @JsonKey(name: 'IsHearingImpaired')
-  final bool isHearingImpaired;
+  @JsonKey(name: 'ColorTransfer')
+  final String? colorTransfer;
 
-  /// Gets or sets a value indicating whether this instance is forced.
+  /// Gets or sets the color primaries.
   @override
-  @JsonKey(name: 'IsForced')
-  final bool isForced;
+  @JsonKey(name: 'ColorPrimaries')
+  final String? colorPrimaries;
 
-  /// Gets or sets a value indicating whether this instance is interlaced.
+  /// Gets or sets the Dolby Vision version major.
   @override
-  @JsonKey(name: 'IsInterlaced')
-  final bool isInterlaced;
+  @JsonKey(name: 'DvVersionMajor')
+  final int? dvVersionMajor;
 
-  /// Gets the audio spatial format.
+  /// Gets or sets the Dolby Vision version minor.
   @override
-  @JsonKey(name: 'AudioSpatialFormat')
-  final MediaStreamAudioSpatialFormat audioSpatialFormat;
+  @JsonKey(name: 'DvVersionMinor')
+  final int? dvVersionMinor;
 
-  /// Gets or sets a value indicating whether [supports external stream].
+  /// Gets or sets the Dolby Vision profile.
   @override
-  @JsonKey(name: 'SupportsExternalStream')
-  final bool supportsExternalStream;
+  @JsonKey(name: 'DvProfile')
+  final int? dvProfile;
 
-  /// Gets the video range type.
+  /// Gets or sets the Dolby Vision level.
   @override
-  @JsonKey(name: 'VideoRangeType')
-  final MediaStreamVideoRangeType videoRangeType;
+  @JsonKey(name: 'DvLevel')
+  final int? dvLevel;
+
+  /// Gets or sets the Dolby Vision rpu present flag.
+  @override
+  @JsonKey(name: 'RpuPresentFlag')
+  final int? rpuPresentFlag;
 
   /// Gets or sets the Dolby Vision el present flag.
   @override
@@ -1623,20 +1630,20 @@ class _MediaStream implements MediaStream {
   @JsonKey(name: 'Codec')
   final String? codec;
 
-  /// Gets or sets the Dolby Vision rpu present flag.
+  /// Gets or sets the level.
   @override
-  @JsonKey(name: 'RpuPresentFlag')
-  final int? rpuPresentFlag;
+  @JsonKey(name: 'Level')
+  final double? level;
 
   /// Gets the video dovi title.
   @override
   @JsonKey(name: 'VideoDoViTitle')
   final String? videoDoViTitle;
 
-  /// Gets or sets the Dolby Vision profile.
+  /// Gets or sets the pixel format.
   @override
-  @JsonKey(name: 'DvProfile')
-  final int? dvProfile;
+  @JsonKey(name: 'PixelFormat')
+  final String? pixelFormat;
   @override
   @JsonKey(name: 'LocalizedUndefined')
   final String? localizedUndefined;
@@ -1656,15 +1663,15 @@ class _MediaStream implements MediaStream {
   @JsonKey(name: 'DisplayTitle')
   final String? displayTitle;
 
-  /// Gets or sets the Dolby Vision level.
+  /// Gets or sets a value indicating whether this instance is default.
   @override
-  @JsonKey(name: 'DvLevel')
-  final int? dvLevel;
+  @JsonKey(name: 'IsDefault')
+  final bool isDefault;
 
-  /// Gets or sets the Dolby Vision version minor.
+  /// Gets or sets a value indicating whether this instance is interlaced.
   @override
-  @JsonKey(name: 'DvVersionMinor')
-  final int? dvVersionMinor;
+  @JsonKey(name: 'IsInterlaced')
+  final bool isInterlaced;
   @override
   @JsonKey(name: 'IsAVC')
   final bool? isAvc;
@@ -1709,15 +1716,15 @@ class _MediaStream implements MediaStream {
   @JsonKey(name: 'IsAnamorphic')
   final bool? isAnamorphic;
 
-  /// Gets or sets the Dolby Vision version major.
+  /// Gets or sets a value indicating whether this instance is forced.
   @override
-  @JsonKey(name: 'DvVersionMajor')
-  final int? dvVersionMajor;
+  @JsonKey(name: 'IsForced')
+  final bool isForced;
 
-  /// Gets or sets the color primaries.
+  /// Gets or sets a value indicating whether this instance is for the hearing impaired.
   @override
-  @JsonKey(name: 'ColorPrimaries')
-  final String? colorPrimaries;
+  @JsonKey(name: 'IsHearingImpaired')
+  final bool isHearingImpaired;
 
   /// Gets or sets the height.
   @override
@@ -1753,30 +1760,30 @@ class _MediaStream implements MediaStream {
   @JsonKey(name: 'Profile')
   final String? profile;
 
-  /// Gets or sets the color transfer.
+  /// Gets or sets the type.
   @override
-  @JsonKey(name: 'ColorTransfer')
-  final String? colorTransfer;
+  @JsonKey(name: 'Type')
+  final MediaStreamType type;
 
   /// Gets or sets the aspect ratio.
   @override
   @JsonKey(name: 'AspectRatio')
   final String? aspectRatio;
 
-  /// Gets or sets the color space.
+  /// Gets or sets the index.
   @override
-  @JsonKey(name: 'ColorSpace')
-  final String? colorSpace;
+  @JsonKey(name: 'Index')
+  final int index;
 
-  /// Gets or sets the score.
+  /// Gets or sets the filename.
   @override
-  @JsonKey(name: 'Score')
-  final int? score;
+  @JsonKey(name: 'Path')
+  final String? path;
 
-  /// Gets or sets the color range.
+  /// Gets or sets a value indicating whether this instance is external.
   @override
-  @JsonKey(name: 'ColorRange')
-  final String? colorRange;
+  @JsonKey(name: 'IsExternal')
+  final bool isExternal;
 
   /// Gets or sets the method.
   @override
@@ -1792,34 +1799,34 @@ class _MediaStream implements MediaStream {
   @override
   @JsonKey(name: 'IsExternalUrl')
   final bool? isExternalUrl;
+  @override
+  @JsonKey(name: 'IsTextSubtitleStream')
+  final bool isTextSubtitleStream;
 
-  /// Gets or sets the language.
+  /// Gets or sets a value indicating whether [supports external stream].
   @override
-  @JsonKey(name: 'Language')
-  final String? language;
+  @JsonKey(name: 'SupportsExternalStream')
+  final bool supportsExternalStream;
 
-  /// Gets or sets the codec tag.
+  /// Gets or sets the score.
   @override
-  @JsonKey(name: 'CodecTag')
-  final String? codecTag;
+  @JsonKey(name: 'Score')
+  final int? score;
 
-  /// Gets or sets the filename.
+  /// Gets the audio spatial format.
   @override
-  @JsonKey(name: 'Path')
-  final String? path;
+  @JsonKey(name: 'AudioSpatialFormat')
+  final MediaStreamAudioSpatialFormat audioSpatialFormat;
 
-  /// Gets or sets the pixel format.
+  /// Gets the video range type.
   @override
-  @JsonKey(name: 'PixelFormat')
-  final String? pixelFormat;
+  @JsonKey(name: 'VideoRangeType')
+  final MediaStreamVideoRangeType videoRangeType;
 
-  /// Gets or sets the level.
+  /// Gets the video range.
   @override
-  @JsonKey(name: 'Level')
-  final double? level;
-  @override
-  @JsonKey(name: 'NalLengthSize')
-  final String? nalLengthSize;
+  @JsonKey(name: 'VideoRange')
+  final MediaStreamVideoRange videoRange;
 
   /// Create a copy of MediaStream
   /// with the given fields replaced by the non-null parameter values.
@@ -1839,28 +1846,29 @@ class _MediaStream implements MediaStream {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MediaStream &&
-            (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault) &&
-            (identical(other.videoRange, videoRange) ||
-                other.videoRange == videoRange) &&
-            (identical(other.isTextSubtitleStream, isTextSubtitleStream) ||
-                other.isTextSubtitleStream == isTextSubtitleStream) &&
-            (identical(other.isExternal, isExternal) ||
-                other.isExternal == isExternal) &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.isHearingImpaired, isHearingImpaired) ||
-                other.isHearingImpaired == isHearingImpaired) &&
-            (identical(other.isForced, isForced) ||
-                other.isForced == isForced) &&
-            (identical(other.isInterlaced, isInterlaced) ||
-                other.isInterlaced == isInterlaced) &&
-            (identical(other.audioSpatialFormat, audioSpatialFormat) ||
-                other.audioSpatialFormat == audioSpatialFormat) &&
-            (identical(other.supportsExternalStream, supportsExternalStream) ||
-                other.supportsExternalStream == supportsExternalStream) &&
-            (identical(other.videoRangeType, videoRangeType) ||
-                other.videoRangeType == videoRangeType) &&
+            (identical(other.nalLengthSize, nalLengthSize) ||
+                other.nalLengthSize == nalLengthSize) &&
+            (identical(other.codecTag, codecTag) ||
+                other.codecTag == codecTag) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.colorRange, colorRange) ||
+                other.colorRange == colorRange) &&
+            (identical(other.colorSpace, colorSpace) ||
+                other.colorSpace == colorSpace) &&
+            (identical(other.colorTransfer, colorTransfer) ||
+                other.colorTransfer == colorTransfer) &&
+            (identical(other.colorPrimaries, colorPrimaries) ||
+                other.colorPrimaries == colorPrimaries) &&
+            (identical(other.dvVersionMajor, dvVersionMajor) ||
+                other.dvVersionMajor == dvVersionMajor) &&
+            (identical(other.dvVersionMinor, dvVersionMinor) ||
+                other.dvVersionMinor == dvVersionMinor) &&
+            (identical(other.dvProfile, dvProfile) ||
+                other.dvProfile == dvProfile) &&
+            (identical(other.dvLevel, dvLevel) || other.dvLevel == dvLevel) &&
+            (identical(other.rpuPresentFlag, rpuPresentFlag) ||
+                other.rpuPresentFlag == rpuPresentFlag) &&
             (identical(other.elPresentFlag, elPresentFlag) ||
                 other.elPresentFlag == elPresentFlag) &&
             (identical(other.blPresentFlag, blPresentFlag) ||
@@ -1881,12 +1889,11 @@ class _MediaStream implements MediaStream {
             (identical(other.hdr10PlusPresentFlag, hdr10PlusPresentFlag) ||
                 other.hdr10PlusPresentFlag == hdr10PlusPresentFlag) &&
             (identical(other.codec, codec) || other.codec == codec) &&
-            (identical(other.rpuPresentFlag, rpuPresentFlag) ||
-                other.rpuPresentFlag == rpuPresentFlag) &&
+            (identical(other.level, level) || other.level == level) &&
             (identical(other.videoDoViTitle, videoDoViTitle) ||
                 other.videoDoViTitle == videoDoViTitle) &&
-            (identical(other.dvProfile, dvProfile) ||
-                other.dvProfile == dvProfile) &&
+            (identical(other.pixelFormat, pixelFormat) ||
+                other.pixelFormat == pixelFormat) &&
             (identical(other.localizedUndefined, localizedUndefined) ||
                 other.localizedUndefined == localizedUndefined) &&
             (identical(other.localizedDefault, localizedDefault) ||
@@ -1902,9 +1909,10 @@ class _MediaStream implements MediaStream {
                 other.localizedHearingImpaired == localizedHearingImpaired) &&
             (identical(other.displayTitle, displayTitle) ||
                 other.displayTitle == displayTitle) &&
-            (identical(other.dvLevel, dvLevel) || other.dvLevel == dvLevel) &&
-            (identical(other.dvVersionMinor, dvVersionMinor) ||
-                other.dvVersionMinor == dvVersionMinor) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
+            (identical(other.isInterlaced, isInterlaced) ||
+                other.isInterlaced == isInterlaced) &&
             (identical(other.isAvc, isAvc) || other.isAvc == isAvc) &&
             (identical(other.channelLayout, channelLayout) ||
                 other.channelLayout == channelLayout) &&
@@ -1921,10 +1929,10 @@ class _MediaStream implements MediaStream {
                 other.sampleRate == sampleRate) &&
             (identical(other.isAnamorphic, isAnamorphic) ||
                 other.isAnamorphic == isAnamorphic) &&
-            (identical(other.dvVersionMajor, dvVersionMajor) ||
-                other.dvVersionMajor == dvVersionMajor) &&
-            (identical(other.colorPrimaries, colorPrimaries) ||
-                other.colorPrimaries == colorPrimaries) &&
+            (identical(other.isForced, isForced) ||
+                other.isForced == isForced) &&
+            (identical(other.isHearingImpaired, isHearingImpaired) ||
+                other.isHearingImpaired == isHearingImpaired) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.averageFrameRate, averageFrameRate) ||
@@ -1934,49 +1942,48 @@ class _MediaStream implements MediaStream {
             (identical(other.referenceFrameRate, referenceFrameRate) ||
                 other.referenceFrameRate == referenceFrameRate) &&
             (identical(other.profile, profile) || other.profile == profile) &&
-            (identical(other.colorTransfer, colorTransfer) ||
-                other.colorTransfer == colorTransfer) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.aspectRatio, aspectRatio) ||
                 other.aspectRatio == aspectRatio) &&
-            (identical(other.colorSpace, colorSpace) ||
-                other.colorSpace == colorSpace) &&
-            (identical(other.score, score) || other.score == score) &&
-            (identical(other.colorRange, colorRange) ||
-                other.colorRange == colorRange) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.isExternal, isExternal) ||
+                other.isExternal == isExternal) &&
             (identical(other.deliveryMethod, deliveryMethod) ||
                 other.deliveryMethod == deliveryMethod) &&
             (identical(other.deliveryUrl, deliveryUrl) ||
                 other.deliveryUrl == deliveryUrl) &&
             (identical(other.isExternalUrl, isExternalUrl) ||
                 other.isExternalUrl == isExternalUrl) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.codecTag, codecTag) ||
-                other.codecTag == codecTag) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.pixelFormat, pixelFormat) ||
-                other.pixelFormat == pixelFormat) &&
-            (identical(other.level, level) || other.level == level) &&
-            (identical(other.nalLengthSize, nalLengthSize) ||
-                other.nalLengthSize == nalLengthSize));
+            (identical(other.isTextSubtitleStream, isTextSubtitleStream) ||
+                other.isTextSubtitleStream == isTextSubtitleStream) &&
+            (identical(other.supportsExternalStream, supportsExternalStream) ||
+                other.supportsExternalStream == supportsExternalStream) &&
+            (identical(other.score, score) || other.score == score) &&
+            (identical(other.audioSpatialFormat, audioSpatialFormat) ||
+                other.audioSpatialFormat == audioSpatialFormat) &&
+            (identical(other.videoRangeType, videoRangeType) ||
+                other.videoRangeType == videoRangeType) &&
+            (identical(other.videoRange, videoRange) ||
+                other.videoRange == videoRange));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    isDefault,
-    videoRange,
-    isTextSubtitleStream,
-    isExternal,
-    index,
-    type,
-    isHearingImpaired,
-    isForced,
-    isInterlaced,
-    audioSpatialFormat,
-    supportsExternalStream,
-    videoRangeType,
+    nalLengthSize,
+    codecTag,
+    language,
+    colorRange,
+    colorSpace,
+    colorTransfer,
+    colorPrimaries,
+    dvVersionMajor,
+    dvVersionMinor,
+    dvProfile,
+    dvLevel,
+    rpuPresentFlag,
     elPresentFlag,
     blPresentFlag,
     dvBlSignalCompatibilityId,
@@ -1987,17 +1994,17 @@ class _MediaStream implements MediaStream {
     title,
     hdr10PlusPresentFlag,
     codec,
-    rpuPresentFlag,
+    level,
     videoDoViTitle,
-    dvProfile,
+    pixelFormat,
     localizedUndefined,
     localizedDefault,
     localizedForced,
     localizedExternal,
     localizedHearingImpaired,
     displayTitle,
-    dvLevel,
-    dvVersionMinor,
+    isDefault,
+    isInterlaced,
     isAvc,
     channelLayout,
     bitRate,
@@ -2007,33 +2014,33 @@ class _MediaStream implements MediaStream {
     channels,
     sampleRate,
     isAnamorphic,
-    dvVersionMajor,
-    colorPrimaries,
+    isForced,
+    isHearingImpaired,
     height,
     width,
     averageFrameRate,
     realFrameRate,
     referenceFrameRate,
     profile,
-    colorTransfer,
+    type,
     aspectRatio,
-    colorSpace,
-    score,
-    colorRange,
+    index,
+    path,
+    isExternal,
     deliveryMethod,
     deliveryUrl,
     isExternalUrl,
-    language,
-    codecTag,
-    path,
-    pixelFormat,
-    level,
-    nalLengthSize,
+    isTextSubtitleStream,
+    supportsExternalStream,
+    score,
+    audioSpatialFormat,
+    videoRangeType,
+    videoRange,
   ]);
 
   @override
   String toString() {
-    return 'MediaStream(isDefault: $isDefault, videoRange: $videoRange, isTextSubtitleStream: $isTextSubtitleStream, isExternal: $isExternal, index: $index, type: $type, isHearingImpaired: $isHearingImpaired, isForced: $isForced, isInterlaced: $isInterlaced, audioSpatialFormat: $audioSpatialFormat, supportsExternalStream: $supportsExternalStream, videoRangeType: $videoRangeType, elPresentFlag: $elPresentFlag, blPresentFlag: $blPresentFlag, dvBlSignalCompatibilityId: $dvBlSignalCompatibilityId, rotation: $rotation, comment: $comment, timeBase: $timeBase, codecTimeBase: $codecTimeBase, title: $title, hdr10PlusPresentFlag: $hdr10PlusPresentFlag, codec: $codec, rpuPresentFlag: $rpuPresentFlag, videoDoViTitle: $videoDoViTitle, dvProfile: $dvProfile, localizedUndefined: $localizedUndefined, localizedDefault: $localizedDefault, localizedForced: $localizedForced, localizedExternal: $localizedExternal, localizedHearingImpaired: $localizedHearingImpaired, displayTitle: $displayTitle, dvLevel: $dvLevel, dvVersionMinor: $dvVersionMinor, isAvc: $isAvc, channelLayout: $channelLayout, bitRate: $bitRate, bitDepth: $bitDepth, refFrames: $refFrames, packetLength: $packetLength, channels: $channels, sampleRate: $sampleRate, isAnamorphic: $isAnamorphic, dvVersionMajor: $dvVersionMajor, colorPrimaries: $colorPrimaries, height: $height, width: $width, averageFrameRate: $averageFrameRate, realFrameRate: $realFrameRate, referenceFrameRate: $referenceFrameRate, profile: $profile, colorTransfer: $colorTransfer, aspectRatio: $aspectRatio, colorSpace: $colorSpace, score: $score, colorRange: $colorRange, deliveryMethod: $deliveryMethod, deliveryUrl: $deliveryUrl, isExternalUrl: $isExternalUrl, language: $language, codecTag: $codecTag, path: $path, pixelFormat: $pixelFormat, level: $level, nalLengthSize: $nalLengthSize)';
+    return 'MediaStream(nalLengthSize: $nalLengthSize, codecTag: $codecTag, language: $language, colorRange: $colorRange, colorSpace: $colorSpace, colorTransfer: $colorTransfer, colorPrimaries: $colorPrimaries, dvVersionMajor: $dvVersionMajor, dvVersionMinor: $dvVersionMinor, dvProfile: $dvProfile, dvLevel: $dvLevel, rpuPresentFlag: $rpuPresentFlag, elPresentFlag: $elPresentFlag, blPresentFlag: $blPresentFlag, dvBlSignalCompatibilityId: $dvBlSignalCompatibilityId, rotation: $rotation, comment: $comment, timeBase: $timeBase, codecTimeBase: $codecTimeBase, title: $title, hdr10PlusPresentFlag: $hdr10PlusPresentFlag, codec: $codec, level: $level, videoDoViTitle: $videoDoViTitle, pixelFormat: $pixelFormat, localizedUndefined: $localizedUndefined, localizedDefault: $localizedDefault, localizedForced: $localizedForced, localizedExternal: $localizedExternal, localizedHearingImpaired: $localizedHearingImpaired, displayTitle: $displayTitle, isDefault: $isDefault, isInterlaced: $isInterlaced, isAvc: $isAvc, channelLayout: $channelLayout, bitRate: $bitRate, bitDepth: $bitDepth, refFrames: $refFrames, packetLength: $packetLength, channels: $channels, sampleRate: $sampleRate, isAnamorphic: $isAnamorphic, isForced: $isForced, isHearingImpaired: $isHearingImpaired, height: $height, width: $width, averageFrameRate: $averageFrameRate, realFrameRate: $realFrameRate, referenceFrameRate: $referenceFrameRate, profile: $profile, type: $type, aspectRatio: $aspectRatio, index: $index, path: $path, isExternal: $isExternal, deliveryMethod: $deliveryMethod, deliveryUrl: $deliveryUrl, isExternalUrl: $isExternalUrl, isTextSubtitleStream: $isTextSubtitleStream, supportsExternalStream: $supportsExternalStream, score: $score, audioSpatialFormat: $audioSpatialFormat, videoRangeType: $videoRangeType, videoRange: $videoRange)';
   }
 }
 
@@ -2047,19 +2054,18 @@ abstract mixin class _$MediaStreamCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'IsDefault') bool isDefault,
-    @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
-    @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
-    @JsonKey(name: 'IsExternal') bool isExternal,
-    @JsonKey(name: 'Index') int index,
-    @JsonKey(name: 'Type') MediaStreamType type,
-    @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
-    @JsonKey(name: 'IsForced') bool isForced,
-    @JsonKey(name: 'IsInterlaced') bool isInterlaced,
-    @JsonKey(name: 'AudioSpatialFormat')
-    MediaStreamAudioSpatialFormat audioSpatialFormat,
-    @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
-    @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+    @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+    @JsonKey(name: 'CodecTag') String? codecTag,
+    @JsonKey(name: 'Language') String? language,
+    @JsonKey(name: 'ColorRange') String? colorRange,
+    @JsonKey(name: 'ColorSpace') String? colorSpace,
+    @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+    @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+    @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
+    @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+    @JsonKey(name: 'DvProfile') int? dvProfile,
+    @JsonKey(name: 'DvLevel') int? dvLevel,
+    @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
     @JsonKey(name: 'ElPresentFlag') int? elPresentFlag,
     @JsonKey(name: 'BlPresentFlag') int? blPresentFlag,
     @JsonKey(name: 'DvBlSignalCompatibilityId') int? dvBlSignalCompatibilityId,
@@ -2070,17 +2076,17 @@ abstract mixin class _$MediaStreamCopyWith<$Res>
     @JsonKey(name: 'Title') String? title,
     @JsonKey(name: 'Hdr10PlusPresentFlag') bool? hdr10PlusPresentFlag,
     @JsonKey(name: 'Codec') String? codec,
-    @JsonKey(name: 'RpuPresentFlag') int? rpuPresentFlag,
+    @JsonKey(name: 'Level') double? level,
     @JsonKey(name: 'VideoDoViTitle') String? videoDoViTitle,
-    @JsonKey(name: 'DvProfile') int? dvProfile,
+    @JsonKey(name: 'PixelFormat') String? pixelFormat,
     @JsonKey(name: 'LocalizedUndefined') String? localizedUndefined,
     @JsonKey(name: 'LocalizedDefault') String? localizedDefault,
     @JsonKey(name: 'LocalizedForced') String? localizedForced,
     @JsonKey(name: 'LocalizedExternal') String? localizedExternal,
     @JsonKey(name: 'LocalizedHearingImpaired') String? localizedHearingImpaired,
     @JsonKey(name: 'DisplayTitle') String? displayTitle,
-    @JsonKey(name: 'DvLevel') int? dvLevel,
-    @JsonKey(name: 'DvVersionMinor') int? dvVersionMinor,
+    @JsonKey(name: 'IsDefault') bool isDefault,
+    @JsonKey(name: 'IsInterlaced') bool isInterlaced,
     @JsonKey(name: 'IsAVC') bool? isAvc,
     @JsonKey(name: 'ChannelLayout') String? channelLayout,
     @JsonKey(name: 'BitRate') int? bitRate,
@@ -2090,28 +2096,29 @@ abstract mixin class _$MediaStreamCopyWith<$Res>
     @JsonKey(name: 'Channels') int? channels,
     @JsonKey(name: 'SampleRate') int? sampleRate,
     @JsonKey(name: 'IsAnamorphic') bool? isAnamorphic,
-    @JsonKey(name: 'DvVersionMajor') int? dvVersionMajor,
-    @JsonKey(name: 'ColorPrimaries') String? colorPrimaries,
+    @JsonKey(name: 'IsForced') bool isForced,
+    @JsonKey(name: 'IsHearingImpaired') bool isHearingImpaired,
     @JsonKey(name: 'Height') int? height,
     @JsonKey(name: 'Width') int? width,
     @JsonKey(name: 'AverageFrameRate') double? averageFrameRate,
     @JsonKey(name: 'RealFrameRate') double? realFrameRate,
     @JsonKey(name: 'ReferenceFrameRate') double? referenceFrameRate,
     @JsonKey(name: 'Profile') String? profile,
-    @JsonKey(name: 'ColorTransfer') String? colorTransfer,
+    @JsonKey(name: 'Type') MediaStreamType type,
     @JsonKey(name: 'AspectRatio') String? aspectRatio,
-    @JsonKey(name: 'ColorSpace') String? colorSpace,
-    @JsonKey(name: 'Score') int? score,
-    @JsonKey(name: 'ColorRange') String? colorRange,
+    @JsonKey(name: 'Index') int index,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'IsExternal') bool isExternal,
     @JsonKey(name: 'DeliveryMethod') MediaStreamDeliveryMethod? deliveryMethod,
     @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
     @JsonKey(name: 'IsExternalUrl') bool? isExternalUrl,
-    @JsonKey(name: 'Language') String? language,
-    @JsonKey(name: 'CodecTag') String? codecTag,
-    @JsonKey(name: 'Path') String? path,
-    @JsonKey(name: 'PixelFormat') String? pixelFormat,
-    @JsonKey(name: 'Level') double? level,
-    @JsonKey(name: 'NalLengthSize') String? nalLengthSize,
+    @JsonKey(name: 'IsTextSubtitleStream') bool isTextSubtitleStream,
+    @JsonKey(name: 'SupportsExternalStream') bool supportsExternalStream,
+    @JsonKey(name: 'Score') int? score,
+    @JsonKey(name: 'AudioSpatialFormat')
+    MediaStreamAudioSpatialFormat audioSpatialFormat,
+    @JsonKey(name: 'VideoRangeType') MediaStreamVideoRangeType videoRangeType,
+    @JsonKey(name: 'VideoRange') MediaStreamVideoRange videoRange,
   });
 }
 
@@ -2127,18 +2134,18 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? isDefault = null,
-    Object? videoRange = null,
-    Object? isTextSubtitleStream = null,
-    Object? isExternal = null,
-    Object? index = null,
-    Object? type = null,
-    Object? isHearingImpaired = null,
-    Object? isForced = null,
-    Object? isInterlaced = null,
-    Object? audioSpatialFormat = null,
-    Object? supportsExternalStream = null,
-    Object? videoRangeType = null,
+    Object? nalLengthSize = freezed,
+    Object? codecTag = freezed,
+    Object? language = freezed,
+    Object? colorRange = freezed,
+    Object? colorSpace = freezed,
+    Object? colorTransfer = freezed,
+    Object? colorPrimaries = freezed,
+    Object? dvVersionMajor = freezed,
+    Object? dvVersionMinor = freezed,
+    Object? dvProfile = freezed,
+    Object? dvLevel = freezed,
+    Object? rpuPresentFlag = freezed,
     Object? elPresentFlag = freezed,
     Object? blPresentFlag = freezed,
     Object? dvBlSignalCompatibilityId = freezed,
@@ -2149,17 +2156,17 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
     Object? title = freezed,
     Object? hdr10PlusPresentFlag = freezed,
     Object? codec = freezed,
-    Object? rpuPresentFlag = freezed,
+    Object? level = freezed,
     Object? videoDoViTitle = freezed,
-    Object? dvProfile = freezed,
+    Object? pixelFormat = freezed,
     Object? localizedUndefined = freezed,
     Object? localizedDefault = freezed,
     Object? localizedForced = freezed,
     Object? localizedExternal = freezed,
     Object? localizedHearingImpaired = freezed,
     Object? displayTitle = freezed,
-    Object? dvLevel = freezed,
-    Object? dvVersionMinor = freezed,
+    Object? isDefault = null,
+    Object? isInterlaced = null,
     Object? isAvc = freezed,
     Object? channelLayout = freezed,
     Object? bitRate = freezed,
@@ -2169,79 +2176,79 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
     Object? channels = freezed,
     Object? sampleRate = freezed,
     Object? isAnamorphic = freezed,
-    Object? dvVersionMajor = freezed,
-    Object? colorPrimaries = freezed,
+    Object? isForced = null,
+    Object? isHearingImpaired = null,
     Object? height = freezed,
     Object? width = freezed,
     Object? averageFrameRate = freezed,
     Object? realFrameRate = freezed,
     Object? referenceFrameRate = freezed,
     Object? profile = freezed,
-    Object? colorTransfer = freezed,
+    Object? type = null,
     Object? aspectRatio = freezed,
-    Object? colorSpace = freezed,
-    Object? score = freezed,
-    Object? colorRange = freezed,
+    Object? index = null,
+    Object? path = freezed,
+    Object? isExternal = null,
     Object? deliveryMethod = freezed,
     Object? deliveryUrl = freezed,
     Object? isExternalUrl = freezed,
-    Object? language = freezed,
-    Object? codecTag = freezed,
-    Object? path = freezed,
-    Object? pixelFormat = freezed,
-    Object? level = freezed,
-    Object? nalLengthSize = freezed,
+    Object? isTextSubtitleStream = null,
+    Object? supportsExternalStream = null,
+    Object? score = freezed,
+    Object? audioSpatialFormat = null,
+    Object? videoRangeType = null,
+    Object? videoRange = null,
   }) {
     return _then(
       _MediaStream(
-        isDefault: null == isDefault
-            ? _self.isDefault
-            : isDefault // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        videoRange: null == videoRange
-            ? _self.videoRange
-            : videoRange // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamVideoRange,
-        isTextSubtitleStream: null == isTextSubtitleStream
-            ? _self.isTextSubtitleStream
-            : isTextSubtitleStream // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isExternal: null == isExternal
-            ? _self.isExternal
-            : isExternal // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        index: null == index
-            ? _self.index
-            : index // ignore: cast_nullable_to_non_nullable
-                  as int,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamType,
-        isHearingImpaired: null == isHearingImpaired
-            ? _self.isHearingImpaired
-            : isHearingImpaired // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isForced: null == isForced
-            ? _self.isForced
-            : isForced // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isInterlaced: null == isInterlaced
-            ? _self.isInterlaced
-            : isInterlaced // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        audioSpatialFormat: null == audioSpatialFormat
-            ? _self.audioSpatialFormat
-            : audioSpatialFormat // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamAudioSpatialFormat,
-        supportsExternalStream: null == supportsExternalStream
-            ? _self.supportsExternalStream
-            : supportsExternalStream // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        videoRangeType: null == videoRangeType
-            ? _self.videoRangeType
-            : videoRangeType // ignore: cast_nullable_to_non_nullable
-                  as MediaStreamVideoRangeType,
+        nalLengthSize: freezed == nalLengthSize
+            ? _self.nalLengthSize
+            : nalLengthSize // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        codecTag: freezed == codecTag
+            ? _self.codecTag
+            : codecTag // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        language: freezed == language
+            ? _self.language
+            : language // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorRange: freezed == colorRange
+            ? _self.colorRange
+            : colorRange // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorSpace: freezed == colorSpace
+            ? _self.colorSpace
+            : colorSpace // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorTransfer: freezed == colorTransfer
+            ? _self.colorTransfer
+            : colorTransfer // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        colorPrimaries: freezed == colorPrimaries
+            ? _self.colorPrimaries
+            : colorPrimaries // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        dvVersionMajor: freezed == dvVersionMajor
+            ? _self.dvVersionMajor
+            : dvVersionMajor // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvVersionMinor: freezed == dvVersionMinor
+            ? _self.dvVersionMinor
+            : dvVersionMinor // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvProfile: freezed == dvProfile
+            ? _self.dvProfile
+            : dvProfile // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        dvLevel: freezed == dvLevel
+            ? _self.dvLevel
+            : dvLevel // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        rpuPresentFlag: freezed == rpuPresentFlag
+            ? _self.rpuPresentFlag
+            : rpuPresentFlag // ignore: cast_nullable_to_non_nullable
+                  as int?,
         elPresentFlag: freezed == elPresentFlag
             ? _self.elPresentFlag
             : elPresentFlag // ignore: cast_nullable_to_non_nullable
@@ -2282,18 +2289,18 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable
                   as String?,
-        rpuPresentFlag: freezed == rpuPresentFlag
-            ? _self.rpuPresentFlag
-            : rpuPresentFlag // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        level: freezed == level
+            ? _self.level
+            : level // ignore: cast_nullable_to_non_nullable
+                  as double?,
         videoDoViTitle: freezed == videoDoViTitle
             ? _self.videoDoViTitle
             : videoDoViTitle // ignore: cast_nullable_to_non_nullable
                   as String?,
-        dvProfile: freezed == dvProfile
-            ? _self.dvProfile
-            : dvProfile // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        pixelFormat: freezed == pixelFormat
+            ? _self.pixelFormat
+            : pixelFormat // ignore: cast_nullable_to_non_nullable
+                  as String?,
         localizedUndefined: freezed == localizedUndefined
             ? _self.localizedUndefined
             : localizedUndefined // ignore: cast_nullable_to_non_nullable
@@ -2318,14 +2325,14 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
             ? _self.displayTitle
             : displayTitle // ignore: cast_nullable_to_non_nullable
                   as String?,
-        dvLevel: freezed == dvLevel
-            ? _self.dvLevel
-            : dvLevel // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        dvVersionMinor: freezed == dvVersionMinor
-            ? _self.dvVersionMinor
-            : dvVersionMinor // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        isDefault: null == isDefault
+            ? _self.isDefault
+            : isDefault // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isInterlaced: null == isInterlaced
+            ? _self.isInterlaced
+            : isInterlaced // ignore: cast_nullable_to_non_nullable
+                  as bool,
         isAvc: freezed == isAvc
             ? _self.isAvc
             : isAvc // ignore: cast_nullable_to_non_nullable
@@ -2362,14 +2369,14 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
             ? _self.isAnamorphic
             : isAnamorphic // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        dvVersionMajor: freezed == dvVersionMajor
-            ? _self.dvVersionMajor
-            : dvVersionMajor // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        colorPrimaries: freezed == colorPrimaries
-            ? _self.colorPrimaries
-            : colorPrimaries // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isForced: null == isForced
+            ? _self.isForced
+            : isForced // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isHearingImpaired: null == isHearingImpaired
+            ? _self.isHearingImpaired
+            : isHearingImpaired // ignore: cast_nullable_to_non_nullable
+                  as bool,
         height: freezed == height
             ? _self.height
             : height // ignore: cast_nullable_to_non_nullable
@@ -2394,26 +2401,26 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
             ? _self.profile
             : profile // ignore: cast_nullable_to_non_nullable
                   as String?,
-        colorTransfer: freezed == colorTransfer
-            ? _self.colorTransfer
-            : colorTransfer // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        type: null == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamType,
         aspectRatio: freezed == aspectRatio
             ? _self.aspectRatio
             : aspectRatio // ignore: cast_nullable_to_non_nullable
                   as String?,
-        colorSpace: freezed == colorSpace
-            ? _self.colorSpace
-            : colorSpace // ignore: cast_nullable_to_non_nullable
+        index: null == index
+            ? _self.index
+            : index // ignore: cast_nullable_to_non_nullable
+                  as int,
+        path: freezed == path
+            ? _self.path
+            : path // ignore: cast_nullable_to_non_nullable
                   as String?,
-        score: freezed == score
-            ? _self.score
-            : score // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        colorRange: freezed == colorRange
-            ? _self.colorRange
-            : colorRange // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isExternal: null == isExternal
+            ? _self.isExternal
+            : isExternal // ignore: cast_nullable_to_non_nullable
+                  as bool,
         deliveryMethod: freezed == deliveryMethod
             ? _self.deliveryMethod
             : deliveryMethod // ignore: cast_nullable_to_non_nullable
@@ -2426,30 +2433,30 @@ class __$MediaStreamCopyWithImpl<$Res> implements _$MediaStreamCopyWith<$Res> {
             ? _self.isExternalUrl
             : isExternalUrl // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        language: freezed == language
-            ? _self.language
-            : language // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        codecTag: freezed == codecTag
-            ? _self.codecTag
-            : codecTag // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        path: freezed == path
-            ? _self.path
-            : path // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        pixelFormat: freezed == pixelFormat
-            ? _self.pixelFormat
-            : pixelFormat // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        level: freezed == level
-            ? _self.level
-            : level // ignore: cast_nullable_to_non_nullable
-                  as double?,
-        nalLengthSize: freezed == nalLengthSize
-            ? _self.nalLengthSize
-            : nalLengthSize // ignore: cast_nullable_to_non_nullable
-                  as String?,
+        isTextSubtitleStream: null == isTextSubtitleStream
+            ? _self.isTextSubtitleStream
+            : isTextSubtitleStream // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        supportsExternalStream: null == supportsExternalStream
+            ? _self.supportsExternalStream
+            : supportsExternalStream // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        score: freezed == score
+            ? _self.score
+            : score // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        audioSpatialFormat: null == audioSpatialFormat
+            ? _self.audioSpatialFormat
+            : audioSpatialFormat // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamAudioSpatialFormat,
+        videoRangeType: null == videoRangeType
+            ? _self.videoRangeType
+            : videoRangeType // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamVideoRangeType,
+        videoRange: null == videoRange
+            ? _self.videoRange
+            : videoRange // ignore: cast_nullable_to_non_nullable
+                  as MediaStreamVideoRange,
       ),
     );
   }

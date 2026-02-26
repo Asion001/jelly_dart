@@ -13,10 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MediaAttachment {
-  /// Gets or sets the index.
-  @JsonKey(name: 'Index')
-  int get index;
-
   /// Gets or sets the codec.
   @JsonKey(name: 'Codec')
   String? get codec;
@@ -28,6 +24,10 @@ mixin _$MediaAttachment {
   /// Gets or sets the comment.
   @JsonKey(name: 'Comment')
   String? get comment;
+
+  /// Gets or sets the index.
+  @JsonKey(name: 'Index')
+  int? get index;
 
   /// Gets or sets the filename.
   @JsonKey(name: 'FileName')
@@ -59,11 +59,11 @@ mixin _$MediaAttachment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MediaAttachment &&
-            (identical(other.index, index) || other.index == index) &&
             (identical(other.codec, codec) || other.codec == codec) &&
             (identical(other.codecTag, codecTag) ||
                 other.codecTag == codecTag) &&
             (identical(other.comment, comment) || other.comment == comment) &&
+            (identical(other.index, index) || other.index == index) &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.mimeType, mimeType) ||
@@ -76,10 +76,10 @@ mixin _$MediaAttachment {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    index,
     codec,
     codecTag,
     comment,
+    index,
     fileName,
     mimeType,
     deliveryUrl,
@@ -87,7 +87,7 @@ mixin _$MediaAttachment {
 
   @override
   String toString() {
-    return 'MediaAttachment(index: $index, codec: $codec, codecTag: $codecTag, comment: $comment, fileName: $fileName, mimeType: $mimeType, deliveryUrl: $deliveryUrl)';
+    return 'MediaAttachment(codec: $codec, codecTag: $codecTag, comment: $comment, index: $index, fileName: $fileName, mimeType: $mimeType, deliveryUrl: $deliveryUrl)';
   }
 }
 
@@ -99,10 +99,10 @@ abstract mixin class $MediaAttachmentCopyWith<$Res> {
   ) = _$MediaAttachmentCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Index') int index,
     @JsonKey(name: 'Codec') String? codec,
     @JsonKey(name: 'CodecTag') String? codecTag,
     @JsonKey(name: 'Comment') String? comment,
+    @JsonKey(name: 'Index') int? index,
     @JsonKey(name: 'FileName') String? fileName,
     @JsonKey(name: 'MimeType') String? mimeType,
     @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
@@ -122,20 +122,16 @@ class _$MediaAttachmentCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = null,
     Object? codec = freezed,
     Object? codecTag = freezed,
     Object? comment = freezed,
+    Object? index = freezed,
     Object? fileName = freezed,
     Object? mimeType = freezed,
     Object? deliveryUrl = freezed,
   }) {
     return _then(
       _self.copyWith(
-        index: null == index
-            ? _self.index
-            : index // ignore: cast_nullable_to_non_nullable
-                  as int,
         codec: freezed == codec
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable
@@ -148,6 +144,10 @@ class _$MediaAttachmentCopyWithImpl<$Res>
             ? _self.comment
             : comment // ignore: cast_nullable_to_non_nullable
                   as String?,
+        index: freezed == index
+            ? _self.index
+            : index // ignore: cast_nullable_to_non_nullable
+                  as int?,
         fileName: freezed == fileName
             ? _self.fileName
             : fileName // ignore: cast_nullable_to_non_nullable
@@ -259,10 +259,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Index') int index,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'CodecTag') String? codecTag,
       @JsonKey(name: 'Comment') String? comment,
+      @JsonKey(name: 'Index') int? index,
       @JsonKey(name: 'FileName') String? fileName,
       @JsonKey(name: 'MimeType') String? mimeType,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
@@ -274,10 +274,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
     switch (_that) {
       case _MediaAttachment() when $default != null:
         return $default(
-          _that.index,
           _that.codec,
           _that.codecTag,
           _that.comment,
+          _that.index,
           _that.fileName,
           _that.mimeType,
           _that.deliveryUrl,
@@ -303,10 +303,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Index') int index,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'CodecTag') String? codecTag,
       @JsonKey(name: 'Comment') String? comment,
+      @JsonKey(name: 'Index') int? index,
       @JsonKey(name: 'FileName') String? fileName,
       @JsonKey(name: 'MimeType') String? mimeType,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
@@ -317,10 +317,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
     switch (_that) {
       case _MediaAttachment():
         return $default(
-          _that.index,
           _that.codec,
           _that.codecTag,
           _that.comment,
+          _that.index,
           _that.fileName,
           _that.mimeType,
           _that.deliveryUrl,
@@ -345,10 +345,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Index') int index,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'CodecTag') String? codecTag,
       @JsonKey(name: 'Comment') String? comment,
+      @JsonKey(name: 'Index') int? index,
       @JsonKey(name: 'FileName') String? fileName,
       @JsonKey(name: 'MimeType') String? mimeType,
       @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
@@ -359,10 +359,10 @@ extension MediaAttachmentPatterns on MediaAttachment {
     switch (_that) {
       case _MediaAttachment() when $default != null:
         return $default(
-          _that.index,
           _that.codec,
           _that.codecTag,
           _that.comment,
+          _that.index,
           _that.fileName,
           _that.mimeType,
           _that.deliveryUrl,
@@ -377,21 +377,16 @@ extension MediaAttachmentPatterns on MediaAttachment {
 @JsonSerializable()
 class _MediaAttachment implements MediaAttachment {
   const _MediaAttachment({
-    @JsonKey(name: 'Index') required this.index,
     @JsonKey(name: 'Codec') this.codec,
     @JsonKey(name: 'CodecTag') this.codecTag,
     @JsonKey(name: 'Comment') this.comment,
+    @JsonKey(name: 'Index') this.index,
     @JsonKey(name: 'FileName') this.fileName,
     @JsonKey(name: 'MimeType') this.mimeType,
     @JsonKey(name: 'DeliveryUrl') this.deliveryUrl,
   });
   factory _MediaAttachment.fromJson(Map<String, dynamic> json) =>
       _$MediaAttachmentFromJson(json);
-
-  /// Gets or sets the index.
-  @override
-  @JsonKey(name: 'Index')
-  final int index;
 
   /// Gets or sets the codec.
   @override
@@ -407,6 +402,11 @@ class _MediaAttachment implements MediaAttachment {
   @override
   @JsonKey(name: 'Comment')
   final String? comment;
+
+  /// Gets or sets the index.
+  @override
+  @JsonKey(name: 'Index')
+  final int? index;
 
   /// Gets or sets the filename.
   @override
@@ -441,11 +441,11 @@ class _MediaAttachment implements MediaAttachment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MediaAttachment &&
-            (identical(other.index, index) || other.index == index) &&
             (identical(other.codec, codec) || other.codec == codec) &&
             (identical(other.codecTag, codecTag) ||
                 other.codecTag == codecTag) &&
             (identical(other.comment, comment) || other.comment == comment) &&
+            (identical(other.index, index) || other.index == index) &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.mimeType, mimeType) ||
@@ -458,10 +458,10 @@ class _MediaAttachment implements MediaAttachment {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    index,
     codec,
     codecTag,
     comment,
+    index,
     fileName,
     mimeType,
     deliveryUrl,
@@ -469,7 +469,7 @@ class _MediaAttachment implements MediaAttachment {
 
   @override
   String toString() {
-    return 'MediaAttachment(index: $index, codec: $codec, codecTag: $codecTag, comment: $comment, fileName: $fileName, mimeType: $mimeType, deliveryUrl: $deliveryUrl)';
+    return 'MediaAttachment(codec: $codec, codecTag: $codecTag, comment: $comment, index: $index, fileName: $fileName, mimeType: $mimeType, deliveryUrl: $deliveryUrl)';
   }
 }
 
@@ -483,10 +483,10 @@ abstract mixin class _$MediaAttachmentCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Index') int index,
     @JsonKey(name: 'Codec') String? codec,
     @JsonKey(name: 'CodecTag') String? codecTag,
     @JsonKey(name: 'Comment') String? comment,
+    @JsonKey(name: 'Index') int? index,
     @JsonKey(name: 'FileName') String? fileName,
     @JsonKey(name: 'MimeType') String? mimeType,
     @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
@@ -506,20 +506,16 @@ class __$MediaAttachmentCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? index = null,
     Object? codec = freezed,
     Object? codecTag = freezed,
     Object? comment = freezed,
+    Object? index = freezed,
     Object? fileName = freezed,
     Object? mimeType = freezed,
     Object? deliveryUrl = freezed,
   }) {
     return _then(
       _MediaAttachment(
-        index: null == index
-            ? _self.index
-            : index // ignore: cast_nullable_to_non_nullable
-                  as int,
         codec: freezed == codec
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable
@@ -532,6 +528,10 @@ class __$MediaAttachmentCopyWithImpl<$Res>
             ? _self.comment
             : comment // ignore: cast_nullable_to_non_nullable
                   as String?,
+        index: freezed == index
+            ? _self.index
+            : index // ignore: cast_nullable_to_non_nullable
+                  as int?,
         fileName: freezed == fileName
             ? _self.fileName
             : fileName // ignore: cast_nullable_to_non_nullable

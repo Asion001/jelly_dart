@@ -137,12 +137,32 @@ class TrickplayManager {
     required MpvClient mpvClient,
   }) async {
     try {
+      final widthPx = info.width;
+      final heightPx = info.height;
+      final tileWidth = info.tileWidth;
+      final tileHeight = info.tileHeight;
+      final thumbnailCount = info.thumbnailCount;
+
+      if (widthPx == null ||
+          heightPx == null ||
+          tileWidth == null ||
+          tileHeight == null ||
+          thumbnailCount == null) {
+        _logger.warn(
+          'Skipping trickplay: missing dimensions/count '
+          '(width=$widthPx, height=$heightPx, '
+          'tileWidth=$tileWidth, tileHeight=$tileHeight, '
+          'thumbnailCount=$thumbnailCount)',
+        );
+        return;
+      }
+
       // Create temp directory
       _tempDir = await Directory.systemTemp.createTemp('jellyfin_trickplay_');
 
       // Calculate number of tile images needed
-      final tilesPerImage = info.tileWidth * info.tileHeight;
-      final tileCount = (info.thumbnailCount / tilesPerImage).ceil();
+      final tilesPerImage = tileWidth * tileHeight;
+      final tileCount = (thumbnailCount / tilesPerImage).ceil();
 
       _logger.detail('Downloading $tileCount tile images...');
 
@@ -169,11 +189,11 @@ class TrickplayManager {
       final receivePort = ReceivePort();
       final params = _TrickplayIsolateParams(
         tileImages: tileImages,
-        width: info.width,
-        height: info.height,
-        tileWidth: info.tileWidth,
-        tileHeight: info.tileHeight,
-        thumbnailCount: info.thumbnailCount,
+        width: widthPx,
+        height: heightPx,
+        tileWidth: tileWidth,
+        tileHeight: tileHeight,
+        thumbnailCount: thumbnailCount,
         outputPath: path.join(_tempDir!.path, 'trickplay.bgra'),
         sendPort: receivePort.sendPort,
       );
@@ -194,15 +214,15 @@ class TrickplayManager {
       _currentBgraFile = File(result.outputPath!);
 
       _logger.success(
-        'Trickplay processing complete: ${info.thumbnailCount} thumbnails',
+        'Trickplay processing complete: $thumbnailCount thumbnails',
       );
 
       // Send trickplay data to MPV
       await mpvClient.scriptMessage('shim-trickplay-bif', [
-        info.thumbnailCount.toString(),
+        thumbnailCount.toString(),
         info.interval.toString(),
-        info.width.toString(),
-        info.height.toString(),
+        widthPx.toString(),
+        heightPx.toString(),
         _currentBgraFile!.path,
       ]);
 

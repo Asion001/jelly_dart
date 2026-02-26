@@ -1,11 +1,11 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'group_update_union.dart';
 import 'play_queue_update.dart';
+import 'sync_play_play_queue_update_type.dart';
 
 part 'sync_play_play_queue_update.freezed.dart';
 part 'sync_play_play_queue_update.g.dart';
@@ -20,6 +20,11 @@ abstract class SyncPlayPlayQueueUpdate with _$SyncPlayPlayQueueUpdate {
     /// Gets the update data.
     @JsonKey(name: 'Data')
     required PlayQueueUpdate data,
+
+    /// Enum GroupUpdateType.
+    @JsonKey(name: 'Type')
+    @Default(SyncPlayPlayQueueUpdateType.playQueue)
+    SyncPlayPlayQueueUpdateType type,
   }) = _SyncPlayPlayQueueUpdate;
   
   factory SyncPlayPlayQueueUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayPlayQueueUpdateFromJson(json);

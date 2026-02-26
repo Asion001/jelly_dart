@@ -1,10 +1,10 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'group_update_union.dart';
+import 'sync_play_group_does_not_exist_update_type.dart';
 
 part 'sync_play_group_does_not_exist_update.freezed.dart';
 part 'sync_play_group_does_not_exist_update.g.dart';
@@ -19,6 +19,11 @@ abstract class SyncPlayGroupDoesNotExistUpdate with _$SyncPlayGroupDoesNotExistU
     /// Gets the update data.
     @JsonKey(name: 'Data')
     required String data,
+
+    /// Enum GroupUpdateType.
+    @JsonKey(name: 'Type')
+    @Default(SyncPlayGroupDoesNotExistUpdateType.groupDoesNotExist)
+    SyncPlayGroupDoesNotExistUpdateType type,
   }) = _SyncPlayGroupDoesNotExistUpdate;
   
   factory SyncPlayGroupDoesNotExistUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayGroupDoesNotExistUpdateFromJson(json);

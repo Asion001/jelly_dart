@@ -298,8 +298,8 @@ extension PlaystateRequestPatterns on PlaystateRequest {
 class _PlaystateRequest implements PlaystateRequest {
   const _PlaystateRequest({
     @JsonKey(name: 'Command') required this.command,
-    @JsonKey(name: 'SeekPositionTicks') this.seekPositionTicks,
-    @JsonKey(name: 'ControllingUserId') this.controllingUserId,
+    @JsonKey(name: 'SeekPositionTicks') required this.seekPositionTicks,
+    @JsonKey(name: 'ControllingUserId') required this.controllingUserId,
   });
   factory _PlaystateRequest.fromJson(Map<String, dynamic> json) =>
       _$PlaystateRequestFromJson(json);

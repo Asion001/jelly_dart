@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$SessionUserInfo {
   /// Gets or sets the user identifier.
   @JsonKey(name: 'UserId')
-  String get userId;
+  String? get userId;
 
   /// Gets or sets the name of the user.
   @JsonKey(name: 'UserName')
@@ -62,7 +62,7 @@ abstract mixin class $SessionUserInfoCopyWith<$Res> {
   ) = _$SessionUserInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'UserId') String userId,
+    @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'UserName') String? userName,
   });
 }
@@ -79,13 +79,13 @@ class _$SessionUserInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? userId = null, Object? userName = freezed}) {
+  $Res call({Object? userId = freezed, Object? userName = freezed}) {
     return _then(
       _self.copyWith(
-        userId: null == userId
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         userName: freezed == userName
             ? _self.userName
             : userName // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ extension SessionUserInfoPatterns on SessionUserInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserName') String? userName,
     )?
     $default, {
@@ -220,7 +220,7 @@ extension SessionUserInfoPatterns on SessionUserInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserName') String? userName,
     )
     $default,
@@ -249,7 +249,7 @@ extension SessionUserInfoPatterns on SessionUserInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserName') String? userName,
     )?
     $default,
@@ -268,7 +268,7 @@ extension SessionUserInfoPatterns on SessionUserInfo {
 @JsonSerializable()
 class _SessionUserInfo implements SessionUserInfo {
   const _SessionUserInfo({
-    @JsonKey(name: 'UserId') required this.userId,
+    @JsonKey(name: 'UserId') this.userId,
     @JsonKey(name: 'UserName') this.userName,
   });
   factory _SessionUserInfo.fromJson(Map<String, dynamic> json) =>
@@ -277,7 +277,7 @@ class _SessionUserInfo implements SessionUserInfo {
   /// Gets or sets the user identifier.
   @override
   @JsonKey(name: 'UserId')
-  final String userId;
+  final String? userId;
 
   /// Gets or sets the name of the user.
   @override
@@ -327,7 +327,7 @@ abstract mixin class _$SessionUserInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'UserId') String userId,
+    @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'UserName') String? userName,
   });
 }
@@ -344,13 +344,13 @@ class __$SessionUserInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? userId = null, Object? userName = freezed}) {
+  $Res call({Object? userId = freezed, Object? userName = freezed}) {
     return _then(
       _SessionUserInfo(
-        userId: null == userId
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         userName: freezed == userName
             ? _self.userName
             : userName // ignore: cast_nullable_to_non_nullable

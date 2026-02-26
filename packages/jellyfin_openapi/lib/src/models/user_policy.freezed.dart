@@ -13,100 +13,100 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserPolicy {
-  @JsonKey(name: 'EnablePlaybackRemuxing')
-  bool get enablePlaybackRemuxing;
+  @JsonKey(name: 'AuthenticationProviderId')
+  String get authenticationProviderId;
+  @JsonKey(name: 'PasswordResetProviderId')
+  String get passwordResetProviderId;
+  @JsonKey(name: 'EnableSharedDeviceControl')
+  bool? get enableSharedDeviceControl;
 
   /// Gets or sets a value indicating whether this instance is hidden.
   @JsonKey(name: 'IsHidden')
-  bool get isHidden;
-  @JsonKey(name: 'PasswordResetProviderId')
-  String get passwordResetProviderId;
-  @JsonKey(name: 'AuthenticationProviderId')
-  String get authenticationProviderId;
+  bool? get isHidden;
   @JsonKey(name: 'RemoteClientBitrateLimit')
-  int get remoteClientBitrateLimit;
+  int? get remoteClientBitrateLimit;
 
   /// Gets or sets a value indicating whether this instance is disabled.
   @JsonKey(name: 'IsDisabled')
-  bool get isDisabled;
-  @JsonKey(name: 'EnableSharedDeviceControl')
-  bool get enableSharedDeviceControl;
-  @JsonKey(name: 'EnableUserPreferenceAccess')
-  bool get enableUserPreferenceAccess;
-  @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-  bool get enableRemoteControlOfOtherUsers;
-
-  /// Gets or sets a value indicating whether this instance is administrator.
-  @JsonKey(name: 'IsAdministrator')
-  bool get isAdministrator;
-  @JsonKey(name: 'EnableRemoteAccess')
-  bool get enableRemoteAccess;
-  @JsonKey(name: 'EnableLiveTvManagement')
-  bool get enableLiveTvManagement;
-  @JsonKey(name: 'EnableLiveTvAccess')
-  bool get enableLiveTvAccess;
-  @JsonKey(name: 'EnableMediaPlayback')
-  bool get enableMediaPlayback;
-  @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-  bool get enableAudioPlaybackTranscoding;
-  @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-  bool get enableVideoPlaybackTranscoding;
-  @JsonKey(name: 'MaxActiveSessions')
-  int get maxActiveSessions;
-  @JsonKey(name: 'ForceRemoteSourceTranscoding')
-  bool get forceRemoteSourceTranscoding;
-  @JsonKey(name: 'EnableContentDeletion')
-  bool get enableContentDeletion;
-  @JsonKey(name: 'EnableContentDownloading')
-  bool get enableContentDownloading;
-
-  /// Gets or sets a value indicating whether [enable synchronize].
-  @JsonKey(name: 'EnableSyncTranscoding')
-  bool get enableSyncTranscoding;
-  @JsonKey(name: 'EnableMediaConversion')
-  bool get enableMediaConversion;
-
-  /// Gets or sets a value indicating what SyncPlay features the user can access.
-  @JsonKey(name: 'SyncPlayAccess')
-  UserPolicySyncPlayAccess get syncPlayAccess;
-  @JsonKey(name: 'LoginAttemptsBeforeLockout')
-  int get loginAttemptsBeforeLockout;
-  @JsonKey(name: 'EnableAllDevices')
-  bool get enableAllDevices;
-  @JsonKey(name: 'InvalidLoginAttemptCount')
-  int get invalidLoginAttemptCount;
-  @JsonKey(name: 'EnablePublicSharing')
-  bool get enablePublicSharing;
-  @JsonKey(name: 'EnableAllFolders')
-  bool get enableAllFolders;
-  @JsonKey(name: 'EnableAllChannels')
-  bool get enableAllChannels;
-  @JsonKey(name: 'EnableContentDeletionFromFolders')
-  List<String>? get enableContentDeletionFromFolders;
-  @JsonKey(name: 'EnabledChannels')
-  List<String>? get enabledChannels;
-  @JsonKey(name: 'BlockUnratedItems')
-  List<UnratedItem>? get blockUnratedItems;
-  @JsonKey(name: 'EnabledFolders')
-  List<String>? get enabledFolders;
-  @JsonKey(name: 'AccessSchedules')
-  List<AccessSchedule>? get accessSchedules;
-  @JsonKey(name: 'AllowedTags')
-  List<String>? get allowedTags;
-  @JsonKey(name: 'BlockedTags')
-  List<String>? get blockedTags;
-  @JsonKey(name: 'EnabledDevices')
-  List<String>? get enabledDevices;
+  bool? get isDisabled;
 
   /// Gets or sets the max parental rating.
   @JsonKey(name: 'MaxParentalRating')
   int? get maxParentalRating;
+  @JsonKey(name: 'MaxParentalSubRating')
+  int? get maxParentalSubRating;
+  @JsonKey(name: 'BlockedTags')
+  List<String>? get blockedTags;
+  @JsonKey(name: 'AllowedTags')
+  List<String>? get allowedTags;
+  @JsonKey(name: 'EnableUserPreferenceAccess')
+  bool? get enableUserPreferenceAccess;
+  @JsonKey(name: 'AccessSchedules')
+  List<AccessSchedule>? get accessSchedules;
+  @JsonKey(name: 'BlockUnratedItems')
+  List<UnratedItem>? get blockUnratedItems;
+  @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
+  bool? get enableRemoteControlOfOtherUsers;
+
+  /// Gets or sets a value indicating whether this instance is administrator.
+  @JsonKey(name: 'IsAdministrator')
+  bool? get isAdministrator;
+  @JsonKey(name: 'EnableRemoteAccess')
+  bool? get enableRemoteAccess;
+  @JsonKey(name: 'EnableLiveTvManagement')
+  bool? get enableLiveTvManagement;
+  @JsonKey(name: 'EnableLiveTvAccess')
+  bool? get enableLiveTvAccess;
+  @JsonKey(name: 'EnableMediaPlayback')
+  bool? get enableMediaPlayback;
+  @JsonKey(name: 'EnableAudioPlaybackTranscoding')
+  bool? get enableAudioPlaybackTranscoding;
+  @JsonKey(name: 'EnableVideoPlaybackTranscoding')
+  bool? get enableVideoPlaybackTranscoding;
+  @JsonKey(name: 'EnablePlaybackRemuxing')
+  bool? get enablePlaybackRemuxing;
+  @JsonKey(name: 'ForceRemoteSourceTranscoding')
+  bool? get forceRemoteSourceTranscoding;
+  @JsonKey(name: 'EnableContentDeletion')
+  bool? get enableContentDeletion;
+  @JsonKey(name: 'EnableContentDeletionFromFolders')
+  List<String>? get enableContentDeletionFromFolders;
+  @JsonKey(name: 'EnableContentDownloading')
+  bool? get enableContentDownloading;
+
+  /// Gets or sets a value indicating whether [enable synchronize].
+  @JsonKey(name: 'EnableSyncTranscoding')
+  bool? get enableSyncTranscoding;
+  @JsonKey(name: 'EnableMediaConversion')
+  bool? get enableMediaConversion;
+
+  /// Gets or sets a value indicating what SyncPlay features the user can access.
+  @JsonKey(name: 'SyncPlayAccess')
+  UserPolicySyncPlayAccess? get syncPlayAccess;
+  @JsonKey(name: 'EnableAllDevices')
+  bool? get enableAllDevices;
+  @JsonKey(name: 'EnabledChannels')
+  List<String>? get enabledChannels;
+  @JsonKey(name: 'EnableAllChannels')
+  bool? get enableAllChannels;
+  @JsonKey(name: 'EnabledFolders')
+  List<String>? get enabledFolders;
+  @JsonKey(name: 'EnableAllFolders')
+  bool? get enableAllFolders;
+  @JsonKey(name: 'InvalidLoginAttemptCount')
+  int? get invalidLoginAttemptCount;
+  @JsonKey(name: 'LoginAttemptsBeforeLockout')
+  int? get loginAttemptsBeforeLockout;
+  @JsonKey(name: 'MaxActiveSessions')
+  int? get maxActiveSessions;
+  @JsonKey(name: 'EnablePublicSharing')
+  bool? get enablePublicSharing;
   @JsonKey(name: 'BlockedMediaFolders')
   List<String>? get blockedMediaFolders;
   @JsonKey(name: 'BlockedChannels')
   List<String>? get blockedChannels;
-  @JsonKey(name: 'MaxParentalSubRating')
-  int? get maxParentalSubRating;
+  @JsonKey(name: 'EnabledDevices')
+  List<String>? get enabledDevices;
 
   /// Gets or sets a value indicating whether this instance can manage subtitles.
   @JsonKey(name: 'EnableSubtitleManagement')
@@ -135,20 +135,23 @@ mixin _$UserPolicy {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserPolicy &&
-            (identical(other.enablePlaybackRemuxing, enablePlaybackRemuxing) ||
-                other.enablePlaybackRemuxing == enablePlaybackRemuxing) &&
-            (identical(other.isHidden, isHidden) ||
-                other.isHidden == isHidden) &&
+            (identical(
+                  other.authenticationProviderId,
+                  authenticationProviderId,
+                ) ||
+                other.authenticationProviderId == authenticationProviderId) &&
             (identical(
                   other.passwordResetProviderId,
                   passwordResetProviderId,
                 ) ||
                 other.passwordResetProviderId == passwordResetProviderId) &&
             (identical(
-                  other.authenticationProviderId,
-                  authenticationProviderId,
+                  other.enableSharedDeviceControl,
+                  enableSharedDeviceControl,
                 ) ||
-                other.authenticationProviderId == authenticationProviderId) &&
+                other.enableSharedDeviceControl == enableSharedDeviceControl) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
             (identical(
                   other.remoteClientBitrateLimit,
                   remoteClientBitrateLimit,
@@ -156,17 +159,32 @@ mixin _$UserPolicy {
                 other.remoteClientBitrateLimit == remoteClientBitrateLimit) &&
             (identical(other.isDisabled, isDisabled) ||
                 other.isDisabled == isDisabled) &&
-            (identical(
-                  other.enableSharedDeviceControl,
-                  enableSharedDeviceControl,
-                ) ||
-                other.enableSharedDeviceControl == enableSharedDeviceControl) &&
+            (identical(other.maxParentalRating, maxParentalRating) ||
+                other.maxParentalRating == maxParentalRating) &&
+            (identical(other.maxParentalSubRating, maxParentalSubRating) ||
+                other.maxParentalSubRating == maxParentalSubRating) &&
+            const DeepCollectionEquality().equals(
+              other.blockedTags,
+              blockedTags,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other.allowedTags,
+              allowedTags,
+            ) &&
             (identical(
                   other.enableUserPreferenceAccess,
                   enableUserPreferenceAccess,
                 ) ||
                 other.enableUserPreferenceAccess ==
                     enableUserPreferenceAccess) &&
+            const DeepCollectionEquality().equals(
+              other.accessSchedules,
+              accessSchedules,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other.blockUnratedItems,
+              blockUnratedItems,
+            ) &&
             (identical(
                   other.enableRemoteControlOfOtherUsers,
                   enableRemoteControlOfOtherUsers,
@@ -195,8 +213,8 @@ mixin _$UserPolicy {
                 ) ||
                 other.enableVideoPlaybackTranscoding ==
                     enableVideoPlaybackTranscoding) &&
-            (identical(other.maxActiveSessions, maxActiveSessions) ||
-                other.maxActiveSessions == maxActiveSessions) &&
+            (identical(other.enablePlaybackRemuxing, enablePlaybackRemuxing) ||
+                other.enablePlaybackRemuxing == enablePlaybackRemuxing) &&
             (identical(
                   other.forceRemoteSourceTranscoding,
                   forceRemoteSourceTranscoding,
@@ -205,6 +223,10 @@ mixin _$UserPolicy {
                     forceRemoteSourceTranscoding) &&
             (identical(other.enableContentDeletion, enableContentDeletion) ||
                 other.enableContentDeletion == enableContentDeletion) &&
+            const DeepCollectionEquality().equals(
+              other.enableContentDeletionFromFolders,
+              enableContentDeletionFromFolders,
+            ) &&
             (identical(
                   other.enableContentDownloading,
                   enableContentDownloading,
@@ -216,59 +238,35 @@ mixin _$UserPolicy {
                 other.enableMediaConversion == enableMediaConversion) &&
             (identical(other.syncPlayAccess, syncPlayAccess) ||
                 other.syncPlayAccess == syncPlayAccess) &&
+            (identical(other.enableAllDevices, enableAllDevices) ||
+                other.enableAllDevices == enableAllDevices) &&
+            const DeepCollectionEquality().equals(
+              other.enabledChannels,
+              enabledChannels,
+            ) &&
+            (identical(other.enableAllChannels, enableAllChannels) ||
+                other.enableAllChannels == enableAllChannels) &&
+            const DeepCollectionEquality().equals(
+              other.enabledFolders,
+              enabledFolders,
+            ) &&
+            (identical(other.enableAllFolders, enableAllFolders) ||
+                other.enableAllFolders == enableAllFolders) &&
+            (identical(
+                  other.invalidLoginAttemptCount,
+                  invalidLoginAttemptCount,
+                ) ||
+                other.invalidLoginAttemptCount == invalidLoginAttemptCount) &&
             (identical(
                   other.loginAttemptsBeforeLockout,
                   loginAttemptsBeforeLockout,
                 ) ||
                 other.loginAttemptsBeforeLockout ==
                     loginAttemptsBeforeLockout) &&
-            (identical(other.enableAllDevices, enableAllDevices) ||
-                other.enableAllDevices == enableAllDevices) &&
-            (identical(
-                  other.invalidLoginAttemptCount,
-                  invalidLoginAttemptCount,
-                ) ||
-                other.invalidLoginAttemptCount == invalidLoginAttemptCount) &&
+            (identical(other.maxActiveSessions, maxActiveSessions) ||
+                other.maxActiveSessions == maxActiveSessions) &&
             (identical(other.enablePublicSharing, enablePublicSharing) ||
                 other.enablePublicSharing == enablePublicSharing) &&
-            (identical(other.enableAllFolders, enableAllFolders) ||
-                other.enableAllFolders == enableAllFolders) &&
-            (identical(other.enableAllChannels, enableAllChannels) ||
-                other.enableAllChannels == enableAllChannels) &&
-            const DeepCollectionEquality().equals(
-              other.enableContentDeletionFromFolders,
-              enableContentDeletionFromFolders,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.enabledChannels,
-              enabledChannels,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.blockUnratedItems,
-              blockUnratedItems,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.enabledFolders,
-              enabledFolders,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.accessSchedules,
-              accessSchedules,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.allowedTags,
-              allowedTags,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.blockedTags,
-              blockedTags,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other.enabledDevices,
-              enabledDevices,
-            ) &&
-            (identical(other.maxParentalRating, maxParentalRating) ||
-                other.maxParentalRating == maxParentalRating) &&
             const DeepCollectionEquality().equals(
               other.blockedMediaFolders,
               blockedMediaFolders,
@@ -277,8 +275,10 @@ mixin _$UserPolicy {
               other.blockedChannels,
               blockedChannels,
             ) &&
-            (identical(other.maxParentalSubRating, maxParentalSubRating) ||
-                other.maxParentalSubRating == maxParentalSubRating) &&
+            const DeepCollectionEquality().equals(
+              other.enabledDevices,
+              enabledDevices,
+            ) &&
             (identical(
                   other.enableSubtitleManagement,
                   enableSubtitleManagement,
@@ -298,14 +298,19 @@ mixin _$UserPolicy {
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    enablePlaybackRemuxing,
-    isHidden,
-    passwordResetProviderId,
     authenticationProviderId,
+    passwordResetProviderId,
+    enableSharedDeviceControl,
+    isHidden,
     remoteClientBitrateLimit,
     isDisabled,
-    enableSharedDeviceControl,
+    maxParentalRating,
+    maxParentalSubRating,
+    const DeepCollectionEquality().hash(blockedTags),
+    const DeepCollectionEquality().hash(allowedTags),
     enableUserPreferenceAccess,
+    const DeepCollectionEquality().hash(accessSchedules),
+    const DeepCollectionEquality().hash(blockUnratedItems),
     enableRemoteControlOfOtherUsers,
     isAdministrator,
     enableRemoteAccess,
@@ -314,31 +319,26 @@ mixin _$UserPolicy {
     enableMediaPlayback,
     enableAudioPlaybackTranscoding,
     enableVideoPlaybackTranscoding,
-    maxActiveSessions,
+    enablePlaybackRemuxing,
     forceRemoteSourceTranscoding,
     enableContentDeletion,
+    const DeepCollectionEquality().hash(enableContentDeletionFromFolders),
     enableContentDownloading,
     enableSyncTranscoding,
     enableMediaConversion,
     syncPlayAccess,
-    loginAttemptsBeforeLockout,
     enableAllDevices,
-    invalidLoginAttemptCount,
-    enablePublicSharing,
-    enableAllFolders,
-    enableAllChannels,
-    const DeepCollectionEquality().hash(enableContentDeletionFromFolders),
     const DeepCollectionEquality().hash(enabledChannels),
-    const DeepCollectionEquality().hash(blockUnratedItems),
+    enableAllChannels,
     const DeepCollectionEquality().hash(enabledFolders),
-    const DeepCollectionEquality().hash(accessSchedules),
-    const DeepCollectionEquality().hash(allowedTags),
-    const DeepCollectionEquality().hash(blockedTags),
-    const DeepCollectionEquality().hash(enabledDevices),
-    maxParentalRating,
+    enableAllFolders,
+    invalidLoginAttemptCount,
+    loginAttemptsBeforeLockout,
+    maxActiveSessions,
+    enablePublicSharing,
     const DeepCollectionEquality().hash(blockedMediaFolders),
     const DeepCollectionEquality().hash(blockedChannels),
-    maxParentalSubRating,
+    const DeepCollectionEquality().hash(enabledDevices),
     enableSubtitleManagement,
     enableCollectionManagement,
     enableLyricManagement,
@@ -346,7 +346,7 @@ mixin _$UserPolicy {
 
   @override
   String toString() {
-    return 'UserPolicy(enablePlaybackRemuxing: $enablePlaybackRemuxing, isHidden: $isHidden, passwordResetProviderId: $passwordResetProviderId, authenticationProviderId: $authenticationProviderId, remoteClientBitrateLimit: $remoteClientBitrateLimit, isDisabled: $isDisabled, enableSharedDeviceControl: $enableSharedDeviceControl, enableUserPreferenceAccess: $enableUserPreferenceAccess, enableRemoteControlOfOtherUsers: $enableRemoteControlOfOtherUsers, isAdministrator: $isAdministrator, enableRemoteAccess: $enableRemoteAccess, enableLiveTvManagement: $enableLiveTvManagement, enableLiveTvAccess: $enableLiveTvAccess, enableMediaPlayback: $enableMediaPlayback, enableAudioPlaybackTranscoding: $enableAudioPlaybackTranscoding, enableVideoPlaybackTranscoding: $enableVideoPlaybackTranscoding, maxActiveSessions: $maxActiveSessions, forceRemoteSourceTranscoding: $forceRemoteSourceTranscoding, enableContentDeletion: $enableContentDeletion, enableContentDownloading: $enableContentDownloading, enableSyncTranscoding: $enableSyncTranscoding, enableMediaConversion: $enableMediaConversion, syncPlayAccess: $syncPlayAccess, loginAttemptsBeforeLockout: $loginAttemptsBeforeLockout, enableAllDevices: $enableAllDevices, invalidLoginAttemptCount: $invalidLoginAttemptCount, enablePublicSharing: $enablePublicSharing, enableAllFolders: $enableAllFolders, enableAllChannels: $enableAllChannels, enableContentDeletionFromFolders: $enableContentDeletionFromFolders, enabledChannels: $enabledChannels, blockUnratedItems: $blockUnratedItems, enabledFolders: $enabledFolders, accessSchedules: $accessSchedules, allowedTags: $allowedTags, blockedTags: $blockedTags, enabledDevices: $enabledDevices, maxParentalRating: $maxParentalRating, blockedMediaFolders: $blockedMediaFolders, blockedChannels: $blockedChannels, maxParentalSubRating: $maxParentalSubRating, enableSubtitleManagement: $enableSubtitleManagement, enableCollectionManagement: $enableCollectionManagement, enableLyricManagement: $enableLyricManagement)';
+    return 'UserPolicy(authenticationProviderId: $authenticationProviderId, passwordResetProviderId: $passwordResetProviderId, enableSharedDeviceControl: $enableSharedDeviceControl, isHidden: $isHidden, remoteClientBitrateLimit: $remoteClientBitrateLimit, isDisabled: $isDisabled, maxParentalRating: $maxParentalRating, maxParentalSubRating: $maxParentalSubRating, blockedTags: $blockedTags, allowedTags: $allowedTags, enableUserPreferenceAccess: $enableUserPreferenceAccess, accessSchedules: $accessSchedules, blockUnratedItems: $blockUnratedItems, enableRemoteControlOfOtherUsers: $enableRemoteControlOfOtherUsers, isAdministrator: $isAdministrator, enableRemoteAccess: $enableRemoteAccess, enableLiveTvManagement: $enableLiveTvManagement, enableLiveTvAccess: $enableLiveTvAccess, enableMediaPlayback: $enableMediaPlayback, enableAudioPlaybackTranscoding: $enableAudioPlaybackTranscoding, enableVideoPlaybackTranscoding: $enableVideoPlaybackTranscoding, enablePlaybackRemuxing: $enablePlaybackRemuxing, forceRemoteSourceTranscoding: $forceRemoteSourceTranscoding, enableContentDeletion: $enableContentDeletion, enableContentDeletionFromFolders: $enableContentDeletionFromFolders, enableContentDownloading: $enableContentDownloading, enableSyncTranscoding: $enableSyncTranscoding, enableMediaConversion: $enableMediaConversion, syncPlayAccess: $syncPlayAccess, enableAllDevices: $enableAllDevices, enabledChannels: $enabledChannels, enableAllChannels: $enableAllChannels, enabledFolders: $enabledFolders, enableAllFolders: $enableAllFolders, invalidLoginAttemptCount: $invalidLoginAttemptCount, loginAttemptsBeforeLockout: $loginAttemptsBeforeLockout, maxActiveSessions: $maxActiveSessions, enablePublicSharing: $enablePublicSharing, blockedMediaFolders: $blockedMediaFolders, blockedChannels: $blockedChannels, enabledDevices: $enabledDevices, enableSubtitleManagement: $enableSubtitleManagement, enableCollectionManagement: $enableCollectionManagement, enableLyricManagement: $enableLyricManagement)';
   }
 }
 
@@ -358,53 +358,54 @@ abstract mixin class $UserPolicyCopyWith<$Res> {
   ) = _$UserPolicyCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'EnablePlaybackRemuxing') bool enablePlaybackRemuxing,
-    @JsonKey(name: 'IsHidden') bool isHidden,
-    @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
     @JsonKey(name: 'AuthenticationProviderId') String authenticationProviderId,
-    @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-    @JsonKey(name: 'IsDisabled') bool isDisabled,
-    @JsonKey(name: 'EnableSharedDeviceControl') bool enableSharedDeviceControl,
+    @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
+    @JsonKey(name: 'EnableSharedDeviceControl') bool? enableSharedDeviceControl,
+    @JsonKey(name: 'IsHidden') bool? isHidden,
+    @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+    @JsonKey(name: 'IsDisabled') bool? isDisabled,
+    @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+    @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+    @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
+    @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
     @JsonKey(name: 'EnableUserPreferenceAccess')
-    bool enableUserPreferenceAccess,
+    bool? enableUserPreferenceAccess,
+    @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
+    @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
     @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-    bool enableRemoteControlOfOtherUsers,
-    @JsonKey(name: 'IsAdministrator') bool isAdministrator,
-    @JsonKey(name: 'EnableRemoteAccess') bool enableRemoteAccess,
-    @JsonKey(name: 'EnableLiveTvManagement') bool enableLiveTvManagement,
-    @JsonKey(name: 'EnableLiveTvAccess') bool enableLiveTvAccess,
-    @JsonKey(name: 'EnableMediaPlayback') bool enableMediaPlayback,
+    bool? enableRemoteControlOfOtherUsers,
+    @JsonKey(name: 'IsAdministrator') bool? isAdministrator,
+    @JsonKey(name: 'EnableRemoteAccess') bool? enableRemoteAccess,
+    @JsonKey(name: 'EnableLiveTvManagement') bool? enableLiveTvManagement,
+    @JsonKey(name: 'EnableLiveTvAccess') bool? enableLiveTvAccess,
+    @JsonKey(name: 'EnableMediaPlayback') bool? enableMediaPlayback,
     @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-    bool enableAudioPlaybackTranscoding,
+    bool? enableAudioPlaybackTranscoding,
     @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-    bool enableVideoPlaybackTranscoding,
-    @JsonKey(name: 'MaxActiveSessions') int maxActiveSessions,
+    bool? enableVideoPlaybackTranscoding,
+    @JsonKey(name: 'EnablePlaybackRemuxing') bool? enablePlaybackRemuxing,
     @JsonKey(name: 'ForceRemoteSourceTranscoding')
-    bool forceRemoteSourceTranscoding,
-    @JsonKey(name: 'EnableContentDeletion') bool enableContentDeletion,
-    @JsonKey(name: 'EnableContentDownloading') bool enableContentDownloading,
-    @JsonKey(name: 'EnableSyncTranscoding') bool enableSyncTranscoding,
-    @JsonKey(name: 'EnableMediaConversion') bool enableMediaConversion,
-    @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess syncPlayAccess,
-    @JsonKey(name: 'LoginAttemptsBeforeLockout') int loginAttemptsBeforeLockout,
-    @JsonKey(name: 'EnableAllDevices') bool enableAllDevices,
-    @JsonKey(name: 'InvalidLoginAttemptCount') int invalidLoginAttemptCount,
-    @JsonKey(name: 'EnablePublicSharing') bool enablePublicSharing,
-    @JsonKey(name: 'EnableAllFolders') bool enableAllFolders,
-    @JsonKey(name: 'EnableAllChannels') bool enableAllChannels,
+    bool? forceRemoteSourceTranscoding,
+    @JsonKey(name: 'EnableContentDeletion') bool? enableContentDeletion,
     @JsonKey(name: 'EnableContentDeletionFromFolders')
     List<String>? enableContentDeletionFromFolders,
+    @JsonKey(name: 'EnableContentDownloading') bool? enableContentDownloading,
+    @JsonKey(name: 'EnableSyncTranscoding') bool? enableSyncTranscoding,
+    @JsonKey(name: 'EnableMediaConversion') bool? enableMediaConversion,
+    @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess? syncPlayAccess,
+    @JsonKey(name: 'EnableAllDevices') bool? enableAllDevices,
     @JsonKey(name: 'EnabledChannels') List<String>? enabledChannels,
-    @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
+    @JsonKey(name: 'EnableAllChannels') bool? enableAllChannels,
     @JsonKey(name: 'EnabledFolders') List<String>? enabledFolders,
-    @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
-    @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
-    @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
-    @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
-    @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+    @JsonKey(name: 'EnableAllFolders') bool? enableAllFolders,
+    @JsonKey(name: 'InvalidLoginAttemptCount') int? invalidLoginAttemptCount,
+    @JsonKey(name: 'LoginAttemptsBeforeLockout')
+    int? loginAttemptsBeforeLockout,
+    @JsonKey(name: 'MaxActiveSessions') int? maxActiveSessions,
+    @JsonKey(name: 'EnablePublicSharing') bool? enablePublicSharing,
     @JsonKey(name: 'BlockedMediaFolders') List<String>? blockedMediaFolders,
     @JsonKey(name: 'BlockedChannels') List<String>? blockedChannels,
-    @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+    @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
     @JsonKey(name: 'EnableSubtitleManagement') bool enableSubtitleManagement,
     @JsonKey(name: 'EnableCollectionManagement')
     bool enableCollectionManagement,
@@ -424,206 +425,209 @@ class _$UserPolicyCopyWithImpl<$Res> implements $UserPolicyCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enablePlaybackRemuxing = null,
-    Object? isHidden = null,
-    Object? passwordResetProviderId = null,
     Object? authenticationProviderId = null,
-    Object? remoteClientBitrateLimit = null,
-    Object? isDisabled = null,
-    Object? enableSharedDeviceControl = null,
-    Object? enableUserPreferenceAccess = null,
-    Object? enableRemoteControlOfOtherUsers = null,
-    Object? isAdministrator = null,
-    Object? enableRemoteAccess = null,
-    Object? enableLiveTvManagement = null,
-    Object? enableLiveTvAccess = null,
-    Object? enableMediaPlayback = null,
-    Object? enableAudioPlaybackTranscoding = null,
-    Object? enableVideoPlaybackTranscoding = null,
-    Object? maxActiveSessions = null,
-    Object? forceRemoteSourceTranscoding = null,
-    Object? enableContentDeletion = null,
-    Object? enableContentDownloading = null,
-    Object? enableSyncTranscoding = null,
-    Object? enableMediaConversion = null,
-    Object? syncPlayAccess = null,
-    Object? loginAttemptsBeforeLockout = null,
-    Object? enableAllDevices = null,
-    Object? invalidLoginAttemptCount = null,
-    Object? enablePublicSharing = null,
-    Object? enableAllFolders = null,
-    Object? enableAllChannels = null,
-    Object? enableContentDeletionFromFolders = freezed,
-    Object? enabledChannels = freezed,
-    Object? blockUnratedItems = freezed,
-    Object? enabledFolders = freezed,
-    Object? accessSchedules = freezed,
-    Object? allowedTags = freezed,
-    Object? blockedTags = freezed,
-    Object? enabledDevices = freezed,
+    Object? passwordResetProviderId = null,
+    Object? enableSharedDeviceControl = freezed,
+    Object? isHidden = freezed,
+    Object? remoteClientBitrateLimit = freezed,
+    Object? isDisabled = freezed,
     Object? maxParentalRating = freezed,
+    Object? maxParentalSubRating = freezed,
+    Object? blockedTags = freezed,
+    Object? allowedTags = freezed,
+    Object? enableUserPreferenceAccess = freezed,
+    Object? accessSchedules = freezed,
+    Object? blockUnratedItems = freezed,
+    Object? enableRemoteControlOfOtherUsers = freezed,
+    Object? isAdministrator = freezed,
+    Object? enableRemoteAccess = freezed,
+    Object? enableLiveTvManagement = freezed,
+    Object? enableLiveTvAccess = freezed,
+    Object? enableMediaPlayback = freezed,
+    Object? enableAudioPlaybackTranscoding = freezed,
+    Object? enableVideoPlaybackTranscoding = freezed,
+    Object? enablePlaybackRemuxing = freezed,
+    Object? forceRemoteSourceTranscoding = freezed,
+    Object? enableContentDeletion = freezed,
+    Object? enableContentDeletionFromFolders = freezed,
+    Object? enableContentDownloading = freezed,
+    Object? enableSyncTranscoding = freezed,
+    Object? enableMediaConversion = freezed,
+    Object? syncPlayAccess = freezed,
+    Object? enableAllDevices = freezed,
+    Object? enabledChannels = freezed,
+    Object? enableAllChannels = freezed,
+    Object? enabledFolders = freezed,
+    Object? enableAllFolders = freezed,
+    Object? invalidLoginAttemptCount = freezed,
+    Object? loginAttemptsBeforeLockout = freezed,
+    Object? maxActiveSessions = freezed,
+    Object? enablePublicSharing = freezed,
     Object? blockedMediaFolders = freezed,
     Object? blockedChannels = freezed,
-    Object? maxParentalSubRating = freezed,
+    Object? enabledDevices = freezed,
     Object? enableSubtitleManagement = null,
     Object? enableCollectionManagement = null,
     Object? enableLyricManagement = null,
   }) {
     return _then(
       _self.copyWith(
-        enablePlaybackRemuxing: null == enablePlaybackRemuxing
-            ? _self.enablePlaybackRemuxing
-            : enablePlaybackRemuxing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isHidden: null == isHidden
-            ? _self.isHidden
-            : isHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        passwordResetProviderId: null == passwordResetProviderId
-            ? _self.passwordResetProviderId
-            : passwordResetProviderId // ignore: cast_nullable_to_non_nullable
-                  as String,
         authenticationProviderId: null == authenticationProviderId
             ? _self.authenticationProviderId
             : authenticationProviderId // ignore: cast_nullable_to_non_nullable
                   as String,
-        remoteClientBitrateLimit: null == remoteClientBitrateLimit
-            ? _self.remoteClientBitrateLimit
-            : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isDisabled: null == isDisabled
-            ? _self.isDisabled
-            : isDisabled // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableSharedDeviceControl: null == enableSharedDeviceControl
+        passwordResetProviderId: null == passwordResetProviderId
+            ? _self.passwordResetProviderId
+            : passwordResetProviderId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        enableSharedDeviceControl: freezed == enableSharedDeviceControl
             ? _self.enableSharedDeviceControl
             : enableSharedDeviceControl // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableUserPreferenceAccess: null == enableUserPreferenceAccess
+                  as bool?,
+        isHidden: freezed == isHidden
+            ? _self.isHidden
+            : isHidden // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        remoteClientBitrateLimit: freezed == remoteClientBitrateLimit
+            ? _self.remoteClientBitrateLimit
+            : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        isDisabled: freezed == isDisabled
+            ? _self.isDisabled
+            : isDisabled // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        maxParentalRating: freezed == maxParentalRating
+            ? _self.maxParentalRating
+            : maxParentalRating // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxParentalSubRating: freezed == maxParentalSubRating
+            ? _self.maxParentalSubRating
+            : maxParentalSubRating // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        blockedTags: freezed == blockedTags
+            ? _self.blockedTags
+            : blockedTags // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        allowedTags: freezed == allowedTags
+            ? _self.allowedTags
+            : allowedTags // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        enableUserPreferenceAccess: freezed == enableUserPreferenceAccess
             ? _self.enableUserPreferenceAccess
             : enableUserPreferenceAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRemoteControlOfOtherUsers: null == enableRemoteControlOfOtherUsers
+                  as bool?,
+        accessSchedules: freezed == accessSchedules
+            ? _self.accessSchedules
+            : accessSchedules // ignore: cast_nullable_to_non_nullable
+                  as List<AccessSchedule>?,
+        blockUnratedItems: freezed == blockUnratedItems
+            ? _self.blockUnratedItems
+            : blockUnratedItems // ignore: cast_nullable_to_non_nullable
+                  as List<UnratedItem>?,
+        enableRemoteControlOfOtherUsers:
+            freezed == enableRemoteControlOfOtherUsers
             ? _self.enableRemoteControlOfOtherUsers
             : enableRemoteControlOfOtherUsers // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isAdministrator: null == isAdministrator
+                  as bool?,
+        isAdministrator: freezed == isAdministrator
             ? _self.isAdministrator
             : isAdministrator // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRemoteAccess: null == enableRemoteAccess
+                  as bool?,
+        enableRemoteAccess: freezed == enableRemoteAccess
             ? _self.enableRemoteAccess
             : enableRemoteAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLiveTvManagement: null == enableLiveTvManagement
+                  as bool?,
+        enableLiveTvManagement: freezed == enableLiveTvManagement
             ? _self.enableLiveTvManagement
             : enableLiveTvManagement // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLiveTvAccess: null == enableLiveTvAccess
+                  as bool?,
+        enableLiveTvAccess: freezed == enableLiveTvAccess
             ? _self.enableLiveTvAccess
             : enableLiveTvAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableMediaPlayback: null == enableMediaPlayback
+                  as bool?,
+        enableMediaPlayback: freezed == enableMediaPlayback
             ? _self.enableMediaPlayback
             : enableMediaPlayback // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAudioPlaybackTranscoding: null == enableAudioPlaybackTranscoding
+                  as bool?,
+        enableAudioPlaybackTranscoding:
+            freezed == enableAudioPlaybackTranscoding
             ? _self.enableAudioPlaybackTranscoding
             : enableAudioPlaybackTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableVideoPlaybackTranscoding: null == enableVideoPlaybackTranscoding
+                  as bool?,
+        enableVideoPlaybackTranscoding:
+            freezed == enableVideoPlaybackTranscoding
             ? _self.enableVideoPlaybackTranscoding
             : enableVideoPlaybackTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        maxActiveSessions: null == maxActiveSessions
-            ? _self.maxActiveSessions
-            : maxActiveSessions // ignore: cast_nullable_to_non_nullable
-                  as int,
-        forceRemoteSourceTranscoding: null == forceRemoteSourceTranscoding
+                  as bool?,
+        enablePlaybackRemuxing: freezed == enablePlaybackRemuxing
+            ? _self.enablePlaybackRemuxing
+            : enablePlaybackRemuxing // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        forceRemoteSourceTranscoding: freezed == forceRemoteSourceTranscoding
             ? _self.forceRemoteSourceTranscoding
             : forceRemoteSourceTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableContentDeletion: null == enableContentDeletion
+                  as bool?,
+        enableContentDeletion: freezed == enableContentDeletion
             ? _self.enableContentDeletion
             : enableContentDeletion // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableContentDownloading: null == enableContentDownloading
-            ? _self.enableContentDownloading
-            : enableContentDownloading // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableSyncTranscoding: null == enableSyncTranscoding
-            ? _self.enableSyncTranscoding
-            : enableSyncTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableMediaConversion: null == enableMediaConversion
-            ? _self.enableMediaConversion
-            : enableMediaConversion // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        syncPlayAccess: null == syncPlayAccess
-            ? _self.syncPlayAccess
-            : syncPlayAccess // ignore: cast_nullable_to_non_nullable
-                  as UserPolicySyncPlayAccess,
-        loginAttemptsBeforeLockout: null == loginAttemptsBeforeLockout
-            ? _self.loginAttemptsBeforeLockout
-            : loginAttemptsBeforeLockout // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enableAllDevices: null == enableAllDevices
-            ? _self.enableAllDevices
-            : enableAllDevices // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        invalidLoginAttemptCount: null == invalidLoginAttemptCount
-            ? _self.invalidLoginAttemptCount
-            : invalidLoginAttemptCount // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enablePublicSharing: null == enablePublicSharing
-            ? _self.enablePublicSharing
-            : enablePublicSharing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAllFolders: null == enableAllFolders
-            ? _self.enableAllFolders
-            : enableAllFolders // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAllChannels: null == enableAllChannels
-            ? _self.enableAllChannels
-            : enableAllChannels // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         enableContentDeletionFromFolders:
             freezed == enableContentDeletionFromFolders
             ? _self.enableContentDeletionFromFolders
             : enableContentDeletionFromFolders // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
+        enableContentDownloading: freezed == enableContentDownloading
+            ? _self.enableContentDownloading
+            : enableContentDownloading // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        enableSyncTranscoding: freezed == enableSyncTranscoding
+            ? _self.enableSyncTranscoding
+            : enableSyncTranscoding // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        enableMediaConversion: freezed == enableMediaConversion
+            ? _self.enableMediaConversion
+            : enableMediaConversion // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        syncPlayAccess: freezed == syncPlayAccess
+            ? _self.syncPlayAccess
+            : syncPlayAccess // ignore: cast_nullable_to_non_nullable
+                  as UserPolicySyncPlayAccess?,
+        enableAllDevices: freezed == enableAllDevices
+            ? _self.enableAllDevices
+            : enableAllDevices // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         enabledChannels: freezed == enabledChannels
             ? _self.enabledChannels
             : enabledChannels // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        blockUnratedItems: freezed == blockUnratedItems
-            ? _self.blockUnratedItems
-            : blockUnratedItems // ignore: cast_nullable_to_non_nullable
-                  as List<UnratedItem>?,
+        enableAllChannels: freezed == enableAllChannels
+            ? _self.enableAllChannels
+            : enableAllChannels // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         enabledFolders: freezed == enabledFolders
             ? _self.enabledFolders
             : enabledFolders // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        accessSchedules: freezed == accessSchedules
-            ? _self.accessSchedules
-            : accessSchedules // ignore: cast_nullable_to_non_nullable
-                  as List<AccessSchedule>?,
-        allowedTags: freezed == allowedTags
-            ? _self.allowedTags
-            : allowedTags // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        blockedTags: freezed == blockedTags
-            ? _self.blockedTags
-            : blockedTags // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        enabledDevices: freezed == enabledDevices
-            ? _self.enabledDevices
-            : enabledDevices // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        maxParentalRating: freezed == maxParentalRating
-            ? _self.maxParentalRating
-            : maxParentalRating // ignore: cast_nullable_to_non_nullable
+        enableAllFolders: freezed == enableAllFolders
+            ? _self.enableAllFolders
+            : enableAllFolders // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        invalidLoginAttemptCount: freezed == invalidLoginAttemptCount
+            ? _self.invalidLoginAttemptCount
+            : invalidLoginAttemptCount // ignore: cast_nullable_to_non_nullable
                   as int?,
+        loginAttemptsBeforeLockout: freezed == loginAttemptsBeforeLockout
+            ? _self.loginAttemptsBeforeLockout
+            : loginAttemptsBeforeLockout // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxActiveSessions: freezed == maxActiveSessions
+            ? _self.maxActiveSessions
+            : maxActiveSessions // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        enablePublicSharing: freezed == enablePublicSharing
+            ? _self.enablePublicSharing
+            : enablePublicSharing // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         blockedMediaFolders: freezed == blockedMediaFolders
             ? _self.blockedMediaFolders
             : blockedMediaFolders // ignore: cast_nullable_to_non_nullable
@@ -632,10 +636,10 @@ class _$UserPolicyCopyWithImpl<$Res> implements $UserPolicyCopyWith<$Res> {
             ? _self.blockedChannels
             : blockedChannels // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        maxParentalSubRating: freezed == maxParentalSubRating
-            ? _self.maxParentalSubRating
-            : maxParentalSubRating // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        enabledDevices: freezed == enabledDevices
+            ? _self.enabledDevices
+            : enabledDevices // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
         enableSubtitleManagement: null == enableSubtitleManagement
             ? _self.enableSubtitleManagement
             : enableSubtitleManagement // ignore: cast_nullable_to_non_nullable
@@ -747,56 +751,56 @@ extension UserPolicyPatterns on UserPolicy {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'EnablePlaybackRemuxing') bool enablePlaybackRemuxing,
-      @JsonKey(name: 'IsHidden') bool isHidden,
-      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'AuthenticationProviderId')
       String authenticationProviderId,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'IsDisabled') bool isDisabled,
+      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'EnableSharedDeviceControl')
-      bool enableSharedDeviceControl,
+      bool? enableSharedDeviceControl,
+      @JsonKey(name: 'IsHidden') bool? isHidden,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'IsDisabled') bool? isDisabled,
+      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
+      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
       @JsonKey(name: 'EnableUserPreferenceAccess')
-      bool enableUserPreferenceAccess,
+      bool? enableUserPreferenceAccess,
+      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
+      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
       @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-      bool enableRemoteControlOfOtherUsers,
-      @JsonKey(name: 'IsAdministrator') bool isAdministrator,
-      @JsonKey(name: 'EnableRemoteAccess') bool enableRemoteAccess,
-      @JsonKey(name: 'EnableLiveTvManagement') bool enableLiveTvManagement,
-      @JsonKey(name: 'EnableLiveTvAccess') bool enableLiveTvAccess,
-      @JsonKey(name: 'EnableMediaPlayback') bool enableMediaPlayback,
+      bool? enableRemoteControlOfOtherUsers,
+      @JsonKey(name: 'IsAdministrator') bool? isAdministrator,
+      @JsonKey(name: 'EnableRemoteAccess') bool? enableRemoteAccess,
+      @JsonKey(name: 'EnableLiveTvManagement') bool? enableLiveTvManagement,
+      @JsonKey(name: 'EnableLiveTvAccess') bool? enableLiveTvAccess,
+      @JsonKey(name: 'EnableMediaPlayback') bool? enableMediaPlayback,
       @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-      bool enableAudioPlaybackTranscoding,
+      bool? enableAudioPlaybackTranscoding,
       @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-      bool enableVideoPlaybackTranscoding,
-      @JsonKey(name: 'MaxActiveSessions') int maxActiveSessions,
+      bool? enableVideoPlaybackTranscoding,
+      @JsonKey(name: 'EnablePlaybackRemuxing') bool? enablePlaybackRemuxing,
       @JsonKey(name: 'ForceRemoteSourceTranscoding')
-      bool forceRemoteSourceTranscoding,
-      @JsonKey(name: 'EnableContentDeletion') bool enableContentDeletion,
-      @JsonKey(name: 'EnableContentDownloading') bool enableContentDownloading,
-      @JsonKey(name: 'EnableSyncTranscoding') bool enableSyncTranscoding,
-      @JsonKey(name: 'EnableMediaConversion') bool enableMediaConversion,
-      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess syncPlayAccess,
-      @JsonKey(name: 'LoginAttemptsBeforeLockout')
-      int loginAttemptsBeforeLockout,
-      @JsonKey(name: 'EnableAllDevices') bool enableAllDevices,
-      @JsonKey(name: 'InvalidLoginAttemptCount') int invalidLoginAttemptCount,
-      @JsonKey(name: 'EnablePublicSharing') bool enablePublicSharing,
-      @JsonKey(name: 'EnableAllFolders') bool enableAllFolders,
-      @JsonKey(name: 'EnableAllChannels') bool enableAllChannels,
+      bool? forceRemoteSourceTranscoding,
+      @JsonKey(name: 'EnableContentDeletion') bool? enableContentDeletion,
       @JsonKey(name: 'EnableContentDeletionFromFolders')
       List<String>? enableContentDeletionFromFolders,
+      @JsonKey(name: 'EnableContentDownloading') bool? enableContentDownloading,
+      @JsonKey(name: 'EnableSyncTranscoding') bool? enableSyncTranscoding,
+      @JsonKey(name: 'EnableMediaConversion') bool? enableMediaConversion,
+      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess? syncPlayAccess,
+      @JsonKey(name: 'EnableAllDevices') bool? enableAllDevices,
       @JsonKey(name: 'EnabledChannels') List<String>? enabledChannels,
-      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
+      @JsonKey(name: 'EnableAllChannels') bool? enableAllChannels,
       @JsonKey(name: 'EnabledFolders') List<String>? enabledFolders,
-      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
-      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
-      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
-      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
-      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'EnableAllFolders') bool? enableAllFolders,
+      @JsonKey(name: 'InvalidLoginAttemptCount') int? invalidLoginAttemptCount,
+      @JsonKey(name: 'LoginAttemptsBeforeLockout')
+      int? loginAttemptsBeforeLockout,
+      @JsonKey(name: 'MaxActiveSessions') int? maxActiveSessions,
+      @JsonKey(name: 'EnablePublicSharing') bool? enablePublicSharing,
       @JsonKey(name: 'BlockedMediaFolders') List<String>? blockedMediaFolders,
       @JsonKey(name: 'BlockedChannels') List<String>? blockedChannels,
-      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
       @JsonKey(name: 'EnableSubtitleManagement') bool enableSubtitleManagement,
       @JsonKey(name: 'EnableCollectionManagement')
       bool enableCollectionManagement,
@@ -809,14 +813,19 @@ extension UserPolicyPatterns on UserPolicy {
     switch (_that) {
       case _UserPolicy() when $default != null:
         return $default(
-          _that.enablePlaybackRemuxing,
-          _that.isHidden,
-          _that.passwordResetProviderId,
           _that.authenticationProviderId,
+          _that.passwordResetProviderId,
+          _that.enableSharedDeviceControl,
+          _that.isHidden,
           _that.remoteClientBitrateLimit,
           _that.isDisabled,
-          _that.enableSharedDeviceControl,
+          _that.maxParentalRating,
+          _that.maxParentalSubRating,
+          _that.blockedTags,
+          _that.allowedTags,
           _that.enableUserPreferenceAccess,
+          _that.accessSchedules,
+          _that.blockUnratedItems,
           _that.enableRemoteControlOfOtherUsers,
           _that.isAdministrator,
           _that.enableRemoteAccess,
@@ -825,31 +834,26 @@ extension UserPolicyPatterns on UserPolicy {
           _that.enableMediaPlayback,
           _that.enableAudioPlaybackTranscoding,
           _that.enableVideoPlaybackTranscoding,
-          _that.maxActiveSessions,
+          _that.enablePlaybackRemuxing,
           _that.forceRemoteSourceTranscoding,
           _that.enableContentDeletion,
+          _that.enableContentDeletionFromFolders,
           _that.enableContentDownloading,
           _that.enableSyncTranscoding,
           _that.enableMediaConversion,
           _that.syncPlayAccess,
-          _that.loginAttemptsBeforeLockout,
           _that.enableAllDevices,
-          _that.invalidLoginAttemptCount,
-          _that.enablePublicSharing,
-          _that.enableAllFolders,
-          _that.enableAllChannels,
-          _that.enableContentDeletionFromFolders,
           _that.enabledChannels,
-          _that.blockUnratedItems,
+          _that.enableAllChannels,
           _that.enabledFolders,
-          _that.accessSchedules,
-          _that.allowedTags,
-          _that.blockedTags,
-          _that.enabledDevices,
-          _that.maxParentalRating,
+          _that.enableAllFolders,
+          _that.invalidLoginAttemptCount,
+          _that.loginAttemptsBeforeLockout,
+          _that.maxActiveSessions,
+          _that.enablePublicSharing,
           _that.blockedMediaFolders,
           _that.blockedChannels,
-          _that.maxParentalSubRating,
+          _that.enabledDevices,
           _that.enableSubtitleManagement,
           _that.enableCollectionManagement,
           _that.enableLyricManagement,
@@ -875,56 +879,56 @@ extension UserPolicyPatterns on UserPolicy {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'EnablePlaybackRemuxing') bool enablePlaybackRemuxing,
-      @JsonKey(name: 'IsHidden') bool isHidden,
-      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'AuthenticationProviderId')
       String authenticationProviderId,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'IsDisabled') bool isDisabled,
+      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'EnableSharedDeviceControl')
-      bool enableSharedDeviceControl,
+      bool? enableSharedDeviceControl,
+      @JsonKey(name: 'IsHidden') bool? isHidden,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'IsDisabled') bool? isDisabled,
+      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
+      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
       @JsonKey(name: 'EnableUserPreferenceAccess')
-      bool enableUserPreferenceAccess,
+      bool? enableUserPreferenceAccess,
+      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
+      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
       @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-      bool enableRemoteControlOfOtherUsers,
-      @JsonKey(name: 'IsAdministrator') bool isAdministrator,
-      @JsonKey(name: 'EnableRemoteAccess') bool enableRemoteAccess,
-      @JsonKey(name: 'EnableLiveTvManagement') bool enableLiveTvManagement,
-      @JsonKey(name: 'EnableLiveTvAccess') bool enableLiveTvAccess,
-      @JsonKey(name: 'EnableMediaPlayback') bool enableMediaPlayback,
+      bool? enableRemoteControlOfOtherUsers,
+      @JsonKey(name: 'IsAdministrator') bool? isAdministrator,
+      @JsonKey(name: 'EnableRemoteAccess') bool? enableRemoteAccess,
+      @JsonKey(name: 'EnableLiveTvManagement') bool? enableLiveTvManagement,
+      @JsonKey(name: 'EnableLiveTvAccess') bool? enableLiveTvAccess,
+      @JsonKey(name: 'EnableMediaPlayback') bool? enableMediaPlayback,
       @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-      bool enableAudioPlaybackTranscoding,
+      bool? enableAudioPlaybackTranscoding,
       @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-      bool enableVideoPlaybackTranscoding,
-      @JsonKey(name: 'MaxActiveSessions') int maxActiveSessions,
+      bool? enableVideoPlaybackTranscoding,
+      @JsonKey(name: 'EnablePlaybackRemuxing') bool? enablePlaybackRemuxing,
       @JsonKey(name: 'ForceRemoteSourceTranscoding')
-      bool forceRemoteSourceTranscoding,
-      @JsonKey(name: 'EnableContentDeletion') bool enableContentDeletion,
-      @JsonKey(name: 'EnableContentDownloading') bool enableContentDownloading,
-      @JsonKey(name: 'EnableSyncTranscoding') bool enableSyncTranscoding,
-      @JsonKey(name: 'EnableMediaConversion') bool enableMediaConversion,
-      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess syncPlayAccess,
-      @JsonKey(name: 'LoginAttemptsBeforeLockout')
-      int loginAttemptsBeforeLockout,
-      @JsonKey(name: 'EnableAllDevices') bool enableAllDevices,
-      @JsonKey(name: 'InvalidLoginAttemptCount') int invalidLoginAttemptCount,
-      @JsonKey(name: 'EnablePublicSharing') bool enablePublicSharing,
-      @JsonKey(name: 'EnableAllFolders') bool enableAllFolders,
-      @JsonKey(name: 'EnableAllChannels') bool enableAllChannels,
+      bool? forceRemoteSourceTranscoding,
+      @JsonKey(name: 'EnableContentDeletion') bool? enableContentDeletion,
       @JsonKey(name: 'EnableContentDeletionFromFolders')
       List<String>? enableContentDeletionFromFolders,
+      @JsonKey(name: 'EnableContentDownloading') bool? enableContentDownloading,
+      @JsonKey(name: 'EnableSyncTranscoding') bool? enableSyncTranscoding,
+      @JsonKey(name: 'EnableMediaConversion') bool? enableMediaConversion,
+      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess? syncPlayAccess,
+      @JsonKey(name: 'EnableAllDevices') bool? enableAllDevices,
       @JsonKey(name: 'EnabledChannels') List<String>? enabledChannels,
-      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
+      @JsonKey(name: 'EnableAllChannels') bool? enableAllChannels,
       @JsonKey(name: 'EnabledFolders') List<String>? enabledFolders,
-      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
-      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
-      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
-      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
-      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'EnableAllFolders') bool? enableAllFolders,
+      @JsonKey(name: 'InvalidLoginAttemptCount') int? invalidLoginAttemptCount,
+      @JsonKey(name: 'LoginAttemptsBeforeLockout')
+      int? loginAttemptsBeforeLockout,
+      @JsonKey(name: 'MaxActiveSessions') int? maxActiveSessions,
+      @JsonKey(name: 'EnablePublicSharing') bool? enablePublicSharing,
       @JsonKey(name: 'BlockedMediaFolders') List<String>? blockedMediaFolders,
       @JsonKey(name: 'BlockedChannels') List<String>? blockedChannels,
-      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
       @JsonKey(name: 'EnableSubtitleManagement') bool enableSubtitleManagement,
       @JsonKey(name: 'EnableCollectionManagement')
       bool enableCollectionManagement,
@@ -936,14 +940,19 @@ extension UserPolicyPatterns on UserPolicy {
     switch (_that) {
       case _UserPolicy():
         return $default(
-          _that.enablePlaybackRemuxing,
-          _that.isHidden,
-          _that.passwordResetProviderId,
           _that.authenticationProviderId,
+          _that.passwordResetProviderId,
+          _that.enableSharedDeviceControl,
+          _that.isHidden,
           _that.remoteClientBitrateLimit,
           _that.isDisabled,
-          _that.enableSharedDeviceControl,
+          _that.maxParentalRating,
+          _that.maxParentalSubRating,
+          _that.blockedTags,
+          _that.allowedTags,
           _that.enableUserPreferenceAccess,
+          _that.accessSchedules,
+          _that.blockUnratedItems,
           _that.enableRemoteControlOfOtherUsers,
           _that.isAdministrator,
           _that.enableRemoteAccess,
@@ -952,31 +961,26 @@ extension UserPolicyPatterns on UserPolicy {
           _that.enableMediaPlayback,
           _that.enableAudioPlaybackTranscoding,
           _that.enableVideoPlaybackTranscoding,
-          _that.maxActiveSessions,
+          _that.enablePlaybackRemuxing,
           _that.forceRemoteSourceTranscoding,
           _that.enableContentDeletion,
+          _that.enableContentDeletionFromFolders,
           _that.enableContentDownloading,
           _that.enableSyncTranscoding,
           _that.enableMediaConversion,
           _that.syncPlayAccess,
-          _that.loginAttemptsBeforeLockout,
           _that.enableAllDevices,
-          _that.invalidLoginAttemptCount,
-          _that.enablePublicSharing,
-          _that.enableAllFolders,
-          _that.enableAllChannels,
-          _that.enableContentDeletionFromFolders,
           _that.enabledChannels,
-          _that.blockUnratedItems,
+          _that.enableAllChannels,
           _that.enabledFolders,
-          _that.accessSchedules,
-          _that.allowedTags,
-          _that.blockedTags,
-          _that.enabledDevices,
-          _that.maxParentalRating,
+          _that.enableAllFolders,
+          _that.invalidLoginAttemptCount,
+          _that.loginAttemptsBeforeLockout,
+          _that.maxActiveSessions,
+          _that.enablePublicSharing,
           _that.blockedMediaFolders,
           _that.blockedChannels,
-          _that.maxParentalSubRating,
+          _that.enabledDevices,
           _that.enableSubtitleManagement,
           _that.enableCollectionManagement,
           _that.enableLyricManagement,
@@ -1001,56 +1005,56 @@ extension UserPolicyPatterns on UserPolicy {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'EnablePlaybackRemuxing') bool enablePlaybackRemuxing,
-      @JsonKey(name: 'IsHidden') bool isHidden,
-      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'AuthenticationProviderId')
       String authenticationProviderId,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'IsDisabled') bool isDisabled,
+      @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
       @JsonKey(name: 'EnableSharedDeviceControl')
-      bool enableSharedDeviceControl,
+      bool? enableSharedDeviceControl,
+      @JsonKey(name: 'IsHidden') bool? isHidden,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'IsDisabled') bool? isDisabled,
+      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
+      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
       @JsonKey(name: 'EnableUserPreferenceAccess')
-      bool enableUserPreferenceAccess,
+      bool? enableUserPreferenceAccess,
+      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
+      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
       @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-      bool enableRemoteControlOfOtherUsers,
-      @JsonKey(name: 'IsAdministrator') bool isAdministrator,
-      @JsonKey(name: 'EnableRemoteAccess') bool enableRemoteAccess,
-      @JsonKey(name: 'EnableLiveTvManagement') bool enableLiveTvManagement,
-      @JsonKey(name: 'EnableLiveTvAccess') bool enableLiveTvAccess,
-      @JsonKey(name: 'EnableMediaPlayback') bool enableMediaPlayback,
+      bool? enableRemoteControlOfOtherUsers,
+      @JsonKey(name: 'IsAdministrator') bool? isAdministrator,
+      @JsonKey(name: 'EnableRemoteAccess') bool? enableRemoteAccess,
+      @JsonKey(name: 'EnableLiveTvManagement') bool? enableLiveTvManagement,
+      @JsonKey(name: 'EnableLiveTvAccess') bool? enableLiveTvAccess,
+      @JsonKey(name: 'EnableMediaPlayback') bool? enableMediaPlayback,
       @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-      bool enableAudioPlaybackTranscoding,
+      bool? enableAudioPlaybackTranscoding,
       @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-      bool enableVideoPlaybackTranscoding,
-      @JsonKey(name: 'MaxActiveSessions') int maxActiveSessions,
+      bool? enableVideoPlaybackTranscoding,
+      @JsonKey(name: 'EnablePlaybackRemuxing') bool? enablePlaybackRemuxing,
       @JsonKey(name: 'ForceRemoteSourceTranscoding')
-      bool forceRemoteSourceTranscoding,
-      @JsonKey(name: 'EnableContentDeletion') bool enableContentDeletion,
-      @JsonKey(name: 'EnableContentDownloading') bool enableContentDownloading,
-      @JsonKey(name: 'EnableSyncTranscoding') bool enableSyncTranscoding,
-      @JsonKey(name: 'EnableMediaConversion') bool enableMediaConversion,
-      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess syncPlayAccess,
-      @JsonKey(name: 'LoginAttemptsBeforeLockout')
-      int loginAttemptsBeforeLockout,
-      @JsonKey(name: 'EnableAllDevices') bool enableAllDevices,
-      @JsonKey(name: 'InvalidLoginAttemptCount') int invalidLoginAttemptCount,
-      @JsonKey(name: 'EnablePublicSharing') bool enablePublicSharing,
-      @JsonKey(name: 'EnableAllFolders') bool enableAllFolders,
-      @JsonKey(name: 'EnableAllChannels') bool enableAllChannels,
+      bool? forceRemoteSourceTranscoding,
+      @JsonKey(name: 'EnableContentDeletion') bool? enableContentDeletion,
       @JsonKey(name: 'EnableContentDeletionFromFolders')
       List<String>? enableContentDeletionFromFolders,
+      @JsonKey(name: 'EnableContentDownloading') bool? enableContentDownloading,
+      @JsonKey(name: 'EnableSyncTranscoding') bool? enableSyncTranscoding,
+      @JsonKey(name: 'EnableMediaConversion') bool? enableMediaConversion,
+      @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess? syncPlayAccess,
+      @JsonKey(name: 'EnableAllDevices') bool? enableAllDevices,
       @JsonKey(name: 'EnabledChannels') List<String>? enabledChannels,
-      @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
+      @JsonKey(name: 'EnableAllChannels') bool? enableAllChannels,
       @JsonKey(name: 'EnabledFolders') List<String>? enabledFolders,
-      @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
-      @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
-      @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
-      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
-      @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+      @JsonKey(name: 'EnableAllFolders') bool? enableAllFolders,
+      @JsonKey(name: 'InvalidLoginAttemptCount') int? invalidLoginAttemptCount,
+      @JsonKey(name: 'LoginAttemptsBeforeLockout')
+      int? loginAttemptsBeforeLockout,
+      @JsonKey(name: 'MaxActiveSessions') int? maxActiveSessions,
+      @JsonKey(name: 'EnablePublicSharing') bool? enablePublicSharing,
       @JsonKey(name: 'BlockedMediaFolders') List<String>? blockedMediaFolders,
       @JsonKey(name: 'BlockedChannels') List<String>? blockedChannels,
-      @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+      @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
       @JsonKey(name: 'EnableSubtitleManagement') bool enableSubtitleManagement,
       @JsonKey(name: 'EnableCollectionManagement')
       bool enableCollectionManagement,
@@ -1062,14 +1066,19 @@ extension UserPolicyPatterns on UserPolicy {
     switch (_that) {
       case _UserPolicy() when $default != null:
         return $default(
-          _that.enablePlaybackRemuxing,
-          _that.isHidden,
-          _that.passwordResetProviderId,
           _that.authenticationProviderId,
+          _that.passwordResetProviderId,
+          _that.enableSharedDeviceControl,
+          _that.isHidden,
           _that.remoteClientBitrateLimit,
           _that.isDisabled,
-          _that.enableSharedDeviceControl,
+          _that.maxParentalRating,
+          _that.maxParentalSubRating,
+          _that.blockedTags,
+          _that.allowedTags,
           _that.enableUserPreferenceAccess,
+          _that.accessSchedules,
+          _that.blockUnratedItems,
           _that.enableRemoteControlOfOtherUsers,
           _that.isAdministrator,
           _that.enableRemoteAccess,
@@ -1078,31 +1087,26 @@ extension UserPolicyPatterns on UserPolicy {
           _that.enableMediaPlayback,
           _that.enableAudioPlaybackTranscoding,
           _that.enableVideoPlaybackTranscoding,
-          _that.maxActiveSessions,
+          _that.enablePlaybackRemuxing,
           _that.forceRemoteSourceTranscoding,
           _that.enableContentDeletion,
+          _that.enableContentDeletionFromFolders,
           _that.enableContentDownloading,
           _that.enableSyncTranscoding,
           _that.enableMediaConversion,
           _that.syncPlayAccess,
-          _that.loginAttemptsBeforeLockout,
           _that.enableAllDevices,
-          _that.invalidLoginAttemptCount,
-          _that.enablePublicSharing,
-          _that.enableAllFolders,
-          _that.enableAllChannels,
-          _that.enableContentDeletionFromFolders,
           _that.enabledChannels,
-          _that.blockUnratedItems,
+          _that.enableAllChannels,
           _that.enabledFolders,
-          _that.accessSchedules,
-          _that.allowedTags,
-          _that.blockedTags,
-          _that.enabledDevices,
-          _that.maxParentalRating,
+          _that.enableAllFolders,
+          _that.invalidLoginAttemptCount,
+          _that.loginAttemptsBeforeLockout,
+          _that.maxActiveSessions,
+          _that.enablePublicSharing,
           _that.blockedMediaFolders,
           _that.blockedChannels,
-          _that.maxParentalSubRating,
+          _that.enabledDevices,
           _that.enableSubtitleManagement,
           _that.enableCollectionManagement,
           _that.enableLyricManagement,
@@ -1117,199 +1121,139 @@ extension UserPolicyPatterns on UserPolicy {
 @JsonSerializable()
 class _UserPolicy implements UserPolicy {
   const _UserPolicy({
-    @JsonKey(name: 'EnablePlaybackRemuxing')
-    required this.enablePlaybackRemuxing,
-    @JsonKey(name: 'IsHidden') required this.isHidden,
-    @JsonKey(name: 'PasswordResetProviderId')
-    required this.passwordResetProviderId,
     @JsonKey(name: 'AuthenticationProviderId')
     required this.authenticationProviderId,
-    @JsonKey(name: 'RemoteClientBitrateLimit')
-    required this.remoteClientBitrateLimit,
-    @JsonKey(name: 'IsDisabled') required this.isDisabled,
-    @JsonKey(name: 'EnableSharedDeviceControl')
-    required this.enableSharedDeviceControl,
+    @JsonKey(name: 'PasswordResetProviderId')
+    required this.passwordResetProviderId,
+    @JsonKey(name: 'EnableSharedDeviceControl') this.enableSharedDeviceControl,
+    @JsonKey(name: 'IsHidden') this.isHidden,
+    @JsonKey(name: 'RemoteClientBitrateLimit') this.remoteClientBitrateLimit,
+    @JsonKey(name: 'IsDisabled') this.isDisabled,
+    @JsonKey(name: 'MaxParentalRating') this.maxParentalRating,
+    @JsonKey(name: 'MaxParentalSubRating') this.maxParentalSubRating,
+    @JsonKey(name: 'BlockedTags') final List<String>? blockedTags,
+    @JsonKey(name: 'AllowedTags') final List<String>? allowedTags,
     @JsonKey(name: 'EnableUserPreferenceAccess')
-    required this.enableUserPreferenceAccess,
-    @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-    required this.enableRemoteControlOfOtherUsers,
-    @JsonKey(name: 'IsAdministrator') required this.isAdministrator,
-    @JsonKey(name: 'EnableRemoteAccess') required this.enableRemoteAccess,
-    @JsonKey(name: 'EnableLiveTvManagement')
-    required this.enableLiveTvManagement,
-    @JsonKey(name: 'EnableLiveTvAccess') required this.enableLiveTvAccess,
-    @JsonKey(name: 'EnableMediaPlayback') required this.enableMediaPlayback,
-    @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-    required this.enableAudioPlaybackTranscoding,
-    @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-    required this.enableVideoPlaybackTranscoding,
-    @JsonKey(name: 'MaxActiveSessions') required this.maxActiveSessions,
-    @JsonKey(name: 'ForceRemoteSourceTranscoding')
-    required this.forceRemoteSourceTranscoding,
-    @JsonKey(name: 'EnableContentDeletion') required this.enableContentDeletion,
-    @JsonKey(name: 'EnableContentDownloading')
-    required this.enableContentDownloading,
-    @JsonKey(name: 'EnableSyncTranscoding') required this.enableSyncTranscoding,
-    @JsonKey(name: 'EnableMediaConversion') required this.enableMediaConversion,
-    @JsonKey(name: 'SyncPlayAccess') required this.syncPlayAccess,
-    @JsonKey(name: 'LoginAttemptsBeforeLockout')
-    required this.loginAttemptsBeforeLockout,
-    @JsonKey(name: 'EnableAllDevices') required this.enableAllDevices,
-    @JsonKey(name: 'InvalidLoginAttemptCount')
-    required this.invalidLoginAttemptCount,
-    @JsonKey(name: 'EnablePublicSharing') required this.enablePublicSharing,
-    @JsonKey(name: 'EnableAllFolders') required this.enableAllFolders,
-    @JsonKey(name: 'EnableAllChannels') required this.enableAllChannels,
-    @JsonKey(name: 'EnableContentDeletionFromFolders')
-    final List<String>? enableContentDeletionFromFolders,
-    @JsonKey(name: 'EnabledChannels') final List<String>? enabledChannels,
-    @JsonKey(name: 'BlockUnratedItems')
-    final List<UnratedItem>? blockUnratedItems,
-    @JsonKey(name: 'EnabledFolders') final List<String>? enabledFolders,
+    this.enableUserPreferenceAccess,
     @JsonKey(name: 'AccessSchedules')
     final List<AccessSchedule>? accessSchedules,
-    @JsonKey(name: 'AllowedTags') final List<String>? allowedTags,
-    @JsonKey(name: 'BlockedTags') final List<String>? blockedTags,
-    @JsonKey(name: 'EnabledDevices') final List<String>? enabledDevices,
-    @JsonKey(name: 'MaxParentalRating') this.maxParentalRating,
+    @JsonKey(name: 'BlockUnratedItems')
+    final List<UnratedItem>? blockUnratedItems,
+    @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
+    this.enableRemoteControlOfOtherUsers,
+    @JsonKey(name: 'IsAdministrator') this.isAdministrator,
+    @JsonKey(name: 'EnableRemoteAccess') this.enableRemoteAccess,
+    @JsonKey(name: 'EnableLiveTvManagement') this.enableLiveTvManagement,
+    @JsonKey(name: 'EnableLiveTvAccess') this.enableLiveTvAccess,
+    @JsonKey(name: 'EnableMediaPlayback') this.enableMediaPlayback,
+    @JsonKey(name: 'EnableAudioPlaybackTranscoding')
+    this.enableAudioPlaybackTranscoding,
+    @JsonKey(name: 'EnableVideoPlaybackTranscoding')
+    this.enableVideoPlaybackTranscoding,
+    @JsonKey(name: 'EnablePlaybackRemuxing') this.enablePlaybackRemuxing,
+    @JsonKey(name: 'ForceRemoteSourceTranscoding')
+    this.forceRemoteSourceTranscoding,
+    @JsonKey(name: 'EnableContentDeletion') this.enableContentDeletion,
+    @JsonKey(name: 'EnableContentDeletionFromFolders')
+    final List<String>? enableContentDeletionFromFolders,
+    @JsonKey(name: 'EnableContentDownloading') this.enableContentDownloading,
+    @JsonKey(name: 'EnableSyncTranscoding') this.enableSyncTranscoding,
+    @JsonKey(name: 'EnableMediaConversion') this.enableMediaConversion,
+    @JsonKey(name: 'SyncPlayAccess') this.syncPlayAccess,
+    @JsonKey(name: 'EnableAllDevices') this.enableAllDevices,
+    @JsonKey(name: 'EnabledChannels') final List<String>? enabledChannels,
+    @JsonKey(name: 'EnableAllChannels') this.enableAllChannels,
+    @JsonKey(name: 'EnabledFolders') final List<String>? enabledFolders,
+    @JsonKey(name: 'EnableAllFolders') this.enableAllFolders,
+    @JsonKey(name: 'InvalidLoginAttemptCount') this.invalidLoginAttemptCount,
+    @JsonKey(name: 'LoginAttemptsBeforeLockout')
+    this.loginAttemptsBeforeLockout,
+    @JsonKey(name: 'MaxActiveSessions') this.maxActiveSessions,
+    @JsonKey(name: 'EnablePublicSharing') this.enablePublicSharing,
     @JsonKey(name: 'BlockedMediaFolders')
     final List<String>? blockedMediaFolders,
     @JsonKey(name: 'BlockedChannels') final List<String>? blockedChannels,
-    @JsonKey(name: 'MaxParentalSubRating') this.maxParentalSubRating,
+    @JsonKey(name: 'EnabledDevices') final List<String>? enabledDevices,
     @JsonKey(name: 'EnableSubtitleManagement')
     this.enableSubtitleManagement = false,
     @JsonKey(name: 'EnableCollectionManagement')
     this.enableCollectionManagement = false,
     @JsonKey(name: 'EnableLyricManagement') this.enableLyricManagement = false,
-  }) : _enableContentDeletionFromFolders = enableContentDeletionFromFolders,
-       _enabledChannels = enabledChannels,
-       _blockUnratedItems = blockUnratedItems,
-       _enabledFolders = enabledFolders,
-       _accessSchedules = accessSchedules,
+  }) : _blockedTags = blockedTags,
        _allowedTags = allowedTags,
-       _blockedTags = blockedTags,
-       _enabledDevices = enabledDevices,
+       _accessSchedules = accessSchedules,
+       _blockUnratedItems = blockUnratedItems,
+       _enableContentDeletionFromFolders = enableContentDeletionFromFolders,
+       _enabledChannels = enabledChannels,
+       _enabledFolders = enabledFolders,
        _blockedMediaFolders = blockedMediaFolders,
-       _blockedChannels = blockedChannels;
+       _blockedChannels = blockedChannels,
+       _enabledDevices = enabledDevices;
   factory _UserPolicy.fromJson(Map<String, dynamic> json) =>
       _$UserPolicyFromJson(json);
 
   @override
-  @JsonKey(name: 'EnablePlaybackRemuxing')
-  final bool enablePlaybackRemuxing;
-
-  /// Gets or sets a value indicating whether this instance is hidden.
-  @override
-  @JsonKey(name: 'IsHidden')
-  final bool isHidden;
+  @JsonKey(name: 'AuthenticationProviderId')
+  final String authenticationProviderId;
   @override
   @JsonKey(name: 'PasswordResetProviderId')
   final String passwordResetProviderId;
   @override
-  @JsonKey(name: 'AuthenticationProviderId')
-  final String authenticationProviderId;
+  @JsonKey(name: 'EnableSharedDeviceControl')
+  final bool? enableSharedDeviceControl;
+
+  /// Gets or sets a value indicating whether this instance is hidden.
+  @override
+  @JsonKey(name: 'IsHidden')
+  final bool? isHidden;
   @override
   @JsonKey(name: 'RemoteClientBitrateLimit')
-  final int remoteClientBitrateLimit;
+  final int? remoteClientBitrateLimit;
 
   /// Gets or sets a value indicating whether this instance is disabled.
   @override
   @JsonKey(name: 'IsDisabled')
-  final bool isDisabled;
-  @override
-  @JsonKey(name: 'EnableSharedDeviceControl')
-  final bool enableSharedDeviceControl;
-  @override
-  @JsonKey(name: 'EnableUserPreferenceAccess')
-  final bool enableUserPreferenceAccess;
-  @override
-  @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-  final bool enableRemoteControlOfOtherUsers;
+  final bool? isDisabled;
 
-  /// Gets or sets a value indicating whether this instance is administrator.
+  /// Gets or sets the max parental rating.
   @override
-  @JsonKey(name: 'IsAdministrator')
-  final bool isAdministrator;
+  @JsonKey(name: 'MaxParentalRating')
+  final int? maxParentalRating;
   @override
-  @JsonKey(name: 'EnableRemoteAccess')
-  final bool enableRemoteAccess;
+  @JsonKey(name: 'MaxParentalSubRating')
+  final int? maxParentalSubRating;
+  final List<String>? _blockedTags;
   @override
-  @JsonKey(name: 'EnableLiveTvManagement')
-  final bool enableLiveTvManagement;
-  @override
-  @JsonKey(name: 'EnableLiveTvAccess')
-  final bool enableLiveTvAccess;
-  @override
-  @JsonKey(name: 'EnableMediaPlayback')
-  final bool enableMediaPlayback;
-  @override
-  @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-  final bool enableAudioPlaybackTranscoding;
-  @override
-  @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-  final bool enableVideoPlaybackTranscoding;
-  @override
-  @JsonKey(name: 'MaxActiveSessions')
-  final int maxActiveSessions;
-  @override
-  @JsonKey(name: 'ForceRemoteSourceTranscoding')
-  final bool forceRemoteSourceTranscoding;
-  @override
-  @JsonKey(name: 'EnableContentDeletion')
-  final bool enableContentDeletion;
-  @override
-  @JsonKey(name: 'EnableContentDownloading')
-  final bool enableContentDownloading;
-
-  /// Gets or sets a value indicating whether [enable synchronize].
-  @override
-  @JsonKey(name: 'EnableSyncTranscoding')
-  final bool enableSyncTranscoding;
-  @override
-  @JsonKey(name: 'EnableMediaConversion')
-  final bool enableMediaConversion;
-
-  /// Gets or sets a value indicating what SyncPlay features the user can access.
-  @override
-  @JsonKey(name: 'SyncPlayAccess')
-  final UserPolicySyncPlayAccess syncPlayAccess;
-  @override
-  @JsonKey(name: 'LoginAttemptsBeforeLockout')
-  final int loginAttemptsBeforeLockout;
-  @override
-  @JsonKey(name: 'EnableAllDevices')
-  final bool enableAllDevices;
-  @override
-  @JsonKey(name: 'InvalidLoginAttemptCount')
-  final int invalidLoginAttemptCount;
-  @override
-  @JsonKey(name: 'EnablePublicSharing')
-  final bool enablePublicSharing;
-  @override
-  @JsonKey(name: 'EnableAllFolders')
-  final bool enableAllFolders;
-  @override
-  @JsonKey(name: 'EnableAllChannels')
-  final bool enableAllChannels;
-  final List<String>? _enableContentDeletionFromFolders;
-  @override
-  @JsonKey(name: 'EnableContentDeletionFromFolders')
-  List<String>? get enableContentDeletionFromFolders {
-    final value = _enableContentDeletionFromFolders;
+  @JsonKey(name: 'BlockedTags')
+  List<String>? get blockedTags {
+    final value = _blockedTags;
     if (value == null) return null;
-    if (_enableContentDeletionFromFolders is EqualUnmodifiableListView)
-      return _enableContentDeletionFromFolders;
+    if (_blockedTags is EqualUnmodifiableListView) return _blockedTags;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _enabledChannels;
+  final List<String>? _allowedTags;
   @override
-  @JsonKey(name: 'EnabledChannels')
-  List<String>? get enabledChannels {
-    final value = _enabledChannels;
+  @JsonKey(name: 'AllowedTags')
+  List<String>? get allowedTags {
+    final value = _allowedTags;
     if (value == null) return null;
-    if (_enabledChannels is EqualUnmodifiableListView) return _enabledChannels;
+    if (_allowedTags is EqualUnmodifiableListView) return _allowedTags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'EnableUserPreferenceAccess')
+  final bool? enableUserPreferenceAccess;
+  final List<AccessSchedule>? _accessSchedules;
+  @override
+  @JsonKey(name: 'AccessSchedules')
+  List<AccessSchedule>? get accessSchedules {
+    final value = _accessSchedules;
+    if (value == null) return null;
+    if (_accessSchedules is EqualUnmodifiableListView) return _accessSchedules;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1326,6 +1270,86 @@ class _UserPolicy implements UserPolicy {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
+  final bool? enableRemoteControlOfOtherUsers;
+
+  /// Gets or sets a value indicating whether this instance is administrator.
+  @override
+  @JsonKey(name: 'IsAdministrator')
+  final bool? isAdministrator;
+  @override
+  @JsonKey(name: 'EnableRemoteAccess')
+  final bool? enableRemoteAccess;
+  @override
+  @JsonKey(name: 'EnableLiveTvManagement')
+  final bool? enableLiveTvManagement;
+  @override
+  @JsonKey(name: 'EnableLiveTvAccess')
+  final bool? enableLiveTvAccess;
+  @override
+  @JsonKey(name: 'EnableMediaPlayback')
+  final bool? enableMediaPlayback;
+  @override
+  @JsonKey(name: 'EnableAudioPlaybackTranscoding')
+  final bool? enableAudioPlaybackTranscoding;
+  @override
+  @JsonKey(name: 'EnableVideoPlaybackTranscoding')
+  final bool? enableVideoPlaybackTranscoding;
+  @override
+  @JsonKey(name: 'EnablePlaybackRemuxing')
+  final bool? enablePlaybackRemuxing;
+  @override
+  @JsonKey(name: 'ForceRemoteSourceTranscoding')
+  final bool? forceRemoteSourceTranscoding;
+  @override
+  @JsonKey(name: 'EnableContentDeletion')
+  final bool? enableContentDeletion;
+  final List<String>? _enableContentDeletionFromFolders;
+  @override
+  @JsonKey(name: 'EnableContentDeletionFromFolders')
+  List<String>? get enableContentDeletionFromFolders {
+    final value = _enableContentDeletionFromFolders;
+    if (value == null) return null;
+    if (_enableContentDeletionFromFolders is EqualUnmodifiableListView)
+      return _enableContentDeletionFromFolders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'EnableContentDownloading')
+  final bool? enableContentDownloading;
+
+  /// Gets or sets a value indicating whether [enable synchronize].
+  @override
+  @JsonKey(name: 'EnableSyncTranscoding')
+  final bool? enableSyncTranscoding;
+  @override
+  @JsonKey(name: 'EnableMediaConversion')
+  final bool? enableMediaConversion;
+
+  /// Gets or sets a value indicating what SyncPlay features the user can access.
+  @override
+  @JsonKey(name: 'SyncPlayAccess')
+  final UserPolicySyncPlayAccess? syncPlayAccess;
+  @override
+  @JsonKey(name: 'EnableAllDevices')
+  final bool? enableAllDevices;
+  final List<String>? _enabledChannels;
+  @override
+  @JsonKey(name: 'EnabledChannels')
+  List<String>? get enabledChannels {
+    final value = _enabledChannels;
+    if (value == null) return null;
+    if (_enabledChannels is EqualUnmodifiableListView) return _enabledChannels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'EnableAllChannels')
+  final bool? enableAllChannels;
   final List<String>? _enabledFolders;
   @override
   @JsonKey(name: 'EnabledFolders')
@@ -1337,54 +1361,21 @@ class _UserPolicy implements UserPolicy {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<AccessSchedule>? _accessSchedules;
   @override
-  @JsonKey(name: 'AccessSchedules')
-  List<AccessSchedule>? get accessSchedules {
-    final value = _accessSchedules;
-    if (value == null) return null;
-    if (_accessSchedules is EqualUnmodifiableListView) return _accessSchedules;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _allowedTags;
+  @JsonKey(name: 'EnableAllFolders')
+  final bool? enableAllFolders;
   @override
-  @JsonKey(name: 'AllowedTags')
-  List<String>? get allowedTags {
-    final value = _allowedTags;
-    if (value == null) return null;
-    if (_allowedTags is EqualUnmodifiableListView) return _allowedTags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _blockedTags;
+  @JsonKey(name: 'InvalidLoginAttemptCount')
+  final int? invalidLoginAttemptCount;
   @override
-  @JsonKey(name: 'BlockedTags')
-  List<String>? get blockedTags {
-    final value = _blockedTags;
-    if (value == null) return null;
-    if (_blockedTags is EqualUnmodifiableListView) return _blockedTags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _enabledDevices;
+  @JsonKey(name: 'LoginAttemptsBeforeLockout')
+  final int? loginAttemptsBeforeLockout;
   @override
-  @JsonKey(name: 'EnabledDevices')
-  List<String>? get enabledDevices {
-    final value = _enabledDevices;
-    if (value == null) return null;
-    if (_enabledDevices is EqualUnmodifiableListView) return _enabledDevices;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  /// Gets or sets the max parental rating.
+  @JsonKey(name: 'MaxActiveSessions')
+  final int? maxActiveSessions;
   @override
-  @JsonKey(name: 'MaxParentalRating')
-  final int? maxParentalRating;
+  @JsonKey(name: 'EnablePublicSharing')
+  final bool? enablePublicSharing;
   final List<String>? _blockedMediaFolders;
   @override
   @JsonKey(name: 'BlockedMediaFolders')
@@ -1408,9 +1399,16 @@ class _UserPolicy implements UserPolicy {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _enabledDevices;
   @override
-  @JsonKey(name: 'MaxParentalSubRating')
-  final int? maxParentalSubRating;
+  @JsonKey(name: 'EnabledDevices')
+  List<String>? get enabledDevices {
+    final value = _enabledDevices;
+    if (value == null) return null;
+    if (_enabledDevices is EqualUnmodifiableListView) return _enabledDevices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// Gets or sets a value indicating whether this instance can manage subtitles.
   @override
@@ -1445,20 +1443,23 @@ class _UserPolicy implements UserPolicy {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserPolicy &&
-            (identical(other.enablePlaybackRemuxing, enablePlaybackRemuxing) ||
-                other.enablePlaybackRemuxing == enablePlaybackRemuxing) &&
-            (identical(other.isHidden, isHidden) ||
-                other.isHidden == isHidden) &&
+            (identical(
+                  other.authenticationProviderId,
+                  authenticationProviderId,
+                ) ||
+                other.authenticationProviderId == authenticationProviderId) &&
             (identical(
                   other.passwordResetProviderId,
                   passwordResetProviderId,
                 ) ||
                 other.passwordResetProviderId == passwordResetProviderId) &&
             (identical(
-                  other.authenticationProviderId,
-                  authenticationProviderId,
+                  other.enableSharedDeviceControl,
+                  enableSharedDeviceControl,
                 ) ||
-                other.authenticationProviderId == authenticationProviderId) &&
+                other.enableSharedDeviceControl == enableSharedDeviceControl) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
             (identical(
                   other.remoteClientBitrateLimit,
                   remoteClientBitrateLimit,
@@ -1466,17 +1467,32 @@ class _UserPolicy implements UserPolicy {
                 other.remoteClientBitrateLimit == remoteClientBitrateLimit) &&
             (identical(other.isDisabled, isDisabled) ||
                 other.isDisabled == isDisabled) &&
-            (identical(
-                  other.enableSharedDeviceControl,
-                  enableSharedDeviceControl,
-                ) ||
-                other.enableSharedDeviceControl == enableSharedDeviceControl) &&
+            (identical(other.maxParentalRating, maxParentalRating) ||
+                other.maxParentalRating == maxParentalRating) &&
+            (identical(other.maxParentalSubRating, maxParentalSubRating) ||
+                other.maxParentalSubRating == maxParentalSubRating) &&
+            const DeepCollectionEquality().equals(
+              other._blockedTags,
+              _blockedTags,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._allowedTags,
+              _allowedTags,
+            ) &&
             (identical(
                   other.enableUserPreferenceAccess,
                   enableUserPreferenceAccess,
                 ) ||
                 other.enableUserPreferenceAccess ==
                     enableUserPreferenceAccess) &&
+            const DeepCollectionEquality().equals(
+              other._accessSchedules,
+              _accessSchedules,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._blockUnratedItems,
+              _blockUnratedItems,
+            ) &&
             (identical(
                   other.enableRemoteControlOfOtherUsers,
                   enableRemoteControlOfOtherUsers,
@@ -1505,8 +1521,8 @@ class _UserPolicy implements UserPolicy {
                 ) ||
                 other.enableVideoPlaybackTranscoding ==
                     enableVideoPlaybackTranscoding) &&
-            (identical(other.maxActiveSessions, maxActiveSessions) ||
-                other.maxActiveSessions == maxActiveSessions) &&
+            (identical(other.enablePlaybackRemuxing, enablePlaybackRemuxing) ||
+                other.enablePlaybackRemuxing == enablePlaybackRemuxing) &&
             (identical(
                   other.forceRemoteSourceTranscoding,
                   forceRemoteSourceTranscoding,
@@ -1515,6 +1531,10 @@ class _UserPolicy implements UserPolicy {
                     forceRemoteSourceTranscoding) &&
             (identical(other.enableContentDeletion, enableContentDeletion) ||
                 other.enableContentDeletion == enableContentDeletion) &&
+            const DeepCollectionEquality().equals(
+              other._enableContentDeletionFromFolders,
+              _enableContentDeletionFromFolders,
+            ) &&
             (identical(
                   other.enableContentDownloading,
                   enableContentDownloading,
@@ -1526,59 +1546,35 @@ class _UserPolicy implements UserPolicy {
                 other.enableMediaConversion == enableMediaConversion) &&
             (identical(other.syncPlayAccess, syncPlayAccess) ||
                 other.syncPlayAccess == syncPlayAccess) &&
+            (identical(other.enableAllDevices, enableAllDevices) ||
+                other.enableAllDevices == enableAllDevices) &&
+            const DeepCollectionEquality().equals(
+              other._enabledChannels,
+              _enabledChannels,
+            ) &&
+            (identical(other.enableAllChannels, enableAllChannels) ||
+                other.enableAllChannels == enableAllChannels) &&
+            const DeepCollectionEquality().equals(
+              other._enabledFolders,
+              _enabledFolders,
+            ) &&
+            (identical(other.enableAllFolders, enableAllFolders) ||
+                other.enableAllFolders == enableAllFolders) &&
+            (identical(
+                  other.invalidLoginAttemptCount,
+                  invalidLoginAttemptCount,
+                ) ||
+                other.invalidLoginAttemptCount == invalidLoginAttemptCount) &&
             (identical(
                   other.loginAttemptsBeforeLockout,
                   loginAttemptsBeforeLockout,
                 ) ||
                 other.loginAttemptsBeforeLockout ==
                     loginAttemptsBeforeLockout) &&
-            (identical(other.enableAllDevices, enableAllDevices) ||
-                other.enableAllDevices == enableAllDevices) &&
-            (identical(
-                  other.invalidLoginAttemptCount,
-                  invalidLoginAttemptCount,
-                ) ||
-                other.invalidLoginAttemptCount == invalidLoginAttemptCount) &&
+            (identical(other.maxActiveSessions, maxActiveSessions) ||
+                other.maxActiveSessions == maxActiveSessions) &&
             (identical(other.enablePublicSharing, enablePublicSharing) ||
                 other.enablePublicSharing == enablePublicSharing) &&
-            (identical(other.enableAllFolders, enableAllFolders) ||
-                other.enableAllFolders == enableAllFolders) &&
-            (identical(other.enableAllChannels, enableAllChannels) ||
-                other.enableAllChannels == enableAllChannels) &&
-            const DeepCollectionEquality().equals(
-              other._enableContentDeletionFromFolders,
-              _enableContentDeletionFromFolders,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._enabledChannels,
-              _enabledChannels,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._blockUnratedItems,
-              _blockUnratedItems,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._enabledFolders,
-              _enabledFolders,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._accessSchedules,
-              _accessSchedules,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._allowedTags,
-              _allowedTags,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._blockedTags,
-              _blockedTags,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._enabledDevices,
-              _enabledDevices,
-            ) &&
-            (identical(other.maxParentalRating, maxParentalRating) ||
-                other.maxParentalRating == maxParentalRating) &&
             const DeepCollectionEquality().equals(
               other._blockedMediaFolders,
               _blockedMediaFolders,
@@ -1587,8 +1583,10 @@ class _UserPolicy implements UserPolicy {
               other._blockedChannels,
               _blockedChannels,
             ) &&
-            (identical(other.maxParentalSubRating, maxParentalSubRating) ||
-                other.maxParentalSubRating == maxParentalSubRating) &&
+            const DeepCollectionEquality().equals(
+              other._enabledDevices,
+              _enabledDevices,
+            ) &&
             (identical(
                   other.enableSubtitleManagement,
                   enableSubtitleManagement,
@@ -1608,14 +1606,19 @@ class _UserPolicy implements UserPolicy {
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
-    enablePlaybackRemuxing,
-    isHidden,
-    passwordResetProviderId,
     authenticationProviderId,
+    passwordResetProviderId,
+    enableSharedDeviceControl,
+    isHidden,
     remoteClientBitrateLimit,
     isDisabled,
-    enableSharedDeviceControl,
+    maxParentalRating,
+    maxParentalSubRating,
+    const DeepCollectionEquality().hash(_blockedTags),
+    const DeepCollectionEquality().hash(_allowedTags),
     enableUserPreferenceAccess,
+    const DeepCollectionEquality().hash(_accessSchedules),
+    const DeepCollectionEquality().hash(_blockUnratedItems),
     enableRemoteControlOfOtherUsers,
     isAdministrator,
     enableRemoteAccess,
@@ -1624,31 +1627,26 @@ class _UserPolicy implements UserPolicy {
     enableMediaPlayback,
     enableAudioPlaybackTranscoding,
     enableVideoPlaybackTranscoding,
-    maxActiveSessions,
+    enablePlaybackRemuxing,
     forceRemoteSourceTranscoding,
     enableContentDeletion,
+    const DeepCollectionEquality().hash(_enableContentDeletionFromFolders),
     enableContentDownloading,
     enableSyncTranscoding,
     enableMediaConversion,
     syncPlayAccess,
-    loginAttemptsBeforeLockout,
     enableAllDevices,
-    invalidLoginAttemptCount,
-    enablePublicSharing,
-    enableAllFolders,
-    enableAllChannels,
-    const DeepCollectionEquality().hash(_enableContentDeletionFromFolders),
     const DeepCollectionEquality().hash(_enabledChannels),
-    const DeepCollectionEquality().hash(_blockUnratedItems),
+    enableAllChannels,
     const DeepCollectionEquality().hash(_enabledFolders),
-    const DeepCollectionEquality().hash(_accessSchedules),
-    const DeepCollectionEquality().hash(_allowedTags),
-    const DeepCollectionEquality().hash(_blockedTags),
-    const DeepCollectionEquality().hash(_enabledDevices),
-    maxParentalRating,
+    enableAllFolders,
+    invalidLoginAttemptCount,
+    loginAttemptsBeforeLockout,
+    maxActiveSessions,
+    enablePublicSharing,
     const DeepCollectionEquality().hash(_blockedMediaFolders),
     const DeepCollectionEquality().hash(_blockedChannels),
-    maxParentalSubRating,
+    const DeepCollectionEquality().hash(_enabledDevices),
     enableSubtitleManagement,
     enableCollectionManagement,
     enableLyricManagement,
@@ -1656,7 +1654,7 @@ class _UserPolicy implements UserPolicy {
 
   @override
   String toString() {
-    return 'UserPolicy(enablePlaybackRemuxing: $enablePlaybackRemuxing, isHidden: $isHidden, passwordResetProviderId: $passwordResetProviderId, authenticationProviderId: $authenticationProviderId, remoteClientBitrateLimit: $remoteClientBitrateLimit, isDisabled: $isDisabled, enableSharedDeviceControl: $enableSharedDeviceControl, enableUserPreferenceAccess: $enableUserPreferenceAccess, enableRemoteControlOfOtherUsers: $enableRemoteControlOfOtherUsers, isAdministrator: $isAdministrator, enableRemoteAccess: $enableRemoteAccess, enableLiveTvManagement: $enableLiveTvManagement, enableLiveTvAccess: $enableLiveTvAccess, enableMediaPlayback: $enableMediaPlayback, enableAudioPlaybackTranscoding: $enableAudioPlaybackTranscoding, enableVideoPlaybackTranscoding: $enableVideoPlaybackTranscoding, maxActiveSessions: $maxActiveSessions, forceRemoteSourceTranscoding: $forceRemoteSourceTranscoding, enableContentDeletion: $enableContentDeletion, enableContentDownloading: $enableContentDownloading, enableSyncTranscoding: $enableSyncTranscoding, enableMediaConversion: $enableMediaConversion, syncPlayAccess: $syncPlayAccess, loginAttemptsBeforeLockout: $loginAttemptsBeforeLockout, enableAllDevices: $enableAllDevices, invalidLoginAttemptCount: $invalidLoginAttemptCount, enablePublicSharing: $enablePublicSharing, enableAllFolders: $enableAllFolders, enableAllChannels: $enableAllChannels, enableContentDeletionFromFolders: $enableContentDeletionFromFolders, enabledChannels: $enabledChannels, blockUnratedItems: $blockUnratedItems, enabledFolders: $enabledFolders, accessSchedules: $accessSchedules, allowedTags: $allowedTags, blockedTags: $blockedTags, enabledDevices: $enabledDevices, maxParentalRating: $maxParentalRating, blockedMediaFolders: $blockedMediaFolders, blockedChannels: $blockedChannels, maxParentalSubRating: $maxParentalSubRating, enableSubtitleManagement: $enableSubtitleManagement, enableCollectionManagement: $enableCollectionManagement, enableLyricManagement: $enableLyricManagement)';
+    return 'UserPolicy(authenticationProviderId: $authenticationProviderId, passwordResetProviderId: $passwordResetProviderId, enableSharedDeviceControl: $enableSharedDeviceControl, isHidden: $isHidden, remoteClientBitrateLimit: $remoteClientBitrateLimit, isDisabled: $isDisabled, maxParentalRating: $maxParentalRating, maxParentalSubRating: $maxParentalSubRating, blockedTags: $blockedTags, allowedTags: $allowedTags, enableUserPreferenceAccess: $enableUserPreferenceAccess, accessSchedules: $accessSchedules, blockUnratedItems: $blockUnratedItems, enableRemoteControlOfOtherUsers: $enableRemoteControlOfOtherUsers, isAdministrator: $isAdministrator, enableRemoteAccess: $enableRemoteAccess, enableLiveTvManagement: $enableLiveTvManagement, enableLiveTvAccess: $enableLiveTvAccess, enableMediaPlayback: $enableMediaPlayback, enableAudioPlaybackTranscoding: $enableAudioPlaybackTranscoding, enableVideoPlaybackTranscoding: $enableVideoPlaybackTranscoding, enablePlaybackRemuxing: $enablePlaybackRemuxing, forceRemoteSourceTranscoding: $forceRemoteSourceTranscoding, enableContentDeletion: $enableContentDeletion, enableContentDeletionFromFolders: $enableContentDeletionFromFolders, enableContentDownloading: $enableContentDownloading, enableSyncTranscoding: $enableSyncTranscoding, enableMediaConversion: $enableMediaConversion, syncPlayAccess: $syncPlayAccess, enableAllDevices: $enableAllDevices, enabledChannels: $enabledChannels, enableAllChannels: $enableAllChannels, enabledFolders: $enabledFolders, enableAllFolders: $enableAllFolders, invalidLoginAttemptCount: $invalidLoginAttemptCount, loginAttemptsBeforeLockout: $loginAttemptsBeforeLockout, maxActiveSessions: $maxActiveSessions, enablePublicSharing: $enablePublicSharing, blockedMediaFolders: $blockedMediaFolders, blockedChannels: $blockedChannels, enabledDevices: $enabledDevices, enableSubtitleManagement: $enableSubtitleManagement, enableCollectionManagement: $enableCollectionManagement, enableLyricManagement: $enableLyricManagement)';
   }
 }
 
@@ -1670,53 +1668,54 @@ abstract mixin class _$UserPolicyCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'EnablePlaybackRemuxing') bool enablePlaybackRemuxing,
-    @JsonKey(name: 'IsHidden') bool isHidden,
-    @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
     @JsonKey(name: 'AuthenticationProviderId') String authenticationProviderId,
-    @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-    @JsonKey(name: 'IsDisabled') bool isDisabled,
-    @JsonKey(name: 'EnableSharedDeviceControl') bool enableSharedDeviceControl,
+    @JsonKey(name: 'PasswordResetProviderId') String passwordResetProviderId,
+    @JsonKey(name: 'EnableSharedDeviceControl') bool? enableSharedDeviceControl,
+    @JsonKey(name: 'IsHidden') bool? isHidden,
+    @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+    @JsonKey(name: 'IsDisabled') bool? isDisabled,
+    @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+    @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+    @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
+    @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
     @JsonKey(name: 'EnableUserPreferenceAccess')
-    bool enableUserPreferenceAccess,
+    bool? enableUserPreferenceAccess,
+    @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
+    @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
     @JsonKey(name: 'EnableRemoteControlOfOtherUsers')
-    bool enableRemoteControlOfOtherUsers,
-    @JsonKey(name: 'IsAdministrator') bool isAdministrator,
-    @JsonKey(name: 'EnableRemoteAccess') bool enableRemoteAccess,
-    @JsonKey(name: 'EnableLiveTvManagement') bool enableLiveTvManagement,
-    @JsonKey(name: 'EnableLiveTvAccess') bool enableLiveTvAccess,
-    @JsonKey(name: 'EnableMediaPlayback') bool enableMediaPlayback,
+    bool? enableRemoteControlOfOtherUsers,
+    @JsonKey(name: 'IsAdministrator') bool? isAdministrator,
+    @JsonKey(name: 'EnableRemoteAccess') bool? enableRemoteAccess,
+    @JsonKey(name: 'EnableLiveTvManagement') bool? enableLiveTvManagement,
+    @JsonKey(name: 'EnableLiveTvAccess') bool? enableLiveTvAccess,
+    @JsonKey(name: 'EnableMediaPlayback') bool? enableMediaPlayback,
     @JsonKey(name: 'EnableAudioPlaybackTranscoding')
-    bool enableAudioPlaybackTranscoding,
+    bool? enableAudioPlaybackTranscoding,
     @JsonKey(name: 'EnableVideoPlaybackTranscoding')
-    bool enableVideoPlaybackTranscoding,
-    @JsonKey(name: 'MaxActiveSessions') int maxActiveSessions,
+    bool? enableVideoPlaybackTranscoding,
+    @JsonKey(name: 'EnablePlaybackRemuxing') bool? enablePlaybackRemuxing,
     @JsonKey(name: 'ForceRemoteSourceTranscoding')
-    bool forceRemoteSourceTranscoding,
-    @JsonKey(name: 'EnableContentDeletion') bool enableContentDeletion,
-    @JsonKey(name: 'EnableContentDownloading') bool enableContentDownloading,
-    @JsonKey(name: 'EnableSyncTranscoding') bool enableSyncTranscoding,
-    @JsonKey(name: 'EnableMediaConversion') bool enableMediaConversion,
-    @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess syncPlayAccess,
-    @JsonKey(name: 'LoginAttemptsBeforeLockout') int loginAttemptsBeforeLockout,
-    @JsonKey(name: 'EnableAllDevices') bool enableAllDevices,
-    @JsonKey(name: 'InvalidLoginAttemptCount') int invalidLoginAttemptCount,
-    @JsonKey(name: 'EnablePublicSharing') bool enablePublicSharing,
-    @JsonKey(name: 'EnableAllFolders') bool enableAllFolders,
-    @JsonKey(name: 'EnableAllChannels') bool enableAllChannels,
+    bool? forceRemoteSourceTranscoding,
+    @JsonKey(name: 'EnableContentDeletion') bool? enableContentDeletion,
     @JsonKey(name: 'EnableContentDeletionFromFolders')
     List<String>? enableContentDeletionFromFolders,
+    @JsonKey(name: 'EnableContentDownloading') bool? enableContentDownloading,
+    @JsonKey(name: 'EnableSyncTranscoding') bool? enableSyncTranscoding,
+    @JsonKey(name: 'EnableMediaConversion') bool? enableMediaConversion,
+    @JsonKey(name: 'SyncPlayAccess') UserPolicySyncPlayAccess? syncPlayAccess,
+    @JsonKey(name: 'EnableAllDevices') bool? enableAllDevices,
     @JsonKey(name: 'EnabledChannels') List<String>? enabledChannels,
-    @JsonKey(name: 'BlockUnratedItems') List<UnratedItem>? blockUnratedItems,
+    @JsonKey(name: 'EnableAllChannels') bool? enableAllChannels,
     @JsonKey(name: 'EnabledFolders') List<String>? enabledFolders,
-    @JsonKey(name: 'AccessSchedules') List<AccessSchedule>? accessSchedules,
-    @JsonKey(name: 'AllowedTags') List<String>? allowedTags,
-    @JsonKey(name: 'BlockedTags') List<String>? blockedTags,
-    @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
-    @JsonKey(name: 'MaxParentalRating') int? maxParentalRating,
+    @JsonKey(name: 'EnableAllFolders') bool? enableAllFolders,
+    @JsonKey(name: 'InvalidLoginAttemptCount') int? invalidLoginAttemptCount,
+    @JsonKey(name: 'LoginAttemptsBeforeLockout')
+    int? loginAttemptsBeforeLockout,
+    @JsonKey(name: 'MaxActiveSessions') int? maxActiveSessions,
+    @JsonKey(name: 'EnablePublicSharing') bool? enablePublicSharing,
     @JsonKey(name: 'BlockedMediaFolders') List<String>? blockedMediaFolders,
     @JsonKey(name: 'BlockedChannels') List<String>? blockedChannels,
-    @JsonKey(name: 'MaxParentalSubRating') int? maxParentalSubRating,
+    @JsonKey(name: 'EnabledDevices') List<String>? enabledDevices,
     @JsonKey(name: 'EnableSubtitleManagement') bool enableSubtitleManagement,
     @JsonKey(name: 'EnableCollectionManagement')
     bool enableCollectionManagement,
@@ -1736,206 +1735,209 @@ class __$UserPolicyCopyWithImpl<$Res> implements _$UserPolicyCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? enablePlaybackRemuxing = null,
-    Object? isHidden = null,
-    Object? passwordResetProviderId = null,
     Object? authenticationProviderId = null,
-    Object? remoteClientBitrateLimit = null,
-    Object? isDisabled = null,
-    Object? enableSharedDeviceControl = null,
-    Object? enableUserPreferenceAccess = null,
-    Object? enableRemoteControlOfOtherUsers = null,
-    Object? isAdministrator = null,
-    Object? enableRemoteAccess = null,
-    Object? enableLiveTvManagement = null,
-    Object? enableLiveTvAccess = null,
-    Object? enableMediaPlayback = null,
-    Object? enableAudioPlaybackTranscoding = null,
-    Object? enableVideoPlaybackTranscoding = null,
-    Object? maxActiveSessions = null,
-    Object? forceRemoteSourceTranscoding = null,
-    Object? enableContentDeletion = null,
-    Object? enableContentDownloading = null,
-    Object? enableSyncTranscoding = null,
-    Object? enableMediaConversion = null,
-    Object? syncPlayAccess = null,
-    Object? loginAttemptsBeforeLockout = null,
-    Object? enableAllDevices = null,
-    Object? invalidLoginAttemptCount = null,
-    Object? enablePublicSharing = null,
-    Object? enableAllFolders = null,
-    Object? enableAllChannels = null,
-    Object? enableContentDeletionFromFolders = freezed,
-    Object? enabledChannels = freezed,
-    Object? blockUnratedItems = freezed,
-    Object? enabledFolders = freezed,
-    Object? accessSchedules = freezed,
-    Object? allowedTags = freezed,
-    Object? blockedTags = freezed,
-    Object? enabledDevices = freezed,
+    Object? passwordResetProviderId = null,
+    Object? enableSharedDeviceControl = freezed,
+    Object? isHidden = freezed,
+    Object? remoteClientBitrateLimit = freezed,
+    Object? isDisabled = freezed,
     Object? maxParentalRating = freezed,
+    Object? maxParentalSubRating = freezed,
+    Object? blockedTags = freezed,
+    Object? allowedTags = freezed,
+    Object? enableUserPreferenceAccess = freezed,
+    Object? accessSchedules = freezed,
+    Object? blockUnratedItems = freezed,
+    Object? enableRemoteControlOfOtherUsers = freezed,
+    Object? isAdministrator = freezed,
+    Object? enableRemoteAccess = freezed,
+    Object? enableLiveTvManagement = freezed,
+    Object? enableLiveTvAccess = freezed,
+    Object? enableMediaPlayback = freezed,
+    Object? enableAudioPlaybackTranscoding = freezed,
+    Object? enableVideoPlaybackTranscoding = freezed,
+    Object? enablePlaybackRemuxing = freezed,
+    Object? forceRemoteSourceTranscoding = freezed,
+    Object? enableContentDeletion = freezed,
+    Object? enableContentDeletionFromFolders = freezed,
+    Object? enableContentDownloading = freezed,
+    Object? enableSyncTranscoding = freezed,
+    Object? enableMediaConversion = freezed,
+    Object? syncPlayAccess = freezed,
+    Object? enableAllDevices = freezed,
+    Object? enabledChannels = freezed,
+    Object? enableAllChannels = freezed,
+    Object? enabledFolders = freezed,
+    Object? enableAllFolders = freezed,
+    Object? invalidLoginAttemptCount = freezed,
+    Object? loginAttemptsBeforeLockout = freezed,
+    Object? maxActiveSessions = freezed,
+    Object? enablePublicSharing = freezed,
     Object? blockedMediaFolders = freezed,
     Object? blockedChannels = freezed,
-    Object? maxParentalSubRating = freezed,
+    Object? enabledDevices = freezed,
     Object? enableSubtitleManagement = null,
     Object? enableCollectionManagement = null,
     Object? enableLyricManagement = null,
   }) {
     return _then(
       _UserPolicy(
-        enablePlaybackRemuxing: null == enablePlaybackRemuxing
-            ? _self.enablePlaybackRemuxing
-            : enablePlaybackRemuxing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isHidden: null == isHidden
-            ? _self.isHidden
-            : isHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        passwordResetProviderId: null == passwordResetProviderId
-            ? _self.passwordResetProviderId
-            : passwordResetProviderId // ignore: cast_nullable_to_non_nullable
-                  as String,
         authenticationProviderId: null == authenticationProviderId
             ? _self.authenticationProviderId
             : authenticationProviderId // ignore: cast_nullable_to_non_nullable
                   as String,
-        remoteClientBitrateLimit: null == remoteClientBitrateLimit
-            ? _self.remoteClientBitrateLimit
-            : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isDisabled: null == isDisabled
-            ? _self.isDisabled
-            : isDisabled // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableSharedDeviceControl: null == enableSharedDeviceControl
+        passwordResetProviderId: null == passwordResetProviderId
+            ? _self.passwordResetProviderId
+            : passwordResetProviderId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        enableSharedDeviceControl: freezed == enableSharedDeviceControl
             ? _self.enableSharedDeviceControl
             : enableSharedDeviceControl // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableUserPreferenceAccess: null == enableUserPreferenceAccess
+                  as bool?,
+        isHidden: freezed == isHidden
+            ? _self.isHidden
+            : isHidden // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        remoteClientBitrateLimit: freezed == remoteClientBitrateLimit
+            ? _self.remoteClientBitrateLimit
+            : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        isDisabled: freezed == isDisabled
+            ? _self.isDisabled
+            : isDisabled // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        maxParentalRating: freezed == maxParentalRating
+            ? _self.maxParentalRating
+            : maxParentalRating // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxParentalSubRating: freezed == maxParentalSubRating
+            ? _self.maxParentalSubRating
+            : maxParentalSubRating // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        blockedTags: freezed == blockedTags
+            ? _self._blockedTags
+            : blockedTags // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        allowedTags: freezed == allowedTags
+            ? _self._allowedTags
+            : allowedTags // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        enableUserPreferenceAccess: freezed == enableUserPreferenceAccess
             ? _self.enableUserPreferenceAccess
             : enableUserPreferenceAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRemoteControlOfOtherUsers: null == enableRemoteControlOfOtherUsers
+                  as bool?,
+        accessSchedules: freezed == accessSchedules
+            ? _self._accessSchedules
+            : accessSchedules // ignore: cast_nullable_to_non_nullable
+                  as List<AccessSchedule>?,
+        blockUnratedItems: freezed == blockUnratedItems
+            ? _self._blockUnratedItems
+            : blockUnratedItems // ignore: cast_nullable_to_non_nullable
+                  as List<UnratedItem>?,
+        enableRemoteControlOfOtherUsers:
+            freezed == enableRemoteControlOfOtherUsers
             ? _self.enableRemoteControlOfOtherUsers
             : enableRemoteControlOfOtherUsers // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isAdministrator: null == isAdministrator
+                  as bool?,
+        isAdministrator: freezed == isAdministrator
             ? _self.isAdministrator
             : isAdministrator // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRemoteAccess: null == enableRemoteAccess
+                  as bool?,
+        enableRemoteAccess: freezed == enableRemoteAccess
             ? _self.enableRemoteAccess
             : enableRemoteAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLiveTvManagement: null == enableLiveTvManagement
+                  as bool?,
+        enableLiveTvManagement: freezed == enableLiveTvManagement
             ? _self.enableLiveTvManagement
             : enableLiveTvManagement // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLiveTvAccess: null == enableLiveTvAccess
+                  as bool?,
+        enableLiveTvAccess: freezed == enableLiveTvAccess
             ? _self.enableLiveTvAccess
             : enableLiveTvAccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableMediaPlayback: null == enableMediaPlayback
+                  as bool?,
+        enableMediaPlayback: freezed == enableMediaPlayback
             ? _self.enableMediaPlayback
             : enableMediaPlayback // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAudioPlaybackTranscoding: null == enableAudioPlaybackTranscoding
+                  as bool?,
+        enableAudioPlaybackTranscoding:
+            freezed == enableAudioPlaybackTranscoding
             ? _self.enableAudioPlaybackTranscoding
             : enableAudioPlaybackTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableVideoPlaybackTranscoding: null == enableVideoPlaybackTranscoding
+                  as bool?,
+        enableVideoPlaybackTranscoding:
+            freezed == enableVideoPlaybackTranscoding
             ? _self.enableVideoPlaybackTranscoding
             : enableVideoPlaybackTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        maxActiveSessions: null == maxActiveSessions
-            ? _self.maxActiveSessions
-            : maxActiveSessions // ignore: cast_nullable_to_non_nullable
-                  as int,
-        forceRemoteSourceTranscoding: null == forceRemoteSourceTranscoding
+                  as bool?,
+        enablePlaybackRemuxing: freezed == enablePlaybackRemuxing
+            ? _self.enablePlaybackRemuxing
+            : enablePlaybackRemuxing // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        forceRemoteSourceTranscoding: freezed == forceRemoteSourceTranscoding
             ? _self.forceRemoteSourceTranscoding
             : forceRemoteSourceTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableContentDeletion: null == enableContentDeletion
+                  as bool?,
+        enableContentDeletion: freezed == enableContentDeletion
             ? _self.enableContentDeletion
             : enableContentDeletion // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableContentDownloading: null == enableContentDownloading
-            ? _self.enableContentDownloading
-            : enableContentDownloading // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableSyncTranscoding: null == enableSyncTranscoding
-            ? _self.enableSyncTranscoding
-            : enableSyncTranscoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableMediaConversion: null == enableMediaConversion
-            ? _self.enableMediaConversion
-            : enableMediaConversion // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        syncPlayAccess: null == syncPlayAccess
-            ? _self.syncPlayAccess
-            : syncPlayAccess // ignore: cast_nullable_to_non_nullable
-                  as UserPolicySyncPlayAccess,
-        loginAttemptsBeforeLockout: null == loginAttemptsBeforeLockout
-            ? _self.loginAttemptsBeforeLockout
-            : loginAttemptsBeforeLockout // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enableAllDevices: null == enableAllDevices
-            ? _self.enableAllDevices
-            : enableAllDevices // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        invalidLoginAttemptCount: null == invalidLoginAttemptCount
-            ? _self.invalidLoginAttemptCount
-            : invalidLoginAttemptCount // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enablePublicSharing: null == enablePublicSharing
-            ? _self.enablePublicSharing
-            : enablePublicSharing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAllFolders: null == enableAllFolders
-            ? _self.enableAllFolders
-            : enableAllFolders // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAllChannels: null == enableAllChannels
-            ? _self.enableAllChannels
-            : enableAllChannels // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         enableContentDeletionFromFolders:
             freezed == enableContentDeletionFromFolders
             ? _self._enableContentDeletionFromFolders
             : enableContentDeletionFromFolders // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
+        enableContentDownloading: freezed == enableContentDownloading
+            ? _self.enableContentDownloading
+            : enableContentDownloading // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        enableSyncTranscoding: freezed == enableSyncTranscoding
+            ? _self.enableSyncTranscoding
+            : enableSyncTranscoding // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        enableMediaConversion: freezed == enableMediaConversion
+            ? _self.enableMediaConversion
+            : enableMediaConversion // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        syncPlayAccess: freezed == syncPlayAccess
+            ? _self.syncPlayAccess
+            : syncPlayAccess // ignore: cast_nullable_to_non_nullable
+                  as UserPolicySyncPlayAccess?,
+        enableAllDevices: freezed == enableAllDevices
+            ? _self.enableAllDevices
+            : enableAllDevices // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         enabledChannels: freezed == enabledChannels
             ? _self._enabledChannels
             : enabledChannels // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        blockUnratedItems: freezed == blockUnratedItems
-            ? _self._blockUnratedItems
-            : blockUnratedItems // ignore: cast_nullable_to_non_nullable
-                  as List<UnratedItem>?,
+        enableAllChannels: freezed == enableAllChannels
+            ? _self.enableAllChannels
+            : enableAllChannels // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         enabledFolders: freezed == enabledFolders
             ? _self._enabledFolders
             : enabledFolders // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        accessSchedules: freezed == accessSchedules
-            ? _self._accessSchedules
-            : accessSchedules // ignore: cast_nullable_to_non_nullable
-                  as List<AccessSchedule>?,
-        allowedTags: freezed == allowedTags
-            ? _self._allowedTags
-            : allowedTags // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        blockedTags: freezed == blockedTags
-            ? _self._blockedTags
-            : blockedTags // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        enabledDevices: freezed == enabledDevices
-            ? _self._enabledDevices
-            : enabledDevices // ignore: cast_nullable_to_non_nullable
-                  as List<String>?,
-        maxParentalRating: freezed == maxParentalRating
-            ? _self.maxParentalRating
-            : maxParentalRating // ignore: cast_nullable_to_non_nullable
+        enableAllFolders: freezed == enableAllFolders
+            ? _self.enableAllFolders
+            : enableAllFolders // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        invalidLoginAttemptCount: freezed == invalidLoginAttemptCount
+            ? _self.invalidLoginAttemptCount
+            : invalidLoginAttemptCount // ignore: cast_nullable_to_non_nullable
                   as int?,
+        loginAttemptsBeforeLockout: freezed == loginAttemptsBeforeLockout
+            ? _self.loginAttemptsBeforeLockout
+            : loginAttemptsBeforeLockout // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        maxActiveSessions: freezed == maxActiveSessions
+            ? _self.maxActiveSessions
+            : maxActiveSessions // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        enablePublicSharing: freezed == enablePublicSharing
+            ? _self.enablePublicSharing
+            : enablePublicSharing // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         blockedMediaFolders: freezed == blockedMediaFolders
             ? _self._blockedMediaFolders
             : blockedMediaFolders // ignore: cast_nullable_to_non_nullable
@@ -1944,10 +1946,10 @@ class __$UserPolicyCopyWithImpl<$Res> implements _$UserPolicyCopyWith<$Res> {
             ? _self._blockedChannels
             : blockedChannels // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        maxParentalSubRating: freezed == maxParentalSubRating
-            ? _self.maxParentalSubRating
-            : maxParentalSubRating // ignore: cast_nullable_to_non_nullable
-                  as int?,
+        enabledDevices: freezed == enabledDevices
+            ? _self._enabledDevices
+            : enabledDevices // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
         enableSubtitleManagement: null == enableSubtitleManagement
             ? _self.enableSubtitleManagement
             : enableSubtitleManagement // ignore: cast_nullable_to_non_nullable

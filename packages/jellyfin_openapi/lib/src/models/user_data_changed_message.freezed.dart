@@ -13,13 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserDataChangedMessage {
+  /// Class UserDataChangeInfo.
+  @JsonKey(name: 'Data')
+  UserDataChangeInfo get data;
+
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
   String get messageId;
 
-  /// Class UserDataChangeInfo.
-  @JsonKey(name: 'Data')
-  UserDataChangeInfo? get data;
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  UserDataChangedMessageMessageType get messageType;
 
   /// Create a copy of UserDataChangedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -39,18 +43,20 @@ mixin _$UserDataChangedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserDataChangedMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'UserDataChangedMessage(messageId: $messageId, data: $data)';
+    return 'UserDataChangedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -62,11 +68,12 @@ abstract mixin class $UserDataChangedMessageCopyWith<$Res> {
   ) = _$UserDataChangedMessageCopyWithImpl;
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') UserDataChangeInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') UserDataChangeInfo? data,
+    @JsonKey(name: 'MessageType') UserDataChangedMessageMessageType messageType,
   });
 
-  $UserDataChangeInfoCopyWith<$Res>? get data;
+  $UserDataChangeInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -81,17 +88,25 @@ class _$UserDataChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _self.copyWith(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as UserDataChangeInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as UserDataChangeInfo?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as UserDataChangedMessageMessageType,
       ),
     );
   }
@@ -100,12 +115,8 @@ class _$UserDataChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDataChangeInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $UserDataChangeInfoCopyWith<$Res>(_self.data!, (value) {
+  $UserDataChangeInfoCopyWith<$Res> get data {
+    return $UserDataChangeInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -205,8 +216,10 @@ extension UserDataChangedMessagePatterns on UserDataChangedMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
+      @JsonKey(name: 'MessageType')
+      UserDataChangedMessageMessageType messageType,
     )?
     $default, {
     required TResult orElse(),
@@ -214,7 +227,7 @@ extension UserDataChangedMessagePatterns on UserDataChangedMessage {
     final _that = this;
     switch (_that) {
       case _UserDataChangedMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -236,15 +249,17 @@ extension UserDataChangedMessagePatterns on UserDataChangedMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
+      @JsonKey(name: 'MessageType')
+      UserDataChangedMessageMessageType messageType,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _UserDataChangedMessage():
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -265,15 +280,17 @@ extension UserDataChangedMessagePatterns on UserDataChangedMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+      @JsonKey(name: 'Data') UserDataChangeInfo data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') UserDataChangeInfo? data,
+      @JsonKey(name: 'MessageType')
+      UserDataChangedMessageMessageType messageType,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _UserDataChangedMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -284,21 +301,28 @@ extension UserDataChangedMessagePatterns on UserDataChangedMessage {
 @JsonSerializable()
 class _UserDataChangedMessage implements UserDataChangedMessage {
   const _UserDataChangedMessage({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageType')
+    this.messageType = UserDataChangedMessageMessageType.userDataChanged,
   });
   factory _UserDataChangedMessage.fromJson(Map<String, dynamic> json) =>
       _$UserDataChangedMessageFromJson(json);
+
+  /// Class UserDataChangeInfo.
+  @override
+  @JsonKey(name: 'Data')
+  final UserDataChangeInfo data;
 
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
 
-  /// Class UserDataChangeInfo.
+  /// The different kinds of messages that are used in the WebSocket api.
   @override
-  @JsonKey(name: 'Data')
-  final UserDataChangeInfo? data;
+  @JsonKey(name: 'MessageType')
+  final UserDataChangedMessageMessageType messageType;
 
   /// Create a copy of UserDataChangedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -321,18 +345,20 @@ class _UserDataChangedMessage implements UserDataChangedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserDataChangedMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'UserDataChangedMessage(messageId: $messageId, data: $data)';
+    return 'UserDataChangedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -346,12 +372,13 @@ abstract mixin class _$UserDataChangedMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') UserDataChangeInfo data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') UserDataChangeInfo? data,
+    @JsonKey(name: 'MessageType') UserDataChangedMessageMessageType messageType,
   });
 
   @override
-  $UserDataChangeInfoCopyWith<$Res>? get data;
+  $UserDataChangeInfoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -366,17 +393,25 @@ class __$UserDataChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _UserDataChangedMessage(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as UserDataChangeInfo,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as UserDataChangeInfo?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as UserDataChangedMessageMessageType,
       ),
     );
   }
@@ -385,12 +420,8 @@ class __$UserDataChangedMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDataChangeInfoCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $UserDataChangeInfoCopyWith<$Res>(_self.data!, (value) {
+  $UserDataChangeInfoCopyWith<$Res> get data {
+    return $UserDataChangeInfoCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

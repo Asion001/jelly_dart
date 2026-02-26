@@ -13,6 +13,21 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ActivityLogEntryStopMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  ActivityLogEntryStopMessageMessageType get messageType;
+
+  /// Create a copy of ActivityLogEntryStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ActivityLogEntryStopMessageCopyWith<ActivityLogEntryStopMessage>
+  get copyWith =>
+      _$ActivityLogEntryStopMessageCopyWithImpl<ActivityLogEntryStopMessage>(
+        this as ActivityLogEntryStopMessage,
+        _$identity,
+      );
+
   /// Serializes this ActivityLogEntryStopMessage to a JSON map.
   Map<String, dynamic> toJson();
 
@@ -20,25 +35,56 @@ mixin _$ActivityLogEntryStopMessage {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ActivityLogEntryStopMessage);
+            other is ActivityLogEntryStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'ActivityLogEntryStopMessage()';
+    return 'ActivityLogEntryStopMessage(messageType: $messageType)';
   }
 }
 
 /// @nodoc
-class $ActivityLogEntryStopMessageCopyWith<$Res> {
-  $ActivityLogEntryStopMessageCopyWith(
-    ActivityLogEntryStopMessage _,
-    $Res Function(ActivityLogEntryStopMessage) __,
-  );
+abstract mixin class $ActivityLogEntryStopMessageCopyWith<$Res> {
+  factory $ActivityLogEntryStopMessageCopyWith(
+    ActivityLogEntryStopMessage value,
+    $Res Function(ActivityLogEntryStopMessage) _then,
+  ) = _$ActivityLogEntryStopMessageCopyWithImpl;
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType')
+    ActivityLogEntryStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class _$ActivityLogEntryStopMessageCopyWithImpl<$Res>
+    implements $ActivityLogEntryStopMessageCopyWith<$Res> {
+  _$ActivityLogEntryStopMessageCopyWithImpl(this._self, this._then);
+
+  final ActivityLogEntryStopMessage _self;
+  final $Res Function(ActivityLogEntryStopMessage) _then;
+
+  /// Create a copy of ActivityLogEntryStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _self.copyWith(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ActivityLogEntryStopMessageMessageType,
+      ),
+    );
+  }
 }
 
 /// Adds pattern-matching-related methods to [ActivityLogEntryStopMessage].
@@ -134,13 +180,17 @@ extension ActivityLogEntryStopMessagePatterns on ActivityLogEntryStopMessage {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(
+      @JsonKey(name: 'MessageType')
+      ActivityLogEntryStopMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return orElse();
     }
@@ -160,11 +210,17 @@ extension ActivityLogEntryStopMessagePatterns on ActivityLogEntryStopMessage {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(TResult Function() $default) {
+  TResult when<TResult extends Object?>(
+    TResult Function(
+      @JsonKey(name: 'MessageType')
+      ActivityLogEntryStopMessageMessageType messageType,
+    )
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStopMessage():
-        return $default();
+        return $default(_that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -183,11 +239,17 @@ extension ActivityLogEntryStopMessagePatterns on ActivityLogEntryStopMessage {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(TResult? Function()? $default) {
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+      @JsonKey(name: 'MessageType')
+      ActivityLogEntryStopMessageMessageType messageType,
+    )?
+    $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStopMessage() when $default != null:
-        return $default();
+        return $default(_that.messageType);
       case _:
         return null;
     }
@@ -197,9 +259,30 @@ extension ActivityLogEntryStopMessagePatterns on ActivityLogEntryStopMessage {
 /// @nodoc
 @JsonSerializable()
 class _ActivityLogEntryStopMessage implements ActivityLogEntryStopMessage {
-  const _ActivityLogEntryStopMessage();
+  const _ActivityLogEntryStopMessage({
+    @JsonKey(name: 'MessageType')
+    this.messageType =
+        ActivityLogEntryStopMessageMessageType.activityLogEntryStop,
+  });
   factory _ActivityLogEntryStopMessage.fromJson(Map<String, dynamic> json) =>
       _$ActivityLogEntryStopMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final ActivityLogEntryStopMessageMessageType messageType;
+
+  /// Create a copy of ActivityLogEntryStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ActivityLogEntryStopMessageCopyWith<_ActivityLogEntryStopMessage>
+  get copyWith =>
+      __$ActivityLogEntryStopMessageCopyWithImpl<_ActivityLogEntryStopMessage>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
@@ -210,15 +293,56 @@ class _ActivityLogEntryStopMessage implements ActivityLogEntryStopMessage {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ActivityLogEntryStopMessage);
+            other is _ActivityLogEntryStopMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, messageType);
 
   @override
   String toString() {
-    return 'ActivityLogEntryStopMessage()';
+    return 'ActivityLogEntryStopMessage(messageType: $messageType)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ActivityLogEntryStopMessageCopyWith<$Res>
+    implements $ActivityLogEntryStopMessageCopyWith<$Res> {
+  factory _$ActivityLogEntryStopMessageCopyWith(
+    _ActivityLogEntryStopMessage value,
+    $Res Function(_ActivityLogEntryStopMessage) _then,
+  ) = __$ActivityLogEntryStopMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    @JsonKey(name: 'MessageType')
+    ActivityLogEntryStopMessageMessageType messageType,
+  });
+}
+
+/// @nodoc
+class __$ActivityLogEntryStopMessageCopyWithImpl<$Res>
+    implements _$ActivityLogEntryStopMessageCopyWith<$Res> {
+  __$ActivityLogEntryStopMessageCopyWithImpl(this._self, this._then);
+
+  final _ActivityLogEntryStopMessage _self;
+  final $Res Function(_ActivityLogEntryStopMessage) _then;
+
+  /// Create a copy of ActivityLogEntryStopMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({Object? messageType = null}) {
+    return _then(
+      _ActivityLogEntryStopMessage(
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ActivityLogEntryStopMessageMessageType,
+      ),
+    );
   }
 }

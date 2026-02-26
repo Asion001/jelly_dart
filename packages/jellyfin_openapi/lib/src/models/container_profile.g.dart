@@ -8,7 +8,7 @@ part of 'container_profile.dart';
 
 _ContainerProfile _$ContainerProfileFromJson(Map<String, dynamic> json) =>
     _ContainerProfile(
-      type: ContainerProfileType.fromJson(json['Type']),
+      type: $enumDecode(_$ContainerProfileTypeEnumMap, json['Type']),
       conditions: (json['Conditions'] as List<dynamic>)
           .map((e) => ProfileCondition.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -23,3 +23,11 @@ Map<String, dynamic> _$ContainerProfileToJson(_ContainerProfile instance) =>
       'Container': ?instance.container,
       'SubContainer': ?instance.subContainer,
     };
+
+const _$ContainerProfileTypeEnumMap = {
+  ContainerProfileType.audio: 'Audio',
+  ContainerProfileType.video: 'Video',
+  ContainerProfileType.photo: 'Photo',
+  ContainerProfileType.subtitle: 'Subtitle',
+  ContainerProfileType.lyric: 'Lyric',
+};

@@ -11,8 +11,27 @@ _SyncPlayGroupLeftUpdate _$SyncPlayGroupLeftUpdateFromJson(
 ) => _SyncPlayGroupLeftUpdate(
   groupId: json['GroupId'] as String,
   data: json['Data'] as String,
+  type:
+      $enumDecodeNullable(_$SyncPlayGroupLeftUpdateTypeEnumMap, json['Type']) ??
+      SyncPlayGroupLeftUpdateType.groupLeft,
 );
 
 Map<String, dynamic> _$SyncPlayGroupLeftUpdateToJson(
   _SyncPlayGroupLeftUpdate instance,
-) => <String, dynamic>{'GroupId': instance.groupId, 'Data': instance.data};
+) => <String, dynamic>{
+  'GroupId': instance.groupId,
+  'Data': instance.data,
+  'Type': instance.type.toJson(),
+};
+
+const _$SyncPlayGroupLeftUpdateTypeEnumMap = {
+  SyncPlayGroupLeftUpdateType.userJoined: 'UserJoined',
+  SyncPlayGroupLeftUpdateType.userLeft: 'UserLeft',
+  SyncPlayGroupLeftUpdateType.groupJoined: 'GroupJoined',
+  SyncPlayGroupLeftUpdateType.groupLeft: 'GroupLeft',
+  SyncPlayGroupLeftUpdateType.stateUpdate: 'StateUpdate',
+  SyncPlayGroupLeftUpdateType.playQueue: 'PlayQueue',
+  SyncPlayGroupLeftUpdateType.notInGroup: 'NotInGroup',
+  SyncPlayGroupLeftUpdateType.groupDoesNotExist: 'GroupDoesNotExist',
+  SyncPlayGroupLeftUpdateType.libraryAccessDenied: 'LibraryAccessDenied',
+};

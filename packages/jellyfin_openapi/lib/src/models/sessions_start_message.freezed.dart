@@ -17,6 +17,10 @@ mixin _$SessionsStartMessage {
   @JsonKey(name: 'Data')
   String? get data;
 
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  SessionsStartMessageMessageType get messageType;
+
   /// Create a copy of SessionsStartMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -35,16 +39,18 @@ mixin _$SessionsStartMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SessionsStartMessage &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, messageType);
 
   @override
   String toString() {
-    return 'SessionsStartMessage(data: $data)';
+    return 'SessionsStartMessage(data: $data, messageType: $messageType)';
   }
 }
 
@@ -55,7 +61,10 @@ abstract mixin class $SessionsStartMessageCopyWith<$Res> {
     $Res Function(SessionsStartMessage) _then,
   ) = _$SessionsStartMessageCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'Data') String? data});
+  $Res call({
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageType') SessionsStartMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -70,13 +79,17 @@ class _$SessionsStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageType = null}) {
     return _then(
       _self.copyWith(
         data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SessionsStartMessageMessageType,
       ),
     );
   }
@@ -175,13 +188,17 @@ extension SessionsStartMessagePatterns on SessionsStartMessage {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Data') String? data)? $default, {
+    TResult Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType') SessionsStartMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _SessionsStartMessage() when $default != null:
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         return orElse();
     }
@@ -202,12 +219,16 @@ extension SessionsStartMessagePatterns on SessionsStartMessage {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Data') String? data) $default,
+    TResult Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType') SessionsStartMessageMessageType messageType,
+    )
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SessionsStartMessage():
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -227,12 +248,16 @@ extension SessionsStartMessagePatterns on SessionsStartMessage {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'Data') String? data)? $default,
+    TResult? Function(
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageType') SessionsStartMessageMessageType messageType,
+    )?
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SessionsStartMessage() when $default != null:
-        return $default(_that.data);
+        return $default(_that.data, _that.messageType);
       case _:
         return null;
     }
@@ -242,7 +267,11 @@ extension SessionsStartMessagePatterns on SessionsStartMessage {
 /// @nodoc
 @JsonSerializable()
 class _SessionsStartMessage implements SessionsStartMessage {
-  const _SessionsStartMessage({@JsonKey(name: 'Data') this.data});
+  const _SessionsStartMessage({
+    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'MessageType')
+    this.messageType = SessionsStartMessageMessageType.sessionsStart,
+  });
   factory _SessionsStartMessage.fromJson(Map<String, dynamic> json) =>
       _$SessionsStartMessageFromJson(json);
 
@@ -250,6 +279,11 @@ class _SessionsStartMessage implements SessionsStartMessage {
   @override
   @JsonKey(name: 'Data')
   final String? data;
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final SessionsStartMessageMessageType messageType;
 
   /// Create a copy of SessionsStartMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -272,16 +306,18 @@ class _SessionsStartMessage implements SessionsStartMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SessionsStartMessage &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, messageType);
 
   @override
   String toString() {
-    return 'SessionsStartMessage(data: $data)';
+    return 'SessionsStartMessage(data: $data, messageType: $messageType)';
   }
 }
 
@@ -294,7 +330,10 @@ abstract mixin class _$SessionsStartMessageCopyWith<$Res>
   ) = __$SessionsStartMessageCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'Data') String? data});
+  $Res call({
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageType') SessionsStartMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -309,13 +348,17 @@ class __$SessionsStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? data = freezed}) {
+  $Res call({Object? data = freezed, Object? messageType = null}) {
     return _then(
       _SessionsStartMessage(
         data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
                   as String?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SessionsStartMessageMessageType,
       ),
     );
   }

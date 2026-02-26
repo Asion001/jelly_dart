@@ -14,31 +14,31 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ImageBlurHashes {
   @JsonKey(name: 'Primary')
-  Map<String, String> get primary;
+  Map<String, String>? get primary;
   @JsonKey(name: 'Art')
-  Map<String, String> get art;
+  Map<String, String>? get art;
   @JsonKey(name: 'Backdrop')
-  Map<String, String> get backdrop;
+  Map<String, String>? get backdrop;
   @JsonKey(name: 'Banner')
-  Map<String, String> get banner;
+  Map<String, String>? get banner;
   @JsonKey(name: 'Logo')
-  Map<String, String> get logo;
+  Map<String, String>? get logo;
   @JsonKey(name: 'Thumb')
-  Map<String, String> get thumb;
+  Map<String, String>? get thumb;
   @JsonKey(name: 'Disc')
-  Map<String, String> get disc;
+  Map<String, String>? get disc;
   @JsonKey(name: 'Box')
-  Map<String, String> get box;
+  Map<String, String>? get box;
   @JsonKey(name: 'Screenshot')
-  Map<String, String> get screenshot;
+  Map<String, String>? get screenshot;
   @JsonKey(name: 'Menu')
-  Map<String, String> get menu;
+  Map<String, String>? get menu;
   @JsonKey(name: 'Chapter')
-  Map<String, String> get chapter;
+  Map<String, String>? get chapter;
   @JsonKey(name: 'BoxRear')
-  Map<String, String> get boxRear;
+  Map<String, String>? get boxRear;
   @JsonKey(name: 'Profile')
-  Map<String, String> get profile;
+  Map<String, String>? get profile;
 
   /// Create a copy of ImageBlurHashes
   /// with the given fields replaced by the non-null parameter values.
@@ -109,19 +109,19 @@ abstract mixin class $ImageBlurHashesCopyWith<$Res> {
   ) = _$ImageBlurHashesCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Primary') Map<String, String> primary,
-    @JsonKey(name: 'Art') Map<String, String> art,
-    @JsonKey(name: 'Backdrop') Map<String, String> backdrop,
-    @JsonKey(name: 'Banner') Map<String, String> banner,
-    @JsonKey(name: 'Logo') Map<String, String> logo,
-    @JsonKey(name: 'Thumb') Map<String, String> thumb,
-    @JsonKey(name: 'Disc') Map<String, String> disc,
-    @JsonKey(name: 'Box') Map<String, String> box,
-    @JsonKey(name: 'Screenshot') Map<String, String> screenshot,
-    @JsonKey(name: 'Menu') Map<String, String> menu,
-    @JsonKey(name: 'Chapter') Map<String, String> chapter,
-    @JsonKey(name: 'BoxRear') Map<String, String> boxRear,
-    @JsonKey(name: 'Profile') Map<String, String> profile,
+    @JsonKey(name: 'Primary') Map<String, String>? primary,
+    @JsonKey(name: 'Art') Map<String, String>? art,
+    @JsonKey(name: 'Backdrop') Map<String, String>? backdrop,
+    @JsonKey(name: 'Banner') Map<String, String>? banner,
+    @JsonKey(name: 'Logo') Map<String, String>? logo,
+    @JsonKey(name: 'Thumb') Map<String, String>? thumb,
+    @JsonKey(name: 'Disc') Map<String, String>? disc,
+    @JsonKey(name: 'Box') Map<String, String>? box,
+    @JsonKey(name: 'Screenshot') Map<String, String>? screenshot,
+    @JsonKey(name: 'Menu') Map<String, String>? menu,
+    @JsonKey(name: 'Chapter') Map<String, String>? chapter,
+    @JsonKey(name: 'BoxRear') Map<String, String>? boxRear,
+    @JsonKey(name: 'Profile') Map<String, String>? profile,
   });
 }
 
@@ -138,74 +138,74 @@ class _$ImageBlurHashesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? primary = null,
-    Object? art = null,
-    Object? backdrop = null,
-    Object? banner = null,
-    Object? logo = null,
-    Object? thumb = null,
-    Object? disc = null,
-    Object? box = null,
-    Object? screenshot = null,
-    Object? menu = null,
-    Object? chapter = null,
-    Object? boxRear = null,
-    Object? profile = null,
+    Object? primary = freezed,
+    Object? art = freezed,
+    Object? backdrop = freezed,
+    Object? banner = freezed,
+    Object? logo = freezed,
+    Object? thumb = freezed,
+    Object? disc = freezed,
+    Object? box = freezed,
+    Object? screenshot = freezed,
+    Object? menu = freezed,
+    Object? chapter = freezed,
+    Object? boxRear = freezed,
+    Object? profile = freezed,
   }) {
     return _then(
       _self.copyWith(
-        primary: null == primary
+        primary: freezed == primary
             ? _self.primary
             : primary // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        art: null == art
+                  as Map<String, String>?,
+        art: freezed == art
             ? _self.art
             : art // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        backdrop: null == backdrop
+                  as Map<String, String>?,
+        backdrop: freezed == backdrop
             ? _self.backdrop
             : backdrop // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        banner: null == banner
+                  as Map<String, String>?,
+        banner: freezed == banner
             ? _self.banner
             : banner // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        logo: null == logo
+                  as Map<String, String>?,
+        logo: freezed == logo
             ? _self.logo
             : logo // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        thumb: null == thumb
+                  as Map<String, String>?,
+        thumb: freezed == thumb
             ? _self.thumb
             : thumb // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        disc: null == disc
+                  as Map<String, String>?,
+        disc: freezed == disc
             ? _self.disc
             : disc // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        box: null == box
+                  as Map<String, String>?,
+        box: freezed == box
             ? _self.box
             : box // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        screenshot: null == screenshot
+                  as Map<String, String>?,
+        screenshot: freezed == screenshot
             ? _self.screenshot
             : screenshot // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        menu: null == menu
+                  as Map<String, String>?,
+        menu: freezed == menu
             ? _self.menu
             : menu // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        chapter: null == chapter
+                  as Map<String, String>?,
+        chapter: freezed == chapter
             ? _self.chapter
             : chapter // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        boxRear: null == boxRear
+                  as Map<String, String>?,
+        boxRear: freezed == boxRear
             ? _self.boxRear
             : boxRear // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        profile: null == profile
+                  as Map<String, String>?,
+        profile: freezed == profile
             ? _self.profile
             : profile // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
+                  as Map<String, String>?,
       ),
     );
   }
@@ -305,19 +305,19 @@ extension ImageBlurHashesPatterns on ImageBlurHashes {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Primary') Map<String, String> primary,
-      @JsonKey(name: 'Art') Map<String, String> art,
-      @JsonKey(name: 'Backdrop') Map<String, String> backdrop,
-      @JsonKey(name: 'Banner') Map<String, String> banner,
-      @JsonKey(name: 'Logo') Map<String, String> logo,
-      @JsonKey(name: 'Thumb') Map<String, String> thumb,
-      @JsonKey(name: 'Disc') Map<String, String> disc,
-      @JsonKey(name: 'Box') Map<String, String> box,
-      @JsonKey(name: 'Screenshot') Map<String, String> screenshot,
-      @JsonKey(name: 'Menu') Map<String, String> menu,
-      @JsonKey(name: 'Chapter') Map<String, String> chapter,
-      @JsonKey(name: 'BoxRear') Map<String, String> boxRear,
-      @JsonKey(name: 'Profile') Map<String, String> profile,
+      @JsonKey(name: 'Primary') Map<String, String>? primary,
+      @JsonKey(name: 'Art') Map<String, String>? art,
+      @JsonKey(name: 'Backdrop') Map<String, String>? backdrop,
+      @JsonKey(name: 'Banner') Map<String, String>? banner,
+      @JsonKey(name: 'Logo') Map<String, String>? logo,
+      @JsonKey(name: 'Thumb') Map<String, String>? thumb,
+      @JsonKey(name: 'Disc') Map<String, String>? disc,
+      @JsonKey(name: 'Box') Map<String, String>? box,
+      @JsonKey(name: 'Screenshot') Map<String, String>? screenshot,
+      @JsonKey(name: 'Menu') Map<String, String>? menu,
+      @JsonKey(name: 'Chapter') Map<String, String>? chapter,
+      @JsonKey(name: 'BoxRear') Map<String, String>? boxRear,
+      @JsonKey(name: 'Profile') Map<String, String>? profile,
     )?
     $default, {
     required TResult orElse(),
@@ -361,19 +361,19 @@ extension ImageBlurHashesPatterns on ImageBlurHashes {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Primary') Map<String, String> primary,
-      @JsonKey(name: 'Art') Map<String, String> art,
-      @JsonKey(name: 'Backdrop') Map<String, String> backdrop,
-      @JsonKey(name: 'Banner') Map<String, String> banner,
-      @JsonKey(name: 'Logo') Map<String, String> logo,
-      @JsonKey(name: 'Thumb') Map<String, String> thumb,
-      @JsonKey(name: 'Disc') Map<String, String> disc,
-      @JsonKey(name: 'Box') Map<String, String> box,
-      @JsonKey(name: 'Screenshot') Map<String, String> screenshot,
-      @JsonKey(name: 'Menu') Map<String, String> menu,
-      @JsonKey(name: 'Chapter') Map<String, String> chapter,
-      @JsonKey(name: 'BoxRear') Map<String, String> boxRear,
-      @JsonKey(name: 'Profile') Map<String, String> profile,
+      @JsonKey(name: 'Primary') Map<String, String>? primary,
+      @JsonKey(name: 'Art') Map<String, String>? art,
+      @JsonKey(name: 'Backdrop') Map<String, String>? backdrop,
+      @JsonKey(name: 'Banner') Map<String, String>? banner,
+      @JsonKey(name: 'Logo') Map<String, String>? logo,
+      @JsonKey(name: 'Thumb') Map<String, String>? thumb,
+      @JsonKey(name: 'Disc') Map<String, String>? disc,
+      @JsonKey(name: 'Box') Map<String, String>? box,
+      @JsonKey(name: 'Screenshot') Map<String, String>? screenshot,
+      @JsonKey(name: 'Menu') Map<String, String>? menu,
+      @JsonKey(name: 'Chapter') Map<String, String>? chapter,
+      @JsonKey(name: 'BoxRear') Map<String, String>? boxRear,
+      @JsonKey(name: 'Profile') Map<String, String>? profile,
     )
     $default,
   ) {
@@ -415,19 +415,19 @@ extension ImageBlurHashesPatterns on ImageBlurHashes {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Primary') Map<String, String> primary,
-      @JsonKey(name: 'Art') Map<String, String> art,
-      @JsonKey(name: 'Backdrop') Map<String, String> backdrop,
-      @JsonKey(name: 'Banner') Map<String, String> banner,
-      @JsonKey(name: 'Logo') Map<String, String> logo,
-      @JsonKey(name: 'Thumb') Map<String, String> thumb,
-      @JsonKey(name: 'Disc') Map<String, String> disc,
-      @JsonKey(name: 'Box') Map<String, String> box,
-      @JsonKey(name: 'Screenshot') Map<String, String> screenshot,
-      @JsonKey(name: 'Menu') Map<String, String> menu,
-      @JsonKey(name: 'Chapter') Map<String, String> chapter,
-      @JsonKey(name: 'BoxRear') Map<String, String> boxRear,
-      @JsonKey(name: 'Profile') Map<String, String> profile,
+      @JsonKey(name: 'Primary') Map<String, String>? primary,
+      @JsonKey(name: 'Art') Map<String, String>? art,
+      @JsonKey(name: 'Backdrop') Map<String, String>? backdrop,
+      @JsonKey(name: 'Banner') Map<String, String>? banner,
+      @JsonKey(name: 'Logo') Map<String, String>? logo,
+      @JsonKey(name: 'Thumb') Map<String, String>? thumb,
+      @JsonKey(name: 'Disc') Map<String, String>? disc,
+      @JsonKey(name: 'Box') Map<String, String>? box,
+      @JsonKey(name: 'Screenshot') Map<String, String>? screenshot,
+      @JsonKey(name: 'Menu') Map<String, String>? menu,
+      @JsonKey(name: 'Chapter') Map<String, String>? chapter,
+      @JsonKey(name: 'BoxRear') Map<String, String>? boxRear,
+      @JsonKey(name: 'Profile') Map<String, String>? profile,
     )?
     $default,
   ) {
@@ -459,19 +459,19 @@ extension ImageBlurHashesPatterns on ImageBlurHashes {
 @JsonSerializable()
 class _ImageBlurHashes implements ImageBlurHashes {
   const _ImageBlurHashes({
-    @JsonKey(name: 'Primary') required final Map<String, String> primary,
-    @JsonKey(name: 'Art') required final Map<String, String> art,
-    @JsonKey(name: 'Backdrop') required final Map<String, String> backdrop,
-    @JsonKey(name: 'Banner') required final Map<String, String> banner,
-    @JsonKey(name: 'Logo') required final Map<String, String> logo,
-    @JsonKey(name: 'Thumb') required final Map<String, String> thumb,
-    @JsonKey(name: 'Disc') required final Map<String, String> disc,
-    @JsonKey(name: 'Box') required final Map<String, String> box,
-    @JsonKey(name: 'Screenshot') required final Map<String, String> screenshot,
-    @JsonKey(name: 'Menu') required final Map<String, String> menu,
-    @JsonKey(name: 'Chapter') required final Map<String, String> chapter,
-    @JsonKey(name: 'BoxRear') required final Map<String, String> boxRear,
-    @JsonKey(name: 'Profile') required final Map<String, String> profile,
+    @JsonKey(name: 'Primary') final Map<String, String>? primary,
+    @JsonKey(name: 'Art') final Map<String, String>? art,
+    @JsonKey(name: 'Backdrop') final Map<String, String>? backdrop,
+    @JsonKey(name: 'Banner') final Map<String, String>? banner,
+    @JsonKey(name: 'Logo') final Map<String, String>? logo,
+    @JsonKey(name: 'Thumb') final Map<String, String>? thumb,
+    @JsonKey(name: 'Disc') final Map<String, String>? disc,
+    @JsonKey(name: 'Box') final Map<String, String>? box,
+    @JsonKey(name: 'Screenshot') final Map<String, String>? screenshot,
+    @JsonKey(name: 'Menu') final Map<String, String>? menu,
+    @JsonKey(name: 'Chapter') final Map<String, String>? chapter,
+    @JsonKey(name: 'BoxRear') final Map<String, String>? boxRear,
+    @JsonKey(name: 'Profile') final Map<String, String>? profile,
   }) : _primary = primary,
        _art = art,
        _backdrop = backdrop,
@@ -488,121 +488,147 @@ class _ImageBlurHashes implements ImageBlurHashes {
   factory _ImageBlurHashes.fromJson(Map<String, dynamic> json) =>
       _$ImageBlurHashesFromJson(json);
 
-  final Map<String, String> _primary;
+  final Map<String, String>? _primary;
   @override
   @JsonKey(name: 'Primary')
-  Map<String, String> get primary {
+  Map<String, String>? get primary {
+    final value = _primary;
+    if (value == null) return null;
     if (_primary is EqualUnmodifiableMapView) return _primary;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_primary);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _art;
+  final Map<String, String>? _art;
   @override
   @JsonKey(name: 'Art')
-  Map<String, String> get art {
+  Map<String, String>? get art {
+    final value = _art;
+    if (value == null) return null;
     if (_art is EqualUnmodifiableMapView) return _art;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_art);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _backdrop;
+  final Map<String, String>? _backdrop;
   @override
   @JsonKey(name: 'Backdrop')
-  Map<String, String> get backdrop {
+  Map<String, String>? get backdrop {
+    final value = _backdrop;
+    if (value == null) return null;
     if (_backdrop is EqualUnmodifiableMapView) return _backdrop;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_backdrop);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _banner;
+  final Map<String, String>? _banner;
   @override
   @JsonKey(name: 'Banner')
-  Map<String, String> get banner {
+  Map<String, String>? get banner {
+    final value = _banner;
+    if (value == null) return null;
     if (_banner is EqualUnmodifiableMapView) return _banner;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_banner);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _logo;
+  final Map<String, String>? _logo;
   @override
   @JsonKey(name: 'Logo')
-  Map<String, String> get logo {
+  Map<String, String>? get logo {
+    final value = _logo;
+    if (value == null) return null;
     if (_logo is EqualUnmodifiableMapView) return _logo;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_logo);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _thumb;
+  final Map<String, String>? _thumb;
   @override
   @JsonKey(name: 'Thumb')
-  Map<String, String> get thumb {
+  Map<String, String>? get thumb {
+    final value = _thumb;
+    if (value == null) return null;
     if (_thumb is EqualUnmodifiableMapView) return _thumb;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_thumb);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _disc;
+  final Map<String, String>? _disc;
   @override
   @JsonKey(name: 'Disc')
-  Map<String, String> get disc {
+  Map<String, String>? get disc {
+    final value = _disc;
+    if (value == null) return null;
     if (_disc is EqualUnmodifiableMapView) return _disc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_disc);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _box;
+  final Map<String, String>? _box;
   @override
   @JsonKey(name: 'Box')
-  Map<String, String> get box {
+  Map<String, String>? get box {
+    final value = _box;
+    if (value == null) return null;
     if (_box is EqualUnmodifiableMapView) return _box;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_box);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _screenshot;
+  final Map<String, String>? _screenshot;
   @override
   @JsonKey(name: 'Screenshot')
-  Map<String, String> get screenshot {
+  Map<String, String>? get screenshot {
+    final value = _screenshot;
+    if (value == null) return null;
     if (_screenshot is EqualUnmodifiableMapView) return _screenshot;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_screenshot);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _menu;
+  final Map<String, String>? _menu;
   @override
   @JsonKey(name: 'Menu')
-  Map<String, String> get menu {
+  Map<String, String>? get menu {
+    final value = _menu;
+    if (value == null) return null;
     if (_menu is EqualUnmodifiableMapView) return _menu;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_menu);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _chapter;
+  final Map<String, String>? _chapter;
   @override
   @JsonKey(name: 'Chapter')
-  Map<String, String> get chapter {
+  Map<String, String>? get chapter {
+    final value = _chapter;
+    if (value == null) return null;
     if (_chapter is EqualUnmodifiableMapView) return _chapter;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_chapter);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _boxRear;
+  final Map<String, String>? _boxRear;
   @override
   @JsonKey(name: 'BoxRear')
-  Map<String, String> get boxRear {
+  Map<String, String>? get boxRear {
+    final value = _boxRear;
+    if (value == null) return null;
     if (_boxRear is EqualUnmodifiableMapView) return _boxRear;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_boxRear);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, String> _profile;
+  final Map<String, String>? _profile;
   @override
   @JsonKey(name: 'Profile')
-  Map<String, String> get profile {
+  Map<String, String>? get profile {
+    final value = _profile;
+    if (value == null) return null;
     if (_profile is EqualUnmodifiableMapView) return _profile;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_profile);
+    return EqualUnmodifiableMapView(value);
   }
 
   /// Create a copy of ImageBlurHashes
@@ -676,19 +702,19 @@ abstract mixin class _$ImageBlurHashesCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Primary') Map<String, String> primary,
-    @JsonKey(name: 'Art') Map<String, String> art,
-    @JsonKey(name: 'Backdrop') Map<String, String> backdrop,
-    @JsonKey(name: 'Banner') Map<String, String> banner,
-    @JsonKey(name: 'Logo') Map<String, String> logo,
-    @JsonKey(name: 'Thumb') Map<String, String> thumb,
-    @JsonKey(name: 'Disc') Map<String, String> disc,
-    @JsonKey(name: 'Box') Map<String, String> box,
-    @JsonKey(name: 'Screenshot') Map<String, String> screenshot,
-    @JsonKey(name: 'Menu') Map<String, String> menu,
-    @JsonKey(name: 'Chapter') Map<String, String> chapter,
-    @JsonKey(name: 'BoxRear') Map<String, String> boxRear,
-    @JsonKey(name: 'Profile') Map<String, String> profile,
+    @JsonKey(name: 'Primary') Map<String, String>? primary,
+    @JsonKey(name: 'Art') Map<String, String>? art,
+    @JsonKey(name: 'Backdrop') Map<String, String>? backdrop,
+    @JsonKey(name: 'Banner') Map<String, String>? banner,
+    @JsonKey(name: 'Logo') Map<String, String>? logo,
+    @JsonKey(name: 'Thumb') Map<String, String>? thumb,
+    @JsonKey(name: 'Disc') Map<String, String>? disc,
+    @JsonKey(name: 'Box') Map<String, String>? box,
+    @JsonKey(name: 'Screenshot') Map<String, String>? screenshot,
+    @JsonKey(name: 'Menu') Map<String, String>? menu,
+    @JsonKey(name: 'Chapter') Map<String, String>? chapter,
+    @JsonKey(name: 'BoxRear') Map<String, String>? boxRear,
+    @JsonKey(name: 'Profile') Map<String, String>? profile,
   });
 }
 
@@ -705,74 +731,74 @@ class __$ImageBlurHashesCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? primary = null,
-    Object? art = null,
-    Object? backdrop = null,
-    Object? banner = null,
-    Object? logo = null,
-    Object? thumb = null,
-    Object? disc = null,
-    Object? box = null,
-    Object? screenshot = null,
-    Object? menu = null,
-    Object? chapter = null,
-    Object? boxRear = null,
-    Object? profile = null,
+    Object? primary = freezed,
+    Object? art = freezed,
+    Object? backdrop = freezed,
+    Object? banner = freezed,
+    Object? logo = freezed,
+    Object? thumb = freezed,
+    Object? disc = freezed,
+    Object? box = freezed,
+    Object? screenshot = freezed,
+    Object? menu = freezed,
+    Object? chapter = freezed,
+    Object? boxRear = freezed,
+    Object? profile = freezed,
   }) {
     return _then(
       _ImageBlurHashes(
-        primary: null == primary
+        primary: freezed == primary
             ? _self._primary
             : primary // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        art: null == art
+                  as Map<String, String>?,
+        art: freezed == art
             ? _self._art
             : art // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        backdrop: null == backdrop
+                  as Map<String, String>?,
+        backdrop: freezed == backdrop
             ? _self._backdrop
             : backdrop // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        banner: null == banner
+                  as Map<String, String>?,
+        banner: freezed == banner
             ? _self._banner
             : banner // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        logo: null == logo
+                  as Map<String, String>?,
+        logo: freezed == logo
             ? _self._logo
             : logo // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        thumb: null == thumb
+                  as Map<String, String>?,
+        thumb: freezed == thumb
             ? _self._thumb
             : thumb // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        disc: null == disc
+                  as Map<String, String>?,
+        disc: freezed == disc
             ? _self._disc
             : disc // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        box: null == box
+                  as Map<String, String>?,
+        box: freezed == box
             ? _self._box
             : box // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        screenshot: null == screenshot
+                  as Map<String, String>?,
+        screenshot: freezed == screenshot
             ? _self._screenshot
             : screenshot // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        menu: null == menu
+                  as Map<String, String>?,
+        menu: freezed == menu
             ? _self._menu
             : menu // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        chapter: null == chapter
+                  as Map<String, String>?,
+        chapter: freezed == chapter
             ? _self._chapter
             : chapter // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        boxRear: null == boxRear
+                  as Map<String, String>?,
+        boxRear: freezed == boxRear
             ? _self._boxRear
             : boxRear // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
-        profile: null == profile
+                  as Map<String, String>?,
+        profile: freezed == profile
             ? _self._profile
             : profile // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String>,
+                  as Map<String, String>?,
       ),
     );
   }

@@ -7,12 +7,15 @@ part of 'play_request.dart';
 // **************************************************************************
 
 _PlayRequest _$PlayRequestFromJson(Map<String, dynamic> json) => _PlayRequest(
-  playCommand: PlayRequestPlayCommand.fromJson(json['PlayCommand']),
-  controllingUserId: json['ControllingUserId'] as String,
   itemIds: (json['ItemIds'] as List<dynamic>?)
       ?.map((e) => e as String)
       .toList(),
   startPositionTicks: (json['StartPositionTicks'] as num?)?.toInt(),
+  playCommand: $enumDecode(
+    _$PlayRequestPlayCommandEnumMap,
+    json['PlayCommand'],
+  ),
+  controllingUserId: json['ControllingUserId'] as String,
   subtitleStreamIndex: (json['SubtitleStreamIndex'] as num?)?.toInt(),
   audioStreamIndex: (json['AudioStreamIndex'] as num?)?.toInt(),
   mediaSourceId: json['MediaSourceId'] as String?,
@@ -21,12 +24,20 @@ _PlayRequest _$PlayRequestFromJson(Map<String, dynamic> json) => _PlayRequest(
 
 Map<String, dynamic> _$PlayRequestToJson(_PlayRequest instance) =>
     <String, dynamic>{
-      'PlayCommand': instance.playCommand.toJson(),
-      'ControllingUserId': instance.controllingUserId,
       'ItemIds': ?instance.itemIds,
       'StartPositionTicks': ?instance.startPositionTicks,
+      'PlayCommand': instance.playCommand.toJson(),
+      'ControllingUserId': instance.controllingUserId,
       'SubtitleStreamIndex': ?instance.subtitleStreamIndex,
       'AudioStreamIndex': ?instance.audioStreamIndex,
       'MediaSourceId': ?instance.mediaSourceId,
       'StartIndex': ?instance.startIndex,
     };
+
+const _$PlayRequestPlayCommandEnumMap = {
+  PlayRequestPlayCommand.playNow: 'PlayNow',
+  PlayRequestPlayCommand.playNext: 'PlayNext',
+  PlayRequestPlayCommand.playLast: 'PlayLast',
+  PlayRequestPlayCommand.playInstantMix: 'PlayInstantMix',
+  PlayRequestPlayCommand.playShuffle: 'PlayShuffle',
+};

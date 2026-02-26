@@ -13,18 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$TranscodingInfo {
-  /// Gets or sets a value indicating whether the video is passed through.
-  @JsonKey(name: 'IsVideoDirect')
-  bool get isVideoDirect;
-
-  /// Gets or sets a value indicating whether the audio is passed through.
-  @JsonKey(name: 'IsAudioDirect')
-  bool get isAudioDirect;
-
-  /// Gets or sets the transcode reasons.
-  @JsonKey(name: 'TranscodeReasons')
-  List<TranscodeReason> get transcodeReasons;
-
   /// Gets or sets the thread count used for encoding.
   @JsonKey(name: 'AudioCodec')
   String? get audioCodec;
@@ -36,6 +24,14 @@ mixin _$TranscodingInfo {
   /// Gets or sets the thread count used for encoding.
   @JsonKey(name: 'Container')
   String? get container;
+
+  /// Gets or sets a value indicating whether the video is passed through.
+  @JsonKey(name: 'IsVideoDirect')
+  bool get isVideoDirect;
+
+  /// Gets or sets a value indicating whether the audio is passed through.
+  @JsonKey(name: 'IsAudioDirect')
+  bool get isAudioDirect;
 
   /// Gets or sets the bitrate.
   @JsonKey(name: 'Bitrate')
@@ -65,6 +61,10 @@ mixin _$TranscodingInfo {
   @JsonKey(name: 'HardwareAccelerationType')
   TranscodingInfoHardwareAccelerationType? get hardwareAccelerationType;
 
+  /// Gets or sets the transcode reasons.
+  @JsonKey(name: 'TranscodeReasons')
+  List<TranscodeReason> get transcodeReasons;
+
   /// Create a copy of TranscodingInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -83,20 +83,16 @@ mixin _$TranscodingInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TranscodingInfo &&
-            (identical(other.isVideoDirect, isVideoDirect) ||
-                other.isVideoDirect == isVideoDirect) &&
-            (identical(other.isAudioDirect, isAudioDirect) ||
-                other.isAudioDirect == isAudioDirect) &&
-            const DeepCollectionEquality().equals(
-              other.transcodeReasons,
-              transcodeReasons,
-            ) &&
             (identical(other.audioCodec, audioCodec) ||
                 other.audioCodec == audioCodec) &&
             (identical(other.videoCodec, videoCodec) ||
                 other.videoCodec == videoCodec) &&
             (identical(other.container, container) ||
                 other.container == container) &&
+            (identical(other.isVideoDirect, isVideoDirect) ||
+                other.isVideoDirect == isVideoDirect) &&
+            (identical(other.isAudioDirect, isAudioDirect) ||
+                other.isAudioDirect == isAudioDirect) &&
             (identical(other.bitrate, bitrate) || other.bitrate == bitrate) &&
             (identical(other.framerate, framerate) ||
                 other.framerate == framerate) &&
@@ -110,19 +106,22 @@ mixin _$TranscodingInfo {
                   other.hardwareAccelerationType,
                   hardwareAccelerationType,
                 ) ||
-                other.hardwareAccelerationType == hardwareAccelerationType));
+                other.hardwareAccelerationType == hardwareAccelerationType) &&
+            const DeepCollectionEquality().equals(
+              other.transcodeReasons,
+              transcodeReasons,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    isVideoDirect,
-    isAudioDirect,
-    const DeepCollectionEquality().hash(transcodeReasons),
     audioCodec,
     videoCodec,
     container,
+    isVideoDirect,
+    isAudioDirect,
     bitrate,
     framerate,
     completionPercentage,
@@ -130,11 +129,12 @@ mixin _$TranscodingInfo {
     height,
     audioChannels,
     hardwareAccelerationType,
+    const DeepCollectionEquality().hash(transcodeReasons),
   );
 
   @override
   String toString() {
-    return 'TranscodingInfo(isVideoDirect: $isVideoDirect, isAudioDirect: $isAudioDirect, transcodeReasons: $transcodeReasons, audioCodec: $audioCodec, videoCodec: $videoCodec, container: $container, bitrate: $bitrate, framerate: $framerate, completionPercentage: $completionPercentage, width: $width, height: $height, audioChannels: $audioChannels, hardwareAccelerationType: $hardwareAccelerationType)';
+    return 'TranscodingInfo(audioCodec: $audioCodec, videoCodec: $videoCodec, container: $container, isVideoDirect: $isVideoDirect, isAudioDirect: $isAudioDirect, bitrate: $bitrate, framerate: $framerate, completionPercentage: $completionPercentage, width: $width, height: $height, audioChannels: $audioChannels, hardwareAccelerationType: $hardwareAccelerationType, transcodeReasons: $transcodeReasons)';
   }
 }
 
@@ -146,12 +146,11 @@ abstract mixin class $TranscodingInfoCopyWith<$Res> {
   ) = _$TranscodingInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
-    @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
-    @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
     @JsonKey(name: 'AudioCodec') String? audioCodec,
     @JsonKey(name: 'VideoCodec') String? videoCodec,
     @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
+    @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
     @JsonKey(name: 'Bitrate') int? bitrate,
     @JsonKey(name: 'Framerate') double? framerate,
     @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
@@ -160,6 +159,7 @@ abstract mixin class $TranscodingInfoCopyWith<$Res> {
     @JsonKey(name: 'AudioChannels') int? audioChannels,
     @JsonKey(name: 'HardwareAccelerationType')
     TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+    @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
   });
 }
 
@@ -176,12 +176,11 @@ class _$TranscodingInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isVideoDirect = null,
-    Object? isAudioDirect = null,
-    Object? transcodeReasons = null,
     Object? audioCodec = freezed,
     Object? videoCodec = freezed,
     Object? container = freezed,
+    Object? isVideoDirect = null,
+    Object? isAudioDirect = null,
     Object? bitrate = freezed,
     Object? framerate = freezed,
     Object? completionPercentage = freezed,
@@ -189,21 +188,10 @@ class _$TranscodingInfoCopyWithImpl<$Res>
     Object? height = freezed,
     Object? audioChannels = freezed,
     Object? hardwareAccelerationType = freezed,
+    Object? transcodeReasons = null,
   }) {
     return _then(
       _self.copyWith(
-        isVideoDirect: null == isVideoDirect
-            ? _self.isVideoDirect
-            : isVideoDirect // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isAudioDirect: null == isAudioDirect
-            ? _self.isAudioDirect
-            : isAudioDirect // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        transcodeReasons: null == transcodeReasons
-            ? _self.transcodeReasons
-            : transcodeReasons // ignore: cast_nullable_to_non_nullable
-                  as List<TranscodeReason>,
         audioCodec: freezed == audioCodec
             ? _self.audioCodec
             : audioCodec // ignore: cast_nullable_to_non_nullable
@@ -216,6 +204,14 @@ class _$TranscodingInfoCopyWithImpl<$Res>
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isVideoDirect: null == isVideoDirect
+            ? _self.isVideoDirect
+            : isVideoDirect // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isAudioDirect: null == isAudioDirect
+            ? _self.isAudioDirect
+            : isAudioDirect // ignore: cast_nullable_to_non_nullable
+                  as bool,
         bitrate: freezed == bitrate
             ? _self.bitrate
             : bitrate // ignore: cast_nullable_to_non_nullable
@@ -244,6 +240,10 @@ class _$TranscodingInfoCopyWithImpl<$Res>
             ? _self.hardwareAccelerationType
             : hardwareAccelerationType // ignore: cast_nullable_to_non_nullable
                   as TranscodingInfoHardwareAccelerationType?,
+        transcodeReasons: null == transcodeReasons
+            ? _self.transcodeReasons
+            : transcodeReasons // ignore: cast_nullable_to_non_nullable
+                  as List<TranscodeReason>,
       ),
     );
   }
@@ -343,12 +343,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
-      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
-      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
       @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
+      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
       @JsonKey(name: 'Bitrate') int? bitrate,
       @JsonKey(name: 'Framerate') double? framerate,
       @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
@@ -357,6 +356,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
       @JsonKey(name: 'AudioChannels') int? audioChannels,
       @JsonKey(name: 'HardwareAccelerationType')
       TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
     )?
     $default, {
     required TResult orElse(),
@@ -365,12 +365,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
     switch (_that) {
       case _TranscodingInfo() when $default != null:
         return $default(
-          _that.isVideoDirect,
-          _that.isAudioDirect,
-          _that.transcodeReasons,
           _that.audioCodec,
           _that.videoCodec,
           _that.container,
+          _that.isVideoDirect,
+          _that.isAudioDirect,
           _that.bitrate,
           _that.framerate,
           _that.completionPercentage,
@@ -378,6 +377,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
           _that.height,
           _that.audioChannels,
           _that.hardwareAccelerationType,
+          _that.transcodeReasons,
         );
       case _:
         return orElse();
@@ -400,12 +400,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
-      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
-      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
       @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
+      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
       @JsonKey(name: 'Bitrate') int? bitrate,
       @JsonKey(name: 'Framerate') double? framerate,
       @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
@@ -414,6 +413,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
       @JsonKey(name: 'AudioChannels') int? audioChannels,
       @JsonKey(name: 'HardwareAccelerationType')
       TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
     )
     $default,
   ) {
@@ -421,12 +421,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
     switch (_that) {
       case _TranscodingInfo():
         return $default(
-          _that.isVideoDirect,
-          _that.isAudioDirect,
-          _that.transcodeReasons,
           _that.audioCodec,
           _that.videoCodec,
           _that.container,
+          _that.isVideoDirect,
+          _that.isAudioDirect,
           _that.bitrate,
           _that.framerate,
           _that.completionPercentage,
@@ -434,6 +433,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
           _that.height,
           _that.audioChannels,
           _that.hardwareAccelerationType,
+          _that.transcodeReasons,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -455,12 +455,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
-      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
-      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
       @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
+      @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
       @JsonKey(name: 'Bitrate') int? bitrate,
       @JsonKey(name: 'Framerate') double? framerate,
       @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
@@ -469,6 +468,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
       @JsonKey(name: 'AudioChannels') int? audioChannels,
       @JsonKey(name: 'HardwareAccelerationType')
       TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+      @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
     )?
     $default,
   ) {
@@ -476,12 +476,11 @@ extension TranscodingInfoPatterns on TranscodingInfo {
     switch (_that) {
       case _TranscodingInfo() when $default != null:
         return $default(
-          _that.isVideoDirect,
-          _that.isAudioDirect,
-          _that.transcodeReasons,
           _that.audioCodec,
           _that.videoCodec,
           _that.container,
+          _that.isVideoDirect,
+          _that.isAudioDirect,
           _that.bitrate,
           _that.framerate,
           _that.completionPercentage,
@@ -489,6 +488,7 @@ extension TranscodingInfoPatterns on TranscodingInfo {
           _that.height,
           _that.audioChannels,
           _that.hardwareAccelerationType,
+          _that.transcodeReasons,
         );
       case _:
         return null;
@@ -500,46 +500,24 @@ extension TranscodingInfoPatterns on TranscodingInfo {
 @JsonSerializable()
 class _TranscodingInfo implements TranscodingInfo {
   const _TranscodingInfo({
+    @JsonKey(name: 'AudioCodec') required this.audioCodec,
+    @JsonKey(name: 'VideoCodec') required this.videoCodec,
+    @JsonKey(name: 'Container') required this.container,
     @JsonKey(name: 'IsVideoDirect') required this.isVideoDirect,
     @JsonKey(name: 'IsAudioDirect') required this.isAudioDirect,
+    @JsonKey(name: 'Bitrate') required this.bitrate,
+    @JsonKey(name: 'Framerate') required this.framerate,
+    @JsonKey(name: 'CompletionPercentage') required this.completionPercentage,
+    @JsonKey(name: 'Width') required this.width,
+    @JsonKey(name: 'Height') required this.height,
+    @JsonKey(name: 'AudioChannels') required this.audioChannels,
+    @JsonKey(name: 'HardwareAccelerationType')
+    required this.hardwareAccelerationType,
     @JsonKey(name: 'TranscodeReasons')
     required final List<TranscodeReason> transcodeReasons,
-    @JsonKey(name: 'AudioCodec') this.audioCodec,
-    @JsonKey(name: 'VideoCodec') this.videoCodec,
-    @JsonKey(name: 'Container') this.container,
-    @JsonKey(name: 'Bitrate') this.bitrate,
-    @JsonKey(name: 'Framerate') this.framerate,
-    @JsonKey(name: 'CompletionPercentage') this.completionPercentage,
-    @JsonKey(name: 'Width') this.width,
-    @JsonKey(name: 'Height') this.height,
-    @JsonKey(name: 'AudioChannels') this.audioChannels,
-    @JsonKey(name: 'HardwareAccelerationType') this.hardwareAccelerationType,
   }) : _transcodeReasons = transcodeReasons;
   factory _TranscodingInfo.fromJson(Map<String, dynamic> json) =>
       _$TranscodingInfoFromJson(json);
-
-  /// Gets or sets a value indicating whether the video is passed through.
-  @override
-  @JsonKey(name: 'IsVideoDirect')
-  final bool isVideoDirect;
-
-  /// Gets or sets a value indicating whether the audio is passed through.
-  @override
-  @JsonKey(name: 'IsAudioDirect')
-  final bool isAudioDirect;
-
-  /// Gets or sets the transcode reasons.
-  final List<TranscodeReason> _transcodeReasons;
-
-  /// Gets or sets the transcode reasons.
-  @override
-  @JsonKey(name: 'TranscodeReasons')
-  List<TranscodeReason> get transcodeReasons {
-    if (_transcodeReasons is EqualUnmodifiableListView)
-      return _transcodeReasons;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_transcodeReasons);
-  }
 
   /// Gets or sets the thread count used for encoding.
   @override
@@ -555,6 +533,16 @@ class _TranscodingInfo implements TranscodingInfo {
   @override
   @JsonKey(name: 'Container')
   final String? container;
+
+  /// Gets or sets a value indicating whether the video is passed through.
+  @override
+  @JsonKey(name: 'IsVideoDirect')
+  final bool isVideoDirect;
+
+  /// Gets or sets a value indicating whether the audio is passed through.
+  @override
+  @JsonKey(name: 'IsAudioDirect')
+  final bool isAudioDirect;
 
   /// Gets or sets the bitrate.
   @override
@@ -591,6 +579,19 @@ class _TranscodingInfo implements TranscodingInfo {
   @JsonKey(name: 'HardwareAccelerationType')
   final TranscodingInfoHardwareAccelerationType? hardwareAccelerationType;
 
+  /// Gets or sets the transcode reasons.
+  final List<TranscodeReason> _transcodeReasons;
+
+  /// Gets or sets the transcode reasons.
+  @override
+  @JsonKey(name: 'TranscodeReasons')
+  List<TranscodeReason> get transcodeReasons {
+    if (_transcodeReasons is EqualUnmodifiableListView)
+      return _transcodeReasons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_transcodeReasons);
+  }
+
   /// Create a copy of TranscodingInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -609,20 +610,16 @@ class _TranscodingInfo implements TranscodingInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TranscodingInfo &&
-            (identical(other.isVideoDirect, isVideoDirect) ||
-                other.isVideoDirect == isVideoDirect) &&
-            (identical(other.isAudioDirect, isAudioDirect) ||
-                other.isAudioDirect == isAudioDirect) &&
-            const DeepCollectionEquality().equals(
-              other._transcodeReasons,
-              _transcodeReasons,
-            ) &&
             (identical(other.audioCodec, audioCodec) ||
                 other.audioCodec == audioCodec) &&
             (identical(other.videoCodec, videoCodec) ||
                 other.videoCodec == videoCodec) &&
             (identical(other.container, container) ||
                 other.container == container) &&
+            (identical(other.isVideoDirect, isVideoDirect) ||
+                other.isVideoDirect == isVideoDirect) &&
+            (identical(other.isAudioDirect, isAudioDirect) ||
+                other.isAudioDirect == isAudioDirect) &&
             (identical(other.bitrate, bitrate) || other.bitrate == bitrate) &&
             (identical(other.framerate, framerate) ||
                 other.framerate == framerate) &&
@@ -636,19 +633,22 @@ class _TranscodingInfo implements TranscodingInfo {
                   other.hardwareAccelerationType,
                   hardwareAccelerationType,
                 ) ||
-                other.hardwareAccelerationType == hardwareAccelerationType));
+                other.hardwareAccelerationType == hardwareAccelerationType) &&
+            const DeepCollectionEquality().equals(
+              other._transcodeReasons,
+              _transcodeReasons,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    isVideoDirect,
-    isAudioDirect,
-    const DeepCollectionEquality().hash(_transcodeReasons),
     audioCodec,
     videoCodec,
     container,
+    isVideoDirect,
+    isAudioDirect,
     bitrate,
     framerate,
     completionPercentage,
@@ -656,11 +656,12 @@ class _TranscodingInfo implements TranscodingInfo {
     height,
     audioChannels,
     hardwareAccelerationType,
+    const DeepCollectionEquality().hash(_transcodeReasons),
   );
 
   @override
   String toString() {
-    return 'TranscodingInfo(isVideoDirect: $isVideoDirect, isAudioDirect: $isAudioDirect, transcodeReasons: $transcodeReasons, audioCodec: $audioCodec, videoCodec: $videoCodec, container: $container, bitrate: $bitrate, framerate: $framerate, completionPercentage: $completionPercentage, width: $width, height: $height, audioChannels: $audioChannels, hardwareAccelerationType: $hardwareAccelerationType)';
+    return 'TranscodingInfo(audioCodec: $audioCodec, videoCodec: $videoCodec, container: $container, isVideoDirect: $isVideoDirect, isAudioDirect: $isAudioDirect, bitrate: $bitrate, framerate: $framerate, completionPercentage: $completionPercentage, width: $width, height: $height, audioChannels: $audioChannels, hardwareAccelerationType: $hardwareAccelerationType, transcodeReasons: $transcodeReasons)';
   }
 }
 
@@ -674,12 +675,11 @@ abstract mixin class _$TranscodingInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
-    @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
-    @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
     @JsonKey(name: 'AudioCodec') String? audioCodec,
     @JsonKey(name: 'VideoCodec') String? videoCodec,
     @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'IsVideoDirect') bool isVideoDirect,
+    @JsonKey(name: 'IsAudioDirect') bool isAudioDirect,
     @JsonKey(name: 'Bitrate') int? bitrate,
     @JsonKey(name: 'Framerate') double? framerate,
     @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
@@ -688,6 +688,7 @@ abstract mixin class _$TranscodingInfoCopyWith<$Res>
     @JsonKey(name: 'AudioChannels') int? audioChannels,
     @JsonKey(name: 'HardwareAccelerationType')
     TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+    @JsonKey(name: 'TranscodeReasons') List<TranscodeReason> transcodeReasons,
   });
 }
 
@@ -704,12 +705,11 @@ class __$TranscodingInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? isVideoDirect = null,
-    Object? isAudioDirect = null,
-    Object? transcodeReasons = null,
     Object? audioCodec = freezed,
     Object? videoCodec = freezed,
     Object? container = freezed,
+    Object? isVideoDirect = null,
+    Object? isAudioDirect = null,
     Object? bitrate = freezed,
     Object? framerate = freezed,
     Object? completionPercentage = freezed,
@@ -717,21 +717,10 @@ class __$TranscodingInfoCopyWithImpl<$Res>
     Object? height = freezed,
     Object? audioChannels = freezed,
     Object? hardwareAccelerationType = freezed,
+    Object? transcodeReasons = null,
   }) {
     return _then(
       _TranscodingInfo(
-        isVideoDirect: null == isVideoDirect
-            ? _self.isVideoDirect
-            : isVideoDirect // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isAudioDirect: null == isAudioDirect
-            ? _self.isAudioDirect
-            : isAudioDirect // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        transcodeReasons: null == transcodeReasons
-            ? _self._transcodeReasons
-            : transcodeReasons // ignore: cast_nullable_to_non_nullable
-                  as List<TranscodeReason>,
         audioCodec: freezed == audioCodec
             ? _self.audioCodec
             : audioCodec // ignore: cast_nullable_to_non_nullable
@@ -744,6 +733,14 @@ class __$TranscodingInfoCopyWithImpl<$Res>
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isVideoDirect: null == isVideoDirect
+            ? _self.isVideoDirect
+            : isVideoDirect // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isAudioDirect: null == isAudioDirect
+            ? _self.isAudioDirect
+            : isAudioDirect // ignore: cast_nullable_to_non_nullable
+                  as bool,
         bitrate: freezed == bitrate
             ? _self.bitrate
             : bitrate // ignore: cast_nullable_to_non_nullable
@@ -772,6 +769,10 @@ class __$TranscodingInfoCopyWithImpl<$Res>
             ? _self.hardwareAccelerationType
             : hardwareAccelerationType // ignore: cast_nullable_to_non_nullable
                   as TranscodingInfoHardwareAccelerationType?,
+        transcodeReasons: null == transcodeReasons
+            ? _self._transcodeReasons
+            : transcodeReasons // ignore: cast_nullable_to_non_nullable
+                  as List<TranscodeReason>,
       ),
     );
   }

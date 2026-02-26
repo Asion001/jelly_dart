@@ -9,15 +9,66 @@ part of 'scheduled_task_ended_message.dart';
 _ScheduledTaskEndedMessage _$ScheduledTaskEndedMessageFromJson(
   Map<String, dynamic> json,
 ) => _ScheduledTaskEndedMessage(
+  data: TaskResult.fromJson(json['Data'] as Map<String, dynamic>),
   messageId: json['MessageId'] as String,
-  data: json['Data'] == null
-      ? null
-      : TaskResult.fromJson(json['Data'] as Map<String, dynamic>),
+  messageType:
+      $enumDecodeNullable(
+        _$ScheduledTaskEndedMessageMessageTypeEnumMap,
+        json['MessageType'],
+      ) ??
+      ScheduledTaskEndedMessageMessageType.scheduledTaskEnded,
 );
 
 Map<String, dynamic> _$ScheduledTaskEndedMessageToJson(
   _ScheduledTaskEndedMessage instance,
 ) => <String, dynamic>{
+  'Data': instance.data.toJson(),
   'MessageId': instance.messageId,
-  'Data': ?instance.data?.toJson(),
+  'MessageType': instance.messageType.toJson(),
+};
+
+const _$ScheduledTaskEndedMessageMessageTypeEnumMap = {
+  ScheduledTaskEndedMessageMessageType.forceKeepAlive: 'ForceKeepAlive',
+  ScheduledTaskEndedMessageMessageType.generalCommand: 'GeneralCommand',
+  ScheduledTaskEndedMessageMessageType.userDataChanged: 'UserDataChanged',
+  ScheduledTaskEndedMessageMessageType.sessions: 'Sessions',
+  ScheduledTaskEndedMessageMessageType.play: 'Play',
+  ScheduledTaskEndedMessageMessageType.syncPlayCommand: 'SyncPlayCommand',
+  ScheduledTaskEndedMessageMessageType.syncPlayGroupUpdate:
+      'SyncPlayGroupUpdate',
+  ScheduledTaskEndedMessageMessageType.playstate: 'Playstate',
+  ScheduledTaskEndedMessageMessageType.restartRequired: 'RestartRequired',
+  ScheduledTaskEndedMessageMessageType.serverShuttingDown: 'ServerShuttingDown',
+  ScheduledTaskEndedMessageMessageType.serverRestarting: 'ServerRestarting',
+  ScheduledTaskEndedMessageMessageType.libraryChanged: 'LibraryChanged',
+  ScheduledTaskEndedMessageMessageType.userDeleted: 'UserDeleted',
+  ScheduledTaskEndedMessageMessageType.userUpdated: 'UserUpdated',
+  ScheduledTaskEndedMessageMessageType.seriesTimerCreated: 'SeriesTimerCreated',
+  ScheduledTaskEndedMessageMessageType.timerCreated: 'TimerCreated',
+  ScheduledTaskEndedMessageMessageType.seriesTimerCancelled:
+      'SeriesTimerCancelled',
+  ScheduledTaskEndedMessageMessageType.timerCancelled: 'TimerCancelled',
+  ScheduledTaskEndedMessageMessageType.refreshProgress: 'RefreshProgress',
+  ScheduledTaskEndedMessageMessageType.scheduledTaskEnded: 'ScheduledTaskEnded',
+  ScheduledTaskEndedMessageMessageType.packageInstallationCancelled:
+      'PackageInstallationCancelled',
+  ScheduledTaskEndedMessageMessageType.packageInstallationFailed:
+      'PackageInstallationFailed',
+  ScheduledTaskEndedMessageMessageType.packageInstallationCompleted:
+      'PackageInstallationCompleted',
+  ScheduledTaskEndedMessageMessageType.packageInstalling: 'PackageInstalling',
+  ScheduledTaskEndedMessageMessageType.packageUninstalled: 'PackageUninstalled',
+  ScheduledTaskEndedMessageMessageType.activityLogEntry: 'ActivityLogEntry',
+  ScheduledTaskEndedMessageMessageType.scheduledTasksInfo: 'ScheduledTasksInfo',
+  ScheduledTaskEndedMessageMessageType.activityLogEntryStart:
+      'ActivityLogEntryStart',
+  ScheduledTaskEndedMessageMessageType.activityLogEntryStop:
+      'ActivityLogEntryStop',
+  ScheduledTaskEndedMessageMessageType.sessionsStart: 'SessionsStart',
+  ScheduledTaskEndedMessageMessageType.sessionsStop: 'SessionsStop',
+  ScheduledTaskEndedMessageMessageType.scheduledTasksInfoStart:
+      'ScheduledTasksInfoStart',
+  ScheduledTaskEndedMessageMessageType.scheduledTasksInfoStop:
+      'ScheduledTasksInfoStop',
+  ScheduledTaskEndedMessageMessageType.keepAlive: 'KeepAlive',
 };

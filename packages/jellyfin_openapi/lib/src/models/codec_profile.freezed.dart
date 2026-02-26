@@ -367,9 +367,9 @@ class _CodecProfile implements CodecProfile {
     required final List<ProfileCondition> conditions,
     @JsonKey(name: 'ApplyConditions')
     required final List<ProfileCondition> applyConditions,
-    @JsonKey(name: 'Codec') this.codec,
-    @JsonKey(name: 'Container') this.container,
-    @JsonKey(name: 'SubContainer') this.subContainer,
+    @JsonKey(name: 'Codec') required this.codec,
+    @JsonKey(name: 'Container') required this.container,
+    @JsonKey(name: 'SubContainer') required this.subContainer,
   }) : _conditions = conditions,
        _applyConditions = applyConditions;
   factory _CodecProfile.fromJson(Map<String, dynamic> json) =>

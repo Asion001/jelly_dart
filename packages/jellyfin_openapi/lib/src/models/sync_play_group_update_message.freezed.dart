@@ -21,6 +21,10 @@ mixin _$SyncPlayGroupUpdateMessage {
   @JsonKey(name: 'MessageId')
   String get messageId;
 
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  SyncPlayGroupUpdateMessageMessageType get messageType;
+
   /// Create a copy of SyncPlayGroupUpdateMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -42,16 +46,18 @@ mixin _$SyncPlayGroupUpdateMessage {
             other is SyncPlayGroupUpdateMessage &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'SyncPlayGroupUpdateMessage(data: $data, messageId: $messageId)';
+    return 'SyncPlayGroupUpdateMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -65,6 +71,8 @@ abstract mixin class $SyncPlayGroupUpdateMessageCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'Data') GroupUpdate data,
     @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType')
+    SyncPlayGroupUpdateMessageMessageType messageType,
   });
 
   $GroupUpdateUnionCopyWith<$Res> get data;
@@ -82,7 +90,11 @@ class _$SyncPlayGroupUpdateMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = null, Object? messageId = null}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _self.copyWith(
         data: null == data
@@ -93,6 +105,10 @@ class _$SyncPlayGroupUpdateMessageCopyWithImpl<$Res>
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupUpdateMessageMessageType,
       ),
     );
   }
@@ -204,6 +220,8 @@ extension SyncPlayGroupUpdateMessagePatterns on SyncPlayGroupUpdateMessage {
     TResult Function(
       @JsonKey(name: 'Data') GroupUpdate data,
       @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      SyncPlayGroupUpdateMessageMessageType messageType,
     )?
     $default, {
     required TResult orElse(),
@@ -211,7 +229,7 @@ extension SyncPlayGroupUpdateMessagePatterns on SyncPlayGroupUpdateMessage {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupUpdateMessage() when $default != null:
-        return $default(_that.data, _that.messageId);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -235,13 +253,15 @@ extension SyncPlayGroupUpdateMessagePatterns on SyncPlayGroupUpdateMessage {
     TResult Function(
       @JsonKey(name: 'Data') GroupUpdate data,
       @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      SyncPlayGroupUpdateMessageMessageType messageType,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupUpdateMessage():
-        return $default(_that.data, _that.messageId);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -264,13 +284,15 @@ extension SyncPlayGroupUpdateMessagePatterns on SyncPlayGroupUpdateMessage {
     TResult? Function(
       @JsonKey(name: 'Data') GroupUpdate data,
       @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      SyncPlayGroupUpdateMessageMessageType messageType,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupUpdateMessage() when $default != null:
-        return $default(_that.data, _that.messageId);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -283,6 +305,9 @@ class _SyncPlayGroupUpdateMessage implements SyncPlayGroupUpdateMessage {
   const _SyncPlayGroupUpdateMessage({
     @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
+    @JsonKey(name: 'MessageType')
+    this.messageType =
+        SyncPlayGroupUpdateMessageMessageType.syncPlayGroupUpdate,
   });
   factory _SyncPlayGroupUpdateMessage.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayGroupUpdateMessageFromJson(json);
@@ -296,6 +321,11 @@ class _SyncPlayGroupUpdateMessage implements SyncPlayGroupUpdateMessage {
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final SyncPlayGroupUpdateMessageMessageType messageType;
 
   /// Create a copy of SyncPlayGroupUpdateMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -321,16 +351,18 @@ class _SyncPlayGroupUpdateMessage implements SyncPlayGroupUpdateMessage {
             other is _SyncPlayGroupUpdateMessage &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'SyncPlayGroupUpdateMessage(data: $data, messageId: $messageId)';
+    return 'SyncPlayGroupUpdateMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -346,6 +378,8 @@ abstract mixin class _$SyncPlayGroupUpdateMessageCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'Data') GroupUpdate data,
     @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType')
+    SyncPlayGroupUpdateMessageMessageType messageType,
   });
 
   @override
@@ -364,7 +398,11 @@ class __$SyncPlayGroupUpdateMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? data = null, Object? messageId = null}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _SyncPlayGroupUpdateMessage(
         data: null == data
@@ -375,6 +413,10 @@ class __$SyncPlayGroupUpdateMessageCopyWithImpl<$Res>
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as SyncPlayGroupUpdateMessageMessageType,
       ),
     );
   }

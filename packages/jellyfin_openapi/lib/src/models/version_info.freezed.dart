@@ -14,17 +14,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$VersionInfo {
   /// Gets or sets the version.
-  String get version;
+  String? get version;
 
   /// Gets the version as a System.Version.
   @JsonKey(name: 'VersionNumber')
-  String get versionNumber;
-
-  /// Gets or sets the repository name.
-  String get repositoryName;
-
-  /// Gets or sets the repository url.
-  String get repositoryUrl;
+  String? get versionNumber;
 
   /// Gets or sets the changelog for this version.
   String? get changelog;
@@ -40,6 +34,12 @@ mixin _$VersionInfo {
 
   /// Gets or sets a timestamp of when the binary was built.
   String? get timestamp;
+
+  /// Gets or sets the repository name.
+  String? get repositoryName;
+
+  /// Gets or sets the repository url.
+  String? get repositoryUrl;
 
   /// Create a copy of VersionInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -59,10 +59,6 @@ mixin _$VersionInfo {
             (identical(other.version, version) || other.version == version) &&
             (identical(other.versionNumber, versionNumber) ||
                 other.versionNumber == versionNumber) &&
-            (identical(other.repositoryName, repositoryName) ||
-                other.repositoryName == repositoryName) &&
-            (identical(other.repositoryUrl, repositoryUrl) ||
-                other.repositoryUrl == repositoryUrl) &&
             (identical(other.changelog, changelog) ||
                 other.changelog == changelog) &&
             (identical(other.targetAbi, targetAbi) ||
@@ -72,7 +68,11 @@ mixin _$VersionInfo {
             (identical(other.checksum, checksum) ||
                 other.checksum == checksum) &&
             (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp));
+                other.timestamp == timestamp) &&
+            (identical(other.repositoryName, repositoryName) ||
+                other.repositoryName == repositoryName) &&
+            (identical(other.repositoryUrl, repositoryUrl) ||
+                other.repositoryUrl == repositoryUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -81,18 +81,18 @@ mixin _$VersionInfo {
     runtimeType,
     version,
     versionNumber,
-    repositoryName,
-    repositoryUrl,
     changelog,
     targetAbi,
     sourceUrl,
     checksum,
     timestamp,
+    repositoryName,
+    repositoryUrl,
   );
 
   @override
   String toString() {
-    return 'VersionInfo(version: $version, versionNumber: $versionNumber, repositoryName: $repositoryName, repositoryUrl: $repositoryUrl, changelog: $changelog, targetAbi: $targetAbi, sourceUrl: $sourceUrl, checksum: $checksum, timestamp: $timestamp)';
+    return 'VersionInfo(version: $version, versionNumber: $versionNumber, changelog: $changelog, targetAbi: $targetAbi, sourceUrl: $sourceUrl, checksum: $checksum, timestamp: $timestamp, repositoryName: $repositoryName, repositoryUrl: $repositoryUrl)';
   }
 }
 
@@ -104,15 +104,15 @@ abstract mixin class $VersionInfoCopyWith<$Res> {
   ) = _$VersionInfoCopyWithImpl;
   @useResult
   $Res call({
-    String version,
-    @JsonKey(name: 'VersionNumber') String versionNumber,
-    String repositoryName,
-    String repositoryUrl,
+    String? version,
+    @JsonKey(name: 'VersionNumber') String? versionNumber,
     String? changelog,
     String? targetAbi,
     String? sourceUrl,
     String? checksum,
     String? timestamp,
+    String? repositoryName,
+    String? repositoryUrl,
   });
 }
 
@@ -128,34 +128,26 @@ class _$VersionInfoCopyWithImpl<$Res> implements $VersionInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? version = null,
-    Object? versionNumber = null,
-    Object? repositoryName = null,
-    Object? repositoryUrl = null,
+    Object? version = freezed,
+    Object? versionNumber = freezed,
     Object? changelog = freezed,
     Object? targetAbi = freezed,
     Object? sourceUrl = freezed,
     Object? checksum = freezed,
     Object? timestamp = freezed,
+    Object? repositoryName = freezed,
+    Object? repositoryUrl = freezed,
   }) {
     return _then(
       _self.copyWith(
-        version: null == version
+        version: freezed == version
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
-                  as String,
-        versionNumber: null == versionNumber
+                  as String?,
+        versionNumber: freezed == versionNumber
             ? _self.versionNumber
             : versionNumber // ignore: cast_nullable_to_non_nullable
-                  as String,
-        repositoryName: null == repositoryName
-            ? _self.repositoryName
-            : repositoryName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        repositoryUrl: null == repositoryUrl
-            ? _self.repositoryUrl
-            : repositoryUrl // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         changelog: freezed == changelog
             ? _self.changelog
             : changelog // ignore: cast_nullable_to_non_nullable
@@ -175,6 +167,14 @@ class _$VersionInfoCopyWithImpl<$Res> implements $VersionInfoCopyWith<$Res> {
         timestamp: freezed == timestamp
             ? _self.timestamp
             : timestamp // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        repositoryName: freezed == repositoryName
+            ? _self.repositoryName
+            : repositoryName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        repositoryUrl: freezed == repositoryUrl
+            ? _self.repositoryUrl
+            : repositoryUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );
@@ -275,15 +275,15 @@ extension VersionInfoPatterns on VersionInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      String version,
-      @JsonKey(name: 'VersionNumber') String versionNumber,
-      String repositoryName,
-      String repositoryUrl,
+      String? version,
+      @JsonKey(name: 'VersionNumber') String? versionNumber,
       String? changelog,
       String? targetAbi,
       String? sourceUrl,
       String? checksum,
       String? timestamp,
+      String? repositoryName,
+      String? repositoryUrl,
     )?
     $default, {
     required TResult orElse(),
@@ -294,13 +294,13 @@ extension VersionInfoPatterns on VersionInfo {
         return $default(
           _that.version,
           _that.versionNumber,
-          _that.repositoryName,
-          _that.repositoryUrl,
           _that.changelog,
           _that.targetAbi,
           _that.sourceUrl,
           _that.checksum,
           _that.timestamp,
+          _that.repositoryName,
+          _that.repositoryUrl,
         );
       case _:
         return orElse();
@@ -323,15 +323,15 @@ extension VersionInfoPatterns on VersionInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      String version,
-      @JsonKey(name: 'VersionNumber') String versionNumber,
-      String repositoryName,
-      String repositoryUrl,
+      String? version,
+      @JsonKey(name: 'VersionNumber') String? versionNumber,
       String? changelog,
       String? targetAbi,
       String? sourceUrl,
       String? checksum,
       String? timestamp,
+      String? repositoryName,
+      String? repositoryUrl,
     )
     $default,
   ) {
@@ -341,13 +341,13 @@ extension VersionInfoPatterns on VersionInfo {
         return $default(
           _that.version,
           _that.versionNumber,
-          _that.repositoryName,
-          _that.repositoryUrl,
           _that.changelog,
           _that.targetAbi,
           _that.sourceUrl,
           _that.checksum,
           _that.timestamp,
+          _that.repositoryName,
+          _that.repositoryUrl,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -369,15 +369,15 @@ extension VersionInfoPatterns on VersionInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      String version,
-      @JsonKey(name: 'VersionNumber') String versionNumber,
-      String repositoryName,
-      String repositoryUrl,
+      String? version,
+      @JsonKey(name: 'VersionNumber') String? versionNumber,
       String? changelog,
       String? targetAbi,
       String? sourceUrl,
       String? checksum,
       String? timestamp,
+      String? repositoryName,
+      String? repositoryUrl,
     )?
     $default,
   ) {
@@ -387,13 +387,13 @@ extension VersionInfoPatterns on VersionInfo {
         return $default(
           _that.version,
           _that.versionNumber,
-          _that.repositoryName,
-          _that.repositoryUrl,
           _that.changelog,
           _that.targetAbi,
           _that.sourceUrl,
           _that.checksum,
           _that.timestamp,
+          _that.repositoryName,
+          _that.repositoryUrl,
         );
       case _:
         return null;
@@ -405,35 +405,27 @@ extension VersionInfoPatterns on VersionInfo {
 @JsonSerializable()
 class _VersionInfo implements VersionInfo {
   const _VersionInfo({
-    required this.version,
-    @JsonKey(name: 'VersionNumber') required this.versionNumber,
-    required this.repositoryName,
-    required this.repositoryUrl,
+    this.version,
+    @JsonKey(name: 'VersionNumber') this.versionNumber,
     this.changelog,
     this.targetAbi,
     this.sourceUrl,
     this.checksum,
     this.timestamp,
+    this.repositoryName,
+    this.repositoryUrl,
   });
   factory _VersionInfo.fromJson(Map<String, dynamic> json) =>
       _$VersionInfoFromJson(json);
 
   /// Gets or sets the version.
   @override
-  final String version;
+  final String? version;
 
   /// Gets the version as a System.Version.
   @override
   @JsonKey(name: 'VersionNumber')
-  final String versionNumber;
-
-  /// Gets or sets the repository name.
-  @override
-  final String repositoryName;
-
-  /// Gets or sets the repository url.
-  @override
-  final String repositoryUrl;
+  final String? versionNumber;
 
   /// Gets or sets the changelog for this version.
   @override
@@ -454,6 +446,14 @@ class _VersionInfo implements VersionInfo {
   /// Gets or sets a timestamp of when the binary was built.
   @override
   final String? timestamp;
+
+  /// Gets or sets the repository name.
+  @override
+  final String? repositoryName;
+
+  /// Gets or sets the repository url.
+  @override
+  final String? repositoryUrl;
 
   /// Create a copy of VersionInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -476,10 +476,6 @@ class _VersionInfo implements VersionInfo {
             (identical(other.version, version) || other.version == version) &&
             (identical(other.versionNumber, versionNumber) ||
                 other.versionNumber == versionNumber) &&
-            (identical(other.repositoryName, repositoryName) ||
-                other.repositoryName == repositoryName) &&
-            (identical(other.repositoryUrl, repositoryUrl) ||
-                other.repositoryUrl == repositoryUrl) &&
             (identical(other.changelog, changelog) ||
                 other.changelog == changelog) &&
             (identical(other.targetAbi, targetAbi) ||
@@ -489,7 +485,11 @@ class _VersionInfo implements VersionInfo {
             (identical(other.checksum, checksum) ||
                 other.checksum == checksum) &&
             (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp));
+                other.timestamp == timestamp) &&
+            (identical(other.repositoryName, repositoryName) ||
+                other.repositoryName == repositoryName) &&
+            (identical(other.repositoryUrl, repositoryUrl) ||
+                other.repositoryUrl == repositoryUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -498,18 +498,18 @@ class _VersionInfo implements VersionInfo {
     runtimeType,
     version,
     versionNumber,
-    repositoryName,
-    repositoryUrl,
     changelog,
     targetAbi,
     sourceUrl,
     checksum,
     timestamp,
+    repositoryName,
+    repositoryUrl,
   );
 
   @override
   String toString() {
-    return 'VersionInfo(version: $version, versionNumber: $versionNumber, repositoryName: $repositoryName, repositoryUrl: $repositoryUrl, changelog: $changelog, targetAbi: $targetAbi, sourceUrl: $sourceUrl, checksum: $checksum, timestamp: $timestamp)';
+    return 'VersionInfo(version: $version, versionNumber: $versionNumber, changelog: $changelog, targetAbi: $targetAbi, sourceUrl: $sourceUrl, checksum: $checksum, timestamp: $timestamp, repositoryName: $repositoryName, repositoryUrl: $repositoryUrl)';
   }
 }
 
@@ -523,15 +523,15 @@ abstract mixin class _$VersionInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String version,
-    @JsonKey(name: 'VersionNumber') String versionNumber,
-    String repositoryName,
-    String repositoryUrl,
+    String? version,
+    @JsonKey(name: 'VersionNumber') String? versionNumber,
     String? changelog,
     String? targetAbi,
     String? sourceUrl,
     String? checksum,
     String? timestamp,
+    String? repositoryName,
+    String? repositoryUrl,
   });
 }
 
@@ -547,34 +547,26 @@ class __$VersionInfoCopyWithImpl<$Res> implements _$VersionInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? version = null,
-    Object? versionNumber = null,
-    Object? repositoryName = null,
-    Object? repositoryUrl = null,
+    Object? version = freezed,
+    Object? versionNumber = freezed,
     Object? changelog = freezed,
     Object? targetAbi = freezed,
     Object? sourceUrl = freezed,
     Object? checksum = freezed,
     Object? timestamp = freezed,
+    Object? repositoryName = freezed,
+    Object? repositoryUrl = freezed,
   }) {
     return _then(
       _VersionInfo(
-        version: null == version
+        version: freezed == version
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
-                  as String,
-        versionNumber: null == versionNumber
+                  as String?,
+        versionNumber: freezed == versionNumber
             ? _self.versionNumber
             : versionNumber // ignore: cast_nullable_to_non_nullable
-                  as String,
-        repositoryName: null == repositoryName
-            ? _self.repositoryName
-            : repositoryName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        repositoryUrl: null == repositoryUrl
-            ? _self.repositoryUrl
-            : repositoryUrl // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         changelog: freezed == changelog
             ? _self.changelog
             : changelog // ignore: cast_nullable_to_non_nullable
@@ -594,6 +586,14 @@ class __$VersionInfoCopyWithImpl<$Res> implements _$VersionInfoCopyWith<$Res> {
         timestamp: freezed == timestamp
             ? _self.timestamp
             : timestamp // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        repositoryName: freezed == repositoryName
+            ? _self.repositoryName
+            : repositoryName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        repositoryUrl: freezed == repositoryUrl
+            ? _self.repositoryUrl
+            : repositoryUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );

@@ -13,14 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PlayRequest {
-  /// Gets or sets the play command.
-  @JsonKey(name: 'PlayCommand')
-  PlayRequestPlayCommand get playCommand;
-
-  /// Gets or sets the controlling user identifier.
-  @JsonKey(name: 'ControllingUserId')
-  String get controllingUserId;
-
   /// Gets or sets the item ids.
   @JsonKey(name: 'ItemIds')
   List<String>? get itemIds;
@@ -28,6 +20,14 @@ mixin _$PlayRequest {
   /// Gets or sets the start position ticks that the first item should be played at.
   @JsonKey(name: 'StartPositionTicks')
   int? get startPositionTicks;
+
+  /// Gets or sets the play command.
+  @JsonKey(name: 'PlayCommand')
+  PlayRequestPlayCommand get playCommand;
+
+  /// Gets or sets the controlling user identifier.
+  @JsonKey(name: 'ControllingUserId')
+  String get controllingUserId;
   @JsonKey(name: 'SubtitleStreamIndex')
   int? get subtitleStreamIndex;
   @JsonKey(name: 'AudioStreamIndex')
@@ -52,13 +52,13 @@ mixin _$PlayRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PlayRequest &&
+            const DeepCollectionEquality().equals(other.itemIds, itemIds) &&
+            (identical(other.startPositionTicks, startPositionTicks) ||
+                other.startPositionTicks == startPositionTicks) &&
             (identical(other.playCommand, playCommand) ||
                 other.playCommand == playCommand) &&
             (identical(other.controllingUserId, controllingUserId) ||
                 other.controllingUserId == controllingUserId) &&
-            const DeepCollectionEquality().equals(other.itemIds, itemIds) &&
-            (identical(other.startPositionTicks, startPositionTicks) ||
-                other.startPositionTicks == startPositionTicks) &&
             (identical(other.subtitleStreamIndex, subtitleStreamIndex) ||
                 other.subtitleStreamIndex == subtitleStreamIndex) &&
             (identical(other.audioStreamIndex, audioStreamIndex) ||
@@ -73,10 +73,10 @@ mixin _$PlayRequest {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    playCommand,
-    controllingUserId,
     const DeepCollectionEquality().hash(itemIds),
     startPositionTicks,
+    playCommand,
+    controllingUserId,
     subtitleStreamIndex,
     audioStreamIndex,
     mediaSourceId,
@@ -85,7 +85,7 @@ mixin _$PlayRequest {
 
   @override
   String toString() {
-    return 'PlayRequest(playCommand: $playCommand, controllingUserId: $controllingUserId, itemIds: $itemIds, startPositionTicks: $startPositionTicks, subtitleStreamIndex: $subtitleStreamIndex, audioStreamIndex: $audioStreamIndex, mediaSourceId: $mediaSourceId, startIndex: $startIndex)';
+    return 'PlayRequest(itemIds: $itemIds, startPositionTicks: $startPositionTicks, playCommand: $playCommand, controllingUserId: $controllingUserId, subtitleStreamIndex: $subtitleStreamIndex, audioStreamIndex: $audioStreamIndex, mediaSourceId: $mediaSourceId, startIndex: $startIndex)';
   }
 }
 
@@ -97,10 +97,10 @@ abstract mixin class $PlayRequestCopyWith<$Res> {
   ) = _$PlayRequestCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
     @JsonKey(name: 'ItemIds') List<String>? itemIds,
     @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
+    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
+    @JsonKey(name: 'ControllingUserId') String controllingUserId,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -120,10 +120,10 @@ class _$PlayRequestCopyWithImpl<$Res> implements $PlayRequestCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playCommand = null,
-    Object? controllingUserId = null,
     Object? itemIds = freezed,
     Object? startPositionTicks = freezed,
+    Object? playCommand = null,
+    Object? controllingUserId = null,
     Object? subtitleStreamIndex = freezed,
     Object? audioStreamIndex = freezed,
     Object? mediaSourceId = freezed,
@@ -131,14 +131,6 @@ class _$PlayRequestCopyWithImpl<$Res> implements $PlayRequestCopyWith<$Res> {
   }) {
     return _then(
       _self.copyWith(
-        playCommand: null == playCommand
-            ? _self.playCommand
-            : playCommand // ignore: cast_nullable_to_non_nullable
-                  as PlayRequestPlayCommand,
-        controllingUserId: null == controllingUserId
-            ? _self.controllingUserId
-            : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
         itemIds: freezed == itemIds
             ? _self.itemIds
             : itemIds // ignore: cast_nullable_to_non_nullable
@@ -147,6 +139,14 @@ class _$PlayRequestCopyWithImpl<$Res> implements $PlayRequestCopyWith<$Res> {
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
+        playCommand: null == playCommand
+            ? _self.playCommand
+            : playCommand // ignore: cast_nullable_to_non_nullable
+                  as PlayRequestPlayCommand,
+        controllingUserId: null == controllingUserId
+            ? _self.controllingUserId
+            : controllingUserId // ignore: cast_nullable_to_non_nullable
+                  as String,
         subtitleStreamIndex: freezed == subtitleStreamIndex
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable
@@ -262,10 +262,10 @@ extension PlayRequestPatterns on PlayRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
+      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -278,10 +278,10 @@ extension PlayRequestPatterns on PlayRequest {
     switch (_that) {
       case _PlayRequest() when $default != null:
         return $default(
-          _that.playCommand,
-          _that.controllingUserId,
           _that.itemIds,
           _that.startPositionTicks,
+          _that.playCommand,
+          _that.controllingUserId,
           _that.subtitleStreamIndex,
           _that.audioStreamIndex,
           _that.mediaSourceId,
@@ -308,10 +308,10 @@ extension PlayRequestPatterns on PlayRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
+      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -323,10 +323,10 @@ extension PlayRequestPatterns on PlayRequest {
     switch (_that) {
       case _PlayRequest():
         return $default(
-          _that.playCommand,
-          _that.controllingUserId,
           _that.itemIds,
           _that.startPositionTicks,
+          _that.playCommand,
+          _that.controllingUserId,
           _that.subtitleStreamIndex,
           _that.audioStreamIndex,
           _that.mediaSourceId,
@@ -352,10 +352,10 @@ extension PlayRequestPatterns on PlayRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
+      @JsonKey(name: 'ControllingUserId') String controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -367,10 +367,10 @@ extension PlayRequestPatterns on PlayRequest {
     switch (_that) {
       case _PlayRequest() when $default != null:
         return $default(
-          _that.playCommand,
-          _that.controllingUserId,
           _that.itemIds,
           _that.startPositionTicks,
+          _that.playCommand,
+          _that.controllingUserId,
           _that.subtitleStreamIndex,
           _that.audioStreamIndex,
           _that.mediaSourceId,
@@ -386,27 +386,17 @@ extension PlayRequestPatterns on PlayRequest {
 @JsonSerializable()
 class _PlayRequest implements PlayRequest {
   const _PlayRequest({
+    @JsonKey(name: 'ItemIds') required final List<String>? itemIds,
+    @JsonKey(name: 'StartPositionTicks') required this.startPositionTicks,
     @JsonKey(name: 'PlayCommand') required this.playCommand,
     @JsonKey(name: 'ControllingUserId') required this.controllingUserId,
-    @JsonKey(name: 'ItemIds') final List<String>? itemIds,
-    @JsonKey(name: 'StartPositionTicks') this.startPositionTicks,
-    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
-    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
-    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
-    @JsonKey(name: 'StartIndex') this.startIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
+    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
+    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
+    @JsonKey(name: 'StartIndex') required this.startIndex,
   }) : _itemIds = itemIds;
   factory _PlayRequest.fromJson(Map<String, dynamic> json) =>
       _$PlayRequestFromJson(json);
-
-  /// Gets or sets the play command.
-  @override
-  @JsonKey(name: 'PlayCommand')
-  final PlayRequestPlayCommand playCommand;
-
-  /// Gets or sets the controlling user identifier.
-  @override
-  @JsonKey(name: 'ControllingUserId')
-  final String controllingUserId;
 
   /// Gets or sets the item ids.
   final List<String>? _itemIds;
@@ -426,6 +416,16 @@ class _PlayRequest implements PlayRequest {
   @override
   @JsonKey(name: 'StartPositionTicks')
   final int? startPositionTicks;
+
+  /// Gets or sets the play command.
+  @override
+  @JsonKey(name: 'PlayCommand')
+  final PlayRequestPlayCommand playCommand;
+
+  /// Gets or sets the controlling user identifier.
+  @override
+  @JsonKey(name: 'ControllingUserId')
+  final String controllingUserId;
   @override
   @JsonKey(name: 'SubtitleStreamIndex')
   final int? subtitleStreamIndex;
@@ -457,13 +457,13 @@ class _PlayRequest implements PlayRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PlayRequest &&
+            const DeepCollectionEquality().equals(other._itemIds, _itemIds) &&
+            (identical(other.startPositionTicks, startPositionTicks) ||
+                other.startPositionTicks == startPositionTicks) &&
             (identical(other.playCommand, playCommand) ||
                 other.playCommand == playCommand) &&
             (identical(other.controllingUserId, controllingUserId) ||
                 other.controllingUserId == controllingUserId) &&
-            const DeepCollectionEquality().equals(other._itemIds, _itemIds) &&
-            (identical(other.startPositionTicks, startPositionTicks) ||
-                other.startPositionTicks == startPositionTicks) &&
             (identical(other.subtitleStreamIndex, subtitleStreamIndex) ||
                 other.subtitleStreamIndex == subtitleStreamIndex) &&
             (identical(other.audioStreamIndex, audioStreamIndex) ||
@@ -478,10 +478,10 @@ class _PlayRequest implements PlayRequest {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    playCommand,
-    controllingUserId,
     const DeepCollectionEquality().hash(_itemIds),
     startPositionTicks,
+    playCommand,
+    controllingUserId,
     subtitleStreamIndex,
     audioStreamIndex,
     mediaSourceId,
@@ -490,7 +490,7 @@ class _PlayRequest implements PlayRequest {
 
   @override
   String toString() {
-    return 'PlayRequest(playCommand: $playCommand, controllingUserId: $controllingUserId, itemIds: $itemIds, startPositionTicks: $startPositionTicks, subtitleStreamIndex: $subtitleStreamIndex, audioStreamIndex: $audioStreamIndex, mediaSourceId: $mediaSourceId, startIndex: $startIndex)';
+    return 'PlayRequest(itemIds: $itemIds, startPositionTicks: $startPositionTicks, playCommand: $playCommand, controllingUserId: $controllingUserId, subtitleStreamIndex: $subtitleStreamIndex, audioStreamIndex: $audioStreamIndex, mediaSourceId: $mediaSourceId, startIndex: $startIndex)';
   }
 }
 
@@ -504,10 +504,10 @@ abstract mixin class _$PlayRequestCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
     @JsonKey(name: 'ItemIds') List<String>? itemIds,
     @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
+    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
+    @JsonKey(name: 'ControllingUserId') String controllingUserId,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -527,10 +527,10 @@ class __$PlayRequestCopyWithImpl<$Res> implements _$PlayRequestCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? playCommand = null,
-    Object? controllingUserId = null,
     Object? itemIds = freezed,
     Object? startPositionTicks = freezed,
+    Object? playCommand = null,
+    Object? controllingUserId = null,
     Object? subtitleStreamIndex = freezed,
     Object? audioStreamIndex = freezed,
     Object? mediaSourceId = freezed,
@@ -538,14 +538,6 @@ class __$PlayRequestCopyWithImpl<$Res> implements _$PlayRequestCopyWith<$Res> {
   }) {
     return _then(
       _PlayRequest(
-        playCommand: null == playCommand
-            ? _self.playCommand
-            : playCommand // ignore: cast_nullable_to_non_nullable
-                  as PlayRequestPlayCommand,
-        controllingUserId: null == controllingUserId
-            ? _self.controllingUserId
-            : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
         itemIds: freezed == itemIds
             ? _self._itemIds
             : itemIds // ignore: cast_nullable_to_non_nullable
@@ -554,6 +546,14 @@ class __$PlayRequestCopyWithImpl<$Res> implements _$PlayRequestCopyWith<$Res> {
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
+        playCommand: null == playCommand
+            ? _self.playCommand
+            : playCommand // ignore: cast_nullable_to_non_nullable
+                  as PlayRequestPlayCommand,
+        controllingUserId: null == controllingUserId
+            ? _self.controllingUserId
+            : controllingUserId // ignore: cast_nullable_to_non_nullable
+                  as String,
         subtitleStreamIndex: freezed == subtitleStreamIndex
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable

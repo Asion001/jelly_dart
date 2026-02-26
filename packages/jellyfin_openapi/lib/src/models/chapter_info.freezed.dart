@@ -15,9 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$ChapterInfo {
   /// Gets or sets the start position ticks.
   @JsonKey(name: 'StartPositionTicks')
-  int get startPositionTicks;
-  @JsonKey(name: 'ImageDateModified')
-  DateTime get imageDateModified;
+  int? get startPositionTicks;
 
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
@@ -26,6 +24,8 @@ mixin _$ChapterInfo {
   /// Gets or sets the image path.
   @JsonKey(name: 'ImagePath')
   String? get imagePath;
+  @JsonKey(name: 'ImageDateModified')
+  DateTime? get imageDateModified;
   @JsonKey(name: 'ImageTag')
   String? get imageTag;
 
@@ -46,11 +46,11 @@ mixin _$ChapterInfo {
             other is ChapterInfo &&
             (identical(other.startPositionTicks, startPositionTicks) ||
                 other.startPositionTicks == startPositionTicks) &&
-            (identical(other.imageDateModified, imageDateModified) ||
-                other.imageDateModified == imageDateModified) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
+            (identical(other.imageDateModified, imageDateModified) ||
+                other.imageDateModified == imageDateModified) &&
             (identical(other.imageTag, imageTag) ||
                 other.imageTag == imageTag));
   }
@@ -60,15 +60,15 @@ mixin _$ChapterInfo {
   int get hashCode => Object.hash(
     runtimeType,
     startPositionTicks,
-    imageDateModified,
     name,
     imagePath,
+    imageDateModified,
     imageTag,
   );
 
   @override
   String toString() {
-    return 'ChapterInfo(startPositionTicks: $startPositionTicks, imageDateModified: $imageDateModified, name: $name, imagePath: $imagePath, imageTag: $imageTag)';
+    return 'ChapterInfo(startPositionTicks: $startPositionTicks, name: $name, imagePath: $imagePath, imageDateModified: $imageDateModified, imageTag: $imageTag)';
   }
 }
 
@@ -80,10 +80,10 @@ abstract mixin class $ChapterInfoCopyWith<$Res> {
   ) = _$ChapterInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'StartPositionTicks') int startPositionTicks,
-    @JsonKey(name: 'ImageDateModified') DateTime imageDateModified,
+    @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'ImagePath') String? imagePath,
+    @JsonKey(name: 'ImageDateModified') DateTime? imageDateModified,
     @JsonKey(name: 'ImageTag') String? imageTag,
   });
 }
@@ -100,22 +100,18 @@ class _$ChapterInfoCopyWithImpl<$Res> implements $ChapterInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startPositionTicks = null,
-    Object? imageDateModified = null,
+    Object? startPositionTicks = freezed,
     Object? name = freezed,
     Object? imagePath = freezed,
+    Object? imageDateModified = freezed,
     Object? imageTag = freezed,
   }) {
     return _then(
       _self.copyWith(
-        startPositionTicks: null == startPositionTicks
+        startPositionTicks: freezed == startPositionTicks
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
-        imageDateModified: null == imageDateModified
-            ? _self.imageDateModified
-            : imageDateModified // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as int?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -124,6 +120,10 @@ class _$ChapterInfoCopyWithImpl<$Res> implements $ChapterInfoCopyWith<$Res> {
             ? _self.imagePath
             : imagePath // ignore: cast_nullable_to_non_nullable
                   as String?,
+        imageDateModified: freezed == imageDateModified
+            ? _self.imageDateModified
+            : imageDateModified // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
         imageTag: freezed == imageTag
             ? _self.imageTag
             : imageTag // ignore: cast_nullable_to_non_nullable
@@ -227,10 +227,10 @@ extension ChapterInfoPatterns on ChapterInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartPositionTicks') int startPositionTicks,
-      @JsonKey(name: 'ImageDateModified') DateTime imageDateModified,
+      @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ImagePath') String? imagePath,
+      @JsonKey(name: 'ImageDateModified') DateTime? imageDateModified,
       @JsonKey(name: 'ImageTag') String? imageTag,
     )?
     $default, {
@@ -241,9 +241,9 @@ extension ChapterInfoPatterns on ChapterInfo {
       case _ChapterInfo() when $default != null:
         return $default(
           _that.startPositionTicks,
-          _that.imageDateModified,
           _that.name,
           _that.imagePath,
+          _that.imageDateModified,
           _that.imageTag,
         );
       case _:
@@ -267,10 +267,10 @@ extension ChapterInfoPatterns on ChapterInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartPositionTicks') int startPositionTicks,
-      @JsonKey(name: 'ImageDateModified') DateTime imageDateModified,
+      @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ImagePath') String? imagePath,
+      @JsonKey(name: 'ImageDateModified') DateTime? imageDateModified,
       @JsonKey(name: 'ImageTag') String? imageTag,
     )
     $default,
@@ -280,9 +280,9 @@ extension ChapterInfoPatterns on ChapterInfo {
       case _ChapterInfo():
         return $default(
           _that.startPositionTicks,
-          _that.imageDateModified,
           _that.name,
           _that.imagePath,
+          _that.imageDateModified,
           _that.imageTag,
         );
       case _:
@@ -305,10 +305,10 @@ extension ChapterInfoPatterns on ChapterInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'StartPositionTicks') int startPositionTicks,
-      @JsonKey(name: 'ImageDateModified') DateTime imageDateModified,
+      @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'ImagePath') String? imagePath,
+      @JsonKey(name: 'ImageDateModified') DateTime? imageDateModified,
       @JsonKey(name: 'ImageTag') String? imageTag,
     )?
     $default,
@@ -318,9 +318,9 @@ extension ChapterInfoPatterns on ChapterInfo {
       case _ChapterInfo() when $default != null:
         return $default(
           _that.startPositionTicks,
-          _that.imageDateModified,
           _that.name,
           _that.imagePath,
+          _that.imageDateModified,
           _that.imageTag,
         );
       case _:
@@ -333,10 +333,10 @@ extension ChapterInfoPatterns on ChapterInfo {
 @JsonSerializable()
 class _ChapterInfo implements ChapterInfo {
   const _ChapterInfo({
-    @JsonKey(name: 'StartPositionTicks') required this.startPositionTicks,
-    @JsonKey(name: 'ImageDateModified') required this.imageDateModified,
+    @JsonKey(name: 'StartPositionTicks') this.startPositionTicks,
     @JsonKey(name: 'Name') this.name,
     @JsonKey(name: 'ImagePath') this.imagePath,
+    @JsonKey(name: 'ImageDateModified') this.imageDateModified,
     @JsonKey(name: 'ImageTag') this.imageTag,
   });
   factory _ChapterInfo.fromJson(Map<String, dynamic> json) =>
@@ -345,10 +345,7 @@ class _ChapterInfo implements ChapterInfo {
   /// Gets or sets the start position ticks.
   @override
   @JsonKey(name: 'StartPositionTicks')
-  final int startPositionTicks;
-  @override
-  @JsonKey(name: 'ImageDateModified')
-  final DateTime imageDateModified;
+  final int? startPositionTicks;
 
   /// Gets or sets the name.
   @override
@@ -359,6 +356,9 @@ class _ChapterInfo implements ChapterInfo {
   @override
   @JsonKey(name: 'ImagePath')
   final String? imagePath;
+  @override
+  @JsonKey(name: 'ImageDateModified')
+  final DateTime? imageDateModified;
   @override
   @JsonKey(name: 'ImageTag')
   final String? imageTag;
@@ -383,11 +383,11 @@ class _ChapterInfo implements ChapterInfo {
             other is _ChapterInfo &&
             (identical(other.startPositionTicks, startPositionTicks) ||
                 other.startPositionTicks == startPositionTicks) &&
-            (identical(other.imageDateModified, imageDateModified) ||
-                other.imageDateModified == imageDateModified) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
+            (identical(other.imageDateModified, imageDateModified) ||
+                other.imageDateModified == imageDateModified) &&
             (identical(other.imageTag, imageTag) ||
                 other.imageTag == imageTag));
   }
@@ -397,15 +397,15 @@ class _ChapterInfo implements ChapterInfo {
   int get hashCode => Object.hash(
     runtimeType,
     startPositionTicks,
-    imageDateModified,
     name,
     imagePath,
+    imageDateModified,
     imageTag,
   );
 
   @override
   String toString() {
-    return 'ChapterInfo(startPositionTicks: $startPositionTicks, imageDateModified: $imageDateModified, name: $name, imagePath: $imagePath, imageTag: $imageTag)';
+    return 'ChapterInfo(startPositionTicks: $startPositionTicks, name: $name, imagePath: $imagePath, imageDateModified: $imageDateModified, imageTag: $imageTag)';
   }
 }
 
@@ -419,10 +419,10 @@ abstract mixin class _$ChapterInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'StartPositionTicks') int startPositionTicks,
-    @JsonKey(name: 'ImageDateModified') DateTime imageDateModified,
+    @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'ImagePath') String? imagePath,
+    @JsonKey(name: 'ImageDateModified') DateTime? imageDateModified,
     @JsonKey(name: 'ImageTag') String? imageTag,
   });
 }
@@ -439,22 +439,18 @@ class __$ChapterInfoCopyWithImpl<$Res> implements _$ChapterInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? startPositionTicks = null,
-    Object? imageDateModified = null,
+    Object? startPositionTicks = freezed,
     Object? name = freezed,
     Object? imagePath = freezed,
+    Object? imageDateModified = freezed,
     Object? imageTag = freezed,
   }) {
     return _then(
       _ChapterInfo(
-        startPositionTicks: null == startPositionTicks
+        startPositionTicks: freezed == startPositionTicks
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
-        imageDateModified: null == imageDateModified
-            ? _self.imageDateModified
-            : imageDateModified // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as int?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -463,6 +459,10 @@ class __$ChapterInfoCopyWithImpl<$Res> implements _$ChapterInfoCopyWith<$Res> {
             ? _self.imagePath
             : imagePath // ignore: cast_nullable_to_non_nullable
                   as String?,
+        imageDateModified: freezed == imageDateModified
+            ? _self.imageDateModified
+            : imageDateModified // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
         imageTag: freezed == imageTag
             ? _self.imageTag
             : imageTag // ignore: cast_nullable_to_non_nullable

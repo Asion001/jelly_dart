@@ -8,8 +8,8 @@ part of 'subtitle_profile.dart';
 
 _SubtitleProfile _$SubtitleProfileFromJson(Map<String, dynamic> json) =>
     _SubtitleProfile(
-      method: SubtitleProfileMethod.fromJson(json['Method']),
       format: json['Format'] as String?,
+      method: $enumDecode(_$SubtitleProfileMethodEnumMap, json['Method']),
       didlMode: json['DidlMode'] as String?,
       language: json['Language'] as String?,
       container: json['Container'] as String?,
@@ -17,9 +17,17 @@ _SubtitleProfile _$SubtitleProfileFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$SubtitleProfileToJson(_SubtitleProfile instance) =>
     <String, dynamic>{
-      'Method': instance.method.toJson(),
       'Format': ?instance.format,
+      'Method': instance.method.toJson(),
       'DidlMode': ?instance.didlMode,
       'Language': ?instance.language,
       'Container': ?instance.container,
     };
+
+const _$SubtitleProfileMethodEnumMap = {
+  SubtitleProfileMethod.encode: 'Encode',
+  SubtitleProfileMethod.embed: 'Embed',
+  SubtitleProfileMethod.valueExternal: 'External',
+  SubtitleProfileMethod.hls: 'Hls',
+  SubtitleProfileMethod.drop: 'Drop',
+};

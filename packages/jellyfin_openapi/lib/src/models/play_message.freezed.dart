@@ -13,13 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PlayMessage {
+  /// Class PlayRequest.
+  @JsonKey(name: 'Data')
+  PlayRequest get data;
+
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
   String get messageId;
 
-  /// Class PlayRequest.
-  @JsonKey(name: 'Data')
-  PlayRequest? get data;
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  PlayMessageMessageType get messageType;
 
   /// Create a copy of PlayMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -36,18 +40,20 @@ mixin _$PlayMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PlayMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'PlayMessage(messageId: $messageId, data: $data)';
+    return 'PlayMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -59,11 +65,12 @@ abstract mixin class $PlayMessageCopyWith<$Res> {
   ) = _$PlayMessageCopyWithImpl;
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') PlayRequest data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') PlayRequest? data,
+    @JsonKey(name: 'MessageType') PlayMessageMessageType messageType,
   });
 
-  $PlayRequestCopyWith<$Res>? get data;
+  $PlayRequestCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -77,17 +84,25 @@ class _$PlayMessageCopyWithImpl<$Res> implements $PlayMessageCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _self.copyWith(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PlayRequest,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PlayRequest?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as PlayMessageMessageType,
       ),
     );
   }
@@ -96,12 +111,8 @@ class _$PlayMessageCopyWithImpl<$Res> implements $PlayMessageCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayRequestCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $PlayRequestCopyWith<$Res>(_self.data!, (value) {
+  $PlayRequestCopyWith<$Res> get data {
+    return $PlayRequestCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -201,8 +212,9 @@ extension PlayMessagePatterns on PlayMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
+      @JsonKey(name: 'MessageType') PlayMessageMessageType messageType,
     )?
     $default, {
     required TResult orElse(),
@@ -210,7 +222,7 @@ extension PlayMessagePatterns on PlayMessage {
     final _that = this;
     switch (_that) {
       case _PlayMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -232,15 +244,16 @@ extension PlayMessagePatterns on PlayMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
+      @JsonKey(name: 'MessageType') PlayMessageMessageType messageType,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PlayMessage():
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -261,15 +274,16 @@ extension PlayMessagePatterns on PlayMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+      @JsonKey(name: 'Data') PlayRequest data,
       @JsonKey(name: 'MessageId') String messageId,
-      @JsonKey(name: 'Data') PlayRequest? data,
+      @JsonKey(name: 'MessageType') PlayMessageMessageType messageType,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PlayMessage() when $default != null:
-        return $default(_that.messageId, _that.data);
+        return $default(_that.data, _that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -280,21 +294,28 @@ extension PlayMessagePatterns on PlayMessage {
 @JsonSerializable()
 class _PlayMessage implements PlayMessage {
   const _PlayMessage({
+    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageId') required this.messageId,
-    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageType')
+    this.messageType = PlayMessageMessageType.play,
   });
   factory _PlayMessage.fromJson(Map<String, dynamic> json) =>
       _$PlayMessageFromJson(json);
+
+  /// Class PlayRequest.
+  @override
+  @JsonKey(name: 'Data')
+  final PlayRequest data;
 
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
 
-  /// Class PlayRequest.
+  /// The different kinds of messages that are used in the WebSocket api.
   @override
-  @JsonKey(name: 'Data')
-  final PlayRequest? data;
+  @JsonKey(name: 'MessageType')
+  final PlayMessageMessageType messageType;
 
   /// Create a copy of PlayMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -314,18 +335,20 @@ class _PlayMessage implements PlayMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PlayMessage &&
+            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, data);
+  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
 
   @override
   String toString() {
-    return 'PlayMessage(messageId: $messageId, data: $data)';
+    return 'PlayMessage(data: $data, messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -339,12 +362,13 @@ abstract mixin class _$PlayMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'Data') PlayRequest data,
     @JsonKey(name: 'MessageId') String messageId,
-    @JsonKey(name: 'Data') PlayRequest? data,
+    @JsonKey(name: 'MessageType') PlayMessageMessageType messageType,
   });
 
   @override
-  $PlayRequestCopyWith<$Res>? get data;
+  $PlayRequestCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -358,17 +382,25 @@ class __$PlayMessageCopyWithImpl<$Res> implements _$PlayMessageCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? data = freezed}) {
+  $Res call({
+    Object? data = null,
+    Object? messageId = null,
+    Object? messageType = null,
+  }) {
     return _then(
       _PlayMessage(
+        data: null == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PlayRequest,
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PlayRequest?,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as PlayMessageMessageType,
       ),
     );
   }
@@ -377,12 +409,8 @@ class __$PlayMessageCopyWithImpl<$Res> implements _$PlayMessageCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayRequestCopyWith<$Res>? get data {
-    if (_self.data == null) {
-      return null;
-    }
-
-    return $PlayRequestCopyWith<$Res>(_self.data!, (value) {
+  $PlayRequestCopyWith<$Res> get data {
+    return $PlayRequestCopyWith<$Res>(_self.data, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

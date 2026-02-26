@@ -17,6 +17,10 @@ mixin _$ServerShuttingDownMessage {
   @JsonKey(name: 'MessageId')
   String get messageId;
 
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  ServerShuttingDownMessageMessageType get messageType;
+
   /// Create a copy of ServerShuttingDownMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -36,16 +40,18 @@ mixin _$ServerShuttingDownMessage {
         (other.runtimeType == runtimeType &&
             other is ServerShuttingDownMessage &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId);
+  int get hashCode => Object.hash(runtimeType, messageId, messageType);
 
   @override
   String toString() {
-    return 'ServerShuttingDownMessage(messageId: $messageId)';
+    return 'ServerShuttingDownMessage(messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -56,7 +62,11 @@ abstract mixin class $ServerShuttingDownMessageCopyWith<$Res> {
     $Res Function(ServerShuttingDownMessage) _then,
   ) = _$ServerShuttingDownMessageCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'MessageId') String messageId});
+  $Res call({
+    @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType')
+    ServerShuttingDownMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -71,13 +81,17 @@ class _$ServerShuttingDownMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null}) {
+  $Res call({Object? messageId = null, Object? messageType = null}) {
     return _then(
       _self.copyWith(
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ServerShuttingDownMessageMessageType,
       ),
     );
   }
@@ -176,13 +190,18 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MessageId') String messageId)? $default, {
+    TResult Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      ServerShuttingDownMessageMessageType messageType,
+    )?
+    $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage() when $default != null:
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         return orElse();
     }
@@ -203,12 +222,17 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MessageId') String messageId) $default,
+    TResult Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      ServerShuttingDownMessageMessageType messageType,
+    )
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage():
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,12 +252,17 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'MessageId') String messageId)? $default,
+    TResult? Function(
+      @JsonKey(name: 'MessageId') String messageId,
+      @JsonKey(name: 'MessageType')
+      ServerShuttingDownMessageMessageType messageType,
+    )?
+    $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage() when $default != null:
-        return $default(_that.messageId);
+        return $default(_that.messageId, _that.messageType);
       case _:
         return null;
     }
@@ -245,6 +274,8 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
 class _ServerShuttingDownMessage implements ServerShuttingDownMessage {
   const _ServerShuttingDownMessage({
     @JsonKey(name: 'MessageId') required this.messageId,
+    @JsonKey(name: 'MessageType')
+    this.messageType = ServerShuttingDownMessageMessageType.serverShuttingDown,
   });
   factory _ServerShuttingDownMessage.fromJson(Map<String, dynamic> json) =>
       _$ServerShuttingDownMessageFromJson(json);
@@ -253,6 +284,11 @@ class _ServerShuttingDownMessage implements ServerShuttingDownMessage {
   @override
   @JsonKey(name: 'MessageId')
   final String messageId;
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final ServerShuttingDownMessageMessageType messageType;
 
   /// Create a copy of ServerShuttingDownMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -277,16 +313,18 @@ class _ServerShuttingDownMessage implements ServerShuttingDownMessage {
         (other.runtimeType == runtimeType &&
             other is _ServerShuttingDownMessage &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId);
+  int get hashCode => Object.hash(runtimeType, messageId, messageType);
 
   @override
   String toString() {
-    return 'ServerShuttingDownMessage(messageId: $messageId)';
+    return 'ServerShuttingDownMessage(messageId: $messageId, messageType: $messageType)';
   }
 }
 
@@ -299,7 +337,11 @@ abstract mixin class _$ServerShuttingDownMessageCopyWith<$Res>
   ) = __$ServerShuttingDownMessageCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'MessageId') String messageId});
+  $Res call({
+    @JsonKey(name: 'MessageId') String messageId,
+    @JsonKey(name: 'MessageType')
+    ServerShuttingDownMessageMessageType messageType,
+  });
 }
 
 /// @nodoc
@@ -314,13 +356,17 @@ class __$ServerShuttingDownMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null}) {
+  $Res call({Object? messageId = null, Object? messageType = null}) {
     return _then(
       _ServerShuttingDownMessage(
         messageId: null == messageId
             ? _self.messageId
             : messageId // ignore: cast_nullable_to_non_nullable
                   as String,
+        messageType: null == messageType
+            ? _self.messageType
+            : messageType // ignore: cast_nullable_to_non_nullable
+                  as ServerShuttingDownMessageMessageType,
       ),
     );
   }

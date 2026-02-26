@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -33,15 +33,15 @@ abstract class ClientCapabilitiesDto with _$ClientCapabilitiesDto {
 
     /// Gets or sets the device profile.
     @JsonKey(name: 'DeviceProfile')
-    DeviceProfile? deviceProfile,
+    required DeviceProfile deviceProfile,
 
     /// Gets or sets the app store url.
     @JsonKey(name: 'AppStoreUrl')
-    String? appStoreUrl,
+    required String? appStoreUrl,
 
     /// Gets or sets the icon url.
     @JsonKey(name: 'IconUrl')
-    String? iconUrl,
+    required String? iconUrl,
   }) = _ClientCapabilitiesDto;
   
   factory ClientCapabilitiesDto.fromJson(Map<String, Object?> json) => _$ClientCapabilitiesDtoFromJson(json);

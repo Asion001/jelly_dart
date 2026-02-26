@@ -11,8 +11,30 @@ _SyncPlayNotInGroupUpdate _$SyncPlayNotInGroupUpdateFromJson(
 ) => _SyncPlayNotInGroupUpdate(
   groupId: json['GroupId'] as String,
   data: json['Data'] as String,
+  type:
+      $enumDecodeNullable(
+        _$SyncPlayNotInGroupUpdateTypeEnumMap,
+        json['Type'],
+      ) ??
+      SyncPlayNotInGroupUpdateType.notInGroup,
 );
 
 Map<String, dynamic> _$SyncPlayNotInGroupUpdateToJson(
   _SyncPlayNotInGroupUpdate instance,
-) => <String, dynamic>{'GroupId': instance.groupId, 'Data': instance.data};
+) => <String, dynamic>{
+  'GroupId': instance.groupId,
+  'Data': instance.data,
+  'Type': instance.type.toJson(),
+};
+
+const _$SyncPlayNotInGroupUpdateTypeEnumMap = {
+  SyncPlayNotInGroupUpdateType.userJoined: 'UserJoined',
+  SyncPlayNotInGroupUpdateType.userLeft: 'UserLeft',
+  SyncPlayNotInGroupUpdateType.groupJoined: 'GroupJoined',
+  SyncPlayNotInGroupUpdateType.groupLeft: 'GroupLeft',
+  SyncPlayNotInGroupUpdateType.stateUpdate: 'StateUpdate',
+  SyncPlayNotInGroupUpdateType.playQueue: 'PlayQueue',
+  SyncPlayNotInGroupUpdateType.notInGroup: 'NotInGroup',
+  SyncPlayNotInGroupUpdateType.groupDoesNotExist: 'GroupDoesNotExist',
+  SyncPlayNotInGroupUpdateType.libraryAccessDenied: 'LibraryAccessDenied',
+};

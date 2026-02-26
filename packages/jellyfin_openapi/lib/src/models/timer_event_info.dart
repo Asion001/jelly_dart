@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,7 +11,7 @@ part 'timer_event_info.g.dart';
 abstract class TimerEventInfo with _$TimerEventInfo {
   const factory TimerEventInfo({
     @JsonKey(name: 'Id')
-    required String id,
+    String? id,
     @JsonKey(name: 'ProgramId')
     String? programId,
   }) = _TimerEventInfo;

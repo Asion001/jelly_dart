@@ -9,7 +9,7 @@ part of 'task_result.dart';
 _TaskResult _$TaskResultFromJson(Map<String, dynamic> json) => _TaskResult(
   startTimeUtc: DateTime.parse(json['StartTimeUtc'] as String),
   endTimeUtc: DateTime.parse(json['EndTimeUtc'] as String),
-  status: TaskResultStatus.fromJson(json['Status']),
+  status: $enumDecode(_$TaskResultStatusEnumMap, json['Status']),
   name: json['Name'] as String?,
   key: json['Key'] as String?,
   id: json['Id'] as String?,
@@ -28,3 +28,10 @@ Map<String, dynamic> _$TaskResultToJson(_TaskResult instance) =>
       'ErrorMessage': ?instance.errorMessage,
       'LongErrorMessage': ?instance.longErrorMessage,
     };
+
+const _$TaskResultStatusEnumMap = {
+  TaskResultStatus.completed: 'Completed',
+  TaskResultStatus.failed: 'Failed',
+  TaskResultStatus.cancelled: 'Cancelled',
+  TaskResultStatus.aborted: 'Aborted',
+};

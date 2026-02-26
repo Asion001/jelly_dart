@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_import
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -28,15 +28,15 @@ abstract class CodecProfile with _$CodecProfile {
 
     /// Gets or sets the codec(s) that this profile applies to.
     @JsonKey(name: 'Codec')
-    String? codec,
+    required String? codec,
 
     /// Gets or sets the container(s) which this profile will be applied to.
     @JsonKey(name: 'Container')
-    String? container,
+    required String? container,
 
     /// Gets or sets the sub-container(s) which this profile will be applied to.
     @JsonKey(name: 'SubContainer')
-    String? subContainer,
+    required String? subContainer,
   }) = _CodecProfile;
   
   factory CodecProfile.fromJson(Map<String, Object?> json) => _$CodecProfileFromJson(json);

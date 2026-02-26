@@ -17,10 +17,10 @@ mixin _$ProfileCondition {
   ProfileConditionCondition get condition;
   @JsonKey(name: 'Property')
   ProfileConditionProperty get property;
-  @JsonKey(name: 'IsRequired')
-  bool get isRequired;
   @JsonKey(name: 'Value')
   String? get value;
+  @JsonKey(name: 'IsRequired')
+  bool get isRequired;
 
   /// Create a copy of ProfileCondition
   /// with the given fields replaced by the non-null parameter values.
@@ -44,19 +44,19 @@ mixin _$ProfileCondition {
                 other.condition == condition) &&
             (identical(other.property, property) ||
                 other.property == property) &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.isRequired, isRequired) ||
-                other.isRequired == isRequired) &&
-            (identical(other.value, value) || other.value == value));
+                other.isRequired == isRequired));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, condition, property, isRequired, value);
+      Object.hash(runtimeType, condition, property, value, isRequired);
 
   @override
   String toString() {
-    return 'ProfileCondition(condition: $condition, property: $property, isRequired: $isRequired, value: $value)';
+    return 'ProfileCondition(condition: $condition, property: $property, value: $value, isRequired: $isRequired)';
   }
 }
 
@@ -70,8 +70,8 @@ abstract mixin class $ProfileConditionCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'Condition') ProfileConditionCondition condition,
     @JsonKey(name: 'Property') ProfileConditionProperty property,
-    @JsonKey(name: 'IsRequired') bool isRequired,
     @JsonKey(name: 'Value') String? value,
+    @JsonKey(name: 'IsRequired') bool isRequired,
   });
 }
 
@@ -90,8 +90,8 @@ class _$ProfileConditionCopyWithImpl<$Res>
   $Res call({
     Object? condition = null,
     Object? property = null,
-    Object? isRequired = null,
     Object? value = freezed,
+    Object? isRequired = null,
   }) {
     return _then(
       _self.copyWith(
@@ -103,14 +103,14 @@ class _$ProfileConditionCopyWithImpl<$Res>
             ? _self.property
             : property // ignore: cast_nullable_to_non_nullable
                   as ProfileConditionProperty,
-        isRequired: null == isRequired
-            ? _self.isRequired
-            : isRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
         value: freezed == value
             ? _self.value
             : value // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isRequired: null == isRequired
+            ? _self.isRequired
+            : isRequired // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -212,8 +212,8 @@ extension ProfileConditionPatterns on ProfileCondition {
     TResult Function(
       @JsonKey(name: 'Condition') ProfileConditionCondition condition,
       @JsonKey(name: 'Property') ProfileConditionProperty property,
-      @JsonKey(name: 'IsRequired') bool isRequired,
       @JsonKey(name: 'Value') String? value,
+      @JsonKey(name: 'IsRequired') bool isRequired,
     )?
     $default, {
     required TResult orElse(),
@@ -224,8 +224,8 @@ extension ProfileConditionPatterns on ProfileCondition {
         return $default(
           _that.condition,
           _that.property,
-          _that.isRequired,
           _that.value,
+          _that.isRequired,
         );
       case _:
         return orElse();
@@ -250,8 +250,8 @@ extension ProfileConditionPatterns on ProfileCondition {
     TResult Function(
       @JsonKey(name: 'Condition') ProfileConditionCondition condition,
       @JsonKey(name: 'Property') ProfileConditionProperty property,
-      @JsonKey(name: 'IsRequired') bool isRequired,
       @JsonKey(name: 'Value') String? value,
+      @JsonKey(name: 'IsRequired') bool isRequired,
     )
     $default,
   ) {
@@ -261,8 +261,8 @@ extension ProfileConditionPatterns on ProfileCondition {
         return $default(
           _that.condition,
           _that.property,
-          _that.isRequired,
           _that.value,
+          _that.isRequired,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -286,8 +286,8 @@ extension ProfileConditionPatterns on ProfileCondition {
     TResult? Function(
       @JsonKey(name: 'Condition') ProfileConditionCondition condition,
       @JsonKey(name: 'Property') ProfileConditionProperty property,
-      @JsonKey(name: 'IsRequired') bool isRequired,
       @JsonKey(name: 'Value') String? value,
+      @JsonKey(name: 'IsRequired') bool isRequired,
     )?
     $default,
   ) {
@@ -297,8 +297,8 @@ extension ProfileConditionPatterns on ProfileCondition {
         return $default(
           _that.condition,
           _that.property,
-          _that.isRequired,
           _that.value,
+          _that.isRequired,
         );
       case _:
         return null;
@@ -312,8 +312,8 @@ class _ProfileCondition implements ProfileCondition {
   const _ProfileCondition({
     @JsonKey(name: 'Condition') required this.condition,
     @JsonKey(name: 'Property') required this.property,
+    @JsonKey(name: 'Value') required this.value,
     @JsonKey(name: 'IsRequired') required this.isRequired,
-    @JsonKey(name: 'Value') this.value,
   });
   factory _ProfileCondition.fromJson(Map<String, dynamic> json) =>
       _$ProfileConditionFromJson(json);
@@ -325,11 +325,11 @@ class _ProfileCondition implements ProfileCondition {
   @JsonKey(name: 'Property')
   final ProfileConditionProperty property;
   @override
-  @JsonKey(name: 'IsRequired')
-  final bool isRequired;
-  @override
   @JsonKey(name: 'Value')
   final String? value;
+  @override
+  @JsonKey(name: 'IsRequired')
+  final bool isRequired;
 
   /// Create a copy of ProfileCondition
   /// with the given fields replaced by the non-null parameter values.
@@ -353,19 +353,19 @@ class _ProfileCondition implements ProfileCondition {
                 other.condition == condition) &&
             (identical(other.property, property) ||
                 other.property == property) &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.isRequired, isRequired) ||
-                other.isRequired == isRequired) &&
-            (identical(other.value, value) || other.value == value));
+                other.isRequired == isRequired));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, condition, property, isRequired, value);
+      Object.hash(runtimeType, condition, property, value, isRequired);
 
   @override
   String toString() {
-    return 'ProfileCondition(condition: $condition, property: $property, isRequired: $isRequired, value: $value)';
+    return 'ProfileCondition(condition: $condition, property: $property, value: $value, isRequired: $isRequired)';
   }
 }
 
@@ -381,8 +381,8 @@ abstract mixin class _$ProfileConditionCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'Condition') ProfileConditionCondition condition,
     @JsonKey(name: 'Property') ProfileConditionProperty property,
-    @JsonKey(name: 'IsRequired') bool isRequired,
     @JsonKey(name: 'Value') String? value,
+    @JsonKey(name: 'IsRequired') bool isRequired,
   });
 }
 
@@ -401,8 +401,8 @@ class __$ProfileConditionCopyWithImpl<$Res>
   $Res call({
     Object? condition = null,
     Object? property = null,
-    Object? isRequired = null,
     Object? value = freezed,
+    Object? isRequired = null,
   }) {
     return _then(
       _ProfileCondition(
@@ -414,14 +414,14 @@ class __$ProfileConditionCopyWithImpl<$Res>
             ? _self.property
             : property // ignore: cast_nullable_to_non_nullable
                   as ProfileConditionProperty,
-        isRequired: null == isRequired
-            ? _self.isRequired
-            : isRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
         value: freezed == value
             ? _self.value
             : value // ignore: cast_nullable_to_non_nullable
                   as String?,
+        isRequired: null == isRequired
+            ? _self.isRequired
+            : isRequired // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }

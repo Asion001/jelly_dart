@@ -12,14 +12,14 @@ part 'media_update_info_path_dto.g.dart';
 abstract class MediaUpdateInfoPathDto with _$MediaUpdateInfoPathDto {
   const factory MediaUpdateInfoPathDto({
     /// Gets or sets media path.
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
 
-    /// Gets or sets media update type.    ///
+    /// Gets or sets media update type.
+    ///
     /// Created, Modified, Deleted.
-    @JsonKey(name: 'UpdateType')
-    String? updateType,
+    @JsonKey(name: 'UpdateType') String? updateType,
   }) = _MediaUpdateInfoPathDto;
-  
-  factory MediaUpdateInfoPathDto.fromJson(Map<String, Object?> json) => _$MediaUpdateInfoPathDtoFromJson(json);
+
+  factory MediaUpdateInfoPathDto.fromJson(Map<String, Object?> json) =>
+      _$MediaUpdateInfoPathDtoFromJson(json);
 }

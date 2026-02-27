@@ -11,13 +11,12 @@ part 'name_value_pair.g.dart';
 abstract class NameValuePair with _$NameValuePair {
   const factory NameValuePair({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the value.
-    @JsonKey(name: 'Value')
-    String? value,
+    @JsonKey(name: 'Value') String? value,
   }) = _NameValuePair;
-  
-  factory NameValuePair.fromJson(Map<String, Object?> json) => _$NameValuePairFromJson(json);
+
+  factory NameValuePair.fromJson(Map<String, Object?> json) =>
+      _$NameValuePairFromJson(json);
 }

@@ -80,7 +80,8 @@ enum BaseItemDtoType {
   @JsonValue('Video')
   video('Video'),
   @JsonValue('Year')
-  year('Year');
+  year('Year')
+  ;
 
   const BaseItemDtoType(this.json);
 
@@ -88,8 +89,10 @@ enum BaseItemDtoType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

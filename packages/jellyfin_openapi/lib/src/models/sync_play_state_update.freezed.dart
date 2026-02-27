@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SyncPlayStateUpdate {
-  /// Gets the group identifier.
-  @JsonKey(name: 'GroupId')
-  String get groupId;
-
-  /// Gets the update data.
-  @JsonKey(name: 'Data')
-  GroupStateUpdate get data;
-
   /// Enum GroupUpdateType.
   @JsonKey(name: 'Type')
   SyncPlayStateUpdateType get type;
+
+  /// Gets the group identifier.
+  @JsonKey(name: 'GroupId')
+  String? get groupId;
+
+  /// Gets the update data.
+  @JsonKey(name: 'Data')
+  GroupStateUpdate? get data;
 
   /// Create a copy of SyncPlayStateUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -43,18 +43,18 @@ mixin _$SyncPlayStateUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SyncPlayStateUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayStateUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayStateUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -66,12 +66,12 @@ abstract mixin class $SyncPlayStateUpdateCopyWith<$Res> {
   ) = _$SyncPlayStateUpdateCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') GroupStateUpdate data,
     @JsonKey(name: 'Type') SyncPlayStateUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') GroupStateUpdate? data,
   });
 
-  $GroupStateUpdateCopyWith<$Res> get data;
+  $GroupStateUpdateCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -87,24 +87,24 @@ class _$SyncPlayStateUpdateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdate,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayStateUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as GroupStateUpdate?,
       ),
     );
   }
@@ -113,8 +113,12 @@ class _$SyncPlayStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GroupStateUpdateCopyWith<$Res> get data {
-    return $GroupStateUpdateCopyWith<$Res>(_self.data, (value) {
+  $GroupStateUpdateCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $GroupStateUpdateCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -214,9 +218,9 @@ extension SyncPlayStateUpdatePatterns on SyncPlayStateUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
       @JsonKey(name: 'Type') SyncPlayStateUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )?
     $default, {
     required TResult orElse(),
@@ -224,7 +228,7 @@ extension SyncPlayStateUpdatePatterns on SyncPlayStateUpdate {
     final _that = this;
     switch (_that) {
       case _SyncPlayStateUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return orElse();
     }
@@ -246,16 +250,16 @@ extension SyncPlayStateUpdatePatterns on SyncPlayStateUpdate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
       @JsonKey(name: 'Type') SyncPlayStateUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayStateUpdate():
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -276,16 +280,16 @@ extension SyncPlayStateUpdatePatterns on SyncPlayStateUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
       @JsonKey(name: 'Type') SyncPlayStateUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayStateUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return null;
     }
@@ -296,27 +300,27 @@ extension SyncPlayStateUpdatePatterns on SyncPlayStateUpdate {
 @JsonSerializable()
 class _SyncPlayStateUpdate implements SyncPlayStateUpdate {
   const _SyncPlayStateUpdate({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'Type') this.type = SyncPlayStateUpdateType.stateUpdate,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
   });
   factory _SyncPlayStateUpdate.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayStateUpdateFromJson(json);
-
-  /// Gets the group identifier.
-  @override
-  @JsonKey(name: 'GroupId')
-  final String groupId;
-
-  /// Gets the update data.
-  @override
-  @JsonKey(name: 'Data')
-  final GroupStateUpdate data;
 
   /// Enum GroupUpdateType.
   @override
   @JsonKey(name: 'Type')
   final SyncPlayStateUpdateType type;
+
+  /// Gets the group identifier.
+  @override
+  @JsonKey(name: 'GroupId')
+  final String? groupId;
+
+  /// Gets the update data.
+  @override
+  @JsonKey(name: 'Data')
+  final GroupStateUpdate? data;
 
   /// Create a copy of SyncPlayStateUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -339,18 +343,18 @@ class _SyncPlayStateUpdate implements SyncPlayStateUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SyncPlayStateUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayStateUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayStateUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -364,13 +368,13 @@ abstract mixin class _$SyncPlayStateUpdateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') GroupStateUpdate data,
     @JsonKey(name: 'Type') SyncPlayStateUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') GroupStateUpdate? data,
   });
 
   @override
-  $GroupStateUpdateCopyWith<$Res> get data;
+  $GroupStateUpdateCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -386,24 +390,24 @@ class __$SyncPlayStateUpdateCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _SyncPlayStateUpdate(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdate,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayStateUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as GroupStateUpdate?,
       ),
     );
   }
@@ -412,8 +416,12 @@ class __$SyncPlayStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GroupStateUpdateCopyWith<$Res> get data {
-    return $GroupStateUpdateCopyWith<$Res>(_self.data, (value) {
+  $GroupStateUpdateCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $GroupStateUpdateCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

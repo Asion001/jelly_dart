@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$AddVirtualFolderDto {
   /// Gets or sets library options.
   @JsonKey(name: 'LibraryOptions')
-  LibraryOptions get libraryOptions;
+  LibraryOptions? get libraryOptions;
 
   /// Create a copy of AddVirtualFolderDto
   /// with the given fields replaced by the non-null parameter values.
@@ -56,9 +56,9 @@ abstract mixin class $AddVirtualFolderDtoCopyWith<$Res> {
     $Res Function(AddVirtualFolderDto) _then,
   ) = _$AddVirtualFolderDtoCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions});
+  $Res call({@JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions});
 
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -73,13 +73,13 @@ class _$AddVirtualFolderDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? libraryOptions = null}) {
+  $Res call({Object? libraryOptions = freezed}) {
     return _then(
       _self.copyWith(
-        libraryOptions: null == libraryOptions
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
       ),
     );
   }
@@ -88,8 +88,12 @@ class _$AddVirtualFolderDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }
@@ -189,7 +193,7 @@ extension AddVirtualFolderDtoPatterns on AddVirtualFolderDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )?
     $default, {
     required TResult orElse(),
@@ -219,7 +223,7 @@ extension AddVirtualFolderDtoPatterns on AddVirtualFolderDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )
     $default,
   ) {
@@ -247,7 +251,7 @@ extension AddVirtualFolderDtoPatterns on AddVirtualFolderDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )?
     $default,
   ) {
@@ -265,7 +269,7 @@ extension AddVirtualFolderDtoPatterns on AddVirtualFolderDto {
 @JsonSerializable()
 class _AddVirtualFolderDto implements AddVirtualFolderDto {
   const _AddVirtualFolderDto({
-    @JsonKey(name: 'LibraryOptions') required this.libraryOptions,
+    @JsonKey(name: 'LibraryOptions') this.libraryOptions,
   });
   factory _AddVirtualFolderDto.fromJson(Map<String, dynamic> json) =>
       _$AddVirtualFolderDtoFromJson(json);
@@ -273,7 +277,7 @@ class _AddVirtualFolderDto implements AddVirtualFolderDto {
   /// Gets or sets library options.
   @override
   @JsonKey(name: 'LibraryOptions')
-  final LibraryOptions libraryOptions;
+  final LibraryOptions? libraryOptions;
 
   /// Create a copy of AddVirtualFolderDto
   /// with the given fields replaced by the non-null parameter values.
@@ -319,10 +323,10 @@ abstract mixin class _$AddVirtualFolderDtoCopyWith<$Res>
   ) = __$AddVirtualFolderDtoCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions});
+  $Res call({@JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions});
 
   @override
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -337,13 +341,13 @@ class __$AddVirtualFolderDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? libraryOptions = null}) {
+  $Res call({Object? libraryOptions = freezed}) {
     return _then(
       _AddVirtualFolderDto(
-        libraryOptions: null == libraryOptions
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
       ),
     );
   }
@@ -352,8 +356,12 @@ class __$AddVirtualFolderDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }

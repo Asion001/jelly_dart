@@ -19,37 +19,37 @@ mixin _$UserConfiguration {
 
   /// Gets or sets a value indicating whether [play default audio track].
   @JsonKey(name: 'PlayDefaultAudioTrack')
-  bool get playDefaultAudioTrack;
+  bool? get playDefaultAudioTrack;
 
   /// Gets or sets the subtitle language preference.
   @JsonKey(name: 'SubtitleLanguagePreference')
   String? get subtitleLanguagePreference;
   @JsonKey(name: 'DisplayMissingEpisodes')
-  bool get displayMissingEpisodes;
+  bool? get displayMissingEpisodes;
   @JsonKey(name: 'GroupedFolders')
-  List<String> get groupedFolders;
+  List<String>? get groupedFolders;
 
   /// An enum representing a subtitle playback mode.
   @JsonKey(name: 'SubtitleMode')
-  UserConfigurationSubtitleMode get subtitleMode;
+  UserConfigurationSubtitleMode? get subtitleMode;
   @JsonKey(name: 'DisplayCollectionsView')
-  bool get displayCollectionsView;
+  bool? get displayCollectionsView;
   @JsonKey(name: 'EnableLocalPassword')
-  bool get enableLocalPassword;
+  bool? get enableLocalPassword;
   @JsonKey(name: 'OrderedViews')
-  List<String> get orderedViews;
+  List<String>? get orderedViews;
   @JsonKey(name: 'LatestItemsExcludes')
-  List<String> get latestItemsExcludes;
+  List<String>? get latestItemsExcludes;
   @JsonKey(name: 'MyMediaExcludes')
-  List<String> get myMediaExcludes;
+  List<String>? get myMediaExcludes;
   @JsonKey(name: 'HidePlayedInLatest')
-  bool get hidePlayedInLatest;
+  bool? get hidePlayedInLatest;
   @JsonKey(name: 'RememberAudioSelections')
-  bool get rememberAudioSelections;
+  bool? get rememberAudioSelections;
   @JsonKey(name: 'RememberSubtitleSelections')
-  bool get rememberSubtitleSelections;
+  bool? get rememberSubtitleSelections;
   @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-  bool get enableNextEpisodeAutoPlay;
+  bool? get enableNextEpisodeAutoPlay;
 
   /// Gets or sets the id of the selected cast receiver.
   @JsonKey(name: 'CastReceiverId')
@@ -169,22 +169,22 @@ abstract mixin class $UserConfigurationCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-    @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+    @JsonKey(name: 'PlayDefaultAudioTrack') bool? playDefaultAudioTrack,
     @JsonKey(name: 'SubtitleLanguagePreference')
     String? subtitleLanguagePreference,
-    @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
-    @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
-    @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
-    @JsonKey(name: 'DisplayCollectionsView') bool displayCollectionsView,
-    @JsonKey(name: 'EnableLocalPassword') bool enableLocalPassword,
-    @JsonKey(name: 'OrderedViews') List<String> orderedViews,
-    @JsonKey(name: 'LatestItemsExcludes') List<String> latestItemsExcludes,
-    @JsonKey(name: 'MyMediaExcludes') List<String> myMediaExcludes,
-    @JsonKey(name: 'HidePlayedInLatest') bool hidePlayedInLatest,
-    @JsonKey(name: 'RememberAudioSelections') bool rememberAudioSelections,
+    @JsonKey(name: 'DisplayMissingEpisodes') bool? displayMissingEpisodes,
+    @JsonKey(name: 'GroupedFolders') List<String>? groupedFolders,
+    @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode? subtitleMode,
+    @JsonKey(name: 'DisplayCollectionsView') bool? displayCollectionsView,
+    @JsonKey(name: 'EnableLocalPassword') bool? enableLocalPassword,
+    @JsonKey(name: 'OrderedViews') List<String>? orderedViews,
+    @JsonKey(name: 'LatestItemsExcludes') List<String>? latestItemsExcludes,
+    @JsonKey(name: 'MyMediaExcludes') List<String>? myMediaExcludes,
+    @JsonKey(name: 'HidePlayedInLatest') bool? hidePlayedInLatest,
+    @JsonKey(name: 'RememberAudioSelections') bool? rememberAudioSelections,
     @JsonKey(name: 'RememberSubtitleSelections')
-    bool rememberSubtitleSelections,
-    @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool enableNextEpisodeAutoPlay,
+    bool? rememberSubtitleSelections,
+    @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool? enableNextEpisodeAutoPlay,
     @JsonKey(name: 'CastReceiverId') String? castReceiverId,
   });
 }
@@ -203,20 +203,20 @@ class _$UserConfigurationCopyWithImpl<$Res>
   @override
   $Res call({
     Object? audioLanguagePreference = freezed,
-    Object? playDefaultAudioTrack = null,
+    Object? playDefaultAudioTrack = freezed,
     Object? subtitleLanguagePreference = freezed,
-    Object? displayMissingEpisodes = null,
-    Object? groupedFolders = null,
-    Object? subtitleMode = null,
-    Object? displayCollectionsView = null,
-    Object? enableLocalPassword = null,
-    Object? orderedViews = null,
-    Object? latestItemsExcludes = null,
-    Object? myMediaExcludes = null,
-    Object? hidePlayedInLatest = null,
-    Object? rememberAudioSelections = null,
-    Object? rememberSubtitleSelections = null,
-    Object? enableNextEpisodeAutoPlay = null,
+    Object? displayMissingEpisodes = freezed,
+    Object? groupedFolders = freezed,
+    Object? subtitleMode = freezed,
+    Object? displayCollectionsView = freezed,
+    Object? enableLocalPassword = freezed,
+    Object? orderedViews = freezed,
+    Object? latestItemsExcludes = freezed,
+    Object? myMediaExcludes = freezed,
+    Object? hidePlayedInLatest = freezed,
+    Object? rememberAudioSelections = freezed,
+    Object? rememberSubtitleSelections = freezed,
+    Object? enableNextEpisodeAutoPlay = freezed,
     Object? castReceiverId = freezed,
   }) {
     return _then(
@@ -225,62 +225,62 @@ class _$UserConfigurationCopyWithImpl<$Res>
             ? _self.audioLanguagePreference
             : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
                   as String?,
-        playDefaultAudioTrack: null == playDefaultAudioTrack
+        playDefaultAudioTrack: freezed == playDefaultAudioTrack
             ? _self.playDefaultAudioTrack
             : playDefaultAudioTrack // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         subtitleLanguagePreference: freezed == subtitleLanguagePreference
             ? _self.subtitleLanguagePreference
             : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
                   as String?,
-        displayMissingEpisodes: null == displayMissingEpisodes
+        displayMissingEpisodes: freezed == displayMissingEpisodes
             ? _self.displayMissingEpisodes
             : displayMissingEpisodes // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        groupedFolders: null == groupedFolders
+                  as bool?,
+        groupedFolders: freezed == groupedFolders
             ? _self.groupedFolders
             : groupedFolders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        subtitleMode: null == subtitleMode
+                  as List<String>?,
+        subtitleMode: freezed == subtitleMode
             ? _self.subtitleMode
             : subtitleMode // ignore: cast_nullable_to_non_nullable
-                  as UserConfigurationSubtitleMode,
-        displayCollectionsView: null == displayCollectionsView
+                  as UserConfigurationSubtitleMode?,
+        displayCollectionsView: freezed == displayCollectionsView
             ? _self.displayCollectionsView
             : displayCollectionsView // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLocalPassword: null == enableLocalPassword
+                  as bool?,
+        enableLocalPassword: freezed == enableLocalPassword
             ? _self.enableLocalPassword
             : enableLocalPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        orderedViews: null == orderedViews
+                  as bool?,
+        orderedViews: freezed == orderedViews
             ? _self.orderedViews
             : orderedViews // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        latestItemsExcludes: null == latestItemsExcludes
+                  as List<String>?,
+        latestItemsExcludes: freezed == latestItemsExcludes
             ? _self.latestItemsExcludes
             : latestItemsExcludes // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        myMediaExcludes: null == myMediaExcludes
+                  as List<String>?,
+        myMediaExcludes: freezed == myMediaExcludes
             ? _self.myMediaExcludes
             : myMediaExcludes // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        hidePlayedInLatest: null == hidePlayedInLatest
+                  as List<String>?,
+        hidePlayedInLatest: freezed == hidePlayedInLatest
             ? _self.hidePlayedInLatest
             : hidePlayedInLatest // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberAudioSelections: null == rememberAudioSelections
+                  as bool?,
+        rememberAudioSelections: freezed == rememberAudioSelections
             ? _self.rememberAudioSelections
             : rememberAudioSelections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberSubtitleSelections: null == rememberSubtitleSelections
+                  as bool?,
+        rememberSubtitleSelections: freezed == rememberSubtitleSelections
             ? _self.rememberSubtitleSelections
             : rememberSubtitleSelections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableNextEpisodeAutoPlay: null == enableNextEpisodeAutoPlay
+                  as bool?,
+        enableNextEpisodeAutoPlay: freezed == enableNextEpisodeAutoPlay
             ? _self.enableNextEpisodeAutoPlay
             : enableNextEpisodeAutoPlay // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         castReceiverId: freezed == castReceiverId
             ? _self.castReceiverId
             : castReceiverId // ignore: cast_nullable_to_non_nullable
@@ -385,23 +385,24 @@ extension UserConfigurationPatterns on UserConfiguration {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'PlayDefaultAudioTrack') bool? playDefaultAudioTrack,
       @JsonKey(name: 'SubtitleLanguagePreference')
       String? subtitleLanguagePreference,
-      @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
-      @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
-      @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
-      @JsonKey(name: 'DisplayCollectionsView') bool displayCollectionsView,
-      @JsonKey(name: 'EnableLocalPassword') bool enableLocalPassword,
-      @JsonKey(name: 'OrderedViews') List<String> orderedViews,
-      @JsonKey(name: 'LatestItemsExcludes') List<String> latestItemsExcludes,
-      @JsonKey(name: 'MyMediaExcludes') List<String> myMediaExcludes,
-      @JsonKey(name: 'HidePlayedInLatest') bool hidePlayedInLatest,
-      @JsonKey(name: 'RememberAudioSelections') bool rememberAudioSelections,
+      @JsonKey(name: 'DisplayMissingEpisodes') bool? displayMissingEpisodes,
+      @JsonKey(name: 'GroupedFolders') List<String>? groupedFolders,
+      @JsonKey(name: 'SubtitleMode')
+      UserConfigurationSubtitleMode? subtitleMode,
+      @JsonKey(name: 'DisplayCollectionsView') bool? displayCollectionsView,
+      @JsonKey(name: 'EnableLocalPassword') bool? enableLocalPassword,
+      @JsonKey(name: 'OrderedViews') List<String>? orderedViews,
+      @JsonKey(name: 'LatestItemsExcludes') List<String>? latestItemsExcludes,
+      @JsonKey(name: 'MyMediaExcludes') List<String>? myMediaExcludes,
+      @JsonKey(name: 'HidePlayedInLatest') bool? hidePlayedInLatest,
+      @JsonKey(name: 'RememberAudioSelections') bool? rememberAudioSelections,
       @JsonKey(name: 'RememberSubtitleSelections')
-      bool rememberSubtitleSelections,
+      bool? rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-      bool enableNextEpisodeAutoPlay,
+      bool? enableNextEpisodeAutoPlay,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )?
     $default, {
@@ -450,23 +451,24 @@ extension UserConfigurationPatterns on UserConfiguration {
   TResult when<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'PlayDefaultAudioTrack') bool? playDefaultAudioTrack,
       @JsonKey(name: 'SubtitleLanguagePreference')
       String? subtitleLanguagePreference,
-      @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
-      @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
-      @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
-      @JsonKey(name: 'DisplayCollectionsView') bool displayCollectionsView,
-      @JsonKey(name: 'EnableLocalPassword') bool enableLocalPassword,
-      @JsonKey(name: 'OrderedViews') List<String> orderedViews,
-      @JsonKey(name: 'LatestItemsExcludes') List<String> latestItemsExcludes,
-      @JsonKey(name: 'MyMediaExcludes') List<String> myMediaExcludes,
-      @JsonKey(name: 'HidePlayedInLatest') bool hidePlayedInLatest,
-      @JsonKey(name: 'RememberAudioSelections') bool rememberAudioSelections,
+      @JsonKey(name: 'DisplayMissingEpisodes') bool? displayMissingEpisodes,
+      @JsonKey(name: 'GroupedFolders') List<String>? groupedFolders,
+      @JsonKey(name: 'SubtitleMode')
+      UserConfigurationSubtitleMode? subtitleMode,
+      @JsonKey(name: 'DisplayCollectionsView') bool? displayCollectionsView,
+      @JsonKey(name: 'EnableLocalPassword') bool? enableLocalPassword,
+      @JsonKey(name: 'OrderedViews') List<String>? orderedViews,
+      @JsonKey(name: 'LatestItemsExcludes') List<String>? latestItemsExcludes,
+      @JsonKey(name: 'MyMediaExcludes') List<String>? myMediaExcludes,
+      @JsonKey(name: 'HidePlayedInLatest') bool? hidePlayedInLatest,
+      @JsonKey(name: 'RememberAudioSelections') bool? rememberAudioSelections,
       @JsonKey(name: 'RememberSubtitleSelections')
-      bool rememberSubtitleSelections,
+      bool? rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-      bool enableNextEpisodeAutoPlay,
+      bool? enableNextEpisodeAutoPlay,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )
     $default,
@@ -513,23 +515,24 @@ extension UserConfigurationPatterns on UserConfiguration {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
       @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-      @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+      @JsonKey(name: 'PlayDefaultAudioTrack') bool? playDefaultAudioTrack,
       @JsonKey(name: 'SubtitleLanguagePreference')
       String? subtitleLanguagePreference,
-      @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
-      @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
-      @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
-      @JsonKey(name: 'DisplayCollectionsView') bool displayCollectionsView,
-      @JsonKey(name: 'EnableLocalPassword') bool enableLocalPassword,
-      @JsonKey(name: 'OrderedViews') List<String> orderedViews,
-      @JsonKey(name: 'LatestItemsExcludes') List<String> latestItemsExcludes,
-      @JsonKey(name: 'MyMediaExcludes') List<String> myMediaExcludes,
-      @JsonKey(name: 'HidePlayedInLatest') bool hidePlayedInLatest,
-      @JsonKey(name: 'RememberAudioSelections') bool rememberAudioSelections,
+      @JsonKey(name: 'DisplayMissingEpisodes') bool? displayMissingEpisodes,
+      @JsonKey(name: 'GroupedFolders') List<String>? groupedFolders,
+      @JsonKey(name: 'SubtitleMode')
+      UserConfigurationSubtitleMode? subtitleMode,
+      @JsonKey(name: 'DisplayCollectionsView') bool? displayCollectionsView,
+      @JsonKey(name: 'EnableLocalPassword') bool? enableLocalPassword,
+      @JsonKey(name: 'OrderedViews') List<String>? orderedViews,
+      @JsonKey(name: 'LatestItemsExcludes') List<String>? latestItemsExcludes,
+      @JsonKey(name: 'MyMediaExcludes') List<String>? myMediaExcludes,
+      @JsonKey(name: 'HidePlayedInLatest') bool? hidePlayedInLatest,
+      @JsonKey(name: 'RememberAudioSelections') bool? rememberAudioSelections,
       @JsonKey(name: 'RememberSubtitleSelections')
-      bool rememberSubtitleSelections,
+      bool? rememberSubtitleSelections,
       @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-      bool enableNextEpisodeAutoPlay,
+      bool? enableNextEpisodeAutoPlay,
       @JsonKey(name: 'CastReceiverId') String? castReceiverId,
     )?
     $default,
@@ -565,31 +568,25 @@ extension UserConfigurationPatterns on UserConfiguration {
 @JsonSerializable()
 class _UserConfiguration implements UserConfiguration {
   const _UserConfiguration({
-    @JsonKey(name: 'AudioLanguagePreference')
-    required this.audioLanguagePreference,
-    @JsonKey(name: 'PlayDefaultAudioTrack') required this.playDefaultAudioTrack,
+    @JsonKey(name: 'AudioLanguagePreference') this.audioLanguagePreference,
+    @JsonKey(name: 'PlayDefaultAudioTrack') this.playDefaultAudioTrack,
     @JsonKey(name: 'SubtitleLanguagePreference')
-    required this.subtitleLanguagePreference,
-    @JsonKey(name: 'DisplayMissingEpisodes')
-    required this.displayMissingEpisodes,
-    @JsonKey(name: 'GroupedFolders') required final List<String> groupedFolders,
-    @JsonKey(name: 'SubtitleMode') required this.subtitleMode,
-    @JsonKey(name: 'DisplayCollectionsView')
-    required this.displayCollectionsView,
-    @JsonKey(name: 'EnableLocalPassword') required this.enableLocalPassword,
-    @JsonKey(name: 'OrderedViews') required final List<String> orderedViews,
+    this.subtitleLanguagePreference,
+    @JsonKey(name: 'DisplayMissingEpisodes') this.displayMissingEpisodes,
+    @JsonKey(name: 'GroupedFolders') final List<String>? groupedFolders,
+    @JsonKey(name: 'SubtitleMode') this.subtitleMode,
+    @JsonKey(name: 'DisplayCollectionsView') this.displayCollectionsView,
+    @JsonKey(name: 'EnableLocalPassword') this.enableLocalPassword,
+    @JsonKey(name: 'OrderedViews') final List<String>? orderedViews,
     @JsonKey(name: 'LatestItemsExcludes')
-    required final List<String> latestItemsExcludes,
-    @JsonKey(name: 'MyMediaExcludes')
-    required final List<String> myMediaExcludes,
-    @JsonKey(name: 'HidePlayedInLatest') required this.hidePlayedInLatest,
-    @JsonKey(name: 'RememberAudioSelections')
-    required this.rememberAudioSelections,
+    final List<String>? latestItemsExcludes,
+    @JsonKey(name: 'MyMediaExcludes') final List<String>? myMediaExcludes,
+    @JsonKey(name: 'HidePlayedInLatest') this.hidePlayedInLatest,
+    @JsonKey(name: 'RememberAudioSelections') this.rememberAudioSelections,
     @JsonKey(name: 'RememberSubtitleSelections')
-    required this.rememberSubtitleSelections,
-    @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-    required this.enableNextEpisodeAutoPlay,
-    @JsonKey(name: 'CastReceiverId') required this.castReceiverId,
+    this.rememberSubtitleSelections,
+    @JsonKey(name: 'EnableNextEpisodeAutoPlay') this.enableNextEpisodeAutoPlay,
+    @JsonKey(name: 'CastReceiverId') this.castReceiverId,
   }) : _groupedFolders = groupedFolders,
        _orderedViews = orderedViews,
        _latestItemsExcludes = latestItemsExcludes,
@@ -605,7 +602,7 @@ class _UserConfiguration implements UserConfiguration {
   /// Gets or sets a value indicating whether [play default audio track].
   @override
   @JsonKey(name: 'PlayDefaultAudioTrack')
-  final bool playDefaultAudioTrack;
+  final bool? playDefaultAudioTrack;
 
   /// Gets or sets the subtitle language preference.
   @override
@@ -613,66 +610,74 @@ class _UserConfiguration implements UserConfiguration {
   final String? subtitleLanguagePreference;
   @override
   @JsonKey(name: 'DisplayMissingEpisodes')
-  final bool displayMissingEpisodes;
-  final List<String> _groupedFolders;
+  final bool? displayMissingEpisodes;
+  final List<String>? _groupedFolders;
   @override
   @JsonKey(name: 'GroupedFolders')
-  List<String> get groupedFolders {
+  List<String>? get groupedFolders {
+    final value = _groupedFolders;
+    if (value == null) return null;
     if (_groupedFolders is EqualUnmodifiableListView) return _groupedFolders;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_groupedFolders);
+    return EqualUnmodifiableListView(value);
   }
 
   /// An enum representing a subtitle playback mode.
   @override
   @JsonKey(name: 'SubtitleMode')
-  final UserConfigurationSubtitleMode subtitleMode;
+  final UserConfigurationSubtitleMode? subtitleMode;
   @override
   @JsonKey(name: 'DisplayCollectionsView')
-  final bool displayCollectionsView;
+  final bool? displayCollectionsView;
   @override
   @JsonKey(name: 'EnableLocalPassword')
-  final bool enableLocalPassword;
-  final List<String> _orderedViews;
+  final bool? enableLocalPassword;
+  final List<String>? _orderedViews;
   @override
   @JsonKey(name: 'OrderedViews')
-  List<String> get orderedViews {
+  List<String>? get orderedViews {
+    final value = _orderedViews;
+    if (value == null) return null;
     if (_orderedViews is EqualUnmodifiableListView) return _orderedViews;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_orderedViews);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _latestItemsExcludes;
+  final List<String>? _latestItemsExcludes;
   @override
   @JsonKey(name: 'LatestItemsExcludes')
-  List<String> get latestItemsExcludes {
+  List<String>? get latestItemsExcludes {
+    final value = _latestItemsExcludes;
+    if (value == null) return null;
     if (_latestItemsExcludes is EqualUnmodifiableListView)
       return _latestItemsExcludes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_latestItemsExcludes);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _myMediaExcludes;
+  final List<String>? _myMediaExcludes;
   @override
   @JsonKey(name: 'MyMediaExcludes')
-  List<String> get myMediaExcludes {
+  List<String>? get myMediaExcludes {
+    final value = _myMediaExcludes;
+    if (value == null) return null;
     if (_myMediaExcludes is EqualUnmodifiableListView) return _myMediaExcludes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_myMediaExcludes);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'HidePlayedInLatest')
-  final bool hidePlayedInLatest;
+  final bool? hidePlayedInLatest;
   @override
   @JsonKey(name: 'RememberAudioSelections')
-  final bool rememberAudioSelections;
+  final bool? rememberAudioSelections;
   @override
   @JsonKey(name: 'RememberSubtitleSelections')
-  final bool rememberSubtitleSelections;
+  final bool? rememberSubtitleSelections;
   @override
   @JsonKey(name: 'EnableNextEpisodeAutoPlay')
-  final bool enableNextEpisodeAutoPlay;
+  final bool? enableNextEpisodeAutoPlay;
 
   /// Gets or sets the id of the selected cast receiver.
   @override
@@ -795,22 +800,22 @@ abstract mixin class _$UserConfigurationCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: 'AudioLanguagePreference') String? audioLanguagePreference,
-    @JsonKey(name: 'PlayDefaultAudioTrack') bool playDefaultAudioTrack,
+    @JsonKey(name: 'PlayDefaultAudioTrack') bool? playDefaultAudioTrack,
     @JsonKey(name: 'SubtitleLanguagePreference')
     String? subtitleLanguagePreference,
-    @JsonKey(name: 'DisplayMissingEpisodes') bool displayMissingEpisodes,
-    @JsonKey(name: 'GroupedFolders') List<String> groupedFolders,
-    @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode subtitleMode,
-    @JsonKey(name: 'DisplayCollectionsView') bool displayCollectionsView,
-    @JsonKey(name: 'EnableLocalPassword') bool enableLocalPassword,
-    @JsonKey(name: 'OrderedViews') List<String> orderedViews,
-    @JsonKey(name: 'LatestItemsExcludes') List<String> latestItemsExcludes,
-    @JsonKey(name: 'MyMediaExcludes') List<String> myMediaExcludes,
-    @JsonKey(name: 'HidePlayedInLatest') bool hidePlayedInLatest,
-    @JsonKey(name: 'RememberAudioSelections') bool rememberAudioSelections,
+    @JsonKey(name: 'DisplayMissingEpisodes') bool? displayMissingEpisodes,
+    @JsonKey(name: 'GroupedFolders') List<String>? groupedFolders,
+    @JsonKey(name: 'SubtitleMode') UserConfigurationSubtitleMode? subtitleMode,
+    @JsonKey(name: 'DisplayCollectionsView') bool? displayCollectionsView,
+    @JsonKey(name: 'EnableLocalPassword') bool? enableLocalPassword,
+    @JsonKey(name: 'OrderedViews') List<String>? orderedViews,
+    @JsonKey(name: 'LatestItemsExcludes') List<String>? latestItemsExcludes,
+    @JsonKey(name: 'MyMediaExcludes') List<String>? myMediaExcludes,
+    @JsonKey(name: 'HidePlayedInLatest') bool? hidePlayedInLatest,
+    @JsonKey(name: 'RememberAudioSelections') bool? rememberAudioSelections,
     @JsonKey(name: 'RememberSubtitleSelections')
-    bool rememberSubtitleSelections,
-    @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool enableNextEpisodeAutoPlay,
+    bool? rememberSubtitleSelections,
+    @JsonKey(name: 'EnableNextEpisodeAutoPlay') bool? enableNextEpisodeAutoPlay,
     @JsonKey(name: 'CastReceiverId') String? castReceiverId,
   });
 }
@@ -829,20 +834,20 @@ class __$UserConfigurationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? audioLanguagePreference = freezed,
-    Object? playDefaultAudioTrack = null,
+    Object? playDefaultAudioTrack = freezed,
     Object? subtitleLanguagePreference = freezed,
-    Object? displayMissingEpisodes = null,
-    Object? groupedFolders = null,
-    Object? subtitleMode = null,
-    Object? displayCollectionsView = null,
-    Object? enableLocalPassword = null,
-    Object? orderedViews = null,
-    Object? latestItemsExcludes = null,
-    Object? myMediaExcludes = null,
-    Object? hidePlayedInLatest = null,
-    Object? rememberAudioSelections = null,
-    Object? rememberSubtitleSelections = null,
-    Object? enableNextEpisodeAutoPlay = null,
+    Object? displayMissingEpisodes = freezed,
+    Object? groupedFolders = freezed,
+    Object? subtitleMode = freezed,
+    Object? displayCollectionsView = freezed,
+    Object? enableLocalPassword = freezed,
+    Object? orderedViews = freezed,
+    Object? latestItemsExcludes = freezed,
+    Object? myMediaExcludes = freezed,
+    Object? hidePlayedInLatest = freezed,
+    Object? rememberAudioSelections = freezed,
+    Object? rememberSubtitleSelections = freezed,
+    Object? enableNextEpisodeAutoPlay = freezed,
     Object? castReceiverId = freezed,
   }) {
     return _then(
@@ -851,62 +856,62 @@ class __$UserConfigurationCopyWithImpl<$Res>
             ? _self.audioLanguagePreference
             : audioLanguagePreference // ignore: cast_nullable_to_non_nullable
                   as String?,
-        playDefaultAudioTrack: null == playDefaultAudioTrack
+        playDefaultAudioTrack: freezed == playDefaultAudioTrack
             ? _self.playDefaultAudioTrack
             : playDefaultAudioTrack // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         subtitleLanguagePreference: freezed == subtitleLanguagePreference
             ? _self.subtitleLanguagePreference
             : subtitleLanguagePreference // ignore: cast_nullable_to_non_nullable
                   as String?,
-        displayMissingEpisodes: null == displayMissingEpisodes
+        displayMissingEpisodes: freezed == displayMissingEpisodes
             ? _self.displayMissingEpisodes
             : displayMissingEpisodes // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        groupedFolders: null == groupedFolders
+                  as bool?,
+        groupedFolders: freezed == groupedFolders
             ? _self._groupedFolders
             : groupedFolders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        subtitleMode: null == subtitleMode
+                  as List<String>?,
+        subtitleMode: freezed == subtitleMode
             ? _self.subtitleMode
             : subtitleMode // ignore: cast_nullable_to_non_nullable
-                  as UserConfigurationSubtitleMode,
-        displayCollectionsView: null == displayCollectionsView
+                  as UserConfigurationSubtitleMode?,
+        displayCollectionsView: freezed == displayCollectionsView
             ? _self.displayCollectionsView
             : displayCollectionsView // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLocalPassword: null == enableLocalPassword
+                  as bool?,
+        enableLocalPassword: freezed == enableLocalPassword
             ? _self.enableLocalPassword
             : enableLocalPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        orderedViews: null == orderedViews
+                  as bool?,
+        orderedViews: freezed == orderedViews
             ? _self._orderedViews
             : orderedViews // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        latestItemsExcludes: null == latestItemsExcludes
+                  as List<String>?,
+        latestItemsExcludes: freezed == latestItemsExcludes
             ? _self._latestItemsExcludes
             : latestItemsExcludes // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        myMediaExcludes: null == myMediaExcludes
+                  as List<String>?,
+        myMediaExcludes: freezed == myMediaExcludes
             ? _self._myMediaExcludes
             : myMediaExcludes // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        hidePlayedInLatest: null == hidePlayedInLatest
+                  as List<String>?,
+        hidePlayedInLatest: freezed == hidePlayedInLatest
             ? _self.hidePlayedInLatest
             : hidePlayedInLatest // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberAudioSelections: null == rememberAudioSelections
+                  as bool?,
+        rememberAudioSelections: freezed == rememberAudioSelections
             ? _self.rememberAudioSelections
             : rememberAudioSelections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberSubtitleSelections: null == rememberSubtitleSelections
+                  as bool?,
+        rememberSubtitleSelections: freezed == rememberSubtitleSelections
             ? _self.rememberSubtitleSelections
             : rememberSubtitleSelections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableNextEpisodeAutoPlay: null == enableNextEpisodeAutoPlay
+                  as bool?,
+        enableNextEpisodeAutoPlay: freezed == enableNextEpisodeAutoPlay
             ? _self.enableNextEpisodeAutoPlay
             : enableNextEpisodeAutoPlay // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         castReceiverId: freezed == castReceiverId
             ? _self.castReceiverId
             : castReceiverId // ignore: cast_nullable_to_non_nullable

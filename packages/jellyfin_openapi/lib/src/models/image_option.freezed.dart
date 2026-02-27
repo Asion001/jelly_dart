@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$ImageOption {
   /// Gets or sets the type.
   @JsonKey(name: 'Type')
-  ImageOptionType get type;
+  ImageOptionType? get type;
 
   /// Gets or sets the limit.
   @JsonKey(name: 'Limit')
-  int get limit;
+  int? get limit;
 
   /// Gets or sets the minimum width.
   @JsonKey(name: 'MinWidth')
-  int get minWidth;
+  int? get minWidth;
 
   /// Create a copy of ImageOption
   /// with the given fields replaced by the non-null parameter values.
@@ -64,9 +64,9 @@ abstract mixin class $ImageOptionCopyWith<$Res> {
   ) = _$ImageOptionCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') ImageOptionType type,
-    @JsonKey(name: 'Limit') int limit,
-    @JsonKey(name: 'MinWidth') int minWidth,
+    @JsonKey(name: 'Type') ImageOptionType? type,
+    @JsonKey(name: 'Limit') int? limit,
+    @JsonKey(name: 'MinWidth') int? minWidth,
   });
 }
 
@@ -82,24 +82,24 @@ class _$ImageOptionCopyWithImpl<$Res> implements $ImageOptionCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? limit = null,
-    Object? minWidth = null,
+    Object? type = freezed,
+    Object? limit = freezed,
+    Object? minWidth = freezed,
   }) {
     return _then(
       _self.copyWith(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as ImageOptionType,
-        limit: null == limit
+                  as ImageOptionType?,
+        limit: freezed == limit
             ? _self.limit
             : limit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minWidth: null == minWidth
+                  as int?,
+        minWidth: freezed == minWidth
             ? _self.minWidth
             : minWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }
@@ -199,9 +199,9 @@ extension ImageOptionPatterns on ImageOption {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') ImageOptionType type,
-      @JsonKey(name: 'Limit') int limit,
-      @JsonKey(name: 'MinWidth') int minWidth,
+      @JsonKey(name: 'Type') ImageOptionType? type,
+      @JsonKey(name: 'Limit') int? limit,
+      @JsonKey(name: 'MinWidth') int? minWidth,
     )?
     $default, {
     required TResult orElse(),
@@ -231,9 +231,9 @@ extension ImageOptionPatterns on ImageOption {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') ImageOptionType type,
-      @JsonKey(name: 'Limit') int limit,
-      @JsonKey(name: 'MinWidth') int minWidth,
+      @JsonKey(name: 'Type') ImageOptionType? type,
+      @JsonKey(name: 'Limit') int? limit,
+      @JsonKey(name: 'MinWidth') int? minWidth,
     )
     $default,
   ) {
@@ -261,9 +261,9 @@ extension ImageOptionPatterns on ImageOption {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Type') ImageOptionType type,
-      @JsonKey(name: 'Limit') int limit,
-      @JsonKey(name: 'MinWidth') int minWidth,
+      @JsonKey(name: 'Type') ImageOptionType? type,
+      @JsonKey(name: 'Limit') int? limit,
+      @JsonKey(name: 'MinWidth') int? minWidth,
     )?
     $default,
   ) {
@@ -281,9 +281,9 @@ extension ImageOptionPatterns on ImageOption {
 @JsonSerializable()
 class _ImageOption implements ImageOption {
   const _ImageOption({
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'Limit') required this.limit,
-    @JsonKey(name: 'MinWidth') required this.minWidth,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'Limit') this.limit,
+    @JsonKey(name: 'MinWidth') this.minWidth,
   });
   factory _ImageOption.fromJson(Map<String, dynamic> json) =>
       _$ImageOptionFromJson(json);
@@ -291,17 +291,17 @@ class _ImageOption implements ImageOption {
   /// Gets or sets the type.
   @override
   @JsonKey(name: 'Type')
-  final ImageOptionType type;
+  final ImageOptionType? type;
 
   /// Gets or sets the limit.
   @override
   @JsonKey(name: 'Limit')
-  final int limit;
+  final int? limit;
 
   /// Gets or sets the minimum width.
   @override
   @JsonKey(name: 'MinWidth')
-  final int minWidth;
+  final int? minWidth;
 
   /// Create a copy of ImageOption
   /// with the given fields replaced by the non-null parameter values.
@@ -347,9 +347,9 @@ abstract mixin class _$ImageOptionCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') ImageOptionType type,
-    @JsonKey(name: 'Limit') int limit,
-    @JsonKey(name: 'MinWidth') int minWidth,
+    @JsonKey(name: 'Type') ImageOptionType? type,
+    @JsonKey(name: 'Limit') int? limit,
+    @JsonKey(name: 'MinWidth') int? minWidth,
   });
 }
 
@@ -365,24 +365,24 @@ class __$ImageOptionCopyWithImpl<$Res> implements _$ImageOptionCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? type = null,
-    Object? limit = null,
-    Object? minWidth = null,
+    Object? type = freezed,
+    Object? limit = freezed,
+    Object? minWidth = freezed,
   }) {
     return _then(
       _ImageOption(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as ImageOptionType,
-        limit: null == limit
+                  as ImageOptionType?,
+        limit: freezed == limit
             ? _self.limit
             : limit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minWidth: null == minWidth
+                  as int?,
+        minWidth: freezed == minWidth
             ? _self.minWidth
             : minWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }

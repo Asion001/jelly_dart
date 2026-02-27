@@ -11,7 +11,8 @@ part 'display_preferences_client.g.dart';
 
 @RestApi()
 abstract class DisplayPreferencesClient {
-  factory DisplayPreferencesClient(Dio dio, {String? baseUrl}) = _DisplayPreferencesClient;
+  factory DisplayPreferencesClient(Dio dio, {String? baseUrl}) =
+      _DisplayPreferencesClient;
 
   /// Get Display Preferences.
   ///

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$ImageInfo {
   /// Gets or sets the type of the image.
   @JsonKey(name: 'ImageType')
-  ImageInfoImageType get imageType;
+  ImageInfoImageType? get imageType;
 
   /// Gets or sets the index of the image.
   @JsonKey(name: 'ImageIndex')
@@ -43,7 +43,7 @@ mixin _$ImageInfo {
 
   /// Gets or sets the size.
   @JsonKey(name: 'Size')
-  int get size;
+  int? get size;
 
   /// Create a copy of ImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -100,14 +100,14 @@ abstract mixin class $ImageInfoCopyWith<$Res> {
       _$ImageInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ImageType') ImageInfoImageType imageType,
+    @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
     @JsonKey(name: 'ImageIndex') int? imageIndex,
     @JsonKey(name: 'ImageTag') String? imageTag,
     @JsonKey(name: 'Path') String? path,
     @JsonKey(name: 'BlurHash') String? blurHash,
     @JsonKey(name: 'Height') int? height,
     @JsonKey(name: 'Width') int? width,
-    @JsonKey(name: 'Size') int size,
+    @JsonKey(name: 'Size') int? size,
   });
 }
 
@@ -123,21 +123,21 @@ class _$ImageInfoCopyWithImpl<$Res> implements $ImageInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageType = null,
+    Object? imageType = freezed,
     Object? imageIndex = freezed,
     Object? imageTag = freezed,
     Object? path = freezed,
     Object? blurHash = freezed,
     Object? height = freezed,
     Object? width = freezed,
-    Object? size = null,
+    Object? size = freezed,
   }) {
     return _then(
       _self.copyWith(
-        imageType: null == imageType
+        imageType: freezed == imageType
             ? _self.imageType
             : imageType // ignore: cast_nullable_to_non_nullable
-                  as ImageInfoImageType,
+                  as ImageInfoImageType?,
         imageIndex: freezed == imageIndex
             ? _self.imageIndex
             : imageIndex // ignore: cast_nullable_to_non_nullable
@@ -162,10 +162,10 @@ class _$ImageInfoCopyWithImpl<$Res> implements $ImageInfoCopyWith<$Res> {
             ? _self.width
             : width // ignore: cast_nullable_to_non_nullable
                   as int?,
-        size: null == size
+        size: freezed == size
             ? _self.size
             : size // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }
@@ -265,14 +265,14 @@ extension ImageInfoPatterns on ImageInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ImageType') ImageInfoImageType imageType,
+      @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
       @JsonKey(name: 'ImageIndex') int? imageIndex,
       @JsonKey(name: 'ImageTag') String? imageTag,
       @JsonKey(name: 'Path') String? path,
       @JsonKey(name: 'BlurHash') String? blurHash,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
-      @JsonKey(name: 'Size') int size,
+      @JsonKey(name: 'Size') int? size,
     )?
     $default, {
     required TResult orElse(),
@@ -311,14 +311,14 @@ extension ImageInfoPatterns on ImageInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ImageType') ImageInfoImageType imageType,
+      @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
       @JsonKey(name: 'ImageIndex') int? imageIndex,
       @JsonKey(name: 'ImageTag') String? imageTag,
       @JsonKey(name: 'Path') String? path,
       @JsonKey(name: 'BlurHash') String? blurHash,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
-      @JsonKey(name: 'Size') int size,
+      @JsonKey(name: 'Size') int? size,
     )
     $default,
   ) {
@@ -355,14 +355,14 @@ extension ImageInfoPatterns on ImageInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ImageType') ImageInfoImageType imageType,
+      @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
       @JsonKey(name: 'ImageIndex') int? imageIndex,
       @JsonKey(name: 'ImageTag') String? imageTag,
       @JsonKey(name: 'Path') String? path,
       @JsonKey(name: 'BlurHash') String? blurHash,
       @JsonKey(name: 'Height') int? height,
       @JsonKey(name: 'Width') int? width,
-      @JsonKey(name: 'Size') int size,
+      @JsonKey(name: 'Size') int? size,
     )?
     $default,
   ) {
@@ -389,14 +389,14 @@ extension ImageInfoPatterns on ImageInfo {
 @JsonSerializable()
 class _ImageInfo implements ImageInfo {
   const _ImageInfo({
-    @JsonKey(name: 'ImageType') required this.imageType,
-    @JsonKey(name: 'ImageIndex') required this.imageIndex,
-    @JsonKey(name: 'ImageTag') required this.imageTag,
-    @JsonKey(name: 'Path') required this.path,
-    @JsonKey(name: 'BlurHash') required this.blurHash,
-    @JsonKey(name: 'Height') required this.height,
-    @JsonKey(name: 'Width') required this.width,
-    @JsonKey(name: 'Size') required this.size,
+    @JsonKey(name: 'ImageType') this.imageType,
+    @JsonKey(name: 'ImageIndex') this.imageIndex,
+    @JsonKey(name: 'ImageTag') this.imageTag,
+    @JsonKey(name: 'Path') this.path,
+    @JsonKey(name: 'BlurHash') this.blurHash,
+    @JsonKey(name: 'Height') this.height,
+    @JsonKey(name: 'Width') this.width,
+    @JsonKey(name: 'Size') this.size,
   });
   factory _ImageInfo.fromJson(Map<String, dynamic> json) =>
       _$ImageInfoFromJson(json);
@@ -404,7 +404,7 @@ class _ImageInfo implements ImageInfo {
   /// Gets or sets the type of the image.
   @override
   @JsonKey(name: 'ImageType')
-  final ImageInfoImageType imageType;
+  final ImageInfoImageType? imageType;
 
   /// Gets or sets the index of the image.
   @override
@@ -439,7 +439,7 @@ class _ImageInfo implements ImageInfo {
   /// Gets or sets the size.
   @override
   @JsonKey(name: 'Size')
-  final int size;
+  final int? size;
 
   /// Create a copy of ImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -503,14 +503,14 @@ abstract mixin class _$ImageInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ImageType') ImageInfoImageType imageType,
+    @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
     @JsonKey(name: 'ImageIndex') int? imageIndex,
     @JsonKey(name: 'ImageTag') String? imageTag,
     @JsonKey(name: 'Path') String? path,
     @JsonKey(name: 'BlurHash') String? blurHash,
     @JsonKey(name: 'Height') int? height,
     @JsonKey(name: 'Width') int? width,
-    @JsonKey(name: 'Size') int size,
+    @JsonKey(name: 'Size') int? size,
   });
 }
 
@@ -526,21 +526,21 @@ class __$ImageInfoCopyWithImpl<$Res> implements _$ImageInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? imageType = null,
+    Object? imageType = freezed,
     Object? imageIndex = freezed,
     Object? imageTag = freezed,
     Object? path = freezed,
     Object? blurHash = freezed,
     Object? height = freezed,
     Object? width = freezed,
-    Object? size = null,
+    Object? size = freezed,
   }) {
     return _then(
       _ImageInfo(
-        imageType: null == imageType
+        imageType: freezed == imageType
             ? _self.imageType
             : imageType // ignore: cast_nullable_to_non_nullable
-                  as ImageInfoImageType,
+                  as ImageInfoImageType?,
         imageIndex: freezed == imageIndex
             ? _self.imageIndex
             : imageIndex // ignore: cast_nullable_to_non_nullable
@@ -565,10 +565,10 @@ class __$ImageInfoCopyWithImpl<$Res> implements _$ImageInfoCopyWith<$Res> {
             ? _self.width
             : width // ignore: cast_nullable_to_non_nullable
                   as int?,
-        size: null == size
+        size: freezed == size
             ? _self.size
             : size // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }

@@ -9,22 +9,24 @@ part of 'plugin_installation_failed_message.dart';
 _PluginInstallationFailedMessage _$PluginInstallationFailedMessageFromJson(
   Map<String, dynamic> json,
 ) => _PluginInstallationFailedMessage(
-  data: InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$PluginInstallationFailedMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       PluginInstallationFailedMessageMessageType.packageInstallationFailed,
+  data: json['Data'] == null
+      ? null
+      : InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$PluginInstallationFailedMessageToJson(
   _PluginInstallationFailedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$PluginInstallationFailedMessageMessageTypeEnumMap = {

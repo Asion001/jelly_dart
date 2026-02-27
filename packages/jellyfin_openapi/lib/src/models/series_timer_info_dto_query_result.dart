@@ -11,20 +11,19 @@ part 'series_timer_info_dto_query_result.g.dart';
 
 /// Query result container.
 @Freezed()
-abstract class SeriesTimerInfoDtoQueryResult with _$SeriesTimerInfoDtoQueryResult {
+abstract class SeriesTimerInfoDtoQueryResult
+    with _$SeriesTimerInfoDtoQueryResult {
   const factory SeriesTimerInfoDtoQueryResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<SeriesTimerInfoDto>? items,
+    @JsonKey(name: 'Items') List<SeriesTimerInfoDto>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
   }) = _SeriesTimerInfoDtoQueryResult;
-  
-  factory SeriesTimerInfoDtoQueryResult.fromJson(Map<String, Object?> json) => _$SeriesTimerInfoDtoQueryResultFromJson(json);
+
+  factory SeriesTimerInfoDtoQueryResult.fromJson(Map<String, Object?> json) =>
+      _$SeriesTimerInfoDtoQueryResultFromJson(json);
 }

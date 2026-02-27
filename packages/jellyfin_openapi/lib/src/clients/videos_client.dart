@@ -152,7 +152,8 @@ abstract class VideosClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -316,7 +317,8 @@ abstract class VideosClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,

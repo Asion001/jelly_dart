@@ -13,17 +13,15 @@ part 'image_option.g.dart';
 abstract class ImageOption with _$ImageOption {
   const factory ImageOption({
     /// Gets or sets the type.
-    @JsonKey(name: 'Type')
-    required ImageOptionType type,
+    @JsonKey(name: 'Type') ImageOptionType? type,
 
     /// Gets or sets the limit.
-    @JsonKey(name: 'Limit')
-    required int limit,
+    @JsonKey(name: 'Limit') int? limit,
 
     /// Gets or sets the minimum width.
-    @JsonKey(name: 'MinWidth')
-    required int minWidth,
+    @JsonKey(name: 'MinWidth') int? minWidth,
   }) = _ImageOption;
-  
-  factory ImageOption.fromJson(Map<String, Object?> json) => _$ImageOptionFromJson(json);
+
+  factory ImageOption.fromJson(Map<String, Object?> json) =>
+      _$ImageOptionFromJson(json);
 }

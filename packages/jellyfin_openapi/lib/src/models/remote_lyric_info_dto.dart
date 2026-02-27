@@ -14,17 +14,15 @@ part 'remote_lyric_info_dto.g.dart';
 abstract class RemoteLyricInfoDto with _$RemoteLyricInfoDto {
   const factory RemoteLyricInfoDto({
     /// Gets or sets the id for the lyric.
-    @JsonKey(name: 'Id')
-    required String id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets the provider name.
-    @JsonKey(name: 'ProviderName')
-    required String providerName,
+    @JsonKey(name: 'ProviderName') String? providerName,
 
     /// Gets the lyrics.
-    @JsonKey(name: 'Lyrics')
-    required LyricDto lyrics,
+    @JsonKey(name: 'Lyrics') LyricDto? lyrics,
   }) = _RemoteLyricInfoDto;
-  
-  factory RemoteLyricInfoDto.fromJson(Map<String, Object?> json) => _$RemoteLyricInfoDtoFromJson(json);
+
+  factory RemoteLyricInfoDto.fromJson(Map<String, Object?> json) =>
+      _$RemoteLyricInfoDtoFromJson(json);
 }

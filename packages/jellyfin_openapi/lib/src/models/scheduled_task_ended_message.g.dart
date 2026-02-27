@@ -9,22 +9,24 @@ part of 'scheduled_task_ended_message.dart';
 _ScheduledTaskEndedMessage _$ScheduledTaskEndedMessageFromJson(
   Map<String, dynamic> json,
 ) => _ScheduledTaskEndedMessage(
-  data: TaskResult.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ScheduledTaskEndedMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ScheduledTaskEndedMessageMessageType.scheduledTaskEnded,
+  data: json['Data'] == null
+      ? null
+      : TaskResult.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ScheduledTaskEndedMessageToJson(
   _ScheduledTaskEndedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$ScheduledTaskEndedMessageMessageTypeEnumMap = {

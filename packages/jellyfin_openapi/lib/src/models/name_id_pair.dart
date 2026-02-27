@@ -11,13 +11,12 @@ part 'name_id_pair.g.dart';
 abstract class NameIdPair with _$NameIdPair {
   const factory NameIdPair({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the identifier.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
   }) = _NameIdPair;
-  
-  factory NameIdPair.fromJson(Map<String, Object?> json) => _$NameIdPairFromJson(json);
+
+  factory NameIdPair.fromJson(Map<String, Object?> json) =>
+      _$NameIdPairFromJson(json);
 }

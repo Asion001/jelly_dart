@@ -10,11 +10,10 @@ part 'queue_item.g.dart';
 @Freezed()
 abstract class QueueItem with _$QueueItem {
   const factory QueueItem({
-    @JsonKey(name: 'Id')
-    String? id,
-    @JsonKey(name: 'PlaylistItemId')
-    String? playlistItemId,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   }) = _QueueItem;
-  
-  factory QueueItem.fromJson(Map<String, Object?> json) => _$QueueItemFromJson(json);
+
+  factory QueueItem.fromJson(Map<String, Object?> json) =>
+      _$QueueItemFromJson(json);
 }

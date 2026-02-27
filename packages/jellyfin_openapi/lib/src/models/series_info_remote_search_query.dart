@@ -12,19 +12,16 @@ part 'series_info_remote_search_query.g.dart';
 @Freezed()
 abstract class SeriesInfoRemoteSearchQuery with _$SeriesInfoRemoteSearchQuery {
   const factory SeriesInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo')
-    required SeriesInfo searchInfo,
-    @JsonKey(name: 'ItemId')
-    required String itemId,
+    @JsonKey(name: 'SearchInfo') SeriesInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
 
     /// Gets or sets the provider name to search within if set.
-    @JsonKey(name: 'SearchProviderName')
-    required String? searchProviderName,
+    @JsonKey(name: 'SearchProviderName') String? searchProviderName,
 
     /// Gets or sets a value indicating whether disabled providers should be included.
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   }) = _SeriesInfoRemoteSearchQuery;
-  
-  factory SeriesInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) => _$SeriesInfoRemoteSearchQueryFromJson(json);
+
+  factory SeriesInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) =>
+      _$SeriesInfoRemoteSearchQueryFromJson(json);
 }

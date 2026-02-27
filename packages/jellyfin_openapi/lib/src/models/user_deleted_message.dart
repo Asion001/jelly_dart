@@ -13,19 +13,18 @@ part 'user_deleted_message.g.dart';
 @Freezed()
 abstract class UserDeletedMessage with _$UserDeletedMessage {
   const factory UserDeletedMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(UserDeletedMessageMessageType.userDeleted)
     UserDeletedMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') String? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _UserDeletedMessage;
-  
-  factory UserDeletedMessage.fromJson(Map<String, Object?> json) => _$UserDeletedMessageFromJson(json);
+
+  factory UserDeletedMessage.fromJson(Map<String, Object?> json) =>
+      _$UserDeletedMessageFromJson(json);
 }

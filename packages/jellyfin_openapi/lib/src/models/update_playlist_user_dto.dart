@@ -12,9 +12,9 @@ part 'update_playlist_user_dto.g.dart';
 abstract class UpdatePlaylistUserDto with _$UpdatePlaylistUserDto {
   const factory UpdatePlaylistUserDto({
     /// Gets or sets a value indicating whether the user can edit the playlist.
-    @JsonKey(name: 'CanEdit')
-    bool? canEdit,
+    @JsonKey(name: 'CanEdit') bool? canEdit,
   }) = _UpdatePlaylistUserDto;
-  
-  factory UpdatePlaylistUserDto.fromJson(Map<String, Object?> json) => _$UpdatePlaylistUserDtoFromJson(json);
+
+  factory UpdatePlaylistUserDto.fromJson(Map<String, Object?> json) =>
+      _$UpdatePlaylistUserDtoFromJson(json);
 }

@@ -15,25 +15,21 @@ part 'task_trigger_info.g.dart';
 abstract class TaskTriggerInfo with _$TaskTriggerInfo {
   const factory TaskTriggerInfo({
     /// Gets or sets the type.
-    @JsonKey(name: 'Type')
-    required TaskTriggerInfoType type,
+    @JsonKey(name: 'Type') TaskTriggerInfoType? type,
 
     /// Gets or sets the time of day.
-    @JsonKey(name: 'TimeOfDayTicks')
-    required int? timeOfDayTicks,
+    @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
 
     /// Gets or sets the interval.
-    @JsonKey(name: 'IntervalTicks')
-    required int? intervalTicks,
+    @JsonKey(name: 'IntervalTicks') int? intervalTicks,
 
     /// Gets or sets the day of week.
-    @JsonKey(name: 'DayOfWeek')
-    required TaskTriggerInfoDayOfWeek? dayOfWeek,
+    @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
 
     /// Gets or sets the maximum runtime ticks.
-    @JsonKey(name: 'MaxRuntimeTicks')
-    required int? maxRuntimeTicks,
+    @JsonKey(name: 'MaxRuntimeTicks') int? maxRuntimeTicks,
   }) = _TaskTriggerInfo;
-  
-  factory TaskTriggerInfo.fromJson(Map<String, Object?> json) => _$TaskTriggerInfoFromJson(json);
+
+  factory TaskTriggerInfo.fromJson(Map<String, Object?> json) =>
+      _$TaskTriggerInfoFromJson(json);
 }

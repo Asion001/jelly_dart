@@ -16,11 +16,11 @@ mixin _$RecommendationDto {
   @JsonKey(name: 'Items')
   List<BaseItemDto>? get items;
   @JsonKey(name: 'RecommendationType')
-  RecommendationDtoRecommendationType get recommendationType;
+  RecommendationDtoRecommendationType? get recommendationType;
   @JsonKey(name: 'BaselineItemName')
   String? get baselineItemName;
   @JsonKey(name: 'CategoryId')
-  String get categoryId;
+  String? get categoryId;
 
   /// Create a copy of RecommendationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -75,9 +75,9 @@ abstract mixin class $RecommendationDtoCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'Items') List<BaseItemDto>? items,
     @JsonKey(name: 'RecommendationType')
-    RecommendationDtoRecommendationType recommendationType,
+    RecommendationDtoRecommendationType? recommendationType,
     @JsonKey(name: 'BaselineItemName') String? baselineItemName,
-    @JsonKey(name: 'CategoryId') String categoryId,
+    @JsonKey(name: 'CategoryId') String? categoryId,
   });
 }
 
@@ -95,9 +95,9 @@ class _$RecommendationDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
-    Object? recommendationType = null,
+    Object? recommendationType = freezed,
     Object? baselineItemName = freezed,
-    Object? categoryId = null,
+    Object? categoryId = freezed,
   }) {
     return _then(
       _self.copyWith(
@@ -105,18 +105,18 @@ class _$RecommendationDtoCopyWithImpl<$Res>
             ? _self.items
             : items // ignore: cast_nullable_to_non_nullable
                   as List<BaseItemDto>?,
-        recommendationType: null == recommendationType
+        recommendationType: freezed == recommendationType
             ? _self.recommendationType
             : recommendationType // ignore: cast_nullable_to_non_nullable
-                  as RecommendationDtoRecommendationType,
+                  as RecommendationDtoRecommendationType?,
         baselineItemName: freezed == baselineItemName
             ? _self.baselineItemName
             : baselineItemName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        categoryId: null == categoryId
+        categoryId: freezed == categoryId
             ? _self.categoryId
             : categoryId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -218,9 +218,9 @@ extension RecommendationDtoPatterns on RecommendationDto {
     TResult Function(
       @JsonKey(name: 'Items') List<BaseItemDto>? items,
       @JsonKey(name: 'RecommendationType')
-      RecommendationDtoRecommendationType recommendationType,
+      RecommendationDtoRecommendationType? recommendationType,
       @JsonKey(name: 'BaselineItemName') String? baselineItemName,
-      @JsonKey(name: 'CategoryId') String categoryId,
+      @JsonKey(name: 'CategoryId') String? categoryId,
     )?
     $default, {
     required TResult orElse(),
@@ -257,9 +257,9 @@ extension RecommendationDtoPatterns on RecommendationDto {
     TResult Function(
       @JsonKey(name: 'Items') List<BaseItemDto>? items,
       @JsonKey(name: 'RecommendationType')
-      RecommendationDtoRecommendationType recommendationType,
+      RecommendationDtoRecommendationType? recommendationType,
       @JsonKey(name: 'BaselineItemName') String? baselineItemName,
-      @JsonKey(name: 'CategoryId') String categoryId,
+      @JsonKey(name: 'CategoryId') String? categoryId,
     )
     $default,
   ) {
@@ -294,9 +294,9 @@ extension RecommendationDtoPatterns on RecommendationDto {
     TResult? Function(
       @JsonKey(name: 'Items') List<BaseItemDto>? items,
       @JsonKey(name: 'RecommendationType')
-      RecommendationDtoRecommendationType recommendationType,
+      RecommendationDtoRecommendationType? recommendationType,
       @JsonKey(name: 'BaselineItemName') String? baselineItemName,
-      @JsonKey(name: 'CategoryId') String categoryId,
+      @JsonKey(name: 'CategoryId') String? categoryId,
     )?
     $default,
   ) {
@@ -319,10 +319,10 @@ extension RecommendationDtoPatterns on RecommendationDto {
 @JsonSerializable()
 class _RecommendationDto implements RecommendationDto {
   const _RecommendationDto({
-    @JsonKey(name: 'Items') required final List<BaseItemDto>? items,
-    @JsonKey(name: 'RecommendationType') required this.recommendationType,
-    @JsonKey(name: 'BaselineItemName') required this.baselineItemName,
-    @JsonKey(name: 'CategoryId') required this.categoryId,
+    @JsonKey(name: 'Items') final List<BaseItemDto>? items,
+    @JsonKey(name: 'RecommendationType') this.recommendationType,
+    @JsonKey(name: 'BaselineItemName') this.baselineItemName,
+    @JsonKey(name: 'CategoryId') this.categoryId,
   }) : _items = items;
   factory _RecommendationDto.fromJson(Map<String, dynamic> json) =>
       _$RecommendationDtoFromJson(json);
@@ -340,13 +340,13 @@ class _RecommendationDto implements RecommendationDto {
 
   @override
   @JsonKey(name: 'RecommendationType')
-  final RecommendationDtoRecommendationType recommendationType;
+  final RecommendationDtoRecommendationType? recommendationType;
   @override
   @JsonKey(name: 'BaselineItemName')
   final String? baselineItemName;
   @override
   @JsonKey(name: 'CategoryId')
-  final String categoryId;
+  final String? categoryId;
 
   /// Create a copy of RecommendationDto
   /// with the given fields replaced by the non-null parameter values.
@@ -403,9 +403,9 @@ abstract mixin class _$RecommendationDtoCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'Items') List<BaseItemDto>? items,
     @JsonKey(name: 'RecommendationType')
-    RecommendationDtoRecommendationType recommendationType,
+    RecommendationDtoRecommendationType? recommendationType,
     @JsonKey(name: 'BaselineItemName') String? baselineItemName,
-    @JsonKey(name: 'CategoryId') String categoryId,
+    @JsonKey(name: 'CategoryId') String? categoryId,
   });
 }
 
@@ -423,9 +423,9 @@ class __$RecommendationDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? items = freezed,
-    Object? recommendationType = null,
+    Object? recommendationType = freezed,
     Object? baselineItemName = freezed,
-    Object? categoryId = null,
+    Object? categoryId = freezed,
   }) {
     return _then(
       _RecommendationDto(
@@ -433,18 +433,18 @@ class __$RecommendationDtoCopyWithImpl<$Res>
             ? _self._items
             : items // ignore: cast_nullable_to_non_nullable
                   as List<BaseItemDto>?,
-        recommendationType: null == recommendationType
+        recommendationType: freezed == recommendationType
             ? _self.recommendationType
             : recommendationType // ignore: cast_nullable_to_non_nullable
-                  as RecommendationDtoRecommendationType,
+                  as RecommendationDtoRecommendationType?,
         baselineItemName: freezed == baselineItemName
             ? _self.baselineItemName
             : baselineItemName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        categoryId: null == categoryId
+        categoryId: freezed == categoryId
             ? _self.categoryId
             : categoryId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }

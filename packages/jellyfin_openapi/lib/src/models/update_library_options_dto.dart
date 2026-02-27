@@ -14,13 +14,12 @@ part 'update_library_options_dto.g.dart';
 abstract class UpdateLibraryOptionsDto with _$UpdateLibraryOptionsDto {
   const factory UpdateLibraryOptionsDto({
     /// Gets or sets the library item id.
-    @JsonKey(name: 'Id')
-    required String id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets library options.
-    @JsonKey(name: 'LibraryOptions')
-    required LibraryOptions libraryOptions,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
   }) = _UpdateLibraryOptionsDto;
-  
-  factory UpdateLibraryOptionsDto.fromJson(Map<String, Object?> json) => _$UpdateLibraryOptionsDtoFromJson(json);
+
+  factory UpdateLibraryOptionsDto.fromJson(Map<String, Object?> json) =>
+      _$UpdateLibraryOptionsDtoFromJson(json);
 }

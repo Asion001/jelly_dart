@@ -14,21 +14,18 @@ part 'custom_database_options.g.dart';
 abstract class CustomDatabaseOptions with _$CustomDatabaseOptions {
   const factory CustomDatabaseOptions({
     /// Gets or sets the Plugin name to search for database providers.
-    @JsonKey(name: 'PluginName')
-    String? pluginName,
+    @JsonKey(name: 'PluginName') String? pluginName,
 
     /// Gets or sets the plugin assembly to search for providers.
-    @JsonKey(name: 'PluginAssembly')
-    String? pluginAssembly,
+    @JsonKey(name: 'PluginAssembly') String? pluginAssembly,
 
     /// Gets or sets the connection string for the custom database provider.
-    @JsonKey(name: 'ConnectionString')
-    String? connectionString,
+    @JsonKey(name: 'ConnectionString') String? connectionString,
 
     /// Gets or sets the list of extra options for the custom provider.
-    @JsonKey(name: 'Options')
-    List<CustomDatabaseOption>? options,
+    @JsonKey(name: 'Options') List<CustomDatabaseOption>? options,
   }) = _CustomDatabaseOptions;
-  
-  factory CustomDatabaseOptions.fromJson(Map<String, Object?> json) => _$CustomDatabaseOptionsFromJson(json);
+
+  factory CustomDatabaseOptions.fromJson(Map<String, Object?> json) =>
+      _$CustomDatabaseOptionsFromJson(json);
 }

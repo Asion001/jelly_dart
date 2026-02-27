@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$CodecProfile {
   /// Gets or sets the MediaBrowser.Model.Dlna.CodecType which this container must meet.
   @JsonKey(name: 'Type')
-  CodecProfileType get type;
+  CodecProfileType? get type;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this profile must meet.
   @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions;
+  List<ProfileCondition>? get conditions;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition to apply if this profile is met.
   @JsonKey(name: 'ApplyConditions')
-  List<ProfileCondition> get applyConditions;
+  List<ProfileCondition>? get applyConditions;
 
   /// Gets or sets the codec(s) that this profile applies to.
   @JsonKey(name: 'Codec')
@@ -97,9 +97,9 @@ abstract mixin class $CodecProfileCopyWith<$Res> {
   ) = _$CodecProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') CodecProfileType type,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
-    @JsonKey(name: 'ApplyConditions') List<ProfileCondition> applyConditions,
+    @JsonKey(name: 'Type') CodecProfileType? type,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
+    @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
     @JsonKey(name: 'Codec') String? codec,
     @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'SubContainer') String? subContainer,
@@ -118,27 +118,27 @@ class _$CodecProfileCopyWithImpl<$Res> implements $CodecProfileCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? conditions = null,
-    Object? applyConditions = null,
+    Object? type = freezed,
+    Object? conditions = freezed,
+    Object? applyConditions = freezed,
     Object? codec = freezed,
     Object? container = freezed,
     Object? subContainer = freezed,
   }) {
     return _then(
       _self.copyWith(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as CodecProfileType,
-        conditions: null == conditions
+                  as CodecProfileType?,
+        conditions: freezed == conditions
             ? _self.conditions
             : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
-        applyConditions: null == applyConditions
+                  as List<ProfileCondition>?,
+        applyConditions: freezed == applyConditions
             ? _self.applyConditions
             : applyConditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
+                  as List<ProfileCondition>?,
         codec: freezed == codec
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable
@@ -250,9 +250,9 @@ extension CodecProfilePatterns on CodecProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') CodecProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
-      @JsonKey(name: 'ApplyConditions') List<ProfileCondition> applyConditions,
+      @JsonKey(name: 'Type') CodecProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
+      @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
@@ -292,9 +292,9 @@ extension CodecProfilePatterns on CodecProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') CodecProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
-      @JsonKey(name: 'ApplyConditions') List<ProfileCondition> applyConditions,
+      @JsonKey(name: 'Type') CodecProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
+      @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
@@ -332,9 +332,9 @@ extension CodecProfilePatterns on CodecProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Type') CodecProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
-      @JsonKey(name: 'ApplyConditions') List<ProfileCondition> applyConditions,
+      @JsonKey(name: 'Type') CodecProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
+      @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
       @JsonKey(name: 'Codec') String? codec,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
@@ -362,14 +362,13 @@ extension CodecProfilePatterns on CodecProfile {
 @JsonSerializable()
 class _CodecProfile implements CodecProfile {
   const _CodecProfile({
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'Conditions')
-    required final List<ProfileCondition> conditions,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'Conditions') final List<ProfileCondition>? conditions,
     @JsonKey(name: 'ApplyConditions')
-    required final List<ProfileCondition> applyConditions,
-    @JsonKey(name: 'Codec') required this.codec,
-    @JsonKey(name: 'Container') required this.container,
-    @JsonKey(name: 'SubContainer') required this.subContainer,
+    final List<ProfileCondition>? applyConditions,
+    @JsonKey(name: 'Codec') this.codec,
+    @JsonKey(name: 'Container') this.container,
+    @JsonKey(name: 'SubContainer') this.subContainer,
   }) : _conditions = conditions,
        _applyConditions = applyConditions;
   factory _CodecProfile.fromJson(Map<String, dynamic> json) =>
@@ -378,30 +377,34 @@ class _CodecProfile implements CodecProfile {
   /// Gets or sets the MediaBrowser.Model.Dlna.CodecType which this container must meet.
   @override
   @JsonKey(name: 'Type')
-  final CodecProfileType type;
+  final CodecProfileType? type;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this profile must meet.
-  final List<ProfileCondition> _conditions;
+  final List<ProfileCondition>? _conditions;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this profile must meet.
   @override
   @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions {
+  List<ProfileCondition>? get conditions {
+    final value = _conditions;
+    if (value == null) return null;
     if (_conditions is EqualUnmodifiableListView) return _conditions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_conditions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition to apply if this profile is met.
-  final List<ProfileCondition> _applyConditions;
+  final List<ProfileCondition>? _applyConditions;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition to apply if this profile is met.
   @override
   @JsonKey(name: 'ApplyConditions')
-  List<ProfileCondition> get applyConditions {
+  List<ProfileCondition>? get applyConditions {
+    final value = _applyConditions;
+    if (value == null) return null;
     if (_applyConditions is EqualUnmodifiableListView) return _applyConditions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_applyConditions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the codec(s) that this profile applies to.
@@ -481,9 +484,9 @@ abstract mixin class _$CodecProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') CodecProfileType type,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
-    @JsonKey(name: 'ApplyConditions') List<ProfileCondition> applyConditions,
+    @JsonKey(name: 'Type') CodecProfileType? type,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
+    @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
     @JsonKey(name: 'Codec') String? codec,
     @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'SubContainer') String? subContainer,
@@ -503,27 +506,27 @@ class __$CodecProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? type = null,
-    Object? conditions = null,
-    Object? applyConditions = null,
+    Object? type = freezed,
+    Object? conditions = freezed,
+    Object? applyConditions = freezed,
     Object? codec = freezed,
     Object? container = freezed,
     Object? subContainer = freezed,
   }) {
     return _then(
       _CodecProfile(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as CodecProfileType,
-        conditions: null == conditions
+                  as CodecProfileType?,
+        conditions: freezed == conditions
             ? _self._conditions
             : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
-        applyConditions: null == applyConditions
+                  as List<ProfileCondition>?,
+        applyConditions: freezed == applyConditions
             ? _self._applyConditions
             : applyConditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
+                  as List<ProfileCondition>?,
         codec: freezed == codec
             ? _self.codec
             : codec // ignore: cast_nullable_to_non_nullable

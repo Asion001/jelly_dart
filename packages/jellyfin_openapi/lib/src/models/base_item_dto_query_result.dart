@@ -14,17 +14,15 @@ part 'base_item_dto_query_result.g.dart';
 abstract class BaseItemDtoQueryResult with _$BaseItemDtoQueryResult {
   const factory BaseItemDtoQueryResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<BaseItemDto>? items,
+    @JsonKey(name: 'Items') List<BaseItemDto>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
   }) = _BaseItemDtoQueryResult;
-  
-  factory BaseItemDtoQueryResult.fromJson(Map<String, Object?> json) => _$BaseItemDtoQueryResultFromJson(json);
+
+  factory BaseItemDtoQueryResult.fromJson(Map<String, Object?> json) =>
+      _$BaseItemDtoQueryResultFromJson(json);
 }

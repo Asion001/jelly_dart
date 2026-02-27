@@ -9,20 +9,20 @@ part of 'sessions_start_message.dart';
 _SessionsStartMessage _$SessionsStartMessageFromJson(
   Map<String, dynamic> json,
 ) => _SessionsStartMessage(
-  data: json['Data'] as String?,
   messageType:
       $enumDecodeNullable(
         _$SessionsStartMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       SessionsStartMessageMessageType.sessionsStart,
+  data: json['Data'] as String?,
 );
 
 Map<String, dynamic> _$SessionsStartMessageToJson(
   _SessionsStartMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data,
 };
 
 const _$SessionsStartMessageMessageTypeEnumMap = {

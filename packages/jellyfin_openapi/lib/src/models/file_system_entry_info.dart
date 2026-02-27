@@ -14,17 +14,15 @@ part 'file_system_entry_info.g.dart';
 abstract class FileSystemEntryInfo with _$FileSystemEntryInfo {
   const factory FileSystemEntryInfo({
     /// Gets the name.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets the path.
-    @JsonKey(name: 'Path')
-    required String path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets the type.
-    @JsonKey(name: 'Type')
-    required FileSystemEntryInfoType type,
+    @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
   }) = _FileSystemEntryInfo;
-  
-  factory FileSystemEntryInfo.fromJson(Map<String, Object?> json) => _$FileSystemEntryInfoFromJson(json);
+
+  factory FileSystemEntryInfo.fromJson(Map<String, Object?> json) =>
+      _$FileSystemEntryInfoFromJson(json);
 }

@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$ActivityLogEntry {
   /// Gets or sets the identifier.
   @JsonKey(name: 'Id')
-  int get id;
+  int? get id;
 
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets the overview.
   @JsonKey(name: 'Overview')
@@ -31,7 +31,7 @@ mixin _$ActivityLogEntry {
 
   /// Gets or sets the type.
   @JsonKey(name: 'Type')
-  String get type;
+  String? get type;
 
   /// Gets or sets the item identifier.
   @JsonKey(name: 'ItemId')
@@ -39,11 +39,11 @@ mixin _$ActivityLogEntry {
 
   /// Gets or sets the date.
   @JsonKey(name: 'Date')
-  DateTime get date;
+  DateTime? get date;
 
   /// Gets or sets the user identifier.
   @JsonKey(name: 'UserId')
-  String get userId;
+  String? get userId;
 
   /// Gets or sets the user primary image tag.
   @JsonKey(name: 'UserPrimaryImageTag')
@@ -52,7 +52,7 @@ mixin _$ActivityLogEntry {
 
   /// Gets or sets the log severity.
   @JsonKey(name: 'Severity')
-  ActivityLogEntrySeverity get severity;
+  ActivityLogEntrySeverity? get severity;
 
   /// Create a copy of ActivityLogEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -118,18 +118,18 @@ abstract mixin class $ActivityLogEntryCopyWith<$Res> {
   ) = _$ActivityLogEntryCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') int id,
-    @JsonKey(name: 'Name') String name,
+    @JsonKey(name: 'Id') int? id,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
     @JsonKey(name: 'ShortOverview') String? shortOverview,
-    @JsonKey(name: 'Type') String type,
+    @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ItemId') String? itemId,
-    @JsonKey(name: 'Date') DateTime date,
-    @JsonKey(name: 'UserId') String userId,
+    @JsonKey(name: 'Date') DateTime? date,
+    @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'UserPrimaryImageTag')
     @Deprecated('This is marked as deprecated')
     String? userPrimaryImageTag,
-    @JsonKey(name: 'Severity') ActivityLogEntrySeverity severity,
+    @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
   });
 }
 
@@ -146,27 +146,27 @@ class _$ActivityLogEntryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? overview = freezed,
     Object? shortOverview = freezed,
-    Object? type = null,
+    Object? type = freezed,
     Object? itemId = freezed,
-    Object? date = null,
-    Object? userId = null,
+    Object? date = freezed,
+    Object? userId = freezed,
     Object? userPrimaryImageTag = freezed,
-    Object? severity = null,
+    Object? severity = freezed,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        name: null == name
+                  as int?,
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         overview: freezed == overview
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
@@ -175,30 +175,30 @@ class _$ActivityLogEntryCopyWithImpl<$Res>
             ? _self.shortOverview
             : shortOverview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        date: null == date
+        date: freezed == date
             ? _self.date
             : date // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        userId: null == userId
+                  as DateTime?,
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         userPrimaryImageTag: freezed == userPrimaryImageTag
             ? _self.userPrimaryImageTag
             : userPrimaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        severity: null == severity
+        severity: freezed == severity
             ? _self.severity
             : severity // ignore: cast_nullable_to_non_nullable
-                  as ActivityLogEntrySeverity,
+                  as ActivityLogEntrySeverity?,
       ),
     );
   }
@@ -298,18 +298,18 @@ extension ActivityLogEntryPatterns on ActivityLogEntry {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'ShortOverview') String? shortOverview,
-      @JsonKey(name: 'Type') String type,
+      @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ItemId') String? itemId,
-      @JsonKey(name: 'Date') DateTime date,
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'Date') DateTime? date,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserPrimaryImageTag')
       @Deprecated('This is marked as deprecated')
       String? userPrimaryImageTag,
-      @JsonKey(name: 'Severity') ActivityLogEntrySeverity severity,
+      @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
     )?
     $default, {
     required TResult orElse(),
@@ -350,18 +350,18 @@ extension ActivityLogEntryPatterns on ActivityLogEntry {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'ShortOverview') String? shortOverview,
-      @JsonKey(name: 'Type') String type,
+      @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ItemId') String? itemId,
-      @JsonKey(name: 'Date') DateTime date,
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'Date') DateTime? date,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserPrimaryImageTag')
       @Deprecated('This is marked as deprecated')
       String? userPrimaryImageTag,
-      @JsonKey(name: 'Severity') ActivityLogEntrySeverity severity,
+      @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
     )
     $default,
   ) {
@@ -400,18 +400,18 @@ extension ActivityLogEntryPatterns on ActivityLogEntry {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'ShortOverview') String? shortOverview,
-      @JsonKey(name: 'Type') String type,
+      @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ItemId') String? itemId,
-      @JsonKey(name: 'Date') DateTime date,
-      @JsonKey(name: 'UserId') String userId,
+      @JsonKey(name: 'Date') DateTime? date,
+      @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'UserPrimaryImageTag')
       @Deprecated('This is marked as deprecated')
       String? userPrimaryImageTag,
-      @JsonKey(name: 'Severity') ActivityLogEntrySeverity severity,
+      @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
     )?
     $default,
   ) {
@@ -440,18 +440,18 @@ extension ActivityLogEntryPatterns on ActivityLogEntry {
 @JsonSerializable()
 class _ActivityLogEntry implements ActivityLogEntry {
   const _ActivityLogEntry({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Overview') required this.overview,
-    @JsonKey(name: 'ShortOverview') required this.shortOverview,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'Date') required this.date,
-    @JsonKey(name: 'UserId') required this.userId,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Overview') this.overview,
+    @JsonKey(name: 'ShortOverview') this.shortOverview,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'Date') this.date,
+    @JsonKey(name: 'UserId') this.userId,
     @JsonKey(name: 'UserPrimaryImageTag')
     @Deprecated('This is marked as deprecated')
-    required this.userPrimaryImageTag,
-    @JsonKey(name: 'Severity') required this.severity,
+    this.userPrimaryImageTag,
+    @JsonKey(name: 'Severity') this.severity,
   });
   factory _ActivityLogEntry.fromJson(Map<String, dynamic> json) =>
       _$ActivityLogEntryFromJson(json);
@@ -459,12 +459,12 @@ class _ActivityLogEntry implements ActivityLogEntry {
   /// Gets or sets the identifier.
   @override
   @JsonKey(name: 'Id')
-  final int id;
+  final int? id;
 
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets the overview.
   @override
@@ -479,7 +479,7 @@ class _ActivityLogEntry implements ActivityLogEntry {
   /// Gets or sets the type.
   @override
   @JsonKey(name: 'Type')
-  final String type;
+  final String? type;
 
   /// Gets or sets the item identifier.
   @override
@@ -489,12 +489,12 @@ class _ActivityLogEntry implements ActivityLogEntry {
   /// Gets or sets the date.
   @override
   @JsonKey(name: 'Date')
-  final DateTime date;
+  final DateTime? date;
 
   /// Gets or sets the user identifier.
   @override
   @JsonKey(name: 'UserId')
-  final String userId;
+  final String? userId;
 
   /// Gets or sets the user primary image tag.
   @override
@@ -505,7 +505,7 @@ class _ActivityLogEntry implements ActivityLogEntry {
   /// Gets or sets the log severity.
   @override
   @JsonKey(name: 'Severity')
-  final ActivityLogEntrySeverity severity;
+  final ActivityLogEntrySeverity? severity;
 
   /// Create a copy of ActivityLogEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -573,18 +573,18 @@ abstract mixin class _$ActivityLogEntryCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') int id,
-    @JsonKey(name: 'Name') String name,
+    @JsonKey(name: 'Id') int? id,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
     @JsonKey(name: 'ShortOverview') String? shortOverview,
-    @JsonKey(name: 'Type') String type,
+    @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ItemId') String? itemId,
-    @JsonKey(name: 'Date') DateTime date,
-    @JsonKey(name: 'UserId') String userId,
+    @JsonKey(name: 'Date') DateTime? date,
+    @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'UserPrimaryImageTag')
     @Deprecated('This is marked as deprecated')
     String? userPrimaryImageTag,
-    @JsonKey(name: 'Severity') ActivityLogEntrySeverity severity,
+    @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
   });
 }
 
@@ -601,27 +601,27 @@ class __$ActivityLogEntryCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? overview = freezed,
     Object? shortOverview = freezed,
-    Object? type = null,
+    Object? type = freezed,
     Object? itemId = freezed,
-    Object? date = null,
-    Object? userId = null,
+    Object? date = freezed,
+    Object? userId = freezed,
     Object? userPrimaryImageTag = freezed,
-    Object? severity = null,
+    Object? severity = freezed,
   }) {
     return _then(
       _ActivityLogEntry(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        name: null == name
+                  as int?,
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         overview: freezed == overview
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
@@ -630,30 +630,30 @@ class __$ActivityLogEntryCopyWithImpl<$Res>
             ? _self.shortOverview
             : shortOverview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        date: null == date
+        date: freezed == date
             ? _self.date
             : date // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        userId: null == userId
+                  as DateTime?,
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         userPrimaryImageTag: freezed == userPrimaryImageTag
             ? _self.userPrimaryImageTag
             : userPrimaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        severity: null == severity
+        severity: freezed == severity
             ? _self.severity
             : severity // ignore: cast_nullable_to_non_nullable
-                  as ActivityLogEntrySeverity,
+                  as ActivityLogEntrySeverity?,
       ),
     );
   }

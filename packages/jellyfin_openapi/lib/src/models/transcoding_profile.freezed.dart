@@ -13,34 +13,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$TranscodingProfile {
-  /// Gets or sets the container.
-  @JsonKey(name: 'Container')
-  String get container;
-
-  /// Gets or sets the DLNA profile type.
-  @JsonKey(name: 'Type')
-  TranscodingProfileType get type;
-
-  /// Gets or sets the video codec.
-  @JsonKey(name: 'VideoCodec')
-  String get videoCodec;
-
-  /// Gets or sets the audio codec.
-  @JsonKey(name: 'AudioCodec')
-  String get audioCodec;
-
-  /// Gets or sets the protocol.
-  @JsonKey(name: 'Protocol')
-  TranscodingProfileProtocol get protocol;
-
-  /// Gets or sets the maximum audio channels.
-  @JsonKey(name: 'MaxAudioChannels')
-  String? get maxAudioChannels;
-
-  /// Gets or sets the profile conditions.
-  @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions;
-
   /// Gets or sets a value indicating whether the content length should be estimated.
   @JsonKey(name: 'EstimateContentLength')
   bool get estimateContentLength;
@@ -81,6 +53,34 @@ mixin _$TranscodingProfile {
   @JsonKey(name: 'EnableAudioVbrEncoding')
   bool get enableAudioVbrEncoding;
 
+  /// Gets or sets the container.
+  @JsonKey(name: 'Container')
+  String? get container;
+
+  /// Gets or sets the DLNA profile type.
+  @JsonKey(name: 'Type')
+  TranscodingProfileType? get type;
+
+  /// Gets or sets the video codec.
+  @JsonKey(name: 'VideoCodec')
+  String? get videoCodec;
+
+  /// Gets or sets the audio codec.
+  @JsonKey(name: 'AudioCodec')
+  String? get audioCodec;
+
+  /// Gets or sets the protocol.
+  @JsonKey(name: 'Protocol')
+  TranscodingProfileProtocol? get protocol;
+
+  /// Gets or sets the maximum audio channels.
+  @JsonKey(name: 'MaxAudioChannels')
+  String? get maxAudioChannels;
+
+  /// Gets or sets the profile conditions.
+  @JsonKey(name: 'Conditions')
+  List<ProfileCondition>? get conditions;
+
   /// Create a copy of TranscodingProfile
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -99,21 +99,6 @@ mixin _$TranscodingProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is TranscodingProfile &&
-            (identical(other.container, container) ||
-                other.container == container) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.videoCodec, videoCodec) ||
-                other.videoCodec == videoCodec) &&
-            (identical(other.audioCodec, audioCodec) ||
-                other.audioCodec == audioCodec) &&
-            (identical(other.protocol, protocol) ||
-                other.protocol == protocol) &&
-            (identical(other.maxAudioChannels, maxAudioChannels) ||
-                other.maxAudioChannels == maxAudioChannels) &&
-            const DeepCollectionEquality().equals(
-              other.conditions,
-              conditions,
-            ) &&
             (identical(other.estimateContentLength, estimateContentLength) ||
                 other.estimateContentLength == estimateContentLength) &&
             (identical(other.enableMpegtsM2TsMode, enableMpegtsM2TsMode) ||
@@ -135,20 +120,28 @@ mixin _$TranscodingProfile {
             (identical(other.breakOnNonKeyFrames, breakOnNonKeyFrames) ||
                 other.breakOnNonKeyFrames == breakOnNonKeyFrames) &&
             (identical(other.enableAudioVbrEncoding, enableAudioVbrEncoding) ||
-                other.enableAudioVbrEncoding == enableAudioVbrEncoding));
+                other.enableAudioVbrEncoding == enableAudioVbrEncoding) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.videoCodec, videoCodec) ||
+                other.videoCodec == videoCodec) &&
+            (identical(other.audioCodec, audioCodec) ||
+                other.audioCodec == audioCodec) &&
+            (identical(other.protocol, protocol) ||
+                other.protocol == protocol) &&
+            (identical(other.maxAudioChannels, maxAudioChannels) ||
+                other.maxAudioChannels == maxAudioChannels) &&
+            const DeepCollectionEquality().equals(
+              other.conditions,
+              conditions,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    container,
-    type,
-    videoCodec,
-    audioCodec,
-    protocol,
-    maxAudioChannels,
-    const DeepCollectionEquality().hash(conditions),
     estimateContentLength,
     enableMpegtsM2TsMode,
     transcodeSeekInfo,
@@ -159,11 +152,18 @@ mixin _$TranscodingProfile {
     segmentLength,
     breakOnNonKeyFrames,
     enableAudioVbrEncoding,
+    container,
+    type,
+    videoCodec,
+    audioCodec,
+    protocol,
+    maxAudioChannels,
+    const DeepCollectionEquality().hash(conditions),
   );
 
   @override
   String toString() {
-    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
+    return 'TranscodingProfile(estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding, container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions)';
   }
 }
 
@@ -175,13 +175,6 @@ abstract mixin class $TranscodingProfileCopyWith<$Res> {
   ) = _$TranscodingProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Container') String container,
-    @JsonKey(name: 'Type') TranscodingProfileType type,
-    @JsonKey(name: 'VideoCodec') String videoCodec,
-    @JsonKey(name: 'AudioCodec') String audioCodec,
-    @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-    @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
     @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
     @JsonKey(name: 'TranscodeSeekInfo')
@@ -193,6 +186,13 @@ abstract mixin class $TranscodingProfileCopyWith<$Res> {
     @JsonKey(name: 'SegmentLength') int segmentLength,
     @JsonKey(name: 'BreakOnNonKeyFrames') bool breakOnNonKeyFrames,
     @JsonKey(name: 'EnableAudioVbrEncoding') bool enableAudioVbrEncoding,
+    @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'Type') TranscodingProfileType? type,
+    @JsonKey(name: 'VideoCodec') String? videoCodec,
+    @JsonKey(name: 'AudioCodec') String? audioCodec,
+    @JsonKey(name: 'Protocol') TranscodingProfileProtocol? protocol,
+    @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
   });
 }
 
@@ -209,13 +209,6 @@ class _$TranscodingProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? container = null,
-    Object? type = null,
-    Object? videoCodec = null,
-    Object? audioCodec = null,
-    Object? protocol = null,
-    Object? maxAudioChannels = freezed,
-    Object? conditions = null,
     Object? estimateContentLength = null,
     Object? enableMpegtsM2TsMode = null,
     Object? transcodeSeekInfo = null,
@@ -226,37 +219,16 @@ class _$TranscodingProfileCopyWithImpl<$Res>
     Object? segmentLength = null,
     Object? breakOnNonKeyFrames = null,
     Object? enableAudioVbrEncoding = null,
+    Object? container = freezed,
+    Object? type = freezed,
+    Object? videoCodec = freezed,
+    Object? audioCodec = freezed,
+    Object? protocol = freezed,
+    Object? maxAudioChannels = freezed,
+    Object? conditions = freezed,
   }) {
     return _then(
       _self.copyWith(
-        container: null == container
-            ? _self.container
-            : container // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileType,
-        videoCodec: null == videoCodec
-            ? _self.videoCodec
-            : videoCodec // ignore: cast_nullable_to_non_nullable
-                  as String,
-        audioCodec: null == audioCodec
-            ? _self.audioCodec
-            : audioCodec // ignore: cast_nullable_to_non_nullable
-                  as String,
-        protocol: null == protocol
-            ? _self.protocol
-            : protocol // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileProtocol,
-        maxAudioChannels: freezed == maxAudioChannels
-            ? _self.maxAudioChannels
-            : maxAudioChannels // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        conditions: null == conditions
-            ? _self.conditions
-            : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
         estimateContentLength: null == estimateContentLength
             ? _self.estimateContentLength
             : estimateContentLength // ignore: cast_nullable_to_non_nullable
@@ -297,6 +269,34 @@ class _$TranscodingProfileCopyWithImpl<$Res>
             ? _self.enableAudioVbrEncoding
             : enableAudioVbrEncoding // ignore: cast_nullable_to_non_nullable
                   as bool,
+        container: freezed == container
+            ? _self.container
+            : container // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        type: freezed == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileType?,
+        videoCodec: freezed == videoCodec
+            ? _self.videoCodec
+            : videoCodec // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        audioCodec: freezed == audioCodec
+            ? _self.audioCodec
+            : audioCodec // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        protocol: freezed == protocol
+            ? _self.protocol
+            : protocol // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileProtocol?,
+        maxAudioChannels: freezed == maxAudioChannels
+            ? _self.maxAudioChannels
+            : maxAudioChannels // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        conditions: freezed == conditions
+            ? _self.conditions
+            : conditions // ignore: cast_nullable_to_non_nullable
+                  as List<ProfileCondition>?,
       ),
     );
   }
@@ -396,13 +396,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Container') String container,
-      @JsonKey(name: 'Type') TranscodingProfileType type,
-      @JsonKey(name: 'VideoCodec') String videoCodec,
-      @JsonKey(name: 'AudioCodec') String audioCodec,
-      @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
       @JsonKey(name: 'TranscodeSeekInfo')
@@ -415,6 +408,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'SegmentLength') int segmentLength,
       @JsonKey(name: 'BreakOnNonKeyFrames') bool breakOnNonKeyFrames,
       @JsonKey(name: 'EnableAudioVbrEncoding') bool enableAudioVbrEncoding,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Type') TranscodingProfileType? type,
+      @JsonKey(name: 'VideoCodec') String? videoCodec,
+      @JsonKey(name: 'AudioCodec') String? audioCodec,
+      @JsonKey(name: 'Protocol') TranscodingProfileProtocol? protocol,
+      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
     )?
     $default, {
     required TResult orElse(),
@@ -423,13 +423,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
     switch (_that) {
       case _TranscodingProfile() when $default != null:
         return $default(
-          _that.container,
-          _that.type,
-          _that.videoCodec,
-          _that.audioCodec,
-          _that.protocol,
-          _that.maxAudioChannels,
-          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
           _that.transcodeSeekInfo,
@@ -440,6 +433,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.segmentLength,
           _that.breakOnNonKeyFrames,
           _that.enableAudioVbrEncoding,
+          _that.container,
+          _that.type,
+          _that.videoCodec,
+          _that.audioCodec,
+          _that.protocol,
+          _that.maxAudioChannels,
+          _that.conditions,
         );
       case _:
         return orElse();
@@ -462,13 +462,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Container') String container,
-      @JsonKey(name: 'Type') TranscodingProfileType type,
-      @JsonKey(name: 'VideoCodec') String videoCodec,
-      @JsonKey(name: 'AudioCodec') String audioCodec,
-      @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
       @JsonKey(name: 'TranscodeSeekInfo')
@@ -481,6 +474,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'SegmentLength') int segmentLength,
       @JsonKey(name: 'BreakOnNonKeyFrames') bool breakOnNonKeyFrames,
       @JsonKey(name: 'EnableAudioVbrEncoding') bool enableAudioVbrEncoding,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Type') TranscodingProfileType? type,
+      @JsonKey(name: 'VideoCodec') String? videoCodec,
+      @JsonKey(name: 'AudioCodec') String? audioCodec,
+      @JsonKey(name: 'Protocol') TranscodingProfileProtocol? protocol,
+      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
     )
     $default,
   ) {
@@ -488,13 +488,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
     switch (_that) {
       case _TranscodingProfile():
         return $default(
-          _that.container,
-          _that.type,
-          _that.videoCodec,
-          _that.audioCodec,
-          _that.protocol,
-          _that.maxAudioChannels,
-          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
           _that.transcodeSeekInfo,
@@ -505,6 +498,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.segmentLength,
           _that.breakOnNonKeyFrames,
           _that.enableAudioVbrEncoding,
+          _that.container,
+          _that.type,
+          _that.videoCodec,
+          _that.audioCodec,
+          _that.protocol,
+          _that.maxAudioChannels,
+          _that.conditions,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -526,13 +526,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Container') String container,
-      @JsonKey(name: 'Type') TranscodingProfileType type,
-      @JsonKey(name: 'VideoCodec') String videoCodec,
-      @JsonKey(name: 'AudioCodec') String audioCodec,
-      @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
       @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
       @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
       @JsonKey(name: 'TranscodeSeekInfo')
@@ -545,6 +538,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
       @JsonKey(name: 'SegmentLength') int segmentLength,
       @JsonKey(name: 'BreakOnNonKeyFrames') bool breakOnNonKeyFrames,
       @JsonKey(name: 'EnableAudioVbrEncoding') bool enableAudioVbrEncoding,
+      @JsonKey(name: 'Container') String? container,
+      @JsonKey(name: 'Type') TranscodingProfileType? type,
+      @JsonKey(name: 'VideoCodec') String? videoCodec,
+      @JsonKey(name: 'AudioCodec') String? audioCodec,
+      @JsonKey(name: 'Protocol') TranscodingProfileProtocol? protocol,
+      @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
     )?
     $default,
   ) {
@@ -552,13 +552,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
     switch (_that) {
       case _TranscodingProfile() when $default != null:
         return $default(
-          _that.container,
-          _that.type,
-          _that.videoCodec,
-          _that.audioCodec,
-          _that.protocol,
-          _that.maxAudioChannels,
-          _that.conditions,
           _that.estimateContentLength,
           _that.enableMpegtsM2TsMode,
           _that.transcodeSeekInfo,
@@ -569,6 +562,13 @@ extension TranscodingProfilePatterns on TranscodingProfile {
           _that.segmentLength,
           _that.breakOnNonKeyFrames,
           _that.enableAudioVbrEncoding,
+          _that.container,
+          _that.type,
+          _that.videoCodec,
+          _that.audioCodec,
+          _that.protocol,
+          _that.maxAudioChannels,
+          _that.conditions,
         );
       case _:
         return null;
@@ -580,14 +580,6 @@ extension TranscodingProfilePatterns on TranscodingProfile {
 @JsonSerializable()
 class _TranscodingProfile implements TranscodingProfile {
   const _TranscodingProfile({
-    @JsonKey(name: 'Container') required this.container,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'VideoCodec') required this.videoCodec,
-    @JsonKey(name: 'AudioCodec') required this.audioCodec,
-    @JsonKey(name: 'Protocol') required this.protocol,
-    @JsonKey(name: 'MaxAudioChannels') required this.maxAudioChannels,
-    @JsonKey(name: 'Conditions')
-    required final List<ProfileCondition> conditions,
     @JsonKey(name: 'EstimateContentLength') this.estimateContentLength = false,
     @JsonKey(name: 'EnableMpegtsM2TsMode') this.enableMpegtsM2TsMode = false,
     @JsonKey(name: 'TranscodeSeekInfo')
@@ -601,51 +593,16 @@ class _TranscodingProfile implements TranscodingProfile {
     @JsonKey(name: 'SegmentLength') this.segmentLength = 0,
     @JsonKey(name: 'BreakOnNonKeyFrames') this.breakOnNonKeyFrames = false,
     @JsonKey(name: 'EnableAudioVbrEncoding') this.enableAudioVbrEncoding = true,
+    @JsonKey(name: 'Container') this.container,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'VideoCodec') this.videoCodec,
+    @JsonKey(name: 'AudioCodec') this.audioCodec,
+    @JsonKey(name: 'Protocol') this.protocol,
+    @JsonKey(name: 'MaxAudioChannels') this.maxAudioChannels,
+    @JsonKey(name: 'Conditions') final List<ProfileCondition>? conditions,
   }) : _conditions = conditions;
   factory _TranscodingProfile.fromJson(Map<String, dynamic> json) =>
       _$TranscodingProfileFromJson(json);
-
-  /// Gets or sets the container.
-  @override
-  @JsonKey(name: 'Container')
-  final String container;
-
-  /// Gets or sets the DLNA profile type.
-  @override
-  @JsonKey(name: 'Type')
-  final TranscodingProfileType type;
-
-  /// Gets or sets the video codec.
-  @override
-  @JsonKey(name: 'VideoCodec')
-  final String videoCodec;
-
-  /// Gets or sets the audio codec.
-  @override
-  @JsonKey(name: 'AudioCodec')
-  final String audioCodec;
-
-  /// Gets or sets the protocol.
-  @override
-  @JsonKey(name: 'Protocol')
-  final TranscodingProfileProtocol protocol;
-
-  /// Gets or sets the maximum audio channels.
-  @override
-  @JsonKey(name: 'MaxAudioChannels')
-  final String? maxAudioChannels;
-
-  /// Gets or sets the profile conditions.
-  final List<ProfileCondition> _conditions;
-
-  /// Gets or sets the profile conditions.
-  @override
-  @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions {
-    if (_conditions is EqualUnmodifiableListView) return _conditions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_conditions);
-  }
 
   /// Gets or sets a value indicating whether the content length should be estimated.
   @override
@@ -697,6 +654,50 @@ class _TranscodingProfile implements TranscodingProfile {
   @JsonKey(name: 'EnableAudioVbrEncoding')
   final bool enableAudioVbrEncoding;
 
+  /// Gets or sets the container.
+  @override
+  @JsonKey(name: 'Container')
+  final String? container;
+
+  /// Gets or sets the DLNA profile type.
+  @override
+  @JsonKey(name: 'Type')
+  final TranscodingProfileType? type;
+
+  /// Gets or sets the video codec.
+  @override
+  @JsonKey(name: 'VideoCodec')
+  final String? videoCodec;
+
+  /// Gets or sets the audio codec.
+  @override
+  @JsonKey(name: 'AudioCodec')
+  final String? audioCodec;
+
+  /// Gets or sets the protocol.
+  @override
+  @JsonKey(name: 'Protocol')
+  final TranscodingProfileProtocol? protocol;
+
+  /// Gets or sets the maximum audio channels.
+  @override
+  @JsonKey(name: 'MaxAudioChannels')
+  final String? maxAudioChannels;
+
+  /// Gets or sets the profile conditions.
+  final List<ProfileCondition>? _conditions;
+
+  /// Gets or sets the profile conditions.
+  @override
+  @JsonKey(name: 'Conditions')
+  List<ProfileCondition>? get conditions {
+    final value = _conditions;
+    if (value == null) return null;
+    if (_conditions is EqualUnmodifiableListView) return _conditions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// Create a copy of TranscodingProfile
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -715,21 +716,6 @@ class _TranscodingProfile implements TranscodingProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TranscodingProfile &&
-            (identical(other.container, container) ||
-                other.container == container) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.videoCodec, videoCodec) ||
-                other.videoCodec == videoCodec) &&
-            (identical(other.audioCodec, audioCodec) ||
-                other.audioCodec == audioCodec) &&
-            (identical(other.protocol, protocol) ||
-                other.protocol == protocol) &&
-            (identical(other.maxAudioChannels, maxAudioChannels) ||
-                other.maxAudioChannels == maxAudioChannels) &&
-            const DeepCollectionEquality().equals(
-              other._conditions,
-              _conditions,
-            ) &&
             (identical(other.estimateContentLength, estimateContentLength) ||
                 other.estimateContentLength == estimateContentLength) &&
             (identical(other.enableMpegtsM2TsMode, enableMpegtsM2TsMode) ||
@@ -751,20 +737,28 @@ class _TranscodingProfile implements TranscodingProfile {
             (identical(other.breakOnNonKeyFrames, breakOnNonKeyFrames) ||
                 other.breakOnNonKeyFrames == breakOnNonKeyFrames) &&
             (identical(other.enableAudioVbrEncoding, enableAudioVbrEncoding) ||
-                other.enableAudioVbrEncoding == enableAudioVbrEncoding));
+                other.enableAudioVbrEncoding == enableAudioVbrEncoding) &&
+            (identical(other.container, container) ||
+                other.container == container) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.videoCodec, videoCodec) ||
+                other.videoCodec == videoCodec) &&
+            (identical(other.audioCodec, audioCodec) ||
+                other.audioCodec == audioCodec) &&
+            (identical(other.protocol, protocol) ||
+                other.protocol == protocol) &&
+            (identical(other.maxAudioChannels, maxAudioChannels) ||
+                other.maxAudioChannels == maxAudioChannels) &&
+            const DeepCollectionEquality().equals(
+              other._conditions,
+              _conditions,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    container,
-    type,
-    videoCodec,
-    audioCodec,
-    protocol,
-    maxAudioChannels,
-    const DeepCollectionEquality().hash(_conditions),
     estimateContentLength,
     enableMpegtsM2TsMode,
     transcodeSeekInfo,
@@ -775,11 +769,18 @@ class _TranscodingProfile implements TranscodingProfile {
     segmentLength,
     breakOnNonKeyFrames,
     enableAudioVbrEncoding,
+    container,
+    type,
+    videoCodec,
+    audioCodec,
+    protocol,
+    maxAudioChannels,
+    const DeepCollectionEquality().hash(_conditions),
   );
 
   @override
   String toString() {
-    return 'TranscodingProfile(container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions, estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding)';
+    return 'TranscodingProfile(estimateContentLength: $estimateContentLength, enableMpegtsM2TsMode: $enableMpegtsM2TsMode, transcodeSeekInfo: $transcodeSeekInfo, copyTimestamps: $copyTimestamps, context: $context, enableSubtitlesInManifest: $enableSubtitlesInManifest, minSegments: $minSegments, segmentLength: $segmentLength, breakOnNonKeyFrames: $breakOnNonKeyFrames, enableAudioVbrEncoding: $enableAudioVbrEncoding, container: $container, type: $type, videoCodec: $videoCodec, audioCodec: $audioCodec, protocol: $protocol, maxAudioChannels: $maxAudioChannels, conditions: $conditions)';
   }
 }
 
@@ -793,13 +794,6 @@ abstract mixin class _$TranscodingProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Container') String container,
-    @JsonKey(name: 'Type') TranscodingProfileType type,
-    @JsonKey(name: 'VideoCodec') String videoCodec,
-    @JsonKey(name: 'AudioCodec') String audioCodec,
-    @JsonKey(name: 'Protocol') TranscodingProfileProtocol protocol,
-    @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
     @JsonKey(name: 'EstimateContentLength') bool estimateContentLength,
     @JsonKey(name: 'EnableMpegtsM2TsMode') bool enableMpegtsM2TsMode,
     @JsonKey(name: 'TranscodeSeekInfo')
@@ -811,6 +805,13 @@ abstract mixin class _$TranscodingProfileCopyWith<$Res>
     @JsonKey(name: 'SegmentLength') int segmentLength,
     @JsonKey(name: 'BreakOnNonKeyFrames') bool breakOnNonKeyFrames,
     @JsonKey(name: 'EnableAudioVbrEncoding') bool enableAudioVbrEncoding,
+    @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'Type') TranscodingProfileType? type,
+    @JsonKey(name: 'VideoCodec') String? videoCodec,
+    @JsonKey(name: 'AudioCodec') String? audioCodec,
+    @JsonKey(name: 'Protocol') TranscodingProfileProtocol? protocol,
+    @JsonKey(name: 'MaxAudioChannels') String? maxAudioChannels,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
   });
 }
 
@@ -827,13 +828,6 @@ class __$TranscodingProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? container = null,
-    Object? type = null,
-    Object? videoCodec = null,
-    Object? audioCodec = null,
-    Object? protocol = null,
-    Object? maxAudioChannels = freezed,
-    Object? conditions = null,
     Object? estimateContentLength = null,
     Object? enableMpegtsM2TsMode = null,
     Object? transcodeSeekInfo = null,
@@ -844,37 +838,16 @@ class __$TranscodingProfileCopyWithImpl<$Res>
     Object? segmentLength = null,
     Object? breakOnNonKeyFrames = null,
     Object? enableAudioVbrEncoding = null,
+    Object? container = freezed,
+    Object? type = freezed,
+    Object? videoCodec = freezed,
+    Object? audioCodec = freezed,
+    Object? protocol = freezed,
+    Object? maxAudioChannels = freezed,
+    Object? conditions = freezed,
   }) {
     return _then(
       _TranscodingProfile(
-        container: null == container
-            ? _self.container
-            : container // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
-            ? _self.type
-            : type // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileType,
-        videoCodec: null == videoCodec
-            ? _self.videoCodec
-            : videoCodec // ignore: cast_nullable_to_non_nullable
-                  as String,
-        audioCodec: null == audioCodec
-            ? _self.audioCodec
-            : audioCodec // ignore: cast_nullable_to_non_nullable
-                  as String,
-        protocol: null == protocol
-            ? _self.protocol
-            : protocol // ignore: cast_nullable_to_non_nullable
-                  as TranscodingProfileProtocol,
-        maxAudioChannels: freezed == maxAudioChannels
-            ? _self.maxAudioChannels
-            : maxAudioChannels // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        conditions: null == conditions
-            ? _self._conditions
-            : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
         estimateContentLength: null == estimateContentLength
             ? _self.estimateContentLength
             : estimateContentLength // ignore: cast_nullable_to_non_nullable
@@ -915,6 +888,34 @@ class __$TranscodingProfileCopyWithImpl<$Res>
             ? _self.enableAudioVbrEncoding
             : enableAudioVbrEncoding // ignore: cast_nullable_to_non_nullable
                   as bool,
+        container: freezed == container
+            ? _self.container
+            : container // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        type: freezed == type
+            ? _self.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileType?,
+        videoCodec: freezed == videoCodec
+            ? _self.videoCodec
+            : videoCodec // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        audioCodec: freezed == audioCodec
+            ? _self.audioCodec
+            : audioCodec // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        protocol: freezed == protocol
+            ? _self.protocol
+            : protocol // ignore: cast_nullable_to_non_nullable
+                  as TranscodingProfileProtocol?,
+        maxAudioChannels: freezed == maxAudioChannels
+            ? _self.maxAudioChannels
+            : maxAudioChannels // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        conditions: freezed == conditions
+            ? _self._conditions
+            : conditions // ignore: cast_nullable_to_non_nullable
+                  as List<ProfileCondition>?,
       ),
     );
   }

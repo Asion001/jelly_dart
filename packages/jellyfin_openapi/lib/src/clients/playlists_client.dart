@@ -24,7 +24,8 @@ abstract class PlaylistsClient {
 
   /// Creates a new playlist.
   ///
-  /// For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  ///
+  /// For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.
+  ///
   /// Query parameters are obsolete.
   ///
   /// [name] - The playlist name.
@@ -38,14 +39,12 @@ abstract class PlaylistsClient {
   /// [body] - Create new playlist dto.
   @POST('/Playlists')
   Future<PlaylistCreationResult> createPlaylist({
+    @Deprecated('This is marked as deprecated') @Query('name') String? name,
+    @Deprecated('This is marked as deprecated') @Query('ids') List<String>? ids,
+    @Deprecated('This is marked as deprecated') @Query('userId') String? userId,
     @Deprecated('This is marked as deprecated')
-    @Query('name') String? name,
-    @Deprecated('This is marked as deprecated')
-    @Query('ids') List<String>? ids,
-    @Deprecated('This is marked as deprecated')
-    @Query('userId') String? userId,
-    @Deprecated('This is marked as deprecated')
-    @Query('mediaType') MediaType? mediaType,
+    @Query('mediaType')
+    MediaType? mediaType,
     @Body() CreatePlaylistDto? body,
     @DioOptions() RequestOptions? options,
   });

@@ -12,7 +12,8 @@ enum EncodingOptionsTonemappingRange {
   @JsonValue('tv')
   tv('tv'),
   @JsonValue('pc')
-  pc('pc');
+  pc('pc')
+  ;
 
   const EncodingOptionsTonemappingRange(this.json);
 
@@ -20,8 +21,10 @@ enum EncodingOptionsTonemappingRange {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

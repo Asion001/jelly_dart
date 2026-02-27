@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PluginUninstalledMessage {
-  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
-  @JsonKey(name: 'Data')
-  PluginInfo get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   PluginUninstalledMessageMessageType get messageType;
+
+  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
+  @JsonKey(name: 'Data')
+  PluginInfo? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of PluginUninstalledMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,20 +43,20 @@ mixin _$PluginUninstalledMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PluginUninstalledMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'PluginUninstalledMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'PluginUninstalledMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -68,13 +68,13 @@ abstract mixin class $PluginUninstalledMessageCopyWith<$Res> {
   ) = _$PluginUninstalledMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') PluginInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     PluginUninstalledMessageMessageType messageType,
+    @JsonKey(name: 'Data') PluginInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
-  $PluginInfoCopyWith<$Res> get data;
+  $PluginInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -90,24 +90,24 @@ class _$PluginUninstalledMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PluginInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as PluginUninstalledMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PluginInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -116,8 +116,12 @@ class _$PluginUninstalledMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PluginInfoCopyWith<$Res> get data {
-    return $PluginInfoCopyWith<$Res>(_self.data, (value) {
+  $PluginInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $PluginInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -217,10 +221,10 @@ extension PluginUninstalledMessagePatterns on PluginUninstalledMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') PluginInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginUninstalledMessageMessageType messageType,
+      @JsonKey(name: 'Data') PluginInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -228,7 +232,7 @@ extension PluginUninstalledMessagePatterns on PluginUninstalledMessage {
     final _that = this;
     switch (_that) {
       case _PluginUninstalledMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -250,17 +254,17 @@ extension PluginUninstalledMessagePatterns on PluginUninstalledMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') PluginInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginUninstalledMessageMessageType messageType,
+      @JsonKey(name: 'Data') PluginInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PluginUninstalledMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -281,17 +285,17 @@ extension PluginUninstalledMessagePatterns on PluginUninstalledMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') PluginInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginUninstalledMessageMessageType messageType,
+      @JsonKey(name: 'Data') PluginInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PluginUninstalledMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -302,28 +306,28 @@ extension PluginUninstalledMessagePatterns on PluginUninstalledMessage {
 @JsonSerializable()
 class _PluginUninstalledMessage implements PluginUninstalledMessage {
   const _PluginUninstalledMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = PluginUninstalledMessageMessageType.packageUninstalled,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _PluginUninstalledMessage.fromJson(Map<String, dynamic> json) =>
       _$PluginUninstalledMessageFromJson(json);
-
-  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
-  @override
-  @JsonKey(name: 'Data')
-  final PluginInfo data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final PluginUninstalledMessageMessageType messageType;
+
+  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
+  @override
+  @JsonKey(name: 'Data')
+  final PluginInfo? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of PluginUninstalledMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -346,20 +350,20 @@ class _PluginUninstalledMessage implements PluginUninstalledMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PluginUninstalledMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'PluginUninstalledMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'PluginUninstalledMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -373,14 +377,14 @@ abstract mixin class _$PluginUninstalledMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') PluginInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     PluginUninstalledMessageMessageType messageType,
+    @JsonKey(name: 'Data') PluginInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
   @override
-  $PluginInfoCopyWith<$Res> get data;
+  $PluginInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -396,24 +400,24 @@ class __$PluginUninstalledMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _PluginUninstalledMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as PluginInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as PluginUninstalledMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as PluginInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -422,8 +426,12 @@ class __$PluginUninstalledMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PluginInfoCopyWith<$Res> get data {
-    return $PluginInfoCopyWith<$Res>(_self.data, (value) {
+  $PluginInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $PluginInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

@@ -20,7 +20,8 @@ enum RecordingStatus {
   @JsonValue('ConflictedNotOk')
   conflictedNotOk('ConflictedNotOk'),
   @JsonValue('Error')
-  error('Error');
+  error('Error')
+  ;
 
   const RecordingStatus(this.json);
 
@@ -28,8 +29,10 @@ enum RecordingStatus {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

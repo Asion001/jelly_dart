@@ -8,16 +8,18 @@ part of 'general_command.dart';
 
 _GeneralCommand _$GeneralCommandFromJson(Map<String, dynamic> json) =>
     _GeneralCommand(
-      name: $enumDecode(_$GeneralCommandNameEnumMap, json['Name']),
-      controllingUserId: json['ControllingUserId'] as String,
-      arguments: Map<String, String?>.from(json['Arguments'] as Map),
+      name: $enumDecodeNullable(_$GeneralCommandNameEnumMap, json['Name']),
+      controllingUserId: json['ControllingUserId'] as String?,
+      arguments: (json['Arguments'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String?),
+      ),
     );
 
 Map<String, dynamic> _$GeneralCommandToJson(_GeneralCommand instance) =>
     <String, dynamic>{
-      'Name': instance.name.toJson(),
-      'ControllingUserId': instance.controllingUserId,
-      'Arguments': instance.arguments,
+      'Name': ?instance.name?.toJson(),
+      'ControllingUserId': ?instance.controllingUserId,
+      'Arguments': ?instance.arguments,
     };
 
 const _$GeneralCommandNameEnumMap = {

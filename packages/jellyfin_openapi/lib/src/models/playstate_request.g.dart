@@ -8,14 +8,17 @@ part of 'playstate_request.dart';
 
 _PlaystateRequest _$PlaystateRequestFromJson(Map<String, dynamic> json) =>
     _PlaystateRequest(
-      command: $enumDecode(_$PlaystateRequestCommandEnumMap, json['Command']),
+      command: $enumDecodeNullable(
+        _$PlaystateRequestCommandEnumMap,
+        json['Command'],
+      ),
       seekPositionTicks: (json['SeekPositionTicks'] as num?)?.toInt(),
       controllingUserId: json['ControllingUserId'] as String?,
     );
 
 Map<String, dynamic> _$PlaystateRequestToJson(_PlaystateRequest instance) =>
     <String, dynamic>{
-      'Command': instance.command.toJson(),
+      'Command': ?instance.command?.toJson(),
       'SeekPositionTicks': ?instance.seekPositionTicks,
       'ControllingUserId': ?instance.controllingUserId,
     };

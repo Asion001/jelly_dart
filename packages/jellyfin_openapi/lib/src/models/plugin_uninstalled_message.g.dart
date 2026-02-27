@@ -9,22 +9,24 @@ part of 'plugin_uninstalled_message.dart';
 _PluginUninstalledMessage _$PluginUninstalledMessageFromJson(
   Map<String, dynamic> json,
 ) => _PluginUninstalledMessage(
-  data: PluginInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$PluginUninstalledMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       PluginUninstalledMessageMessageType.packageUninstalled,
+  data: json['Data'] == null
+      ? null
+      : PluginInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$PluginUninstalledMessageToJson(
   _PluginUninstalledMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$PluginUninstalledMessageMessageTypeEnumMap = {

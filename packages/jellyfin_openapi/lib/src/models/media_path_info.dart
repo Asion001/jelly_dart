@@ -10,9 +10,9 @@ part 'media_path_info.g.dart';
 @Freezed()
 abstract class MediaPathInfo with _$MediaPathInfo {
   const factory MediaPathInfo({
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
   }) = _MediaPathInfo;
-  
-  factory MediaPathInfo.fromJson(Map<String, Object?> json) => _$MediaPathInfoFromJson(json);
+
+  factory MediaPathInfo.fromJson(Map<String, Object?> json) =>
+      _$MediaPathInfoFromJson(json);
 }

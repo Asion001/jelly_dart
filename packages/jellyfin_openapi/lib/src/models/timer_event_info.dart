@@ -10,11 +10,10 @@ part 'timer_event_info.g.dart';
 @Freezed()
 abstract class TimerEventInfo with _$TimerEventInfo {
   const factory TimerEventInfo({
-    @JsonKey(name: 'Id')
-    String? id,
-    @JsonKey(name: 'ProgramId')
-    String? programId,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'ProgramId') String? programId,
   }) = _TimerEventInfo;
-  
-  factory TimerEventInfo.fromJson(Map<String, Object?> json) => _$TimerEventInfoFromJson(json);
+
+  factory TimerEventInfo.fromJson(Map<String, Object?> json) =>
+      _$TimerEventInfoFromJson(json);
 }

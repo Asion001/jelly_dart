@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ForceKeepAliveMessage {
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  int get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   ForceKeepAliveMessageMessageType get messageType;
+
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  int? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of ForceKeepAliveMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,20 +43,20 @@ mixin _$ForceKeepAliveMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ForceKeepAliveMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'ForceKeepAliveMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'ForceKeepAliveMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -68,9 +68,9 @@ abstract mixin class $ForceKeepAliveMessageCopyWith<$Res> {
   ) = _$ForceKeepAliveMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') int data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') ForceKeepAliveMessageMessageType messageType,
+    @JsonKey(name: 'Data') int? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -87,24 +87,24 @@ class _$ForceKeepAliveMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as int,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ForceKeepAliveMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -204,10 +204,10 @@ extension ForceKeepAliveMessagePatterns on ForceKeepAliveMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') int data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ForceKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'Data') int? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -215,7 +215,7 @@ extension ForceKeepAliveMessagePatterns on ForceKeepAliveMessage {
     final _that = this;
     switch (_that) {
       case _ForceKeepAliveMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -237,17 +237,17 @@ extension ForceKeepAliveMessagePatterns on ForceKeepAliveMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') int data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ForceKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'Data') int? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ForceKeepAliveMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -268,17 +268,17 @@ extension ForceKeepAliveMessagePatterns on ForceKeepAliveMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') int data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ForceKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'Data') int? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ForceKeepAliveMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -289,28 +289,28 @@ extension ForceKeepAliveMessagePatterns on ForceKeepAliveMessage {
 @JsonSerializable()
 class _ForceKeepAliveMessage implements ForceKeepAliveMessage {
   const _ForceKeepAliveMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = ForceKeepAliveMessageMessageType.forceKeepAlive,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _ForceKeepAliveMessage.fromJson(Map<String, dynamic> json) =>
       _$ForceKeepAliveMessageFromJson(json);
-
-  /// Gets or sets the data.
-  @override
-  @JsonKey(name: 'Data')
-  final int data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final ForceKeepAliveMessageMessageType messageType;
+
+  /// Gets or sets the data.
+  @override
+  @JsonKey(name: 'Data')
+  final int? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of ForceKeepAliveMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -333,20 +333,20 @@ class _ForceKeepAliveMessage implements ForceKeepAliveMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ForceKeepAliveMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'ForceKeepAliveMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'ForceKeepAliveMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -360,9 +360,9 @@ abstract mixin class _$ForceKeepAliveMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') int data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') ForceKeepAliveMessageMessageType messageType,
+    @JsonKey(name: 'Data') int? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -379,24 +379,24 @@ class __$ForceKeepAliveMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _ForceKeepAliveMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as int,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ForceKeepAliveMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$CreatePlaylistDto {
   /// Gets or sets the name of the new playlist.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets item ids to add to the playlist.
   @JsonKey(name: 'Ids')
-  List<String> get ids;
+  List<String>? get ids;
 
   /// Gets or sets the user id.
   @JsonKey(name: 'UserId')
@@ -31,11 +31,11 @@ mixin _$CreatePlaylistDto {
 
   /// Gets or sets the playlist users.
   @JsonKey(name: 'Users')
-  List<PlaylistUserPermissions> get users;
+  List<PlaylistUserPermissions>? get users;
 
   /// Gets or sets a value indicating whether the playlist is public.
   @JsonKey(name: 'IsPublic')
-  bool get isPublic;
+  bool? get isPublic;
 
   /// Create a copy of CreatePlaylistDto
   /// with the given fields replaced by the non-null parameter values.
@@ -91,12 +91,12 @@ abstract mixin class $CreatePlaylistDtoCopyWith<$Res> {
   ) = _$CreatePlaylistDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Ids') List<String> ids,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Ids') List<String>? ids,
     @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'MediaType') CreatePlaylistDtoMediaType? mediaType,
-    @JsonKey(name: 'Users') List<PlaylistUserPermissions> users,
-    @JsonKey(name: 'IsPublic') bool isPublic,
+    @JsonKey(name: 'Users') List<PlaylistUserPermissions>? users,
+    @JsonKey(name: 'IsPublic') bool? isPublic,
   });
 }
 
@@ -113,23 +113,23 @@ class _$CreatePlaylistDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? ids = null,
+    Object? name = freezed,
+    Object? ids = freezed,
     Object? userId = freezed,
     Object? mediaType = freezed,
-    Object? users = null,
-    Object? isPublic = null,
+    Object? users = freezed,
+    Object? isPublic = freezed,
   }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        ids: null == ids
+                  as String?,
+        ids: freezed == ids
             ? _self.ids
             : ids // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
@@ -138,14 +138,14 @@ class _$CreatePlaylistDtoCopyWithImpl<$Res>
             ? _self.mediaType
             : mediaType // ignore: cast_nullable_to_non_nullable
                   as CreatePlaylistDtoMediaType?,
-        users: null == users
+        users: freezed == users
             ? _self.users
             : users // ignore: cast_nullable_to_non_nullable
-                  as List<PlaylistUserPermissions>,
-        isPublic: null == isPublic
+                  as List<PlaylistUserPermissions>?,
+        isPublic: freezed == isPublic
             ? _self.isPublic
             : isPublic // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -245,12 +245,12 @@ extension CreatePlaylistDtoPatterns on CreatePlaylistDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Ids') List<String> ids,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Ids') List<String>? ids,
       @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'MediaType') CreatePlaylistDtoMediaType? mediaType,
-      @JsonKey(name: 'Users') List<PlaylistUserPermissions> users,
-      @JsonKey(name: 'IsPublic') bool isPublic,
+      @JsonKey(name: 'Users') List<PlaylistUserPermissions>? users,
+      @JsonKey(name: 'IsPublic') bool? isPublic,
     )?
     $default, {
     required TResult orElse(),
@@ -287,12 +287,12 @@ extension CreatePlaylistDtoPatterns on CreatePlaylistDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Ids') List<String> ids,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Ids') List<String>? ids,
       @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'MediaType') CreatePlaylistDtoMediaType? mediaType,
-      @JsonKey(name: 'Users') List<PlaylistUserPermissions> users,
-      @JsonKey(name: 'IsPublic') bool isPublic,
+      @JsonKey(name: 'Users') List<PlaylistUserPermissions>? users,
+      @JsonKey(name: 'IsPublic') bool? isPublic,
     )
     $default,
   ) {
@@ -327,12 +327,12 @@ extension CreatePlaylistDtoPatterns on CreatePlaylistDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Ids') List<String> ids,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Ids') List<String>? ids,
       @JsonKey(name: 'UserId') String? userId,
       @JsonKey(name: 'MediaType') CreatePlaylistDtoMediaType? mediaType,
-      @JsonKey(name: 'Users') List<PlaylistUserPermissions> users,
-      @JsonKey(name: 'IsPublic') bool isPublic,
+      @JsonKey(name: 'Users') List<PlaylistUserPermissions>? users,
+      @JsonKey(name: 'IsPublic') bool? isPublic,
     )?
     $default,
   ) {
@@ -357,12 +357,12 @@ extension CreatePlaylistDtoPatterns on CreatePlaylistDto {
 @JsonSerializable()
 class _CreatePlaylistDto implements CreatePlaylistDto {
   const _CreatePlaylistDto({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Ids') required final List<String> ids,
-    @JsonKey(name: 'UserId') required this.userId,
-    @JsonKey(name: 'MediaType') required this.mediaType,
-    @JsonKey(name: 'Users') required final List<PlaylistUserPermissions> users,
-    @JsonKey(name: 'IsPublic') required this.isPublic,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Ids') final List<String>? ids,
+    @JsonKey(name: 'UserId') this.userId,
+    @JsonKey(name: 'MediaType') this.mediaType,
+    @JsonKey(name: 'Users') final List<PlaylistUserPermissions>? users,
+    @JsonKey(name: 'IsPublic') this.isPublic,
   }) : _ids = ids,
        _users = users;
   factory _CreatePlaylistDto.fromJson(Map<String, dynamic> json) =>
@@ -371,18 +371,20 @@ class _CreatePlaylistDto implements CreatePlaylistDto {
   /// Gets or sets the name of the new playlist.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets item ids to add to the playlist.
-  final List<String> _ids;
+  final List<String>? _ids;
 
   /// Gets or sets item ids to add to the playlist.
   @override
   @JsonKey(name: 'Ids')
-  List<String> get ids {
+  List<String>? get ids {
+    final value = _ids;
+    if (value == null) return null;
     if (_ids is EqualUnmodifiableListView) return _ids;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ids);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the user id.
@@ -396,21 +398,23 @@ class _CreatePlaylistDto implements CreatePlaylistDto {
   final CreatePlaylistDtoMediaType? mediaType;
 
   /// Gets or sets the playlist users.
-  final List<PlaylistUserPermissions> _users;
+  final List<PlaylistUserPermissions>? _users;
 
   /// Gets or sets the playlist users.
   @override
   @JsonKey(name: 'Users')
-  List<PlaylistUserPermissions> get users {
+  List<PlaylistUserPermissions>? get users {
+    final value = _users;
+    if (value == null) return null;
     if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_users);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets a value indicating whether the playlist is public.
   @override
   @JsonKey(name: 'IsPublic')
-  final bool isPublic;
+  final bool? isPublic;
 
   /// Create a copy of CreatePlaylistDto
   /// with the given fields replaced by the non-null parameter values.
@@ -468,12 +472,12 @@ abstract mixin class _$CreatePlaylistDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Ids') List<String> ids,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Ids') List<String>? ids,
     @JsonKey(name: 'UserId') String? userId,
     @JsonKey(name: 'MediaType') CreatePlaylistDtoMediaType? mediaType,
-    @JsonKey(name: 'Users') List<PlaylistUserPermissions> users,
-    @JsonKey(name: 'IsPublic') bool isPublic,
+    @JsonKey(name: 'Users') List<PlaylistUserPermissions>? users,
+    @JsonKey(name: 'IsPublic') bool? isPublic,
   });
 }
 
@@ -490,23 +494,23 @@ class __$CreatePlaylistDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? name = null,
-    Object? ids = null,
+    Object? name = freezed,
+    Object? ids = freezed,
     Object? userId = freezed,
     Object? mediaType = freezed,
-    Object? users = null,
-    Object? isPublic = null,
+    Object? users = freezed,
+    Object? isPublic = freezed,
   }) {
     return _then(
       _CreatePlaylistDto(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        ids: null == ids
+                  as String?,
+        ids: freezed == ids
             ? _self._ids
             : ids // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
@@ -515,14 +519,14 @@ class __$CreatePlaylistDtoCopyWithImpl<$Res>
             ? _self.mediaType
             : mediaType // ignore: cast_nullable_to_non_nullable
                   as CreatePlaylistDtoMediaType?,
-        users: null == users
+        users: freezed == users
             ? _self._users
             : users // ignore: cast_nullable_to_non_nullable
-                  as List<PlaylistUserPermissions>,
-        isPublic: null == isPublic
+                  as List<PlaylistUserPermissions>?,
+        isPublic: freezed == isPublic
             ? _self.isPublic
             : isPublic // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }

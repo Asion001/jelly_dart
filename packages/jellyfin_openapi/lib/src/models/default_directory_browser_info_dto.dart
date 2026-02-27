@@ -9,12 +9,13 @@ part 'default_directory_browser_info_dto.g.dart';
 
 /// Default directory browser info.
 @Freezed()
-abstract class DefaultDirectoryBrowserInfoDto with _$DefaultDirectoryBrowserInfoDto {
+abstract class DefaultDirectoryBrowserInfoDto
+    with _$DefaultDirectoryBrowserInfoDto {
   const factory DefaultDirectoryBrowserInfoDto({
     /// Gets or sets the path.
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
   }) = _DefaultDirectoryBrowserInfoDto;
-  
-  factory DefaultDirectoryBrowserInfoDto.fromJson(Map<String, Object?> json) => _$DefaultDirectoryBrowserInfoDtoFromJson(json);
+
+  factory DefaultDirectoryBrowserInfoDto.fromJson(Map<String, Object?> json) =>
+      _$DefaultDirectoryBrowserInfoDtoFromJson(json);
 }

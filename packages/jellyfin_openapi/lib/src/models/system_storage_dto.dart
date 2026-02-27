@@ -15,37 +15,32 @@ part 'system_storage_dto.g.dart';
 abstract class SystemStorageDto with _$SystemStorageDto {
   const factory SystemStorageDto({
     /// Gets or sets the Storage information of the program data folder.
-    @JsonKey(name: 'ProgramDataFolder')
-    required FolderStorageDto programDataFolder,
+    @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
 
     /// Gets or sets the Storage information of the web UI resources folder.
-    @JsonKey(name: 'WebFolder')
-    required FolderStorageDto webFolder,
+    @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
 
     /// Gets or sets the Storage information of the folder where images are cached.
-    @JsonKey(name: 'ImageCacheFolder')
-    required FolderStorageDto imageCacheFolder,
+    @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
 
     /// Gets or sets the Storage information of the cache folder.
-    @JsonKey(name: 'CacheFolder')
-    required FolderStorageDto cacheFolder,
+    @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
 
     /// Gets or sets the Storage information of the folder where logfiles are saved to.
-    @JsonKey(name: 'LogFolder')
-    required FolderStorageDto logFolder,
+    @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
 
     /// Gets or sets the Storage information of the folder where metadata is stored.
     @JsonKey(name: 'InternalMetadataFolder')
-    required FolderStorageDto internalMetadataFolder,
+    FolderStorageDto? internalMetadataFolder,
 
     /// Gets or sets the Storage information of the transcoding cache.
     @JsonKey(name: 'TranscodingTempFolder')
-    required FolderStorageDto transcodingTempFolder,
+    FolderStorageDto? transcodingTempFolder,
 
     /// Gets or sets the storage informations of all libraries.
-    @JsonKey(name: 'Libraries')
-    required List<LibraryStorageDto> libraries,
+    @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
   }) = _SystemStorageDto;
-  
-  factory SystemStorageDto.fromJson(Map<String, Object?> json) => _$SystemStorageDtoFromJson(json);
+
+  factory SystemStorageDto.fromJson(Map<String, Object?> json) =>
+      _$SystemStorageDtoFromJson(json);
 }

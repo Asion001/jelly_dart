@@ -9,24 +9,24 @@ part of 'refresh_progress_message.dart';
 _RefreshProgressMessage _$RefreshProgressMessageFromJson(
   Map<String, dynamic> json,
 ) => _RefreshProgressMessage(
-  data: (json['Data'] as Map<String, dynamic>?)?.map(
-    (k, e) => MapEntry(k, e as String?),
-  ),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$RefreshProgressMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       RefreshProgressMessageMessageType.refreshProgress,
+  data: (json['Data'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String?),
+  ),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$RefreshProgressMessageToJson(
   _RefreshProgressMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data,
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data,
+  'MessageId': ?instance.messageId,
 };
 
 const _$RefreshProgressMessageMessageTypeEnumMap = {

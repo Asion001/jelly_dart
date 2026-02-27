@@ -14,13 +14,12 @@ part 'search_hint_result.g.dart';
 abstract class SearchHintResult with _$SearchHintResult {
   const factory SearchHintResult({
     /// Gets the search hints.
-    @JsonKey(name: 'SearchHints')
-    List<SearchHint>? searchHints,
+    @JsonKey(name: 'SearchHints') List<SearchHint>? searchHints,
 
     /// Gets the total record count.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
   }) = _SearchHintResult;
-  
-  factory SearchHintResult.fromJson(Map<String, Object?> json) => _$SearchHintResultFromJson(json);
+
+  factory SearchHintResult.fromJson(Map<String, Object?> json) =>
+      _$SearchHintResultFromJson(json);
 }

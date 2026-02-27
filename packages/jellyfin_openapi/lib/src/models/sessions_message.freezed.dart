@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SessionsMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  SessionsMessageMessageType get messageType;
+
   /// Gets or sets the data.
   @JsonKey(name: 'Data')
   List<SessionInfoDto>? get data;
 
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
-  String get messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @JsonKey(name: 'MessageType')
-  SessionsMessageMessageType get messageType;
+  String? get messageId;
 
   /// Create a copy of SessionsMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,25 +43,25 @@ mixin _$SessionsMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SessionsMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'SessionsMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SessionsMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -73,9 +73,9 @@ abstract mixin class $SessionsMessageCopyWith<$Res> {
   ) = _$SessionsMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') SessionsMessageMessageType messageType,
+    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -92,24 +92,24 @@ class _$SessionsMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<SessionInfoDto>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SessionsMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<SessionInfoDto>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -209,9 +209,9 @@ extension SessionsMessagePatterns on SessionsMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') SessionsMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -219,7 +219,7 @@ extension SessionsMessagePatterns on SessionsMessage {
     final _that = this;
     switch (_that) {
       case _SessionsMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -241,16 +241,16 @@ extension SessionsMessagePatterns on SessionsMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') SessionsMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SessionsMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -271,16 +271,16 @@ extension SessionsMessagePatterns on SessionsMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') SessionsMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SessionsMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -291,13 +291,18 @@ extension SessionsMessagePatterns on SessionsMessage {
 @JsonSerializable()
 class _SessionsMessage implements SessionsMessage {
   const _SessionsMessage({
-    @JsonKey(name: 'Data') required final List<SessionInfoDto>? data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = SessionsMessageMessageType.sessions,
+    @JsonKey(name: 'Data') final List<SessionInfoDto>? data,
+    @JsonKey(name: 'MessageId') this.messageId,
   }) : _data = data;
   factory _SessionsMessage.fromJson(Map<String, dynamic> json) =>
       _$SessionsMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final SessionsMessageMessageType messageType;
 
   /// Gets or sets the data.
   final List<SessionInfoDto>? _data;
@@ -316,12 +321,7 @@ class _SessionsMessage implements SessionsMessage {
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
-  final String messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @override
-  @JsonKey(name: 'MessageType')
-  final SessionsMessageMessageType messageType;
+  final String? messageId;
 
   /// Create a copy of SessionsMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -341,25 +341,25 @@ class _SessionsMessage implements SessionsMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SessionsMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(_data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'SessionsMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SessionsMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -373,9 +373,9 @@ abstract mixin class _$SessionsMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') SessionsMessageMessageType messageType,
+    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -392,24 +392,24 @@ class __$SessionsMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _SessionsMessage(
-        data: freezed == data
-            ? _self._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<SessionInfoDto>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SessionsMessageMessageType,
+        data: freezed == data
+            ? _self._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<SessionInfoDto>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

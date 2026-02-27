@@ -13,13 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ServerShuttingDownMessage {
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   ServerShuttingDownMessageMessageType get messageType;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of ServerShuttingDownMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -39,19 +39,19 @@ mixin _$ServerShuttingDownMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ServerShuttingDownMessage &&
-            (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.messageId, messageId) ||
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, messageId);
 
   @override
   String toString() {
-    return 'ServerShuttingDownMessage(messageId: $messageId, messageType: $messageType)';
+    return 'ServerShuttingDownMessage(messageType: $messageType, messageId: $messageId)';
   }
 }
 
@@ -63,9 +63,9 @@ abstract mixin class $ServerShuttingDownMessageCopyWith<$Res> {
   ) = _$ServerShuttingDownMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     ServerShuttingDownMessageMessageType messageType,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -81,17 +81,17 @@ class _$ServerShuttingDownMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? messageId = freezed}) {
     return _then(
       _self.copyWith(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ServerShuttingDownMessageMessageType,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -191,9 +191,9 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ServerShuttingDownMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -201,7 +201,7 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage() when $default != null:
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         return orElse();
     }
@@ -223,16 +223,16 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ServerShuttingDownMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage():
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -253,16 +253,16 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ServerShuttingDownMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ServerShuttingDownMessage() when $default != null:
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         return null;
     }
@@ -273,22 +273,22 @@ extension ServerShuttingDownMessagePatterns on ServerShuttingDownMessage {
 @JsonSerializable()
 class _ServerShuttingDownMessage implements ServerShuttingDownMessage {
   const _ServerShuttingDownMessage({
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = ServerShuttingDownMessageMessageType.serverShuttingDown,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _ServerShuttingDownMessage.fromJson(Map<String, dynamic> json) =>
       _$ServerShuttingDownMessageFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final ServerShuttingDownMessageMessageType messageType;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of ServerShuttingDownMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -312,19 +312,19 @@ class _ServerShuttingDownMessage implements ServerShuttingDownMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ServerShuttingDownMessage &&
-            (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.messageId, messageId) ||
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, messageId);
 
   @override
   String toString() {
-    return 'ServerShuttingDownMessage(messageId: $messageId, messageType: $messageType)';
+    return 'ServerShuttingDownMessage(messageType: $messageType, messageId: $messageId)';
   }
 }
 
@@ -338,9 +338,9 @@ abstract mixin class _$ServerShuttingDownMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     ServerShuttingDownMessageMessageType messageType,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -356,17 +356,17 @@ class __$ServerShuttingDownMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? messageId = freezed}) {
     return _then(
       _ServerShuttingDownMessage(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ServerShuttingDownMessageMessageType,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

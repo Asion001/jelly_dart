@@ -14,17 +14,15 @@ part 'media_path_dto.g.dart';
 abstract class MediaPathDto with _$MediaPathDto {
   const factory MediaPathDto({
     /// Gets or sets the name of the library.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') required String name,
 
     /// Gets or sets the path to add.
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets or sets the path info.
-    @JsonKey(name: 'PathInfo')
-    MediaPathInfo? pathInfo,
+    @JsonKey(name: 'PathInfo') MediaPathInfo? pathInfo,
   }) = _MediaPathDto;
-  
-  factory MediaPathDto.fromJson(Map<String, Object?> json) => _$MediaPathDtoFromJson(json);
+
+  factory MediaPathDto.fromJson(Map<String, Object?> json) =>
+      _$MediaPathDtoFromJson(json);
 }

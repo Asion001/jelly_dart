@@ -12,33 +12,27 @@ part 'i_plugin.g.dart';
 abstract class IPlugin with _$IPlugin {
   const factory IPlugin({
     /// Gets the name of the plugin.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets the Description.
-    @JsonKey(name: 'Description')
-    String? description,
+    @JsonKey(name: 'Description') String? description,
 
     /// Gets the unique id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets the plugin version.
-    @JsonKey(name: 'Version')
-    String? version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets the path to the assembly file.
-    @JsonKey(name: 'AssemblyFilePath')
-    String? assemblyFilePath,
+    @JsonKey(name: 'AssemblyFilePath') String? assemblyFilePath,
 
     /// Gets a value indicating whether the plugin can be uninstalled.
-    @JsonKey(name: 'CanUninstall')
-    bool? canUninstall,
+    @JsonKey(name: 'CanUninstall') bool? canUninstall,
 
     /// Gets the full path to the data folder, where the plugin can store any miscellaneous files needed.
-    @JsonKey(name: 'DataFolderPath')
-    String? dataFolderPath,
+    @JsonKey(name: 'DataFolderPath') String? dataFolderPath,
   }) = _IPlugin;
-  
-  factory IPlugin.fromJson(Map<String, Object?> json) => _$IPluginFromJson(json);
+
+  factory IPlugin.fromJson(Map<String, Object?> json) =>
+      _$IPluginFromJson(json);
 }

@@ -10,21 +10,15 @@ part 'config_image_types.g.dart';
 @Freezed()
 abstract class ConfigImageTypes with _$ConfigImageTypes {
   const factory ConfigImageTypes({
-    @JsonKey(name: 'BackdropSizes')
-    List<String>? backdropSizes,
-    @JsonKey(name: 'BaseUrl')
-    String? baseUrl,
-    @JsonKey(name: 'LogoSizes')
-    List<String>? logoSizes,
-    @JsonKey(name: 'PosterSizes')
-    List<String>? posterSizes,
-    @JsonKey(name: 'ProfileSizes')
-    List<String>? profileSizes,
-    @JsonKey(name: 'SecureBaseUrl')
-    String? secureBaseUrl,
-    @JsonKey(name: 'StillSizes')
-    List<String>? stillSizes,
+    @JsonKey(name: 'BackdropSizes') List<String>? backdropSizes,
+    @JsonKey(name: 'BaseUrl') String? baseUrl,
+    @JsonKey(name: 'LogoSizes') List<String>? logoSizes,
+    @JsonKey(name: 'PosterSizes') List<String>? posterSizes,
+    @JsonKey(name: 'ProfileSizes') List<String>? profileSizes,
+    @JsonKey(name: 'SecureBaseUrl') String? secureBaseUrl,
+    @JsonKey(name: 'StillSizes') List<String>? stillSizes,
   }) = _ConfigImageTypes;
-  
-  factory ConfigImageTypes.fromJson(Map<String, Object?> json) => _$ConfigImageTypesFromJson(json);
+
+  factory ConfigImageTypes.fromJson(Map<String, Object?> json) =>
+      _$ConfigImageTypesFromJson(json);
 }

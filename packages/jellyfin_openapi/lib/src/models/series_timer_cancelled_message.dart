@@ -14,19 +14,18 @@ part 'series_timer_cancelled_message.g.dart';
 @Freezed()
 abstract class SeriesTimerCancelledMessage with _$SeriesTimerCancelledMessage {
   const factory SeriesTimerCancelledMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(SeriesTimerCancelledMessageMessageType.seriesTimerCancelled)
     SeriesTimerCancelledMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') TimerEventInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _SeriesTimerCancelledMessage;
-  
-  factory SeriesTimerCancelledMessage.fromJson(Map<String, Object?> json) => _$SeriesTimerCancelledMessageFromJson(json);
+
+  factory SeriesTimerCancelledMessage.fromJson(Map<String, Object?> json) =>
+      _$SeriesTimerCancelledMessageFromJson(json);
 }

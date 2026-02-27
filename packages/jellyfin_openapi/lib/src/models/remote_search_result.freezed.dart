@@ -39,7 +39,7 @@ mixin _$RemoteSearchResult {
   @JsonKey(name: 'Overview')
   String? get overview;
   @JsonKey(name: 'AlbumArtist')
-  RemoteSearchResult get albumArtist;
+  RemoteSearchResult? get albumArtist;
   @JsonKey(name: 'Artists')
   List<RemoteSearchResult>? get artists;
 
@@ -129,11 +129,11 @@ abstract mixin class $RemoteSearchResultCopyWith<$Res> {
     @JsonKey(name: 'ImageUrl') String? imageUrl,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
     @JsonKey(name: 'Overview') String? overview,
-    @JsonKey(name: 'AlbumArtist') RemoteSearchResult albumArtist,
+    @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
     @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
   });
 
-  $RemoteSearchResultCopyWith<$Res> get albumArtist;
+  $RemoteSearchResultCopyWith<$Res>? get albumArtist;
 }
 
 /// @nodoc
@@ -159,7 +159,7 @@ class _$RemoteSearchResultCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? searchProviderName = freezed,
     Object? overview = freezed,
-    Object? albumArtist = null,
+    Object? albumArtist = freezed,
     Object? artists = freezed,
   }) {
     return _then(
@@ -204,10 +204,10 @@ class _$RemoteSearchResultCopyWithImpl<$Res>
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        albumArtist: null == albumArtist
+        albumArtist: freezed == albumArtist
             ? _self.albumArtist
             : albumArtist // ignore: cast_nullable_to_non_nullable
-                  as RemoteSearchResult,
+                  as RemoteSearchResult?,
         artists: freezed == artists
             ? _self.artists
             : artists // ignore: cast_nullable_to_non_nullable
@@ -220,8 +220,12 @@ class _$RemoteSearchResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RemoteSearchResultCopyWith<$Res> get albumArtist {
-    return $RemoteSearchResultCopyWith<$Res>(_self.albumArtist, (value) {
+  $RemoteSearchResultCopyWith<$Res>? get albumArtist {
+    if (_self.albumArtist == null) {
+      return null;
+    }
+
+    return $RemoteSearchResultCopyWith<$Res>(_self.albumArtist!, (value) {
       return _then(_self.copyWith(albumArtist: value));
     });
   }
@@ -331,7 +335,7 @@ extension RemoteSearchResultPatterns on RemoteSearchResult {
       @JsonKey(name: 'ImageUrl') String? imageUrl,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'AlbumArtist') RemoteSearchResult albumArtist,
+      @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
       @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
     )?
     $default, {
@@ -385,7 +389,7 @@ extension RemoteSearchResultPatterns on RemoteSearchResult {
       @JsonKey(name: 'ImageUrl') String? imageUrl,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'AlbumArtist') RemoteSearchResult albumArtist,
+      @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
       @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
     )
     $default,
@@ -437,7 +441,7 @@ extension RemoteSearchResultPatterns on RemoteSearchResult {
       @JsonKey(name: 'ImageUrl') String? imageUrl,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'AlbumArtist') RemoteSearchResult albumArtist,
+      @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
       @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
     )?
     $default,
@@ -469,19 +473,18 @@ extension RemoteSearchResultPatterns on RemoteSearchResult {
 @JsonSerializable()
 class _RemoteSearchResult implements RemoteSearchResult {
   const _RemoteSearchResult({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'ProviderIds')
-    required final Map<String, String?>? providerIds,
-    @JsonKey(name: 'ProductionYear') required this.productionYear,
-    @JsonKey(name: 'IndexNumber') required this.indexNumber,
-    @JsonKey(name: 'IndexNumberEnd') required this.indexNumberEnd,
-    @JsonKey(name: 'ParentIndexNumber') required this.parentIndexNumber,
-    @JsonKey(name: 'PremiereDate') required this.premiereDate,
-    @JsonKey(name: 'ImageUrl') required this.imageUrl,
-    @JsonKey(name: 'SearchProviderName') required this.searchProviderName,
-    @JsonKey(name: 'Overview') required this.overview,
-    @JsonKey(name: 'AlbumArtist') required this.albumArtist,
-    @JsonKey(name: 'Artists') required final List<RemoteSearchResult>? artists,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'ProviderIds') final Map<String, String?>? providerIds,
+    @JsonKey(name: 'ProductionYear') this.productionYear,
+    @JsonKey(name: 'IndexNumber') this.indexNumber,
+    @JsonKey(name: 'IndexNumberEnd') this.indexNumberEnd,
+    @JsonKey(name: 'ParentIndexNumber') this.parentIndexNumber,
+    @JsonKey(name: 'PremiereDate') this.premiereDate,
+    @JsonKey(name: 'ImageUrl') this.imageUrl,
+    @JsonKey(name: 'SearchProviderName') this.searchProviderName,
+    @JsonKey(name: 'Overview') this.overview,
+    @JsonKey(name: 'AlbumArtist') this.albumArtist,
+    @JsonKey(name: 'Artists') final List<RemoteSearchResult>? artists,
   }) : _providerIds = providerIds,
        _artists = artists;
   factory _RemoteSearchResult.fromJson(Map<String, dynamic> json) =>
@@ -533,7 +536,7 @@ class _RemoteSearchResult implements RemoteSearchResult {
   final String? overview;
   @override
   @JsonKey(name: 'AlbumArtist')
-  final RemoteSearchResult albumArtist;
+  final RemoteSearchResult? albumArtist;
   final List<RemoteSearchResult>? _artists;
   @override
   @JsonKey(name: 'Artists')
@@ -633,12 +636,12 @@ abstract mixin class _$RemoteSearchResultCopyWith<$Res>
     @JsonKey(name: 'ImageUrl') String? imageUrl,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
     @JsonKey(name: 'Overview') String? overview,
-    @JsonKey(name: 'AlbumArtist') RemoteSearchResult albumArtist,
+    @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
     @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
   });
 
   @override
-  $RemoteSearchResultCopyWith<$Res> get albumArtist;
+  $RemoteSearchResultCopyWith<$Res>? get albumArtist;
 }
 
 /// @nodoc
@@ -664,7 +667,7 @@ class __$RemoteSearchResultCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? searchProviderName = freezed,
     Object? overview = freezed,
-    Object? albumArtist = null,
+    Object? albumArtist = freezed,
     Object? artists = freezed,
   }) {
     return _then(
@@ -709,10 +712,10 @@ class __$RemoteSearchResultCopyWithImpl<$Res>
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        albumArtist: null == albumArtist
+        albumArtist: freezed == albumArtist
             ? _self.albumArtist
             : albumArtist // ignore: cast_nullable_to_non_nullable
-                  as RemoteSearchResult,
+                  as RemoteSearchResult?,
         artists: freezed == artists
             ? _self._artists
             : artists // ignore: cast_nullable_to_non_nullable
@@ -725,8 +728,12 @@ class __$RemoteSearchResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RemoteSearchResultCopyWith<$Res> get albumArtist {
-    return $RemoteSearchResultCopyWith<$Res>(_self.albumArtist, (value) {
+  $RemoteSearchResultCopyWith<$Res>? get albumArtist {
+    if (_self.albumArtist == null) {
+      return null;
+    }
+
+    return $RemoteSearchResultCopyWith<$Res>(_self.albumArtist!, (value) {
       return _then(_self.copyWith(albumArtist: value));
     });
   }

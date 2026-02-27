@@ -14,19 +14,18 @@ part 'sync_play_group_update_message.g.dart';
 @Freezed()
 abstract class SyncPlayGroupUpdateMessage with _$SyncPlayGroupUpdateMessage {
   const factory SyncPlayGroupUpdateMessage({
-    /// Group update data
-    @JsonKey(name: 'Data')
-    required GroupUpdate data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(SyncPlayGroupUpdateMessageMessageType.syncPlayGroupUpdate)
     SyncPlayGroupUpdateMessageMessageType messageType,
+
+    /// Group update data
+    @JsonKey(name: 'Data') GroupUpdate? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _SyncPlayGroupUpdateMessage;
-  
-  factory SyncPlayGroupUpdateMessage.fromJson(Map<String, Object?> json) => _$SyncPlayGroupUpdateMessageFromJson(json);
+
+  factory SyncPlayGroupUpdateMessage.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayGroupUpdateMessageFromJson(json);
 }

@@ -12,13 +12,12 @@ part 'library_option_info_dto.g.dart';
 abstract class LibraryOptionInfoDto with _$LibraryOptionInfoDto {
   const factory LibraryOptionInfoDto({
     /// Gets or sets name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets a value indicating whether default enabled.
-    @JsonKey(name: 'DefaultEnabled')
-    bool? defaultEnabled,
+    @JsonKey(name: 'DefaultEnabled') bool? defaultEnabled,
   }) = _LibraryOptionInfoDto;
-  
-  factory LibraryOptionInfoDto.fromJson(Map<String, Object?> json) => _$LibraryOptionInfoDtoFromJson(json);
+
+  factory LibraryOptionInfoDto.fromJson(Map<String, Object?> json) =>
+      _$LibraryOptionInfoDtoFromJson(json);
 }

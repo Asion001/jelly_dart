@@ -9,19 +9,21 @@ part of 'sync_play_play_queue_update.dart';
 _SyncPlayPlayQueueUpdate _$SyncPlayPlayQueueUpdateFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayPlayQueueUpdate(
-  groupId: json['GroupId'] as String,
-  data: PlayQueueUpdate.fromJson(json['Data'] as Map<String, dynamic>),
   type:
       $enumDecodeNullable(_$SyncPlayPlayQueueUpdateTypeEnumMap, json['Type']) ??
       SyncPlayPlayQueueUpdateType.playQueue,
+  groupId: json['GroupId'] as String?,
+  data: json['Data'] == null
+      ? null
+      : PlayQueueUpdate.fromJson(json['Data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SyncPlayPlayQueueUpdateToJson(
   _SyncPlayPlayQueueUpdate instance,
 ) => <String, dynamic>{
-  'GroupId': instance.groupId,
-  'Data': instance.data.toJson(),
   'Type': instance.type.toJson(),
+  'GroupId': ?instance.groupId,
+  'Data': ?instance.data?.toJson(),
 };
 
 const _$SyncPlayPlayQueueUpdateTypeEnumMap = {

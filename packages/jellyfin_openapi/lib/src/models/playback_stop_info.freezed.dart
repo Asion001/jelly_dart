@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$PlaybackStopInfo {
   /// Gets or sets the item.
   @JsonKey(name: 'Item')
-  BaseItemDto get item;
+  BaseItemDto? get item;
 
   /// Gets or sets the item identifier.
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the session id.
   @JsonKey(name: 'SessionId')
@@ -43,7 +43,7 @@ mixin _$PlaybackStopInfo {
 
   /// Gets or sets a value indicating whether this MediaBrowser.Model.Session.PlaybackStopInfo is failed.
   @JsonKey(name: 'Failed')
-  bool get failed;
+  bool? get failed;
   @JsonKey(name: 'NextMediaType')
   String? get nextMediaType;
   @JsonKey(name: 'PlaylistItemId')
@@ -123,20 +123,20 @@ abstract mixin class $PlaybackStopInfoCopyWith<$Res> {
   ) = _$PlaybackStopInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Item') BaseItemDto item,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'Item') BaseItemDto? item,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SessionId') String? sessionId,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
-    @JsonKey(name: 'Failed') bool failed,
+    @JsonKey(name: 'Failed') bool? failed,
     @JsonKey(name: 'NextMediaType') String? nextMediaType,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
   });
 
-  $BaseItemDtoCopyWith<$Res> get item;
+  $BaseItemDtoCopyWith<$Res>? get item;
 }
 
 /// @nodoc
@@ -152,28 +152,28 @@ class _$PlaybackStopInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? item = null,
-    Object? itemId = null,
+    Object? item = freezed,
+    Object? itemId = freezed,
     Object? sessionId = freezed,
     Object? mediaSourceId = freezed,
     Object? positionTicks = freezed,
     Object? liveStreamId = freezed,
     Object? playSessionId = freezed,
-    Object? failed = null,
+    Object? failed = freezed,
     Object? nextMediaType = freezed,
     Object? playlistItemId = freezed,
     Object? nowPlayingQueue = freezed,
   }) {
     return _then(
       _self.copyWith(
-        item: null == item
+        item: freezed == item
             ? _self.item
             : item // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
-        itemId: null == itemId
+                  as BaseItemDto?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         sessionId: freezed == sessionId
             ? _self.sessionId
             : sessionId // ignore: cast_nullable_to_non_nullable
@@ -194,10 +194,10 @@ class _$PlaybackStopInfoCopyWithImpl<$Res>
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        failed: null == failed
+        failed: freezed == failed
             ? _self.failed
             : failed // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         nextMediaType: freezed == nextMediaType
             ? _self.nextMediaType
             : nextMediaType // ignore: cast_nullable_to_non_nullable
@@ -218,8 +218,12 @@ class _$PlaybackStopInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get item {
-    return $BaseItemDtoCopyWith<$Res>(_self.item, (value) {
+  $BaseItemDtoCopyWith<$Res>? get item {
+    if (_self.item == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.item!, (value) {
       return _then(_self.copyWith(item: value));
     });
   }
@@ -319,14 +323,14 @@ extension PlaybackStopInfoPatterns on PlaybackStopInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'Failed') bool failed,
+      @JsonKey(name: 'Failed') bool? failed,
       @JsonKey(name: 'NextMediaType') String? nextMediaType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
@@ -371,14 +375,14 @@ extension PlaybackStopInfoPatterns on PlaybackStopInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'Failed') bool failed,
+      @JsonKey(name: 'Failed') bool? failed,
       @JsonKey(name: 'NextMediaType') String? nextMediaType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
@@ -421,14 +425,14 @@ extension PlaybackStopInfoPatterns on PlaybackStopInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'Failed') bool failed,
+      @JsonKey(name: 'Failed') bool? failed,
       @JsonKey(name: 'NextMediaType') String? nextMediaType,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
@@ -461,18 +465,17 @@ extension PlaybackStopInfoPatterns on PlaybackStopInfo {
 @JsonSerializable()
 class _PlaybackStopInfo implements PlaybackStopInfo {
   const _PlaybackStopInfo({
-    @JsonKey(name: 'Item') required this.item,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'SessionId') required this.sessionId,
-    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
-    @JsonKey(name: 'PositionTicks') required this.positionTicks,
-    @JsonKey(name: 'LiveStreamId') required this.liveStreamId,
-    @JsonKey(name: 'PlaySessionId') required this.playSessionId,
-    @JsonKey(name: 'Failed') required this.failed,
-    @JsonKey(name: 'NextMediaType') required this.nextMediaType,
-    @JsonKey(name: 'PlaylistItemId') required this.playlistItemId,
-    @JsonKey(name: 'NowPlayingQueue')
-    required final List<QueueItem>? nowPlayingQueue,
+    @JsonKey(name: 'Item') this.item,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'SessionId') this.sessionId,
+    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
+    @JsonKey(name: 'PositionTicks') this.positionTicks,
+    @JsonKey(name: 'LiveStreamId') this.liveStreamId,
+    @JsonKey(name: 'PlaySessionId') this.playSessionId,
+    @JsonKey(name: 'Failed') this.failed,
+    @JsonKey(name: 'NextMediaType') this.nextMediaType,
+    @JsonKey(name: 'PlaylistItemId') this.playlistItemId,
+    @JsonKey(name: 'NowPlayingQueue') final List<QueueItem>? nowPlayingQueue,
   }) : _nowPlayingQueue = nowPlayingQueue;
   factory _PlaybackStopInfo.fromJson(Map<String, dynamic> json) =>
       _$PlaybackStopInfoFromJson(json);
@@ -480,12 +483,12 @@ class _PlaybackStopInfo implements PlaybackStopInfo {
   /// Gets or sets the item.
   @override
   @JsonKey(name: 'Item')
-  final BaseItemDto item;
+  final BaseItemDto? item;
 
   /// Gets or sets the item identifier.
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the session id.
   @override
@@ -515,7 +518,7 @@ class _PlaybackStopInfo implements PlaybackStopInfo {
   /// Gets or sets a value indicating whether this MediaBrowser.Model.Session.PlaybackStopInfo is failed.
   @override
   @JsonKey(name: 'Failed')
-  final bool failed;
+  final bool? failed;
   @override
   @JsonKey(name: 'NextMediaType')
   final String? nextMediaType;
@@ -607,21 +610,21 @@ abstract mixin class _$PlaybackStopInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Item') BaseItemDto item,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'Item') BaseItemDto? item,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SessionId') String? sessionId,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
-    @JsonKey(name: 'Failed') bool failed,
+    @JsonKey(name: 'Failed') bool? failed,
     @JsonKey(name: 'NextMediaType') String? nextMediaType,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
   });
 
   @override
-  $BaseItemDtoCopyWith<$Res> get item;
+  $BaseItemDtoCopyWith<$Res>? get item;
 }
 
 /// @nodoc
@@ -637,28 +640,28 @@ class __$PlaybackStopInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? item = null,
-    Object? itemId = null,
+    Object? item = freezed,
+    Object? itemId = freezed,
     Object? sessionId = freezed,
     Object? mediaSourceId = freezed,
     Object? positionTicks = freezed,
     Object? liveStreamId = freezed,
     Object? playSessionId = freezed,
-    Object? failed = null,
+    Object? failed = freezed,
     Object? nextMediaType = freezed,
     Object? playlistItemId = freezed,
     Object? nowPlayingQueue = freezed,
   }) {
     return _then(
       _PlaybackStopInfo(
-        item: null == item
+        item: freezed == item
             ? _self.item
             : item // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
-        itemId: null == itemId
+                  as BaseItemDto?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         sessionId: freezed == sessionId
             ? _self.sessionId
             : sessionId // ignore: cast_nullable_to_non_nullable
@@ -679,10 +682,10 @@ class __$PlaybackStopInfoCopyWithImpl<$Res>
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        failed: null == failed
+        failed: freezed == failed
             ? _self.failed
             : failed // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         nextMediaType: freezed == nextMediaType
             ? _self.nextMediaType
             : nextMediaType // ignore: cast_nullable_to_non_nullable
@@ -703,8 +706,12 @@ class __$PlaybackStopInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get item {
-    return $BaseItemDtoCopyWith<$Res>(_self.item, (value) {
+  $BaseItemDtoCopyWith<$Res>? get item {
+    if (_self.item == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.item!, (value) {
       return _then(_self.copyWith(item: value));
     });
   }

@@ -14,35 +14,28 @@ part 'live_tv_service_info.g.dart';
 abstract class LiveTvServiceInfo with _$LiveTvServiceInfo {
   const factory LiveTvServiceInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the home page URL.
-    @JsonKey(name: 'HomePageUrl')
-    required String? homePageUrl,
+    @JsonKey(name: 'HomePageUrl') String? homePageUrl,
 
     /// Gets or sets the status.
-    @JsonKey(name: 'Status')
-    required LiveTvServiceInfoStatus status,
+    @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
 
     /// Gets or sets the status message.
-    @JsonKey(name: 'StatusMessage')
-    required String? statusMessage,
+    @JsonKey(name: 'StatusMessage') String? statusMessage,
 
     /// Gets or sets the version.
-    @JsonKey(name: 'Version')
-    required String? version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets or sets a value indicating whether this instance has update available.
-    @JsonKey(name: 'HasUpdateAvailable')
-    required bool hasUpdateAvailable,
+    @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
 
     /// Gets or sets a value indicating whether this instance is visible.
-    @JsonKey(name: 'IsVisible')
-    required bool isVisible,
-    @JsonKey(name: 'Tuners')
-    required List<String>? tuners,
+    @JsonKey(name: 'IsVisible') bool? isVisible,
+    @JsonKey(name: 'Tuners') List<String>? tuners,
   }) = _LiveTvServiceInfo;
-  
-  factory LiveTvServiceInfo.fromJson(Map<String, Object?> json) => _$LiveTvServiceInfoFromJson(json);
+
+  factory LiveTvServiceInfo.fromJson(Map<String, Object?> json) =>
+      _$LiveTvServiceInfoFromJson(json);
 }

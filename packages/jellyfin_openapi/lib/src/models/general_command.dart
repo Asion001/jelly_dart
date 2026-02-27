@@ -13,13 +13,11 @@ part 'general_command.g.dart';
 abstract class GeneralCommand with _$GeneralCommand {
   const factory GeneralCommand({
     /// This exists simply to identify a set of known commands.
-    @JsonKey(name: 'Name')
-    required GeneralCommandName name,
-    @JsonKey(name: 'ControllingUserId')
-    required String controllingUserId,
-    @JsonKey(name: 'Arguments')
-    required Map<String, String?> arguments,
+    @JsonKey(name: 'Name') GeneralCommandName? name,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+    @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
   }) = _GeneralCommand;
-  
-  factory GeneralCommand.fromJson(Map<String, Object?> json) => _$GeneralCommandFromJson(json);
+
+  factory GeneralCommand.fromJson(Map<String, Object?> json) =>
+      _$GeneralCommandFromJson(json);
 }

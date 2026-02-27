@@ -11,8 +11,8 @@ _TranscodingInfo _$TranscodingInfoFromJson(Map<String, dynamic> json) =>
       audioCodec: json['AudioCodec'] as String?,
       videoCodec: json['VideoCodec'] as String?,
       container: json['Container'] as String?,
-      isVideoDirect: json['IsVideoDirect'] as bool,
-      isAudioDirect: json['IsAudioDirect'] as bool,
+      isVideoDirect: json['IsVideoDirect'] as bool?,
+      isAudioDirect: json['IsAudioDirect'] as bool?,
       bitrate: (json['Bitrate'] as num?)?.toInt(),
       framerate: (json['Framerate'] as num?)?.toDouble(),
       completionPercentage: (json['CompletionPercentage'] as num?)?.toDouble(),
@@ -23,28 +23,29 @@ _TranscodingInfo _$TranscodingInfoFromJson(Map<String, dynamic> json) =>
         _$TranscodingInfoHardwareAccelerationTypeEnumMap,
         json['HardwareAccelerationType'],
       ),
-      transcodeReasons: (json['TranscodeReasons'] as List<dynamic>)
-          .map((e) => $enumDecode(_$TranscodeReasonEnumMap, e))
+      transcodeReasons: (json['TranscodeReasons'] as List<dynamic>?)
+          ?.map((e) => $enumDecode(_$TranscodeReasonEnumMap, e))
           .toList(),
     );
 
-Map<String, dynamic> _$TranscodingInfoToJson(
-  _TranscodingInfo instance,
-) => <String, dynamic>{
-  'AudioCodec': ?instance.audioCodec,
-  'VideoCodec': ?instance.videoCodec,
-  'Container': ?instance.container,
-  'IsVideoDirect': instance.isVideoDirect,
-  'IsAudioDirect': instance.isAudioDirect,
-  'Bitrate': ?instance.bitrate,
-  'Framerate': ?instance.framerate,
-  'CompletionPercentage': ?instance.completionPercentage,
-  'Width': ?instance.width,
-  'Height': ?instance.height,
-  'AudioChannels': ?instance.audioChannels,
-  'HardwareAccelerationType': ?instance.hardwareAccelerationType?.toJson(),
-  'TranscodeReasons': instance.transcodeReasons.map((e) => e.toJson()).toList(),
-};
+Map<String, dynamic> _$TranscodingInfoToJson(_TranscodingInfo instance) =>
+    <String, dynamic>{
+      'AudioCodec': ?instance.audioCodec,
+      'VideoCodec': ?instance.videoCodec,
+      'Container': ?instance.container,
+      'IsVideoDirect': ?instance.isVideoDirect,
+      'IsAudioDirect': ?instance.isAudioDirect,
+      'Bitrate': ?instance.bitrate,
+      'Framerate': ?instance.framerate,
+      'CompletionPercentage': ?instance.completionPercentage,
+      'Width': ?instance.width,
+      'Height': ?instance.height,
+      'AudioChannels': ?instance.audioChannels,
+      'HardwareAccelerationType': ?instance.hardwareAccelerationType?.toJson(),
+      'TranscodeReasons': ?instance.transcodeReasons
+          ?.map((e) => e.toJson())
+          .toList(),
+    };
 
 const _$TranscodingInfoHardwareAccelerationTypeEnumMap = {
   TranscodingInfoHardwareAccelerationType.none: 'none',

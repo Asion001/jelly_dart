@@ -12,9 +12,9 @@ part 'quick_connect_dto.g.dart';
 abstract class QuickConnectDto with _$QuickConnectDto {
   const factory QuickConnectDto({
     /// Gets or sets the quick connect secret.
-    @JsonKey(name: 'Secret')
-    required String secret,
+    @JsonKey(name: 'Secret') required String secret,
   }) = _QuickConnectDto;
-  
-  factory QuickConnectDto.fromJson(Map<String, Object?> json) => _$QuickConnectDtoFromJson(json);
+
+  factory QuickConnectDto.fromJson(Map<String, Object?> json) =>
+      _$QuickConnectDtoFromJson(json);
 }

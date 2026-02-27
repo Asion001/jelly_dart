@@ -14,19 +14,18 @@ part 'user_data_changed_message.g.dart';
 @Freezed()
 abstract class UserDataChangedMessage with _$UserDataChangedMessage {
   const factory UserDataChangedMessage({
-    /// Class UserDataChangeInfo.
-    @JsonKey(name: 'Data')
-    required UserDataChangeInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(UserDataChangedMessageMessageType.userDataChanged)
     UserDataChangedMessageMessageType messageType,
+
+    /// Class UserDataChangeInfo.
+    @JsonKey(name: 'Data') UserDataChangeInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _UserDataChangedMessage;
-  
-  factory UserDataChangedMessage.fromJson(Map<String, Object?> json) => _$UserDataChangedMessageFromJson(json);
+
+  factory UserDataChangedMessage.fromJson(Map<String, Object?> json) =>
+      _$UserDataChangedMessageFromJson(json);
 }

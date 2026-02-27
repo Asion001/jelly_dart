@@ -12,19 +12,16 @@ part 'box_set_info_remote_search_query.g.dart';
 @Freezed()
 abstract class BoxSetInfoRemoteSearchQuery with _$BoxSetInfoRemoteSearchQuery {
   const factory BoxSetInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo')
-    required BoxSetInfo searchInfo,
-    @JsonKey(name: 'ItemId')
-    required String itemId,
+    @JsonKey(name: 'SearchInfo') BoxSetInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
 
     /// Gets or sets the provider name to search within if set.
-    @JsonKey(name: 'SearchProviderName')
-    required String? searchProviderName,
+    @JsonKey(name: 'SearchProviderName') String? searchProviderName,
 
     /// Gets or sets a value indicating whether disabled providers should be included.
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   }) = _BoxSetInfoRemoteSearchQuery;
-  
-  factory BoxSetInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) => _$BoxSetInfoRemoteSearchQueryFromJson(json);
+
+  factory BoxSetInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) =>
+      _$BoxSetInfoRemoteSearchQueryFromJson(json);
 }

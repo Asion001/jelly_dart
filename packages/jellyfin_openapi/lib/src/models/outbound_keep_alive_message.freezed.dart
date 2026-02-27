@@ -13,13 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$OutboundKeepAliveMessage {
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   OutboundKeepAliveMessageMessageType get messageType;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of OutboundKeepAliveMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -39,19 +39,19 @@ mixin _$OutboundKeepAliveMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OutboundKeepAliveMessage &&
-            (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.messageId, messageId) ||
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, messageId);
 
   @override
   String toString() {
-    return 'OutboundKeepAliveMessage(messageId: $messageId, messageType: $messageType)';
+    return 'OutboundKeepAliveMessage(messageType: $messageType, messageId: $messageId)';
   }
 }
 
@@ -63,9 +63,9 @@ abstract mixin class $OutboundKeepAliveMessageCopyWith<$Res> {
   ) = _$OutboundKeepAliveMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     OutboundKeepAliveMessageMessageType messageType,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -81,17 +81,17 @@ class _$OutboundKeepAliveMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? messageId = null, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? messageId = freezed}) {
     return _then(
       _self.copyWith(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as OutboundKeepAliveMessageMessageType,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -191,9 +191,9 @@ extension OutboundKeepAliveMessagePatterns on OutboundKeepAliveMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       OutboundKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -201,7 +201,7 @@ extension OutboundKeepAliveMessagePatterns on OutboundKeepAliveMessage {
     final _that = this;
     switch (_that) {
       case _OutboundKeepAliveMessage() when $default != null:
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         return orElse();
     }
@@ -223,16 +223,16 @@ extension OutboundKeepAliveMessagePatterns on OutboundKeepAliveMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       OutboundKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _OutboundKeepAliveMessage():
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -253,16 +253,16 @@ extension OutboundKeepAliveMessagePatterns on OutboundKeepAliveMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       OutboundKeepAliveMessageMessageType messageType,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _OutboundKeepAliveMessage() when $default != null:
-        return $default(_that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.messageId);
       case _:
         return null;
     }
@@ -273,22 +273,22 @@ extension OutboundKeepAliveMessagePatterns on OutboundKeepAliveMessage {
 @JsonSerializable()
 class _OutboundKeepAliveMessage implements OutboundKeepAliveMessage {
   const _OutboundKeepAliveMessage({
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = OutboundKeepAliveMessageMessageType.keepAlive,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _OutboundKeepAliveMessage.fromJson(Map<String, dynamic> json) =>
       _$OutboundKeepAliveMessageFromJson(json);
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final OutboundKeepAliveMessageMessageType messageType;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of OutboundKeepAliveMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -311,19 +311,19 @@ class _OutboundKeepAliveMessage implements OutboundKeepAliveMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OutboundKeepAliveMessage &&
-            (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.messageId, messageId) ||
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, messageId);
 
   @override
   String toString() {
-    return 'OutboundKeepAliveMessage(messageId: $messageId, messageType: $messageType)';
+    return 'OutboundKeepAliveMessage(messageType: $messageType, messageId: $messageId)';
   }
 }
 
@@ -337,9 +337,9 @@ abstract mixin class _$OutboundKeepAliveMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     OutboundKeepAliveMessageMessageType messageType,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -355,17 +355,17 @@ class __$OutboundKeepAliveMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? messageId = null, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? messageId = freezed}) {
     return _then(
       _OutboundKeepAliveMessage(
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as OutboundKeepAliveMessageMessageType,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

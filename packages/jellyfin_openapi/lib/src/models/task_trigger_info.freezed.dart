@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$TaskTriggerInfo {
   /// Gets or sets the type.
   @JsonKey(name: 'Type')
-  TaskTriggerInfoType get type;
+  TaskTriggerInfoType? get type;
 
   /// Gets or sets the time of day.
   @JsonKey(name: 'TimeOfDayTicks')
@@ -87,7 +87,7 @@ abstract mixin class $TaskTriggerInfoCopyWith<$Res> {
   ) = _$TaskTriggerInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') TaskTriggerInfoType type,
+    @JsonKey(name: 'Type') TaskTriggerInfoType? type,
     @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
     @JsonKey(name: 'IntervalTicks') int? intervalTicks,
     @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
@@ -108,7 +108,7 @@ class _$TaskTriggerInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? type = freezed,
     Object? timeOfDayTicks = freezed,
     Object? intervalTicks = freezed,
     Object? dayOfWeek = freezed,
@@ -116,10 +116,10 @@ class _$TaskTriggerInfoCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as TaskTriggerInfoType,
+                  as TaskTriggerInfoType?,
         timeOfDayTicks: freezed == timeOfDayTicks
             ? _self.timeOfDayTicks
             : timeOfDayTicks // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ extension TaskTriggerInfoPatterns on TaskTriggerInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') TaskTriggerInfoType type,
+      @JsonKey(name: 'Type') TaskTriggerInfoType? type,
       @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
       @JsonKey(name: 'IntervalTicks') int? intervalTicks,
       @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
@@ -275,7 +275,7 @@ extension TaskTriggerInfoPatterns on TaskTriggerInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') TaskTriggerInfoType type,
+      @JsonKey(name: 'Type') TaskTriggerInfoType? type,
       @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
       @JsonKey(name: 'IntervalTicks') int? intervalTicks,
       @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
@@ -313,7 +313,7 @@ extension TaskTriggerInfoPatterns on TaskTriggerInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Type') TaskTriggerInfoType type,
+      @JsonKey(name: 'Type') TaskTriggerInfoType? type,
       @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
       @JsonKey(name: 'IntervalTicks') int? intervalTicks,
       @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
@@ -341,11 +341,11 @@ extension TaskTriggerInfoPatterns on TaskTriggerInfo {
 @JsonSerializable()
 class _TaskTriggerInfo implements TaskTriggerInfo {
   const _TaskTriggerInfo({
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'TimeOfDayTicks') required this.timeOfDayTicks,
-    @JsonKey(name: 'IntervalTicks') required this.intervalTicks,
-    @JsonKey(name: 'DayOfWeek') required this.dayOfWeek,
-    @JsonKey(name: 'MaxRuntimeTicks') required this.maxRuntimeTicks,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'TimeOfDayTicks') this.timeOfDayTicks,
+    @JsonKey(name: 'IntervalTicks') this.intervalTicks,
+    @JsonKey(name: 'DayOfWeek') this.dayOfWeek,
+    @JsonKey(name: 'MaxRuntimeTicks') this.maxRuntimeTicks,
   });
   factory _TaskTriggerInfo.fromJson(Map<String, dynamic> json) =>
       _$TaskTriggerInfoFromJson(json);
@@ -353,7 +353,7 @@ class _TaskTriggerInfo implements TaskTriggerInfo {
   /// Gets or sets the type.
   @override
   @JsonKey(name: 'Type')
-  final TaskTriggerInfoType type;
+  final TaskTriggerInfoType? type;
 
   /// Gets or sets the time of day.
   @override
@@ -431,7 +431,7 @@ abstract mixin class _$TaskTriggerInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') TaskTriggerInfoType type,
+    @JsonKey(name: 'Type') TaskTriggerInfoType? type,
     @JsonKey(name: 'TimeOfDayTicks') int? timeOfDayTicks,
     @JsonKey(name: 'IntervalTicks') int? intervalTicks,
     @JsonKey(name: 'DayOfWeek') TaskTriggerInfoDayOfWeek? dayOfWeek,
@@ -452,7 +452,7 @@ class __$TaskTriggerInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? type = null,
+    Object? type = freezed,
     Object? timeOfDayTicks = freezed,
     Object? intervalTicks = freezed,
     Object? dayOfWeek = freezed,
@@ -460,10 +460,10 @@ class __$TaskTriggerInfoCopyWithImpl<$Res>
   }) {
     return _then(
       _TaskTriggerInfo(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as TaskTriggerInfoType,
+                  as TaskTriggerInfoType?,
         timeOfDayTicks: freezed == timeOfDayTicks
             ? _self.timeOfDayTicks
             : timeOfDayTicks // ignore: cast_nullable_to_non_nullable

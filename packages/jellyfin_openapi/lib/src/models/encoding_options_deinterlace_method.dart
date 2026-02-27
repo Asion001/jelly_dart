@@ -10,7 +10,8 @@ enum EncodingOptionsDeinterlaceMethod {
   @JsonValue('yadif')
   yadif('yadif'),
   @JsonValue('bwdif')
-  bwdif('bwdif');
+  bwdif('bwdif')
+  ;
 
   const EncodingOptionsDeinterlaceMethod(this.json);
 
@@ -18,8 +19,10 @@ enum EncodingOptionsDeinterlaceMethod {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

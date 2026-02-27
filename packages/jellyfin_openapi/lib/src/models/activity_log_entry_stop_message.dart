@@ -18,6 +18,7 @@ abstract class ActivityLogEntryStopMessage with _$ActivityLogEntryStopMessage {
     @Default(ActivityLogEntryStopMessageMessageType.activityLogEntryStop)
     ActivityLogEntryStopMessageMessageType messageType,
   }) = _ActivityLogEntryStopMessage;
-  
-  factory ActivityLogEntryStopMessage.fromJson(Map<String, Object?> json) => _$ActivityLogEntryStopMessageFromJson(json);
+
+  factory ActivityLogEntryStopMessage.fromJson(Map<String, Object?> json) =>
+      _$ActivityLogEntryStopMessageFromJson(json);
 }

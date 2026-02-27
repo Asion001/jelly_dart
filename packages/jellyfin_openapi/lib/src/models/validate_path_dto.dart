@@ -12,17 +12,15 @@ part 'validate_path_dto.g.dart';
 abstract class ValidatePathDto with _$ValidatePathDto {
   const factory ValidatePathDto({
     /// Gets or sets a value indicating whether validate if path is writable.
-    @JsonKey(name: 'ValidateWritable')
-    bool? validateWritable,
+    @JsonKey(name: 'ValidateWritable') bool? validateWritable,
 
     /// Gets or sets the path.
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets or sets is path file.
-    @JsonKey(name: 'IsFile')
-    bool? isFile,
+    @JsonKey(name: 'IsFile') bool? isFile,
   }) = _ValidatePathDto;
-  
-  factory ValidatePathDto.fromJson(Map<String, Object?> json) => _$ValidatePathDtoFromJson(json);
+
+  factory ValidatePathDto.fromJson(Map<String, Object?> json) =>
+      _$ValidatePathDtoFromJson(json);
 }

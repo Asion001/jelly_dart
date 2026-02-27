@@ -7,9 +7,13 @@ part of 'task_result.dart';
 // **************************************************************************
 
 _TaskResult _$TaskResultFromJson(Map<String, dynamic> json) => _TaskResult(
-  startTimeUtc: DateTime.parse(json['StartTimeUtc'] as String),
-  endTimeUtc: DateTime.parse(json['EndTimeUtc'] as String),
-  status: $enumDecode(_$TaskResultStatusEnumMap, json['Status']),
+  startTimeUtc: json['StartTimeUtc'] == null
+      ? null
+      : DateTime.parse(json['StartTimeUtc'] as String),
+  endTimeUtc: json['EndTimeUtc'] == null
+      ? null
+      : DateTime.parse(json['EndTimeUtc'] as String),
+  status: $enumDecodeNullable(_$TaskResultStatusEnumMap, json['Status']),
   name: json['Name'] as String?,
   key: json['Key'] as String?,
   id: json['Id'] as String?,
@@ -19,9 +23,9 @@ _TaskResult _$TaskResultFromJson(Map<String, dynamic> json) => _TaskResult(
 
 Map<String, dynamic> _$TaskResultToJson(_TaskResult instance) =>
     <String, dynamic>{
-      'StartTimeUtc': instance.startTimeUtc.toIso8601String(),
-      'EndTimeUtc': instance.endTimeUtc.toIso8601String(),
-      'Status': instance.status.toJson(),
+      'StartTimeUtc': ?instance.startTimeUtc?.toIso8601String(),
+      'EndTimeUtc': ?instance.endTimeUtc?.toIso8601String(),
+      'Status': ?instance.status?.toJson(),
       'Name': ?instance.name,
       'Key': ?instance.key,
       'Id': ?instance.id,

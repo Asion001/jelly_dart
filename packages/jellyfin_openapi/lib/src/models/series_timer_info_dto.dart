@@ -16,135 +16,102 @@ part 'series_timer_info_dto.g.dart';
 abstract class SeriesTimerInfoDto with _$SeriesTimerInfoDto {
   const factory SeriesTimerInfoDto({
     /// Gets or sets the start date of the recording, in UTC.
-    @JsonKey(name: 'StartDate')
-    required DateTime startDate,
-    @JsonKey(name: 'Type')
-    required String? type,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
+    @JsonKey(name: 'Type') String? type,
 
     /// Gets or sets the server identifier.
-    @JsonKey(name: 'ServerId')
-    required String? serverId,
+    @JsonKey(name: 'ServerId') String? serverId,
 
     /// Gets or sets the external identifier.
-    @JsonKey(name: 'ExternalId')
-    required String? externalId,
+    @JsonKey(name: 'ExternalId') String? externalId,
 
     /// Gets or sets the channel id of the recording.
-    @JsonKey(name: 'ChannelId')
-    required String channelId,
+    @JsonKey(name: 'ChannelId') String? channelId,
 
     /// Gets or sets the external channel identifier.
-    @JsonKey(name: 'ExternalChannelId')
-    required String? externalChannelId,
+    @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
 
     /// Gets or sets the channel name of the recording.
-    @JsonKey(name: 'ChannelName')
-    required String? channelName,
-    @JsonKey(name: 'ChannelPrimaryImageTag')
-    required String? channelPrimaryImageTag,
+    @JsonKey(name: 'ChannelName') String? channelName,
+    @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
 
     /// Gets or sets the program identifier.
-    @JsonKey(name: 'ProgramId')
-    required String? programId,
+    @JsonKey(name: 'ProgramId') String? programId,
 
     /// Gets or sets the external program identifier.
-    @JsonKey(name: 'ExternalProgramId')
-    required String? externalProgramId,
+    @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
 
     /// Gets or sets the name of the recording.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the description of the recording.
-    @JsonKey(name: 'Overview')
-    required String? overview,
+    @JsonKey(name: 'Overview') String? overview,
 
     /// Gets or sets the Id of the recording.
-    @JsonKey(name: 'Id')
-    required String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the end date of the recording, in UTC.
-    @JsonKey(name: 'EndDate')
-    required DateTime endDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
 
     /// Gets or sets the name of the service.
-    @JsonKey(name: 'ServiceName')
-    required String? serviceName,
+    @JsonKey(name: 'ServiceName') String? serviceName,
 
     /// Gets or sets the priority.
-    @JsonKey(name: 'Priority')
-    required int priority,
+    @JsonKey(name: 'Priority') int? priority,
 
     /// Gets or sets the pre padding seconds.
-    @JsonKey(name: 'PrePaddingSeconds')
-    required int prePaddingSeconds,
+    @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
 
     /// Gets or sets the post padding seconds.
-    @JsonKey(name: 'PostPaddingSeconds')
-    required int postPaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
 
     /// Gets or sets a value indicating whether this instance is pre padding required.
-    @JsonKey(name: 'IsPrePaddingRequired')
-    required bool isPrePaddingRequired,
+    @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
 
     /// Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
-    @JsonKey(name: 'ParentBackdropItemId')
-    required String? parentBackdropItemId,
+    @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
 
     /// Gets or sets the parent backdrop image tags.
     @JsonKey(name: 'ParentBackdropImageTags')
-    required List<String>? parentBackdropImageTags,
+    List<String>? parentBackdropImageTags,
 
     /// Gets or sets a value indicating whether this instance is post padding required.
-    @JsonKey(name: 'IsPostPaddingRequired')
-    required bool isPostPaddingRequired,
+    @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
 
     /// Gets or sets the parent primary image tag.
-    @JsonKey(name: 'ParentPrimaryImageTag')
-    required String? parentPrimaryImageTag,
+    @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
 
     /// Gets or sets a value indicating whether [record any time].
-    @JsonKey(name: 'RecordAnyTime')
-    required bool recordAnyTime,
-    @JsonKey(name: 'SkipEpisodesInLibrary')
-    required bool skipEpisodesInLibrary,
+    @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+    @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
 
     /// Gets or sets a value indicating whether [record any channel].
-    @JsonKey(name: 'RecordAnyChannel')
-    required bool recordAnyChannel,
-    @JsonKey(name: 'KeepUpTo')
-    required int keepUpTo,
+    @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+    @JsonKey(name: 'KeepUpTo') int? keepUpTo,
 
     /// Gets or sets a value indicating whether [record new only].
-    @JsonKey(name: 'RecordNewOnly')
-    required bool recordNewOnly,
+    @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
 
     /// Gets or sets the days.
-    @JsonKey(name: 'Days')
-    required List<DayOfWeek>? days,
+    @JsonKey(name: 'Days') List<DayOfWeek>? days,
 
     /// Gets or sets the day pattern.
-    @JsonKey(name: 'DayPattern')
-    required SeriesTimerInfoDtoDayPattern? dayPattern,
+    @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
 
     /// Gets or sets the image tags.
-    @JsonKey(name: 'ImageTags')
-    required Map<String, String>? imageTags,
+    @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
 
     /// Gets or sets the parent thumb item id.
-    @JsonKey(name: 'ParentThumbItemId')
-    required String? parentThumbItemId,
+    @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
 
     /// Gets or sets the parent thumb image tag.
-    @JsonKey(name: 'ParentThumbImageTag')
-    required String? parentThumbImageTag,
+    @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
 
     /// Gets or sets the parent primary image item identifier.
-    @JsonKey(name: 'ParentPrimaryImageItemId')
-    required String? parentPrimaryImageItemId,
-    @JsonKey(name: 'KeepUntil')
-    required SeriesTimerInfoDtoKeepUntil keepUntil,
+    @JsonKey(name: 'ParentPrimaryImageItemId') String? parentPrimaryImageItemId,
+    @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
   }) = _SeriesTimerInfoDto;
-  
-  factory SeriesTimerInfoDto.fromJson(Map<String, Object?> json) => _$SeriesTimerInfoDtoFromJson(json);
+
+  factory SeriesTimerInfoDto.fromJson(Map<String, Object?> json) =>
+      _$SeriesTimerInfoDtoFromJson(json);
 }

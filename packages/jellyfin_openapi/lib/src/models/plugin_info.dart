@@ -14,37 +14,30 @@ part 'plugin_info.g.dart';
 abstract class PluginInfo with _$PluginInfo {
   const factory PluginInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the version.
-    @JsonKey(name: 'Version')
-    required String version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets or sets the name of the configuration file.
-    @JsonKey(name: 'ConfigurationFileName')
-    required String? configurationFileName,
+    @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
 
     /// Gets or sets the description.
-    @JsonKey(name: 'Description')
-    required String description,
+    @JsonKey(name: 'Description') String? description,
 
     /// Gets or sets the unique id.
-    @JsonKey(name: 'Id')
-    required String id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets a value indicating whether the plugin can be uninstalled.
-    @JsonKey(name: 'CanUninstall')
-    required bool canUninstall,
+    @JsonKey(name: 'CanUninstall') bool? canUninstall,
 
     /// Gets or sets a value indicating whether this plugin has a valid image.
-    @JsonKey(name: 'HasImage')
-    required bool hasImage,
+    @JsonKey(name: 'HasImage') bool? hasImage,
 
     /// Gets or sets a value indicating the status of the plugin.
-    @JsonKey(name: 'Status')
-    required PluginInfoStatus status,
+    @JsonKey(name: 'Status') PluginInfoStatus? status,
   }) = _PluginInfo;
-  
-  factory PluginInfo.fromJson(Map<String, Object?> json) => _$PluginInfoFromJson(json);
+
+  factory PluginInfo.fromJson(Map<String, Object?> json) =>
+      _$PluginInfoFromJson(json);
 }

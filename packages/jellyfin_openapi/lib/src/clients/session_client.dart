@@ -198,7 +198,8 @@ abstract class SessionClient {
   @POST('/Sessions/Capabilities')
   Future<void> postCapabilities({
     @Query('supportsMediaControl') bool? supportsMediaControl = false,
-    @Query('supportsPersistentIdentifier') bool? supportsPersistentIdentifier = true,
+    @Query('supportsPersistentIdentifier')
+    bool? supportsPersistentIdentifier = true,
     @Query('id') String? id,
     @Query('playableMediaTypes') List<MediaType>? playableMediaTypes,
     @Query('supportedCommands') List<GeneralCommandType>? supportedCommands,

@@ -31,39 +31,39 @@ mixin _$DisplayPreferencesDto {
 
   /// Gets or sets a value indicating whether [remember indexing].
   @JsonKey(name: 'RememberIndexing')
-  bool get rememberIndexing;
+  bool? get rememberIndexing;
 
   /// Gets or sets the height of the primary image.
   @JsonKey(name: 'PrimaryImageHeight')
-  int get primaryImageHeight;
+  int? get primaryImageHeight;
 
   /// Gets or sets the width of the primary image.
   @JsonKey(name: 'PrimaryImageWidth')
-  int get primaryImageWidth;
+  int? get primaryImageWidth;
 
   /// Gets or sets the custom prefs.
   @JsonKey(name: 'CustomPrefs')
-  Map<String, String?> get customPrefs;
+  Map<String, String?>? get customPrefs;
 
   /// Gets or sets the scroll direction.
   @JsonKey(name: 'ScrollDirection')
-  DisplayPreferencesDtoScrollDirection get scrollDirection;
+  DisplayPreferencesDtoScrollDirection? get scrollDirection;
 
   /// Gets or sets a value indicating whether to show backdrops on this item.
   @JsonKey(name: 'ShowBackdrop')
-  bool get showBackdrop;
+  bool? get showBackdrop;
 
   /// Gets or sets a value indicating whether [remember sorting].
   @JsonKey(name: 'RememberSorting')
-  bool get rememberSorting;
+  bool? get rememberSorting;
 
   /// Gets or sets the sort order.
   @JsonKey(name: 'SortOrder')
-  DisplayPreferencesDtoSortOrder get sortOrder;
+  DisplayPreferencesDtoSortOrder? get sortOrder;
 
   /// Gets or sets a value indicating whether [show sidebar].
   @JsonKey(name: 'ShowSidebar')
-  bool get showSidebar;
+  bool? get showSidebar;
 
   /// Gets or sets the client.
   @JsonKey(name: 'Client')
@@ -153,16 +153,16 @@ abstract mixin class $DisplayPreferencesDtoCopyWith<$Res> {
     @JsonKey(name: 'ViewType') String? viewType,
     @JsonKey(name: 'SortBy') String? sortBy,
     @JsonKey(name: 'IndexBy') String? indexBy,
-    @JsonKey(name: 'RememberIndexing') bool rememberIndexing,
-    @JsonKey(name: 'PrimaryImageHeight') int primaryImageHeight,
-    @JsonKey(name: 'PrimaryImageWidth') int primaryImageWidth,
-    @JsonKey(name: 'CustomPrefs') Map<String, String?> customPrefs,
+    @JsonKey(name: 'RememberIndexing') bool? rememberIndexing,
+    @JsonKey(name: 'PrimaryImageHeight') int? primaryImageHeight,
+    @JsonKey(name: 'PrimaryImageWidth') int? primaryImageWidth,
+    @JsonKey(name: 'CustomPrefs') Map<String, String?>? customPrefs,
     @JsonKey(name: 'ScrollDirection')
-    DisplayPreferencesDtoScrollDirection scrollDirection,
-    @JsonKey(name: 'ShowBackdrop') bool showBackdrop,
-    @JsonKey(name: 'RememberSorting') bool rememberSorting,
-    @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder sortOrder,
-    @JsonKey(name: 'ShowSidebar') bool showSidebar,
+    DisplayPreferencesDtoScrollDirection? scrollDirection,
+    @JsonKey(name: 'ShowBackdrop') bool? showBackdrop,
+    @JsonKey(name: 'RememberSorting') bool? rememberSorting,
+    @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder? sortOrder,
+    @JsonKey(name: 'ShowSidebar') bool? showSidebar,
     @JsonKey(name: 'Client') String? client,
   });
 }
@@ -184,15 +184,15 @@ class _$DisplayPreferencesDtoCopyWithImpl<$Res>
     Object? viewType = freezed,
     Object? sortBy = freezed,
     Object? indexBy = freezed,
-    Object? rememberIndexing = null,
-    Object? primaryImageHeight = null,
-    Object? primaryImageWidth = null,
-    Object? customPrefs = null,
-    Object? scrollDirection = null,
-    Object? showBackdrop = null,
-    Object? rememberSorting = null,
-    Object? sortOrder = null,
-    Object? showSidebar = null,
+    Object? rememberIndexing = freezed,
+    Object? primaryImageHeight = freezed,
+    Object? primaryImageWidth = freezed,
+    Object? customPrefs = freezed,
+    Object? scrollDirection = freezed,
+    Object? showBackdrop = freezed,
+    Object? rememberSorting = freezed,
+    Object? sortOrder = freezed,
+    Object? showSidebar = freezed,
     Object? client = freezed,
   }) {
     return _then(
@@ -213,42 +213,42 @@ class _$DisplayPreferencesDtoCopyWithImpl<$Res>
             ? _self.indexBy
             : indexBy // ignore: cast_nullable_to_non_nullable
                   as String?,
-        rememberIndexing: null == rememberIndexing
+        rememberIndexing: freezed == rememberIndexing
             ? _self.rememberIndexing
             : rememberIndexing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        primaryImageHeight: null == primaryImageHeight
+                  as bool?,
+        primaryImageHeight: freezed == primaryImageHeight
             ? _self.primaryImageHeight
             : primaryImageHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        primaryImageWidth: null == primaryImageWidth
+                  as int?,
+        primaryImageWidth: freezed == primaryImageWidth
             ? _self.primaryImageWidth
             : primaryImageWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        customPrefs: null == customPrefs
+                  as int?,
+        customPrefs: freezed == customPrefs
             ? _self.customPrefs
             : customPrefs // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>,
-        scrollDirection: null == scrollDirection
+                  as Map<String, String?>?,
+        scrollDirection: freezed == scrollDirection
             ? _self.scrollDirection
             : scrollDirection // ignore: cast_nullable_to_non_nullable
-                  as DisplayPreferencesDtoScrollDirection,
-        showBackdrop: null == showBackdrop
+                  as DisplayPreferencesDtoScrollDirection?,
+        showBackdrop: freezed == showBackdrop
             ? _self.showBackdrop
             : showBackdrop // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberSorting: null == rememberSorting
+                  as bool?,
+        rememberSorting: freezed == rememberSorting
             ? _self.rememberSorting
             : rememberSorting // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        sortOrder: null == sortOrder
+                  as bool?,
+        sortOrder: freezed == sortOrder
             ? _self.sortOrder
             : sortOrder // ignore: cast_nullable_to_non_nullable
-                  as DisplayPreferencesDtoSortOrder,
-        showSidebar: null == showSidebar
+                  as DisplayPreferencesDtoSortOrder?,
+        showSidebar: freezed == showSidebar
             ? _self.showSidebar
             : showSidebar // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         client: freezed == client
             ? _self.client
             : client // ignore: cast_nullable_to_non_nullable
@@ -356,16 +356,16 @@ extension DisplayPreferencesDtoPatterns on DisplayPreferencesDto {
       @JsonKey(name: 'ViewType') String? viewType,
       @JsonKey(name: 'SortBy') String? sortBy,
       @JsonKey(name: 'IndexBy') String? indexBy,
-      @JsonKey(name: 'RememberIndexing') bool rememberIndexing,
-      @JsonKey(name: 'PrimaryImageHeight') int primaryImageHeight,
-      @JsonKey(name: 'PrimaryImageWidth') int primaryImageWidth,
-      @JsonKey(name: 'CustomPrefs') Map<String, String?> customPrefs,
+      @JsonKey(name: 'RememberIndexing') bool? rememberIndexing,
+      @JsonKey(name: 'PrimaryImageHeight') int? primaryImageHeight,
+      @JsonKey(name: 'PrimaryImageWidth') int? primaryImageWidth,
+      @JsonKey(name: 'CustomPrefs') Map<String, String?>? customPrefs,
       @JsonKey(name: 'ScrollDirection')
-      DisplayPreferencesDtoScrollDirection scrollDirection,
-      @JsonKey(name: 'ShowBackdrop') bool showBackdrop,
-      @JsonKey(name: 'RememberSorting') bool rememberSorting,
-      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder sortOrder,
-      @JsonKey(name: 'ShowSidebar') bool showSidebar,
+      DisplayPreferencesDtoScrollDirection? scrollDirection,
+      @JsonKey(name: 'ShowBackdrop') bool? showBackdrop,
+      @JsonKey(name: 'RememberSorting') bool? rememberSorting,
+      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder? sortOrder,
+      @JsonKey(name: 'ShowSidebar') bool? showSidebar,
       @JsonKey(name: 'Client') String? client,
     )?
     $default, {
@@ -415,16 +415,16 @@ extension DisplayPreferencesDtoPatterns on DisplayPreferencesDto {
       @JsonKey(name: 'ViewType') String? viewType,
       @JsonKey(name: 'SortBy') String? sortBy,
       @JsonKey(name: 'IndexBy') String? indexBy,
-      @JsonKey(name: 'RememberIndexing') bool rememberIndexing,
-      @JsonKey(name: 'PrimaryImageHeight') int primaryImageHeight,
-      @JsonKey(name: 'PrimaryImageWidth') int primaryImageWidth,
-      @JsonKey(name: 'CustomPrefs') Map<String, String?> customPrefs,
+      @JsonKey(name: 'RememberIndexing') bool? rememberIndexing,
+      @JsonKey(name: 'PrimaryImageHeight') int? primaryImageHeight,
+      @JsonKey(name: 'PrimaryImageWidth') int? primaryImageWidth,
+      @JsonKey(name: 'CustomPrefs') Map<String, String?>? customPrefs,
       @JsonKey(name: 'ScrollDirection')
-      DisplayPreferencesDtoScrollDirection scrollDirection,
-      @JsonKey(name: 'ShowBackdrop') bool showBackdrop,
-      @JsonKey(name: 'RememberSorting') bool rememberSorting,
-      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder sortOrder,
-      @JsonKey(name: 'ShowSidebar') bool showSidebar,
+      DisplayPreferencesDtoScrollDirection? scrollDirection,
+      @JsonKey(name: 'ShowBackdrop') bool? showBackdrop,
+      @JsonKey(name: 'RememberSorting') bool? rememberSorting,
+      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder? sortOrder,
+      @JsonKey(name: 'ShowSidebar') bool? showSidebar,
       @JsonKey(name: 'Client') String? client,
     )
     $default,
@@ -472,16 +472,16 @@ extension DisplayPreferencesDtoPatterns on DisplayPreferencesDto {
       @JsonKey(name: 'ViewType') String? viewType,
       @JsonKey(name: 'SortBy') String? sortBy,
       @JsonKey(name: 'IndexBy') String? indexBy,
-      @JsonKey(name: 'RememberIndexing') bool rememberIndexing,
-      @JsonKey(name: 'PrimaryImageHeight') int primaryImageHeight,
-      @JsonKey(name: 'PrimaryImageWidth') int primaryImageWidth,
-      @JsonKey(name: 'CustomPrefs') Map<String, String?> customPrefs,
+      @JsonKey(name: 'RememberIndexing') bool? rememberIndexing,
+      @JsonKey(name: 'PrimaryImageHeight') int? primaryImageHeight,
+      @JsonKey(name: 'PrimaryImageWidth') int? primaryImageWidth,
+      @JsonKey(name: 'CustomPrefs') Map<String, String?>? customPrefs,
       @JsonKey(name: 'ScrollDirection')
-      DisplayPreferencesDtoScrollDirection scrollDirection,
-      @JsonKey(name: 'ShowBackdrop') bool showBackdrop,
-      @JsonKey(name: 'RememberSorting') bool rememberSorting,
-      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder sortOrder,
-      @JsonKey(name: 'ShowSidebar') bool showSidebar,
+      DisplayPreferencesDtoScrollDirection? scrollDirection,
+      @JsonKey(name: 'ShowBackdrop') bool? showBackdrop,
+      @JsonKey(name: 'RememberSorting') bool? rememberSorting,
+      @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder? sortOrder,
+      @JsonKey(name: 'ShowSidebar') bool? showSidebar,
       @JsonKey(name: 'Client') String? client,
     )?
     $default,
@@ -515,21 +515,20 @@ extension DisplayPreferencesDtoPatterns on DisplayPreferencesDto {
 @JsonSerializable()
 class _DisplayPreferencesDto implements DisplayPreferencesDto {
   const _DisplayPreferencesDto({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'ViewType') required this.viewType,
-    @JsonKey(name: 'SortBy') required this.sortBy,
-    @JsonKey(name: 'IndexBy') required this.indexBy,
-    @JsonKey(name: 'RememberIndexing') required this.rememberIndexing,
-    @JsonKey(name: 'PrimaryImageHeight') required this.primaryImageHeight,
-    @JsonKey(name: 'PrimaryImageWidth') required this.primaryImageWidth,
-    @JsonKey(name: 'CustomPrefs')
-    required final Map<String, String?> customPrefs,
-    @JsonKey(name: 'ScrollDirection') required this.scrollDirection,
-    @JsonKey(name: 'ShowBackdrop') required this.showBackdrop,
-    @JsonKey(name: 'RememberSorting') required this.rememberSorting,
-    @JsonKey(name: 'SortOrder') required this.sortOrder,
-    @JsonKey(name: 'ShowSidebar') required this.showSidebar,
-    @JsonKey(name: 'Client') required this.client,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'ViewType') this.viewType,
+    @JsonKey(name: 'SortBy') this.sortBy,
+    @JsonKey(name: 'IndexBy') this.indexBy,
+    @JsonKey(name: 'RememberIndexing') this.rememberIndexing,
+    @JsonKey(name: 'PrimaryImageHeight') this.primaryImageHeight,
+    @JsonKey(name: 'PrimaryImageWidth') this.primaryImageWidth,
+    @JsonKey(name: 'CustomPrefs') final Map<String, String?>? customPrefs,
+    @JsonKey(name: 'ScrollDirection') this.scrollDirection,
+    @JsonKey(name: 'ShowBackdrop') this.showBackdrop,
+    @JsonKey(name: 'RememberSorting') this.rememberSorting,
+    @JsonKey(name: 'SortOrder') this.sortOrder,
+    @JsonKey(name: 'ShowSidebar') this.showSidebar,
+    @JsonKey(name: 'Client') this.client,
   }) : _customPrefs = customPrefs;
   factory _DisplayPreferencesDto.fromJson(Map<String, dynamic> json) =>
       _$DisplayPreferencesDtoFromJson(json);
@@ -557,54 +556,56 @@ class _DisplayPreferencesDto implements DisplayPreferencesDto {
   /// Gets or sets a value indicating whether [remember indexing].
   @override
   @JsonKey(name: 'RememberIndexing')
-  final bool rememberIndexing;
+  final bool? rememberIndexing;
 
   /// Gets or sets the height of the primary image.
   @override
   @JsonKey(name: 'PrimaryImageHeight')
-  final int primaryImageHeight;
+  final int? primaryImageHeight;
 
   /// Gets or sets the width of the primary image.
   @override
   @JsonKey(name: 'PrimaryImageWidth')
-  final int primaryImageWidth;
+  final int? primaryImageWidth;
 
   /// Gets or sets the custom prefs.
-  final Map<String, String?> _customPrefs;
+  final Map<String, String?>? _customPrefs;
 
   /// Gets or sets the custom prefs.
   @override
   @JsonKey(name: 'CustomPrefs')
-  Map<String, String?> get customPrefs {
+  Map<String, String?>? get customPrefs {
+    final value = _customPrefs;
+    if (value == null) return null;
     if (_customPrefs is EqualUnmodifiableMapView) return _customPrefs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_customPrefs);
+    return EqualUnmodifiableMapView(value);
   }
 
   /// Gets or sets the scroll direction.
   @override
   @JsonKey(name: 'ScrollDirection')
-  final DisplayPreferencesDtoScrollDirection scrollDirection;
+  final DisplayPreferencesDtoScrollDirection? scrollDirection;
 
   /// Gets or sets a value indicating whether to show backdrops on this item.
   @override
   @JsonKey(name: 'ShowBackdrop')
-  final bool showBackdrop;
+  final bool? showBackdrop;
 
   /// Gets or sets a value indicating whether [remember sorting].
   @override
   @JsonKey(name: 'RememberSorting')
-  final bool rememberSorting;
+  final bool? rememberSorting;
 
   /// Gets or sets the sort order.
   @override
   @JsonKey(name: 'SortOrder')
-  final DisplayPreferencesDtoSortOrder sortOrder;
+  final DisplayPreferencesDtoSortOrder? sortOrder;
 
   /// Gets or sets a value indicating whether [show sidebar].
   @override
   @JsonKey(name: 'ShowSidebar')
-  final bool showSidebar;
+  final bool? showSidebar;
 
   /// Gets or sets the client.
   @override
@@ -700,16 +701,16 @@ abstract mixin class _$DisplayPreferencesDtoCopyWith<$Res>
     @JsonKey(name: 'ViewType') String? viewType,
     @JsonKey(name: 'SortBy') String? sortBy,
     @JsonKey(name: 'IndexBy') String? indexBy,
-    @JsonKey(name: 'RememberIndexing') bool rememberIndexing,
-    @JsonKey(name: 'PrimaryImageHeight') int primaryImageHeight,
-    @JsonKey(name: 'PrimaryImageWidth') int primaryImageWidth,
-    @JsonKey(name: 'CustomPrefs') Map<String, String?> customPrefs,
+    @JsonKey(name: 'RememberIndexing') bool? rememberIndexing,
+    @JsonKey(name: 'PrimaryImageHeight') int? primaryImageHeight,
+    @JsonKey(name: 'PrimaryImageWidth') int? primaryImageWidth,
+    @JsonKey(name: 'CustomPrefs') Map<String, String?>? customPrefs,
     @JsonKey(name: 'ScrollDirection')
-    DisplayPreferencesDtoScrollDirection scrollDirection,
-    @JsonKey(name: 'ShowBackdrop') bool showBackdrop,
-    @JsonKey(name: 'RememberSorting') bool rememberSorting,
-    @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder sortOrder,
-    @JsonKey(name: 'ShowSidebar') bool showSidebar,
+    DisplayPreferencesDtoScrollDirection? scrollDirection,
+    @JsonKey(name: 'ShowBackdrop') bool? showBackdrop,
+    @JsonKey(name: 'RememberSorting') bool? rememberSorting,
+    @JsonKey(name: 'SortOrder') DisplayPreferencesDtoSortOrder? sortOrder,
+    @JsonKey(name: 'ShowSidebar') bool? showSidebar,
     @JsonKey(name: 'Client') String? client,
   });
 }
@@ -731,15 +732,15 @@ class __$DisplayPreferencesDtoCopyWithImpl<$Res>
     Object? viewType = freezed,
     Object? sortBy = freezed,
     Object? indexBy = freezed,
-    Object? rememberIndexing = null,
-    Object? primaryImageHeight = null,
-    Object? primaryImageWidth = null,
-    Object? customPrefs = null,
-    Object? scrollDirection = null,
-    Object? showBackdrop = null,
-    Object? rememberSorting = null,
-    Object? sortOrder = null,
-    Object? showSidebar = null,
+    Object? rememberIndexing = freezed,
+    Object? primaryImageHeight = freezed,
+    Object? primaryImageWidth = freezed,
+    Object? customPrefs = freezed,
+    Object? scrollDirection = freezed,
+    Object? showBackdrop = freezed,
+    Object? rememberSorting = freezed,
+    Object? sortOrder = freezed,
+    Object? showSidebar = freezed,
     Object? client = freezed,
   }) {
     return _then(
@@ -760,42 +761,42 @@ class __$DisplayPreferencesDtoCopyWithImpl<$Res>
             ? _self.indexBy
             : indexBy // ignore: cast_nullable_to_non_nullable
                   as String?,
-        rememberIndexing: null == rememberIndexing
+        rememberIndexing: freezed == rememberIndexing
             ? _self.rememberIndexing
             : rememberIndexing // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        primaryImageHeight: null == primaryImageHeight
+                  as bool?,
+        primaryImageHeight: freezed == primaryImageHeight
             ? _self.primaryImageHeight
             : primaryImageHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        primaryImageWidth: null == primaryImageWidth
+                  as int?,
+        primaryImageWidth: freezed == primaryImageWidth
             ? _self.primaryImageWidth
             : primaryImageWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        customPrefs: null == customPrefs
+                  as int?,
+        customPrefs: freezed == customPrefs
             ? _self._customPrefs
             : customPrefs // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>,
-        scrollDirection: null == scrollDirection
+                  as Map<String, String?>?,
+        scrollDirection: freezed == scrollDirection
             ? _self.scrollDirection
             : scrollDirection // ignore: cast_nullable_to_non_nullable
-                  as DisplayPreferencesDtoScrollDirection,
-        showBackdrop: null == showBackdrop
+                  as DisplayPreferencesDtoScrollDirection?,
+        showBackdrop: freezed == showBackdrop
             ? _self.showBackdrop
             : showBackdrop // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        rememberSorting: null == rememberSorting
+                  as bool?,
+        rememberSorting: freezed == rememberSorting
             ? _self.rememberSorting
             : rememberSorting // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        sortOrder: null == sortOrder
+                  as bool?,
+        sortOrder: freezed == sortOrder
             ? _self.sortOrder
             : sortOrder // ignore: cast_nullable_to_non_nullable
-                  as DisplayPreferencesDtoSortOrder,
-        showSidebar: null == showSidebar
+                  as DisplayPreferencesDtoSortOrder?,
+        showSidebar: freezed == showSidebar
             ? _self.showSidebar
             : showSidebar // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         client: freezed == client
             ? _self.client
             : client // ignore: cast_nullable_to_non_nullable

@@ -12,9 +12,9 @@ part 'set_playlist_item_request_dto.g.dart';
 abstract class SetPlaylistItemRequestDto with _$SetPlaylistItemRequestDto {
   const factory SetPlaylistItemRequestDto({
     /// Gets or sets the playlist identifier of the playing item.
-    @JsonKey(name: 'PlaylistItemId')
-    String? playlistItemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   }) = _SetPlaylistItemRequestDto;
-  
-  factory SetPlaylistItemRequestDto.fromJson(Map<String, Object?> json) => _$SetPlaylistItemRequestDtoFromJson(json);
+
+  factory SetPlaylistItemRequestDto.fromJson(Map<String, Object?> json) =>
+      _$SetPlaylistItemRequestDtoFromJson(json);
 }

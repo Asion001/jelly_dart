@@ -9,22 +9,22 @@ part of 'force_keep_alive_message.dart';
 _ForceKeepAliveMessage _$ForceKeepAliveMessageFromJson(
   Map<String, dynamic> json,
 ) => _ForceKeepAliveMessage(
-  data: (json['Data'] as num).toInt(),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ForceKeepAliveMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ForceKeepAliveMessageMessageType.forceKeepAlive,
+  data: (json['Data'] as num?)?.toInt(),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ForceKeepAliveMessageToJson(
   _ForceKeepAliveMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data,
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data,
+  'MessageId': ?instance.messageId,
 };
 
 const _$ForceKeepAliveMessageMessageTypeEnumMap = {

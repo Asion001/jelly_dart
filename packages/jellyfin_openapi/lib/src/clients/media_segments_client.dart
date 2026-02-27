@@ -12,7 +12,8 @@ part 'media_segments_client.g.dart';
 
 @RestApi()
 abstract class MediaSegmentsClient {
-  factory MediaSegmentsClient(Dio dio, {String? baseUrl}) = _MediaSegmentsClient;
+  factory MediaSegmentsClient(Dio dio, {String? baseUrl}) =
+      _MediaSegmentsClient;
 
   /// Gets all media segments based on an itemId.
   ///

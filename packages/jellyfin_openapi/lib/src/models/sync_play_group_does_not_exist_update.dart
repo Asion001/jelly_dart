@@ -10,21 +10,21 @@ part 'sync_play_group_does_not_exist_update.freezed.dart';
 part 'sync_play_group_does_not_exist_update.g.dart';
 
 @Freezed()
-abstract class SyncPlayGroupDoesNotExistUpdate with _$SyncPlayGroupDoesNotExistUpdate {
+abstract class SyncPlayGroupDoesNotExistUpdate
+    with _$SyncPlayGroupDoesNotExistUpdate {
   const factory SyncPlayGroupDoesNotExistUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required String data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayGroupDoesNotExistUpdateType.groupDoesNotExist)
     SyncPlayGroupDoesNotExistUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') String? data,
   }) = _SyncPlayGroupDoesNotExistUpdate;
-  
-  factory SyncPlayGroupDoesNotExistUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayGroupDoesNotExistUpdateFromJson(json);
+
+  factory SyncPlayGroupDoesNotExistUpdate.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayGroupDoesNotExistUpdateFromJson(json);
 }

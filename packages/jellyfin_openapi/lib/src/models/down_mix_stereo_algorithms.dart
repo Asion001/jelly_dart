@@ -16,7 +16,8 @@ enum DownMixStereoAlgorithms {
   @JsonValue('Rfc7845')
   rfc7845('Rfc7845'),
   @JsonValue('Ac4')
-  ac4('Ac4');
+  ac4('Ac4')
+  ;
 
   const DownMixStereoAlgorithms(this.json);
 
@@ -24,8 +25,10 @@ enum DownMixStereoAlgorithms {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

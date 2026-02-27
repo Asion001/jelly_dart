@@ -29,7 +29,7 @@ mixin _$TimerInfoDto {
 
   /// Gets or sets the channel id of the recording.
   @JsonKey(name: 'ChannelId')
-  String get channelId;
+  String? get channelId;
 
   /// Gets or sets the external channel identifier.
   @JsonKey(name: 'ExternalChannelId')
@@ -59,11 +59,11 @@ mixin _$TimerInfoDto {
 
   /// Gets or sets the start date of the recording, in UTC.
   @JsonKey(name: 'StartDate')
-  DateTime get startDate;
+  DateTime? get startDate;
 
   /// Gets or sets the end date of the recording, in UTC.
   @JsonKey(name: 'EndDate')
-  DateTime get endDate;
+  DateTime? get endDate;
 
   /// Gets or sets the name of the service.
   @JsonKey(name: 'ServiceName')
@@ -71,19 +71,19 @@ mixin _$TimerInfoDto {
 
   /// Gets or sets the priority.
   @JsonKey(name: 'Priority')
-  int get priority;
+  int? get priority;
 
   /// Gets or sets the pre padding seconds.
   @JsonKey(name: 'PrePaddingSeconds')
-  int get prePaddingSeconds;
+  int? get prePaddingSeconds;
 
   /// Gets or sets the post padding seconds.
   @JsonKey(name: 'PostPaddingSeconds')
-  int get postPaddingSeconds;
+  int? get postPaddingSeconds;
 
   /// Gets or sets a value indicating whether this instance is pre padding required.
   @JsonKey(name: 'IsPrePaddingRequired')
-  bool get isPrePaddingRequired;
+  bool? get isPrePaddingRequired;
 
   /// Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
   @JsonKey(name: 'ParentBackdropItemId')
@@ -95,13 +95,13 @@ mixin _$TimerInfoDto {
 
   /// Gets or sets a value indicating whether this instance is post padding required.
   @JsonKey(name: 'IsPostPaddingRequired')
-  bool get isPostPaddingRequired;
+  bool? get isPostPaddingRequired;
   @JsonKey(name: 'KeepUntil')
-  TimerInfoDtoKeepUntil get keepUntil;
+  TimerInfoDtoKeepUntil? get keepUntil;
 
   /// Gets or sets the status.
   @JsonKey(name: 'Status')
-  TimerInfoDtoStatus get status;
+  TimerInfoDtoStatus? get status;
 
   /// Gets or sets the series timer identifier.
   @JsonKey(name: 'SeriesTimerId')
@@ -117,7 +117,7 @@ mixin _$TimerInfoDto {
 
   /// Gets or sets the program information.
   @JsonKey(name: 'ProgramInfo')
-  BaseItemDto get programInfo;
+  BaseItemDto? get programInfo;
 
   /// Create a copy of TimerInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -244,7 +244,7 @@ abstract mixin class $TimerInfoDtoCopyWith<$Res> {
     @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ExternalId') String? externalId,
-    @JsonKey(name: 'ChannelId') String channelId,
+    @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -252,26 +252,26 @@ abstract mixin class $TimerInfoDtoCopyWith<$Res> {
     @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
-    @JsonKey(name: 'StartDate') DateTime startDate,
-    @JsonKey(name: 'EndDate') DateTime endDate,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'ServiceName') String? serviceName,
-    @JsonKey(name: 'Priority') int priority,
-    @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+    @JsonKey(name: 'Priority') int? priority,
+    @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
     @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
-    @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil keepUntil,
-    @JsonKey(name: 'Status') TimerInfoDtoStatus status,
+    @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
+    @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil? keepUntil,
+    @JsonKey(name: 'Status') TimerInfoDtoStatus? status,
     @JsonKey(name: 'SeriesTimerId') String? seriesTimerId,
     @JsonKey(name: 'ExternalSeriesTimerId') String? externalSeriesTimerId,
     @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
-    @JsonKey(name: 'ProgramInfo') BaseItemDto programInfo,
+    @JsonKey(name: 'ProgramInfo') BaseItemDto? programInfo,
   });
 
-  $BaseItemDtoCopyWith<$Res> get programInfo;
+  $BaseItemDtoCopyWith<$Res>? get programInfo;
 }
 
 /// @nodoc
@@ -290,7 +290,7 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
     Object? type = freezed,
     Object? serverId = freezed,
     Object? externalId = freezed,
-    Object? channelId = null,
+    Object? channelId = freezed,
     Object? externalChannelId = freezed,
     Object? channelName = freezed,
     Object? channelPrimaryImageTag = freezed,
@@ -298,22 +298,22 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
     Object? externalProgramId = freezed,
     Object? name = freezed,
     Object? overview = freezed,
-    Object? startDate = null,
-    Object? endDate = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
     Object? serviceName = freezed,
-    Object? priority = null,
-    Object? prePaddingSeconds = null,
-    Object? postPaddingSeconds = null,
-    Object? isPrePaddingRequired = null,
+    Object? priority = freezed,
+    Object? prePaddingSeconds = freezed,
+    Object? postPaddingSeconds = freezed,
+    Object? isPrePaddingRequired = freezed,
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
-    Object? isPostPaddingRequired = null,
-    Object? keepUntil = null,
-    Object? status = null,
+    Object? isPostPaddingRequired = freezed,
+    Object? keepUntil = freezed,
+    Object? status = freezed,
     Object? seriesTimerId = freezed,
     Object? externalSeriesTimerId = freezed,
     Object? runTimeTicks = freezed,
-    Object? programInfo = null,
+    Object? programInfo = freezed,
   }) {
     return _then(
       _self.copyWith(
@@ -333,10 +333,10 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
             ? _self.externalId
             : externalId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        channelId: null == channelId
+        channelId: freezed == channelId
             ? _self.channelId
             : channelId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         externalChannelId: freezed == externalChannelId
             ? _self.externalChannelId
             : externalChannelId // ignore: cast_nullable_to_non_nullable
@@ -365,34 +365,34 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        startDate: null == startDate
+        startDate: freezed == startDate
             ? _self.startDate
             : startDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        endDate: null == endDate
+                  as DateTime?,
+        endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         serviceName: freezed == serviceName
             ? _self.serviceName
             : serviceName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        priority: null == priority
+        priority: freezed == priority
             ? _self.priority
             : priority // ignore: cast_nullable_to_non_nullable
-                  as int,
-        prePaddingSeconds: null == prePaddingSeconds
+                  as int?,
+        prePaddingSeconds: freezed == prePaddingSeconds
             ? _self.prePaddingSeconds
             : prePaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        postPaddingSeconds: null == postPaddingSeconds
+                  as int?,
+        postPaddingSeconds: freezed == postPaddingSeconds
             ? _self.postPaddingSeconds
             : postPaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isPrePaddingRequired: null == isPrePaddingRequired
+                  as int?,
+        isPrePaddingRequired: freezed == isPrePaddingRequired
             ? _self.isPrePaddingRequired
             : isPrePaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentBackdropItemId: freezed == parentBackdropItemId
             ? _self.parentBackdropItemId
             : parentBackdropItemId // ignore: cast_nullable_to_non_nullable
@@ -401,18 +401,18 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
             ? _self.parentBackdropImageTags
             : parentBackdropImageTags // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        isPostPaddingRequired: null == isPostPaddingRequired
+        isPostPaddingRequired: freezed == isPostPaddingRequired
             ? _self.isPostPaddingRequired
             : isPostPaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        keepUntil: null == keepUntil
+                  as bool?,
+        keepUntil: freezed == keepUntil
             ? _self.keepUntil
             : keepUntil // ignore: cast_nullable_to_non_nullable
-                  as TimerInfoDtoKeepUntil,
-        status: null == status
+                  as TimerInfoDtoKeepUntil?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as TimerInfoDtoStatus,
+                  as TimerInfoDtoStatus?,
         seriesTimerId: freezed == seriesTimerId
             ? _self.seriesTimerId
             : seriesTimerId // ignore: cast_nullable_to_non_nullable
@@ -425,10 +425,10 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
             ? _self.runTimeTicks
             : runTimeTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        programInfo: null == programInfo
+        programInfo: freezed == programInfo
             ? _self.programInfo
             : programInfo // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
+                  as BaseItemDto?,
       ),
     );
   }
@@ -437,8 +437,12 @@ class _$TimerInfoDtoCopyWithImpl<$Res> implements $TimerInfoDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get programInfo {
-    return $BaseItemDtoCopyWith<$Res>(_self.programInfo, (value) {
+  $BaseItemDtoCopyWith<$Res>? get programInfo {
+    if (_self.programInfo == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.programInfo!, (value) {
       return _then(_self.copyWith(programInfo: value));
     });
   }
@@ -542,7 +546,7 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -550,23 +554,23 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'StartDate') DateTime startDate,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
-      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil keepUntil,
-      @JsonKey(name: 'Status') TimerInfoDtoStatus status,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
+      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil? keepUntil,
+      @JsonKey(name: 'Status') TimerInfoDtoStatus? status,
       @JsonKey(name: 'SeriesTimerId') String? seriesTimerId,
       @JsonKey(name: 'ExternalSeriesTimerId') String? externalSeriesTimerId,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
-      @JsonKey(name: 'ProgramInfo') BaseItemDto programInfo,
+      @JsonKey(name: 'ProgramInfo') BaseItemDto? programInfo,
     )?
     $default, {
     required TResult orElse(),
@@ -629,7 +633,7 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -637,23 +641,23 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'StartDate') DateTime startDate,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
-      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil keepUntil,
-      @JsonKey(name: 'Status') TimerInfoDtoStatus status,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
+      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil? keepUntil,
+      @JsonKey(name: 'Status') TimerInfoDtoStatus? status,
       @JsonKey(name: 'SeriesTimerId') String? seriesTimerId,
       @JsonKey(name: 'ExternalSeriesTimerId') String? externalSeriesTimerId,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
-      @JsonKey(name: 'ProgramInfo') BaseItemDto programInfo,
+      @JsonKey(name: 'ProgramInfo') BaseItemDto? programInfo,
     )
     $default,
   ) {
@@ -714,7 +718,7 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -722,23 +726,23 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
       @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
-      @JsonKey(name: 'StartDate') DateTime startDate,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
-      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil keepUntil,
-      @JsonKey(name: 'Status') TimerInfoDtoStatus status,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
+      @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil? keepUntil,
+      @JsonKey(name: 'Status') TimerInfoDtoStatus? status,
       @JsonKey(name: 'SeriesTimerId') String? seriesTimerId,
       @JsonKey(name: 'ExternalSeriesTimerId') String? externalSeriesTimerId,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
-      @JsonKey(name: 'ProgramInfo') BaseItemDto programInfo,
+      @JsonKey(name: 'ProgramInfo') BaseItemDto? programInfo,
     )?
     $default,
   ) {
@@ -785,36 +789,35 @@ extension TimerInfoDtoPatterns on TimerInfoDto {
 @JsonSerializable()
 class _TimerInfoDto implements TimerInfoDto {
   const _TimerInfoDto({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'ServerId') required this.serverId,
-    @JsonKey(name: 'ExternalId') required this.externalId,
-    @JsonKey(name: 'ChannelId') required this.channelId,
-    @JsonKey(name: 'ExternalChannelId') required this.externalChannelId,
-    @JsonKey(name: 'ChannelName') required this.channelName,
-    @JsonKey(name: 'ChannelPrimaryImageTag')
-    required this.channelPrimaryImageTag,
-    @JsonKey(name: 'ProgramId') required this.programId,
-    @JsonKey(name: 'ExternalProgramId') required this.externalProgramId,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Overview') required this.overview,
-    @JsonKey(name: 'StartDate') required this.startDate,
-    @JsonKey(name: 'EndDate') required this.endDate,
-    @JsonKey(name: 'ServiceName') required this.serviceName,
-    @JsonKey(name: 'Priority') required this.priority,
-    @JsonKey(name: 'PrePaddingSeconds') required this.prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') required this.postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') required this.isPrePaddingRequired,
-    @JsonKey(name: 'ParentBackdropItemId') required this.parentBackdropItemId,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'ServerId') this.serverId,
+    @JsonKey(name: 'ExternalId') this.externalId,
+    @JsonKey(name: 'ChannelId') this.channelId,
+    @JsonKey(name: 'ExternalChannelId') this.externalChannelId,
+    @JsonKey(name: 'ChannelName') this.channelName,
+    @JsonKey(name: 'ChannelPrimaryImageTag') this.channelPrimaryImageTag,
+    @JsonKey(name: 'ProgramId') this.programId,
+    @JsonKey(name: 'ExternalProgramId') this.externalProgramId,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Overview') this.overview,
+    @JsonKey(name: 'StartDate') this.startDate,
+    @JsonKey(name: 'EndDate') this.endDate,
+    @JsonKey(name: 'ServiceName') this.serviceName,
+    @JsonKey(name: 'Priority') this.priority,
+    @JsonKey(name: 'PrePaddingSeconds') this.prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') this.postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') this.isPrePaddingRequired,
+    @JsonKey(name: 'ParentBackdropItemId') this.parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
-    required final List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') required this.isPostPaddingRequired,
-    @JsonKey(name: 'KeepUntil') required this.keepUntil,
-    @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'SeriesTimerId') required this.seriesTimerId,
-    @JsonKey(name: 'ExternalSeriesTimerId') required this.externalSeriesTimerId,
-    @JsonKey(name: 'RunTimeTicks') required this.runTimeTicks,
-    @JsonKey(name: 'ProgramInfo') required this.programInfo,
+    final List<String>? parentBackdropImageTags,
+    @JsonKey(name: 'IsPostPaddingRequired') this.isPostPaddingRequired,
+    @JsonKey(name: 'KeepUntil') this.keepUntil,
+    @JsonKey(name: 'Status') this.status,
+    @JsonKey(name: 'SeriesTimerId') this.seriesTimerId,
+    @JsonKey(name: 'ExternalSeriesTimerId') this.externalSeriesTimerId,
+    @JsonKey(name: 'RunTimeTicks') this.runTimeTicks,
+    @JsonKey(name: 'ProgramInfo') this.programInfo,
   }) : _parentBackdropImageTags = parentBackdropImageTags;
   factory _TimerInfoDto.fromJson(Map<String, dynamic> json) =>
       _$TimerInfoDtoFromJson(json);
@@ -840,7 +843,7 @@ class _TimerInfoDto implements TimerInfoDto {
   /// Gets or sets the channel id of the recording.
   @override
   @JsonKey(name: 'ChannelId')
-  final String channelId;
+  final String? channelId;
 
   /// Gets or sets the external channel identifier.
   @override
@@ -878,12 +881,12 @@ class _TimerInfoDto implements TimerInfoDto {
   /// Gets or sets the start date of the recording, in UTC.
   @override
   @JsonKey(name: 'StartDate')
-  final DateTime startDate;
+  final DateTime? startDate;
 
   /// Gets or sets the end date of the recording, in UTC.
   @override
   @JsonKey(name: 'EndDate')
-  final DateTime endDate;
+  final DateTime? endDate;
 
   /// Gets or sets the name of the service.
   @override
@@ -893,22 +896,22 @@ class _TimerInfoDto implements TimerInfoDto {
   /// Gets or sets the priority.
   @override
   @JsonKey(name: 'Priority')
-  final int priority;
+  final int? priority;
 
   /// Gets or sets the pre padding seconds.
   @override
   @JsonKey(name: 'PrePaddingSeconds')
-  final int prePaddingSeconds;
+  final int? prePaddingSeconds;
 
   /// Gets or sets the post padding seconds.
   @override
   @JsonKey(name: 'PostPaddingSeconds')
-  final int postPaddingSeconds;
+  final int? postPaddingSeconds;
 
   /// Gets or sets a value indicating whether this instance is pre padding required.
   @override
   @JsonKey(name: 'IsPrePaddingRequired')
-  final bool isPrePaddingRequired;
+  final bool? isPrePaddingRequired;
 
   /// Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
   @override
@@ -933,15 +936,15 @@ class _TimerInfoDto implements TimerInfoDto {
   /// Gets or sets a value indicating whether this instance is post padding required.
   @override
   @JsonKey(name: 'IsPostPaddingRequired')
-  final bool isPostPaddingRequired;
+  final bool? isPostPaddingRequired;
   @override
   @JsonKey(name: 'KeepUntil')
-  final TimerInfoDtoKeepUntil keepUntil;
+  final TimerInfoDtoKeepUntil? keepUntil;
 
   /// Gets or sets the status.
   @override
   @JsonKey(name: 'Status')
-  final TimerInfoDtoStatus status;
+  final TimerInfoDtoStatus? status;
 
   /// Gets or sets the series timer identifier.
   @override
@@ -961,7 +964,7 @@ class _TimerInfoDto implements TimerInfoDto {
   /// Gets or sets the program information.
   @override
   @JsonKey(name: 'ProgramInfo')
-  final BaseItemDto programInfo;
+  final BaseItemDto? programInfo;
 
   /// Create a copy of TimerInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -1090,7 +1093,7 @@ abstract mixin class _$TimerInfoDtoCopyWith<$Res>
     @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ExternalId') String? externalId,
-    @JsonKey(name: 'ChannelId') String channelId,
+    @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -1098,27 +1101,27 @@ abstract mixin class _$TimerInfoDtoCopyWith<$Res>
     @JsonKey(name: 'ExternalProgramId') String? externalProgramId,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
-    @JsonKey(name: 'StartDate') DateTime startDate,
-    @JsonKey(name: 'EndDate') DateTime endDate,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'ServiceName') String? serviceName,
-    @JsonKey(name: 'Priority') int priority,
-    @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+    @JsonKey(name: 'Priority') int? priority,
+    @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
     @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
-    @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil keepUntil,
-    @JsonKey(name: 'Status') TimerInfoDtoStatus status,
+    @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
+    @JsonKey(name: 'KeepUntil') TimerInfoDtoKeepUntil? keepUntil,
+    @JsonKey(name: 'Status') TimerInfoDtoStatus? status,
     @JsonKey(name: 'SeriesTimerId') String? seriesTimerId,
     @JsonKey(name: 'ExternalSeriesTimerId') String? externalSeriesTimerId,
     @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
-    @JsonKey(name: 'ProgramInfo') BaseItemDto programInfo,
+    @JsonKey(name: 'ProgramInfo') BaseItemDto? programInfo,
   });
 
   @override
-  $BaseItemDtoCopyWith<$Res> get programInfo;
+  $BaseItemDtoCopyWith<$Res>? get programInfo;
 }
 
 /// @nodoc
@@ -1138,7 +1141,7 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
     Object? type = freezed,
     Object? serverId = freezed,
     Object? externalId = freezed,
-    Object? channelId = null,
+    Object? channelId = freezed,
     Object? externalChannelId = freezed,
     Object? channelName = freezed,
     Object? channelPrimaryImageTag = freezed,
@@ -1146,22 +1149,22 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
     Object? externalProgramId = freezed,
     Object? name = freezed,
     Object? overview = freezed,
-    Object? startDate = null,
-    Object? endDate = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
     Object? serviceName = freezed,
-    Object? priority = null,
-    Object? prePaddingSeconds = null,
-    Object? postPaddingSeconds = null,
-    Object? isPrePaddingRequired = null,
+    Object? priority = freezed,
+    Object? prePaddingSeconds = freezed,
+    Object? postPaddingSeconds = freezed,
+    Object? isPrePaddingRequired = freezed,
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
-    Object? isPostPaddingRequired = null,
-    Object? keepUntil = null,
-    Object? status = null,
+    Object? isPostPaddingRequired = freezed,
+    Object? keepUntil = freezed,
+    Object? status = freezed,
     Object? seriesTimerId = freezed,
     Object? externalSeriesTimerId = freezed,
     Object? runTimeTicks = freezed,
-    Object? programInfo = null,
+    Object? programInfo = freezed,
   }) {
     return _then(
       _TimerInfoDto(
@@ -1181,10 +1184,10 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
             ? _self.externalId
             : externalId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        channelId: null == channelId
+        channelId: freezed == channelId
             ? _self.channelId
             : channelId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         externalChannelId: freezed == externalChannelId
             ? _self.externalChannelId
             : externalChannelId // ignore: cast_nullable_to_non_nullable
@@ -1213,34 +1216,34 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
             ? _self.overview
             : overview // ignore: cast_nullable_to_non_nullable
                   as String?,
-        startDate: null == startDate
+        startDate: freezed == startDate
             ? _self.startDate
             : startDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        endDate: null == endDate
+                  as DateTime?,
+        endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         serviceName: freezed == serviceName
             ? _self.serviceName
             : serviceName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        priority: null == priority
+        priority: freezed == priority
             ? _self.priority
             : priority // ignore: cast_nullable_to_non_nullable
-                  as int,
-        prePaddingSeconds: null == prePaddingSeconds
+                  as int?,
+        prePaddingSeconds: freezed == prePaddingSeconds
             ? _self.prePaddingSeconds
             : prePaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        postPaddingSeconds: null == postPaddingSeconds
+                  as int?,
+        postPaddingSeconds: freezed == postPaddingSeconds
             ? _self.postPaddingSeconds
             : postPaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isPrePaddingRequired: null == isPrePaddingRequired
+                  as int?,
+        isPrePaddingRequired: freezed == isPrePaddingRequired
             ? _self.isPrePaddingRequired
             : isPrePaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentBackdropItemId: freezed == parentBackdropItemId
             ? _self.parentBackdropItemId
             : parentBackdropItemId // ignore: cast_nullable_to_non_nullable
@@ -1249,18 +1252,18 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
             ? _self._parentBackdropImageTags
             : parentBackdropImageTags // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        isPostPaddingRequired: null == isPostPaddingRequired
+        isPostPaddingRequired: freezed == isPostPaddingRequired
             ? _self.isPostPaddingRequired
             : isPostPaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        keepUntil: null == keepUntil
+                  as bool?,
+        keepUntil: freezed == keepUntil
             ? _self.keepUntil
             : keepUntil // ignore: cast_nullable_to_non_nullable
-                  as TimerInfoDtoKeepUntil,
-        status: null == status
+                  as TimerInfoDtoKeepUntil?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as TimerInfoDtoStatus,
+                  as TimerInfoDtoStatus?,
         seriesTimerId: freezed == seriesTimerId
             ? _self.seriesTimerId
             : seriesTimerId // ignore: cast_nullable_to_non_nullable
@@ -1273,10 +1276,10 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
             ? _self.runTimeTicks
             : runTimeTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        programInfo: null == programInfo
+        programInfo: freezed == programInfo
             ? _self.programInfo
             : programInfo // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
+                  as BaseItemDto?,
       ),
     );
   }
@@ -1285,8 +1288,12 @@ class __$TimerInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get programInfo {
-    return $BaseItemDtoCopyWith<$Res>(_self.programInfo, (value) {
+  $BaseItemDtoCopyWith<$Res>? get programInfo {
+    if (_self.programInfo == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.programInfo!, (value) {
       return _then(_self.copyWith(programInfo: value));
     });
   }

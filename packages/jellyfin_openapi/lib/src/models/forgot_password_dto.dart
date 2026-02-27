@@ -12,9 +12,9 @@ part 'forgot_password_dto.g.dart';
 abstract class ForgotPasswordDto with _$ForgotPasswordDto {
   const factory ForgotPasswordDto({
     /// Gets or sets the entered username to have its password reset.
-    @JsonKey(name: 'EnteredUsername')
-    required String enteredUsername,
+    @JsonKey(name: 'EnteredUsername') required String enteredUsername,
   }) = _ForgotPasswordDto;
-  
-  factory ForgotPasswordDto.fromJson(Map<String, Object?> json) => _$ForgotPasswordDtoFromJson(json);
+
+  factory ForgotPasswordDto.fromJson(Map<String, Object?> json) =>
+      _$ForgotPasswordDtoFromJson(json);
 }

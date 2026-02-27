@@ -12,9 +12,9 @@ part 'forgot_password_pin_dto.g.dart';
 abstract class ForgotPasswordPinDto with _$ForgotPasswordPinDto {
   const factory ForgotPasswordPinDto({
     /// Gets or sets the entered pin to have the password reset.
-    @JsonKey(name: 'Pin')
-    required String pin,
+    @JsonKey(name: 'Pin') required String pin,
   }) = _ForgotPasswordPinDto;
-  
-  factory ForgotPasswordPinDto.fromJson(Map<String, Object?> json) => _$ForgotPasswordPinDtoFromJson(json);
+
+  factory ForgotPasswordPinDto.fromJson(Map<String, Object?> json) =>
+      _$ForgotPasswordPinDtoFromJson(json);
 }

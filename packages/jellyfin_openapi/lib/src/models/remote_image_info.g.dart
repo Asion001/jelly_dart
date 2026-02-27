@@ -16,8 +16,8 @@ _RemoteImageInfo _$RemoteImageInfoFromJson(Map<String, dynamic> json) =>
       communityRating: (json['CommunityRating'] as num?)?.toDouble(),
       voteCount: (json['VoteCount'] as num?)?.toInt(),
       language: json['Language'] as String?,
-      type: $enumDecode(_$RemoteImageInfoTypeEnumMap, json['Type']),
-      ratingType: $enumDecode(
+      type: $enumDecodeNullable(_$RemoteImageInfoTypeEnumMap, json['Type']),
+      ratingType: $enumDecodeNullable(
         _$RemoteImageInfoRatingTypeEnumMap,
         json['RatingType'],
       ),
@@ -33,8 +33,8 @@ Map<String, dynamic> _$RemoteImageInfoToJson(_RemoteImageInfo instance) =>
       'CommunityRating': ?instance.communityRating,
       'VoteCount': ?instance.voteCount,
       'Language': ?instance.language,
-      'Type': instance.type.toJson(),
-      'RatingType': instance.ratingType.toJson(),
+      'Type': ?instance.type?.toJson(),
+      'RatingType': ?instance.ratingType?.toJson(),
     };
 
 const _$RemoteImageInfoTypeEnumMap = {

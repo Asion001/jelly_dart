@@ -12,7 +12,8 @@ part 'scheduled_tasks_client.g.dart';
 
 @RestApi()
 abstract class ScheduledTasksClient {
-  factory ScheduledTasksClient(Dio dio, {String? baseUrl}) = _ScheduledTasksClient;
+  factory ScheduledTasksClient(Dio dio, {String? baseUrl}) =
+      _ScheduledTasksClient;
 
   /// Get tasks.
   ///

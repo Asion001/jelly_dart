@@ -4,9 +4,12 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-/// Gets or sets the specific media type for this id. This is used to distinguish between the different.///
-/// external id types for providers with multiple ids.///
-/// A null value indicates there is no specific media type associated with the external id, or this is the.///
+/// Gets or sets the specific media type for this id. This is used to distinguish between the different.
+///
+/// external id types for providers with multiple ids.
+///
+/// A null value indicates there is no specific media type associated with the external id, or this is the.
+///
 /// default id for the external provider so there is no need to specify a type.
 @JsonEnum()
 enum ExternalIdInfoType {
@@ -37,7 +40,8 @@ enum ExternalIdInfoType {
   @JsonValue('Book')
   book('Book'),
   @JsonValue('Recording')
-  recording('Recording');
+  recording('Recording')
+  ;
 
   const ExternalIdInfoType(this.json);
 
@@ -45,8 +49,10 @@ enum ExternalIdInfoType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

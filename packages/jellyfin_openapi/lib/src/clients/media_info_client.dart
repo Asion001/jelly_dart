@@ -32,7 +32,8 @@ abstract class MediaInfoClient {
 
   /// Gets live playback media info for an item.
   ///
-  /// For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  ///
+  /// For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.
+  ///
   /// Query parameters are obsolete.
   ///
   /// [itemId] - The item id.
@@ -69,34 +70,46 @@ abstract class MediaInfoClient {
   @POST('/Items/{itemId}/PlaybackInfo')
   Future<PlaybackInfoResponse> getPostedPlaybackInfo({
     @Path('itemId') required String itemId,
+    @Deprecated('This is marked as deprecated') @Query('userId') String? userId,
     @Deprecated('This is marked as deprecated')
-    @Query('userId') String? userId,
+    @Query('maxStreamingBitrate')
+    int? maxStreamingBitrate,
     @Deprecated('This is marked as deprecated')
-    @Query('maxStreamingBitrate') int? maxStreamingBitrate,
+    @Query('startTimeTicks')
+    int? startTimeTicks,
     @Deprecated('This is marked as deprecated')
-    @Query('startTimeTicks') int? startTimeTicks,
+    @Query('audioStreamIndex')
+    int? audioStreamIndex,
     @Deprecated('This is marked as deprecated')
-    @Query('audioStreamIndex') int? audioStreamIndex,
+    @Query('subtitleStreamIndex')
+    int? subtitleStreamIndex,
     @Deprecated('This is marked as deprecated')
-    @Query('subtitleStreamIndex') int? subtitleStreamIndex,
+    @Query('maxAudioChannels')
+    int? maxAudioChannels,
     @Deprecated('This is marked as deprecated')
-    @Query('maxAudioChannels') int? maxAudioChannels,
+    @Query('mediaSourceId')
+    String? mediaSourceId,
     @Deprecated('This is marked as deprecated')
-    @Query('mediaSourceId') String? mediaSourceId,
+    @Query('liveStreamId')
+    String? liveStreamId,
     @Deprecated('This is marked as deprecated')
-    @Query('liveStreamId') String? liveStreamId,
+    @Query('autoOpenLiveStream')
+    bool? autoOpenLiveStream,
     @Deprecated('This is marked as deprecated')
-    @Query('autoOpenLiveStream') bool? autoOpenLiveStream,
+    @Query('enableDirectPlay')
+    bool? enableDirectPlay,
     @Deprecated('This is marked as deprecated')
-    @Query('enableDirectPlay') bool? enableDirectPlay,
+    @Query('enableDirectStream')
+    bool? enableDirectStream,
     @Deprecated('This is marked as deprecated')
-    @Query('enableDirectStream') bool? enableDirectStream,
+    @Query('enableTranscoding')
+    bool? enableTranscoding,
     @Deprecated('This is marked as deprecated')
-    @Query('enableTranscoding') bool? enableTranscoding,
+    @Query('allowVideoStreamCopy')
+    bool? allowVideoStreamCopy,
     @Deprecated('This is marked as deprecated')
-    @Query('allowVideoStreamCopy') bool? allowVideoStreamCopy,
-    @Deprecated('This is marked as deprecated')
-    @Query('allowAudioStreamCopy') bool? allowAudioStreamCopy,
+    @Query('allowAudioStreamCopy')
+    bool? allowAudioStreamCopy,
     @Body() PlaybackInfoDto? body,
     @DioOptions() RequestOptions? options,
   });
@@ -150,7 +163,8 @@ abstract class MediaInfoClient {
     @Query('itemId') String? itemId,
     @Query('enableDirectPlay') bool? enableDirectPlay,
     @Query('enableDirectStream') bool? enableDirectStream,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding,
     @Body() OpenLiveStreamDto? body,
     @DioOptions() RequestOptions? options,
   });

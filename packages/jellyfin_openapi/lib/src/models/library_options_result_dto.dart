@@ -15,8 +15,7 @@ part 'library_options_result_dto.g.dart';
 abstract class LibraryOptionsResultDto with _$LibraryOptionsResultDto {
   const factory LibraryOptionsResultDto({
     /// Gets or sets the metadata savers.
-    @JsonKey(name: 'MetadataSavers')
-    List<LibraryOptionInfoDto>? metadataSavers,
+    @JsonKey(name: 'MetadataSavers') List<LibraryOptionInfoDto>? metadataSavers,
 
     /// Gets or sets the metadata readers.
     @JsonKey(name: 'MetadataReaders')
@@ -27,17 +26,16 @@ abstract class LibraryOptionsResultDto with _$LibraryOptionsResultDto {
     List<LibraryOptionInfoDto>? subtitleFetchers,
 
     /// Gets or sets the list of lyric fetchers.
-    @JsonKey(name: 'LyricFetchers')
-    List<LibraryOptionInfoDto>? lyricFetchers,
+    @JsonKey(name: 'LyricFetchers') List<LibraryOptionInfoDto>? lyricFetchers,
 
     /// Gets or sets the list of MediaSegment Providers.
     @JsonKey(name: 'MediaSegmentProviders')
     List<LibraryOptionInfoDto>? mediaSegmentProviders,
 
     /// Gets or sets the type options.
-    @JsonKey(name: 'TypeOptions')
-    List<LibraryTypeOptionsDto>? typeOptions,
+    @JsonKey(name: 'TypeOptions') List<LibraryTypeOptionsDto>? typeOptions,
   }) = _LibraryOptionsResultDto;
-  
-  factory LibraryOptionsResultDto.fromJson(Map<String, Object?> json) => _$LibraryOptionsResultDtoFromJson(json);
+
+  factory LibraryOptionsResultDto.fromJson(Map<String, Object?> json) =>
+      _$LibraryOptionsResultDtoFromJson(json);
 }

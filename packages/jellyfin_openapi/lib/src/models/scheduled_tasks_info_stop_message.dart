@@ -11,13 +11,15 @@ part 'scheduled_tasks_info_stop_message.g.dart';
 
 /// Scheduled tasks info stop message.
 @Freezed()
-abstract class ScheduledTasksInfoStopMessage with _$ScheduledTasksInfoStopMessage {
+abstract class ScheduledTasksInfoStopMessage
+    with _$ScheduledTasksInfoStopMessage {
   const factory ScheduledTasksInfoStopMessage({
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ScheduledTasksInfoStopMessageMessageType.scheduledTasksInfoStop)
     ScheduledTasksInfoStopMessageMessageType messageType,
   }) = _ScheduledTasksInfoStopMessage;
-  
-  factory ScheduledTasksInfoStopMessage.fromJson(Map<String, Object?> json) => _$ScheduledTasksInfoStopMessageFromJson(json);
+
+  factory ScheduledTasksInfoStopMessage.fromJson(Map<String, Object?> json) =>
+      _$ScheduledTasksInfoStopMessageFromJson(json);
 }

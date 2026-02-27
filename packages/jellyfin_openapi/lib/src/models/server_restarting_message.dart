@@ -13,15 +13,15 @@ part 'server_restarting_message.g.dart';
 @Freezed()
 abstract class ServerRestartingMessage with _$ServerRestartingMessage {
   const factory ServerRestartingMessage({
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ServerRestartingMessageMessageType.serverRestarting)
     ServerRestartingMessageMessageType messageType,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _ServerRestartingMessage;
-  
-  factory ServerRestartingMessage.fromJson(Map<String, Object?> json) => _$ServerRestartingMessageFromJson(json);
+
+  factory ServerRestartingMessage.fromJson(Map<String, Object?> json) =>
+      _$ServerRestartingMessageFromJson(json);
 }

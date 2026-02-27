@@ -15,23 +15,23 @@ T _$identity<T>(T value) => value;
 mixin _$BackupManifestDto {
   /// Gets or sets the jellyfin version this backup was created with.
   @JsonKey(name: 'ServerVersion')
-  String get serverVersion;
+  String? get serverVersion;
 
   /// Gets or sets the backup engine version this backup was created with.
   @JsonKey(name: 'BackupEngineVersion')
-  String get backupEngineVersion;
+  String? get backupEngineVersion;
 
   /// Gets or sets the date this backup was created with.
   @JsonKey(name: 'DateCreated')
-  DateTime get dateCreated;
+  DateTime? get dateCreated;
 
   /// Gets or sets the path to the backup on the system.
   @JsonKey(name: 'Path')
-  String get path;
+  String? get path;
 
   /// Gets or sets the contents of the backup archive.
   @JsonKey(name: 'Options')
-  BackupOptionsDto get options;
+  BackupOptionsDto? get options;
 
   /// Create a copy of BackupManifestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -86,14 +86,14 @@ abstract mixin class $BackupManifestDtoCopyWith<$Res> {
   ) = _$BackupManifestDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ServerVersion') String serverVersion,
-    @JsonKey(name: 'BackupEngineVersion') String backupEngineVersion,
-    @JsonKey(name: 'DateCreated') DateTime dateCreated,
-    @JsonKey(name: 'Path') String path,
-    @JsonKey(name: 'Options') BackupOptionsDto options,
+    @JsonKey(name: 'ServerVersion') String? serverVersion,
+    @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
+    @JsonKey(name: 'DateCreated') DateTime? dateCreated,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'Options') BackupOptionsDto? options,
   });
 
-  $BackupOptionsDtoCopyWith<$Res> get options;
+  $BackupOptionsDtoCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -109,34 +109,34 @@ class _$BackupManifestDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? serverVersion = null,
-    Object? backupEngineVersion = null,
-    Object? dateCreated = null,
-    Object? path = null,
-    Object? options = null,
+    Object? serverVersion = freezed,
+    Object? backupEngineVersion = freezed,
+    Object? dateCreated = freezed,
+    Object? path = freezed,
+    Object? options = freezed,
   }) {
     return _then(
       _self.copyWith(
-        serverVersion: null == serverVersion
+        serverVersion: freezed == serverVersion
             ? _self.serverVersion
             : serverVersion // ignore: cast_nullable_to_non_nullable
-                  as String,
-        backupEngineVersion: null == backupEngineVersion
+                  as String?,
+        backupEngineVersion: freezed == backupEngineVersion
             ? _self.backupEngineVersion
             : backupEngineVersion // ignore: cast_nullable_to_non_nullable
-                  as String,
-        dateCreated: null == dateCreated
+                  as String?,
+        dateCreated: freezed == dateCreated
             ? _self.dateCreated
             : dateCreated // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        path: null == path
+                  as DateTime?,
+        path: freezed == path
             ? _self.path
             : path // ignore: cast_nullable_to_non_nullable
-                  as String,
-        options: null == options
+                  as String?,
+        options: freezed == options
             ? _self.options
             : options // ignore: cast_nullable_to_non_nullable
-                  as BackupOptionsDto,
+                  as BackupOptionsDto?,
       ),
     );
   }
@@ -145,8 +145,12 @@ class _$BackupManifestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BackupOptionsDtoCopyWith<$Res> get options {
-    return $BackupOptionsDtoCopyWith<$Res>(_self.options, (value) {
+  $BackupOptionsDtoCopyWith<$Res>? get options {
+    if (_self.options == null) {
+      return null;
+    }
+
+    return $BackupOptionsDtoCopyWith<$Res>(_self.options!, (value) {
       return _then(_self.copyWith(options: value));
     });
   }
@@ -246,11 +250,11 @@ extension BackupManifestDtoPatterns on BackupManifestDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ServerVersion') String serverVersion,
-      @JsonKey(name: 'BackupEngineVersion') String backupEngineVersion,
-      @JsonKey(name: 'DateCreated') DateTime dateCreated,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Options') BackupOptionsDto options,
+      @JsonKey(name: 'ServerVersion') String? serverVersion,
+      @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
+      @JsonKey(name: 'DateCreated') DateTime? dateCreated,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Options') BackupOptionsDto? options,
     )?
     $default, {
     required TResult orElse(),
@@ -286,11 +290,11 @@ extension BackupManifestDtoPatterns on BackupManifestDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ServerVersion') String serverVersion,
-      @JsonKey(name: 'BackupEngineVersion') String backupEngineVersion,
-      @JsonKey(name: 'DateCreated') DateTime dateCreated,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Options') BackupOptionsDto options,
+      @JsonKey(name: 'ServerVersion') String? serverVersion,
+      @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
+      @JsonKey(name: 'DateCreated') DateTime? dateCreated,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Options') BackupOptionsDto? options,
     )
     $default,
   ) {
@@ -324,11 +328,11 @@ extension BackupManifestDtoPatterns on BackupManifestDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ServerVersion') String serverVersion,
-      @JsonKey(name: 'BackupEngineVersion') String backupEngineVersion,
-      @JsonKey(name: 'DateCreated') DateTime dateCreated,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Options') BackupOptionsDto options,
+      @JsonKey(name: 'ServerVersion') String? serverVersion,
+      @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
+      @JsonKey(name: 'DateCreated') DateTime? dateCreated,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Options') BackupOptionsDto? options,
     )?
     $default,
   ) {
@@ -352,11 +356,11 @@ extension BackupManifestDtoPatterns on BackupManifestDto {
 @JsonSerializable()
 class _BackupManifestDto implements BackupManifestDto {
   const _BackupManifestDto({
-    @JsonKey(name: 'ServerVersion') required this.serverVersion,
-    @JsonKey(name: 'BackupEngineVersion') required this.backupEngineVersion,
-    @JsonKey(name: 'DateCreated') required this.dateCreated,
-    @JsonKey(name: 'Path') required this.path,
-    @JsonKey(name: 'Options') required this.options,
+    @JsonKey(name: 'ServerVersion') this.serverVersion,
+    @JsonKey(name: 'BackupEngineVersion') this.backupEngineVersion,
+    @JsonKey(name: 'DateCreated') this.dateCreated,
+    @JsonKey(name: 'Path') this.path,
+    @JsonKey(name: 'Options') this.options,
   });
   factory _BackupManifestDto.fromJson(Map<String, dynamic> json) =>
       _$BackupManifestDtoFromJson(json);
@@ -364,27 +368,27 @@ class _BackupManifestDto implements BackupManifestDto {
   /// Gets or sets the jellyfin version this backup was created with.
   @override
   @JsonKey(name: 'ServerVersion')
-  final String serverVersion;
+  final String? serverVersion;
 
   /// Gets or sets the backup engine version this backup was created with.
   @override
   @JsonKey(name: 'BackupEngineVersion')
-  final String backupEngineVersion;
+  final String? backupEngineVersion;
 
   /// Gets or sets the date this backup was created with.
   @override
   @JsonKey(name: 'DateCreated')
-  final DateTime dateCreated;
+  final DateTime? dateCreated;
 
   /// Gets or sets the path to the backup on the system.
   @override
   @JsonKey(name: 'Path')
-  final String path;
+  final String? path;
 
   /// Gets or sets the contents of the backup archive.
   @override
   @JsonKey(name: 'Options')
-  final BackupOptionsDto options;
+  final BackupOptionsDto? options;
 
   /// Create a copy of BackupManifestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -441,15 +445,15 @@ abstract mixin class _$BackupManifestDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ServerVersion') String serverVersion,
-    @JsonKey(name: 'BackupEngineVersion') String backupEngineVersion,
-    @JsonKey(name: 'DateCreated') DateTime dateCreated,
-    @JsonKey(name: 'Path') String path,
-    @JsonKey(name: 'Options') BackupOptionsDto options,
+    @JsonKey(name: 'ServerVersion') String? serverVersion,
+    @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
+    @JsonKey(name: 'DateCreated') DateTime? dateCreated,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'Options') BackupOptionsDto? options,
   });
 
   @override
-  $BackupOptionsDtoCopyWith<$Res> get options;
+  $BackupOptionsDtoCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -465,34 +469,34 @@ class __$BackupManifestDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? serverVersion = null,
-    Object? backupEngineVersion = null,
-    Object? dateCreated = null,
-    Object? path = null,
-    Object? options = null,
+    Object? serverVersion = freezed,
+    Object? backupEngineVersion = freezed,
+    Object? dateCreated = freezed,
+    Object? path = freezed,
+    Object? options = freezed,
   }) {
     return _then(
       _BackupManifestDto(
-        serverVersion: null == serverVersion
+        serverVersion: freezed == serverVersion
             ? _self.serverVersion
             : serverVersion // ignore: cast_nullable_to_non_nullable
-                  as String,
-        backupEngineVersion: null == backupEngineVersion
+                  as String?,
+        backupEngineVersion: freezed == backupEngineVersion
             ? _self.backupEngineVersion
             : backupEngineVersion // ignore: cast_nullable_to_non_nullable
-                  as String,
-        dateCreated: null == dateCreated
+                  as String?,
+        dateCreated: freezed == dateCreated
             ? _self.dateCreated
             : dateCreated // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        path: null == path
+                  as DateTime?,
+        path: freezed == path
             ? _self.path
             : path // ignore: cast_nullable_to_non_nullable
-                  as String,
-        options: null == options
+                  as String?,
+        options: freezed == options
             ? _self.options
             : options // ignore: cast_nullable_to_non_nullable
-                  as BackupOptionsDto,
+                  as BackupOptionsDto?,
       ),
     );
   }
@@ -501,8 +505,12 @@ class __$BackupManifestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BackupOptionsDtoCopyWith<$Res> get options {
-    return $BackupOptionsDtoCopyWith<$Res>(_self.options, (value) {
+  $BackupOptionsDtoCopyWith<$Res>? get options {
+    if (_self.options == null) {
+      return null;
+    }
+
+    return $BackupOptionsDtoCopyWith<$Res>(_self.options!, (value) {
       return _then(_self.copyWith(options: value));
     });
   }

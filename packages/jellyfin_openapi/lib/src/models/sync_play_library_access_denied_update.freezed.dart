@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SyncPlayLibraryAccessDeniedUpdate {
-  /// Gets the group identifier.
-  @JsonKey(name: 'GroupId')
-  String get groupId;
-
-  /// Gets the update data.
-  @JsonKey(name: 'Data')
-  String get data;
-
   /// Enum GroupUpdateType.
   @JsonKey(name: 'Type')
   SyncPlayLibraryAccessDeniedUpdateType get type;
+
+  /// Gets the group identifier.
+  @JsonKey(name: 'GroupId')
+  String? get groupId;
+
+  /// Gets the update data.
+  @JsonKey(name: 'Data')
+  String? get data;
 
   /// Create a copy of SyncPlayLibraryAccessDeniedUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -43,18 +43,18 @@ mixin _$SyncPlayLibraryAccessDeniedUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SyncPlayLibraryAccessDeniedUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayLibraryAccessDeniedUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayLibraryAccessDeniedUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -66,9 +66,9 @@ abstract mixin class $SyncPlayLibraryAccessDeniedUpdateCopyWith<$Res> {
   ) = _$SyncPlayLibraryAccessDeniedUpdateCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
     @JsonKey(name: 'Type') SyncPlayLibraryAccessDeniedUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -85,24 +85,24 @@ class _$SyncPlayLibraryAccessDeniedUpdateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayLibraryAccessDeniedUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -203,9 +203,9 @@ extension SyncPlayLibraryAccessDeniedUpdatePatterns
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayLibraryAccessDeniedUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default, {
     required TResult orElse(),
@@ -213,7 +213,7 @@ extension SyncPlayLibraryAccessDeniedUpdatePatterns
     final _that = this;
     switch (_that) {
       case _SyncPlayLibraryAccessDeniedUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return orElse();
     }
@@ -235,16 +235,16 @@ extension SyncPlayLibraryAccessDeniedUpdatePatterns
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayLibraryAccessDeniedUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayLibraryAccessDeniedUpdate():
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -265,16 +265,16 @@ extension SyncPlayLibraryAccessDeniedUpdatePatterns
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayLibraryAccessDeniedUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayLibraryAccessDeniedUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return null;
     }
@@ -286,29 +286,29 @@ extension SyncPlayLibraryAccessDeniedUpdatePatterns
 class _SyncPlayLibraryAccessDeniedUpdate
     implements SyncPlayLibraryAccessDeniedUpdate {
   const _SyncPlayLibraryAccessDeniedUpdate({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'Type')
     this.type = SyncPlayLibraryAccessDeniedUpdateType.libraryAccessDenied,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
   });
   factory _SyncPlayLibraryAccessDeniedUpdate.fromJson(
     Map<String, dynamic> json,
   ) => _$SyncPlayLibraryAccessDeniedUpdateFromJson(json);
 
-  /// Gets the group identifier.
-  @override
-  @JsonKey(name: 'GroupId')
-  final String groupId;
-
-  /// Gets the update data.
-  @override
-  @JsonKey(name: 'Data')
-  final String data;
-
   /// Enum GroupUpdateType.
   @override
   @JsonKey(name: 'Type')
   final SyncPlayLibraryAccessDeniedUpdateType type;
+
+  /// Gets the group identifier.
+  @override
+  @JsonKey(name: 'GroupId')
+  final String? groupId;
+
+  /// Gets the update data.
+  @override
+  @JsonKey(name: 'Data')
+  final String? data;
 
   /// Create a copy of SyncPlayLibraryAccessDeniedUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -333,18 +333,18 @@ class _SyncPlayLibraryAccessDeniedUpdate
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SyncPlayLibraryAccessDeniedUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayLibraryAccessDeniedUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayLibraryAccessDeniedUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -358,9 +358,9 @@ abstract mixin class _$SyncPlayLibraryAccessDeniedUpdateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
     @JsonKey(name: 'Type') SyncPlayLibraryAccessDeniedUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -377,24 +377,24 @@ class __$SyncPlayLibraryAccessDeniedUpdateCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _SyncPlayLibraryAccessDeniedUpdate(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayLibraryAccessDeniedUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

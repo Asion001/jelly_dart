@@ -14,19 +14,18 @@ part 'playstate_message.g.dart';
 @Freezed()
 abstract class PlaystateMessage with _$PlaystateMessage {
   const factory PlaystateMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required PlaystateRequest data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(PlaystateMessageMessageType.playstate)
     PlaystateMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') PlaystateRequest? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _PlaystateMessage;
-  
-  factory PlaystateMessage.fromJson(Map<String, Object?> json) => _$PlaystateMessageFromJson(json);
+
+  factory PlaystateMessage.fromJson(Map<String, Object?> json) =>
+      _$PlaystateMessageFromJson(json);
 }

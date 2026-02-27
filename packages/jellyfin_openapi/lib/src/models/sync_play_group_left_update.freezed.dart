@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SyncPlayGroupLeftUpdate {
-  /// Gets the group identifier.
-  @JsonKey(name: 'GroupId')
-  String get groupId;
-
-  /// Gets the update data.
-  @JsonKey(name: 'Data')
-  String get data;
-
   /// Enum GroupUpdateType.
   @JsonKey(name: 'Type')
   SyncPlayGroupLeftUpdateType get type;
+
+  /// Gets the group identifier.
+  @JsonKey(name: 'GroupId')
+  String? get groupId;
+
+  /// Gets the update data.
+  @JsonKey(name: 'Data')
+  String? get data;
 
   /// Create a copy of SyncPlayGroupLeftUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -43,18 +43,18 @@ mixin _$SyncPlayGroupLeftUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SyncPlayGroupLeftUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayGroupLeftUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayGroupLeftUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -66,9 +66,9 @@ abstract mixin class $SyncPlayGroupLeftUpdateCopyWith<$Res> {
   ) = _$SyncPlayGroupLeftUpdateCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
     @JsonKey(name: 'Type') SyncPlayGroupLeftUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -85,24 +85,24 @@ class _$SyncPlayGroupLeftUpdateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayGroupLeftUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -202,9 +202,9 @@ extension SyncPlayGroupLeftUpdatePatterns on SyncPlayGroupLeftUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayGroupLeftUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default, {
     required TResult orElse(),
@@ -212,7 +212,7 @@ extension SyncPlayGroupLeftUpdatePatterns on SyncPlayGroupLeftUpdate {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupLeftUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return orElse();
     }
@@ -234,16 +234,16 @@ extension SyncPlayGroupLeftUpdatePatterns on SyncPlayGroupLeftUpdate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayGroupLeftUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupLeftUpdate():
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -264,16 +264,16 @@ extension SyncPlayGroupLeftUpdatePatterns on SyncPlayGroupLeftUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
       @JsonKey(name: 'Type') SyncPlayGroupLeftUpdateType type,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayGroupLeftUpdate() when $default != null:
-        return $default(_that.groupId, _that.data, _that.type);
+        return $default(_that.type, _that.groupId, _that.data);
       case _:
         return null;
     }
@@ -284,27 +284,27 @@ extension SyncPlayGroupLeftUpdatePatterns on SyncPlayGroupLeftUpdate {
 @JsonSerializable()
 class _SyncPlayGroupLeftUpdate implements SyncPlayGroupLeftUpdate {
   const _SyncPlayGroupLeftUpdate({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'Type') this.type = SyncPlayGroupLeftUpdateType.groupLeft,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
   });
   factory _SyncPlayGroupLeftUpdate.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayGroupLeftUpdateFromJson(json);
-
-  /// Gets the group identifier.
-  @override
-  @JsonKey(name: 'GroupId')
-  final String groupId;
-
-  /// Gets the update data.
-  @override
-  @JsonKey(name: 'Data')
-  final String data;
 
   /// Enum GroupUpdateType.
   @override
   @JsonKey(name: 'Type')
   final SyncPlayGroupLeftUpdateType type;
+
+  /// Gets the group identifier.
+  @override
+  @JsonKey(name: 'GroupId')
+  final String? groupId;
+
+  /// Gets the update data.
+  @override
+  @JsonKey(name: 'Data')
+  final String? data;
 
   /// Create a copy of SyncPlayGroupLeftUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -327,18 +327,18 @@ class _SyncPlayGroupLeftUpdate implements SyncPlayGroupLeftUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SyncPlayGroupLeftUpdate &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, groupId, data, type);
+  int get hashCode => Object.hash(runtimeType, type, groupId, data);
 
   @override
   String toString() {
-    return 'SyncPlayGroupLeftUpdate(groupId: $groupId, data: $data, type: $type)';
+    return 'SyncPlayGroupLeftUpdate(type: $type, groupId: $groupId, data: $data)';
   }
 }
 
@@ -352,9 +352,9 @@ abstract mixin class _$SyncPlayGroupLeftUpdateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
     @JsonKey(name: 'Type') SyncPlayGroupLeftUpdateType type,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -371,24 +371,24 @@ class __$SyncPlayGroupLeftUpdateCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? groupId = null,
-    Object? data = null,
     Object? type = null,
+    Object? groupId = freezed,
+    Object? data = freezed,
   }) {
     return _then(
       _SyncPlayGroupLeftUpdate(
-        groupId: null == groupId
-            ? _self.groupId
-            : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as SyncPlayGroupLeftUpdateType,
+        groupId: freezed == groupId
+            ? _self.groupId
+            : groupId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

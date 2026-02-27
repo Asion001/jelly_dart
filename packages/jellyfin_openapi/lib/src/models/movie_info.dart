@@ -11,41 +11,31 @@ part 'movie_info.g.dart';
 abstract class MovieInfo with _$MovieInfo {
   const factory MovieInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the original title.
-    @JsonKey(name: 'OriginalTitle')
-    String? originalTitle,
+    @JsonKey(name: 'OriginalTitle') String? originalTitle,
 
     /// Gets or sets the path.
-    @JsonKey(name: 'Path')
-    String? path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets or sets the metadata language.
-    @JsonKey(name: 'MetadataLanguage')
-    String? metadataLanguage,
+    @JsonKey(name: 'MetadataLanguage') String? metadataLanguage,
 
     /// Gets or sets the metadata country code.
-    @JsonKey(name: 'MetadataCountryCode')
-    String? metadataCountryCode,
+    @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
 
     /// Gets or sets the provider ids.
-    @JsonKey(name: 'ProviderIds')
-    Map<String, String?>? providerIds,
+    @JsonKey(name: 'ProviderIds') Map<String, String?>? providerIds,
 
     /// Gets or sets the year.
-    @JsonKey(name: 'Year')
-    int? year,
-    @JsonKey(name: 'IndexNumber')
-    int? indexNumber,
-    @JsonKey(name: 'ParentIndexNumber')
-    int? parentIndexNumber,
-    @JsonKey(name: 'PremiereDate')
-    DateTime? premiereDate,
-    @JsonKey(name: 'IsAutomated')
-    bool? isAutomated,
+    @JsonKey(name: 'Year') int? year,
+    @JsonKey(name: 'IndexNumber') int? indexNumber,
+    @JsonKey(name: 'ParentIndexNumber') int? parentIndexNumber,
+    @JsonKey(name: 'PremiereDate') DateTime? premiereDate,
+    @JsonKey(name: 'IsAutomated') bool? isAutomated,
   }) = _MovieInfo;
-  
-  factory MovieInfo.fromJson(Map<String, Object?> json) => _$MovieInfoFromJson(json);
+
+  factory MovieInfo.fromJson(Map<String, Object?> json) =>
+      _$MovieInfoFromJson(json);
 }

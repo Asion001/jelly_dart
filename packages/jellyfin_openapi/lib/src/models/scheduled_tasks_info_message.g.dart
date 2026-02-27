@@ -9,24 +9,24 @@ part of 'scheduled_tasks_info_message.dart';
 _ScheduledTasksInfoMessage _$ScheduledTasksInfoMessageFromJson(
   Map<String, dynamic> json,
 ) => _ScheduledTasksInfoMessage(
-  data: (json['Data'] as List<dynamic>?)
-      ?.map((e) => TaskInfo.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ScheduledTasksInfoMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ScheduledTasksInfoMessageMessageType.scheduledTasksInfo,
+  data: (json['Data'] as List<dynamic>?)
+      ?.map((e) => TaskInfo.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ScheduledTasksInfoMessageToJson(
   _ScheduledTasksInfoMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data?.map((e) => e.toJson()).toList(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.map((e) => e.toJson()).toList(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$ScheduledTasksInfoMessageMessageTypeEnumMap = {

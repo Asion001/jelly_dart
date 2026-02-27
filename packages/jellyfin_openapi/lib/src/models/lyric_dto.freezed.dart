@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$LyricDto {
   /// Gets or sets Metadata for the lyrics.
   @JsonKey(name: 'Metadata')
-  LyricMetadata get metadata;
+  LyricMetadata? get metadata;
 
   /// Gets or sets a collection of individual lyric lines.
   @JsonKey(name: 'Lyrics')
-  List<LyricLine> get lyrics;
+  List<LyricLine>? get lyrics;
 
   /// Create a copy of LyricDto
   /// with the given fields replaced by the non-null parameter values.
@@ -61,11 +61,11 @@ abstract mixin class $LyricDtoCopyWith<$Res> {
       _$LyricDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Metadata') LyricMetadata metadata,
-    @JsonKey(name: 'Lyrics') List<LyricLine> lyrics,
+    @JsonKey(name: 'Metadata') LyricMetadata? metadata,
+    @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
   });
 
-  $LyricMetadataCopyWith<$Res> get metadata;
+  $LyricMetadataCopyWith<$Res>? get metadata;
 }
 
 /// @nodoc
@@ -79,17 +79,17 @@ class _$LyricDtoCopyWithImpl<$Res> implements $LyricDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? metadata = null, Object? lyrics = null}) {
+  $Res call({Object? metadata = freezed, Object? lyrics = freezed}) {
     return _then(
       _self.copyWith(
-        metadata: null == metadata
+        metadata: freezed == metadata
             ? _self.metadata
             : metadata // ignore: cast_nullable_to_non_nullable
-                  as LyricMetadata,
-        lyrics: null == lyrics
+                  as LyricMetadata?,
+        lyrics: freezed == lyrics
             ? _self.lyrics
             : lyrics // ignore: cast_nullable_to_non_nullable
-                  as List<LyricLine>,
+                  as List<LyricLine>?,
       ),
     );
   }
@@ -98,8 +98,12 @@ class _$LyricDtoCopyWithImpl<$Res> implements $LyricDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LyricMetadataCopyWith<$Res> get metadata {
-    return $LyricMetadataCopyWith<$Res>(_self.metadata, (value) {
+  $LyricMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+      return null;
+    }
+
+    return $LyricMetadataCopyWith<$Res>(_self.metadata!, (value) {
       return _then(_self.copyWith(metadata: value));
     });
   }
@@ -199,8 +203,8 @@ extension LyricDtoPatterns on LyricDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Metadata') LyricMetadata metadata,
-      @JsonKey(name: 'Lyrics') List<LyricLine> lyrics,
+      @JsonKey(name: 'Metadata') LyricMetadata? metadata,
+      @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
     )?
     $default, {
     required TResult orElse(),
@@ -230,8 +234,8 @@ extension LyricDtoPatterns on LyricDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Metadata') LyricMetadata metadata,
-      @JsonKey(name: 'Lyrics') List<LyricLine> lyrics,
+      @JsonKey(name: 'Metadata') LyricMetadata? metadata,
+      @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
     )
     $default,
   ) {
@@ -259,8 +263,8 @@ extension LyricDtoPatterns on LyricDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Metadata') LyricMetadata metadata,
-      @JsonKey(name: 'Lyrics') List<LyricLine> lyrics,
+      @JsonKey(name: 'Metadata') LyricMetadata? metadata,
+      @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
     )?
     $default,
   ) {
@@ -278,8 +282,8 @@ extension LyricDtoPatterns on LyricDto {
 @JsonSerializable()
 class _LyricDto implements LyricDto {
   const _LyricDto({
-    @JsonKey(name: 'Metadata') required this.metadata,
-    @JsonKey(name: 'Lyrics') required final List<LyricLine> lyrics,
+    @JsonKey(name: 'Metadata') this.metadata,
+    @JsonKey(name: 'Lyrics') final List<LyricLine>? lyrics,
   }) : _lyrics = lyrics;
   factory _LyricDto.fromJson(Map<String, dynamic> json) =>
       _$LyricDtoFromJson(json);
@@ -287,18 +291,20 @@ class _LyricDto implements LyricDto {
   /// Gets or sets Metadata for the lyrics.
   @override
   @JsonKey(name: 'Metadata')
-  final LyricMetadata metadata;
+  final LyricMetadata? metadata;
 
   /// Gets or sets a collection of individual lyric lines.
-  final List<LyricLine> _lyrics;
+  final List<LyricLine>? _lyrics;
 
   /// Gets or sets a collection of individual lyric lines.
   @override
   @JsonKey(name: 'Lyrics')
-  List<LyricLine> get lyrics {
+  List<LyricLine>? get lyrics {
+    final value = _lyrics;
+    if (value == null) return null;
     if (_lyrics is EqualUnmodifiableListView) return _lyrics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lyrics);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Create a copy of LyricDto
@@ -346,12 +352,12 @@ abstract mixin class _$LyricDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Metadata') LyricMetadata metadata,
-    @JsonKey(name: 'Lyrics') List<LyricLine> lyrics,
+    @JsonKey(name: 'Metadata') LyricMetadata? metadata,
+    @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
   });
 
   @override
-  $LyricMetadataCopyWith<$Res> get metadata;
+  $LyricMetadataCopyWith<$Res>? get metadata;
 }
 
 /// @nodoc
@@ -365,17 +371,17 @@ class __$LyricDtoCopyWithImpl<$Res> implements _$LyricDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? metadata = null, Object? lyrics = null}) {
+  $Res call({Object? metadata = freezed, Object? lyrics = freezed}) {
     return _then(
       _LyricDto(
-        metadata: null == metadata
+        metadata: freezed == metadata
             ? _self.metadata
             : metadata // ignore: cast_nullable_to_non_nullable
-                  as LyricMetadata,
-        lyrics: null == lyrics
+                  as LyricMetadata?,
+        lyrics: freezed == lyrics
             ? _self._lyrics
             : lyrics // ignore: cast_nullable_to_non_nullable
-                  as List<LyricLine>,
+                  as List<LyricLine>?,
       ),
     );
   }
@@ -384,8 +390,12 @@ class __$LyricDtoCopyWithImpl<$Res> implements _$LyricDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LyricMetadataCopyWith<$Res> get metadata {
-    return $LyricMetadataCopyWith<$Res>(_self.metadata, (value) {
+  $LyricMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+      return null;
+    }
+
+    return $LyricMetadataCopyWith<$Res>(_self.metadata!, (value) {
       return _then(_self.copyWith(metadata: value));
     });
   }

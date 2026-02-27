@@ -13,35 +13,24 @@ part 'remote_search_result.g.dart';
 abstract class RemoteSearchResult with _$RemoteSearchResult {
   const factory RemoteSearchResult({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the provider ids.
-    @JsonKey(name: 'ProviderIds')
-    required Map<String, String?>? providerIds,
+    @JsonKey(name: 'ProviderIds') Map<String, String?>? providerIds,
 
     /// Gets or sets the year.
-    @JsonKey(name: 'ProductionYear')
-    required int? productionYear,
-    @JsonKey(name: 'IndexNumber')
-    required int? indexNumber,
-    @JsonKey(name: 'IndexNumberEnd')
-    required int? indexNumberEnd,
-    @JsonKey(name: 'ParentIndexNumber')
-    required int? parentIndexNumber,
-    @JsonKey(name: 'PremiereDate')
-    required DateTime? premiereDate,
-    @JsonKey(name: 'ImageUrl')
-    required String? imageUrl,
-    @JsonKey(name: 'SearchProviderName')
-    required String? searchProviderName,
-    @JsonKey(name: 'Overview')
-    required String? overview,
-    @JsonKey(name: 'AlbumArtist')
-    required RemoteSearchResult albumArtist,
-    @JsonKey(name: 'Artists')
-    required List<RemoteSearchResult>? artists,
+    @JsonKey(name: 'ProductionYear') int? productionYear,
+    @JsonKey(name: 'IndexNumber') int? indexNumber,
+    @JsonKey(name: 'IndexNumberEnd') int? indexNumberEnd,
+    @JsonKey(name: 'ParentIndexNumber') int? parentIndexNumber,
+    @JsonKey(name: 'PremiereDate') DateTime? premiereDate,
+    @JsonKey(name: 'ImageUrl') String? imageUrl,
+    @JsonKey(name: 'SearchProviderName') String? searchProviderName,
+    @JsonKey(name: 'Overview') String? overview,
+    @JsonKey(name: 'AlbumArtist') RemoteSearchResult? albumArtist,
+    @JsonKey(name: 'Artists') List<RemoteSearchResult>? artists,
   }) = _RemoteSearchResult;
-  
-  factory RemoteSearchResult.fromJson(Map<String, Object?> json) => _$RemoteSearchResultFromJson(json);
+
+  factory RemoteSearchResult.fromJson(Map<String, Object?> json) =>
+      _$RemoteSearchResultFromJson(json);
 }

@@ -12,29 +12,24 @@ part 'configuration_page_info.g.dart';
 abstract class ConfigurationPageInfo with _$ConfigurationPageInfo {
   const factory ConfigurationPageInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets a value indicating whether the configurations page is enabled in the main menu.
-    @JsonKey(name: 'EnableInMainMenu')
-    bool? enableInMainMenu,
+    @JsonKey(name: 'EnableInMainMenu') bool? enableInMainMenu,
 
     /// Gets or sets the menu section.
-    @JsonKey(name: 'MenuSection')
-    String? menuSection,
+    @JsonKey(name: 'MenuSection') String? menuSection,
 
     /// Gets or sets the menu icon.
-    @JsonKey(name: 'MenuIcon')
-    String? menuIcon,
+    @JsonKey(name: 'MenuIcon') String? menuIcon,
 
     /// Gets or sets the display name.
-    @JsonKey(name: 'DisplayName')
-    String? displayName,
+    @JsonKey(name: 'DisplayName') String? displayName,
 
     /// Gets or sets the plugin id.
-    @JsonKey(name: 'PluginId')
-    String? pluginId,
+    @JsonKey(name: 'PluginId') String? pluginId,
   }) = _ConfigurationPageInfo;
-  
-  factory ConfigurationPageInfo.fromJson(Map<String, Object?> json) => _$ConfigurationPageInfoFromJson(json);
+
+  factory ConfigurationPageInfo.fromJson(Map<String, Object?> json) =>
+      _$ConfigurationPageInfoFromJson(json);
 }

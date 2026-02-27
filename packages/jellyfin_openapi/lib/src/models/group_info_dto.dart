@@ -14,25 +14,21 @@ part 'group_info_dto.g.dart';
 abstract class GroupInfoDto with _$GroupInfoDto {
   const factory GroupInfoDto({
     /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
+    @JsonKey(name: 'GroupId') String? groupId,
 
     /// Gets the group name.
-    @JsonKey(name: 'GroupName')
-    required String groupName,
+    @JsonKey(name: 'GroupName') String? groupName,
 
     /// Gets the group state.
-    @JsonKey(name: 'State')
-    required GroupInfoDtoState state,
+    @JsonKey(name: 'State') GroupInfoDtoState? state,
 
     /// Gets the participants.
-    @JsonKey(name: 'Participants')
-    required List<String> participants,
+    @JsonKey(name: 'Participants') List<String>? participants,
 
     /// Gets the date when this DTO has been created.
-    @JsonKey(name: 'LastUpdatedAt')
-    required DateTime lastUpdatedAt,
+    @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
   }) = _GroupInfoDto;
-  
-  factory GroupInfoDto.fromJson(Map<String, Object?> json) => _$GroupInfoDtoFromJson(json);
+
+  factory GroupInfoDto.fromJson(Map<String, Object?> json) =>
+      _$GroupInfoDtoFromJson(json);
 }

@@ -14,30 +14,25 @@ part 'send_command.g.dart';
 abstract class SendCommand with _$SendCommand {
   const factory SendCommand({
     /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
+    @JsonKey(name: 'GroupId') String? groupId,
 
     /// Gets the playlist identifier of the playing item.
-    @JsonKey(name: 'PlaylistItemId')
-    required String playlistItemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
 
     /// Gets or sets the UTC time when to execute the command.
     /// The name has been replaced because it contains a keyword. Original name: `When`.
-    @JsonKey(name: 'When')
-    required DateTime whenValue,
+    @JsonKey(name: 'When') DateTime? whenValue,
 
     /// Gets the position ticks.
-    @JsonKey(name: 'PositionTicks')
-    required int? positionTicks,
+    @JsonKey(name: 'PositionTicks') int? positionTicks,
 
     /// Gets the command.
-    @JsonKey(name: 'Command')
-    required SendCommandCommand command,
+    @JsonKey(name: 'Command') SendCommandCommand? command,
 
     /// Gets the UTC time when this command has been emitted.
-    @JsonKey(name: 'EmittedAt')
-    required DateTime emittedAt,
+    @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
   }) = _SendCommand;
-  
-  factory SendCommand.fromJson(Map<String, Object?> json) => _$SendCommandFromJson(json);
+
+  factory SendCommand.fromJson(Map<String, Object?> json) =>
+      _$SendCommandFromJson(json);
 }

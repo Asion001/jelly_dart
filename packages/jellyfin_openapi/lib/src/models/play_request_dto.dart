@@ -12,17 +12,15 @@ part 'play_request_dto.g.dart';
 abstract class PlayRequestDto with _$PlayRequestDto {
   const factory PlayRequestDto({
     /// Gets or sets the playing queue.
-    @JsonKey(name: 'PlayingQueue')
-    List<String>? playingQueue,
+    @JsonKey(name: 'PlayingQueue') List<String>? playingQueue,
 
     /// Gets or sets the position of the playing item in the queue.
-    @JsonKey(name: 'PlayingItemPosition')
-    int? playingItemPosition,
+    @JsonKey(name: 'PlayingItemPosition') int? playingItemPosition,
 
     /// Gets or sets the start position ticks.
-    @JsonKey(name: 'StartPositionTicks')
-    int? startPositionTicks,
+    @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
   }) = _PlayRequestDto;
-  
-  factory PlayRequestDto.fromJson(Map<String, Object?> json) => _$PlayRequestDtoFromJson(json);
+
+  factory PlayRequestDto.fromJson(Map<String, Object?> json) =>
+      _$PlayRequestDtoFromJson(json);
 }

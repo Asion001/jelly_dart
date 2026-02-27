@@ -15,13 +15,12 @@ part 'lyric_dto.g.dart';
 abstract class LyricDto with _$LyricDto {
   const factory LyricDto({
     /// Gets or sets Metadata for the lyrics.
-    @JsonKey(name: 'Metadata')
-    required LyricMetadata metadata,
+    @JsonKey(name: 'Metadata') LyricMetadata? metadata,
 
     /// Gets or sets a collection of individual lyric lines.
-    @JsonKey(name: 'Lyrics')
-    required List<LyricLine> lyrics,
+    @JsonKey(name: 'Lyrics') List<LyricLine>? lyrics,
   }) = _LyricDto;
-  
-  factory LyricDto.fromJson(Map<String, Object?> json) => _$LyricDtoFromJson(json);
+
+  factory LyricDto.fromJson(Map<String, Object?> json) =>
+      _$LyricDtoFromJson(json);
 }

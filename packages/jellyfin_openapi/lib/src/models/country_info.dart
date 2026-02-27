@@ -12,21 +12,18 @@ part 'country_info.g.dart';
 abstract class CountryInfo with _$CountryInfo {
   const factory CountryInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the display name.
-    @JsonKey(name: 'DisplayName')
-    String? displayName,
+    @JsonKey(name: 'DisplayName') String? displayName,
 
     /// Gets or sets the name of the two letter ISO region.
-    @JsonKey(name: 'TwoLetterISORegionName')
-    String? twoLetterIsoRegionName,
+    @JsonKey(name: 'TwoLetterISORegionName') String? twoLetterIsoRegionName,
 
     /// Gets or sets the name of the three letter ISO region.
-    @JsonKey(name: 'ThreeLetterISORegionName')
-    String? threeLetterIsoRegionName,
+    @JsonKey(name: 'ThreeLetterISORegionName') String? threeLetterIsoRegionName,
   }) = _CountryInfo;
-  
-  factory CountryInfo.fromJson(Map<String, Object?> json) => _$CountryInfoFromJson(json);
+
+  factory CountryInfo.fromJson(Map<String, Object?> json) =>
+      _$CountryInfoFromJson(json);
 }

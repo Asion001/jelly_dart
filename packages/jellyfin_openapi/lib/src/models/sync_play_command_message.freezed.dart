@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SyncPlayCommandMessage {
-  /// Class SendCommand.
-  @JsonKey(name: 'Data')
-  SendCommand get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   SyncPlayCommandMessageMessageType get messageType;
+
+  /// Class SendCommand.
+  @JsonKey(name: 'Data')
+  SendCommand? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of SyncPlayCommandMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,20 +43,20 @@ mixin _$SyncPlayCommandMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SyncPlayCommandMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'SyncPlayCommandMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SyncPlayCommandMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -68,12 +68,12 @@ abstract mixin class $SyncPlayCommandMessageCopyWith<$Res> {
   ) = _$SyncPlayCommandMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') SendCommand data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') SyncPlayCommandMessageMessageType messageType,
+    @JsonKey(name: 'Data') SendCommand? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
-  $SendCommandCopyWith<$Res> get data;
+  $SendCommandCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -89,24 +89,24 @@ class _$SyncPlayCommandMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as SendCommand,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SyncPlayCommandMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as SendCommand?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -115,8 +115,12 @@ class _$SyncPlayCommandMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SendCommandCopyWith<$Res> get data {
-    return $SendCommandCopyWith<$Res>(_self.data, (value) {
+  $SendCommandCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $SendCommandCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -216,10 +220,10 @@ extension SyncPlayCommandMessagePatterns on SyncPlayCommandMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') SendCommand data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SyncPlayCommandMessageMessageType messageType,
+      @JsonKey(name: 'Data') SendCommand? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -227,7 +231,7 @@ extension SyncPlayCommandMessagePatterns on SyncPlayCommandMessage {
     final _that = this;
     switch (_that) {
       case _SyncPlayCommandMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -249,17 +253,17 @@ extension SyncPlayCommandMessagePatterns on SyncPlayCommandMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') SendCommand data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SyncPlayCommandMessageMessageType messageType,
+      @JsonKey(name: 'Data') SendCommand? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayCommandMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -280,17 +284,17 @@ extension SyncPlayCommandMessagePatterns on SyncPlayCommandMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') SendCommand data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SyncPlayCommandMessageMessageType messageType,
+      @JsonKey(name: 'Data') SendCommand? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SyncPlayCommandMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -301,28 +305,28 @@ extension SyncPlayCommandMessagePatterns on SyncPlayCommandMessage {
 @JsonSerializable()
 class _SyncPlayCommandMessage implements SyncPlayCommandMessage {
   const _SyncPlayCommandMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = SyncPlayCommandMessageMessageType.syncPlayCommand,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _SyncPlayCommandMessage.fromJson(Map<String, dynamic> json) =>
       _$SyncPlayCommandMessageFromJson(json);
-
-  /// Class SendCommand.
-  @override
-  @JsonKey(name: 'Data')
-  final SendCommand data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final SyncPlayCommandMessageMessageType messageType;
+
+  /// Class SendCommand.
+  @override
+  @JsonKey(name: 'Data')
+  final SendCommand? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of SyncPlayCommandMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -345,20 +349,20 @@ class _SyncPlayCommandMessage implements SyncPlayCommandMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SyncPlayCommandMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'SyncPlayCommandMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SyncPlayCommandMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -372,13 +376,13 @@ abstract mixin class _$SyncPlayCommandMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') SendCommand data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') SyncPlayCommandMessageMessageType messageType,
+    @JsonKey(name: 'Data') SendCommand? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
   @override
-  $SendCommandCopyWith<$Res> get data;
+  $SendCommandCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -394,24 +398,24 @@ class __$SyncPlayCommandMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _SyncPlayCommandMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as SendCommand,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SyncPlayCommandMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as SendCommand?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -420,8 +424,12 @@ class __$SyncPlayCommandMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SendCommandCopyWith<$Res> get data {
-    return $SendCommandCopyWith<$Res>(_self.data, (value) {
+  $SendCommandCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $SendCommandCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

@@ -8,31 +8,33 @@ part of 'playback_start_info.dart';
 
 _PlaybackStartInfo _$PlaybackStartInfoFromJson(Map<String, dynamic> json) =>
     _PlaybackStartInfo(
-      canSeek: json['CanSeek'] as bool,
-      item: BaseItemDto.fromJson(json['Item'] as Map<String, dynamic>),
-      itemId: json['ItemId'] as String,
+      canSeek: json['CanSeek'] as bool?,
+      item: json['Item'] == null
+          ? null
+          : BaseItemDto.fromJson(json['Item'] as Map<String, dynamic>),
+      itemId: json['ItemId'] as String?,
       sessionId: json['SessionId'] as String?,
       mediaSourceId: json['MediaSourceId'] as String?,
       audioStreamIndex: (json['AudioStreamIndex'] as num?)?.toInt(),
       subtitleStreamIndex: (json['SubtitleStreamIndex'] as num?)?.toInt(),
-      isPaused: json['IsPaused'] as bool,
-      isMuted: json['IsMuted'] as bool,
+      isPaused: json['IsPaused'] as bool?,
+      isMuted: json['IsMuted'] as bool?,
       positionTicks: (json['PositionTicks'] as num?)?.toInt(),
       playbackStartTimeTicks: (json['PlaybackStartTimeTicks'] as num?)?.toInt(),
       volumeLevel: (json['VolumeLevel'] as num?)?.toInt(),
       brightness: (json['Brightness'] as num?)?.toInt(),
       aspectRatio: json['AspectRatio'] as String?,
-      playMethod: $enumDecode(
+      playMethod: $enumDecodeNullable(
         _$PlaybackStartInfoPlayMethodEnumMap,
         json['PlayMethod'],
       ),
       liveStreamId: json['LiveStreamId'] as String?,
       playSessionId: json['PlaySessionId'] as String?,
-      repeatMode: $enumDecode(
+      repeatMode: $enumDecodeNullable(
         _$PlaybackStartInfoRepeatModeEnumMap,
         json['RepeatMode'],
       ),
-      playbackOrder: $enumDecode(
+      playbackOrder: $enumDecodeNullable(
         _$PlaybackStartInfoPlaybackOrderEnumMap,
         json['PlaybackOrder'],
       ),
@@ -45,25 +47,25 @@ _PlaybackStartInfo _$PlaybackStartInfoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$PlaybackStartInfoToJson(
   _PlaybackStartInfo instance,
 ) => <String, dynamic>{
-  'CanSeek': instance.canSeek,
-  'Item': instance.item.toJson(),
-  'ItemId': instance.itemId,
+  'CanSeek': ?instance.canSeek,
+  'Item': ?instance.item?.toJson(),
+  'ItemId': ?instance.itemId,
   'SessionId': ?instance.sessionId,
   'MediaSourceId': ?instance.mediaSourceId,
   'AudioStreamIndex': ?instance.audioStreamIndex,
   'SubtitleStreamIndex': ?instance.subtitleStreamIndex,
-  'IsPaused': instance.isPaused,
-  'IsMuted': instance.isMuted,
+  'IsPaused': ?instance.isPaused,
+  'IsMuted': ?instance.isMuted,
   'PositionTicks': ?instance.positionTicks,
   'PlaybackStartTimeTicks': ?instance.playbackStartTimeTicks,
   'VolumeLevel': ?instance.volumeLevel,
   'Brightness': ?instance.brightness,
   'AspectRatio': ?instance.aspectRatio,
-  'PlayMethod': instance.playMethod.toJson(),
+  'PlayMethod': ?instance.playMethod?.toJson(),
   'LiveStreamId': ?instance.liveStreamId,
   'PlaySessionId': ?instance.playSessionId,
-  'RepeatMode': instance.repeatMode.toJson(),
-  'PlaybackOrder': instance.playbackOrder.toJson(),
+  'RepeatMode': ?instance.repeatMode?.toJson(),
+  'PlaybackOrder': ?instance.playbackOrder?.toJson(),
   'NowPlayingQueue': ?instance.nowPlayingQueue?.map((e) => e.toJson()).toList(),
   'PlaylistItemId': ?instance.playlistItemId,
 };

@@ -14,19 +14,18 @@ part 'scheduled_task_ended_message.g.dart';
 @Freezed()
 abstract class ScheduledTaskEndedMessage with _$ScheduledTaskEndedMessage {
   const factory ScheduledTaskEndedMessage({
-    /// Class TaskExecutionInfo.
-    @JsonKey(name: 'Data')
-    required TaskResult data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ScheduledTaskEndedMessageMessageType.scheduledTaskEnded)
     ScheduledTaskEndedMessageMessageType messageType,
+
+    /// Class TaskExecutionInfo.
+    @JsonKey(name: 'Data') TaskResult? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _ScheduledTaskEndedMessage;
-  
-  factory ScheduledTaskEndedMessage.fromJson(Map<String, Object?> json) => _$ScheduledTaskEndedMessageFromJson(json);
+
+  factory ScheduledTaskEndedMessage.fromJson(Map<String, Object?> json) =>
+      _$ScheduledTaskEndedMessageFromJson(json);
 }

@@ -15,53 +15,53 @@ T _$identity<T>(T value) => value;
 mixin _$TrickplayOptions {
   /// Gets or sets a value indicating whether or not to use HW acceleration.
   @JsonKey(name: 'EnableHwAcceleration')
-  bool get enableHwAcceleration;
+  bool? get enableHwAcceleration;
 
   /// Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
   @JsonKey(name: 'EnableHwEncoding')
-  bool get enableHwEncoding;
+  bool? get enableHwEncoding;
 
   /// Gets or sets a value indicating whether to only extract key frames.
   ///
   /// Significantly faster, but is not compatible with all decoders and/or video files.
   @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-  bool get enableKeyFrameOnlyExtraction;
+  bool? get enableKeyFrameOnlyExtraction;
 
   /// Gets or sets the behavior used by trickplay provider on library scan/update.
   @JsonKey(name: 'ScanBehavior')
-  TrickplayOptionsScanBehavior get scanBehavior;
+  TrickplayOptionsScanBehavior? get scanBehavior;
 
   /// Gets or sets the process priority for the ffmpeg process.
   @JsonKey(name: 'ProcessPriority')
-  TrickplayOptionsProcessPriority get processPriority;
+  TrickplayOptionsProcessPriority? get processPriority;
 
   /// Gets or sets the interval, in ms, between each new trickplay image.
   @JsonKey(name: 'Interval')
-  int get interval;
+  int? get interval;
 
   /// Gets or sets the target width resolutions, in px, to generates preview images for.
   @JsonKey(name: 'WidthResolutions')
-  List<int> get widthResolutions;
+  List<int>? get widthResolutions;
 
   /// Gets or sets number of tile images to allow in X dimension.
   @JsonKey(name: 'TileWidth')
-  int get tileWidth;
+  int? get tileWidth;
 
   /// Gets or sets number of tile images to allow in Y dimension.
   @JsonKey(name: 'TileHeight')
-  int get tileHeight;
+  int? get tileHeight;
 
   /// Gets or sets the ffmpeg output quality level.
   @JsonKey(name: 'Qscale')
-  int get qscale;
+  int? get qscale;
 
   /// Gets or sets the jpeg quality to use for image tiles.
   @JsonKey(name: 'JpegQuality')
-  int get jpegQuality;
+  int? get jpegQuality;
 
   /// Gets or sets the number of threads to be used by ffmpeg.
   @JsonKey(name: 'ProcessThreads')
-  int get processThreads;
+  int? get processThreads;
 
   /// Create a copy of TrickplayOptions
   /// with the given fields replaced by the non-null parameter values.
@@ -144,20 +144,20 @@ abstract mixin class $TrickplayOptionsCopyWith<$Res> {
   ) = _$TrickplayOptionsCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'EnableHwAcceleration') bool enableHwAcceleration,
-    @JsonKey(name: 'EnableHwEncoding') bool enableHwEncoding,
+    @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
+    @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
     @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-    bool enableKeyFrameOnlyExtraction,
-    @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior scanBehavior,
+    bool? enableKeyFrameOnlyExtraction,
+    @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
     @JsonKey(name: 'ProcessPriority')
-    TrickplayOptionsProcessPriority processPriority,
-    @JsonKey(name: 'Interval') int interval,
-    @JsonKey(name: 'WidthResolutions') List<int> widthResolutions,
-    @JsonKey(name: 'TileWidth') int tileWidth,
-    @JsonKey(name: 'TileHeight') int tileHeight,
-    @JsonKey(name: 'Qscale') int qscale,
-    @JsonKey(name: 'JpegQuality') int jpegQuality,
-    @JsonKey(name: 'ProcessThreads') int processThreads,
+    TrickplayOptionsProcessPriority? processPriority,
+    @JsonKey(name: 'Interval') int? interval,
+    @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
+    @JsonKey(name: 'Qscale') int? qscale,
+    @JsonKey(name: 'JpegQuality') int? jpegQuality,
+    @JsonKey(name: 'ProcessThreads') int? processThreads,
   });
 }
 
@@ -174,69 +174,69 @@ class _$TrickplayOptionsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enableHwAcceleration = null,
-    Object? enableHwEncoding = null,
-    Object? enableKeyFrameOnlyExtraction = null,
-    Object? scanBehavior = null,
-    Object? processPriority = null,
-    Object? interval = null,
-    Object? widthResolutions = null,
-    Object? tileWidth = null,
-    Object? tileHeight = null,
-    Object? qscale = null,
-    Object? jpegQuality = null,
-    Object? processThreads = null,
+    Object? enableHwAcceleration = freezed,
+    Object? enableHwEncoding = freezed,
+    Object? enableKeyFrameOnlyExtraction = freezed,
+    Object? scanBehavior = freezed,
+    Object? processPriority = freezed,
+    Object? interval = freezed,
+    Object? widthResolutions = freezed,
+    Object? tileWidth = freezed,
+    Object? tileHeight = freezed,
+    Object? qscale = freezed,
+    Object? jpegQuality = freezed,
+    Object? processThreads = freezed,
   }) {
     return _then(
       _self.copyWith(
-        enableHwAcceleration: null == enableHwAcceleration
+        enableHwAcceleration: freezed == enableHwAcceleration
             ? _self.enableHwAcceleration
             : enableHwAcceleration // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableHwEncoding: null == enableHwEncoding
+                  as bool?,
+        enableHwEncoding: freezed == enableHwEncoding
             ? _self.enableHwEncoding
             : enableHwEncoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableKeyFrameOnlyExtraction: null == enableKeyFrameOnlyExtraction
+                  as bool?,
+        enableKeyFrameOnlyExtraction: freezed == enableKeyFrameOnlyExtraction
             ? _self.enableKeyFrameOnlyExtraction
             : enableKeyFrameOnlyExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        scanBehavior: null == scanBehavior
+                  as bool?,
+        scanBehavior: freezed == scanBehavior
             ? _self.scanBehavior
             : scanBehavior // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptionsScanBehavior,
-        processPriority: null == processPriority
+                  as TrickplayOptionsScanBehavior?,
+        processPriority: freezed == processPriority
             ? _self.processPriority
             : processPriority // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptionsProcessPriority,
-        interval: null == interval
+                  as TrickplayOptionsProcessPriority?,
+        interval: freezed == interval
             ? _self.interval
             : interval // ignore: cast_nullable_to_non_nullable
-                  as int,
-        widthResolutions: null == widthResolutions
+                  as int?,
+        widthResolutions: freezed == widthResolutions
             ? _self.widthResolutions
             : widthResolutions // ignore: cast_nullable_to_non_nullable
-                  as List<int>,
-        tileWidth: null == tileWidth
+                  as List<int>?,
+        tileWidth: freezed == tileWidth
             ? _self.tileWidth
             : tileWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileHeight: null == tileHeight
+                  as int?,
+        tileHeight: freezed == tileHeight
             ? _self.tileHeight
             : tileHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        qscale: null == qscale
+                  as int?,
+        qscale: freezed == qscale
             ? _self.qscale
             : qscale // ignore: cast_nullable_to_non_nullable
-                  as int,
-        jpegQuality: null == jpegQuality
+                  as int?,
+        jpegQuality: freezed == jpegQuality
             ? _self.jpegQuality
             : jpegQuality // ignore: cast_nullable_to_non_nullable
-                  as int,
-        processThreads: null == processThreads
+                  as int?,
+        processThreads: freezed == processThreads
             ? _self.processThreads
             : processThreads // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }
@@ -336,20 +336,20 @@ extension TrickplayOptionsPatterns on TrickplayOptions {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'EnableHwAcceleration') bool enableHwAcceleration,
-      @JsonKey(name: 'EnableHwEncoding') bool enableHwEncoding,
+      @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
+      @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
       @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-      bool enableKeyFrameOnlyExtraction,
-      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior scanBehavior,
+      bool? enableKeyFrameOnlyExtraction,
+      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
       @JsonKey(name: 'ProcessPriority')
-      TrickplayOptionsProcessPriority processPriority,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'WidthResolutions') List<int> widthResolutions,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'Qscale') int qscale,
-      @JsonKey(name: 'JpegQuality') int jpegQuality,
-      @JsonKey(name: 'ProcessThreads') int processThreads,
+      TrickplayOptionsProcessPriority? processPriority,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'Qscale') int? qscale,
+      @JsonKey(name: 'JpegQuality') int? jpegQuality,
+      @JsonKey(name: 'ProcessThreads') int? processThreads,
     )?
     $default, {
     required TResult orElse(),
@@ -392,20 +392,20 @@ extension TrickplayOptionsPatterns on TrickplayOptions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'EnableHwAcceleration') bool enableHwAcceleration,
-      @JsonKey(name: 'EnableHwEncoding') bool enableHwEncoding,
+      @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
+      @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
       @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-      bool enableKeyFrameOnlyExtraction,
-      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior scanBehavior,
+      bool? enableKeyFrameOnlyExtraction,
+      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
       @JsonKey(name: 'ProcessPriority')
-      TrickplayOptionsProcessPriority processPriority,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'WidthResolutions') List<int> widthResolutions,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'Qscale') int qscale,
-      @JsonKey(name: 'JpegQuality') int jpegQuality,
-      @JsonKey(name: 'ProcessThreads') int processThreads,
+      TrickplayOptionsProcessPriority? processPriority,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'Qscale') int? qscale,
+      @JsonKey(name: 'JpegQuality') int? jpegQuality,
+      @JsonKey(name: 'ProcessThreads') int? processThreads,
     )
     $default,
   ) {
@@ -446,20 +446,20 @@ extension TrickplayOptionsPatterns on TrickplayOptions {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'EnableHwAcceleration') bool enableHwAcceleration,
-      @JsonKey(name: 'EnableHwEncoding') bool enableHwEncoding,
+      @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
+      @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
       @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-      bool enableKeyFrameOnlyExtraction,
-      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior scanBehavior,
+      bool? enableKeyFrameOnlyExtraction,
+      @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
       @JsonKey(name: 'ProcessPriority')
-      TrickplayOptionsProcessPriority processPriority,
-      @JsonKey(name: 'Interval') int interval,
-      @JsonKey(name: 'WidthResolutions') List<int> widthResolutions,
-      @JsonKey(name: 'TileWidth') int tileWidth,
-      @JsonKey(name: 'TileHeight') int tileHeight,
-      @JsonKey(name: 'Qscale') int qscale,
-      @JsonKey(name: 'JpegQuality') int jpegQuality,
-      @JsonKey(name: 'ProcessThreads') int processThreads,
+      TrickplayOptionsProcessPriority? processPriority,
+      @JsonKey(name: 'Interval') int? interval,
+      @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
+      @JsonKey(name: 'TileWidth') int? tileWidth,
+      @JsonKey(name: 'TileHeight') int? tileHeight,
+      @JsonKey(name: 'Qscale') int? qscale,
+      @JsonKey(name: 'JpegQuality') int? jpegQuality,
+      @JsonKey(name: 'ProcessThreads') int? processThreads,
     )?
     $default,
   ) {
@@ -490,20 +490,19 @@ extension TrickplayOptionsPatterns on TrickplayOptions {
 @JsonSerializable()
 class _TrickplayOptions implements TrickplayOptions {
   const _TrickplayOptions({
-    @JsonKey(name: 'EnableHwAcceleration') required this.enableHwAcceleration,
-    @JsonKey(name: 'EnableHwEncoding') required this.enableHwEncoding,
+    @JsonKey(name: 'EnableHwAcceleration') this.enableHwAcceleration,
+    @JsonKey(name: 'EnableHwEncoding') this.enableHwEncoding,
     @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-    required this.enableKeyFrameOnlyExtraction,
-    @JsonKey(name: 'ScanBehavior') required this.scanBehavior,
-    @JsonKey(name: 'ProcessPriority') required this.processPriority,
-    @JsonKey(name: 'Interval') required this.interval,
-    @JsonKey(name: 'WidthResolutions')
-    required final List<int> widthResolutions,
-    @JsonKey(name: 'TileWidth') required this.tileWidth,
-    @JsonKey(name: 'TileHeight') required this.tileHeight,
-    @JsonKey(name: 'Qscale') required this.qscale,
-    @JsonKey(name: 'JpegQuality') required this.jpegQuality,
-    @JsonKey(name: 'ProcessThreads') required this.processThreads,
+    this.enableKeyFrameOnlyExtraction,
+    @JsonKey(name: 'ScanBehavior') this.scanBehavior,
+    @JsonKey(name: 'ProcessPriority') this.processPriority,
+    @JsonKey(name: 'Interval') this.interval,
+    @JsonKey(name: 'WidthResolutions') final List<int>? widthResolutions,
+    @JsonKey(name: 'TileWidth') this.tileWidth,
+    @JsonKey(name: 'TileHeight') this.tileHeight,
+    @JsonKey(name: 'Qscale') this.qscale,
+    @JsonKey(name: 'JpegQuality') this.jpegQuality,
+    @JsonKey(name: 'ProcessThreads') this.processThreads,
   }) : _widthResolutions = widthResolutions;
   factory _TrickplayOptions.fromJson(Map<String, dynamic> json) =>
       _$TrickplayOptionsFromJson(json);
@@ -511,72 +510,74 @@ class _TrickplayOptions implements TrickplayOptions {
   /// Gets or sets a value indicating whether or not to use HW acceleration.
   @override
   @JsonKey(name: 'EnableHwAcceleration')
-  final bool enableHwAcceleration;
+  final bool? enableHwAcceleration;
 
   /// Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
   @override
   @JsonKey(name: 'EnableHwEncoding')
-  final bool enableHwEncoding;
+  final bool? enableHwEncoding;
 
   /// Gets or sets a value indicating whether to only extract key frames.
   ///
   /// Significantly faster, but is not compatible with all decoders and/or video files.
   @override
   @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-  final bool enableKeyFrameOnlyExtraction;
+  final bool? enableKeyFrameOnlyExtraction;
 
   /// Gets or sets the behavior used by trickplay provider on library scan/update.
   @override
   @JsonKey(name: 'ScanBehavior')
-  final TrickplayOptionsScanBehavior scanBehavior;
+  final TrickplayOptionsScanBehavior? scanBehavior;
 
   /// Gets or sets the process priority for the ffmpeg process.
   @override
   @JsonKey(name: 'ProcessPriority')
-  final TrickplayOptionsProcessPriority processPriority;
+  final TrickplayOptionsProcessPriority? processPriority;
 
   /// Gets or sets the interval, in ms, between each new trickplay image.
   @override
   @JsonKey(name: 'Interval')
-  final int interval;
+  final int? interval;
 
   /// Gets or sets the target width resolutions, in px, to generates preview images for.
-  final List<int> _widthResolutions;
+  final List<int>? _widthResolutions;
 
   /// Gets or sets the target width resolutions, in px, to generates preview images for.
   @override
   @JsonKey(name: 'WidthResolutions')
-  List<int> get widthResolutions {
+  List<int>? get widthResolutions {
+    final value = _widthResolutions;
+    if (value == null) return null;
     if (_widthResolutions is EqualUnmodifiableListView)
       return _widthResolutions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_widthResolutions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets number of tile images to allow in X dimension.
   @override
   @JsonKey(name: 'TileWidth')
-  final int tileWidth;
+  final int? tileWidth;
 
   /// Gets or sets number of tile images to allow in Y dimension.
   @override
   @JsonKey(name: 'TileHeight')
-  final int tileHeight;
+  final int? tileHeight;
 
   /// Gets or sets the ffmpeg output quality level.
   @override
   @JsonKey(name: 'Qscale')
-  final int qscale;
+  final int? qscale;
 
   /// Gets or sets the jpeg quality to use for image tiles.
   @override
   @JsonKey(name: 'JpegQuality')
-  final int jpegQuality;
+  final int? jpegQuality;
 
   /// Gets or sets the number of threads to be used by ffmpeg.
   @override
   @JsonKey(name: 'ProcessThreads')
-  final int processThreads;
+  final int? processThreads;
 
   /// Create a copy of TrickplayOptions
   /// with the given fields replaced by the non-null parameter values.
@@ -661,20 +662,20 @@ abstract mixin class _$TrickplayOptionsCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'EnableHwAcceleration') bool enableHwAcceleration,
-    @JsonKey(name: 'EnableHwEncoding') bool enableHwEncoding,
+    @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
+    @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
     @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-    bool enableKeyFrameOnlyExtraction,
-    @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior scanBehavior,
+    bool? enableKeyFrameOnlyExtraction,
+    @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
     @JsonKey(name: 'ProcessPriority')
-    TrickplayOptionsProcessPriority processPriority,
-    @JsonKey(name: 'Interval') int interval,
-    @JsonKey(name: 'WidthResolutions') List<int> widthResolutions,
-    @JsonKey(name: 'TileWidth') int tileWidth,
-    @JsonKey(name: 'TileHeight') int tileHeight,
-    @JsonKey(name: 'Qscale') int qscale,
-    @JsonKey(name: 'JpegQuality') int jpegQuality,
-    @JsonKey(name: 'ProcessThreads') int processThreads,
+    TrickplayOptionsProcessPriority? processPriority,
+    @JsonKey(name: 'Interval') int? interval,
+    @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
+    @JsonKey(name: 'Qscale') int? qscale,
+    @JsonKey(name: 'JpegQuality') int? jpegQuality,
+    @JsonKey(name: 'ProcessThreads') int? processThreads,
   });
 }
 
@@ -691,69 +692,69 @@ class __$TrickplayOptionsCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? enableHwAcceleration = null,
-    Object? enableHwEncoding = null,
-    Object? enableKeyFrameOnlyExtraction = null,
-    Object? scanBehavior = null,
-    Object? processPriority = null,
-    Object? interval = null,
-    Object? widthResolutions = null,
-    Object? tileWidth = null,
-    Object? tileHeight = null,
-    Object? qscale = null,
-    Object? jpegQuality = null,
-    Object? processThreads = null,
+    Object? enableHwAcceleration = freezed,
+    Object? enableHwEncoding = freezed,
+    Object? enableKeyFrameOnlyExtraction = freezed,
+    Object? scanBehavior = freezed,
+    Object? processPriority = freezed,
+    Object? interval = freezed,
+    Object? widthResolutions = freezed,
+    Object? tileWidth = freezed,
+    Object? tileHeight = freezed,
+    Object? qscale = freezed,
+    Object? jpegQuality = freezed,
+    Object? processThreads = freezed,
   }) {
     return _then(
       _TrickplayOptions(
-        enableHwAcceleration: null == enableHwAcceleration
+        enableHwAcceleration: freezed == enableHwAcceleration
             ? _self.enableHwAcceleration
             : enableHwAcceleration // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableHwEncoding: null == enableHwEncoding
+                  as bool?,
+        enableHwEncoding: freezed == enableHwEncoding
             ? _self.enableHwEncoding
             : enableHwEncoding // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableKeyFrameOnlyExtraction: null == enableKeyFrameOnlyExtraction
+                  as bool?,
+        enableKeyFrameOnlyExtraction: freezed == enableKeyFrameOnlyExtraction
             ? _self.enableKeyFrameOnlyExtraction
             : enableKeyFrameOnlyExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        scanBehavior: null == scanBehavior
+                  as bool?,
+        scanBehavior: freezed == scanBehavior
             ? _self.scanBehavior
             : scanBehavior // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptionsScanBehavior,
-        processPriority: null == processPriority
+                  as TrickplayOptionsScanBehavior?,
+        processPriority: freezed == processPriority
             ? _self.processPriority
             : processPriority // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptionsProcessPriority,
-        interval: null == interval
+                  as TrickplayOptionsProcessPriority?,
+        interval: freezed == interval
             ? _self.interval
             : interval // ignore: cast_nullable_to_non_nullable
-                  as int,
-        widthResolutions: null == widthResolutions
+                  as int?,
+        widthResolutions: freezed == widthResolutions
             ? _self._widthResolutions
             : widthResolutions // ignore: cast_nullable_to_non_nullable
-                  as List<int>,
-        tileWidth: null == tileWidth
+                  as List<int>?,
+        tileWidth: freezed == tileWidth
             ? _self.tileWidth
             : tileWidth // ignore: cast_nullable_to_non_nullable
-                  as int,
-        tileHeight: null == tileHeight
+                  as int?,
+        tileHeight: freezed == tileHeight
             ? _self.tileHeight
             : tileHeight // ignore: cast_nullable_to_non_nullable
-                  as int,
-        qscale: null == qscale
+                  as int?,
+        qscale: freezed == qscale
             ? _self.qscale
             : qscale // ignore: cast_nullable_to_non_nullable
-                  as int,
-        jpegQuality: null == jpegQuality
+                  as int?,
+        jpegQuality: freezed == jpegQuality
             ? _self.jpegQuality
             : jpegQuality // ignore: cast_nullable_to_non_nullable
-                  as int,
-        processThreads: null == processThreads
+                  as int?,
+        processThreads: freezed == processThreads
             ? _self.processThreads
             : processThreads // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }

@@ -10,11 +10,13 @@ enum MetadataRefreshMode {
   none('None'),
   @JsonValue('ValidationOnly')
   validationOnly('ValidationOnly'),
+
   /// The name has been replaced because it contains a keyword. Original name: `Default`.
   @JsonValue('Default')
   valueDefault('Default'),
   @JsonValue('FullRefresh')
-  fullRefresh('FullRefresh');
+  fullRefresh('FullRefresh')
+  ;
 
   const MetadataRefreshMode(this.json);
 
@@ -22,8 +24,10 @@ enum MetadataRefreshMode {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

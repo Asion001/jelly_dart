@@ -9,20 +9,20 @@ part of 'restart_required_message.dart';
 _RestartRequiredMessage _$RestartRequiredMessageFromJson(
   Map<String, dynamic> json,
 ) => _RestartRequiredMessage(
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$RestartRequiredMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       RestartRequiredMessageMessageType.restartRequired,
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$RestartRequiredMessageToJson(
   _RestartRequiredMessage instance,
 ) => <String, dynamic>{
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$RestartRequiredMessageMessageTypeEnumMap = {

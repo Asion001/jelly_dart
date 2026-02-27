@@ -14,21 +14,18 @@ part 'direct_play_profile.g.dart';
 abstract class DirectPlayProfile with _$DirectPlayProfile {
   const factory DirectPlayProfile({
     /// Gets or sets the container.
-    @JsonKey(name: 'Container')
-    required String container,
+    @JsonKey(name: 'Container') String? container,
 
     /// Gets or sets the audio codec.
-    @JsonKey(name: 'AudioCodec')
-    required String? audioCodec,
+    @JsonKey(name: 'AudioCodec') String? audioCodec,
 
     /// Gets or sets the video codec.
-    @JsonKey(name: 'VideoCodec')
-    required String? videoCodec,
+    @JsonKey(name: 'VideoCodec') String? videoCodec,
 
     /// Gets or sets the Dlna profile type.
-    @JsonKey(name: 'Type')
-    required DirectPlayProfileType type,
+    @JsonKey(name: 'Type') DirectPlayProfileType? type,
   }) = _DirectPlayProfile;
-  
-  factory DirectPlayProfile.fromJson(Map<String, Object?> json) => _$DirectPlayProfileFromJson(json);
+
+  factory DirectPlayProfile.fromJson(Map<String, Object?> json) =>
+      _$DirectPlayProfileFromJson(json);
 }

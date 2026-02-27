@@ -39,20 +39,16 @@ abstract class SystemInfo with _$SystemInfo {
     String? systemArchitecture,
 
     /// Gets or sets the local address.
-    @JsonKey(name: 'LocalAddress')
-    String? localAddress,
+    @JsonKey(name: 'LocalAddress') String? localAddress,
 
     /// Gets or sets the name of the server.
-    @JsonKey(name: 'ServerName')
-    String? serverName,
+    @JsonKey(name: 'ServerName') String? serverName,
 
     /// Gets or sets the server version.
-    @JsonKey(name: 'Version')
-    String? version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets or sets the product name. This is the AssemblyProduct name.
-    @JsonKey(name: 'ProductName')
-    String? productName,
+    @JsonKey(name: 'ProductName') String? productName,
 
     /// Gets or sets the operating system.
     @JsonKey(name: 'OperatingSystem')
@@ -60,12 +56,10 @@ abstract class SystemInfo with _$SystemInfo {
     String? operatingSystem,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets a value indicating whether the startup wizard is completed.
-    @JsonKey(name: 'StartupWizardCompleted')
-    bool? startupWizardCompleted,
+    @JsonKey(name: 'StartupWizardCompleted') bool? startupWizardCompleted,
 
     /// Gets or sets the display name of the operating system.
     @JsonKey(name: 'OperatingSystemDisplayName')
@@ -73,22 +67,17 @@ abstract class SystemInfo with _$SystemInfo {
     String? operatingSystemDisplayName,
 
     /// Gets or sets the package name.
-    @JsonKey(name: 'PackageName')
-    String? packageName,
+    @JsonKey(name: 'PackageName') String? packageName,
 
     /// Gets or sets a value indicating whether this instance has pending restart.
-    @JsonKey(name: 'HasPendingRestart')
-    bool? hasPendingRestart,
-    @JsonKey(name: 'IsShuttingDown')
-    bool? isShuttingDown,
+    @JsonKey(name: 'HasPendingRestart') bool? hasPendingRestart,
+    @JsonKey(name: 'IsShuttingDown') bool? isShuttingDown,
 
     /// Gets or sets a value indicating whether [supports library monitor].
-    @JsonKey(name: 'SupportsLibraryMonitor')
-    bool? supportsLibraryMonitor,
+    @JsonKey(name: 'SupportsLibraryMonitor') bool? supportsLibraryMonitor,
 
     /// Gets or sets the web socket port number.
-    @JsonKey(name: 'WebSocketPortNumber')
-    int? webSocketPortNumber,
+    @JsonKey(name: 'WebSocketPortNumber') int? webSocketPortNumber,
 
     /// Gets or sets the completed installations.
     @JsonKey(name: 'CompletedInstallations')
@@ -133,6 +122,7 @@ abstract class SystemInfo with _$SystemInfo {
     @JsonKey(name: 'CastReceiverApplications')
     List<CastReceiverApplication>? castReceiverApplications,
   }) = _SystemInfo;
-  
-  factory SystemInfo.fromJson(Map<String, Object?> json) => _$SystemInfoFromJson(json);
+
+  factory SystemInfo.fromJson(Map<String, Object?> json) =>
+      _$SystemInfoFromJson(json);
 }

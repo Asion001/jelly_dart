@@ -14,17 +14,15 @@ part 'timer_info_dto_query_result.g.dart';
 abstract class TimerInfoDtoQueryResult with _$TimerInfoDtoQueryResult {
   const factory TimerInfoDtoQueryResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<TimerInfoDto>? items,
+    @JsonKey(name: 'Items') List<TimerInfoDto>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
   }) = _TimerInfoDtoQueryResult;
-  
-  factory TimerInfoDtoQueryResult.fromJson(Map<String, Object?> json) => _$TimerInfoDtoQueryResultFromJson(json);
+
+  factory TimerInfoDtoQueryResult.fromJson(Map<String, Object?> json) =>
+      _$TimerInfoDtoQueryResultFromJson(json);
 }

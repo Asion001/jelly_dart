@@ -10,21 +10,22 @@ part 'sync_play_library_access_denied_update.freezed.dart';
 part 'sync_play_library_access_denied_update.g.dart';
 
 @Freezed()
-abstract class SyncPlayLibraryAccessDeniedUpdate with _$SyncPlayLibraryAccessDeniedUpdate {
+abstract class SyncPlayLibraryAccessDeniedUpdate
+    with _$SyncPlayLibraryAccessDeniedUpdate {
   const factory SyncPlayLibraryAccessDeniedUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required String data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayLibraryAccessDeniedUpdateType.libraryAccessDenied)
     SyncPlayLibraryAccessDeniedUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') String? data,
   }) = _SyncPlayLibraryAccessDeniedUpdate;
-  
-  factory SyncPlayLibraryAccessDeniedUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayLibraryAccessDeniedUpdateFromJson(json);
+
+  factory SyncPlayLibraryAccessDeniedUpdate.fromJson(
+    Map<String, Object?> json,
+  ) => _$SyncPlayLibraryAccessDeniedUpdateFromJson(json);
 }

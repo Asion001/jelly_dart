@@ -8,23 +8,23 @@ part of 'sessions_message.dart';
 
 _SessionsMessage _$SessionsMessageFromJson(Map<String, dynamic> json) =>
     _SessionsMessage(
-      data: (json['Data'] as List<dynamic>?)
-          ?.map((e) => SessionInfoDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      messageId: json['MessageId'] as String,
       messageType:
           $enumDecodeNullable(
             _$SessionsMessageMessageTypeEnumMap,
             json['MessageType'],
           ) ??
           SessionsMessageMessageType.sessions,
+      data: (json['Data'] as List<dynamic>?)
+          ?.map((e) => SessionInfoDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      messageId: json['MessageId'] as String?,
     );
 
 Map<String, dynamic> _$SessionsMessageToJson(_SessionsMessage instance) =>
     <String, dynamic>{
-      'Data': ?instance.data?.map((e) => e.toJson()).toList(),
-      'MessageId': instance.messageId,
       'MessageType': instance.messageType.toJson(),
+      'Data': ?instance.data?.map((e) => e.toJson()).toList(),
+      'MessageId': ?instance.messageId,
     };
 
 const _$SessionsMessageMessageTypeEnumMap = {

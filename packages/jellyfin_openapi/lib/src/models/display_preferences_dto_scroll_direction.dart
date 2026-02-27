@@ -10,7 +10,8 @@ enum DisplayPreferencesDtoScrollDirection {
   @JsonValue('Horizontal')
   horizontal('Horizontal'),
   @JsonValue('Vertical')
-  vertical('Vertical');
+  vertical('Vertical')
+  ;
 
   const DisplayPreferencesDtoScrollDirection(this.json);
 
@@ -18,8 +19,10 @@ enum DisplayPreferencesDtoScrollDirection {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

@@ -12,33 +12,27 @@ part 'media_attachment.g.dart';
 abstract class MediaAttachment with _$MediaAttachment {
   const factory MediaAttachment({
     /// Gets or sets the codec.
-    @JsonKey(name: 'Codec')
-    String? codec,
+    @JsonKey(name: 'Codec') String? codec,
 
     /// Gets or sets the codec tag.
-    @JsonKey(name: 'CodecTag')
-    String? codecTag,
+    @JsonKey(name: 'CodecTag') String? codecTag,
 
     /// Gets or sets the comment.
-    @JsonKey(name: 'Comment')
-    String? comment,
+    @JsonKey(name: 'Comment') String? comment,
 
     /// Gets or sets the index.
-    @JsonKey(name: 'Index')
-    int? index,
+    @JsonKey(name: 'Index') int? index,
 
     /// Gets or sets the filename.
-    @JsonKey(name: 'FileName')
-    String? fileName,
+    @JsonKey(name: 'FileName') String? fileName,
 
     /// Gets or sets the MIME type.
-    @JsonKey(name: 'MimeType')
-    String? mimeType,
+    @JsonKey(name: 'MimeType') String? mimeType,
 
     /// Gets or sets the delivery URL.
-    @JsonKey(name: 'DeliveryUrl')
-    String? deliveryUrl,
+    @JsonKey(name: 'DeliveryUrl') String? deliveryUrl,
   }) = _MediaAttachment;
-  
-  factory MediaAttachment.fromJson(Map<String, Object?> json) => _$MediaAttachmentFromJson(json);
+
+  factory MediaAttachment.fromJson(Map<String, Object?> json) =>
+      _$MediaAttachmentFromJson(json);
 }

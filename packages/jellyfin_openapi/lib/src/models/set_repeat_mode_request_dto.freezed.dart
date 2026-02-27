@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$SetRepeatModeRequestDto {
   /// Enum GroupRepeatMode.
   @JsonKey(name: 'Mode')
-  SetRepeatModeRequestDtoMode get mode;
+  SetRepeatModeRequestDtoMode? get mode;
 
   /// Create a copy of SetRepeatModeRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -55,7 +55,7 @@ abstract mixin class $SetRepeatModeRequestDtoCopyWith<$Res> {
     $Res Function(SetRepeatModeRequestDto) _then,
   ) = _$SetRepeatModeRequestDtoCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode mode});
+  $Res call({@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode});
 }
 
 /// @nodoc
@@ -70,13 +70,13 @@ class _$SetRepeatModeRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? mode = null}) {
+  $Res call({Object? mode = freezed}) {
     return _then(
       _self.copyWith(
-        mode: null == mode
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as SetRepeatModeRequestDtoMode,
+                  as SetRepeatModeRequestDtoMode?,
       ),
     );
   }
@@ -175,7 +175,7 @@ extension SetRepeatModeRequestDtoPatterns on SetRepeatModeRequestDto {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode mode)?
+    TResult Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode)?
     $default, {
     required TResult orElse(),
   }) {
@@ -203,7 +203,7 @@ extension SetRepeatModeRequestDtoPatterns on SetRepeatModeRequestDto {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode mode)
+    TResult Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode)
     $default,
   ) {
     final _that = this;
@@ -229,7 +229,7 @@ extension SetRepeatModeRequestDtoPatterns on SetRepeatModeRequestDto {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode mode)?
+    TResult? Function(@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode)?
     $default,
   ) {
     final _that = this;
@@ -245,14 +245,14 @@ extension SetRepeatModeRequestDtoPatterns on SetRepeatModeRequestDto {
 /// @nodoc
 @JsonSerializable()
 class _SetRepeatModeRequestDto implements SetRepeatModeRequestDto {
-  const _SetRepeatModeRequestDto({@JsonKey(name: 'Mode') required this.mode});
+  const _SetRepeatModeRequestDto({@JsonKey(name: 'Mode') this.mode});
   factory _SetRepeatModeRequestDto.fromJson(Map<String, dynamic> json) =>
       _$SetRepeatModeRequestDtoFromJson(json);
 
   /// Enum GroupRepeatMode.
   @override
   @JsonKey(name: 'Mode')
-  final SetRepeatModeRequestDtoMode mode;
+  final SetRepeatModeRequestDtoMode? mode;
 
   /// Create a copy of SetRepeatModeRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -297,7 +297,7 @@ abstract mixin class _$SetRepeatModeRequestDtoCopyWith<$Res>
   ) = __$SetRepeatModeRequestDtoCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode mode});
+  $Res call({@JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode});
 }
 
 /// @nodoc
@@ -312,13 +312,13 @@ class __$SetRepeatModeRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? mode = null}) {
+  $Res call({Object? mode = freezed}) {
     return _then(
       _SetRepeatModeRequestDto(
-        mode: null == mode
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as SetRepeatModeRequestDtoMode,
+                  as SetRepeatModeRequestDtoMode?,
       ),
     );
   }

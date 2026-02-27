@@ -14,9 +14,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AlbumInfoRemoteSearchQuery {
   @JsonKey(name: 'SearchInfo')
-  AlbumInfo get searchInfo;
+  AlbumInfo? get searchInfo;
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the provider name to search within if set.
   @JsonKey(name: 'SearchProviderName')
@@ -24,7 +24,7 @@ mixin _$AlbumInfoRemoteSearchQuery {
 
   /// Gets or sets a value indicating whether disabled providers should be included.
   @JsonKey(name: 'IncludeDisabledProviders')
-  bool get includeDisabledProviders;
+  bool? get includeDisabledProviders;
 
   /// Create a copy of AlbumInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -81,13 +81,13 @@ abstract mixin class $AlbumInfoRemoteSearchQueryCopyWith<$Res> {
   ) = _$AlbumInfoRemoteSearchQueryCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') AlbumInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') AlbumInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
-  $AlbumInfoCopyWith<$Res> get searchInfo;
+  $AlbumInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -103,29 +103,29 @@ class _$AlbumInfoRemoteSearchQueryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _self.copyWith(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as AlbumInfo,
-        itemId: null == itemId
+                  as AlbumInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -134,8 +134,12 @@ class _$AlbumInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AlbumInfoCopyWith<$Res> get searchInfo {
-    return $AlbumInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $AlbumInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $AlbumInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }
@@ -235,10 +239,10 @@ extension AlbumInfoRemoteSearchQueryPatterns on AlbumInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') AlbumInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') AlbumInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default, {
     required TResult orElse(),
@@ -273,10 +277,10 @@ extension AlbumInfoRemoteSearchQueryPatterns on AlbumInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') AlbumInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') AlbumInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )
     $default,
   ) {
@@ -309,10 +313,10 @@ extension AlbumInfoRemoteSearchQueryPatterns on AlbumInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'SearchInfo') AlbumInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') AlbumInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default,
   ) {
@@ -335,21 +339,20 @@ extension AlbumInfoRemoteSearchQueryPatterns on AlbumInfoRemoteSearchQuery {
 @JsonSerializable()
 class _AlbumInfoRemoteSearchQuery implements AlbumInfoRemoteSearchQuery {
   const _AlbumInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo') required this.searchInfo,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'SearchProviderName') required this.searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required this.includeDisabledProviders,
+    @JsonKey(name: 'SearchInfo') this.searchInfo,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'SearchProviderName') this.searchProviderName,
+    @JsonKey(name: 'IncludeDisabledProviders') this.includeDisabledProviders,
   });
   factory _AlbumInfoRemoteSearchQuery.fromJson(Map<String, dynamic> json) =>
       _$AlbumInfoRemoteSearchQueryFromJson(json);
 
   @override
   @JsonKey(name: 'SearchInfo')
-  final AlbumInfo searchInfo;
+  final AlbumInfo? searchInfo;
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the provider name to search within if set.
   @override
@@ -359,7 +362,7 @@ class _AlbumInfoRemoteSearchQuery implements AlbumInfoRemoteSearchQuery {
   /// Gets or sets a value indicating whether disabled providers should be included.
   @override
   @JsonKey(name: 'IncludeDisabledProviders')
-  final bool includeDisabledProviders;
+  final bool? includeDisabledProviders;
 
   /// Create a copy of AlbumInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -421,14 +424,14 @@ abstract mixin class _$AlbumInfoRemoteSearchQueryCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') AlbumInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') AlbumInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
   @override
-  $AlbumInfoCopyWith<$Res> get searchInfo;
+  $AlbumInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -444,29 +447,29 @@ class __$AlbumInfoRemoteSearchQueryCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _AlbumInfoRemoteSearchQuery(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as AlbumInfo,
-        itemId: null == itemId
+                  as AlbumInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -475,8 +478,12 @@ class __$AlbumInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AlbumInfoCopyWith<$Res> get searchInfo {
-    return $AlbumInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $AlbumInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $AlbumInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }

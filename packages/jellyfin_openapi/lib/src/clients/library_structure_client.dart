@@ -16,7 +16,8 @@ part 'library_structure_client.g.dart';
 
 @RestApi()
 abstract class LibraryStructureClient {
-  factory LibraryStructureClient(Dio dio, {String? baseUrl}) = _LibraryStructureClient;
+  factory LibraryStructureClient(Dio dio, {String? baseUrl}) =
+      _LibraryStructureClient;
 
   /// Gets all virtual folders.
   @GET('/Library/VirtualFolders')

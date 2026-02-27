@@ -14,9 +14,9 @@ part 'media_update_info_dto.g.dart';
 abstract class MediaUpdateInfoDto with _$MediaUpdateInfoDto {
   const factory MediaUpdateInfoDto({
     /// Gets or sets the list of updates.
-    @JsonKey(name: 'Updates')
-    List<MediaUpdateInfoPathDto>? updates,
+    @JsonKey(name: 'Updates') List<MediaUpdateInfoPathDto>? updates,
   }) = _MediaUpdateInfoDto;
-  
-  factory MediaUpdateInfoDto.fromJson(Map<String, Object?> json) => _$MediaUpdateInfoDtoFromJson(json);
+
+  factory MediaUpdateInfoDto.fromJson(Map<String, Object?> json) =>
+      _$MediaUpdateInfoDtoFromJson(json);
 }

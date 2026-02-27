@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$TaskResult {
   /// Gets or sets the start time UTC.
   @JsonKey(name: 'StartTimeUtc')
-  DateTime get startTimeUtc;
+  DateTime? get startTimeUtc;
 
   /// Gets or sets the end time UTC.
   @JsonKey(name: 'EndTimeUtc')
-  DateTime get endTimeUtc;
+  DateTime? get endTimeUtc;
 
   /// Gets or sets the status.
   @JsonKey(name: 'Status')
-  TaskResultStatus get status;
+  TaskResultStatus? get status;
 
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
@@ -102,9 +102,9 @@ abstract mixin class $TaskResultCopyWith<$Res> {
   ) = _$TaskResultCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'StartTimeUtc') DateTime startTimeUtc,
-    @JsonKey(name: 'EndTimeUtc') DateTime endTimeUtc,
-    @JsonKey(name: 'Status') TaskResultStatus status,
+    @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
+    @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
+    @JsonKey(name: 'Status') TaskResultStatus? status,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Key') String? key,
     @JsonKey(name: 'Id') String? id,
@@ -125,9 +125,9 @@ class _$TaskResultCopyWithImpl<$Res> implements $TaskResultCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startTimeUtc = null,
-    Object? endTimeUtc = null,
-    Object? status = null,
+    Object? startTimeUtc = freezed,
+    Object? endTimeUtc = freezed,
+    Object? status = freezed,
     Object? name = freezed,
     Object? key = freezed,
     Object? id = freezed,
@@ -136,18 +136,18 @@ class _$TaskResultCopyWithImpl<$Res> implements $TaskResultCopyWith<$Res> {
   }) {
     return _then(
       _self.copyWith(
-        startTimeUtc: null == startTimeUtc
+        startTimeUtc: freezed == startTimeUtc
             ? _self.startTimeUtc
             : startTimeUtc // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        endTimeUtc: null == endTimeUtc
+                  as DateTime?,
+        endTimeUtc: freezed == endTimeUtc
             ? _self.endTimeUtc
             : endTimeUtc // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        status: null == status
+                  as DateTime?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as TaskResultStatus,
+                  as TaskResultStatus?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -267,9 +267,9 @@ extension TaskResultPatterns on TaskResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartTimeUtc') DateTime startTimeUtc,
-      @JsonKey(name: 'EndTimeUtc') DateTime endTimeUtc,
-      @JsonKey(name: 'Status') TaskResultStatus status,
+      @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
+      @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
+      @JsonKey(name: 'Status') TaskResultStatus? status,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Id') String? id,
@@ -313,9 +313,9 @@ extension TaskResultPatterns on TaskResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartTimeUtc') DateTime startTimeUtc,
-      @JsonKey(name: 'EndTimeUtc') DateTime endTimeUtc,
-      @JsonKey(name: 'Status') TaskResultStatus status,
+      @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
+      @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
+      @JsonKey(name: 'Status') TaskResultStatus? status,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Id') String? id,
@@ -357,9 +357,9 @@ extension TaskResultPatterns on TaskResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'StartTimeUtc') DateTime startTimeUtc,
-      @JsonKey(name: 'EndTimeUtc') DateTime endTimeUtc,
-      @JsonKey(name: 'Status') TaskResultStatus status,
+      @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
+      @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
+      @JsonKey(name: 'Status') TaskResultStatus? status,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Id') String? id,
@@ -391,14 +391,14 @@ extension TaskResultPatterns on TaskResult {
 @JsonSerializable()
 class _TaskResult implements TaskResult {
   const _TaskResult({
-    @JsonKey(name: 'StartTimeUtc') required this.startTimeUtc,
-    @JsonKey(name: 'EndTimeUtc') required this.endTimeUtc,
-    @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Key') required this.key,
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'ErrorMessage') required this.errorMessage,
-    @JsonKey(name: 'LongErrorMessage') required this.longErrorMessage,
+    @JsonKey(name: 'StartTimeUtc') this.startTimeUtc,
+    @JsonKey(name: 'EndTimeUtc') this.endTimeUtc,
+    @JsonKey(name: 'Status') this.status,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Key') this.key,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'ErrorMessage') this.errorMessage,
+    @JsonKey(name: 'LongErrorMessage') this.longErrorMessage,
   });
   factory _TaskResult.fromJson(Map<String, dynamic> json) =>
       _$TaskResultFromJson(json);
@@ -406,17 +406,17 @@ class _TaskResult implements TaskResult {
   /// Gets or sets the start time UTC.
   @override
   @JsonKey(name: 'StartTimeUtc')
-  final DateTime startTimeUtc;
+  final DateTime? startTimeUtc;
 
   /// Gets or sets the end time UTC.
   @override
   @JsonKey(name: 'EndTimeUtc')
-  final DateTime endTimeUtc;
+  final DateTime? endTimeUtc;
 
   /// Gets or sets the status.
   @override
   @JsonKey(name: 'Status')
-  final TaskResultStatus status;
+  final TaskResultStatus? status;
 
   /// Gets or sets the name.
   @override
@@ -505,9 +505,9 @@ abstract mixin class _$TaskResultCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'StartTimeUtc') DateTime startTimeUtc,
-    @JsonKey(name: 'EndTimeUtc') DateTime endTimeUtc,
-    @JsonKey(name: 'Status') TaskResultStatus status,
+    @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
+    @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
+    @JsonKey(name: 'Status') TaskResultStatus? status,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Key') String? key,
     @JsonKey(name: 'Id') String? id,
@@ -528,9 +528,9 @@ class __$TaskResultCopyWithImpl<$Res> implements _$TaskResultCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? startTimeUtc = null,
-    Object? endTimeUtc = null,
-    Object? status = null,
+    Object? startTimeUtc = freezed,
+    Object? endTimeUtc = freezed,
+    Object? status = freezed,
     Object? name = freezed,
     Object? key = freezed,
     Object? id = freezed,
@@ -539,18 +539,18 @@ class __$TaskResultCopyWithImpl<$Res> implements _$TaskResultCopyWith<$Res> {
   }) {
     return _then(
       _TaskResult(
-        startTimeUtc: null == startTimeUtc
+        startTimeUtc: freezed == startTimeUtc
             ? _self.startTimeUtc
             : startTimeUtc // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        endTimeUtc: null == endTimeUtc
+                  as DateTime?,
+        endTimeUtc: freezed == endTimeUtc
             ? _self.endTimeUtc
             : endTimeUtc // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        status: null == status
+                  as DateTime?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as TaskResultStatus,
+                  as TaskResultStatus?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable

@@ -8,7 +8,7 @@ part of 'task_trigger_info.dart';
 
 _TaskTriggerInfo _$TaskTriggerInfoFromJson(Map<String, dynamic> json) =>
     _TaskTriggerInfo(
-      type: $enumDecode(_$TaskTriggerInfoTypeEnumMap, json['Type']),
+      type: $enumDecodeNullable(_$TaskTriggerInfoTypeEnumMap, json['Type']),
       timeOfDayTicks: (json['TimeOfDayTicks'] as num?)?.toInt(),
       intervalTicks: (json['IntervalTicks'] as num?)?.toInt(),
       dayOfWeek: $enumDecodeNullable(
@@ -20,7 +20,7 @@ _TaskTriggerInfo _$TaskTriggerInfoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$TaskTriggerInfoToJson(_TaskTriggerInfo instance) =>
     <String, dynamic>{
-      'Type': instance.type.toJson(),
+      'Type': ?instance.type?.toJson(),
       'TimeOfDayTicks': ?instance.timeOfDayTicks,
       'IntervalTicks': ?instance.intervalTicks,
       'DayOfWeek': ?instance.dayOfWeek?.toJson(),

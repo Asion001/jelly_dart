@@ -14,9 +14,9 @@ part 'set_repeat_mode_request_dto.g.dart';
 abstract class SetRepeatModeRequestDto with _$SetRepeatModeRequestDto {
   const factory SetRepeatModeRequestDto({
     /// Enum GroupRepeatMode.
-    @JsonKey(name: 'Mode')
-    required SetRepeatModeRequestDtoMode mode,
+    @JsonKey(name: 'Mode') SetRepeatModeRequestDtoMode? mode,
   }) = _SetRepeatModeRequestDto;
-  
-  factory SetRepeatModeRequestDto.fromJson(Map<String, Object?> json) => _$SetRepeatModeRequestDtoFromJson(json);
+
+  factory SetRepeatModeRequestDto.fromJson(Map<String, Object?> json) =>
+      _$SetRepeatModeRequestDtoFromJson(json);
 }

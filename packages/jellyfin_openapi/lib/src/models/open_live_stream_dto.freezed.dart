@@ -73,11 +73,11 @@ mixin _$OpenLiveStreamDto {
   ///
   /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
   @JsonKey(name: 'DeviceProfile')
-  DeviceProfile get deviceProfile;
+  DeviceProfile? get deviceProfile;
 
   /// Gets or sets the device play protocols.
   @JsonKey(name: 'DirectPlayProtocols')
-  List<MediaProtocol> get directPlayProtocols;
+  List<MediaProtocol>? get directPlayProtocols;
 
   /// Create a copy of OpenLiveStreamDto
   /// with the given fields replaced by the non-null parameter values.
@@ -178,12 +178,12 @@ abstract mixin class $OpenLiveStreamDtoCopyWith<$Res> {
     @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
     @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
     bool? alwaysBurnInSubtitleWhenTranscoding,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'DirectPlayProtocols')
-    List<MediaProtocol> directPlayProtocols,
+    List<MediaProtocol>? directPlayProtocols,
   });
 
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -211,8 +211,8 @@ class _$OpenLiveStreamDtoCopyWithImpl<$Res>
     Object? enableDirectPlay = freezed,
     Object? enableDirectStream = freezed,
     Object? alwaysBurnInSubtitleWhenTranscoding = freezed,
-    Object? deviceProfile = null,
-    Object? directPlayProtocols = null,
+    Object? deviceProfile = freezed,
+    Object? directPlayProtocols = freezed,
   }) {
     return _then(
       _self.copyWith(
@@ -265,14 +265,14 @@ class _$OpenLiveStreamDtoCopyWithImpl<$Res>
             ? _self.alwaysBurnInSubtitleWhenTranscoding
             : alwaysBurnInSubtitleWhenTranscoding // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        deviceProfile: null == deviceProfile
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
-        directPlayProtocols: null == directPlayProtocols
+                  as DeviceProfile?,
+        directPlayProtocols: freezed == directPlayProtocols
             ? _self.directPlayProtocols
             : directPlayProtocols // ignore: cast_nullable_to_non_nullable
-                  as List<MediaProtocol>,
+                  as List<MediaProtocol>?,
       ),
     );
   }
@@ -281,8 +281,12 @@ class _$OpenLiveStreamDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }
@@ -395,9 +399,9 @@ extension OpenLiveStreamDtoPatterns on OpenLiveStreamDto {
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
       bool? alwaysBurnInSubtitleWhenTranscoding,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'DirectPlayProtocols')
-      List<MediaProtocol> directPlayProtocols,
+      List<MediaProtocol>? directPlayProtocols,
     )?
     $default, {
     required TResult orElse(),
@@ -455,9 +459,9 @@ extension OpenLiveStreamDtoPatterns on OpenLiveStreamDto {
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
       bool? alwaysBurnInSubtitleWhenTranscoding,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'DirectPlayProtocols')
-      List<MediaProtocol> directPlayProtocols,
+      List<MediaProtocol>? directPlayProtocols,
     )
     $default,
   ) {
@@ -513,9 +517,9 @@ extension OpenLiveStreamDtoPatterns on OpenLiveStreamDto {
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
       bool? alwaysBurnInSubtitleWhenTranscoding,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'DirectPlayProtocols')
-      List<MediaProtocol> directPlayProtocols,
+      List<MediaProtocol>? directPlayProtocols,
     )?
     $default,
   ) {
@@ -548,22 +552,22 @@ extension OpenLiveStreamDtoPatterns on OpenLiveStreamDto {
 @JsonSerializable()
 class _OpenLiveStreamDto implements OpenLiveStreamDto {
   const _OpenLiveStreamDto({
-    @JsonKey(name: 'OpenToken') required this.openToken,
-    @JsonKey(name: 'UserId') required this.userId,
-    @JsonKey(name: 'PlaySessionId') required this.playSessionId,
-    @JsonKey(name: 'MaxStreamingBitrate') required this.maxStreamingBitrate,
-    @JsonKey(name: 'StartTimeTicks') required this.startTimeTicks,
-    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
-    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
-    @JsonKey(name: 'MaxAudioChannels') required this.maxAudioChannels,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'EnableDirectPlay') required this.enableDirectPlay,
-    @JsonKey(name: 'EnableDirectStream') required this.enableDirectStream,
+    @JsonKey(name: 'OpenToken') this.openToken,
+    @JsonKey(name: 'UserId') this.userId,
+    @JsonKey(name: 'PlaySessionId') this.playSessionId,
+    @JsonKey(name: 'MaxStreamingBitrate') this.maxStreamingBitrate,
+    @JsonKey(name: 'StartTimeTicks') this.startTimeTicks,
+    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
+    @JsonKey(name: 'MaxAudioChannels') this.maxAudioChannels,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'EnableDirectPlay') this.enableDirectPlay,
+    @JsonKey(name: 'EnableDirectStream') this.enableDirectStream,
     @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
-    required this.alwaysBurnInSubtitleWhenTranscoding,
-    @JsonKey(name: 'DeviceProfile') required this.deviceProfile,
+    this.alwaysBurnInSubtitleWhenTranscoding,
+    @JsonKey(name: 'DeviceProfile') this.deviceProfile,
     @JsonKey(name: 'DirectPlayProtocols')
-    required final List<MediaProtocol> directPlayProtocols,
+    final List<MediaProtocol>? directPlayProtocols,
   }) : _directPlayProtocols = directPlayProtocols;
   factory _OpenLiveStreamDto.fromJson(Map<String, dynamic> json) =>
       _$OpenLiveStreamDtoFromJson(json);
@@ -641,19 +645,21 @@ class _OpenLiveStreamDto implements OpenLiveStreamDto {
   /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
   @override
   @JsonKey(name: 'DeviceProfile')
-  final DeviceProfile deviceProfile;
+  final DeviceProfile? deviceProfile;
 
   /// Gets or sets the device play protocols.
-  final List<MediaProtocol> _directPlayProtocols;
+  final List<MediaProtocol>? _directPlayProtocols;
 
   /// Gets or sets the device play protocols.
   @override
   @JsonKey(name: 'DirectPlayProtocols')
-  List<MediaProtocol> get directPlayProtocols {
+  List<MediaProtocol>? get directPlayProtocols {
+    final value = _directPlayProtocols;
+    if (value == null) return null;
     if (_directPlayProtocols is EqualUnmodifiableListView)
       return _directPlayProtocols;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_directPlayProtocols);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Create a copy of OpenLiveStreamDto
@@ -757,13 +763,13 @@ abstract mixin class _$OpenLiveStreamDtoCopyWith<$Res>
     @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
     @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
     bool? alwaysBurnInSubtitleWhenTranscoding,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'DirectPlayProtocols')
-    List<MediaProtocol> directPlayProtocols,
+    List<MediaProtocol>? directPlayProtocols,
   });
 
   @override
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -791,8 +797,8 @@ class __$OpenLiveStreamDtoCopyWithImpl<$Res>
     Object? enableDirectPlay = freezed,
     Object? enableDirectStream = freezed,
     Object? alwaysBurnInSubtitleWhenTranscoding = freezed,
-    Object? deviceProfile = null,
-    Object? directPlayProtocols = null,
+    Object? deviceProfile = freezed,
+    Object? directPlayProtocols = freezed,
   }) {
     return _then(
       _OpenLiveStreamDto(
@@ -845,14 +851,14 @@ class __$OpenLiveStreamDtoCopyWithImpl<$Res>
             ? _self.alwaysBurnInSubtitleWhenTranscoding
             : alwaysBurnInSubtitleWhenTranscoding // ignore: cast_nullable_to_non_nullable
                   as bool?,
-        deviceProfile: null == deviceProfile
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
-        directPlayProtocols: null == directPlayProtocols
+                  as DeviceProfile?,
+        directPlayProtocols: freezed == directPlayProtocols
             ? _self._directPlayProtocols
             : directPlayProtocols // ignore: cast_nullable_to_non_nullable
-                  as List<MediaProtocol>,
+                  as List<MediaProtocol>?,
       ),
     );
   }
@@ -861,8 +867,12 @@ class __$OpenLiveStreamDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }

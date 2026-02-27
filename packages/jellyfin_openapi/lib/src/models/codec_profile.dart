@@ -15,29 +15,24 @@ part 'codec_profile.g.dart';
 abstract class CodecProfile with _$CodecProfile {
   const factory CodecProfile({
     /// Gets or sets the MediaBrowser.Model.Dlna.CodecType which this container must meet.
-    @JsonKey(name: 'Type')
-    required CodecProfileType type,
+    @JsonKey(name: 'Type') CodecProfileType? type,
 
     /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this profile must meet.
-    @JsonKey(name: 'Conditions')
-    required List<ProfileCondition> conditions,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
 
     /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition to apply if this profile is met.
-    @JsonKey(name: 'ApplyConditions')
-    required List<ProfileCondition> applyConditions,
+    @JsonKey(name: 'ApplyConditions') List<ProfileCondition>? applyConditions,
 
     /// Gets or sets the codec(s) that this profile applies to.
-    @JsonKey(name: 'Codec')
-    required String? codec,
+    @JsonKey(name: 'Codec') String? codec,
 
     /// Gets or sets the container(s) which this profile will be applied to.
-    @JsonKey(name: 'Container')
-    required String? container,
+    @JsonKey(name: 'Container') String? container,
 
     /// Gets or sets the sub-container(s) which this profile will be applied to.
-    @JsonKey(name: 'SubContainer')
-    required String? subContainer,
+    @JsonKey(name: 'SubContainer') String? subContainer,
   }) = _CodecProfile;
-  
-  factory CodecProfile.fromJson(Map<String, Object?> json) => _$CodecProfileFromJson(json);
+
+  factory CodecProfile.fromJson(Map<String, Object?> json) =>
+      _$CodecProfileFromJson(json);
 }

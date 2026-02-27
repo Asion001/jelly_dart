@@ -15,23 +15,23 @@ T _$identity<T>(T value) => value;
 mixin _$ClientCapabilitiesDto {
   /// Gets or sets the list of playable media types.
   @JsonKey(name: 'PlayableMediaTypes')
-  List<MediaType> get playableMediaTypes;
+  List<MediaType>? get playableMediaTypes;
 
   /// Gets or sets the list of supported commands.
   @JsonKey(name: 'SupportedCommands')
-  List<GeneralCommandType> get supportedCommands;
+  List<GeneralCommandType>? get supportedCommands;
 
   /// Gets or sets a value indicating whether session supports media control.
   @JsonKey(name: 'SupportsMediaControl')
-  bool get supportsMediaControl;
+  bool? get supportsMediaControl;
 
   /// Gets or sets a value indicating whether session supports a persistent identifier.
   @JsonKey(name: 'SupportsPersistentIdentifier')
-  bool get supportsPersistentIdentifier;
+  bool? get supportsPersistentIdentifier;
 
   /// Gets or sets the device profile.
   @JsonKey(name: 'DeviceProfile')
-  DeviceProfile get deviceProfile;
+  DeviceProfile? get deviceProfile;
 
   /// Gets or sets the app store url.
   @JsonKey(name: 'AppStoreUrl')
@@ -109,18 +109,18 @@ abstract mixin class $ClientCapabilitiesDtoCopyWith<$Res> {
   ) = _$ClientCapabilitiesDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'PlayableMediaTypes') List<MediaType> playableMediaTypes,
+    @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
     @JsonKey(name: 'SupportedCommands')
-    List<GeneralCommandType> supportedCommands,
-    @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
+    List<GeneralCommandType>? supportedCommands,
+    @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
-    bool supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    bool? supportsPersistentIdentifier,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -136,36 +136,36 @@ class _$ClientCapabilitiesDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playableMediaTypes = null,
-    Object? supportedCommands = null,
-    Object? supportsMediaControl = null,
-    Object? supportsPersistentIdentifier = null,
-    Object? deviceProfile = null,
+    Object? playableMediaTypes = freezed,
+    Object? supportedCommands = freezed,
+    Object? supportsMediaControl = freezed,
+    Object? supportsPersistentIdentifier = freezed,
+    Object? deviceProfile = freezed,
     Object? appStoreUrl = freezed,
     Object? iconUrl = freezed,
   }) {
     return _then(
       _self.copyWith(
-        playableMediaTypes: null == playableMediaTypes
+        playableMediaTypes: freezed == playableMediaTypes
             ? _self.playableMediaTypes
             : playableMediaTypes // ignore: cast_nullable_to_non_nullable
-                  as List<MediaType>,
-        supportedCommands: null == supportedCommands
+                  as List<MediaType>?,
+        supportedCommands: freezed == supportedCommands
             ? _self.supportedCommands
             : supportedCommands // ignore: cast_nullable_to_non_nullable
-                  as List<GeneralCommandType>,
-        supportsMediaControl: null == supportsMediaControl
+                  as List<GeneralCommandType>?,
+        supportsMediaControl: freezed == supportsMediaControl
             ? _self.supportsMediaControl
             : supportsMediaControl // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        supportsPersistentIdentifier: null == supportsPersistentIdentifier
+                  as bool?,
+        supportsPersistentIdentifier: freezed == supportsPersistentIdentifier
             ? _self.supportsPersistentIdentifier
             : supportsPersistentIdentifier // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        deviceProfile: null == deviceProfile
+                  as bool?,
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
+                  as DeviceProfile?,
         appStoreUrl: freezed == appStoreUrl
             ? _self.appStoreUrl
             : appStoreUrl // ignore: cast_nullable_to_non_nullable
@@ -182,8 +182,12 @@ class _$ClientCapabilitiesDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }
@@ -283,13 +287,13 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'PlayableMediaTypes') List<MediaType> playableMediaTypes,
+      @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
       @JsonKey(name: 'SupportedCommands')
-      List<GeneralCommandType> supportedCommands,
-      @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
+      List<GeneralCommandType>? supportedCommands,
+      @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
-      bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      bool? supportsPersistentIdentifier,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
@@ -329,13 +333,13 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'PlayableMediaTypes') List<MediaType> playableMediaTypes,
+      @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
       @JsonKey(name: 'SupportedCommands')
-      List<GeneralCommandType> supportedCommands,
-      @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
+      List<GeneralCommandType>? supportedCommands,
+      @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
-      bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      bool? supportsPersistentIdentifier,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )
@@ -373,13 +377,13 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'PlayableMediaTypes') List<MediaType> playableMediaTypes,
+      @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
       @JsonKey(name: 'SupportedCommands')
-      List<GeneralCommandType> supportedCommands,
-      @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
+      List<GeneralCommandType>? supportedCommands,
+      @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
       @JsonKey(name: 'SupportsPersistentIdentifier')
-      bool supportsPersistentIdentifier,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      bool? supportsPersistentIdentifier,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
@@ -408,60 +412,64 @@ extension ClientCapabilitiesDtoPatterns on ClientCapabilitiesDto {
 class _ClientCapabilitiesDto implements ClientCapabilitiesDto {
   const _ClientCapabilitiesDto({
     @JsonKey(name: 'PlayableMediaTypes')
-    required final List<MediaType> playableMediaTypes,
+    final List<MediaType>? playableMediaTypes,
     @JsonKey(name: 'SupportedCommands')
-    required final List<GeneralCommandType> supportedCommands,
-    @JsonKey(name: 'SupportsMediaControl') required this.supportsMediaControl,
+    final List<GeneralCommandType>? supportedCommands,
+    @JsonKey(name: 'SupportsMediaControl') this.supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
-    required this.supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') required this.deviceProfile,
-    @JsonKey(name: 'AppStoreUrl') required this.appStoreUrl,
-    @JsonKey(name: 'IconUrl') required this.iconUrl,
+    this.supportsPersistentIdentifier,
+    @JsonKey(name: 'DeviceProfile') this.deviceProfile,
+    @JsonKey(name: 'AppStoreUrl') this.appStoreUrl,
+    @JsonKey(name: 'IconUrl') this.iconUrl,
   }) : _playableMediaTypes = playableMediaTypes,
        _supportedCommands = supportedCommands;
   factory _ClientCapabilitiesDto.fromJson(Map<String, dynamic> json) =>
       _$ClientCapabilitiesDtoFromJson(json);
 
   /// Gets or sets the list of playable media types.
-  final List<MediaType> _playableMediaTypes;
+  final List<MediaType>? _playableMediaTypes;
 
   /// Gets or sets the list of playable media types.
   @override
   @JsonKey(name: 'PlayableMediaTypes')
-  List<MediaType> get playableMediaTypes {
+  List<MediaType>? get playableMediaTypes {
+    final value = _playableMediaTypes;
+    if (value == null) return null;
     if (_playableMediaTypes is EqualUnmodifiableListView)
       return _playableMediaTypes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playableMediaTypes);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the list of supported commands.
-  final List<GeneralCommandType> _supportedCommands;
+  final List<GeneralCommandType>? _supportedCommands;
 
   /// Gets or sets the list of supported commands.
   @override
   @JsonKey(name: 'SupportedCommands')
-  List<GeneralCommandType> get supportedCommands {
+  List<GeneralCommandType>? get supportedCommands {
+    final value = _supportedCommands;
+    if (value == null) return null;
     if (_supportedCommands is EqualUnmodifiableListView)
       return _supportedCommands;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_supportedCommands);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets a value indicating whether session supports media control.
   @override
   @JsonKey(name: 'SupportsMediaControl')
-  final bool supportsMediaControl;
+  final bool? supportsMediaControl;
 
   /// Gets or sets a value indicating whether session supports a persistent identifier.
   @override
   @JsonKey(name: 'SupportsPersistentIdentifier')
-  final bool supportsPersistentIdentifier;
+  final bool? supportsPersistentIdentifier;
 
   /// Gets or sets the device profile.
   @override
   @JsonKey(name: 'DeviceProfile')
-  final DeviceProfile deviceProfile;
+  final DeviceProfile? deviceProfile;
 
   /// Gets or sets the app store url.
   @override
@@ -546,19 +554,19 @@ abstract mixin class _$ClientCapabilitiesDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'PlayableMediaTypes') List<MediaType> playableMediaTypes,
+    @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
     @JsonKey(name: 'SupportedCommands')
-    List<GeneralCommandType> supportedCommands,
-    @JsonKey(name: 'SupportsMediaControl') bool supportsMediaControl,
+    List<GeneralCommandType>? supportedCommands,
+    @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
     @JsonKey(name: 'SupportsPersistentIdentifier')
-    bool supportsPersistentIdentifier,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    bool? supportsPersistentIdentifier,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
   @override
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -574,36 +582,36 @@ class __$ClientCapabilitiesDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? playableMediaTypes = null,
-    Object? supportedCommands = null,
-    Object? supportsMediaControl = null,
-    Object? supportsPersistentIdentifier = null,
-    Object? deviceProfile = null,
+    Object? playableMediaTypes = freezed,
+    Object? supportedCommands = freezed,
+    Object? supportsMediaControl = freezed,
+    Object? supportsPersistentIdentifier = freezed,
+    Object? deviceProfile = freezed,
     Object? appStoreUrl = freezed,
     Object? iconUrl = freezed,
   }) {
     return _then(
       _ClientCapabilitiesDto(
-        playableMediaTypes: null == playableMediaTypes
+        playableMediaTypes: freezed == playableMediaTypes
             ? _self._playableMediaTypes
             : playableMediaTypes // ignore: cast_nullable_to_non_nullable
-                  as List<MediaType>,
-        supportedCommands: null == supportedCommands
+                  as List<MediaType>?,
+        supportedCommands: freezed == supportedCommands
             ? _self._supportedCommands
             : supportedCommands // ignore: cast_nullable_to_non_nullable
-                  as List<GeneralCommandType>,
-        supportsMediaControl: null == supportsMediaControl
+                  as List<GeneralCommandType>?,
+        supportsMediaControl: freezed == supportsMediaControl
             ? _self.supportsMediaControl
             : supportsMediaControl // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        supportsPersistentIdentifier: null == supportsPersistentIdentifier
+                  as bool?,
+        supportsPersistentIdentifier: freezed == supportsPersistentIdentifier
             ? _self.supportsPersistentIdentifier
             : supportsPersistentIdentifier // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        deviceProfile: null == deviceProfile
+                  as bool?,
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
+                  as DeviceProfile?,
         appStoreUrl: freezed == appStoreUrl
             ? _self.appStoreUrl
             : appStoreUrl // ignore: cast_nullable_to_non_nullable
@@ -620,8 +628,12 @@ class __$ClientCapabilitiesDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }

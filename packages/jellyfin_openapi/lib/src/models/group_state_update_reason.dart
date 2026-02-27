@@ -40,7 +40,8 @@ enum GroupStateUpdateReason {
   @JsonValue('Ping')
   ping('Ping'),
   @JsonValue('IgnoreWait')
-  ignoreWait('IgnoreWait');
+  ignoreWait('IgnoreWait')
+  ;
 
   const GroupStateUpdateReason(this.json);
 
@@ -48,8 +49,10 @@ enum GroupStateUpdateReason {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

@@ -140,7 +140,9 @@ abstract class SubtitleClient {
   /// [copyTimestamps] - Optional. Whether to copy the timestamps.
   ///
   /// [addVttTimeMap] - Optional. Whether to add a VTT time map.
-  @GET('/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}')
+  @GET(
+    '/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}',
+  )
   @DioResponseType(ResponseType.stream)
   Stream<String> getSubtitleWithTicks({
     @Path('routeItemId') required String routeItemId,
@@ -150,16 +152,15 @@ abstract class SubtitleClient {
     @Path('routeFormat') required String routeFormat,
     @Query('copyTimestamps') bool? copyTimestamps = false,
     @Query('addVttTimeMap') bool? addVttTimeMap = false,
+    @Deprecated('This is marked as deprecated') @Query('itemId') String? itemId,
     @Deprecated('This is marked as deprecated')
-    @Query('itemId') String? itemId,
+    @Query('mediaSourceId')
+    String? mediaSourceId,
+    @Deprecated('This is marked as deprecated') @Query('index') int? index,
     @Deprecated('This is marked as deprecated')
-    @Query('mediaSourceId') String? mediaSourceId,
-    @Deprecated('This is marked as deprecated')
-    @Query('index') int? index,
-    @Deprecated('This is marked as deprecated')
-    @Query('startPositionTicks') int? startPositionTicks,
-    @Deprecated('This is marked as deprecated')
-    @Query('format') String? format,
+    @Query('startPositionTicks')
+    int? startPositionTicks,
+    @Deprecated('This is marked as deprecated') @Query('format') String? format,
     @Query('endPositionTicks') int? endPositionTicks,
     @DioOptions() RequestOptions? options,
   });
@@ -189,7 +190,9 @@ abstract class SubtitleClient {
   /// [addVttTimeMap] - Optional. Whether to add a VTT time map.
   ///
   /// [startPositionTicks] - The start position of the subtitle in ticks.
-  @GET('/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat}')
+  @GET(
+    '/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat}',
+  )
   @DioResponseType(ResponseType.stream)
   Stream<String> getSubtitle({
     @Path('routeItemId') required String routeItemId,
@@ -199,14 +202,12 @@ abstract class SubtitleClient {
     @Query('copyTimestamps') bool? copyTimestamps = false,
     @Query('addVttTimeMap') bool? addVttTimeMap = false,
     @Query('startPositionTicks') int? startPositionTicks = 0,
+    @Deprecated('This is marked as deprecated') @Query('itemId') String? itemId,
     @Deprecated('This is marked as deprecated')
-    @Query('itemId') String? itemId,
-    @Deprecated('This is marked as deprecated')
-    @Query('mediaSourceId') String? mediaSourceId,
-    @Deprecated('This is marked as deprecated')
-    @Query('index') int? index,
-    @Deprecated('This is marked as deprecated')
-    @Query('format') String? format,
+    @Query('mediaSourceId')
+    String? mediaSourceId,
+    @Deprecated('This is marked as deprecated') @Query('index') int? index,
+    @Deprecated('This is marked as deprecated') @Query('format') String? format,
     @Query('endPositionTicks') int? endPositionTicks,
     @DioOptions() RequestOptions? options,
   });

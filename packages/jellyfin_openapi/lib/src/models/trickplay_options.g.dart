@@ -8,43 +8,43 @@ part of 'trickplay_options.dart';
 
 _TrickplayOptions _$TrickplayOptionsFromJson(Map<String, dynamic> json) =>
     _TrickplayOptions(
-      enableHwAcceleration: json['EnableHwAcceleration'] as bool,
-      enableHwEncoding: json['EnableHwEncoding'] as bool,
+      enableHwAcceleration: json['EnableHwAcceleration'] as bool?,
+      enableHwEncoding: json['EnableHwEncoding'] as bool?,
       enableKeyFrameOnlyExtraction:
-          json['EnableKeyFrameOnlyExtraction'] as bool,
-      scanBehavior: $enumDecode(
+          json['EnableKeyFrameOnlyExtraction'] as bool?,
+      scanBehavior: $enumDecodeNullable(
         _$TrickplayOptionsScanBehaviorEnumMap,
         json['ScanBehavior'],
       ),
-      processPriority: $enumDecode(
+      processPriority: $enumDecodeNullable(
         _$TrickplayOptionsProcessPriorityEnumMap,
         json['ProcessPriority'],
       ),
-      interval: (json['Interval'] as num).toInt(),
-      widthResolutions: (json['WidthResolutions'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
+      interval: (json['Interval'] as num?)?.toInt(),
+      widthResolutions: (json['WidthResolutions'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
           .toList(),
-      tileWidth: (json['TileWidth'] as num).toInt(),
-      tileHeight: (json['TileHeight'] as num).toInt(),
-      qscale: (json['Qscale'] as num).toInt(),
-      jpegQuality: (json['JpegQuality'] as num).toInt(),
-      processThreads: (json['ProcessThreads'] as num).toInt(),
+      tileWidth: (json['TileWidth'] as num?)?.toInt(),
+      tileHeight: (json['TileHeight'] as num?)?.toInt(),
+      qscale: (json['Qscale'] as num?)?.toInt(),
+      jpegQuality: (json['JpegQuality'] as num?)?.toInt(),
+      processThreads: (json['ProcessThreads'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$TrickplayOptionsToJson(_TrickplayOptions instance) =>
     <String, dynamic>{
-      'EnableHwAcceleration': instance.enableHwAcceleration,
-      'EnableHwEncoding': instance.enableHwEncoding,
-      'EnableKeyFrameOnlyExtraction': instance.enableKeyFrameOnlyExtraction,
-      'ScanBehavior': instance.scanBehavior.toJson(),
-      'ProcessPriority': instance.processPriority.toJson(),
-      'Interval': instance.interval,
-      'WidthResolutions': instance.widthResolutions,
-      'TileWidth': instance.tileWidth,
-      'TileHeight': instance.tileHeight,
-      'Qscale': instance.qscale,
-      'JpegQuality': instance.jpegQuality,
-      'ProcessThreads': instance.processThreads,
+      'EnableHwAcceleration': ?instance.enableHwAcceleration,
+      'EnableHwEncoding': ?instance.enableHwEncoding,
+      'EnableKeyFrameOnlyExtraction': ?instance.enableKeyFrameOnlyExtraction,
+      'ScanBehavior': ?instance.scanBehavior?.toJson(),
+      'ProcessPriority': ?instance.processPriority?.toJson(),
+      'Interval': ?instance.interval,
+      'WidthResolutions': ?instance.widthResolutions,
+      'TileWidth': ?instance.tileWidth,
+      'TileHeight': ?instance.tileHeight,
+      'Qscale': ?instance.qscale,
+      'JpegQuality': ?instance.jpegQuality,
+      'ProcessThreads': ?instance.processThreads,
     };
 
 const _$TrickplayOptionsScanBehaviorEnumMap = {

@@ -14,13 +14,12 @@ part 'update_media_path_request_dto.g.dart';
 abstract class UpdateMediaPathRequestDto with _$UpdateMediaPathRequestDto {
   const factory UpdateMediaPathRequestDto({
     /// Gets or sets the library name.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') required String name,
 
     /// Gets or sets library folder path information.
-    @JsonKey(name: 'PathInfo')
-    required MediaPathInfo pathInfo,
+    @JsonKey(name: 'PathInfo') required MediaPathInfo pathInfo,
   }) = _UpdateMediaPathRequestDto;
-  
-  factory UpdateMediaPathRequestDto.fromJson(Map<String, Object?> json) => _$UpdateMediaPathRequestDtoFromJson(json);
+
+  factory UpdateMediaPathRequestDto.fromJson(Map<String, Object?> json) =>
+      _$UpdateMediaPathRequestDtoFromJson(json);
 }

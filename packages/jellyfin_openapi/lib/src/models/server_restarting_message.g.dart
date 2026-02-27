@@ -9,20 +9,20 @@ part of 'server_restarting_message.dart';
 _ServerRestartingMessage _$ServerRestartingMessageFromJson(
   Map<String, dynamic> json,
 ) => _ServerRestartingMessage(
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ServerRestartingMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ServerRestartingMessageMessageType.serverRestarting,
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ServerRestartingMessageToJson(
   _ServerRestartingMessage instance,
 ) => <String, dynamic>{
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$ServerRestartingMessageMessageTypeEnumMap = {

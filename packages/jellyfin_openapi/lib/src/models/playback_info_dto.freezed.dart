@@ -57,7 +57,7 @@ mixin _$PlaybackInfoDto {
   ///
   /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
   @JsonKey(name: 'DeviceProfile')
-  DeviceProfile get deviceProfile;
+  DeviceProfile? get deviceProfile;
 
   /// Gets or sets a value indicating whether to enable direct play.
   @JsonKey(name: 'EnableDirectPlay')
@@ -186,7 +186,7 @@ abstract mixin class $PlaybackInfoDtoCopyWith<$Res> {
     @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
     @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
     @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
@@ -197,7 +197,7 @@ abstract mixin class $PlaybackInfoDtoCopyWith<$Res> {
     bool? alwaysBurnInSubtitleWhenTranscoding,
   });
 
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -221,7 +221,7 @@ class _$PlaybackInfoDtoCopyWithImpl<$Res>
     Object? maxAudioChannels = freezed,
     Object? mediaSourceId = freezed,
     Object? liveStreamId = freezed,
-    Object? deviceProfile = null,
+    Object? deviceProfile = freezed,
     Object? enableDirectPlay = freezed,
     Object? enableDirectStream = freezed,
     Object? enableTranscoding = freezed,
@@ -264,10 +264,10 @@ class _$PlaybackInfoDtoCopyWithImpl<$Res>
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        deviceProfile: null == deviceProfile
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
+                  as DeviceProfile?,
         enableDirectPlay: freezed == enableDirectPlay
             ? _self.enableDirectPlay
             : enableDirectPlay // ignore: cast_nullable_to_non_nullable
@@ -305,8 +305,12 @@ class _$PlaybackInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }
@@ -414,7 +418,7 @@ extension PlaybackInfoDtoPatterns on PlaybackInfoDto {
       @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
@@ -477,7 +481,7 @@ extension PlaybackInfoDtoPatterns on PlaybackInfoDto {
       @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
@@ -538,7 +542,7 @@ extension PlaybackInfoDtoPatterns on PlaybackInfoDto {
       @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
-      @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+      @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
       @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
       @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
       @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
@@ -581,23 +585,23 @@ extension PlaybackInfoDtoPatterns on PlaybackInfoDto {
 @JsonSerializable()
 class _PlaybackInfoDto implements PlaybackInfoDto {
   const _PlaybackInfoDto({
-    @JsonKey(name: 'UserId') required this.userId,
-    @JsonKey(name: 'MaxStreamingBitrate') required this.maxStreamingBitrate,
-    @JsonKey(name: 'StartTimeTicks') required this.startTimeTicks,
-    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
-    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
-    @JsonKey(name: 'MaxAudioChannels') required this.maxAudioChannels,
-    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
-    @JsonKey(name: 'LiveStreamId') required this.liveStreamId,
-    @JsonKey(name: 'DeviceProfile') required this.deviceProfile,
-    @JsonKey(name: 'EnableDirectPlay') required this.enableDirectPlay,
-    @JsonKey(name: 'EnableDirectStream') required this.enableDirectStream,
-    @JsonKey(name: 'EnableTranscoding') required this.enableTranscoding,
-    @JsonKey(name: 'AllowVideoStreamCopy') required this.allowVideoStreamCopy,
-    @JsonKey(name: 'AllowAudioStreamCopy') required this.allowAudioStreamCopy,
-    @JsonKey(name: 'AutoOpenLiveStream') required this.autoOpenLiveStream,
+    @JsonKey(name: 'UserId') this.userId,
+    @JsonKey(name: 'MaxStreamingBitrate') this.maxStreamingBitrate,
+    @JsonKey(name: 'StartTimeTicks') this.startTimeTicks,
+    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
+    @JsonKey(name: 'MaxAudioChannels') this.maxAudioChannels,
+    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
+    @JsonKey(name: 'LiveStreamId') this.liveStreamId,
+    @JsonKey(name: 'DeviceProfile') this.deviceProfile,
+    @JsonKey(name: 'EnableDirectPlay') this.enableDirectPlay,
+    @JsonKey(name: 'EnableDirectStream') this.enableDirectStream,
+    @JsonKey(name: 'EnableTranscoding') this.enableTranscoding,
+    @JsonKey(name: 'AllowVideoStreamCopy') this.allowVideoStreamCopy,
+    @JsonKey(name: 'AllowAudioStreamCopy') this.allowAudioStreamCopy,
+    @JsonKey(name: 'AutoOpenLiveStream') this.autoOpenLiveStream,
     @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
-    required this.alwaysBurnInSubtitleWhenTranscoding,
+    this.alwaysBurnInSubtitleWhenTranscoding,
   });
   factory _PlaybackInfoDto.fromJson(Map<String, dynamic> json) =>
       _$PlaybackInfoDtoFromJson(json);
@@ -655,7 +659,7 @@ class _PlaybackInfoDto implements PlaybackInfoDto {
   /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
   @override
   @JsonKey(name: 'DeviceProfile')
-  final DeviceProfile deviceProfile;
+  final DeviceProfile? deviceProfile;
 
   /// Gets or sets a value indicating whether to enable direct play.
   @override
@@ -793,7 +797,7 @@ abstract mixin class _$PlaybackInfoDtoCopyWith<$Res>
     @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
-    @JsonKey(name: 'DeviceProfile') DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
     @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
     @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
     @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
@@ -805,7 +809,7 @@ abstract mixin class _$PlaybackInfoDtoCopyWith<$Res>
   });
 
   @override
-  $DeviceProfileCopyWith<$Res> get deviceProfile;
+  $DeviceProfileCopyWith<$Res>? get deviceProfile;
 }
 
 /// @nodoc
@@ -829,7 +833,7 @@ class __$PlaybackInfoDtoCopyWithImpl<$Res>
     Object? maxAudioChannels = freezed,
     Object? mediaSourceId = freezed,
     Object? liveStreamId = freezed,
-    Object? deviceProfile = null,
+    Object? deviceProfile = freezed,
     Object? enableDirectPlay = freezed,
     Object? enableDirectStream = freezed,
     Object? enableTranscoding = freezed,
@@ -872,10 +876,10 @@ class __$PlaybackInfoDtoCopyWithImpl<$Res>
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        deviceProfile: null == deviceProfile
+        deviceProfile: freezed == deviceProfile
             ? _self.deviceProfile
             : deviceProfile // ignore: cast_nullable_to_non_nullable
-                  as DeviceProfile,
+                  as DeviceProfile?,
         enableDirectPlay: freezed == enableDirectPlay
             ? _self.enableDirectPlay
             : enableDirectPlay // ignore: cast_nullable_to_non_nullable
@@ -913,8 +917,12 @@ class __$PlaybackInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DeviceProfileCopyWith<$Res> get deviceProfile {
-    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile, (value) {
+  $DeviceProfileCopyWith<$Res>? get deviceProfile {
+    if (_self.deviceProfile == null) {
+      return null;
+    }
+
+    return $DeviceProfileCopyWith<$Res>(_self.deviceProfile!, (value) {
       return _then(_self.copyWith(deviceProfile: value));
     });
   }

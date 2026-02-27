@@ -12,13 +12,13 @@ part 'utc_time_response.g.dart';
 abstract class UtcTimeResponse with _$UtcTimeResponse {
   const factory UtcTimeResponse({
     /// Gets the UTC time when request has been received.
-    @JsonKey(name: 'RequestReceptionTime')
-    DateTime? requestReceptionTime,
+    @JsonKey(name: 'RequestReceptionTime') DateTime? requestReceptionTime,
 
     /// Gets the UTC time when response has been sent.
     @JsonKey(name: 'ResponseTransmissionTime')
     DateTime? responseTransmissionTime,
   }) = _UtcTimeResponse;
-  
-  factory UtcTimeResponse.fromJson(Map<String, Object?> json) => _$UtcTimeResponseFromJson(json);
+
+  factory UtcTimeResponse.fromJson(Map<String, Object?> json) =>
+      _$UtcTimeResponseFromJson(json);
 }

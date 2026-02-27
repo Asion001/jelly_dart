@@ -22,7 +22,8 @@ enum EncodingOptionsTonemappingAlgorithm {
   @JsonValue('mobius')
   mobius('mobius'),
   @JsonValue('bt2390')
-  bt2390('bt2390');
+  bt2390('bt2390')
+  ;
 
   const EncodingOptionsTonemappingAlgorithm(this.json);
 
@@ -30,8 +31,10 @@ enum EncodingOptionsTonemappingAlgorithm {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

@@ -15,16 +15,16 @@ T _$identity<T>(T value) => value;
 mixin _$SendCommand {
   /// Gets the group identifier.
   @JsonKey(name: 'GroupId')
-  String get groupId;
+  String? get groupId;
 
   /// Gets the playlist identifier of the playing item.
   @JsonKey(name: 'PlaylistItemId')
-  String get playlistItemId;
+  String? get playlistItemId;
 
   /// Gets or sets the UTC time when to execute the command.
   /// The name has been replaced because it contains a keyword. Original name: `When`.
   @JsonKey(name: 'When')
-  DateTime get whenValue;
+  DateTime? get whenValue;
 
   /// Gets the position ticks.
   @JsonKey(name: 'PositionTicks')
@@ -32,11 +32,11 @@ mixin _$SendCommand {
 
   /// Gets the command.
   @JsonKey(name: 'Command')
-  SendCommandCommand get command;
+  SendCommandCommand? get command;
 
   /// Gets the UTC time when this command has been emitted.
   @JsonKey(name: 'EmittedAt')
-  DateTime get emittedAt;
+  DateTime? get emittedAt;
 
   /// Create a copy of SendCommand
   /// with the given fields replaced by the non-null parameter values.
@@ -91,12 +91,12 @@ abstract mixin class $SendCommandCopyWith<$Res> {
   ) = _$SendCommandCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'PlaylistItemId') String playlistItemId,
-    @JsonKey(name: 'When') DateTime whenValue,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
+    @JsonKey(name: 'When') DateTime? whenValue,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
-    @JsonKey(name: 'Command') SendCommandCommand command,
-    @JsonKey(name: 'EmittedAt') DateTime emittedAt,
+    @JsonKey(name: 'Command') SendCommandCommand? command,
+    @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
   });
 }
 
@@ -112,39 +112,39 @@ class _$SendCommandCopyWithImpl<$Res> implements $SendCommandCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groupId = null,
-    Object? playlistItemId = null,
-    Object? whenValue = null,
+    Object? groupId = freezed,
+    Object? playlistItemId = freezed,
+    Object? whenValue = freezed,
     Object? positionTicks = freezed,
-    Object? command = null,
-    Object? emittedAt = null,
+    Object? command = freezed,
+    Object? emittedAt = freezed,
   }) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        playlistItemId: null == playlistItemId
+                  as String?,
+        playlistItemId: freezed == playlistItemId
             ? _self.playlistItemId
             : playlistItemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        whenValue: null == whenValue
+                  as String?,
+        whenValue: freezed == whenValue
             ? _self.whenValue
             : whenValue // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         positionTicks: freezed == positionTicks
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        command: null == command
+        command: freezed == command
             ? _self.command
             : command // ignore: cast_nullable_to_non_nullable
-                  as SendCommandCommand,
-        emittedAt: null == emittedAt
+                  as SendCommandCommand?,
+        emittedAt: freezed == emittedAt
             ? _self.emittedAt
             : emittedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
       ),
     );
   }
@@ -244,12 +244,12 @@ extension SendCommandPatterns on SendCommand {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
-      @JsonKey(name: 'When') DateTime whenValue,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
+      @JsonKey(name: 'When') DateTime? whenValue,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'Command') SendCommandCommand command,
-      @JsonKey(name: 'EmittedAt') DateTime emittedAt,
+      @JsonKey(name: 'Command') SendCommandCommand? command,
+      @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
     )?
     $default, {
     required TResult orElse(),
@@ -286,12 +286,12 @@ extension SendCommandPatterns on SendCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
-      @JsonKey(name: 'When') DateTime whenValue,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
+      @JsonKey(name: 'When') DateTime? whenValue,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'Command') SendCommandCommand command,
-      @JsonKey(name: 'EmittedAt') DateTime emittedAt,
+      @JsonKey(name: 'Command') SendCommandCommand? command,
+      @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
     )
     $default,
   ) {
@@ -326,12 +326,12 @@ extension SendCommandPatterns on SendCommand {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'PlaylistItemId') String playlistItemId,
-      @JsonKey(name: 'When') DateTime whenValue,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
+      @JsonKey(name: 'When') DateTime? whenValue,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'Command') SendCommandCommand command,
-      @JsonKey(name: 'EmittedAt') DateTime emittedAt,
+      @JsonKey(name: 'Command') SendCommandCommand? command,
+      @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
     )?
     $default,
   ) {
@@ -356,12 +356,12 @@ extension SendCommandPatterns on SendCommand {
 @JsonSerializable()
 class _SendCommand implements SendCommand {
   const _SendCommand({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'PlaylistItemId') required this.playlistItemId,
-    @JsonKey(name: 'When') required this.whenValue,
-    @JsonKey(name: 'PositionTicks') required this.positionTicks,
-    @JsonKey(name: 'Command') required this.command,
-    @JsonKey(name: 'EmittedAt') required this.emittedAt,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'PlaylistItemId') this.playlistItemId,
+    @JsonKey(name: 'When') this.whenValue,
+    @JsonKey(name: 'PositionTicks') this.positionTicks,
+    @JsonKey(name: 'Command') this.command,
+    @JsonKey(name: 'EmittedAt') this.emittedAt,
   });
   factory _SendCommand.fromJson(Map<String, dynamic> json) =>
       _$SendCommandFromJson(json);
@@ -369,18 +369,18 @@ class _SendCommand implements SendCommand {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the playlist identifier of the playing item.
   @override
   @JsonKey(name: 'PlaylistItemId')
-  final String playlistItemId;
+  final String? playlistItemId;
 
   /// Gets or sets the UTC time when to execute the command.
   /// The name has been replaced because it contains a keyword. Original name: `When`.
   @override
   @JsonKey(name: 'When')
-  final DateTime whenValue;
+  final DateTime? whenValue;
 
   /// Gets the position ticks.
   @override
@@ -390,12 +390,12 @@ class _SendCommand implements SendCommand {
   /// Gets the command.
   @override
   @JsonKey(name: 'Command')
-  final SendCommandCommand command;
+  final SendCommandCommand? command;
 
   /// Gets the UTC time when this command has been emitted.
   @override
   @JsonKey(name: 'EmittedAt')
-  final DateTime emittedAt;
+  final DateTime? emittedAt;
 
   /// Create a copy of SendCommand
   /// with the given fields replaced by the non-null parameter values.
@@ -455,12 +455,12 @@ abstract mixin class _$SendCommandCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'PlaylistItemId') String playlistItemId,
-    @JsonKey(name: 'When') DateTime whenValue,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
+    @JsonKey(name: 'When') DateTime? whenValue,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
-    @JsonKey(name: 'Command') SendCommandCommand command,
-    @JsonKey(name: 'EmittedAt') DateTime emittedAt,
+    @JsonKey(name: 'Command') SendCommandCommand? command,
+    @JsonKey(name: 'EmittedAt') DateTime? emittedAt,
   });
 }
 
@@ -476,39 +476,39 @@ class __$SendCommandCopyWithImpl<$Res> implements _$SendCommandCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? groupId = null,
-    Object? playlistItemId = null,
-    Object? whenValue = null,
+    Object? groupId = freezed,
+    Object? playlistItemId = freezed,
+    Object? whenValue = freezed,
     Object? positionTicks = freezed,
-    Object? command = null,
-    Object? emittedAt = null,
+    Object? command = freezed,
+    Object? emittedAt = freezed,
   }) {
     return _then(
       _SendCommand(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        playlistItemId: null == playlistItemId
+                  as String?,
+        playlistItemId: freezed == playlistItemId
             ? _self.playlistItemId
             : playlistItemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        whenValue: null == whenValue
+                  as String?,
+        whenValue: freezed == whenValue
             ? _self.whenValue
             : whenValue // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         positionTicks: freezed == positionTicks
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        command: null == command
+        command: freezed == command
             ? _self.command
             : command // ignore: cast_nullable_to_non_nullable
-                  as SendCommandCommand,
-        emittedAt: null == emittedAt
+                  as SendCommandCommand?,
+        emittedAt: freezed == emittedAt
             ? _self.emittedAt
             : emittedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
       ),
     );
   }

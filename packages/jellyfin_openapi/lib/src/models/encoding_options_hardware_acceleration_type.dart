@@ -22,7 +22,8 @@ enum EncodingOptionsHardwareAccelerationType {
   @JsonValue('videotoolbox')
   videotoolbox('videotoolbox'),
   @JsonValue('rkmpp')
-  rkmpp('rkmpp');
+  rkmpp('rkmpp')
+  ;
 
   const EncodingOptionsHardwareAccelerationType(this.json);
 
@@ -30,8 +31,10 @@ enum EncodingOptionsHardwareAccelerationType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

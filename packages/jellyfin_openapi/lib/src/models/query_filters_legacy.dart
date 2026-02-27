@@ -10,15 +10,12 @@ part 'query_filters_legacy.g.dart';
 @Freezed()
 abstract class QueryFiltersLegacy with _$QueryFiltersLegacy {
   const factory QueryFiltersLegacy({
-    @JsonKey(name: 'Genres')
-    List<String>? genres,
-    @JsonKey(name: 'Tags')
-    List<String>? tags,
-    @JsonKey(name: 'OfficialRatings')
-    List<String>? officialRatings,
-    @JsonKey(name: 'Years')
-    List<int>? years,
+    @JsonKey(name: 'Genres') List<String>? genres,
+    @JsonKey(name: 'Tags') List<String>? tags,
+    @JsonKey(name: 'OfficialRatings') List<String>? officialRatings,
+    @JsonKey(name: 'Years') List<int>? years,
   }) = _QueryFiltersLegacy;
-  
-  factory QueryFiltersLegacy.fromJson(Map<String, Object?> json) => _$QueryFiltersLegacyFromJson(json);
+
+  factory QueryFiltersLegacy.fromJson(Map<String, Object?> json) =>
+      _$QueryFiltersLegacyFromJson(json);
 }

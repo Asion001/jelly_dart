@@ -9,22 +9,24 @@ part of 'sync_play_group_joined_update.dart';
 _SyncPlayGroupJoinedUpdate _$SyncPlayGroupJoinedUpdateFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayGroupJoinedUpdate(
-  groupId: json['GroupId'] as String,
-  data: GroupInfoDto.fromJson(json['Data'] as Map<String, dynamic>),
   type:
       $enumDecodeNullable(
         _$SyncPlayGroupJoinedUpdateTypeEnumMap,
         json['Type'],
       ) ??
       SyncPlayGroupJoinedUpdateType.groupJoined,
+  groupId: json['GroupId'] as String?,
+  data: json['Data'] == null
+      ? null
+      : GroupInfoDto.fromJson(json['Data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SyncPlayGroupJoinedUpdateToJson(
   _SyncPlayGroupJoinedUpdate instance,
 ) => <String, dynamic>{
-  'GroupId': instance.groupId,
-  'Data': instance.data.toJson(),
   'Type': instance.type.toJson(),
+  'GroupId': ?instance.groupId,
+  'Data': ?instance.data?.toJson(),
 };
 
 const _$SyncPlayGroupJoinedUpdateTypeEnumMap = {

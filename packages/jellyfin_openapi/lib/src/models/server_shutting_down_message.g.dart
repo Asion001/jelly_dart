@@ -9,20 +9,20 @@ part of 'server_shutting_down_message.dart';
 _ServerShuttingDownMessage _$ServerShuttingDownMessageFromJson(
   Map<String, dynamic> json,
 ) => _ServerShuttingDownMessage(
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ServerShuttingDownMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ServerShuttingDownMessageMessageType.serverShuttingDown,
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ServerShuttingDownMessageToJson(
   _ServerShuttingDownMessage instance,
 ) => <String, dynamic>{
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$ServerShuttingDownMessageMessageTypeEnumMap = {

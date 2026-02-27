@@ -7,26 +7,29 @@ part of 'image_info.dart';
 // **************************************************************************
 
 _ImageInfo _$ImageInfoFromJson(Map<String, dynamic> json) => _ImageInfo(
-  imageType: $enumDecode(_$ImageInfoImageTypeEnumMap, json['ImageType']),
+  imageType: $enumDecodeNullable(
+    _$ImageInfoImageTypeEnumMap,
+    json['ImageType'],
+  ),
   imageIndex: (json['ImageIndex'] as num?)?.toInt(),
   imageTag: json['ImageTag'] as String?,
   path: json['Path'] as String?,
   blurHash: json['BlurHash'] as String?,
   height: (json['Height'] as num?)?.toInt(),
   width: (json['Width'] as num?)?.toInt(),
-  size: (json['Size'] as num).toInt(),
+  size: (json['Size'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$ImageInfoToJson(_ImageInfo instance) =>
     <String, dynamic>{
-      'ImageType': instance.imageType.toJson(),
+      'ImageType': ?instance.imageType?.toJson(),
       'ImageIndex': ?instance.imageIndex,
       'ImageTag': ?instance.imageTag,
       'Path': ?instance.path,
       'BlurHash': ?instance.blurHash,
       'Height': ?instance.height,
       'Width': ?instance.width,
-      'Size': instance.size,
+      'Size': ?instance.size,
     };
 
 const _$ImageInfoImageTypeEnumMap = {

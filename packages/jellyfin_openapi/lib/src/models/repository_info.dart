@@ -12,17 +12,15 @@ part 'repository_info.g.dart';
 abstract class RepositoryInfo with _$RepositoryInfo {
   const factory RepositoryInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the URL.
-    @JsonKey(name: 'Url')
-    String? url,
+    @JsonKey(name: 'Url') String? url,
 
     /// Gets or sets a value indicating whether the repository is enabled.
-    @JsonKey(name: 'Enabled')
-    bool? enabled,
+    @JsonKey(name: 'Enabled') bool? enabled,
   }) = _RepositoryInfo;
-  
-  factory RepositoryInfo.fromJson(Map<String, Object?> json) => _$RepositoryInfoFromJson(json);
+
+  factory RepositoryInfo.fromJson(Map<String, Object?> json) =>
+      _$RepositoryInfoFromJson(json);
 }

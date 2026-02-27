@@ -9,12 +9,13 @@ part 'client_log_document_response_dto.g.dart';
 
 /// Client log document response dto.
 @Freezed()
-abstract class ClientLogDocumentResponseDto with _$ClientLogDocumentResponseDto {
+abstract class ClientLogDocumentResponseDto
+    with _$ClientLogDocumentResponseDto {
   const factory ClientLogDocumentResponseDto({
     /// Gets the resulting filename.
-    @JsonKey(name: 'FileName')
-    String? fileName,
+    @JsonKey(name: 'FileName') String? fileName,
   }) = _ClientLogDocumentResponseDto;
-  
-  factory ClientLogDocumentResponseDto.fromJson(Map<String, Object?> json) => _$ClientLogDocumentResponseDtoFromJson(json);
+
+  factory ClientLogDocumentResponseDto.fromJson(Map<String, Object?> json) =>
+      _$ClientLogDocumentResponseDtoFromJson(json);
 }

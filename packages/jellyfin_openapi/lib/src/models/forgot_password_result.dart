@@ -13,17 +13,15 @@ part 'forgot_password_result.g.dart';
 abstract class ForgotPasswordResult with _$ForgotPasswordResult {
   const factory ForgotPasswordResult({
     /// Gets or sets the action.
-    @JsonKey(name: 'Action')
-    required ForgotPasswordResultAction action,
+    @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
 
     /// Gets or sets the pin file.
-    @JsonKey(name: 'PinFile')
-    required String? pinFile,
+    @JsonKey(name: 'PinFile') String? pinFile,
 
     /// Gets or sets the pin expiration date.
-    @JsonKey(name: 'PinExpirationDate')
-    required DateTime? pinExpirationDate,
+    @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
   }) = _ForgotPasswordResult;
-  
-  factory ForgotPasswordResult.fromJson(Map<String, Object?> json) => _$ForgotPasswordResultFromJson(json);
+
+  factory ForgotPasswordResult.fromJson(Map<String, Object?> json) =>
+      _$ForgotPasswordResultFromJson(json);
 }

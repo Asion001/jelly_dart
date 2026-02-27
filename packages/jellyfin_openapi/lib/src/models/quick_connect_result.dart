@@ -12,37 +12,30 @@ part 'quick_connect_result.g.dart';
 abstract class QuickConnectResult with _$QuickConnectResult {
   const factory QuickConnectResult({
     /// Gets or sets a value indicating whether this request is authorized.
-    @JsonKey(name: 'Authenticated')
-    bool? authenticated,
+    @JsonKey(name: 'Authenticated') bool? authenticated,
 
     /// Gets the secret value used to uniquely identify this request. Can be used to retrieve authentication information.
-    @JsonKey(name: 'Secret')
-    String? secret,
+    @JsonKey(name: 'Secret') String? secret,
 
     /// Gets the user facing code used so the user can quickly differentiate this request from others.
-    @JsonKey(name: 'Code')
-    String? code,
+    @JsonKey(name: 'Code') String? code,
 
     /// Gets the requesting device id.
-    @JsonKey(name: 'DeviceId')
-    String? deviceId,
+    @JsonKey(name: 'DeviceId') String? deviceId,
 
     /// Gets the requesting device name.
-    @JsonKey(name: 'DeviceName')
-    String? deviceName,
+    @JsonKey(name: 'DeviceName') String? deviceName,
 
     /// Gets the requesting app name.
-    @JsonKey(name: 'AppName')
-    String? appName,
+    @JsonKey(name: 'AppName') String? appName,
 
     /// Gets the requesting app version.
-    @JsonKey(name: 'AppVersion')
-    String? appVersion,
+    @JsonKey(name: 'AppVersion') String? appVersion,
 
     /// Gets or sets the DateTime that this request was created.
-    @JsonKey(name: 'DateAdded')
-    DateTime? dateAdded,
+    @JsonKey(name: 'DateAdded') DateTime? dateAdded,
   }) = _QuickConnectResult;
-  
-  factory QuickConnectResult.fromJson(Map<String, Object?> json) => _$QuickConnectResultFromJson(json);
+
+  factory QuickConnectResult.fromJson(Map<String, Object?> json) =>
+      _$QuickConnectResultFromJson(json);
 }

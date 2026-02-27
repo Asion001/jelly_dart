@@ -14,13 +14,12 @@ part 'image_provider_info.g.dart';
 abstract class ImageProviderInfo with _$ImageProviderInfo {
   const factory ImageProviderInfo({
     /// Gets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets the supported image types.
-    @JsonKey(name: 'SupportedImages')
-    List<ImageType>? supportedImages,
+    @JsonKey(name: 'SupportedImages') List<ImageType>? supportedImages,
   }) = _ImageProviderInfo;
-  
-  factory ImageProviderInfo.fromJson(Map<String, Object?> json) => _$ImageProviderInfoFromJson(json);
+
+  factory ImageProviderInfo.fromJson(Map<String, Object?> json) =>
+      _$ImageProviderInfoFromJson(json);
 }

@@ -14,25 +14,21 @@ part 'subtitle_profile.g.dart';
 abstract class SubtitleProfile with _$SubtitleProfile {
   const factory SubtitleProfile({
     /// Gets or sets the format.
-    @JsonKey(name: 'Format')
-    required String? format,
+    @JsonKey(name: 'Format') String? format,
 
     /// Gets or sets the delivery method.
-    @JsonKey(name: 'Method')
-    required SubtitleProfileMethod method,
+    @JsonKey(name: 'Method') SubtitleProfileMethod? method,
 
     /// Gets or sets the DIDL mode.
-    @JsonKey(name: 'DidlMode')
-    required String? didlMode,
+    @JsonKey(name: 'DidlMode') String? didlMode,
 
     /// Gets or sets the language.
-    @JsonKey(name: 'Language')
-    required String? language,
+    @JsonKey(name: 'Language') String? language,
 
     /// Gets or sets the container.
-    @JsonKey(name: 'Container')
-    required String? container,
+    @JsonKey(name: 'Container') String? container,
   }) = _SubtitleProfile;
-  
-  factory SubtitleProfile.fromJson(Map<String, Object?> json) => _$SubtitleProfileFromJson(json);
+
+  factory SubtitleProfile.fromJson(Map<String, Object?> json) =>
+      _$SubtitleProfileFromJson(json);
 }

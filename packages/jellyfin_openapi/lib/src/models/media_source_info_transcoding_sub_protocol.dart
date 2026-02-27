@@ -4,14 +4,16 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-/// Media streaming protocol.///
+/// Media streaming protocol.
+///
 /// Lowercase for backwards compatibility.
 @JsonEnum()
 enum MediaSourceInfoTranscodingSubProtocol {
   @JsonValue('http')
   http('http'),
   @JsonValue('hls')
-  hls('hls');
+  hls('hls')
+  ;
 
   const MediaSourceInfoTranscodingSubProtocol(this.json);
 
@@ -19,8 +21,10 @@ enum MediaSourceInfoTranscodingSubProtocol {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

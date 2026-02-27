@@ -24,7 +24,8 @@ enum Command2 {
   @JsonValue('FastForward')
   fastForward('FastForward'),
   @JsonValue('PlayPause')
-  playPause('PlayPause');
+  playPause('PlayPause')
+  ;
 
   const Command2(this.json);
 
@@ -32,8 +33,10 @@ enum Command2 {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

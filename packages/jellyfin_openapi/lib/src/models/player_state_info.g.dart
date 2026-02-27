@@ -9,9 +9,9 @@ part of 'player_state_info.dart';
 _PlayerStateInfo _$PlayerStateInfoFromJson(Map<String, dynamic> json) =>
     _PlayerStateInfo(
       positionTicks: (json['PositionTicks'] as num?)?.toInt(),
-      canSeek: json['CanSeek'] as bool,
-      isPaused: json['IsPaused'] as bool,
-      isMuted: json['IsMuted'] as bool,
+      canSeek: json['CanSeek'] as bool?,
+      isPaused: json['IsPaused'] as bool?,
+      isMuted: json['IsMuted'] as bool?,
       volumeLevel: (json['VolumeLevel'] as num?)?.toInt(),
       audioStreamIndex: (json['AudioStreamIndex'] as num?)?.toInt(),
       subtitleStreamIndex: (json['SubtitleStreamIndex'] as num?)?.toInt(),
@@ -20,11 +20,11 @@ _PlayerStateInfo _$PlayerStateInfoFromJson(Map<String, dynamic> json) =>
         _$PlayerStateInfoPlayMethodEnumMap,
         json['PlayMethod'],
       ),
-      repeatMode: $enumDecode(
+      repeatMode: $enumDecodeNullable(
         _$PlayerStateInfoRepeatModeEnumMap,
         json['RepeatMode'],
       ),
-      playbackOrder: $enumDecode(
+      playbackOrder: $enumDecodeNullable(
         _$PlayerStateInfoPlaybackOrderEnumMap,
         json['PlaybackOrder'],
       ),
@@ -34,16 +34,16 @@ _PlayerStateInfo _$PlayerStateInfoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$PlayerStateInfoToJson(_PlayerStateInfo instance) =>
     <String, dynamic>{
       'PositionTicks': ?instance.positionTicks,
-      'CanSeek': instance.canSeek,
-      'IsPaused': instance.isPaused,
-      'IsMuted': instance.isMuted,
+      'CanSeek': ?instance.canSeek,
+      'IsPaused': ?instance.isPaused,
+      'IsMuted': ?instance.isMuted,
       'VolumeLevel': ?instance.volumeLevel,
       'AudioStreamIndex': ?instance.audioStreamIndex,
       'SubtitleStreamIndex': ?instance.subtitleStreamIndex,
       'MediaSourceId': ?instance.mediaSourceId,
       'PlayMethod': ?instance.playMethod?.toJson(),
-      'RepeatMode': instance.repeatMode.toJson(),
-      'PlaybackOrder': instance.playbackOrder.toJson(),
+      'RepeatMode': ?instance.repeatMode?.toJson(),
+      'PlaybackOrder': ?instance.playbackOrder?.toJson(),
       'LiveStreamId': ?instance.liveStreamId,
     };
 

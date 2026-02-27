@@ -10,9 +10,9 @@ part 'collection_creation_result.g.dart';
 @Freezed()
 abstract class CollectionCreationResult with _$CollectionCreationResult {
   const factory CollectionCreationResult({
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
   }) = _CollectionCreationResult;
-  
-  factory CollectionCreationResult.fromJson(Map<String, Object?> json) => _$CollectionCreationResultFromJson(json);
+
+  factory CollectionCreationResult.fromJson(Map<String, Object?> json) =>
+      _$CollectionCreationResultFromJson(json);
 }

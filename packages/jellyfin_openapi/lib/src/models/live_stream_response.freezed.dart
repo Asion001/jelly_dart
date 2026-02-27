@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LiveStreamResponse {
   @JsonKey(name: 'MediaSource')
-  MediaSourceInfo get mediaSource;
+  MediaSourceInfo? get mediaSource;
 
   /// Create a copy of LiveStreamResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -55,9 +55,9 @@ abstract mixin class $LiveStreamResponseCopyWith<$Res> {
     $Res Function(LiveStreamResponse) _then,
   ) = _$LiveStreamResponseCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'MediaSource') MediaSourceInfo mediaSource});
+  $Res call({@JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource});
 
-  $MediaSourceInfoCopyWith<$Res> get mediaSource;
+  $MediaSourceInfoCopyWith<$Res>? get mediaSource;
 }
 
 /// @nodoc
@@ -72,13 +72,13 @@ class _$LiveStreamResponseCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? mediaSource = null}) {
+  $Res call({Object? mediaSource = freezed}) {
     return _then(
       _self.copyWith(
-        mediaSource: null == mediaSource
+        mediaSource: freezed == mediaSource
             ? _self.mediaSource
             : mediaSource // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfo,
+                  as MediaSourceInfo?,
       ),
     );
   }
@@ -87,8 +87,12 @@ class _$LiveStreamResponseCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MediaSourceInfoCopyWith<$Res> get mediaSource {
-    return $MediaSourceInfoCopyWith<$Res>(_self.mediaSource, (value) {
+  $MediaSourceInfoCopyWith<$Res>? get mediaSource {
+    if (_self.mediaSource == null) {
+      return null;
+    }
+
+    return $MediaSourceInfoCopyWith<$Res>(_self.mediaSource!, (value) {
       return _then(_self.copyWith(mediaSource: value));
     });
   }
@@ -187,7 +191,9 @@ extension LiveStreamResponsePatterns on LiveStreamResponse {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MediaSource') MediaSourceInfo mediaSource)?
+    TResult Function(
+      @JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource,
+    )?
     $default, {
     required TResult orElse(),
   }) {
@@ -215,7 +221,7 @@ extension LiveStreamResponsePatterns on LiveStreamResponse {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'MediaSource') MediaSourceInfo mediaSource)
+    TResult Function(@JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource)
     $default,
   ) {
     final _that = this;
@@ -242,7 +248,7 @@ extension LiveStreamResponsePatterns on LiveStreamResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MediaSource') MediaSourceInfo mediaSource,
+      @JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource,
     )?
     $default,
   ) {
@@ -259,15 +265,13 @@ extension LiveStreamResponsePatterns on LiveStreamResponse {
 /// @nodoc
 @JsonSerializable()
 class _LiveStreamResponse implements LiveStreamResponse {
-  const _LiveStreamResponse({
-    @JsonKey(name: 'MediaSource') required this.mediaSource,
-  });
+  const _LiveStreamResponse({@JsonKey(name: 'MediaSource') this.mediaSource});
   factory _LiveStreamResponse.fromJson(Map<String, dynamic> json) =>
       _$LiveStreamResponseFromJson(json);
 
   @override
   @JsonKey(name: 'MediaSource')
-  final MediaSourceInfo mediaSource;
+  final MediaSourceInfo? mediaSource;
 
   /// Create a copy of LiveStreamResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -310,10 +314,10 @@ abstract mixin class _$LiveStreamResponseCopyWith<$Res>
   ) = __$LiveStreamResponseCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'MediaSource') MediaSourceInfo mediaSource});
+  $Res call({@JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource});
 
   @override
-  $MediaSourceInfoCopyWith<$Res> get mediaSource;
+  $MediaSourceInfoCopyWith<$Res>? get mediaSource;
 }
 
 /// @nodoc
@@ -328,13 +332,13 @@ class __$LiveStreamResponseCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? mediaSource = null}) {
+  $Res call({Object? mediaSource = freezed}) {
     return _then(
       _LiveStreamResponse(
-        mediaSource: null == mediaSource
+        mediaSource: freezed == mediaSource
             ? _self.mediaSource
             : mediaSource // ignore: cast_nullable_to_non_nullable
-                  as MediaSourceInfo,
+                  as MediaSourceInfo?,
       ),
     );
   }
@@ -343,8 +347,12 @@ class __$LiveStreamResponseCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MediaSourceInfoCopyWith<$Res> get mediaSource {
-    return $MediaSourceInfoCopyWith<$Res>(_self.mediaSource, (value) {
+  $MediaSourceInfoCopyWith<$Res>? get mediaSource {
+    if (_self.mediaSource == null) {
+      return null;
+    }
+
+    return $MediaSourceInfoCopyWith<$Res>(_self.mediaSource!, (value) {
       return _then(_self.copyWith(mediaSource: value));
     });
   }

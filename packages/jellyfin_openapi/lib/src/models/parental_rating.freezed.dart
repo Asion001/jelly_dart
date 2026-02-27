@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$ParentalRating {
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets the value.
   @JsonKey(name: 'Value')
@@ -23,7 +23,7 @@ mixin _$ParentalRating {
 
   /// Gets or sets the rating score.
   @JsonKey(name: 'RatingScore')
-  ParentalRatingScore get ratingScore;
+  ParentalRatingScore? get ratingScore;
 
   /// Create a copy of ParentalRating
   /// with the given fields replaced by the non-null parameter values.
@@ -67,12 +67,12 @@ abstract mixin class $ParentalRatingCopyWith<$Res> {
   ) = _$ParentalRatingCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Value') int? value,
-    @JsonKey(name: 'RatingScore') ParentalRatingScore ratingScore,
+    @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
   });
 
-  $ParentalRatingScoreCopyWith<$Res> get ratingScore;
+  $ParentalRatingScoreCopyWith<$Res>? get ratingScore;
 }
 
 /// @nodoc
@@ -88,24 +88,24 @@ class _$ParentalRatingCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? value = freezed,
-    Object? ratingScore = null,
+    Object? ratingScore = freezed,
   }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         value: freezed == value
             ? _self.value
             : value // ignore: cast_nullable_to_non_nullable
                   as int?,
-        ratingScore: null == ratingScore
+        ratingScore: freezed == ratingScore
             ? _self.ratingScore
             : ratingScore // ignore: cast_nullable_to_non_nullable
-                  as ParentalRatingScore,
+                  as ParentalRatingScore?,
       ),
     );
   }
@@ -114,8 +114,12 @@ class _$ParentalRatingCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ParentalRatingScoreCopyWith<$Res> get ratingScore {
-    return $ParentalRatingScoreCopyWith<$Res>(_self.ratingScore, (value) {
+  $ParentalRatingScoreCopyWith<$Res>? get ratingScore {
+    if (_self.ratingScore == null) {
+      return null;
+    }
+
+    return $ParentalRatingScoreCopyWith<$Res>(_self.ratingScore!, (value) {
       return _then(_self.copyWith(ratingScore: value));
     });
   }
@@ -215,9 +219,9 @@ extension ParentalRatingPatterns on ParentalRating {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Value') int? value,
-      @JsonKey(name: 'RatingScore') ParentalRatingScore ratingScore,
+      @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
     )?
     $default, {
     required TResult orElse(),
@@ -247,9 +251,9 @@ extension ParentalRatingPatterns on ParentalRating {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Value') int? value,
-      @JsonKey(name: 'RatingScore') ParentalRatingScore ratingScore,
+      @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
     )
     $default,
   ) {
@@ -277,9 +281,9 @@ extension ParentalRatingPatterns on ParentalRating {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') String name,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Value') int? value,
-      @JsonKey(name: 'RatingScore') ParentalRatingScore ratingScore,
+      @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
     )?
     $default,
   ) {
@@ -297,9 +301,9 @@ extension ParentalRatingPatterns on ParentalRating {
 @JsonSerializable()
 class _ParentalRating implements ParentalRating {
   const _ParentalRating({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Value') required this.value,
-    @JsonKey(name: 'RatingScore') required this.ratingScore,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Value') this.value,
+    @JsonKey(name: 'RatingScore') this.ratingScore,
   });
   factory _ParentalRating.fromJson(Map<String, dynamic> json) =>
       _$ParentalRatingFromJson(json);
@@ -307,7 +311,7 @@ class _ParentalRating implements ParentalRating {
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets the value.
   @override
@@ -317,7 +321,7 @@ class _ParentalRating implements ParentalRating {
   /// Gets or sets the rating score.
   @override
   @JsonKey(name: 'RatingScore')
-  final ParentalRatingScore ratingScore;
+  final ParentalRatingScore? ratingScore;
 
   /// Create a copy of ParentalRating
   /// with the given fields replaced by the non-null parameter values.
@@ -363,13 +367,13 @@ abstract mixin class _$ParentalRatingCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Value') int? value,
-    @JsonKey(name: 'RatingScore') ParentalRatingScore ratingScore,
+    @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
   });
 
   @override
-  $ParentalRatingScoreCopyWith<$Res> get ratingScore;
+  $ParentalRatingScoreCopyWith<$Res>? get ratingScore;
 }
 
 /// @nodoc
@@ -385,24 +389,24 @@ class __$ParentalRatingCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? value = freezed,
-    Object? ratingScore = null,
+    Object? ratingScore = freezed,
   }) {
     return _then(
       _ParentalRating(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         value: freezed == value
             ? _self.value
             : value // ignore: cast_nullable_to_non_nullable
                   as int?,
-        ratingScore: null == ratingScore
+        ratingScore: freezed == ratingScore
             ? _self.ratingScore
             : ratingScore // ignore: cast_nullable_to_non_nullable
-                  as ParentalRatingScore,
+                  as ParentalRatingScore?,
       ),
     );
   }
@@ -411,8 +415,12 @@ class __$ParentalRatingCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ParentalRatingScoreCopyWith<$Res> get ratingScore {
-    return $ParentalRatingScoreCopyWith<$Res>(_self.ratingScore, (value) {
+  $ParentalRatingScoreCopyWith<$Res>? get ratingScore {
+    if (_self.ratingScore == null) {
+      return null;
+    }
+
+    return $ParentalRatingScoreCopyWith<$Res>(_self.ratingScore!, (value) {
       return _then(_self.copyWith(ratingScore: value));
     });
   }

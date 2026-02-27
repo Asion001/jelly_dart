@@ -12,13 +12,12 @@ part 'path_substitution.g.dart';
 abstract class PathSubstitution with _$PathSubstitution {
   const factory PathSubstitution({
     /// Gets or sets the value to substitute.
-    @JsonKey(name: 'From')
-    String? from,
+    @JsonKey(name: 'From') String? from,
 
     /// Gets or sets the value to substitution with.
-    @JsonKey(name: 'To')
-    String? to,
+    @JsonKey(name: 'To') String? to,
   }) = _PathSubstitution;
-  
-  factory PathSubstitution.fromJson(Map<String, Object?> json) => _$PathSubstitutionFromJson(json);
+
+  factory PathSubstitution.fromJson(Map<String, Object?> json) =>
+      _$PathSubstitutionFromJson(json);
 }

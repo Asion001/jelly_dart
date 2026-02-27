@@ -15,7 +15,8 @@ enum ProfileConditionType {
   @JsonValue('GreaterThanEqual')
   greaterThanEqual('GreaterThanEqual'),
   @JsonValue('EqualsAny')
-  equalsAny('EqualsAny');
+  equalsAny('EqualsAny')
+  ;
 
   const ProfileConditionType(this.json);
 
@@ -23,8 +24,10 @@ enum ProfileConditionType {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

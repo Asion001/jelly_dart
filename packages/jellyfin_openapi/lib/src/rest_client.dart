@@ -71,8 +71,8 @@ class RestClient {
   RestClient(
     Dio dio, {
     String? baseUrl,
-  })  : _dio = dio,
-        _baseUrl = baseUrl;
+  }) : _dio = dio,
+       _baseUrl = baseUrl;
 
   final Dio _dio;
   final String? _baseUrl;
@@ -141,123 +141,168 @@ class RestClient {
   VideosClient? _videos;
   YearsClient? _years;
 
-  ActivityLogClient get activityLog => _activityLog ??= ActivityLogClient(_dio, baseUrl: _baseUrl);
+  ActivityLogClient get activityLog =>
+      _activityLog ??= ActivityLogClient(_dio, baseUrl: _baseUrl);
 
   ApiKeyClient get apiKey => _apiKey ??= ApiKeyClient(_dio, baseUrl: _baseUrl);
 
-  ArtistsClient get artists => _artists ??= ArtistsClient(_dio, baseUrl: _baseUrl);
+  ArtistsClient get artists =>
+      _artists ??= ArtistsClient(_dio, baseUrl: _baseUrl);
 
   AudioClient get audio => _audio ??= AudioClient(_dio, baseUrl: _baseUrl);
 
   BackupClient get backup => _backup ??= BackupClient(_dio, baseUrl: _baseUrl);
 
-  BrandingClient get branding => _branding ??= BrandingClient(_dio, baseUrl: _baseUrl);
+  BrandingClient get branding =>
+      _branding ??= BrandingClient(_dio, baseUrl: _baseUrl);
 
-  ChannelsClient get channels => _channels ??= ChannelsClient(_dio, baseUrl: _baseUrl);
+  ChannelsClient get channels =>
+      _channels ??= ChannelsClient(_dio, baseUrl: _baseUrl);
 
-  ClientLogClient get clientLog => _clientLog ??= ClientLogClient(_dio, baseUrl: _baseUrl);
+  ClientLogClient get clientLog =>
+      _clientLog ??= ClientLogClient(_dio, baseUrl: _baseUrl);
 
-  CollectionClient get collection => _collection ??= CollectionClient(_dio, baseUrl: _baseUrl);
+  CollectionClient get collection =>
+      _collection ??= CollectionClient(_dio, baseUrl: _baseUrl);
 
-  ConfigurationClient get configuration => _configuration ??= ConfigurationClient(_dio, baseUrl: _baseUrl);
+  ConfigurationClient get configuration =>
+      _configuration ??= ConfigurationClient(_dio, baseUrl: _baseUrl);
 
-  DashboardClient get dashboard => _dashboard ??= DashboardClient(_dio, baseUrl: _baseUrl);
+  DashboardClient get dashboard =>
+      _dashboard ??= DashboardClient(_dio, baseUrl: _baseUrl);
 
-  DevicesClient get devices => _devices ??= DevicesClient(_dio, baseUrl: _baseUrl);
+  DevicesClient get devices =>
+      _devices ??= DevicesClient(_dio, baseUrl: _baseUrl);
 
-  DisplayPreferencesClient get displayPreferences => _displayPreferences ??= DisplayPreferencesClient(_dio, baseUrl: _baseUrl);
+  DisplayPreferencesClient get displayPreferences =>
+      _displayPreferences ??= DisplayPreferencesClient(_dio, baseUrl: _baseUrl);
 
-  DynamicHlsClient get dynamicHls => _dynamicHls ??= DynamicHlsClient(_dio, baseUrl: _baseUrl);
+  DynamicHlsClient get dynamicHls =>
+      _dynamicHls ??= DynamicHlsClient(_dio, baseUrl: _baseUrl);
 
-  EnvironmentClient get environment => _environment ??= EnvironmentClient(_dio, baseUrl: _baseUrl);
+  EnvironmentClient get environment =>
+      _environment ??= EnvironmentClient(_dio, baseUrl: _baseUrl);
 
   FilterClient get filter => _filter ??= FilterClient(_dio, baseUrl: _baseUrl);
 
   GenresClient get genres => _genres ??= GenresClient(_dio, baseUrl: _baseUrl);
 
-  HlsSegmentClient get hlsSegment => _hlsSegment ??= HlsSegmentClient(_dio, baseUrl: _baseUrl);
+  HlsSegmentClient get hlsSegment =>
+      _hlsSegment ??= HlsSegmentClient(_dio, baseUrl: _baseUrl);
 
   ImageClient get image => _image ??= ImageClient(_dio, baseUrl: _baseUrl);
 
-  InstantMixClient get instantMix => _instantMix ??= InstantMixClient(_dio, baseUrl: _baseUrl);
+  InstantMixClient get instantMix =>
+      _instantMix ??= InstantMixClient(_dio, baseUrl: _baseUrl);
 
-  ItemLookupClient get itemLookup => _itemLookup ??= ItemLookupClient(_dio, baseUrl: _baseUrl);
+  ItemLookupClient get itemLookup =>
+      _itemLookup ??= ItemLookupClient(_dio, baseUrl: _baseUrl);
 
-  ItemRefreshClient get itemRefresh => _itemRefresh ??= ItemRefreshClient(_dio, baseUrl: _baseUrl);
+  ItemRefreshClient get itemRefresh =>
+      _itemRefresh ??= ItemRefreshClient(_dio, baseUrl: _baseUrl);
 
   ItemsClient get items => _items ??= ItemsClient(_dio, baseUrl: _baseUrl);
 
-  LibraryClient get library => _library ??= LibraryClient(_dio, baseUrl: _baseUrl);
+  LibraryClient get library =>
+      _library ??= LibraryClient(_dio, baseUrl: _baseUrl);
 
-  ItemUpdateClient get itemUpdate => _itemUpdate ??= ItemUpdateClient(_dio, baseUrl: _baseUrl);
+  ItemUpdateClient get itemUpdate =>
+      _itemUpdate ??= ItemUpdateClient(_dio, baseUrl: _baseUrl);
 
-  UserLibraryClient get userLibrary => _userLibrary ??= UserLibraryClient(_dio, baseUrl: _baseUrl);
+  UserLibraryClient get userLibrary =>
+      _userLibrary ??= UserLibraryClient(_dio, baseUrl: _baseUrl);
 
-  LibraryStructureClient get libraryStructure => _libraryStructure ??= LibraryStructureClient(_dio, baseUrl: _baseUrl);
+  LibraryStructureClient get libraryStructure =>
+      _libraryStructure ??= LibraryStructureClient(_dio, baseUrl: _baseUrl);
 
   LiveTvClient get liveTv => _liveTv ??= LiveTvClient(_dio, baseUrl: _baseUrl);
 
-  LocalizationClient get localization => _localization ??= LocalizationClient(_dio, baseUrl: _baseUrl);
+  LocalizationClient get localization =>
+      _localization ??= LocalizationClient(_dio, baseUrl: _baseUrl);
 
   LyricsClient get lyrics => _lyrics ??= LyricsClient(_dio, baseUrl: _baseUrl);
 
-  MediaInfoClient get mediaInfo => _mediaInfo ??= MediaInfoClient(_dio, baseUrl: _baseUrl);
+  MediaInfoClient get mediaInfo =>
+      _mediaInfo ??= MediaInfoClient(_dio, baseUrl: _baseUrl);
 
-  MediaSegmentsClient get mediaSegments => _mediaSegments ??= MediaSegmentsClient(_dio, baseUrl: _baseUrl);
+  MediaSegmentsClient get mediaSegments =>
+      _mediaSegments ??= MediaSegmentsClient(_dio, baseUrl: _baseUrl);
 
   MoviesClient get movies => _movies ??= MoviesClient(_dio, baseUrl: _baseUrl);
 
-  MusicGenresClient get musicGenres => _musicGenres ??= MusicGenresClient(_dio, baseUrl: _baseUrl);
+  MusicGenresClient get musicGenres =>
+      _musicGenres ??= MusicGenresClient(_dio, baseUrl: _baseUrl);
 
-  PackageClient get package => _package ??= PackageClient(_dio, baseUrl: _baseUrl);
+  PackageClient get package =>
+      _package ??= PackageClient(_dio, baseUrl: _baseUrl);
 
-  PersonsClient get persons => _persons ??= PersonsClient(_dio, baseUrl: _baseUrl);
+  PersonsClient get persons =>
+      _persons ??= PersonsClient(_dio, baseUrl: _baseUrl);
 
-  PlaylistsClient get playlists => _playlists ??= PlaylistsClient(_dio, baseUrl: _baseUrl);
+  PlaylistsClient get playlists =>
+      _playlists ??= PlaylistsClient(_dio, baseUrl: _baseUrl);
 
-  PlaystateClient get playstate => _playstate ??= PlaystateClient(_dio, baseUrl: _baseUrl);
+  PlaystateClient get playstate =>
+      _playstate ??= PlaystateClient(_dio, baseUrl: _baseUrl);
 
-  PluginsClient get plugins => _plugins ??= PluginsClient(_dio, baseUrl: _baseUrl);
+  PluginsClient get plugins =>
+      _plugins ??= PluginsClient(_dio, baseUrl: _baseUrl);
 
-  QuickConnectClient get quickConnect => _quickConnect ??= QuickConnectClient(_dio, baseUrl: _baseUrl);
+  QuickConnectClient get quickConnect =>
+      _quickConnect ??= QuickConnectClient(_dio, baseUrl: _baseUrl);
 
-  RemoteImageClient get remoteImage => _remoteImage ??= RemoteImageClient(_dio, baseUrl: _baseUrl);
+  RemoteImageClient get remoteImage =>
+      _remoteImage ??= RemoteImageClient(_dio, baseUrl: _baseUrl);
 
-  ScheduledTasksClient get scheduledTasks => _scheduledTasks ??= ScheduledTasksClient(_dio, baseUrl: _baseUrl);
+  ScheduledTasksClient get scheduledTasks =>
+      _scheduledTasks ??= ScheduledTasksClient(_dio, baseUrl: _baseUrl);
 
   SearchClient get search => _search ??= SearchClient(_dio, baseUrl: _baseUrl);
 
-  SessionClient get session => _session ??= SessionClient(_dio, baseUrl: _baseUrl);
+  SessionClient get session =>
+      _session ??= SessionClient(_dio, baseUrl: _baseUrl);
 
-  StartupClient get startup => _startup ??= StartupClient(_dio, baseUrl: _baseUrl);
+  StartupClient get startup =>
+      _startup ??= StartupClient(_dio, baseUrl: _baseUrl);
 
-  StudiosClient get studios => _studios ??= StudiosClient(_dio, baseUrl: _baseUrl);
+  StudiosClient get studios =>
+      _studios ??= StudiosClient(_dio, baseUrl: _baseUrl);
 
-  SubtitleClient get subtitle => _subtitle ??= SubtitleClient(_dio, baseUrl: _baseUrl);
+  SubtitleClient get subtitle =>
+      _subtitle ??= SubtitleClient(_dio, baseUrl: _baseUrl);
 
-  SuggestionsClient get suggestions => _suggestions ??= SuggestionsClient(_dio, baseUrl: _baseUrl);
+  SuggestionsClient get suggestions =>
+      _suggestions ??= SuggestionsClient(_dio, baseUrl: _baseUrl);
 
-  SyncPlayClient get syncPlay => _syncPlay ??= SyncPlayClient(_dio, baseUrl: _baseUrl);
+  SyncPlayClient get syncPlay =>
+      _syncPlay ??= SyncPlayClient(_dio, baseUrl: _baseUrl);
 
   SystemClient get system => _system ??= SystemClient(_dio, baseUrl: _baseUrl);
 
-  TimeSyncClient get timeSync => _timeSync ??= TimeSyncClient(_dio, baseUrl: _baseUrl);
+  TimeSyncClient get timeSync =>
+      _timeSync ??= TimeSyncClient(_dio, baseUrl: _baseUrl);
 
   TmdbClient get tmdb => _tmdb ??= TmdbClient(_dio, baseUrl: _baseUrl);
 
-  TrailersClient get trailers => _trailers ??= TrailersClient(_dio, baseUrl: _baseUrl);
+  TrailersClient get trailers =>
+      _trailers ??= TrailersClient(_dio, baseUrl: _baseUrl);
 
-  TrickplayClient get trickplay => _trickplay ??= TrickplayClient(_dio, baseUrl: _baseUrl);
+  TrickplayClient get trickplay =>
+      _trickplay ??= TrickplayClient(_dio, baseUrl: _baseUrl);
 
-  TvShowsClient get tvShows => _tvShows ??= TvShowsClient(_dio, baseUrl: _baseUrl);
+  TvShowsClient get tvShows =>
+      _tvShows ??= TvShowsClient(_dio, baseUrl: _baseUrl);
 
-  UniversalAudioClient get universalAudio => _universalAudio ??= UniversalAudioClient(_dio, baseUrl: _baseUrl);
+  UniversalAudioClient get universalAudio =>
+      _universalAudio ??= UniversalAudioClient(_dio, baseUrl: _baseUrl);
 
   UserClient get user => _user ??= UserClient(_dio, baseUrl: _baseUrl);
 
-  UserViewsClient get userViews => _userViews ??= UserViewsClient(_dio, baseUrl: _baseUrl);
+  UserViewsClient get userViews =>
+      _userViews ??= UserViewsClient(_dio, baseUrl: _baseUrl);
 
-  VideoAttachmentsClient get videoAttachments => _videoAttachments ??= VideoAttachmentsClient(_dio, baseUrl: _baseUrl);
+  VideoAttachmentsClient get videoAttachments =>
+      _videoAttachments ??= VideoAttachmentsClient(_dio, baseUrl: _baseUrl);
 
   VideosClient get videos => _videos ??= VideosClient(_dio, baseUrl: _baseUrl);
 

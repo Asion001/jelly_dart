@@ -15,35 +15,35 @@ T _$identity<T>(T value) => value;
 mixin _$SystemStorageDto {
   /// Gets or sets the Storage information of the program data folder.
   @JsonKey(name: 'ProgramDataFolder')
-  FolderStorageDto get programDataFolder;
+  FolderStorageDto? get programDataFolder;
 
   /// Gets or sets the Storage information of the web UI resources folder.
   @JsonKey(name: 'WebFolder')
-  FolderStorageDto get webFolder;
+  FolderStorageDto? get webFolder;
 
   /// Gets or sets the Storage information of the folder where images are cached.
   @JsonKey(name: 'ImageCacheFolder')
-  FolderStorageDto get imageCacheFolder;
+  FolderStorageDto? get imageCacheFolder;
 
   /// Gets or sets the Storage information of the cache folder.
   @JsonKey(name: 'CacheFolder')
-  FolderStorageDto get cacheFolder;
+  FolderStorageDto? get cacheFolder;
 
   /// Gets or sets the Storage information of the folder where logfiles are saved to.
   @JsonKey(name: 'LogFolder')
-  FolderStorageDto get logFolder;
+  FolderStorageDto? get logFolder;
 
   /// Gets or sets the Storage information of the folder where metadata is stored.
   @JsonKey(name: 'InternalMetadataFolder')
-  FolderStorageDto get internalMetadataFolder;
+  FolderStorageDto? get internalMetadataFolder;
 
   /// Gets or sets the Storage information of the transcoding cache.
   @JsonKey(name: 'TranscodingTempFolder')
-  FolderStorageDto get transcodingTempFolder;
+  FolderStorageDto? get transcodingTempFolder;
 
   /// Gets or sets the storage informations of all libraries.
   @JsonKey(name: 'Libraries')
-  List<LibraryStorageDto> get libraries;
+  List<LibraryStorageDto>? get libraries;
 
   /// Create a copy of SystemStorageDto
   /// with the given fields replaced by the non-null parameter values.
@@ -108,25 +108,25 @@ abstract mixin class $SystemStorageDtoCopyWith<$Res> {
   ) = _$SystemStorageDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ProgramDataFolder') FolderStorageDto programDataFolder,
-    @JsonKey(name: 'WebFolder') FolderStorageDto webFolder,
-    @JsonKey(name: 'ImageCacheFolder') FolderStorageDto imageCacheFolder,
-    @JsonKey(name: 'CacheFolder') FolderStorageDto cacheFolder,
-    @JsonKey(name: 'LogFolder') FolderStorageDto logFolder,
+    @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
+    @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
+    @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
+    @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
+    @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
     @JsonKey(name: 'InternalMetadataFolder')
-    FolderStorageDto internalMetadataFolder,
+    FolderStorageDto? internalMetadataFolder,
     @JsonKey(name: 'TranscodingTempFolder')
-    FolderStorageDto transcodingTempFolder,
-    @JsonKey(name: 'Libraries') List<LibraryStorageDto> libraries,
+    FolderStorageDto? transcodingTempFolder,
+    @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
   });
 
-  $FolderStorageDtoCopyWith<$Res> get programDataFolder;
-  $FolderStorageDtoCopyWith<$Res> get webFolder;
-  $FolderStorageDtoCopyWith<$Res> get imageCacheFolder;
-  $FolderStorageDtoCopyWith<$Res> get cacheFolder;
-  $FolderStorageDtoCopyWith<$Res> get logFolder;
-  $FolderStorageDtoCopyWith<$Res> get internalMetadataFolder;
-  $FolderStorageDtoCopyWith<$Res> get transcodingTempFolder;
+  $FolderStorageDtoCopyWith<$Res>? get programDataFolder;
+  $FolderStorageDtoCopyWith<$Res>? get webFolder;
+  $FolderStorageDtoCopyWith<$Res>? get imageCacheFolder;
+  $FolderStorageDtoCopyWith<$Res>? get cacheFolder;
+  $FolderStorageDtoCopyWith<$Res>? get logFolder;
+  $FolderStorageDtoCopyWith<$Res>? get internalMetadataFolder;
+  $FolderStorageDtoCopyWith<$Res>? get transcodingTempFolder;
 }
 
 /// @nodoc
@@ -142,49 +142,49 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? programDataFolder = null,
-    Object? webFolder = null,
-    Object? imageCacheFolder = null,
-    Object? cacheFolder = null,
-    Object? logFolder = null,
-    Object? internalMetadataFolder = null,
-    Object? transcodingTempFolder = null,
-    Object? libraries = null,
+    Object? programDataFolder = freezed,
+    Object? webFolder = freezed,
+    Object? imageCacheFolder = freezed,
+    Object? cacheFolder = freezed,
+    Object? logFolder = freezed,
+    Object? internalMetadataFolder = freezed,
+    Object? transcodingTempFolder = freezed,
+    Object? libraries = freezed,
   }) {
     return _then(
       _self.copyWith(
-        programDataFolder: null == programDataFolder
+        programDataFolder: freezed == programDataFolder
             ? _self.programDataFolder
             : programDataFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        webFolder: null == webFolder
+                  as FolderStorageDto?,
+        webFolder: freezed == webFolder
             ? _self.webFolder
             : webFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        imageCacheFolder: null == imageCacheFolder
+                  as FolderStorageDto?,
+        imageCacheFolder: freezed == imageCacheFolder
             ? _self.imageCacheFolder
             : imageCacheFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        cacheFolder: null == cacheFolder
+                  as FolderStorageDto?,
+        cacheFolder: freezed == cacheFolder
             ? _self.cacheFolder
             : cacheFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        logFolder: null == logFolder
+                  as FolderStorageDto?,
+        logFolder: freezed == logFolder
             ? _self.logFolder
             : logFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        internalMetadataFolder: null == internalMetadataFolder
+                  as FolderStorageDto?,
+        internalMetadataFolder: freezed == internalMetadataFolder
             ? _self.internalMetadataFolder
             : internalMetadataFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        transcodingTempFolder: null == transcodingTempFolder
+                  as FolderStorageDto?,
+        transcodingTempFolder: freezed == transcodingTempFolder
             ? _self.transcodingTempFolder
             : transcodingTempFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        libraries: null == libraries
+                  as FolderStorageDto?,
+        libraries: freezed == libraries
             ? _self.libraries
             : libraries // ignore: cast_nullable_to_non_nullable
-                  as List<LibraryStorageDto>,
+                  as List<LibraryStorageDto>?,
       ),
     );
   }
@@ -193,8 +193,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get programDataFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.programDataFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get programDataFolder {
+    if (_self.programDataFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.programDataFolder!, (value) {
       return _then(_self.copyWith(programDataFolder: value));
     });
   }
@@ -203,8 +207,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get webFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.webFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get webFolder {
+    if (_self.webFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.webFolder!, (value) {
       return _then(_self.copyWith(webFolder: value));
     });
   }
@@ -213,8 +221,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get imageCacheFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.imageCacheFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get imageCacheFolder {
+    if (_self.imageCacheFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.imageCacheFolder!, (value) {
       return _then(_self.copyWith(imageCacheFolder: value));
     });
   }
@@ -223,8 +235,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get cacheFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.cacheFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get cacheFolder {
+    if (_self.cacheFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.cacheFolder!, (value) {
       return _then(_self.copyWith(cacheFolder: value));
     });
   }
@@ -233,8 +249,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get logFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.logFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get logFolder {
+    if (_self.logFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.logFolder!, (value) {
       return _then(_self.copyWith(logFolder: value));
     });
   }
@@ -243,8 +263,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get internalMetadataFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.internalMetadataFolder, (
+  $FolderStorageDtoCopyWith<$Res>? get internalMetadataFolder {
+    if (_self.internalMetadataFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.internalMetadataFolder!, (
       value,
     ) {
       return _then(_self.copyWith(internalMetadataFolder: value));
@@ -255,8 +279,12 @@ class _$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get transcodingTempFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.transcodingTempFolder, (
+  $FolderStorageDtoCopyWith<$Res>? get transcodingTempFolder {
+    if (_self.transcodingTempFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.transcodingTempFolder!, (
       value,
     ) {
       return _then(_self.copyWith(transcodingTempFolder: value));
@@ -358,16 +386,16 @@ extension SystemStorageDtoPatterns on SystemStorageDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto programDataFolder,
-      @JsonKey(name: 'WebFolder') FolderStorageDto webFolder,
-      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto imageCacheFolder,
-      @JsonKey(name: 'CacheFolder') FolderStorageDto cacheFolder,
-      @JsonKey(name: 'LogFolder') FolderStorageDto logFolder,
+      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
+      @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
+      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
+      @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
+      @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
       @JsonKey(name: 'InternalMetadataFolder')
-      FolderStorageDto internalMetadataFolder,
+      FolderStorageDto? internalMetadataFolder,
       @JsonKey(name: 'TranscodingTempFolder')
-      FolderStorageDto transcodingTempFolder,
-      @JsonKey(name: 'Libraries') List<LibraryStorageDto> libraries,
+      FolderStorageDto? transcodingTempFolder,
+      @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
     )?
     $default, {
     required TResult orElse(),
@@ -406,16 +434,16 @@ extension SystemStorageDtoPatterns on SystemStorageDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto programDataFolder,
-      @JsonKey(name: 'WebFolder') FolderStorageDto webFolder,
-      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto imageCacheFolder,
-      @JsonKey(name: 'CacheFolder') FolderStorageDto cacheFolder,
-      @JsonKey(name: 'LogFolder') FolderStorageDto logFolder,
+      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
+      @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
+      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
+      @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
+      @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
       @JsonKey(name: 'InternalMetadataFolder')
-      FolderStorageDto internalMetadataFolder,
+      FolderStorageDto? internalMetadataFolder,
       @JsonKey(name: 'TranscodingTempFolder')
-      FolderStorageDto transcodingTempFolder,
-      @JsonKey(name: 'Libraries') List<LibraryStorageDto> libraries,
+      FolderStorageDto? transcodingTempFolder,
+      @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
     )
     $default,
   ) {
@@ -452,16 +480,16 @@ extension SystemStorageDtoPatterns on SystemStorageDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto programDataFolder,
-      @JsonKey(name: 'WebFolder') FolderStorageDto webFolder,
-      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto imageCacheFolder,
-      @JsonKey(name: 'CacheFolder') FolderStorageDto cacheFolder,
-      @JsonKey(name: 'LogFolder') FolderStorageDto logFolder,
+      @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
+      @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
+      @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
+      @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
+      @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
       @JsonKey(name: 'InternalMetadataFolder')
-      FolderStorageDto internalMetadataFolder,
+      FolderStorageDto? internalMetadataFolder,
       @JsonKey(name: 'TranscodingTempFolder')
-      FolderStorageDto transcodingTempFolder,
-      @JsonKey(name: 'Libraries') List<LibraryStorageDto> libraries,
+      FolderStorageDto? transcodingTempFolder,
+      @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
     )?
     $default,
   ) {
@@ -488,16 +516,14 @@ extension SystemStorageDtoPatterns on SystemStorageDto {
 @JsonSerializable()
 class _SystemStorageDto implements SystemStorageDto {
   const _SystemStorageDto({
-    @JsonKey(name: 'ProgramDataFolder') required this.programDataFolder,
-    @JsonKey(name: 'WebFolder') required this.webFolder,
-    @JsonKey(name: 'ImageCacheFolder') required this.imageCacheFolder,
-    @JsonKey(name: 'CacheFolder') required this.cacheFolder,
-    @JsonKey(name: 'LogFolder') required this.logFolder,
-    @JsonKey(name: 'InternalMetadataFolder')
-    required this.internalMetadataFolder,
-    @JsonKey(name: 'TranscodingTempFolder') required this.transcodingTempFolder,
-    @JsonKey(name: 'Libraries')
-    required final List<LibraryStorageDto> libraries,
+    @JsonKey(name: 'ProgramDataFolder') this.programDataFolder,
+    @JsonKey(name: 'WebFolder') this.webFolder,
+    @JsonKey(name: 'ImageCacheFolder') this.imageCacheFolder,
+    @JsonKey(name: 'CacheFolder') this.cacheFolder,
+    @JsonKey(name: 'LogFolder') this.logFolder,
+    @JsonKey(name: 'InternalMetadataFolder') this.internalMetadataFolder,
+    @JsonKey(name: 'TranscodingTempFolder') this.transcodingTempFolder,
+    @JsonKey(name: 'Libraries') final List<LibraryStorageDto>? libraries,
   }) : _libraries = libraries;
   factory _SystemStorageDto.fromJson(Map<String, dynamic> json) =>
       _$SystemStorageDtoFromJson(json);
@@ -505,48 +531,50 @@ class _SystemStorageDto implements SystemStorageDto {
   /// Gets or sets the Storage information of the program data folder.
   @override
   @JsonKey(name: 'ProgramDataFolder')
-  final FolderStorageDto programDataFolder;
+  final FolderStorageDto? programDataFolder;
 
   /// Gets or sets the Storage information of the web UI resources folder.
   @override
   @JsonKey(name: 'WebFolder')
-  final FolderStorageDto webFolder;
+  final FolderStorageDto? webFolder;
 
   /// Gets or sets the Storage information of the folder where images are cached.
   @override
   @JsonKey(name: 'ImageCacheFolder')
-  final FolderStorageDto imageCacheFolder;
+  final FolderStorageDto? imageCacheFolder;
 
   /// Gets or sets the Storage information of the cache folder.
   @override
   @JsonKey(name: 'CacheFolder')
-  final FolderStorageDto cacheFolder;
+  final FolderStorageDto? cacheFolder;
 
   /// Gets or sets the Storage information of the folder where logfiles are saved to.
   @override
   @JsonKey(name: 'LogFolder')
-  final FolderStorageDto logFolder;
+  final FolderStorageDto? logFolder;
 
   /// Gets or sets the Storage information of the folder where metadata is stored.
   @override
   @JsonKey(name: 'InternalMetadataFolder')
-  final FolderStorageDto internalMetadataFolder;
+  final FolderStorageDto? internalMetadataFolder;
 
   /// Gets or sets the Storage information of the transcoding cache.
   @override
   @JsonKey(name: 'TranscodingTempFolder')
-  final FolderStorageDto transcodingTempFolder;
+  final FolderStorageDto? transcodingTempFolder;
 
   /// Gets or sets the storage informations of all libraries.
-  final List<LibraryStorageDto> _libraries;
+  final List<LibraryStorageDto>? _libraries;
 
   /// Gets or sets the storage informations of all libraries.
   @override
   @JsonKey(name: 'Libraries')
-  List<LibraryStorageDto> get libraries {
+  List<LibraryStorageDto>? get libraries {
+    final value = _libraries;
+    if (value == null) return null;
     if (_libraries is EqualUnmodifiableListView) return _libraries;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_libraries);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Create a copy of SystemStorageDto
@@ -617,32 +645,32 @@ abstract mixin class _$SystemStorageDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ProgramDataFolder') FolderStorageDto programDataFolder,
-    @JsonKey(name: 'WebFolder') FolderStorageDto webFolder,
-    @JsonKey(name: 'ImageCacheFolder') FolderStorageDto imageCacheFolder,
-    @JsonKey(name: 'CacheFolder') FolderStorageDto cacheFolder,
-    @JsonKey(name: 'LogFolder') FolderStorageDto logFolder,
+    @JsonKey(name: 'ProgramDataFolder') FolderStorageDto? programDataFolder,
+    @JsonKey(name: 'WebFolder') FolderStorageDto? webFolder,
+    @JsonKey(name: 'ImageCacheFolder') FolderStorageDto? imageCacheFolder,
+    @JsonKey(name: 'CacheFolder') FolderStorageDto? cacheFolder,
+    @JsonKey(name: 'LogFolder') FolderStorageDto? logFolder,
     @JsonKey(name: 'InternalMetadataFolder')
-    FolderStorageDto internalMetadataFolder,
+    FolderStorageDto? internalMetadataFolder,
     @JsonKey(name: 'TranscodingTempFolder')
-    FolderStorageDto transcodingTempFolder,
-    @JsonKey(name: 'Libraries') List<LibraryStorageDto> libraries,
+    FolderStorageDto? transcodingTempFolder,
+    @JsonKey(name: 'Libraries') List<LibraryStorageDto>? libraries,
   });
 
   @override
-  $FolderStorageDtoCopyWith<$Res> get programDataFolder;
+  $FolderStorageDtoCopyWith<$Res>? get programDataFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get webFolder;
+  $FolderStorageDtoCopyWith<$Res>? get webFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get imageCacheFolder;
+  $FolderStorageDtoCopyWith<$Res>? get imageCacheFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get cacheFolder;
+  $FolderStorageDtoCopyWith<$Res>? get cacheFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get logFolder;
+  $FolderStorageDtoCopyWith<$Res>? get logFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get internalMetadataFolder;
+  $FolderStorageDtoCopyWith<$Res>? get internalMetadataFolder;
   @override
-  $FolderStorageDtoCopyWith<$Res> get transcodingTempFolder;
+  $FolderStorageDtoCopyWith<$Res>? get transcodingTempFolder;
 }
 
 /// @nodoc
@@ -658,49 +686,49 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? programDataFolder = null,
-    Object? webFolder = null,
-    Object? imageCacheFolder = null,
-    Object? cacheFolder = null,
-    Object? logFolder = null,
-    Object? internalMetadataFolder = null,
-    Object? transcodingTempFolder = null,
-    Object? libraries = null,
+    Object? programDataFolder = freezed,
+    Object? webFolder = freezed,
+    Object? imageCacheFolder = freezed,
+    Object? cacheFolder = freezed,
+    Object? logFolder = freezed,
+    Object? internalMetadataFolder = freezed,
+    Object? transcodingTempFolder = freezed,
+    Object? libraries = freezed,
   }) {
     return _then(
       _SystemStorageDto(
-        programDataFolder: null == programDataFolder
+        programDataFolder: freezed == programDataFolder
             ? _self.programDataFolder
             : programDataFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        webFolder: null == webFolder
+                  as FolderStorageDto?,
+        webFolder: freezed == webFolder
             ? _self.webFolder
             : webFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        imageCacheFolder: null == imageCacheFolder
+                  as FolderStorageDto?,
+        imageCacheFolder: freezed == imageCacheFolder
             ? _self.imageCacheFolder
             : imageCacheFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        cacheFolder: null == cacheFolder
+                  as FolderStorageDto?,
+        cacheFolder: freezed == cacheFolder
             ? _self.cacheFolder
             : cacheFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        logFolder: null == logFolder
+                  as FolderStorageDto?,
+        logFolder: freezed == logFolder
             ? _self.logFolder
             : logFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        internalMetadataFolder: null == internalMetadataFolder
+                  as FolderStorageDto?,
+        internalMetadataFolder: freezed == internalMetadataFolder
             ? _self.internalMetadataFolder
             : internalMetadataFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        transcodingTempFolder: null == transcodingTempFolder
+                  as FolderStorageDto?,
+        transcodingTempFolder: freezed == transcodingTempFolder
             ? _self.transcodingTempFolder
             : transcodingTempFolder // ignore: cast_nullable_to_non_nullable
-                  as FolderStorageDto,
-        libraries: null == libraries
+                  as FolderStorageDto?,
+        libraries: freezed == libraries
             ? _self._libraries
             : libraries // ignore: cast_nullable_to_non_nullable
-                  as List<LibraryStorageDto>,
+                  as List<LibraryStorageDto>?,
       ),
     );
   }
@@ -709,8 +737,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get programDataFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.programDataFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get programDataFolder {
+    if (_self.programDataFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.programDataFolder!, (value) {
       return _then(_self.copyWith(programDataFolder: value));
     });
   }
@@ -719,8 +751,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get webFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.webFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get webFolder {
+    if (_self.webFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.webFolder!, (value) {
       return _then(_self.copyWith(webFolder: value));
     });
   }
@@ -729,8 +765,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get imageCacheFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.imageCacheFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get imageCacheFolder {
+    if (_self.imageCacheFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.imageCacheFolder!, (value) {
       return _then(_self.copyWith(imageCacheFolder: value));
     });
   }
@@ -739,8 +779,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get cacheFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.cacheFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get cacheFolder {
+    if (_self.cacheFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.cacheFolder!, (value) {
       return _then(_self.copyWith(cacheFolder: value));
     });
   }
@@ -749,8 +793,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get logFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.logFolder, (value) {
+  $FolderStorageDtoCopyWith<$Res>? get logFolder {
+    if (_self.logFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.logFolder!, (value) {
       return _then(_self.copyWith(logFolder: value));
     });
   }
@@ -759,8 +807,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get internalMetadataFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.internalMetadataFolder, (
+  $FolderStorageDtoCopyWith<$Res>? get internalMetadataFolder {
+    if (_self.internalMetadataFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.internalMetadataFolder!, (
       value,
     ) {
       return _then(_self.copyWith(internalMetadataFolder: value));
@@ -771,8 +823,12 @@ class __$SystemStorageDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FolderStorageDtoCopyWith<$Res> get transcodingTempFolder {
-    return $FolderStorageDtoCopyWith<$Res>(_self.transcodingTempFolder, (
+  $FolderStorageDtoCopyWith<$Res>? get transcodingTempFolder {
+    if (_self.transcodingTempFolder == null) {
+      return null;
+    }
+
+    return $FolderStorageDtoCopyWith<$Res>(_self.transcodingTempFolder!, (
       value,
     ) {
       return _then(_self.copyWith(transcodingTempFolder: value));

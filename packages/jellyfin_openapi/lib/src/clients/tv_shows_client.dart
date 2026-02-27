@@ -138,7 +138,8 @@ abstract class TvShowsClient {
   Future<BaseItemDtoQueryResult> getNextUp({
     @Query('enableTotalRecordCount') bool? enableTotalRecordCount = true,
     @Deprecated('This is marked as deprecated')
-    @Query('disableFirstEpisode') bool? disableFirstEpisode = false,
+    @Query('disableFirstEpisode')
+    bool? disableFirstEpisode = false,
     @Query('enableResumable') bool? enableResumable = true,
     @Query('enableRewatching') bool? enableRewatching = false,
     @Query('userId') String? userId,

@@ -23,7 +23,7 @@ mixin _$LiveTvServiceInfo {
 
   /// Gets or sets the status.
   @JsonKey(name: 'Status')
-  LiveTvServiceInfoStatus get status;
+  LiveTvServiceInfoStatus? get status;
 
   /// Gets or sets the status message.
   @JsonKey(name: 'StatusMessage')
@@ -35,11 +35,11 @@ mixin _$LiveTvServiceInfo {
 
   /// Gets or sets a value indicating whether this instance has update available.
   @JsonKey(name: 'HasUpdateAvailable')
-  bool get hasUpdateAvailable;
+  bool? get hasUpdateAvailable;
 
   /// Gets or sets a value indicating whether this instance is visible.
   @JsonKey(name: 'IsVisible')
-  bool get isVisible;
+  bool? get isVisible;
   @JsonKey(name: 'Tuners')
   List<String>? get tuners;
 
@@ -105,11 +105,11 @@ abstract mixin class $LiveTvServiceInfoCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'HomePageUrl') String? homePageUrl,
-    @JsonKey(name: 'Status') LiveTvServiceInfoStatus status,
+    @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
     @JsonKey(name: 'StatusMessage') String? statusMessage,
     @JsonKey(name: 'Version') String? version,
-    @JsonKey(name: 'HasUpdateAvailable') bool hasUpdateAvailable,
-    @JsonKey(name: 'IsVisible') bool isVisible,
+    @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
+    @JsonKey(name: 'IsVisible') bool? isVisible,
     @JsonKey(name: 'Tuners') List<String>? tuners,
   });
 }
@@ -129,11 +129,11 @@ class _$LiveTvServiceInfoCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? homePageUrl = freezed,
-    Object? status = null,
+    Object? status = freezed,
     Object? statusMessage = freezed,
     Object? version = freezed,
-    Object? hasUpdateAvailable = null,
-    Object? isVisible = null,
+    Object? hasUpdateAvailable = freezed,
+    Object? isVisible = freezed,
     Object? tuners = freezed,
   }) {
     return _then(
@@ -146,10 +146,10 @@ class _$LiveTvServiceInfoCopyWithImpl<$Res>
             ? _self.homePageUrl
             : homePageUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
-        status: null == status
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as LiveTvServiceInfoStatus,
+                  as LiveTvServiceInfoStatus?,
         statusMessage: freezed == statusMessage
             ? _self.statusMessage
             : statusMessage // ignore: cast_nullable_to_non_nullable
@@ -158,14 +158,14 @@ class _$LiveTvServiceInfoCopyWithImpl<$Res>
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
                   as String?,
-        hasUpdateAvailable: null == hasUpdateAvailable
+        hasUpdateAvailable: freezed == hasUpdateAvailable
             ? _self.hasUpdateAvailable
             : hasUpdateAvailable // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isVisible: null == isVisible
+                  as bool?,
+        isVisible: freezed == isVisible
             ? _self.isVisible
             : isVisible // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         tuners: freezed == tuners
             ? _self.tuners
             : tuners // ignore: cast_nullable_to_non_nullable
@@ -271,11 +271,11 @@ extension LiveTvServiceInfoPatterns on LiveTvServiceInfo {
     TResult Function(
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'HomePageUrl') String? homePageUrl,
-      @JsonKey(name: 'Status') LiveTvServiceInfoStatus status,
+      @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
       @JsonKey(name: 'StatusMessage') String? statusMessage,
       @JsonKey(name: 'Version') String? version,
-      @JsonKey(name: 'HasUpdateAvailable') bool hasUpdateAvailable,
-      @JsonKey(name: 'IsVisible') bool isVisible,
+      @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
+      @JsonKey(name: 'IsVisible') bool? isVisible,
       @JsonKey(name: 'Tuners') List<String>? tuners,
     )?
     $default, {
@@ -317,11 +317,11 @@ extension LiveTvServiceInfoPatterns on LiveTvServiceInfo {
     TResult Function(
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'HomePageUrl') String? homePageUrl,
-      @JsonKey(name: 'Status') LiveTvServiceInfoStatus status,
+      @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
       @JsonKey(name: 'StatusMessage') String? statusMessage,
       @JsonKey(name: 'Version') String? version,
-      @JsonKey(name: 'HasUpdateAvailable') bool hasUpdateAvailable,
-      @JsonKey(name: 'IsVisible') bool isVisible,
+      @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
+      @JsonKey(name: 'IsVisible') bool? isVisible,
       @JsonKey(name: 'Tuners') List<String>? tuners,
     )
     $default,
@@ -361,11 +361,11 @@ extension LiveTvServiceInfoPatterns on LiveTvServiceInfo {
     TResult? Function(
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'HomePageUrl') String? homePageUrl,
-      @JsonKey(name: 'Status') LiveTvServiceInfoStatus status,
+      @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
       @JsonKey(name: 'StatusMessage') String? statusMessage,
       @JsonKey(name: 'Version') String? version,
-      @JsonKey(name: 'HasUpdateAvailable') bool hasUpdateAvailable,
-      @JsonKey(name: 'IsVisible') bool isVisible,
+      @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
+      @JsonKey(name: 'IsVisible') bool? isVisible,
       @JsonKey(name: 'Tuners') List<String>? tuners,
     )?
     $default,
@@ -393,14 +393,14 @@ extension LiveTvServiceInfoPatterns on LiveTvServiceInfo {
 @JsonSerializable()
 class _LiveTvServiceInfo implements LiveTvServiceInfo {
   const _LiveTvServiceInfo({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'HomePageUrl') required this.homePageUrl,
-    @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'StatusMessage') required this.statusMessage,
-    @JsonKey(name: 'Version') required this.version,
-    @JsonKey(name: 'HasUpdateAvailable') required this.hasUpdateAvailable,
-    @JsonKey(name: 'IsVisible') required this.isVisible,
-    @JsonKey(name: 'Tuners') required final List<String>? tuners,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'HomePageUrl') this.homePageUrl,
+    @JsonKey(name: 'Status') this.status,
+    @JsonKey(name: 'StatusMessage') this.statusMessage,
+    @JsonKey(name: 'Version') this.version,
+    @JsonKey(name: 'HasUpdateAvailable') this.hasUpdateAvailable,
+    @JsonKey(name: 'IsVisible') this.isVisible,
+    @JsonKey(name: 'Tuners') final List<String>? tuners,
   }) : _tuners = tuners;
   factory _LiveTvServiceInfo.fromJson(Map<String, dynamic> json) =>
       _$LiveTvServiceInfoFromJson(json);
@@ -418,7 +418,7 @@ class _LiveTvServiceInfo implements LiveTvServiceInfo {
   /// Gets or sets the status.
   @override
   @JsonKey(name: 'Status')
-  final LiveTvServiceInfoStatus status;
+  final LiveTvServiceInfoStatus? status;
 
   /// Gets or sets the status message.
   @override
@@ -433,12 +433,12 @@ class _LiveTvServiceInfo implements LiveTvServiceInfo {
   /// Gets or sets a value indicating whether this instance has update available.
   @override
   @JsonKey(name: 'HasUpdateAvailable')
-  final bool hasUpdateAvailable;
+  final bool? hasUpdateAvailable;
 
   /// Gets or sets a value indicating whether this instance is visible.
   @override
   @JsonKey(name: 'IsVisible')
-  final bool isVisible;
+  final bool? isVisible;
   final List<String>? _tuners;
   @override
   @JsonKey(name: 'Tuners')
@@ -514,11 +514,11 @@ abstract mixin class _$LiveTvServiceInfoCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'HomePageUrl') String? homePageUrl,
-    @JsonKey(name: 'Status') LiveTvServiceInfoStatus status,
+    @JsonKey(name: 'Status') LiveTvServiceInfoStatus? status,
     @JsonKey(name: 'StatusMessage') String? statusMessage,
     @JsonKey(name: 'Version') String? version,
-    @JsonKey(name: 'HasUpdateAvailable') bool hasUpdateAvailable,
-    @JsonKey(name: 'IsVisible') bool isVisible,
+    @JsonKey(name: 'HasUpdateAvailable') bool? hasUpdateAvailable,
+    @JsonKey(name: 'IsVisible') bool? isVisible,
     @JsonKey(name: 'Tuners') List<String>? tuners,
   });
 }
@@ -538,11 +538,11 @@ class __$LiveTvServiceInfoCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? homePageUrl = freezed,
-    Object? status = null,
+    Object? status = freezed,
     Object? statusMessage = freezed,
     Object? version = freezed,
-    Object? hasUpdateAvailable = null,
-    Object? isVisible = null,
+    Object? hasUpdateAvailable = freezed,
+    Object? isVisible = freezed,
     Object? tuners = freezed,
   }) {
     return _then(
@@ -555,10 +555,10 @@ class __$LiveTvServiceInfoCopyWithImpl<$Res>
             ? _self.homePageUrl
             : homePageUrl // ignore: cast_nullable_to_non_nullable
                   as String?,
-        status: null == status
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as LiveTvServiceInfoStatus,
+                  as LiveTvServiceInfoStatus?,
         statusMessage: freezed == statusMessage
             ? _self.statusMessage
             : statusMessage // ignore: cast_nullable_to_non_nullable
@@ -567,14 +567,14 @@ class __$LiveTvServiceInfoCopyWithImpl<$Res>
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
                   as String?,
-        hasUpdateAvailable: null == hasUpdateAvailable
+        hasUpdateAvailable: freezed == hasUpdateAvailable
             ? _self.hasUpdateAvailable
             : hasUpdateAvailable // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isVisible: null == isVisible
+                  as bool?,
+        isVisible: freezed == isVisible
             ? _self.isVisible
             : isVisible // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         tuners: freezed == tuners
             ? _self._tuners
             : tuners // ignore: cast_nullable_to_non_nullable

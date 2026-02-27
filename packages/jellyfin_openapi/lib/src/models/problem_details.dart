@@ -16,6 +16,7 @@ abstract class ProblemDetails with _$ProblemDetails {
     String? detail,
     String? instance,
   }) = _ProblemDetails;
-  
-  factory ProblemDetails.fromJson(Map<String, Object?> json) => _$ProblemDetailsFromJson(json);
+
+  factory ProblemDetails.fromJson(Map<String, Object?> json) =>
+      _$ProblemDetailsFromJson(json);
 }

@@ -8,18 +8,18 @@ part of 'direct_play_profile.dart';
 
 _DirectPlayProfile _$DirectPlayProfileFromJson(Map<String, dynamic> json) =>
     _DirectPlayProfile(
-      container: json['Container'] as String,
+      container: json['Container'] as String?,
       audioCodec: json['AudioCodec'] as String?,
       videoCodec: json['VideoCodec'] as String?,
-      type: $enumDecode(_$DirectPlayProfileTypeEnumMap, json['Type']),
+      type: $enumDecodeNullable(_$DirectPlayProfileTypeEnumMap, json['Type']),
     );
 
 Map<String, dynamic> _$DirectPlayProfileToJson(_DirectPlayProfile instance) =>
     <String, dynamic>{
-      'Container': instance.container,
+      'Container': ?instance.container,
       'AudioCodec': ?instance.audioCodec,
       'VideoCodec': ?instance.videoCodec,
-      'Type': instance.type.toJson(),
+      'Type': ?instance.type?.toJson(),
     };
 
 const _$DirectPlayProfileTypeEnumMap = {

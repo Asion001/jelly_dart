@@ -14,38 +14,38 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LibraryOptions {
   @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-  bool get enableEmbeddedExtrasTitles;
+  bool? get enableEmbeddedExtrasTitles;
   @JsonKey(name: 'EnablePhotos')
-  bool get enablePhotos;
+  bool? get enablePhotos;
   @JsonKey(name: 'EnableRealtimeMonitor')
-  bool get enableRealtimeMonitor;
+  bool? get enableRealtimeMonitor;
   @JsonKey(name: 'EnableLUFSScan')
-  bool get enableLufsScan;
+  bool? get enableLufsScan;
   @JsonKey(name: 'EnableChapterImageExtraction')
-  bool get enableChapterImageExtraction;
+  bool? get enableChapterImageExtraction;
   @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-  bool get extractChapterImagesDuringLibraryScan;
+  bool? get extractChapterImagesDuringLibraryScan;
   @JsonKey(name: 'EnableTrickplayImageExtraction')
-  bool get enableTrickplayImageExtraction;
+  bool? get enableTrickplayImageExtraction;
   @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-  bool get extractTrickplayImagesDuringLibraryScan;
+  bool? get extractTrickplayImagesDuringLibraryScan;
   @JsonKey(name: 'PathInfos')
-  List<MediaPathInfo> get pathInfos;
+  List<MediaPathInfo>? get pathInfos;
   @JsonKey(name: 'SaveLocalMetadata')
-  bool get saveLocalMetadata;
+  bool? get saveLocalMetadata;
   @JsonKey(name: 'EnableInternetProviders')
   @Deprecated('This is marked as deprecated')
-  bool get enableInternetProviders;
+  bool? get enableInternetProviders;
   @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-  bool get enableAutomaticSeriesGrouping;
+  bool? get enableAutomaticSeriesGrouping;
   @JsonKey(name: 'EnableEmbeddedTitles')
-  bool get enableEmbeddedTitles;
+  bool? get enableEmbeddedTitles;
   @JsonKey(name: 'Enabled')
-  bool get enabled;
+  bool? get enabled;
   @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-  bool get enableEmbeddedEpisodeInfos;
+  bool? get enableEmbeddedEpisodeInfos;
   @JsonKey(name: 'AutomaticRefreshIntervalDays')
-  int get automaticRefreshIntervalDays;
+  int? get automaticRefreshIntervalDays;
 
   /// Gets or sets the preferred metadata language.
   @JsonKey(name: 'PreferredMetadataLanguage')
@@ -55,47 +55,47 @@ mixin _$LibraryOptions {
   @JsonKey(name: 'MetadataCountryCode')
   String? get metadataCountryCode;
   @JsonKey(name: 'SeasonZeroDisplayName')
-  String get seasonZeroDisplayName;
+  String? get seasonZeroDisplayName;
   @JsonKey(name: 'MetadataSavers')
   List<String>? get metadataSavers;
   @JsonKey(name: 'DisabledLocalMetadataReaders')
-  List<String> get disabledLocalMetadataReaders;
+  List<String>? get disabledLocalMetadataReaders;
   @JsonKey(name: 'LocalMetadataReaderOrder')
   List<String>? get localMetadataReaderOrder;
   @JsonKey(name: 'DisabledSubtitleFetchers')
-  List<String> get disabledSubtitleFetchers;
+  List<String>? get disabledSubtitleFetchers;
   @JsonKey(name: 'SubtitleFetcherOrder')
-  List<String> get subtitleFetcherOrder;
+  List<String>? get subtitleFetcherOrder;
   @JsonKey(name: 'DisabledMediaSegmentProviders')
-  List<String> get disabledMediaSegmentProviders;
+  List<String>? get disabledMediaSegmentProviders;
   @JsonKey(name: 'MediaSegmentProviderOrder')
-  List<String> get mediaSegmentProviderOrder;
+  List<String>? get mediaSegmentProviderOrder;
   @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-  bool get skipSubtitlesIfEmbeddedSubtitlesPresent;
+  bool? get skipSubtitlesIfEmbeddedSubtitlesPresent;
   @JsonKey(name: 'TypeOptions')
-  List<TypeOptions> get typeOptions;
+  List<TypeOptions>? get typeOptions;
   @JsonKey(name: 'SubtitleDownloadLanguages')
   List<String>? get subtitleDownloadLanguages;
   @JsonKey(name: 'RequirePerfectSubtitleMatch')
-  bool get requirePerfectSubtitleMatch;
+  bool? get requirePerfectSubtitleMatch;
   @JsonKey(name: 'SaveSubtitlesWithMedia')
-  bool get saveSubtitlesWithMedia;
+  bool? get saveSubtitlesWithMedia;
 
   /// An enum representing the options to disable embedded subs.
   @JsonKey(name: 'AllowEmbeddedSubtitles')
-  LibraryOptionsAllowEmbeddedSubtitles get allowEmbeddedSubtitles;
+  LibraryOptionsAllowEmbeddedSubtitles? get allowEmbeddedSubtitles;
   @JsonKey(name: 'AutomaticallyAddToCollection')
-  bool get automaticallyAddToCollection;
+  bool? get automaticallyAddToCollection;
   @JsonKey(name: 'DisabledLyricFetchers')
-  List<String> get disabledLyricFetchers;
+  List<String>? get disabledLyricFetchers;
   @JsonKey(name: 'LyricFetcherOrder')
-  List<String> get lyricFetcherOrder;
+  List<String>? get lyricFetcherOrder;
   @JsonKey(name: 'DelimiterWhitelist')
-  List<String> get delimiterWhitelist;
+  List<String>? get delimiterWhitelist;
   @JsonKey(name: 'CustomTagDelimiters')
-  List<String> get customTagDelimiters;
+  List<String>? get customTagDelimiters;
   @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-  bool get skipSubtitlesIfAudioTrackMatches;
+  bool? get skipSubtitlesIfAudioTrackMatches;
   @JsonKey(name: 'PreferNonstandardArtistsTag')
   bool get preferNonstandardArtistsTag;
   @JsonKey(name: 'SaveTrickplayWithMedia')
@@ -354,65 +354,65 @@ abstract mixin class $LibraryOptionsCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-    bool enableEmbeddedExtrasTitles,
-    @JsonKey(name: 'EnablePhotos') bool enablePhotos,
-    @JsonKey(name: 'EnableRealtimeMonitor') bool enableRealtimeMonitor,
-    @JsonKey(name: 'EnableLUFSScan') bool enableLufsScan,
+    bool? enableEmbeddedExtrasTitles,
+    @JsonKey(name: 'EnablePhotos') bool? enablePhotos,
+    @JsonKey(name: 'EnableRealtimeMonitor') bool? enableRealtimeMonitor,
+    @JsonKey(name: 'EnableLUFSScan') bool? enableLufsScan,
     @JsonKey(name: 'EnableChapterImageExtraction')
-    bool enableChapterImageExtraction,
+    bool? enableChapterImageExtraction,
     @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-    bool extractChapterImagesDuringLibraryScan,
+    bool? extractChapterImagesDuringLibraryScan,
     @JsonKey(name: 'EnableTrickplayImageExtraction')
-    bool enableTrickplayImageExtraction,
+    bool? enableTrickplayImageExtraction,
     @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-    bool extractTrickplayImagesDuringLibraryScan,
-    @JsonKey(name: 'PathInfos') List<MediaPathInfo> pathInfos,
-    @JsonKey(name: 'SaveLocalMetadata') bool saveLocalMetadata,
+    bool? extractTrickplayImagesDuringLibraryScan,
+    @JsonKey(name: 'PathInfos') List<MediaPathInfo>? pathInfos,
+    @JsonKey(name: 'SaveLocalMetadata') bool? saveLocalMetadata,
     @JsonKey(name: 'EnableInternetProviders')
     @Deprecated('This is marked as deprecated')
-    bool enableInternetProviders,
+    bool? enableInternetProviders,
     @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-    bool enableAutomaticSeriesGrouping,
-    @JsonKey(name: 'EnableEmbeddedTitles') bool enableEmbeddedTitles,
-    @JsonKey(name: 'Enabled') bool enabled,
+    bool? enableAutomaticSeriesGrouping,
+    @JsonKey(name: 'EnableEmbeddedTitles') bool? enableEmbeddedTitles,
+    @JsonKey(name: 'Enabled') bool? enabled,
     @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-    bool enableEmbeddedEpisodeInfos,
+    bool? enableEmbeddedEpisodeInfos,
     @JsonKey(name: 'AutomaticRefreshIntervalDays')
-    int automaticRefreshIntervalDays,
+    int? automaticRefreshIntervalDays,
     @JsonKey(name: 'PreferredMetadataLanguage')
     String? preferredMetadataLanguage,
     @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
-    @JsonKey(name: 'SeasonZeroDisplayName') String seasonZeroDisplayName,
+    @JsonKey(name: 'SeasonZeroDisplayName') String? seasonZeroDisplayName,
     @JsonKey(name: 'MetadataSavers') List<String>? metadataSavers,
     @JsonKey(name: 'DisabledLocalMetadataReaders')
-    List<String> disabledLocalMetadataReaders,
+    List<String>? disabledLocalMetadataReaders,
     @JsonKey(name: 'LocalMetadataReaderOrder')
     List<String>? localMetadataReaderOrder,
     @JsonKey(name: 'DisabledSubtitleFetchers')
-    List<String> disabledSubtitleFetchers,
-    @JsonKey(name: 'SubtitleFetcherOrder') List<String> subtitleFetcherOrder,
+    List<String>? disabledSubtitleFetchers,
+    @JsonKey(name: 'SubtitleFetcherOrder') List<String>? subtitleFetcherOrder,
     @JsonKey(name: 'DisabledMediaSegmentProviders')
-    List<String> disabledMediaSegmentProviders,
+    List<String>? disabledMediaSegmentProviders,
     @JsonKey(name: 'MediaSegmentProviderOrder')
-    List<String> mediaSegmentProviderOrder,
+    List<String>? mediaSegmentProviderOrder,
     @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-    bool skipSubtitlesIfEmbeddedSubtitlesPresent,
-    @JsonKey(name: 'TypeOptions') List<TypeOptions> typeOptions,
+    bool? skipSubtitlesIfEmbeddedSubtitlesPresent,
+    @JsonKey(name: 'TypeOptions') List<TypeOptions>? typeOptions,
     @JsonKey(name: 'SubtitleDownloadLanguages')
     List<String>? subtitleDownloadLanguages,
     @JsonKey(name: 'RequirePerfectSubtitleMatch')
-    bool requirePerfectSubtitleMatch,
-    @JsonKey(name: 'SaveSubtitlesWithMedia') bool saveSubtitlesWithMedia,
+    bool? requirePerfectSubtitleMatch,
+    @JsonKey(name: 'SaveSubtitlesWithMedia') bool? saveSubtitlesWithMedia,
     @JsonKey(name: 'AllowEmbeddedSubtitles')
-    LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles,
+    LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles,
     @JsonKey(name: 'AutomaticallyAddToCollection')
-    bool automaticallyAddToCollection,
-    @JsonKey(name: 'DisabledLyricFetchers') List<String> disabledLyricFetchers,
-    @JsonKey(name: 'LyricFetcherOrder') List<String> lyricFetcherOrder,
-    @JsonKey(name: 'DelimiterWhitelist') List<String> delimiterWhitelist,
-    @JsonKey(name: 'CustomTagDelimiters') List<String> customTagDelimiters,
+    bool? automaticallyAddToCollection,
+    @JsonKey(name: 'DisabledLyricFetchers') List<String>? disabledLyricFetchers,
+    @JsonKey(name: 'LyricFetcherOrder') List<String>? lyricFetcherOrder,
+    @JsonKey(name: 'DelimiterWhitelist') List<String>? delimiterWhitelist,
+    @JsonKey(name: 'CustomTagDelimiters') List<String>? customTagDelimiters,
     @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-    bool skipSubtitlesIfAudioTrackMatches,
+    bool? skipSubtitlesIfAudioTrackMatches,
     @JsonKey(name: 'PreferNonstandardArtistsTag')
     bool preferNonstandardArtistsTag,
     @JsonKey(name: 'SaveTrickplayWithMedia') bool saveTrickplayWithMedia,
@@ -434,44 +434,44 @@ class _$LibraryOptionsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? enableEmbeddedExtrasTitles = null,
-    Object? enablePhotos = null,
-    Object? enableRealtimeMonitor = null,
-    Object? enableLufsScan = null,
-    Object? enableChapterImageExtraction = null,
-    Object? extractChapterImagesDuringLibraryScan = null,
-    Object? enableTrickplayImageExtraction = null,
-    Object? extractTrickplayImagesDuringLibraryScan = null,
-    Object? pathInfos = null,
-    Object? saveLocalMetadata = null,
-    Object? enableInternetProviders = null,
-    Object? enableAutomaticSeriesGrouping = null,
-    Object? enableEmbeddedTitles = null,
-    Object? enabled = null,
-    Object? enableEmbeddedEpisodeInfos = null,
-    Object? automaticRefreshIntervalDays = null,
+    Object? enableEmbeddedExtrasTitles = freezed,
+    Object? enablePhotos = freezed,
+    Object? enableRealtimeMonitor = freezed,
+    Object? enableLufsScan = freezed,
+    Object? enableChapterImageExtraction = freezed,
+    Object? extractChapterImagesDuringLibraryScan = freezed,
+    Object? enableTrickplayImageExtraction = freezed,
+    Object? extractTrickplayImagesDuringLibraryScan = freezed,
+    Object? pathInfos = freezed,
+    Object? saveLocalMetadata = freezed,
+    Object? enableInternetProviders = freezed,
+    Object? enableAutomaticSeriesGrouping = freezed,
+    Object? enableEmbeddedTitles = freezed,
+    Object? enabled = freezed,
+    Object? enableEmbeddedEpisodeInfos = freezed,
+    Object? automaticRefreshIntervalDays = freezed,
     Object? preferredMetadataLanguage = freezed,
     Object? metadataCountryCode = freezed,
-    Object? seasonZeroDisplayName = null,
+    Object? seasonZeroDisplayName = freezed,
     Object? metadataSavers = freezed,
-    Object? disabledLocalMetadataReaders = null,
+    Object? disabledLocalMetadataReaders = freezed,
     Object? localMetadataReaderOrder = freezed,
-    Object? disabledSubtitleFetchers = null,
-    Object? subtitleFetcherOrder = null,
-    Object? disabledMediaSegmentProviders = null,
-    Object? mediaSegmentProviderOrder = null,
-    Object? skipSubtitlesIfEmbeddedSubtitlesPresent = null,
-    Object? typeOptions = null,
+    Object? disabledSubtitleFetchers = freezed,
+    Object? subtitleFetcherOrder = freezed,
+    Object? disabledMediaSegmentProviders = freezed,
+    Object? mediaSegmentProviderOrder = freezed,
+    Object? skipSubtitlesIfEmbeddedSubtitlesPresent = freezed,
+    Object? typeOptions = freezed,
     Object? subtitleDownloadLanguages = freezed,
-    Object? requirePerfectSubtitleMatch = null,
-    Object? saveSubtitlesWithMedia = null,
-    Object? allowEmbeddedSubtitles = null,
-    Object? automaticallyAddToCollection = null,
-    Object? disabledLyricFetchers = null,
-    Object? lyricFetcherOrder = null,
-    Object? delimiterWhitelist = null,
-    Object? customTagDelimiters = null,
-    Object? skipSubtitlesIfAudioTrackMatches = null,
+    Object? requirePerfectSubtitleMatch = freezed,
+    Object? saveSubtitlesWithMedia = freezed,
+    Object? allowEmbeddedSubtitles = freezed,
+    Object? automaticallyAddToCollection = freezed,
+    Object? disabledLyricFetchers = freezed,
+    Object? lyricFetcherOrder = freezed,
+    Object? delimiterWhitelist = freezed,
+    Object? customTagDelimiters = freezed,
+    Object? skipSubtitlesIfAudioTrackMatches = freezed,
     Object? preferNonstandardArtistsTag = null,
     Object? saveTrickplayWithMedia = null,
     Object? saveLyricsWithMedia = null,
@@ -479,72 +479,73 @@ class _$LibraryOptionsCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        enableEmbeddedExtrasTitles: null == enableEmbeddedExtrasTitles
+        enableEmbeddedExtrasTitles: freezed == enableEmbeddedExtrasTitles
             ? _self.enableEmbeddedExtrasTitles
             : enableEmbeddedExtrasTitles // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enablePhotos: null == enablePhotos
+                  as bool?,
+        enablePhotos: freezed == enablePhotos
             ? _self.enablePhotos
             : enablePhotos // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRealtimeMonitor: null == enableRealtimeMonitor
+                  as bool?,
+        enableRealtimeMonitor: freezed == enableRealtimeMonitor
             ? _self.enableRealtimeMonitor
             : enableRealtimeMonitor // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLufsScan: null == enableLufsScan
+                  as bool?,
+        enableLufsScan: freezed == enableLufsScan
             ? _self.enableLufsScan
             : enableLufsScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableChapterImageExtraction: null == enableChapterImageExtraction
+                  as bool?,
+        enableChapterImageExtraction: freezed == enableChapterImageExtraction
             ? _self.enableChapterImageExtraction
             : enableChapterImageExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         extractChapterImagesDuringLibraryScan:
-            null == extractChapterImagesDuringLibraryScan
+            freezed == extractChapterImagesDuringLibraryScan
             ? _self.extractChapterImagesDuringLibraryScan
             : extractChapterImagesDuringLibraryScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableTrickplayImageExtraction: null == enableTrickplayImageExtraction
+                  as bool?,
+        enableTrickplayImageExtraction:
+            freezed == enableTrickplayImageExtraction
             ? _self.enableTrickplayImageExtraction
             : enableTrickplayImageExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         extractTrickplayImagesDuringLibraryScan:
-            null == extractTrickplayImagesDuringLibraryScan
+            freezed == extractTrickplayImagesDuringLibraryScan
             ? _self.extractTrickplayImagesDuringLibraryScan
             : extractTrickplayImagesDuringLibraryScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        pathInfos: null == pathInfos
+                  as bool?,
+        pathInfos: freezed == pathInfos
             ? _self.pathInfos
             : pathInfos // ignore: cast_nullable_to_non_nullable
-                  as List<MediaPathInfo>,
-        saveLocalMetadata: null == saveLocalMetadata
+                  as List<MediaPathInfo>?,
+        saveLocalMetadata: freezed == saveLocalMetadata
             ? _self.saveLocalMetadata
             : saveLocalMetadata // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableInternetProviders: null == enableInternetProviders
+                  as bool?,
+        enableInternetProviders: freezed == enableInternetProviders
             ? _self.enableInternetProviders
             : enableInternetProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAutomaticSeriesGrouping: null == enableAutomaticSeriesGrouping
+                  as bool?,
+        enableAutomaticSeriesGrouping: freezed == enableAutomaticSeriesGrouping
             ? _self.enableAutomaticSeriesGrouping
             : enableAutomaticSeriesGrouping // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableEmbeddedTitles: null == enableEmbeddedTitles
+                  as bool?,
+        enableEmbeddedTitles: freezed == enableEmbeddedTitles
             ? _self.enableEmbeddedTitles
             : enableEmbeddedTitles // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enabled: null == enabled
+                  as bool?,
+        enabled: freezed == enabled
             ? _self.enabled
             : enabled // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableEmbeddedEpisodeInfos: null == enableEmbeddedEpisodeInfos
+                  as bool?,
+        enableEmbeddedEpisodeInfos: freezed == enableEmbeddedEpisodeInfos
             ? _self.enableEmbeddedEpisodeInfos
             : enableEmbeddedEpisodeInfos // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        automaticRefreshIntervalDays: null == automaticRefreshIntervalDays
+                  as bool?,
+        automaticRefreshIntervalDays: freezed == automaticRefreshIntervalDays
             ? _self.automaticRefreshIntervalDays
             : automaticRefreshIntervalDays // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
         preferredMetadataLanguage: freezed == preferredMetadataLanguage
             ? _self.preferredMetadataLanguage
             : preferredMetadataLanguage // ignore: cast_nullable_to_non_nullable
@@ -553,88 +554,88 @@ class _$LibraryOptionsCopyWithImpl<$Res>
             ? _self.metadataCountryCode
             : metadataCountryCode // ignore: cast_nullable_to_non_nullable
                   as String?,
-        seasonZeroDisplayName: null == seasonZeroDisplayName
+        seasonZeroDisplayName: freezed == seasonZeroDisplayName
             ? _self.seasonZeroDisplayName
             : seasonZeroDisplayName // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         metadataSavers: freezed == metadataSavers
             ? _self.metadataSavers
             : metadataSavers // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        disabledLocalMetadataReaders: null == disabledLocalMetadataReaders
+        disabledLocalMetadataReaders: freezed == disabledLocalMetadataReaders
             ? _self.disabledLocalMetadataReaders
             : disabledLocalMetadataReaders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         localMetadataReaderOrder: freezed == localMetadataReaderOrder
             ? _self.localMetadataReaderOrder
             : localMetadataReaderOrder // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        disabledSubtitleFetchers: null == disabledSubtitleFetchers
+        disabledSubtitleFetchers: freezed == disabledSubtitleFetchers
             ? _self.disabledSubtitleFetchers
             : disabledSubtitleFetchers // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        subtitleFetcherOrder: null == subtitleFetcherOrder
+                  as List<String>?,
+        subtitleFetcherOrder: freezed == subtitleFetcherOrder
             ? _self.subtitleFetcherOrder
             : subtitleFetcherOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        disabledMediaSegmentProviders: null == disabledMediaSegmentProviders
+                  as List<String>?,
+        disabledMediaSegmentProviders: freezed == disabledMediaSegmentProviders
             ? _self.disabledMediaSegmentProviders
             : disabledMediaSegmentProviders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        mediaSegmentProviderOrder: null == mediaSegmentProviderOrder
+                  as List<String>?,
+        mediaSegmentProviderOrder: freezed == mediaSegmentProviderOrder
             ? _self.mediaSegmentProviderOrder
             : mediaSegmentProviderOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         skipSubtitlesIfEmbeddedSubtitlesPresent:
-            null == skipSubtitlesIfEmbeddedSubtitlesPresent
+            freezed == skipSubtitlesIfEmbeddedSubtitlesPresent
             ? _self.skipSubtitlesIfEmbeddedSubtitlesPresent
             : skipSubtitlesIfEmbeddedSubtitlesPresent // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        typeOptions: null == typeOptions
+                  as bool?,
+        typeOptions: freezed == typeOptions
             ? _self.typeOptions
             : typeOptions // ignore: cast_nullable_to_non_nullable
-                  as List<TypeOptions>,
+                  as List<TypeOptions>?,
         subtitleDownloadLanguages: freezed == subtitleDownloadLanguages
             ? _self.subtitleDownloadLanguages
             : subtitleDownloadLanguages // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        requirePerfectSubtitleMatch: null == requirePerfectSubtitleMatch
+        requirePerfectSubtitleMatch: freezed == requirePerfectSubtitleMatch
             ? _self.requirePerfectSubtitleMatch
             : requirePerfectSubtitleMatch // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        saveSubtitlesWithMedia: null == saveSubtitlesWithMedia
+                  as bool?,
+        saveSubtitlesWithMedia: freezed == saveSubtitlesWithMedia
             ? _self.saveSubtitlesWithMedia
             : saveSubtitlesWithMedia // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        allowEmbeddedSubtitles: null == allowEmbeddedSubtitles
+                  as bool?,
+        allowEmbeddedSubtitles: freezed == allowEmbeddedSubtitles
             ? _self.allowEmbeddedSubtitles
             : allowEmbeddedSubtitles // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptionsAllowEmbeddedSubtitles,
-        automaticallyAddToCollection: null == automaticallyAddToCollection
+                  as LibraryOptionsAllowEmbeddedSubtitles?,
+        automaticallyAddToCollection: freezed == automaticallyAddToCollection
             ? _self.automaticallyAddToCollection
             : automaticallyAddToCollection // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        disabledLyricFetchers: null == disabledLyricFetchers
+                  as bool?,
+        disabledLyricFetchers: freezed == disabledLyricFetchers
             ? _self.disabledLyricFetchers
             : disabledLyricFetchers // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        lyricFetcherOrder: null == lyricFetcherOrder
+                  as List<String>?,
+        lyricFetcherOrder: freezed == lyricFetcherOrder
             ? _self.lyricFetcherOrder
             : lyricFetcherOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        delimiterWhitelist: null == delimiterWhitelist
+                  as List<String>?,
+        delimiterWhitelist: freezed == delimiterWhitelist
             ? _self.delimiterWhitelist
             : delimiterWhitelist // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        customTagDelimiters: null == customTagDelimiters
+                  as List<String>?,
+        customTagDelimiters: freezed == customTagDelimiters
             ? _self.customTagDelimiters
             : customTagDelimiters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         skipSubtitlesIfAudioTrackMatches:
-            null == skipSubtitlesIfAudioTrackMatches
+            freezed == skipSubtitlesIfAudioTrackMatches
             ? _self.skipSubtitlesIfAudioTrackMatches
             : skipSubtitlesIfAudioTrackMatches // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         preferNonstandardArtistsTag: null == preferNonstandardArtistsTag
             ? _self.preferNonstandardArtistsTag
             : preferNonstandardArtistsTag // ignore: cast_nullable_to_non_nullable
@@ -751,66 +752,66 @@ extension LibraryOptionsPatterns on LibraryOptions {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-      bool enableEmbeddedExtrasTitles,
-      @JsonKey(name: 'EnablePhotos') bool enablePhotos,
-      @JsonKey(name: 'EnableRealtimeMonitor') bool enableRealtimeMonitor,
-      @JsonKey(name: 'EnableLUFSScan') bool enableLufsScan,
+      bool? enableEmbeddedExtrasTitles,
+      @JsonKey(name: 'EnablePhotos') bool? enablePhotos,
+      @JsonKey(name: 'EnableRealtimeMonitor') bool? enableRealtimeMonitor,
+      @JsonKey(name: 'EnableLUFSScan') bool? enableLufsScan,
       @JsonKey(name: 'EnableChapterImageExtraction')
-      bool enableChapterImageExtraction,
+      bool? enableChapterImageExtraction,
       @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-      bool extractChapterImagesDuringLibraryScan,
+      bool? extractChapterImagesDuringLibraryScan,
       @JsonKey(name: 'EnableTrickplayImageExtraction')
-      bool enableTrickplayImageExtraction,
+      bool? enableTrickplayImageExtraction,
       @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-      bool extractTrickplayImagesDuringLibraryScan,
-      @JsonKey(name: 'PathInfos') List<MediaPathInfo> pathInfos,
-      @JsonKey(name: 'SaveLocalMetadata') bool saveLocalMetadata,
+      bool? extractTrickplayImagesDuringLibraryScan,
+      @JsonKey(name: 'PathInfos') List<MediaPathInfo>? pathInfos,
+      @JsonKey(name: 'SaveLocalMetadata') bool? saveLocalMetadata,
       @JsonKey(name: 'EnableInternetProviders')
       @Deprecated('This is marked as deprecated')
-      bool enableInternetProviders,
+      bool? enableInternetProviders,
       @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-      bool enableAutomaticSeriesGrouping,
-      @JsonKey(name: 'EnableEmbeddedTitles') bool enableEmbeddedTitles,
-      @JsonKey(name: 'Enabled') bool enabled,
+      bool? enableAutomaticSeriesGrouping,
+      @JsonKey(name: 'EnableEmbeddedTitles') bool? enableEmbeddedTitles,
+      @JsonKey(name: 'Enabled') bool? enabled,
       @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-      bool enableEmbeddedEpisodeInfos,
+      bool? enableEmbeddedEpisodeInfos,
       @JsonKey(name: 'AutomaticRefreshIntervalDays')
-      int automaticRefreshIntervalDays,
+      int? automaticRefreshIntervalDays,
       @JsonKey(name: 'PreferredMetadataLanguage')
       String? preferredMetadataLanguage,
       @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
-      @JsonKey(name: 'SeasonZeroDisplayName') String seasonZeroDisplayName,
+      @JsonKey(name: 'SeasonZeroDisplayName') String? seasonZeroDisplayName,
       @JsonKey(name: 'MetadataSavers') List<String>? metadataSavers,
       @JsonKey(name: 'DisabledLocalMetadataReaders')
-      List<String> disabledLocalMetadataReaders,
+      List<String>? disabledLocalMetadataReaders,
       @JsonKey(name: 'LocalMetadataReaderOrder')
       List<String>? localMetadataReaderOrder,
       @JsonKey(name: 'DisabledSubtitleFetchers')
-      List<String> disabledSubtitleFetchers,
-      @JsonKey(name: 'SubtitleFetcherOrder') List<String> subtitleFetcherOrder,
+      List<String>? disabledSubtitleFetchers,
+      @JsonKey(name: 'SubtitleFetcherOrder') List<String>? subtitleFetcherOrder,
       @JsonKey(name: 'DisabledMediaSegmentProviders')
-      List<String> disabledMediaSegmentProviders,
+      List<String>? disabledMediaSegmentProviders,
       @JsonKey(name: 'MediaSegmentProviderOrder')
-      List<String> mediaSegmentProviderOrder,
+      List<String>? mediaSegmentProviderOrder,
       @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-      bool skipSubtitlesIfEmbeddedSubtitlesPresent,
-      @JsonKey(name: 'TypeOptions') List<TypeOptions> typeOptions,
+      bool? skipSubtitlesIfEmbeddedSubtitlesPresent,
+      @JsonKey(name: 'TypeOptions') List<TypeOptions>? typeOptions,
       @JsonKey(name: 'SubtitleDownloadLanguages')
       List<String>? subtitleDownloadLanguages,
       @JsonKey(name: 'RequirePerfectSubtitleMatch')
-      bool requirePerfectSubtitleMatch,
-      @JsonKey(name: 'SaveSubtitlesWithMedia') bool saveSubtitlesWithMedia,
+      bool? requirePerfectSubtitleMatch,
+      @JsonKey(name: 'SaveSubtitlesWithMedia') bool? saveSubtitlesWithMedia,
       @JsonKey(name: 'AllowEmbeddedSubtitles')
-      LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles,
+      LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles,
       @JsonKey(name: 'AutomaticallyAddToCollection')
-      bool automaticallyAddToCollection,
+      bool? automaticallyAddToCollection,
       @JsonKey(name: 'DisabledLyricFetchers')
-      List<String> disabledLyricFetchers,
-      @JsonKey(name: 'LyricFetcherOrder') List<String> lyricFetcherOrder,
-      @JsonKey(name: 'DelimiterWhitelist') List<String> delimiterWhitelist,
-      @JsonKey(name: 'CustomTagDelimiters') List<String> customTagDelimiters,
+      List<String>? disabledLyricFetchers,
+      @JsonKey(name: 'LyricFetcherOrder') List<String>? lyricFetcherOrder,
+      @JsonKey(name: 'DelimiterWhitelist') List<String>? delimiterWhitelist,
+      @JsonKey(name: 'CustomTagDelimiters') List<String>? customTagDelimiters,
       @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-      bool skipSubtitlesIfAudioTrackMatches,
+      bool? skipSubtitlesIfAudioTrackMatches,
       @JsonKey(name: 'PreferNonstandardArtistsTag')
       bool preferNonstandardArtistsTag,
       @JsonKey(name: 'SaveTrickplayWithMedia') bool saveTrickplayWithMedia,
@@ -889,66 +890,66 @@ extension LibraryOptionsPatterns on LibraryOptions {
   TResult when<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-      bool enableEmbeddedExtrasTitles,
-      @JsonKey(name: 'EnablePhotos') bool enablePhotos,
-      @JsonKey(name: 'EnableRealtimeMonitor') bool enableRealtimeMonitor,
-      @JsonKey(name: 'EnableLUFSScan') bool enableLufsScan,
+      bool? enableEmbeddedExtrasTitles,
+      @JsonKey(name: 'EnablePhotos') bool? enablePhotos,
+      @JsonKey(name: 'EnableRealtimeMonitor') bool? enableRealtimeMonitor,
+      @JsonKey(name: 'EnableLUFSScan') bool? enableLufsScan,
       @JsonKey(name: 'EnableChapterImageExtraction')
-      bool enableChapterImageExtraction,
+      bool? enableChapterImageExtraction,
       @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-      bool extractChapterImagesDuringLibraryScan,
+      bool? extractChapterImagesDuringLibraryScan,
       @JsonKey(name: 'EnableTrickplayImageExtraction')
-      bool enableTrickplayImageExtraction,
+      bool? enableTrickplayImageExtraction,
       @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-      bool extractTrickplayImagesDuringLibraryScan,
-      @JsonKey(name: 'PathInfos') List<MediaPathInfo> pathInfos,
-      @JsonKey(name: 'SaveLocalMetadata') bool saveLocalMetadata,
+      bool? extractTrickplayImagesDuringLibraryScan,
+      @JsonKey(name: 'PathInfos') List<MediaPathInfo>? pathInfos,
+      @JsonKey(name: 'SaveLocalMetadata') bool? saveLocalMetadata,
       @JsonKey(name: 'EnableInternetProviders')
       @Deprecated('This is marked as deprecated')
-      bool enableInternetProviders,
+      bool? enableInternetProviders,
       @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-      bool enableAutomaticSeriesGrouping,
-      @JsonKey(name: 'EnableEmbeddedTitles') bool enableEmbeddedTitles,
-      @JsonKey(name: 'Enabled') bool enabled,
+      bool? enableAutomaticSeriesGrouping,
+      @JsonKey(name: 'EnableEmbeddedTitles') bool? enableEmbeddedTitles,
+      @JsonKey(name: 'Enabled') bool? enabled,
       @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-      bool enableEmbeddedEpisodeInfos,
+      bool? enableEmbeddedEpisodeInfos,
       @JsonKey(name: 'AutomaticRefreshIntervalDays')
-      int automaticRefreshIntervalDays,
+      int? automaticRefreshIntervalDays,
       @JsonKey(name: 'PreferredMetadataLanguage')
       String? preferredMetadataLanguage,
       @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
-      @JsonKey(name: 'SeasonZeroDisplayName') String seasonZeroDisplayName,
+      @JsonKey(name: 'SeasonZeroDisplayName') String? seasonZeroDisplayName,
       @JsonKey(name: 'MetadataSavers') List<String>? metadataSavers,
       @JsonKey(name: 'DisabledLocalMetadataReaders')
-      List<String> disabledLocalMetadataReaders,
+      List<String>? disabledLocalMetadataReaders,
       @JsonKey(name: 'LocalMetadataReaderOrder')
       List<String>? localMetadataReaderOrder,
       @JsonKey(name: 'DisabledSubtitleFetchers')
-      List<String> disabledSubtitleFetchers,
-      @JsonKey(name: 'SubtitleFetcherOrder') List<String> subtitleFetcherOrder,
+      List<String>? disabledSubtitleFetchers,
+      @JsonKey(name: 'SubtitleFetcherOrder') List<String>? subtitleFetcherOrder,
       @JsonKey(name: 'DisabledMediaSegmentProviders')
-      List<String> disabledMediaSegmentProviders,
+      List<String>? disabledMediaSegmentProviders,
       @JsonKey(name: 'MediaSegmentProviderOrder')
-      List<String> mediaSegmentProviderOrder,
+      List<String>? mediaSegmentProviderOrder,
       @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-      bool skipSubtitlesIfEmbeddedSubtitlesPresent,
-      @JsonKey(name: 'TypeOptions') List<TypeOptions> typeOptions,
+      bool? skipSubtitlesIfEmbeddedSubtitlesPresent,
+      @JsonKey(name: 'TypeOptions') List<TypeOptions>? typeOptions,
       @JsonKey(name: 'SubtitleDownloadLanguages')
       List<String>? subtitleDownloadLanguages,
       @JsonKey(name: 'RequirePerfectSubtitleMatch')
-      bool requirePerfectSubtitleMatch,
-      @JsonKey(name: 'SaveSubtitlesWithMedia') bool saveSubtitlesWithMedia,
+      bool? requirePerfectSubtitleMatch,
+      @JsonKey(name: 'SaveSubtitlesWithMedia') bool? saveSubtitlesWithMedia,
       @JsonKey(name: 'AllowEmbeddedSubtitles')
-      LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles,
+      LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles,
       @JsonKey(name: 'AutomaticallyAddToCollection')
-      bool automaticallyAddToCollection,
+      bool? automaticallyAddToCollection,
       @JsonKey(name: 'DisabledLyricFetchers')
-      List<String> disabledLyricFetchers,
-      @JsonKey(name: 'LyricFetcherOrder') List<String> lyricFetcherOrder,
-      @JsonKey(name: 'DelimiterWhitelist') List<String> delimiterWhitelist,
-      @JsonKey(name: 'CustomTagDelimiters') List<String> customTagDelimiters,
+      List<String>? disabledLyricFetchers,
+      @JsonKey(name: 'LyricFetcherOrder') List<String>? lyricFetcherOrder,
+      @JsonKey(name: 'DelimiterWhitelist') List<String>? delimiterWhitelist,
+      @JsonKey(name: 'CustomTagDelimiters') List<String>? customTagDelimiters,
       @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-      bool skipSubtitlesIfAudioTrackMatches,
+      bool? skipSubtitlesIfAudioTrackMatches,
       @JsonKey(name: 'PreferNonstandardArtistsTag')
       bool preferNonstandardArtistsTag,
       @JsonKey(name: 'SaveTrickplayWithMedia') bool saveTrickplayWithMedia,
@@ -1025,66 +1026,66 @@ extension LibraryOptionsPatterns on LibraryOptions {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
       @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-      bool enableEmbeddedExtrasTitles,
-      @JsonKey(name: 'EnablePhotos') bool enablePhotos,
-      @JsonKey(name: 'EnableRealtimeMonitor') bool enableRealtimeMonitor,
-      @JsonKey(name: 'EnableLUFSScan') bool enableLufsScan,
+      bool? enableEmbeddedExtrasTitles,
+      @JsonKey(name: 'EnablePhotos') bool? enablePhotos,
+      @JsonKey(name: 'EnableRealtimeMonitor') bool? enableRealtimeMonitor,
+      @JsonKey(name: 'EnableLUFSScan') bool? enableLufsScan,
       @JsonKey(name: 'EnableChapterImageExtraction')
-      bool enableChapterImageExtraction,
+      bool? enableChapterImageExtraction,
       @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-      bool extractChapterImagesDuringLibraryScan,
+      bool? extractChapterImagesDuringLibraryScan,
       @JsonKey(name: 'EnableTrickplayImageExtraction')
-      bool enableTrickplayImageExtraction,
+      bool? enableTrickplayImageExtraction,
       @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-      bool extractTrickplayImagesDuringLibraryScan,
-      @JsonKey(name: 'PathInfos') List<MediaPathInfo> pathInfos,
-      @JsonKey(name: 'SaveLocalMetadata') bool saveLocalMetadata,
+      bool? extractTrickplayImagesDuringLibraryScan,
+      @JsonKey(name: 'PathInfos') List<MediaPathInfo>? pathInfos,
+      @JsonKey(name: 'SaveLocalMetadata') bool? saveLocalMetadata,
       @JsonKey(name: 'EnableInternetProviders')
       @Deprecated('This is marked as deprecated')
-      bool enableInternetProviders,
+      bool? enableInternetProviders,
       @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-      bool enableAutomaticSeriesGrouping,
-      @JsonKey(name: 'EnableEmbeddedTitles') bool enableEmbeddedTitles,
-      @JsonKey(name: 'Enabled') bool enabled,
+      bool? enableAutomaticSeriesGrouping,
+      @JsonKey(name: 'EnableEmbeddedTitles') bool? enableEmbeddedTitles,
+      @JsonKey(name: 'Enabled') bool? enabled,
       @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-      bool enableEmbeddedEpisodeInfos,
+      bool? enableEmbeddedEpisodeInfos,
       @JsonKey(name: 'AutomaticRefreshIntervalDays')
-      int automaticRefreshIntervalDays,
+      int? automaticRefreshIntervalDays,
       @JsonKey(name: 'PreferredMetadataLanguage')
       String? preferredMetadataLanguage,
       @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
-      @JsonKey(name: 'SeasonZeroDisplayName') String seasonZeroDisplayName,
+      @JsonKey(name: 'SeasonZeroDisplayName') String? seasonZeroDisplayName,
       @JsonKey(name: 'MetadataSavers') List<String>? metadataSavers,
       @JsonKey(name: 'DisabledLocalMetadataReaders')
-      List<String> disabledLocalMetadataReaders,
+      List<String>? disabledLocalMetadataReaders,
       @JsonKey(name: 'LocalMetadataReaderOrder')
       List<String>? localMetadataReaderOrder,
       @JsonKey(name: 'DisabledSubtitleFetchers')
-      List<String> disabledSubtitleFetchers,
-      @JsonKey(name: 'SubtitleFetcherOrder') List<String> subtitleFetcherOrder,
+      List<String>? disabledSubtitleFetchers,
+      @JsonKey(name: 'SubtitleFetcherOrder') List<String>? subtitleFetcherOrder,
       @JsonKey(name: 'DisabledMediaSegmentProviders')
-      List<String> disabledMediaSegmentProviders,
+      List<String>? disabledMediaSegmentProviders,
       @JsonKey(name: 'MediaSegmentProviderOrder')
-      List<String> mediaSegmentProviderOrder,
+      List<String>? mediaSegmentProviderOrder,
       @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-      bool skipSubtitlesIfEmbeddedSubtitlesPresent,
-      @JsonKey(name: 'TypeOptions') List<TypeOptions> typeOptions,
+      bool? skipSubtitlesIfEmbeddedSubtitlesPresent,
+      @JsonKey(name: 'TypeOptions') List<TypeOptions>? typeOptions,
       @JsonKey(name: 'SubtitleDownloadLanguages')
       List<String>? subtitleDownloadLanguages,
       @JsonKey(name: 'RequirePerfectSubtitleMatch')
-      bool requirePerfectSubtitleMatch,
-      @JsonKey(name: 'SaveSubtitlesWithMedia') bool saveSubtitlesWithMedia,
+      bool? requirePerfectSubtitleMatch,
+      @JsonKey(name: 'SaveSubtitlesWithMedia') bool? saveSubtitlesWithMedia,
       @JsonKey(name: 'AllowEmbeddedSubtitles')
-      LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles,
+      LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles,
       @JsonKey(name: 'AutomaticallyAddToCollection')
-      bool automaticallyAddToCollection,
+      bool? automaticallyAddToCollection,
       @JsonKey(name: 'DisabledLyricFetchers')
-      List<String> disabledLyricFetchers,
-      @JsonKey(name: 'LyricFetcherOrder') List<String> lyricFetcherOrder,
-      @JsonKey(name: 'DelimiterWhitelist') List<String> delimiterWhitelist,
-      @JsonKey(name: 'CustomTagDelimiters') List<String> customTagDelimiters,
+      List<String>? disabledLyricFetchers,
+      @JsonKey(name: 'LyricFetcherOrder') List<String>? lyricFetcherOrder,
+      @JsonKey(name: 'DelimiterWhitelist') List<String>? delimiterWhitelist,
+      @JsonKey(name: 'CustomTagDelimiters') List<String>? customTagDelimiters,
       @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-      bool skipSubtitlesIfAudioTrackMatches,
+      bool? skipSubtitlesIfAudioTrackMatches,
       @JsonKey(name: 'PreferNonstandardArtistsTag')
       bool preferNonstandardArtistsTag,
       @JsonKey(name: 'SaveTrickplayWithMedia') bool saveTrickplayWithMedia,
@@ -1151,72 +1152,66 @@ extension LibraryOptionsPatterns on LibraryOptions {
 class _LibraryOptions implements LibraryOptions {
   const _LibraryOptions({
     @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-    required this.enableEmbeddedExtrasTitles,
-    @JsonKey(name: 'EnablePhotos') required this.enablePhotos,
-    @JsonKey(name: 'EnableRealtimeMonitor') required this.enableRealtimeMonitor,
-    @JsonKey(name: 'EnableLUFSScan') required this.enableLufsScan,
+    this.enableEmbeddedExtrasTitles,
+    @JsonKey(name: 'EnablePhotos') this.enablePhotos,
+    @JsonKey(name: 'EnableRealtimeMonitor') this.enableRealtimeMonitor,
+    @JsonKey(name: 'EnableLUFSScan') this.enableLufsScan,
     @JsonKey(name: 'EnableChapterImageExtraction')
-    required this.enableChapterImageExtraction,
+    this.enableChapterImageExtraction,
     @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-    required this.extractChapterImagesDuringLibraryScan,
+    this.extractChapterImagesDuringLibraryScan,
     @JsonKey(name: 'EnableTrickplayImageExtraction')
-    required this.enableTrickplayImageExtraction,
+    this.enableTrickplayImageExtraction,
     @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-    required this.extractTrickplayImagesDuringLibraryScan,
-    @JsonKey(name: 'PathInfos') required final List<MediaPathInfo> pathInfos,
-    @JsonKey(name: 'SaveLocalMetadata') required this.saveLocalMetadata,
+    this.extractTrickplayImagesDuringLibraryScan,
+    @JsonKey(name: 'PathInfos') final List<MediaPathInfo>? pathInfos,
+    @JsonKey(name: 'SaveLocalMetadata') this.saveLocalMetadata,
     @JsonKey(name: 'EnableInternetProviders')
     @Deprecated('This is marked as deprecated')
-    required this.enableInternetProviders,
+    this.enableInternetProviders,
     @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-    required this.enableAutomaticSeriesGrouping,
-    @JsonKey(name: 'EnableEmbeddedTitles') required this.enableEmbeddedTitles,
-    @JsonKey(name: 'Enabled') required this.enabled,
+    this.enableAutomaticSeriesGrouping,
+    @JsonKey(name: 'EnableEmbeddedTitles') this.enableEmbeddedTitles,
+    @JsonKey(name: 'Enabled') this.enabled,
     @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-    required this.enableEmbeddedEpisodeInfos,
+    this.enableEmbeddedEpisodeInfos,
     @JsonKey(name: 'AutomaticRefreshIntervalDays')
-    required this.automaticRefreshIntervalDays,
-    @JsonKey(name: 'PreferredMetadataLanguage')
-    required this.preferredMetadataLanguage,
-    @JsonKey(name: 'MetadataCountryCode') required this.metadataCountryCode,
-    @JsonKey(name: 'SeasonZeroDisplayName') required this.seasonZeroDisplayName,
-    @JsonKey(name: 'MetadataSavers')
-    required final List<String>? metadataSavers,
+    this.automaticRefreshIntervalDays,
+    @JsonKey(name: 'PreferredMetadataLanguage') this.preferredMetadataLanguage,
+    @JsonKey(name: 'MetadataCountryCode') this.metadataCountryCode,
+    @JsonKey(name: 'SeasonZeroDisplayName') this.seasonZeroDisplayName,
+    @JsonKey(name: 'MetadataSavers') final List<String>? metadataSavers,
     @JsonKey(name: 'DisabledLocalMetadataReaders')
-    required final List<String> disabledLocalMetadataReaders,
+    final List<String>? disabledLocalMetadataReaders,
     @JsonKey(name: 'LocalMetadataReaderOrder')
-    required final List<String>? localMetadataReaderOrder,
+    final List<String>? localMetadataReaderOrder,
     @JsonKey(name: 'DisabledSubtitleFetchers')
-    required final List<String> disabledSubtitleFetchers,
+    final List<String>? disabledSubtitleFetchers,
     @JsonKey(name: 'SubtitleFetcherOrder')
-    required final List<String> subtitleFetcherOrder,
+    final List<String>? subtitleFetcherOrder,
     @JsonKey(name: 'DisabledMediaSegmentProviders')
-    required final List<String> disabledMediaSegmentProviders,
+    final List<String>? disabledMediaSegmentProviders,
     @JsonKey(name: 'MediaSegmentProviderOrder')
-    required final List<String> mediaSegmentProviderOrder,
+    final List<String>? mediaSegmentProviderOrder,
     @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-    required this.skipSubtitlesIfEmbeddedSubtitlesPresent,
-    @JsonKey(name: 'TypeOptions') required final List<TypeOptions> typeOptions,
+    this.skipSubtitlesIfEmbeddedSubtitlesPresent,
+    @JsonKey(name: 'TypeOptions') final List<TypeOptions>? typeOptions,
     @JsonKey(name: 'SubtitleDownloadLanguages')
-    required final List<String>? subtitleDownloadLanguages,
+    final List<String>? subtitleDownloadLanguages,
     @JsonKey(name: 'RequirePerfectSubtitleMatch')
-    required this.requirePerfectSubtitleMatch,
-    @JsonKey(name: 'SaveSubtitlesWithMedia')
-    required this.saveSubtitlesWithMedia,
-    @JsonKey(name: 'AllowEmbeddedSubtitles')
-    required this.allowEmbeddedSubtitles,
+    this.requirePerfectSubtitleMatch,
+    @JsonKey(name: 'SaveSubtitlesWithMedia') this.saveSubtitlesWithMedia,
+    @JsonKey(name: 'AllowEmbeddedSubtitles') this.allowEmbeddedSubtitles,
     @JsonKey(name: 'AutomaticallyAddToCollection')
-    required this.automaticallyAddToCollection,
+    this.automaticallyAddToCollection,
     @JsonKey(name: 'DisabledLyricFetchers')
-    required final List<String> disabledLyricFetchers,
-    @JsonKey(name: 'LyricFetcherOrder')
-    required final List<String> lyricFetcherOrder,
-    @JsonKey(name: 'DelimiterWhitelist')
-    required final List<String> delimiterWhitelist,
+    final List<String>? disabledLyricFetchers,
+    @JsonKey(name: 'LyricFetcherOrder') final List<String>? lyricFetcherOrder,
+    @JsonKey(name: 'DelimiterWhitelist') final List<String>? delimiterWhitelist,
     @JsonKey(name: 'CustomTagDelimiters')
-    required final List<String> customTagDelimiters,
+    final List<String>? customTagDelimiters,
     @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-    required this.skipSubtitlesIfAudioTrackMatches,
+    this.skipSubtitlesIfAudioTrackMatches,
     @JsonKey(name: 'PreferNonstandardArtistsTag')
     this.preferNonstandardArtistsTag = false,
     @JsonKey(name: 'SaveTrickplayWithMedia')
@@ -1243,59 +1238,61 @@ class _LibraryOptions implements LibraryOptions {
 
   @override
   @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-  final bool enableEmbeddedExtrasTitles;
+  final bool? enableEmbeddedExtrasTitles;
   @override
   @JsonKey(name: 'EnablePhotos')
-  final bool enablePhotos;
+  final bool? enablePhotos;
   @override
   @JsonKey(name: 'EnableRealtimeMonitor')
-  final bool enableRealtimeMonitor;
+  final bool? enableRealtimeMonitor;
   @override
   @JsonKey(name: 'EnableLUFSScan')
-  final bool enableLufsScan;
+  final bool? enableLufsScan;
   @override
   @JsonKey(name: 'EnableChapterImageExtraction')
-  final bool enableChapterImageExtraction;
+  final bool? enableChapterImageExtraction;
   @override
   @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-  final bool extractChapterImagesDuringLibraryScan;
+  final bool? extractChapterImagesDuringLibraryScan;
   @override
   @JsonKey(name: 'EnableTrickplayImageExtraction')
-  final bool enableTrickplayImageExtraction;
+  final bool? enableTrickplayImageExtraction;
   @override
   @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-  final bool extractTrickplayImagesDuringLibraryScan;
-  final List<MediaPathInfo> _pathInfos;
+  final bool? extractTrickplayImagesDuringLibraryScan;
+  final List<MediaPathInfo>? _pathInfos;
   @override
   @JsonKey(name: 'PathInfos')
-  List<MediaPathInfo> get pathInfos {
+  List<MediaPathInfo>? get pathInfos {
+    final value = _pathInfos;
+    if (value == null) return null;
     if (_pathInfos is EqualUnmodifiableListView) return _pathInfos;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_pathInfos);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'SaveLocalMetadata')
-  final bool saveLocalMetadata;
+  final bool? saveLocalMetadata;
   @override
   @JsonKey(name: 'EnableInternetProviders')
   @Deprecated('This is marked as deprecated')
-  final bool enableInternetProviders;
+  final bool? enableInternetProviders;
   @override
   @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-  final bool enableAutomaticSeriesGrouping;
+  final bool? enableAutomaticSeriesGrouping;
   @override
   @JsonKey(name: 'EnableEmbeddedTitles')
-  final bool enableEmbeddedTitles;
+  final bool? enableEmbeddedTitles;
   @override
   @JsonKey(name: 'Enabled')
-  final bool enabled;
+  final bool? enabled;
   @override
   @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-  final bool enableEmbeddedEpisodeInfos;
+  final bool? enableEmbeddedEpisodeInfos;
   @override
   @JsonKey(name: 'AutomaticRefreshIntervalDays')
-  final int automaticRefreshIntervalDays;
+  final int? automaticRefreshIntervalDays;
 
   /// Gets or sets the preferred metadata language.
   @override
@@ -1308,7 +1305,7 @@ class _LibraryOptions implements LibraryOptions {
   final String? metadataCountryCode;
   @override
   @JsonKey(name: 'SeasonZeroDisplayName')
-  final String seasonZeroDisplayName;
+  final String? seasonZeroDisplayName;
   final List<String>? _metadataSavers;
   @override
   @JsonKey(name: 'MetadataSavers')
@@ -1320,14 +1317,16 @@ class _LibraryOptions implements LibraryOptions {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _disabledLocalMetadataReaders;
+  final List<String>? _disabledLocalMetadataReaders;
   @override
   @JsonKey(name: 'DisabledLocalMetadataReaders')
-  List<String> get disabledLocalMetadataReaders {
+  List<String>? get disabledLocalMetadataReaders {
+    final value = _disabledLocalMetadataReaders;
+    if (value == null) return null;
     if (_disabledLocalMetadataReaders is EqualUnmodifiableListView)
       return _disabledLocalMetadataReaders;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disabledLocalMetadataReaders);
+    return EqualUnmodifiableListView(value);
   }
 
   final List<String>? _localMetadataReaderOrder;
@@ -1342,56 +1341,66 @@ class _LibraryOptions implements LibraryOptions {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _disabledSubtitleFetchers;
+  final List<String>? _disabledSubtitleFetchers;
   @override
   @JsonKey(name: 'DisabledSubtitleFetchers')
-  List<String> get disabledSubtitleFetchers {
+  List<String>? get disabledSubtitleFetchers {
+    final value = _disabledSubtitleFetchers;
+    if (value == null) return null;
     if (_disabledSubtitleFetchers is EqualUnmodifiableListView)
       return _disabledSubtitleFetchers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disabledSubtitleFetchers);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _subtitleFetcherOrder;
+  final List<String>? _subtitleFetcherOrder;
   @override
   @JsonKey(name: 'SubtitleFetcherOrder')
-  List<String> get subtitleFetcherOrder {
+  List<String>? get subtitleFetcherOrder {
+    final value = _subtitleFetcherOrder;
+    if (value == null) return null;
     if (_subtitleFetcherOrder is EqualUnmodifiableListView)
       return _subtitleFetcherOrder;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subtitleFetcherOrder);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _disabledMediaSegmentProviders;
+  final List<String>? _disabledMediaSegmentProviders;
   @override
   @JsonKey(name: 'DisabledMediaSegmentProviders')
-  List<String> get disabledMediaSegmentProviders {
+  List<String>? get disabledMediaSegmentProviders {
+    final value = _disabledMediaSegmentProviders;
+    if (value == null) return null;
     if (_disabledMediaSegmentProviders is EqualUnmodifiableListView)
       return _disabledMediaSegmentProviders;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disabledMediaSegmentProviders);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _mediaSegmentProviderOrder;
+  final List<String>? _mediaSegmentProviderOrder;
   @override
   @JsonKey(name: 'MediaSegmentProviderOrder')
-  List<String> get mediaSegmentProviderOrder {
+  List<String>? get mediaSegmentProviderOrder {
+    final value = _mediaSegmentProviderOrder;
+    if (value == null) return null;
     if (_mediaSegmentProviderOrder is EqualUnmodifiableListView)
       return _mediaSegmentProviderOrder;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_mediaSegmentProviderOrder);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-  final bool skipSubtitlesIfEmbeddedSubtitlesPresent;
-  final List<TypeOptions> _typeOptions;
+  final bool? skipSubtitlesIfEmbeddedSubtitlesPresent;
+  final List<TypeOptions>? _typeOptions;
   @override
   @JsonKey(name: 'TypeOptions')
-  List<TypeOptions> get typeOptions {
+  List<TypeOptions>? get typeOptions {
+    final value = _typeOptions;
+    if (value == null) return null;
     if (_typeOptions is EqualUnmodifiableListView) return _typeOptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_typeOptions);
+    return EqualUnmodifiableListView(value);
   }
 
   final List<String>? _subtitleDownloadLanguages;
@@ -1408,61 +1417,69 @@ class _LibraryOptions implements LibraryOptions {
 
   @override
   @JsonKey(name: 'RequirePerfectSubtitleMatch')
-  final bool requirePerfectSubtitleMatch;
+  final bool? requirePerfectSubtitleMatch;
   @override
   @JsonKey(name: 'SaveSubtitlesWithMedia')
-  final bool saveSubtitlesWithMedia;
+  final bool? saveSubtitlesWithMedia;
 
   /// An enum representing the options to disable embedded subs.
   @override
   @JsonKey(name: 'AllowEmbeddedSubtitles')
-  final LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles;
+  final LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles;
   @override
   @JsonKey(name: 'AutomaticallyAddToCollection')
-  final bool automaticallyAddToCollection;
-  final List<String> _disabledLyricFetchers;
+  final bool? automaticallyAddToCollection;
+  final List<String>? _disabledLyricFetchers;
   @override
   @JsonKey(name: 'DisabledLyricFetchers')
-  List<String> get disabledLyricFetchers {
+  List<String>? get disabledLyricFetchers {
+    final value = _disabledLyricFetchers;
+    if (value == null) return null;
     if (_disabledLyricFetchers is EqualUnmodifiableListView)
       return _disabledLyricFetchers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disabledLyricFetchers);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _lyricFetcherOrder;
+  final List<String>? _lyricFetcherOrder;
   @override
   @JsonKey(name: 'LyricFetcherOrder')
-  List<String> get lyricFetcherOrder {
+  List<String>? get lyricFetcherOrder {
+    final value = _lyricFetcherOrder;
+    if (value == null) return null;
     if (_lyricFetcherOrder is EqualUnmodifiableListView)
       return _lyricFetcherOrder;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lyricFetcherOrder);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _delimiterWhitelist;
+  final List<String>? _delimiterWhitelist;
   @override
   @JsonKey(name: 'DelimiterWhitelist')
-  List<String> get delimiterWhitelist {
+  List<String>? get delimiterWhitelist {
+    final value = _delimiterWhitelist;
+    if (value == null) return null;
     if (_delimiterWhitelist is EqualUnmodifiableListView)
       return _delimiterWhitelist;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_delimiterWhitelist);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _customTagDelimiters;
+  final List<String>? _customTagDelimiters;
   @override
   @JsonKey(name: 'CustomTagDelimiters')
-  List<String> get customTagDelimiters {
+  List<String>? get customTagDelimiters {
+    final value = _customTagDelimiters;
+    if (value == null) return null;
     if (_customTagDelimiters is EqualUnmodifiableListView)
       return _customTagDelimiters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_customTagDelimiters);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-  final bool skipSubtitlesIfAudioTrackMatches;
+  final bool? skipSubtitlesIfAudioTrackMatches;
   @override
   @JsonKey(name: 'PreferNonstandardArtistsTag')
   final bool preferNonstandardArtistsTag;
@@ -1730,65 +1747,65 @@ abstract mixin class _$LibraryOptionsCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: 'EnableEmbeddedExtrasTitles')
-    bool enableEmbeddedExtrasTitles,
-    @JsonKey(name: 'EnablePhotos') bool enablePhotos,
-    @JsonKey(name: 'EnableRealtimeMonitor') bool enableRealtimeMonitor,
-    @JsonKey(name: 'EnableLUFSScan') bool enableLufsScan,
+    bool? enableEmbeddedExtrasTitles,
+    @JsonKey(name: 'EnablePhotos') bool? enablePhotos,
+    @JsonKey(name: 'EnableRealtimeMonitor') bool? enableRealtimeMonitor,
+    @JsonKey(name: 'EnableLUFSScan') bool? enableLufsScan,
     @JsonKey(name: 'EnableChapterImageExtraction')
-    bool enableChapterImageExtraction,
+    bool? enableChapterImageExtraction,
     @JsonKey(name: 'ExtractChapterImagesDuringLibraryScan')
-    bool extractChapterImagesDuringLibraryScan,
+    bool? extractChapterImagesDuringLibraryScan,
     @JsonKey(name: 'EnableTrickplayImageExtraction')
-    bool enableTrickplayImageExtraction,
+    bool? enableTrickplayImageExtraction,
     @JsonKey(name: 'ExtractTrickplayImagesDuringLibraryScan')
-    bool extractTrickplayImagesDuringLibraryScan,
-    @JsonKey(name: 'PathInfos') List<MediaPathInfo> pathInfos,
-    @JsonKey(name: 'SaveLocalMetadata') bool saveLocalMetadata,
+    bool? extractTrickplayImagesDuringLibraryScan,
+    @JsonKey(name: 'PathInfos') List<MediaPathInfo>? pathInfos,
+    @JsonKey(name: 'SaveLocalMetadata') bool? saveLocalMetadata,
     @JsonKey(name: 'EnableInternetProviders')
     @Deprecated('This is marked as deprecated')
-    bool enableInternetProviders,
+    bool? enableInternetProviders,
     @JsonKey(name: 'EnableAutomaticSeriesGrouping')
-    bool enableAutomaticSeriesGrouping,
-    @JsonKey(name: 'EnableEmbeddedTitles') bool enableEmbeddedTitles,
-    @JsonKey(name: 'Enabled') bool enabled,
+    bool? enableAutomaticSeriesGrouping,
+    @JsonKey(name: 'EnableEmbeddedTitles') bool? enableEmbeddedTitles,
+    @JsonKey(name: 'Enabled') bool? enabled,
     @JsonKey(name: 'EnableEmbeddedEpisodeInfos')
-    bool enableEmbeddedEpisodeInfos,
+    bool? enableEmbeddedEpisodeInfos,
     @JsonKey(name: 'AutomaticRefreshIntervalDays')
-    int automaticRefreshIntervalDays,
+    int? automaticRefreshIntervalDays,
     @JsonKey(name: 'PreferredMetadataLanguage')
     String? preferredMetadataLanguage,
     @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
-    @JsonKey(name: 'SeasonZeroDisplayName') String seasonZeroDisplayName,
+    @JsonKey(name: 'SeasonZeroDisplayName') String? seasonZeroDisplayName,
     @JsonKey(name: 'MetadataSavers') List<String>? metadataSavers,
     @JsonKey(name: 'DisabledLocalMetadataReaders')
-    List<String> disabledLocalMetadataReaders,
+    List<String>? disabledLocalMetadataReaders,
     @JsonKey(name: 'LocalMetadataReaderOrder')
     List<String>? localMetadataReaderOrder,
     @JsonKey(name: 'DisabledSubtitleFetchers')
-    List<String> disabledSubtitleFetchers,
-    @JsonKey(name: 'SubtitleFetcherOrder') List<String> subtitleFetcherOrder,
+    List<String>? disabledSubtitleFetchers,
+    @JsonKey(name: 'SubtitleFetcherOrder') List<String>? subtitleFetcherOrder,
     @JsonKey(name: 'DisabledMediaSegmentProviders')
-    List<String> disabledMediaSegmentProviders,
+    List<String>? disabledMediaSegmentProviders,
     @JsonKey(name: 'MediaSegmentProviderOrder')
-    List<String> mediaSegmentProviderOrder,
+    List<String>? mediaSegmentProviderOrder,
     @JsonKey(name: 'SkipSubtitlesIfEmbeddedSubtitlesPresent')
-    bool skipSubtitlesIfEmbeddedSubtitlesPresent,
-    @JsonKey(name: 'TypeOptions') List<TypeOptions> typeOptions,
+    bool? skipSubtitlesIfEmbeddedSubtitlesPresent,
+    @JsonKey(name: 'TypeOptions') List<TypeOptions>? typeOptions,
     @JsonKey(name: 'SubtitleDownloadLanguages')
     List<String>? subtitleDownloadLanguages,
     @JsonKey(name: 'RequirePerfectSubtitleMatch')
-    bool requirePerfectSubtitleMatch,
-    @JsonKey(name: 'SaveSubtitlesWithMedia') bool saveSubtitlesWithMedia,
+    bool? requirePerfectSubtitleMatch,
+    @JsonKey(name: 'SaveSubtitlesWithMedia') bool? saveSubtitlesWithMedia,
     @JsonKey(name: 'AllowEmbeddedSubtitles')
-    LibraryOptionsAllowEmbeddedSubtitles allowEmbeddedSubtitles,
+    LibraryOptionsAllowEmbeddedSubtitles? allowEmbeddedSubtitles,
     @JsonKey(name: 'AutomaticallyAddToCollection')
-    bool automaticallyAddToCollection,
-    @JsonKey(name: 'DisabledLyricFetchers') List<String> disabledLyricFetchers,
-    @JsonKey(name: 'LyricFetcherOrder') List<String> lyricFetcherOrder,
-    @JsonKey(name: 'DelimiterWhitelist') List<String> delimiterWhitelist,
-    @JsonKey(name: 'CustomTagDelimiters') List<String> customTagDelimiters,
+    bool? automaticallyAddToCollection,
+    @JsonKey(name: 'DisabledLyricFetchers') List<String>? disabledLyricFetchers,
+    @JsonKey(name: 'LyricFetcherOrder') List<String>? lyricFetcherOrder,
+    @JsonKey(name: 'DelimiterWhitelist') List<String>? delimiterWhitelist,
+    @JsonKey(name: 'CustomTagDelimiters') List<String>? customTagDelimiters,
     @JsonKey(name: 'SkipSubtitlesIfAudioTrackMatches')
-    bool skipSubtitlesIfAudioTrackMatches,
+    bool? skipSubtitlesIfAudioTrackMatches,
     @JsonKey(name: 'PreferNonstandardArtistsTag')
     bool preferNonstandardArtistsTag,
     @JsonKey(name: 'SaveTrickplayWithMedia') bool saveTrickplayWithMedia,
@@ -1810,44 +1827,44 @@ class __$LibraryOptionsCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? enableEmbeddedExtrasTitles = null,
-    Object? enablePhotos = null,
-    Object? enableRealtimeMonitor = null,
-    Object? enableLufsScan = null,
-    Object? enableChapterImageExtraction = null,
-    Object? extractChapterImagesDuringLibraryScan = null,
-    Object? enableTrickplayImageExtraction = null,
-    Object? extractTrickplayImagesDuringLibraryScan = null,
-    Object? pathInfos = null,
-    Object? saveLocalMetadata = null,
-    Object? enableInternetProviders = null,
-    Object? enableAutomaticSeriesGrouping = null,
-    Object? enableEmbeddedTitles = null,
-    Object? enabled = null,
-    Object? enableEmbeddedEpisodeInfos = null,
-    Object? automaticRefreshIntervalDays = null,
+    Object? enableEmbeddedExtrasTitles = freezed,
+    Object? enablePhotos = freezed,
+    Object? enableRealtimeMonitor = freezed,
+    Object? enableLufsScan = freezed,
+    Object? enableChapterImageExtraction = freezed,
+    Object? extractChapterImagesDuringLibraryScan = freezed,
+    Object? enableTrickplayImageExtraction = freezed,
+    Object? extractTrickplayImagesDuringLibraryScan = freezed,
+    Object? pathInfos = freezed,
+    Object? saveLocalMetadata = freezed,
+    Object? enableInternetProviders = freezed,
+    Object? enableAutomaticSeriesGrouping = freezed,
+    Object? enableEmbeddedTitles = freezed,
+    Object? enabled = freezed,
+    Object? enableEmbeddedEpisodeInfos = freezed,
+    Object? automaticRefreshIntervalDays = freezed,
     Object? preferredMetadataLanguage = freezed,
     Object? metadataCountryCode = freezed,
-    Object? seasonZeroDisplayName = null,
+    Object? seasonZeroDisplayName = freezed,
     Object? metadataSavers = freezed,
-    Object? disabledLocalMetadataReaders = null,
+    Object? disabledLocalMetadataReaders = freezed,
     Object? localMetadataReaderOrder = freezed,
-    Object? disabledSubtitleFetchers = null,
-    Object? subtitleFetcherOrder = null,
-    Object? disabledMediaSegmentProviders = null,
-    Object? mediaSegmentProviderOrder = null,
-    Object? skipSubtitlesIfEmbeddedSubtitlesPresent = null,
-    Object? typeOptions = null,
+    Object? disabledSubtitleFetchers = freezed,
+    Object? subtitleFetcherOrder = freezed,
+    Object? disabledMediaSegmentProviders = freezed,
+    Object? mediaSegmentProviderOrder = freezed,
+    Object? skipSubtitlesIfEmbeddedSubtitlesPresent = freezed,
+    Object? typeOptions = freezed,
     Object? subtitleDownloadLanguages = freezed,
-    Object? requirePerfectSubtitleMatch = null,
-    Object? saveSubtitlesWithMedia = null,
-    Object? allowEmbeddedSubtitles = null,
-    Object? automaticallyAddToCollection = null,
-    Object? disabledLyricFetchers = null,
-    Object? lyricFetcherOrder = null,
-    Object? delimiterWhitelist = null,
-    Object? customTagDelimiters = null,
-    Object? skipSubtitlesIfAudioTrackMatches = null,
+    Object? requirePerfectSubtitleMatch = freezed,
+    Object? saveSubtitlesWithMedia = freezed,
+    Object? allowEmbeddedSubtitles = freezed,
+    Object? automaticallyAddToCollection = freezed,
+    Object? disabledLyricFetchers = freezed,
+    Object? lyricFetcherOrder = freezed,
+    Object? delimiterWhitelist = freezed,
+    Object? customTagDelimiters = freezed,
+    Object? skipSubtitlesIfAudioTrackMatches = freezed,
     Object? preferNonstandardArtistsTag = null,
     Object? saveTrickplayWithMedia = null,
     Object? saveLyricsWithMedia = null,
@@ -1855,72 +1872,73 @@ class __$LibraryOptionsCopyWithImpl<$Res>
   }) {
     return _then(
       _LibraryOptions(
-        enableEmbeddedExtrasTitles: null == enableEmbeddedExtrasTitles
+        enableEmbeddedExtrasTitles: freezed == enableEmbeddedExtrasTitles
             ? _self.enableEmbeddedExtrasTitles
             : enableEmbeddedExtrasTitles // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enablePhotos: null == enablePhotos
+                  as bool?,
+        enablePhotos: freezed == enablePhotos
             ? _self.enablePhotos
             : enablePhotos // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableRealtimeMonitor: null == enableRealtimeMonitor
+                  as bool?,
+        enableRealtimeMonitor: freezed == enableRealtimeMonitor
             ? _self.enableRealtimeMonitor
             : enableRealtimeMonitor // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLufsScan: null == enableLufsScan
+                  as bool?,
+        enableLufsScan: freezed == enableLufsScan
             ? _self.enableLufsScan
             : enableLufsScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableChapterImageExtraction: null == enableChapterImageExtraction
+                  as bool?,
+        enableChapterImageExtraction: freezed == enableChapterImageExtraction
             ? _self.enableChapterImageExtraction
             : enableChapterImageExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         extractChapterImagesDuringLibraryScan:
-            null == extractChapterImagesDuringLibraryScan
+            freezed == extractChapterImagesDuringLibraryScan
             ? _self.extractChapterImagesDuringLibraryScan
             : extractChapterImagesDuringLibraryScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableTrickplayImageExtraction: null == enableTrickplayImageExtraction
+                  as bool?,
+        enableTrickplayImageExtraction:
+            freezed == enableTrickplayImageExtraction
             ? _self.enableTrickplayImageExtraction
             : enableTrickplayImageExtraction // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         extractTrickplayImagesDuringLibraryScan:
-            null == extractTrickplayImagesDuringLibraryScan
+            freezed == extractTrickplayImagesDuringLibraryScan
             ? _self.extractTrickplayImagesDuringLibraryScan
             : extractTrickplayImagesDuringLibraryScan // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        pathInfos: null == pathInfos
+                  as bool?,
+        pathInfos: freezed == pathInfos
             ? _self._pathInfos
             : pathInfos // ignore: cast_nullable_to_non_nullable
-                  as List<MediaPathInfo>,
-        saveLocalMetadata: null == saveLocalMetadata
+                  as List<MediaPathInfo>?,
+        saveLocalMetadata: freezed == saveLocalMetadata
             ? _self.saveLocalMetadata
             : saveLocalMetadata // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableInternetProviders: null == enableInternetProviders
+                  as bool?,
+        enableInternetProviders: freezed == enableInternetProviders
             ? _self.enableInternetProviders
             : enableInternetProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableAutomaticSeriesGrouping: null == enableAutomaticSeriesGrouping
+                  as bool?,
+        enableAutomaticSeriesGrouping: freezed == enableAutomaticSeriesGrouping
             ? _self.enableAutomaticSeriesGrouping
             : enableAutomaticSeriesGrouping // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableEmbeddedTitles: null == enableEmbeddedTitles
+                  as bool?,
+        enableEmbeddedTitles: freezed == enableEmbeddedTitles
             ? _self.enableEmbeddedTitles
             : enableEmbeddedTitles // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enabled: null == enabled
+                  as bool?,
+        enabled: freezed == enabled
             ? _self.enabled
             : enabled // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableEmbeddedEpisodeInfos: null == enableEmbeddedEpisodeInfos
+                  as bool?,
+        enableEmbeddedEpisodeInfos: freezed == enableEmbeddedEpisodeInfos
             ? _self.enableEmbeddedEpisodeInfos
             : enableEmbeddedEpisodeInfos // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        automaticRefreshIntervalDays: null == automaticRefreshIntervalDays
+                  as bool?,
+        automaticRefreshIntervalDays: freezed == automaticRefreshIntervalDays
             ? _self.automaticRefreshIntervalDays
             : automaticRefreshIntervalDays // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
         preferredMetadataLanguage: freezed == preferredMetadataLanguage
             ? _self.preferredMetadataLanguage
             : preferredMetadataLanguage // ignore: cast_nullable_to_non_nullable
@@ -1929,88 +1947,88 @@ class __$LibraryOptionsCopyWithImpl<$Res>
             ? _self.metadataCountryCode
             : metadataCountryCode // ignore: cast_nullable_to_non_nullable
                   as String?,
-        seasonZeroDisplayName: null == seasonZeroDisplayName
+        seasonZeroDisplayName: freezed == seasonZeroDisplayName
             ? _self.seasonZeroDisplayName
             : seasonZeroDisplayName // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         metadataSavers: freezed == metadataSavers
             ? _self._metadataSavers
             : metadataSavers // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        disabledLocalMetadataReaders: null == disabledLocalMetadataReaders
+        disabledLocalMetadataReaders: freezed == disabledLocalMetadataReaders
             ? _self._disabledLocalMetadataReaders
             : disabledLocalMetadataReaders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         localMetadataReaderOrder: freezed == localMetadataReaderOrder
             ? _self._localMetadataReaderOrder
             : localMetadataReaderOrder // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        disabledSubtitleFetchers: null == disabledSubtitleFetchers
+        disabledSubtitleFetchers: freezed == disabledSubtitleFetchers
             ? _self._disabledSubtitleFetchers
             : disabledSubtitleFetchers // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        subtitleFetcherOrder: null == subtitleFetcherOrder
+                  as List<String>?,
+        subtitleFetcherOrder: freezed == subtitleFetcherOrder
             ? _self._subtitleFetcherOrder
             : subtitleFetcherOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        disabledMediaSegmentProviders: null == disabledMediaSegmentProviders
+                  as List<String>?,
+        disabledMediaSegmentProviders: freezed == disabledMediaSegmentProviders
             ? _self._disabledMediaSegmentProviders
             : disabledMediaSegmentProviders // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        mediaSegmentProviderOrder: null == mediaSegmentProviderOrder
+                  as List<String>?,
+        mediaSegmentProviderOrder: freezed == mediaSegmentProviderOrder
             ? _self._mediaSegmentProviderOrder
             : mediaSegmentProviderOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         skipSubtitlesIfEmbeddedSubtitlesPresent:
-            null == skipSubtitlesIfEmbeddedSubtitlesPresent
+            freezed == skipSubtitlesIfEmbeddedSubtitlesPresent
             ? _self.skipSubtitlesIfEmbeddedSubtitlesPresent
             : skipSubtitlesIfEmbeddedSubtitlesPresent // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        typeOptions: null == typeOptions
+                  as bool?,
+        typeOptions: freezed == typeOptions
             ? _self._typeOptions
             : typeOptions // ignore: cast_nullable_to_non_nullable
-                  as List<TypeOptions>,
+                  as List<TypeOptions>?,
         subtitleDownloadLanguages: freezed == subtitleDownloadLanguages
             ? _self._subtitleDownloadLanguages
             : subtitleDownloadLanguages // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        requirePerfectSubtitleMatch: null == requirePerfectSubtitleMatch
+        requirePerfectSubtitleMatch: freezed == requirePerfectSubtitleMatch
             ? _self.requirePerfectSubtitleMatch
             : requirePerfectSubtitleMatch // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        saveSubtitlesWithMedia: null == saveSubtitlesWithMedia
+                  as bool?,
+        saveSubtitlesWithMedia: freezed == saveSubtitlesWithMedia
             ? _self.saveSubtitlesWithMedia
             : saveSubtitlesWithMedia // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        allowEmbeddedSubtitles: null == allowEmbeddedSubtitles
+                  as bool?,
+        allowEmbeddedSubtitles: freezed == allowEmbeddedSubtitles
             ? _self.allowEmbeddedSubtitles
             : allowEmbeddedSubtitles // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptionsAllowEmbeddedSubtitles,
-        automaticallyAddToCollection: null == automaticallyAddToCollection
+                  as LibraryOptionsAllowEmbeddedSubtitles?,
+        automaticallyAddToCollection: freezed == automaticallyAddToCollection
             ? _self.automaticallyAddToCollection
             : automaticallyAddToCollection // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        disabledLyricFetchers: null == disabledLyricFetchers
+                  as bool?,
+        disabledLyricFetchers: freezed == disabledLyricFetchers
             ? _self._disabledLyricFetchers
             : disabledLyricFetchers // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        lyricFetcherOrder: null == lyricFetcherOrder
+                  as List<String>?,
+        lyricFetcherOrder: freezed == lyricFetcherOrder
             ? _self._lyricFetcherOrder
             : lyricFetcherOrder // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        delimiterWhitelist: null == delimiterWhitelist
+                  as List<String>?,
+        delimiterWhitelist: freezed == delimiterWhitelist
             ? _self._delimiterWhitelist
             : delimiterWhitelist // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        customTagDelimiters: null == customTagDelimiters
+                  as List<String>?,
+        customTagDelimiters: freezed == customTagDelimiters
             ? _self._customTagDelimiters
             : customTagDelimiters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         skipSubtitlesIfAudioTrackMatches:
-            null == skipSubtitlesIfAudioTrackMatches
+            freezed == skipSubtitlesIfAudioTrackMatches
             ? _self.skipSubtitlesIfAudioTrackMatches
             : skipSubtitlesIfAudioTrackMatches // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         preferNonstandardArtistsTag: null == preferNonstandardArtistsTag
             ? _self.preferNonstandardArtistsTag
             : preferNonstandardArtistsTag // ignore: cast_nullable_to_non_nullable

@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PluginInstallingMessage {
-  /// Class InstallationInfo.
-  @JsonKey(name: 'Data')
-  InstallationInfo get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   PluginInstallingMessageMessageType get messageType;
+
+  /// Class InstallationInfo.
+  @JsonKey(name: 'Data')
+  InstallationInfo? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of PluginInstallingMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,20 +43,20 @@ mixin _$PluginInstallingMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PluginInstallingMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'PluginInstallingMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'PluginInstallingMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -68,13 +68,13 @@ abstract mixin class $PluginInstallingMessageCopyWith<$Res> {
   ) = _$PluginInstallingMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') InstallationInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     PluginInstallingMessageMessageType messageType,
+    @JsonKey(name: 'Data') InstallationInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
-  $InstallationInfoCopyWith<$Res> get data;
+  $InstallationInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -90,24 +90,24 @@ class _$PluginInstallingMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as PluginInstallingMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -116,8 +116,12 @@ class _$PluginInstallingMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res> get data {
-    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
+  $InstallationInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -217,10 +221,10 @@ extension PluginInstallingMessagePatterns on PluginInstallingMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') InstallationInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginInstallingMessageMessageType messageType,
+      @JsonKey(name: 'Data') InstallationInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -228,7 +232,7 @@ extension PluginInstallingMessagePatterns on PluginInstallingMessage {
     final _that = this;
     switch (_that) {
       case _PluginInstallingMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -250,17 +254,17 @@ extension PluginInstallingMessagePatterns on PluginInstallingMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') InstallationInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginInstallingMessageMessageType messageType,
+      @JsonKey(name: 'Data') InstallationInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PluginInstallingMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -281,17 +285,17 @@ extension PluginInstallingMessagePatterns on PluginInstallingMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') InstallationInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       PluginInstallingMessageMessageType messageType,
+      @JsonKey(name: 'Data') InstallationInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _PluginInstallingMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -302,28 +306,28 @@ extension PluginInstallingMessagePatterns on PluginInstallingMessage {
 @JsonSerializable()
 class _PluginInstallingMessage implements PluginInstallingMessage {
   const _PluginInstallingMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = PluginInstallingMessageMessageType.packageInstalling,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _PluginInstallingMessage.fromJson(Map<String, dynamic> json) =>
       _$PluginInstallingMessageFromJson(json);
-
-  /// Class InstallationInfo.
-  @override
-  @JsonKey(name: 'Data')
-  final InstallationInfo data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final PluginInstallingMessageMessageType messageType;
+
+  /// Class InstallationInfo.
+  @override
+  @JsonKey(name: 'Data')
+  final InstallationInfo? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of PluginInstallingMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -346,20 +350,20 @@ class _PluginInstallingMessage implements PluginInstallingMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PluginInstallingMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'PluginInstallingMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'PluginInstallingMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -373,14 +377,14 @@ abstract mixin class _$PluginInstallingMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') InstallationInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     PluginInstallingMessageMessageType messageType,
+    @JsonKey(name: 'Data') InstallationInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
   @override
-  $InstallationInfoCopyWith<$Res> get data;
+  $InstallationInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -396,24 +400,24 @@ class __$PluginInstallingMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _PluginInstallingMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as InstallationInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as PluginInstallingMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as InstallationInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -422,8 +426,12 @@ class __$PluginInstallingMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InstallationInfoCopyWith<$Res> get data {
-    return $InstallationInfoCopyWith<$Res>(_self.data, (value) {
+  $InstallationInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $InstallationInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

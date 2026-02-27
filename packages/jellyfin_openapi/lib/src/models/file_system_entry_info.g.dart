@@ -8,17 +8,17 @@ part of 'file_system_entry_info.dart';
 
 _FileSystemEntryInfo _$FileSystemEntryInfoFromJson(Map<String, dynamic> json) =>
     _FileSystemEntryInfo(
-      name: json['Name'] as String,
-      path: json['Path'] as String,
-      type: $enumDecode(_$FileSystemEntryInfoTypeEnumMap, json['Type']),
+      name: json['Name'] as String?,
+      path: json['Path'] as String?,
+      type: $enumDecodeNullable(_$FileSystemEntryInfoTypeEnumMap, json['Type']),
     );
 
 Map<String, dynamic> _$FileSystemEntryInfoToJson(
   _FileSystemEntryInfo instance,
 ) => <String, dynamic>{
-  'Name': instance.name,
-  'Path': instance.path,
-  'Type': instance.type.toJson(),
+  'Name': ?instance.name,
+  'Path': ?instance.path,
+  'Type': ?instance.type?.toJson(),
 };
 
 const _$FileSystemEntryInfoTypeEnumMap = {

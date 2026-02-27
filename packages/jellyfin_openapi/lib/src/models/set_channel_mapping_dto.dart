@@ -12,17 +12,15 @@ part 'set_channel_mapping_dto.g.dart';
 abstract class SetChannelMappingDto with _$SetChannelMappingDto {
   const factory SetChannelMappingDto({
     /// Gets or sets the provider id.
-    @JsonKey(name: 'ProviderId')
-    required String providerId,
+    @JsonKey(name: 'ProviderId') required String providerId,
 
     /// Gets or sets the tuner channel id.
-    @JsonKey(name: 'TunerChannelId')
-    required String tunerChannelId,
+    @JsonKey(name: 'TunerChannelId') required String tunerChannelId,
 
     /// Gets or sets the provider channel id.
-    @JsonKey(name: 'ProviderChannelId')
-    required String providerChannelId,
+    @JsonKey(name: 'ProviderChannelId') required String providerChannelId,
   }) = _SetChannelMappingDto;
-  
-  factory SetChannelMappingDto.fromJson(Map<String, Object?> json) => _$SetChannelMappingDtoFromJson(json);
+
+  factory SetChannelMappingDto.fromJson(Map<String, Object?> json) =>
+      _$SetChannelMappingDtoFromJson(json);
 }

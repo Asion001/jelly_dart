@@ -13,13 +13,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ActivityLogEntryStartMessage {
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  String? get data;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   ActivityLogEntryStartMessageMessageType get messageType;
+
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  String? get data;
 
   /// Create a copy of ActivityLogEntryStartMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -40,18 +40,18 @@ mixin _$ActivityLogEntryStartMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ActivityLogEntryStartMessage &&
-            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data);
 
   @override
   String toString() {
-    return 'ActivityLogEntryStartMessage(data: $data, messageType: $messageType)';
+    return 'ActivityLogEntryStartMessage(messageType: $messageType, data: $data)';
   }
 }
 
@@ -63,9 +63,9 @@ abstract mixin class $ActivityLogEntryStartMessageCopyWith<$Res> {
   ) = _$ActivityLogEntryStartMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') String? data,
     @JsonKey(name: 'MessageType')
     ActivityLogEntryStartMessageMessageType messageType,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -81,17 +81,17 @@ class _$ActivityLogEntryStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = freezed, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? data = freezed}) {
     return _then(
       _self.copyWith(
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String?,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ActivityLogEntryStartMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -191,9 +191,9 @@ extension ActivityLogEntryStartMessagePatterns on ActivityLogEntryStartMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') String? data,
       @JsonKey(name: 'MessageType')
       ActivityLogEntryStartMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default, {
     required TResult orElse(),
@@ -201,7 +201,7 @@ extension ActivityLogEntryStartMessagePatterns on ActivityLogEntryStartMessage {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStartMessage() when $default != null:
-        return $default(_that.data, _that.messageType);
+        return $default(_that.messageType, _that.data);
       case _:
         return orElse();
     }
@@ -223,16 +223,16 @@ extension ActivityLogEntryStartMessagePatterns on ActivityLogEntryStartMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') String? data,
       @JsonKey(name: 'MessageType')
       ActivityLogEntryStartMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStartMessage():
-        return $default(_that.data, _that.messageType);
+        return $default(_that.messageType, _that.data);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -253,16 +253,16 @@ extension ActivityLogEntryStartMessagePatterns on ActivityLogEntryStartMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') String? data,
       @JsonKey(name: 'MessageType')
       ActivityLogEntryStartMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ActivityLogEntryStartMessage() when $default != null:
-        return $default(_that.data, _that.messageType);
+        return $default(_that.messageType, _that.data);
       case _:
         return null;
     }
@@ -273,23 +273,23 @@ extension ActivityLogEntryStartMessagePatterns on ActivityLogEntryStartMessage {
 @JsonSerializable()
 class _ActivityLogEntryStartMessage implements ActivityLogEntryStartMessage {
   const _ActivityLogEntryStartMessage({
-    @JsonKey(name: 'Data') required this.data,
     @JsonKey(name: 'MessageType')
     this.messageType =
         ActivityLogEntryStartMessageMessageType.activityLogEntryStart,
+    @JsonKey(name: 'Data') this.data,
   });
   factory _ActivityLogEntryStartMessage.fromJson(Map<String, dynamic> json) =>
       _$ActivityLogEntryStartMessageFromJson(json);
-
-  /// Gets or sets the data.
-  @override
-  @JsonKey(name: 'Data')
-  final String? data;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final ActivityLogEntryStartMessageMessageType messageType;
+
+  /// Gets or sets the data.
+  @override
+  @JsonKey(name: 'Data')
+  final String? data;
 
   /// Create a copy of ActivityLogEntryStartMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -312,18 +312,18 @@ class _ActivityLogEntryStartMessage implements ActivityLogEntryStartMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ActivityLogEntryStartMessage &&
-            (identical(other.data, data) || other.data == data) &&
             (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageType == messageType) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data);
 
   @override
   String toString() {
-    return 'ActivityLogEntryStartMessage(data: $data, messageType: $messageType)';
+    return 'ActivityLogEntryStartMessage(messageType: $messageType, data: $data)';
   }
 }
 
@@ -337,9 +337,9 @@ abstract mixin class _$ActivityLogEntryStartMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') String? data,
     @JsonKey(name: 'MessageType')
     ActivityLogEntryStartMessageMessageType messageType,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -355,17 +355,17 @@ class __$ActivityLogEntryStartMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? data = freezed, Object? messageType = null}) {
+  $Res call({Object? messageType = null, Object? data = freezed}) {
     return _then(
       _ActivityLogEntryStartMessage(
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String?,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ActivityLogEntryStartMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

@@ -14,17 +14,15 @@ part 'lyric_line.g.dart';
 abstract class LyricLine with _$LyricLine {
   const factory LyricLine({
     /// Gets the text of this lyric line.
-    @JsonKey(name: 'Text')
-    String? text,
+    @JsonKey(name: 'Text') String? text,
 
     /// Gets the start time in ticks.
-    @JsonKey(name: 'Start')
-    int? start,
+    @JsonKey(name: 'Start') int? start,
 
     /// Gets the time-aligned cues for the song's lyrics.
-    @JsonKey(name: 'Cues')
-    List<LyricLineCue>? cues,
+    @JsonKey(name: 'Cues') List<LyricLineCue>? cues,
   }) = _LyricLine;
-  
-  factory LyricLine.fromJson(Map<String, Object?> json) => _$LyricLineFromJson(json);
+
+  factory LyricLine.fromJson(Map<String, Object?> json) =>
+      _$LyricLineFromJson(json);
 }

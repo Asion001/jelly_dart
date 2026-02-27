@@ -9,22 +9,24 @@ part of 'sync_play_command_message.dart';
 _SyncPlayCommandMessage _$SyncPlayCommandMessageFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayCommandMessage(
-  data: SendCommand.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$SyncPlayCommandMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       SyncPlayCommandMessageMessageType.syncPlayCommand,
+  data: json['Data'] == null
+      ? null
+      : SendCommand.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$SyncPlayCommandMessageToJson(
   _SyncPlayCommandMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$SyncPlayCommandMessageMessageTypeEnumMap = {

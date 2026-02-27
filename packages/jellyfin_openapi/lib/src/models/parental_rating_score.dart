@@ -17,6 +17,7 @@ abstract class ParentalRatingScore with _$ParentalRatingScore {
     /// Gets or sets the sub score.
     int? subScore,
   }) = _ParentalRatingScore;
-  
-  factory ParentalRatingScore.fromJson(Map<String, Object?> json) => _$ParentalRatingScoreFromJson(json);
+
+  factory ParentalRatingScore.fromJson(Map<String, Object?> json) =>
+      _$ParentalRatingScoreFromJson(json);
 }

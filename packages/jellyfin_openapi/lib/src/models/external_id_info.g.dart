@@ -8,15 +8,15 @@ part of 'external_id_info.dart';
 
 _ExternalIdInfo _$ExternalIdInfoFromJson(Map<String, dynamic> json) =>
     _ExternalIdInfo(
-      name: json['Name'] as String,
-      key: json['Key'] as String,
+      name: json['Name'] as String?,
+      key: json['Key'] as String?,
       type: $enumDecodeNullable(_$ExternalIdInfoTypeEnumMap, json['Type']),
     );
 
 Map<String, dynamic> _$ExternalIdInfoToJson(_ExternalIdInfo instance) =>
     <String, dynamic>{
-      'Name': instance.name,
-      'Key': instance.key,
+      'Name': ?instance.name,
+      'Key': ?instance.key,
       'Type': ?instance.type?.toJson(),
     };
 

@@ -19,7 +19,8 @@ enum MediaProtocol {
   @JsonValue('Rtp')
   rtp('Rtp'),
   @JsonValue('Ftp')
-  ftp('Ftp');
+  ftp('Ftp')
+  ;
 
   const MediaProtocol(this.json);
 
@@ -27,8 +28,10 @@ enum MediaProtocol {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

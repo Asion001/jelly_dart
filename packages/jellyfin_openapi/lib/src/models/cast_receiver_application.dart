@@ -12,13 +12,12 @@ part 'cast_receiver_application.g.dart';
 abstract class CastReceiverApplication with _$CastReceiverApplication {
   const factory CastReceiverApplication({
     /// Gets or sets the cast receiver application id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the cast receiver application name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
   }) = _CastReceiverApplication;
-  
-  factory CastReceiverApplication.fromJson(Map<String, Object?> json) => _$CastReceiverApplicationFromJson(json);
+
+  factory CastReceiverApplication.fromJson(Map<String, Object?> json) =>
+      _$CastReceiverApplicationFromJson(json);
 }

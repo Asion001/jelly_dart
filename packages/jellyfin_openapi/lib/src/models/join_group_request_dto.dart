@@ -12,9 +12,9 @@ part 'join_group_request_dto.g.dart';
 abstract class JoinGroupRequestDto with _$JoinGroupRequestDto {
   const factory JoinGroupRequestDto({
     /// Gets or sets the group identifier.
-    @JsonKey(name: 'GroupId')
-    String? groupId,
+    @JsonKey(name: 'GroupId') String? groupId,
   }) = _JoinGroupRequestDto;
-  
-  factory JoinGroupRequestDto.fromJson(Map<String, Object?> json) => _$JoinGroupRequestDtoFromJson(json);
+
+  factory JoinGroupRequestDto.fromJson(Map<String, Object?> json) =>
+      _$JoinGroupRequestDtoFromJson(json);
 }

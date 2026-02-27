@@ -16,33 +16,29 @@ part 'client_capabilities_dto.g.dart';
 abstract class ClientCapabilitiesDto with _$ClientCapabilitiesDto {
   const factory ClientCapabilitiesDto({
     /// Gets or sets the list of playable media types.
-    @JsonKey(name: 'PlayableMediaTypes')
-    required List<MediaType> playableMediaTypes,
+    @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
 
     /// Gets or sets the list of supported commands.
     @JsonKey(name: 'SupportedCommands')
-    required List<GeneralCommandType> supportedCommands,
+    List<GeneralCommandType>? supportedCommands,
 
     /// Gets or sets a value indicating whether session supports media control.
-    @JsonKey(name: 'SupportsMediaControl')
-    required bool supportsMediaControl,
+    @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
 
     /// Gets or sets a value indicating whether session supports a persistent identifier.
     @JsonKey(name: 'SupportsPersistentIdentifier')
-    required bool supportsPersistentIdentifier,
+    bool? supportsPersistentIdentifier,
 
     /// Gets or sets the device profile.
-    @JsonKey(name: 'DeviceProfile')
-    required DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
 
     /// Gets or sets the app store url.
-    @JsonKey(name: 'AppStoreUrl')
-    required String? appStoreUrl,
+    @JsonKey(name: 'AppStoreUrl') String? appStoreUrl,
 
     /// Gets or sets the icon url.
-    @JsonKey(name: 'IconUrl')
-    required String? iconUrl,
+    @JsonKey(name: 'IconUrl') String? iconUrl,
   }) = _ClientCapabilitiesDto;
-  
-  factory ClientCapabilitiesDto.fromJson(Map<String, Object?> json) => _$ClientCapabilitiesDtoFromJson(json);
+
+  factory ClientCapabilitiesDto.fromJson(Map<String, Object?> json) =>
+      _$ClientCapabilitiesDtoFromJson(json);
 }

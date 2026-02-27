@@ -12,11 +12,10 @@ part 'query_filters.g.dart';
 @Freezed()
 abstract class QueryFilters with _$QueryFilters {
   const factory QueryFilters({
-    @JsonKey(name: 'Genres')
-    List<NameGuidPair>? genres,
-    @JsonKey(name: 'Tags')
-    List<String>? tags,
+    @JsonKey(name: 'Genres') List<NameGuidPair>? genres,
+    @JsonKey(name: 'Tags') List<String>? tags,
   }) = _QueryFilters;
-  
-  factory QueryFilters.fromJson(Map<String, Object?> json) => _$QueryFiltersFromJson(json);
+
+  factory QueryFilters.fromJson(Map<String, Object?> json) =>
+      _$QueryFiltersFromJson(json);
 }

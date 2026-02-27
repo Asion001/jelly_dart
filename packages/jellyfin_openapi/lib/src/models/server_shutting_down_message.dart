@@ -13,15 +13,15 @@ part 'server_shutting_down_message.g.dart';
 @Freezed()
 abstract class ServerShuttingDownMessage with _$ServerShuttingDownMessage {
   const factory ServerShuttingDownMessage({
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ServerShuttingDownMessageMessageType.serverShuttingDown)
     ServerShuttingDownMessageMessageType messageType,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _ServerShuttingDownMessage;
-  
-  factory ServerShuttingDownMessage.fromJson(Map<String, Object?> json) => _$ServerShuttingDownMessageFromJson(json);
+
+  factory ServerShuttingDownMessage.fromJson(Map<String, Object?> json) =>
+      _$ServerShuttingDownMessageFromJson(json);
 }

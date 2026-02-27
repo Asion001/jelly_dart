@@ -8,11 +8,13 @@ part of 'add_virtual_folder_dto.dart';
 
 _AddVirtualFolderDto _$AddVirtualFolderDtoFromJson(Map<String, dynamic> json) =>
     _AddVirtualFolderDto(
-      libraryOptions: LibraryOptions.fromJson(
-        json['LibraryOptions'] as Map<String, dynamic>,
-      ),
+      libraryOptions: json['LibraryOptions'] == null
+          ? null
+          : LibraryOptions.fromJson(
+              json['LibraryOptions'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$AddVirtualFolderDtoToJson(
   _AddVirtualFolderDto instance,
-) => <String, dynamic>{'LibraryOptions': instance.libraryOptions.toJson()};
+) => <String, dynamic>{'LibraryOptions': ?instance.libraryOptions?.toJson()};

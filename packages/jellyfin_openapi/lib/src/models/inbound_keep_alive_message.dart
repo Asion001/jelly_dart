@@ -18,6 +18,7 @@ abstract class InboundKeepAliveMessage with _$InboundKeepAliveMessage {
     @Default(InboundKeepAliveMessageMessageType.keepAlive)
     InboundKeepAliveMessageMessageType messageType,
   }) = _InboundKeepAliveMessage;
-  
-  factory InboundKeepAliveMessage.fromJson(Map<String, Object?> json) => _$InboundKeepAliveMessageFromJson(json);
+
+  factory InboundKeepAliveMessage.fromJson(Map<String, Object?> json) =>
+      _$InboundKeepAliveMessageFromJson(json);
 }

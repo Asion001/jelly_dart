@@ -15,23 +15,23 @@ T _$identity<T>(T value) => value;
 mixin _$AccessSchedule {
   /// Gets the id of this instance.
   @JsonKey(name: 'Id')
-  int get id;
+  int? get id;
 
   /// Gets the id of the associated user.
   @JsonKey(name: 'UserId')
-  String get userId;
+  String? get userId;
 
   /// Gets or sets the day of week.
   @JsonKey(name: 'DayOfWeek')
-  AccessScheduleDayOfWeek get dayOfWeek;
+  AccessScheduleDayOfWeek? get dayOfWeek;
 
   /// Gets or sets the start hour.
   @JsonKey(name: 'StartHour')
-  double get startHour;
+  double? get startHour;
 
   /// Gets or sets the end hour.
   @JsonKey(name: 'EndHour')
-  double get endHour;
+  double? get endHour;
 
   /// Create a copy of AccessSchedule
   /// with the given fields replaced by the non-null parameter values.
@@ -79,11 +79,11 @@ abstract mixin class $AccessScheduleCopyWith<$Res> {
   ) = _$AccessScheduleCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') int id,
-    @JsonKey(name: 'UserId') String userId,
-    @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek dayOfWeek,
-    @JsonKey(name: 'StartHour') double startHour,
-    @JsonKey(name: 'EndHour') double endHour,
+    @JsonKey(name: 'Id') int? id,
+    @JsonKey(name: 'UserId') String? userId,
+    @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek? dayOfWeek,
+    @JsonKey(name: 'StartHour') double? startHour,
+    @JsonKey(name: 'EndHour') double? endHour,
   });
 }
 
@@ -100,34 +100,34 @@ class _$AccessScheduleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
-    Object? dayOfWeek = null,
-    Object? startHour = null,
-    Object? endHour = null,
+    Object? id = freezed,
+    Object? userId = freezed,
+    Object? dayOfWeek = freezed,
+    Object? startHour = freezed,
+    Object? endHour = freezed,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        userId: null == userId
+                  as int?,
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        dayOfWeek: null == dayOfWeek
+                  as String?,
+        dayOfWeek: freezed == dayOfWeek
             ? _self.dayOfWeek
             : dayOfWeek // ignore: cast_nullable_to_non_nullable
-                  as AccessScheduleDayOfWeek,
-        startHour: null == startHour
+                  as AccessScheduleDayOfWeek?,
+        startHour: freezed == startHour
             ? _self.startHour
             : startHour // ignore: cast_nullable_to_non_nullable
-                  as double,
-        endHour: null == endHour
+                  as double?,
+        endHour: freezed == endHour
             ? _self.endHour
             : endHour // ignore: cast_nullable_to_non_nullable
-                  as double,
+                  as double?,
       ),
     );
   }
@@ -227,11 +227,11 @@ extension AccessSchedulePatterns on AccessSchedule {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek dayOfWeek,
-      @JsonKey(name: 'StartHour') double startHour,
-      @JsonKey(name: 'EndHour') double endHour,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek? dayOfWeek,
+      @JsonKey(name: 'StartHour') double? startHour,
+      @JsonKey(name: 'EndHour') double? endHour,
     )?
     $default, {
     required TResult orElse(),
@@ -267,11 +267,11 @@ extension AccessSchedulePatterns on AccessSchedule {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek dayOfWeek,
-      @JsonKey(name: 'StartHour') double startHour,
-      @JsonKey(name: 'EndHour') double endHour,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek? dayOfWeek,
+      @JsonKey(name: 'StartHour') double? startHour,
+      @JsonKey(name: 'EndHour') double? endHour,
     )
     $default,
   ) {
@@ -305,11 +305,11 @@ extension AccessSchedulePatterns on AccessSchedule {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') int id,
-      @JsonKey(name: 'UserId') String userId,
-      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek dayOfWeek,
-      @JsonKey(name: 'StartHour') double startHour,
-      @JsonKey(name: 'EndHour') double endHour,
+      @JsonKey(name: 'Id') int? id,
+      @JsonKey(name: 'UserId') String? userId,
+      @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek? dayOfWeek,
+      @JsonKey(name: 'StartHour') double? startHour,
+      @JsonKey(name: 'EndHour') double? endHour,
     )?
     $default,
   ) {
@@ -333,11 +333,11 @@ extension AccessSchedulePatterns on AccessSchedule {
 @JsonSerializable()
 class _AccessSchedule implements AccessSchedule {
   const _AccessSchedule({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'UserId') required this.userId,
-    @JsonKey(name: 'DayOfWeek') required this.dayOfWeek,
-    @JsonKey(name: 'StartHour') required this.startHour,
-    @JsonKey(name: 'EndHour') required this.endHour,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'UserId') this.userId,
+    @JsonKey(name: 'DayOfWeek') this.dayOfWeek,
+    @JsonKey(name: 'StartHour') this.startHour,
+    @JsonKey(name: 'EndHour') this.endHour,
   });
   factory _AccessSchedule.fromJson(Map<String, dynamic> json) =>
       _$AccessScheduleFromJson(json);
@@ -345,27 +345,27 @@ class _AccessSchedule implements AccessSchedule {
   /// Gets the id of this instance.
   @override
   @JsonKey(name: 'Id')
-  final int id;
+  final int? id;
 
   /// Gets the id of the associated user.
   @override
   @JsonKey(name: 'UserId')
-  final String userId;
+  final String? userId;
 
   /// Gets or sets the day of week.
   @override
   @JsonKey(name: 'DayOfWeek')
-  final AccessScheduleDayOfWeek dayOfWeek;
+  final AccessScheduleDayOfWeek? dayOfWeek;
 
   /// Gets or sets the start hour.
   @override
   @JsonKey(name: 'StartHour')
-  final double startHour;
+  final double? startHour;
 
   /// Gets or sets the end hour.
   @override
   @JsonKey(name: 'EndHour')
-  final double endHour;
+  final double? endHour;
 
   /// Create a copy of AccessSchedule
   /// with the given fields replaced by the non-null parameter values.
@@ -415,11 +415,11 @@ abstract mixin class _$AccessScheduleCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') int id,
-    @JsonKey(name: 'UserId') String userId,
-    @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek dayOfWeek,
-    @JsonKey(name: 'StartHour') double startHour,
-    @JsonKey(name: 'EndHour') double endHour,
+    @JsonKey(name: 'Id') int? id,
+    @JsonKey(name: 'UserId') String? userId,
+    @JsonKey(name: 'DayOfWeek') AccessScheduleDayOfWeek? dayOfWeek,
+    @JsonKey(name: 'StartHour') double? startHour,
+    @JsonKey(name: 'EndHour') double? endHour,
   });
 }
 
@@ -436,34 +436,34 @@ class __$AccessScheduleCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? userId = null,
-    Object? dayOfWeek = null,
-    Object? startHour = null,
-    Object? endHour = null,
+    Object? id = freezed,
+    Object? userId = freezed,
+    Object? dayOfWeek = freezed,
+    Object? startHour = freezed,
+    Object? endHour = freezed,
   }) {
     return _then(
       _AccessSchedule(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        userId: null == userId
+                  as int?,
+        userId: freezed == userId
             ? _self.userId
             : userId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        dayOfWeek: null == dayOfWeek
+                  as String?,
+        dayOfWeek: freezed == dayOfWeek
             ? _self.dayOfWeek
             : dayOfWeek // ignore: cast_nullable_to_non_nullable
-                  as AccessScheduleDayOfWeek,
-        startHour: null == startHour
+                  as AccessScheduleDayOfWeek?,
+        startHour: freezed == startHour
             ? _self.startHour
             : startHour // ignore: cast_nullable_to_non_nullable
-                  as double,
-        endHour: null == endHour
+                  as double?,
+        endHour: freezed == endHour
             ? _self.endHour
             : endHour // ignore: cast_nullable_to_non_nullable
-                  as double,
+                  as double?,
       ),
     );
   }

@@ -14,21 +14,18 @@ part 'theme_media_result.g.dart';
 abstract class ThemeMediaResult with _$ThemeMediaResult {
   const factory ThemeMediaResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<BaseItemDto>? items,
+    @JsonKey(name: 'Items') List<BaseItemDto>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
 
     /// Gets or sets the owner id.
-    @JsonKey(name: 'OwnerId')
-    String? ownerId,
+    @JsonKey(name: 'OwnerId') String? ownerId,
   }) = _ThemeMediaResult;
-  
-  factory ThemeMediaResult.fromJson(Map<String, Object?> json) => _$ThemeMediaResultFromJson(json);
+
+  factory ThemeMediaResult.fromJson(Map<String, Object?> json) =>
+      _$ThemeMediaResultFromJson(json);
 }

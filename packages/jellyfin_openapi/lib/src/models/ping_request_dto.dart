@@ -12,9 +12,9 @@ part 'ping_request_dto.g.dart';
 abstract class PingRequestDto with _$PingRequestDto {
   const factory PingRequestDto({
     /// Gets or sets the ping time.
-    @JsonKey(name: 'Ping')
-    int? ping,
+    @JsonKey(name: 'Ping') int? ping,
   }) = _PingRequestDto;
-  
-  factory PingRequestDto.fromJson(Map<String, Object?> json) => _$PingRequestDtoFromJson(json);
+
+  factory PingRequestDto.fromJson(Map<String, Object?> json) =>
+      _$PingRequestDtoFromJson(json);
 }

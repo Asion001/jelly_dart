@@ -13,7 +13,8 @@ enum MediaSourceInfoVideoType {
   @JsonValue('Dvd')
   dvd('Dvd'),
   @JsonValue('BluRay')
-  bluRay('BluRay');
+  bluRay('BluRay')
+  ;
 
   const MediaSourceInfoVideoType(this.json);
 
@@ -21,8 +22,10 @@ enum MediaSourceInfoVideoType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

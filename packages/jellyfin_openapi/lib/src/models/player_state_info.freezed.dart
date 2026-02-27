@@ -19,15 +19,15 @@ mixin _$PlayerStateInfo {
 
   /// Gets or sets a value indicating whether this instance can seek.
   @JsonKey(name: 'CanSeek')
-  bool get canSeek;
+  bool? get canSeek;
 
   /// Gets or sets a value indicating whether this instance is paused.
   @JsonKey(name: 'IsPaused')
-  bool get isPaused;
+  bool? get isPaused;
 
   /// Gets or sets a value indicating whether this instance is muted.
   @JsonKey(name: 'IsMuted')
-  bool get isMuted;
+  bool? get isMuted;
 
   /// Gets or sets the volume level.
   @JsonKey(name: 'VolumeLevel')
@@ -51,11 +51,11 @@ mixin _$PlayerStateInfo {
 
   /// Gets or sets the repeat mode.
   @JsonKey(name: 'RepeatMode')
-  PlayerStateInfoRepeatMode get repeatMode;
+  PlayerStateInfoRepeatMode? get repeatMode;
 
   /// Gets or sets the playback order.
   @JsonKey(name: 'PlaybackOrder')
-  PlayerStateInfoPlaybackOrder get playbackOrder;
+  PlayerStateInfoPlaybackOrder? get playbackOrder;
 
   /// Gets or sets the now playing live stream identifier.
   @JsonKey(name: 'LiveStreamId')
@@ -136,16 +136,16 @@ abstract mixin class $PlayerStateInfoCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'PositionTicks') int? positionTicks,
-    @JsonKey(name: 'CanSeek') bool canSeek,
-    @JsonKey(name: 'IsPaused') bool isPaused,
-    @JsonKey(name: 'IsMuted') bool isMuted,
+    @JsonKey(name: 'CanSeek') bool? canSeek,
+    @JsonKey(name: 'IsPaused') bool? isPaused,
+    @JsonKey(name: 'IsMuted') bool? isMuted,
     @JsonKey(name: 'VolumeLevel') int? volumeLevel,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'PlayMethod') PlayerStateInfoPlayMethod? playMethod,
-    @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode repeatMode,
-    @JsonKey(name: 'PlaybackOrder') PlayerStateInfoPlaybackOrder playbackOrder,
+    @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode? repeatMode,
+    @JsonKey(name: 'PlaybackOrder') PlayerStateInfoPlaybackOrder? playbackOrder,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
   });
 }
@@ -164,16 +164,16 @@ class _$PlayerStateInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? positionTicks = freezed,
-    Object? canSeek = null,
-    Object? isPaused = null,
-    Object? isMuted = null,
+    Object? canSeek = freezed,
+    Object? isPaused = freezed,
+    Object? isMuted = freezed,
     Object? volumeLevel = freezed,
     Object? audioStreamIndex = freezed,
     Object? subtitleStreamIndex = freezed,
     Object? mediaSourceId = freezed,
     Object? playMethod = freezed,
-    Object? repeatMode = null,
-    Object? playbackOrder = null,
+    Object? repeatMode = freezed,
+    Object? playbackOrder = freezed,
     Object? liveStreamId = freezed,
   }) {
     return _then(
@@ -182,18 +182,18 @@ class _$PlayerStateInfoCopyWithImpl<$Res>
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        canSeek: null == canSeek
+        canSeek: freezed == canSeek
             ? _self.canSeek
             : canSeek // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isPaused: null == isPaused
+                  as bool?,
+        isPaused: freezed == isPaused
             ? _self.isPaused
             : isPaused // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isMuted: null == isMuted
+                  as bool?,
+        isMuted: freezed == isMuted
             ? _self.isMuted
             : isMuted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         volumeLevel: freezed == volumeLevel
             ? _self.volumeLevel
             : volumeLevel // ignore: cast_nullable_to_non_nullable
@@ -214,14 +214,14 @@ class _$PlayerStateInfoCopyWithImpl<$Res>
             ? _self.playMethod
             : playMethod // ignore: cast_nullable_to_non_nullable
                   as PlayerStateInfoPlayMethod?,
-        repeatMode: null == repeatMode
+        repeatMode: freezed == repeatMode
             ? _self.repeatMode
             : repeatMode // ignore: cast_nullable_to_non_nullable
-                  as PlayerStateInfoRepeatMode,
-        playbackOrder: null == playbackOrder
+                  as PlayerStateInfoRepeatMode?,
+        playbackOrder: freezed == playbackOrder
             ? _self.playbackOrder
             : playbackOrder // ignore: cast_nullable_to_non_nullable
-                  as PlayerStateInfoPlaybackOrder,
+                  as PlayerStateInfoPlaybackOrder?,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
@@ -326,17 +326,17 @@ extension PlayerStateInfoPatterns on PlayerStateInfo {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PlayMethod') PlayerStateInfoPlayMethod? playMethod,
-      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlayerStateInfoPlaybackOrder playbackOrder,
+      PlayerStateInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     )?
     $default, {
@@ -381,17 +381,17 @@ extension PlayerStateInfoPatterns on PlayerStateInfo {
   TResult when<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PlayMethod') PlayerStateInfoPlayMethod? playMethod,
-      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlayerStateInfoPlaybackOrder playbackOrder,
+      PlayerStateInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     )
     $default,
@@ -434,17 +434,17 @@ extension PlayerStateInfoPatterns on PlayerStateInfo {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
       @JsonKey(name: 'PositionTicks') int? positionTicks,
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'PlayMethod') PlayerStateInfoPlayMethod? playMethod,
-      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlayerStateInfoPlaybackOrder playbackOrder,
+      PlayerStateInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     )?
     $default,
@@ -476,18 +476,18 @@ extension PlayerStateInfoPatterns on PlayerStateInfo {
 @JsonSerializable()
 class _PlayerStateInfo implements PlayerStateInfo {
   const _PlayerStateInfo({
-    @JsonKey(name: 'PositionTicks') required this.positionTicks,
-    @JsonKey(name: 'CanSeek') required this.canSeek,
-    @JsonKey(name: 'IsPaused') required this.isPaused,
-    @JsonKey(name: 'IsMuted') required this.isMuted,
-    @JsonKey(name: 'VolumeLevel') required this.volumeLevel,
-    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
-    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
-    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
-    @JsonKey(name: 'PlayMethod') required this.playMethod,
-    @JsonKey(name: 'RepeatMode') required this.repeatMode,
-    @JsonKey(name: 'PlaybackOrder') required this.playbackOrder,
-    @JsonKey(name: 'LiveStreamId') required this.liveStreamId,
+    @JsonKey(name: 'PositionTicks') this.positionTicks,
+    @JsonKey(name: 'CanSeek') this.canSeek,
+    @JsonKey(name: 'IsPaused') this.isPaused,
+    @JsonKey(name: 'IsMuted') this.isMuted,
+    @JsonKey(name: 'VolumeLevel') this.volumeLevel,
+    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
+    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
+    @JsonKey(name: 'PlayMethod') this.playMethod,
+    @JsonKey(name: 'RepeatMode') this.repeatMode,
+    @JsonKey(name: 'PlaybackOrder') this.playbackOrder,
+    @JsonKey(name: 'LiveStreamId') this.liveStreamId,
   });
   factory _PlayerStateInfo.fromJson(Map<String, dynamic> json) =>
       _$PlayerStateInfoFromJson(json);
@@ -500,17 +500,17 @@ class _PlayerStateInfo implements PlayerStateInfo {
   /// Gets or sets a value indicating whether this instance can seek.
   @override
   @JsonKey(name: 'CanSeek')
-  final bool canSeek;
+  final bool? canSeek;
 
   /// Gets or sets a value indicating whether this instance is paused.
   @override
   @JsonKey(name: 'IsPaused')
-  final bool isPaused;
+  final bool? isPaused;
 
   /// Gets or sets a value indicating whether this instance is muted.
   @override
   @JsonKey(name: 'IsMuted')
-  final bool isMuted;
+  final bool? isMuted;
 
   /// Gets or sets the volume level.
   @override
@@ -540,12 +540,12 @@ class _PlayerStateInfo implements PlayerStateInfo {
   /// Gets or sets the repeat mode.
   @override
   @JsonKey(name: 'RepeatMode')
-  final PlayerStateInfoRepeatMode repeatMode;
+  final PlayerStateInfoRepeatMode? repeatMode;
 
   /// Gets or sets the playback order.
   @override
   @JsonKey(name: 'PlaybackOrder')
-  final PlayerStateInfoPlaybackOrder playbackOrder;
+  final PlayerStateInfoPlaybackOrder? playbackOrder;
 
   /// Gets or sets the now playing live stream identifier.
   @override
@@ -629,16 +629,16 @@ abstract mixin class _$PlayerStateInfoCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: 'PositionTicks') int? positionTicks,
-    @JsonKey(name: 'CanSeek') bool canSeek,
-    @JsonKey(name: 'IsPaused') bool isPaused,
-    @JsonKey(name: 'IsMuted') bool isMuted,
+    @JsonKey(name: 'CanSeek') bool? canSeek,
+    @JsonKey(name: 'IsPaused') bool? isPaused,
+    @JsonKey(name: 'IsMuted') bool? isMuted,
     @JsonKey(name: 'VolumeLevel') int? volumeLevel,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'PlayMethod') PlayerStateInfoPlayMethod? playMethod,
-    @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode repeatMode,
-    @JsonKey(name: 'PlaybackOrder') PlayerStateInfoPlaybackOrder playbackOrder,
+    @JsonKey(name: 'RepeatMode') PlayerStateInfoRepeatMode? repeatMode,
+    @JsonKey(name: 'PlaybackOrder') PlayerStateInfoPlaybackOrder? playbackOrder,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
   });
 }
@@ -657,16 +657,16 @@ class __$PlayerStateInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? positionTicks = freezed,
-    Object? canSeek = null,
-    Object? isPaused = null,
-    Object? isMuted = null,
+    Object? canSeek = freezed,
+    Object? isPaused = freezed,
+    Object? isMuted = freezed,
     Object? volumeLevel = freezed,
     Object? audioStreamIndex = freezed,
     Object? subtitleStreamIndex = freezed,
     Object? mediaSourceId = freezed,
     Object? playMethod = freezed,
-    Object? repeatMode = null,
-    Object? playbackOrder = null,
+    Object? repeatMode = freezed,
+    Object? playbackOrder = freezed,
     Object? liveStreamId = freezed,
   }) {
     return _then(
@@ -675,18 +675,18 @@ class __$PlayerStateInfoCopyWithImpl<$Res>
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        canSeek: null == canSeek
+        canSeek: freezed == canSeek
             ? _self.canSeek
             : canSeek // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isPaused: null == isPaused
+                  as bool?,
+        isPaused: freezed == isPaused
             ? _self.isPaused
             : isPaused // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isMuted: null == isMuted
+                  as bool?,
+        isMuted: freezed == isMuted
             ? _self.isMuted
             : isMuted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         volumeLevel: freezed == volumeLevel
             ? _self.volumeLevel
             : volumeLevel // ignore: cast_nullable_to_non_nullable
@@ -707,14 +707,14 @@ class __$PlayerStateInfoCopyWithImpl<$Res>
             ? _self.playMethod
             : playMethod // ignore: cast_nullable_to_non_nullable
                   as PlayerStateInfoPlayMethod?,
-        repeatMode: null == repeatMode
+        repeatMode: freezed == repeatMode
             ? _self.repeatMode
             : repeatMode // ignore: cast_nullable_to_non_nullable
-                  as PlayerStateInfoRepeatMode,
-        playbackOrder: null == playbackOrder
+                  as PlayerStateInfoRepeatMode?,
+        playbackOrder: freezed == playbackOrder
             ? _self.playbackOrder
             : playbackOrder // ignore: cast_nullable_to_non_nullable
-                  as PlayerStateInfoPlaybackOrder,
+                  as PlayerStateInfoPlaybackOrder?,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable

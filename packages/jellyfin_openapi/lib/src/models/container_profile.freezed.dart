@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$ContainerProfile {
   /// Gets or sets the MediaBrowser.Model.Dlna.DlnaProfileType which this container must meet.
   @JsonKey(name: 'Type')
-  ContainerProfileType get type;
+  ContainerProfileType? get type;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
   @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions;
+  List<ProfileCondition>? get conditions;
 
   /// Gets or sets the container(s) which this container must meet.
   @JsonKey(name: 'Container')
@@ -82,8 +82,8 @@ abstract mixin class $ContainerProfileCopyWith<$Res> {
   ) = _$ContainerProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') ContainerProfileType type,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
+    @JsonKey(name: 'Type') ContainerProfileType? type,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
     @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'SubContainer') String? subContainer,
   });
@@ -102,21 +102,21 @@ class _$ContainerProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? conditions = null,
+    Object? type = freezed,
+    Object? conditions = freezed,
     Object? container = freezed,
     Object? subContainer = freezed,
   }) {
     return _then(
       _self.copyWith(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as ContainerProfileType,
-        conditions: null == conditions
+                  as ContainerProfileType?,
+        conditions: freezed == conditions
             ? _self.conditions
             : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
+                  as List<ProfileCondition>?,
         container: freezed == container
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable
@@ -224,8 +224,8 @@ extension ContainerProfilePatterns on ContainerProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') ContainerProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
+      @JsonKey(name: 'Type') ContainerProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
     )?
@@ -262,8 +262,8 @@ extension ContainerProfilePatterns on ContainerProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Type') ContainerProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
+      @JsonKey(name: 'Type') ContainerProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
     )
@@ -298,8 +298,8 @@ extension ContainerProfilePatterns on ContainerProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Type') ContainerProfileType type,
-      @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
+      @JsonKey(name: 'Type') ContainerProfileType? type,
+      @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
       @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'SubContainer') String? subContainer,
     )?
@@ -324,11 +324,10 @@ extension ContainerProfilePatterns on ContainerProfile {
 @JsonSerializable()
 class _ContainerProfile implements ContainerProfile {
   const _ContainerProfile({
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'Conditions')
-    required final List<ProfileCondition> conditions,
-    @JsonKey(name: 'Container') required this.container,
-    @JsonKey(name: 'SubContainer') required this.subContainer,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'Conditions') final List<ProfileCondition>? conditions,
+    @JsonKey(name: 'Container') this.container,
+    @JsonKey(name: 'SubContainer') this.subContainer,
   }) : _conditions = conditions;
   factory _ContainerProfile.fromJson(Map<String, dynamic> json) =>
       _$ContainerProfileFromJson(json);
@@ -336,18 +335,20 @@ class _ContainerProfile implements ContainerProfile {
   /// Gets or sets the MediaBrowser.Model.Dlna.DlnaProfileType which this container must meet.
   @override
   @JsonKey(name: 'Type')
-  final ContainerProfileType type;
+  final ContainerProfileType? type;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
-  final List<ProfileCondition> _conditions;
+  final List<ProfileCondition>? _conditions;
 
   /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
   @override
   @JsonKey(name: 'Conditions')
-  List<ProfileCondition> get conditions {
+  List<ProfileCondition>? get conditions {
+    final value = _conditions;
+    if (value == null) return null;
     if (_conditions is EqualUnmodifiableListView) return _conditions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_conditions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the container(s) which this container must meet.
@@ -415,8 +416,8 @@ abstract mixin class _$ContainerProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Type') ContainerProfileType type,
-    @JsonKey(name: 'Conditions') List<ProfileCondition> conditions,
+    @JsonKey(name: 'Type') ContainerProfileType? type,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
     @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'SubContainer') String? subContainer,
   });
@@ -435,21 +436,21 @@ class __$ContainerProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? type = null,
-    Object? conditions = null,
+    Object? type = freezed,
+    Object? conditions = freezed,
     Object? container = freezed,
     Object? subContainer = freezed,
   }) {
     return _then(
       _ContainerProfile(
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as ContainerProfileType,
-        conditions: null == conditions
+                  as ContainerProfileType?,
+        conditions: freezed == conditions
             ? _self._conditions
             : conditions // ignore: cast_nullable_to_non_nullable
-                  as List<ProfileCondition>,
+                  as List<ProfileCondition>?,
         container: freezed == container
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable

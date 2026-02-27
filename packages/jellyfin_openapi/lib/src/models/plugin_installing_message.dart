@@ -14,19 +14,18 @@ part 'plugin_installing_message.g.dart';
 @Freezed()
 abstract class PluginInstallingMessage with _$PluginInstallingMessage {
   const factory PluginInstallingMessage({
-    /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(PluginInstallingMessageMessageType.packageInstalling)
     PluginInstallingMessageMessageType messageType,
+
+    /// Class InstallationInfo.
+    @JsonKey(name: 'Data') InstallationInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _PluginInstallingMessage;
-  
-  factory PluginInstallingMessage.fromJson(Map<String, Object?> json) => _$PluginInstallingMessageFromJson(json);
+
+  factory PluginInstallingMessage.fromJson(Map<String, Object?> json) =>
+      _$PluginInstallingMessageFromJson(json);
 }

@@ -17,37 +17,30 @@ part 'play_queue_update.g.dart';
 abstract class PlayQueueUpdate with _$PlayQueueUpdate {
   const factory PlayQueueUpdate({
     /// Gets the request type that originated this update.
-    @JsonKey(name: 'Reason')
-    required PlayQueueUpdateReason reason,
+    @JsonKey(name: 'Reason') PlayQueueUpdateReason? reason,
 
     /// Gets the UTC time of the last change to the playing queue.
-    @JsonKey(name: 'LastUpdate')
-    required DateTime lastUpdate,
+    @JsonKey(name: 'LastUpdate') DateTime? lastUpdate,
 
     /// Gets the playlist.
-    @JsonKey(name: 'Playlist')
-    required List<SyncPlayQueueItem> playlist,
+    @JsonKey(name: 'Playlist') List<SyncPlayQueueItem>? playlist,
 
     /// Gets the playing item index in the playlist.
-    @JsonKey(name: 'PlayingItemIndex')
-    required int playingItemIndex,
+    @JsonKey(name: 'PlayingItemIndex') int? playingItemIndex,
 
     /// Gets the start position ticks.
-    @JsonKey(name: 'StartPositionTicks')
-    required int startPositionTicks,
+    @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
 
     /// Gets a value indicating whether the current item is playing.
-    @JsonKey(name: 'IsPlaying')
-    required bool isPlaying,
+    @JsonKey(name: 'IsPlaying') bool? isPlaying,
 
     /// Gets the shuffle mode.
-    @JsonKey(name: 'ShuffleMode')
-    required PlayQueueUpdateShuffleMode shuffleMode,
+    @JsonKey(name: 'ShuffleMode') PlayQueueUpdateShuffleMode? shuffleMode,
 
     /// Gets the repeat mode.
-    @JsonKey(name: 'RepeatMode')
-    required PlayQueueUpdateRepeatMode repeatMode,
+    @JsonKey(name: 'RepeatMode') PlayQueueUpdateRepeatMode? repeatMode,
   }) = _PlayQueueUpdate;
-  
-  factory PlayQueueUpdate.fromJson(Map<String, Object?> json) => _$PlayQueueUpdateFromJson(json);
+
+  factory PlayQueueUpdate.fromJson(Map<String, Object?> json) =>
+      _$PlayQueueUpdateFromJson(json);
 }

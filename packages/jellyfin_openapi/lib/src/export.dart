@@ -587,4 +587,3 @@ export 'models/user_updated_message_message_type.dart';
 export 'models/virtual_folder_info_collection_type.dart';
 // Root client
 export 'rest_client.dart';
-

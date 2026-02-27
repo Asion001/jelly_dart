@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$ServerConfiguration {
   /// Gets or sets the maximum percentage of an item that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
   @JsonKey(name: 'MaxResumePct')
-  int get maxResumePct;
+  int? get maxResumePct;
 
   /// Gets or sets a value indicating whether this instance is first run.
   @JsonKey(name: 'IsStartupWizardCompleted')
-  bool get isStartupWizardCompleted;
+  bool? get isStartupWizardCompleted;
 
   /// Gets or sets the cache path.
   @JsonKey(name: 'CachePath')
@@ -37,73 +37,73 @@ mixin _$ServerConfiguration {
 
   /// Gets or sets a value indicating whether to enable prometheus metrics exporting.
   @JsonKey(name: 'EnableMetrics')
-  bool get enableMetrics;
+  bool? get enableMetrics;
   @JsonKey(name: 'EnableNormalizedItemByNameIds')
-  bool get enableNormalizedItemByNameIds;
+  bool? get enableNormalizedItemByNameIds;
 
   /// Gets or sets a value indicating whether this instance is port authorized.
   @JsonKey(name: 'IsPortAuthorized')
-  bool get isPortAuthorized;
+  bool? get isPortAuthorized;
 
   /// Gets or sets a value indicating whether quick connect is available for use on this server.
   @JsonKey(name: 'QuickConnectAvailable')
-  bool get quickConnectAvailable;
+  bool? get quickConnectAvailable;
 
   /// Gets or sets a value indicating whether [enable case-sensitive item ids].
   @JsonKey(name: 'EnableCaseSensitiveItemIds')
-  bool get enableCaseSensitiveItemIds;
+  bool? get enableCaseSensitiveItemIds;
   @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-  bool get disableLiveTvChannelUserDataName;
+  bool? get disableLiveTvChannelUserDataName;
 
   /// Gets or sets the metadata path.
   @JsonKey(name: 'MetadataPath')
-  String get metadataPath;
+  String? get metadataPath;
 
   /// Gets or sets the preferred metadata language.
   @JsonKey(name: 'PreferredMetadataLanguage')
-  String get preferredMetadataLanguage;
+  String? get preferredMetadataLanguage;
 
   /// Gets or sets the metadata country code.
   @JsonKey(name: 'MetadataCountryCode')
-  String get metadataCountryCode;
+  String? get metadataCountryCode;
 
   /// Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
   @JsonKey(name: 'SortReplaceCharacters')
-  List<String> get sortReplaceCharacters;
+  List<String>? get sortReplaceCharacters;
 
   /// Gets or sets characters to be removed from strings to create a sort name.
   @JsonKey(name: 'SortRemoveCharacters')
-  List<String> get sortRemoveCharacters;
+  List<String>? get sortRemoveCharacters;
 
   /// Gets or sets words to be removed from strings to create a sort name.
   @JsonKey(name: 'SortRemoveWords')
-  List<String> get sortRemoveWords;
+  List<String>? get sortRemoveWords;
 
   /// Gets or sets the minimum percentage of an item that must be played in order for playstate to be updated.
   @JsonKey(name: 'MinResumePct')
-  int get minResumePct;
+  int? get minResumePct;
 
   /// Gets or sets the number of days we should retain log files.
   @JsonKey(name: 'LogFileRetentionDays')
-  int get logFileRetentionDays;
+  int? get logFileRetentionDays;
 
   /// Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates..
   @JsonKey(name: 'MinResumeDurationSeconds')
-  int get minResumeDurationSeconds;
+  int? get minResumeDurationSeconds;
 
   /// Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated.
   @JsonKey(name: 'MinAudiobookResume')
-  int get minAudiobookResume;
+  int? get minAudiobookResume;
 
   /// Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
   @JsonKey(name: 'MaxAudiobookResume')
-  int get maxAudiobookResume;
+  int? get maxAudiobookResume;
 
   /// Gets or sets the threshold in minutes after a inactive session gets closed automatically.
   ///
   /// If set to 0 the check for inactive sessions gets disabled.
   @JsonKey(name: 'InactiveSessionThreshold')
-  int get inactiveSessionThreshold;
+  int? get inactiveSessionThreshold;
 
   /// Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed.
   ///
@@ -111,65 +111,65 @@ mixin _$ServerConfiguration {
   ///
   /// different directories and files.
   @JsonKey(name: 'LibraryMonitorDelay')
-  int get libraryMonitorDelay;
+  int? get libraryMonitorDelay;
 
   /// Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
   @JsonKey(name: 'LibraryUpdateDuration')
-  int get libraryUpdateDuration;
+  int? get libraryUpdateDuration;
 
   /// Gets or sets the maximum amount of items to cache.
   @JsonKey(name: 'CacheSize')
-  int get cacheSize;
+  int? get cacheSize;
 
   /// Gets or sets the image saving convention.
   @JsonKey(name: 'ImageSavingConvention')
-  ServerConfigurationImageSavingConvention get imageSavingConvention;
+  ServerConfigurationImageSavingConvention? get imageSavingConvention;
   @JsonKey(name: 'MetadataOptions')
-  List<MetadataOptions> get metadataOptions;
+  List<MetadataOptions>? get metadataOptions;
   @JsonKey(name: 'SkipDeserializationForBasicTypes')
-  bool get skipDeserializationForBasicTypes;
+  bool? get skipDeserializationForBasicTypes;
   @JsonKey(name: 'ServerName')
-  String get serverName;
+  String? get serverName;
   @JsonKey(name: 'UICulture')
-  String get uiCulture;
+  String? get uiCulture;
   @JsonKey(name: 'SaveMetadataHidden')
-  bool get saveMetadataHidden;
+  bool? get saveMetadataHidden;
   @JsonKey(name: 'ContentTypes')
-  List<NameValuePair> get contentTypes;
+  List<NameValuePair>? get contentTypes;
   @JsonKey(name: 'RemoteClientBitrateLimit')
-  int get remoteClientBitrateLimit;
+  int? get remoteClientBitrateLimit;
   @JsonKey(name: 'EnableFolderView')
-  bool get enableFolderView;
+  bool? get enableFolderView;
   @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-  bool get enableGroupingMoviesIntoCollections;
+  bool? get enableGroupingMoviesIntoCollections;
 
   /// Gets or sets a value indicating whether old authorization methods are allowed.
   @JsonKey(name: 'EnableLegacyAuthorization')
-  bool get enableLegacyAuthorization;
+  bool? get enableLegacyAuthorization;
   @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-  bool get displaySpecialsWithinSeasons;
+  bool? get displaySpecialsWithinSeasons;
   @JsonKey(name: 'CodecsUsed')
-  List<String> get codecsUsed;
+  List<String>? get codecsUsed;
   @JsonKey(name: 'PluginRepositories')
-  List<RepositoryInfo> get pluginRepositories;
+  List<RepositoryInfo>? get pluginRepositories;
   @JsonKey(name: 'EnableExternalContentInSuggestions')
-  bool get enableExternalContentInSuggestions;
+  bool? get enableExternalContentInSuggestions;
   @JsonKey(name: 'ImageExtractionTimeoutMs')
-  int get imageExtractionTimeoutMs;
+  int? get imageExtractionTimeoutMs;
   @JsonKey(name: 'PathSubstitutions')
-  List<PathSubstitution> get pathSubstitutions;
+  List<PathSubstitution>? get pathSubstitutions;
 
   /// Gets or sets a value indicating whether slow server responses should be logged as a warning.
   @JsonKey(name: 'EnableSlowResponseWarning')
-  bool get enableSlowResponseWarning;
+  bool? get enableSlowResponseWarning;
 
   /// Gets or sets the threshold for the slow response time warning in ms.
   @JsonKey(name: 'SlowResponseThresholdMs')
-  int get slowResponseThresholdMs;
+  int? get slowResponseThresholdMs;
 
   /// Gets or sets the cors hosts.
   @JsonKey(name: 'CorsHosts')
-  List<String> get corsHosts;
+  List<String>? get corsHosts;
 
   /// Gets or sets the number of days we should retain activity logs.
   @JsonKey(name: 'ActivityLogRetentionDays')
@@ -177,37 +177,37 @@ mixin _$ServerConfiguration {
 
   /// Gets or sets the how the library scan fans out.
   @JsonKey(name: 'LibraryScanFanoutConcurrency')
-  int get libraryScanFanoutConcurrency;
+  int? get libraryScanFanoutConcurrency;
 
   /// Gets or sets the how many metadata refreshes can run concurrently.
   @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-  int get libraryMetadataRefreshConcurrency;
+  int? get libraryMetadataRefreshConcurrency;
 
   /// Gets or sets a value indicating whether clients should be allowed to upload logs.
   @JsonKey(name: 'AllowClientLogUpload')
-  bool get allowClientLogUpload;
+  bool? get allowClientLogUpload;
 
   /// Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation altogether.
   @JsonKey(name: 'DummyChapterDuration')
-  int get dummyChapterDuration;
+  int? get dummyChapterDuration;
 
   /// Gets or sets the chapter image resolution.
   @JsonKey(name: 'ChapterImageResolution')
-  ServerConfigurationChapterImageResolution get chapterImageResolution;
+  ServerConfigurationChapterImageResolution? get chapterImageResolution;
 
   /// Gets or sets the limit for parallel image encoding.
   @JsonKey(name: 'ParallelImageEncodingLimit')
-  int get parallelImageEncodingLimit;
+  int? get parallelImageEncodingLimit;
 
   /// Gets or sets the list of cast receiver applications.
   @JsonKey(name: 'CastReceiverApplications')
-  List<CastReceiverApplication> get castReceiverApplications;
+  List<CastReceiverApplication>? get castReceiverApplications;
 
   /// Gets or sets the trickplay options.
   @JsonKey(name: 'TrickplayOptions')
-  TrickplayOptions get trickplayOptions;
+  TrickplayOptions? get trickplayOptions;
   @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-  bool get enableGroupingShowsIntoCollections;
+  bool? get enableGroupingShowsIntoCollections;
 
   /// Create a copy of ServerConfiguration
   /// with the given fields replaced by the non-null parameter values.
@@ -508,81 +508,82 @@ abstract mixin class $ServerConfigurationCopyWith<$Res> {
   ) = _$ServerConfigurationCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'MaxResumePct') int maxResumePct,
-    @JsonKey(name: 'IsStartupWizardCompleted') bool isStartupWizardCompleted,
+    @JsonKey(name: 'MaxResumePct') int? maxResumePct,
+    @JsonKey(name: 'IsStartupWizardCompleted') bool? isStartupWizardCompleted,
     @JsonKey(name: 'CachePath') String? cachePath,
     @JsonKey(name: 'PreviousVersion') String? previousVersion,
     @JsonKey(name: 'PreviousVersionStr') String? previousVersionStr,
-    @JsonKey(name: 'EnableMetrics') bool enableMetrics,
+    @JsonKey(name: 'EnableMetrics') bool? enableMetrics,
     @JsonKey(name: 'EnableNormalizedItemByNameIds')
-    bool enableNormalizedItemByNameIds,
-    @JsonKey(name: 'IsPortAuthorized') bool isPortAuthorized,
-    @JsonKey(name: 'QuickConnectAvailable') bool quickConnectAvailable,
+    bool? enableNormalizedItemByNameIds,
+    @JsonKey(name: 'IsPortAuthorized') bool? isPortAuthorized,
+    @JsonKey(name: 'QuickConnectAvailable') bool? quickConnectAvailable,
     @JsonKey(name: 'EnableCaseSensitiveItemIds')
-    bool enableCaseSensitiveItemIds,
+    bool? enableCaseSensitiveItemIds,
     @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-    bool disableLiveTvChannelUserDataName,
-    @JsonKey(name: 'MetadataPath') String metadataPath,
+    bool? disableLiveTvChannelUserDataName,
+    @JsonKey(name: 'MetadataPath') String? metadataPath,
     @JsonKey(name: 'PreferredMetadataLanguage')
-    String preferredMetadataLanguage,
-    @JsonKey(name: 'MetadataCountryCode') String metadataCountryCode,
-    @JsonKey(name: 'SortReplaceCharacters') List<String> sortReplaceCharacters,
-    @JsonKey(name: 'SortRemoveCharacters') List<String> sortRemoveCharacters,
-    @JsonKey(name: 'SortRemoveWords') List<String> sortRemoveWords,
-    @JsonKey(name: 'MinResumePct') int minResumePct,
-    @JsonKey(name: 'LogFileRetentionDays') int logFileRetentionDays,
-    @JsonKey(name: 'MinResumeDurationSeconds') int minResumeDurationSeconds,
-    @JsonKey(name: 'MinAudiobookResume') int minAudiobookResume,
-    @JsonKey(name: 'MaxAudiobookResume') int maxAudiobookResume,
-    @JsonKey(name: 'InactiveSessionThreshold') int inactiveSessionThreshold,
-    @JsonKey(name: 'LibraryMonitorDelay') int libraryMonitorDelay,
-    @JsonKey(name: 'LibraryUpdateDuration') int libraryUpdateDuration,
-    @JsonKey(name: 'CacheSize') int cacheSize,
+    String? preferredMetadataLanguage,
+    @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
+    @JsonKey(name: 'SortReplaceCharacters') List<String>? sortReplaceCharacters,
+    @JsonKey(name: 'SortRemoveCharacters') List<String>? sortRemoveCharacters,
+    @JsonKey(name: 'SortRemoveWords') List<String>? sortRemoveWords,
+    @JsonKey(name: 'MinResumePct') int? minResumePct,
+    @JsonKey(name: 'LogFileRetentionDays') int? logFileRetentionDays,
+    @JsonKey(name: 'MinResumeDurationSeconds') int? minResumeDurationSeconds,
+    @JsonKey(name: 'MinAudiobookResume') int? minAudiobookResume,
+    @JsonKey(name: 'MaxAudiobookResume') int? maxAudiobookResume,
+    @JsonKey(name: 'InactiveSessionThreshold') int? inactiveSessionThreshold,
+    @JsonKey(name: 'LibraryMonitorDelay') int? libraryMonitorDelay,
+    @JsonKey(name: 'LibraryUpdateDuration') int? libraryUpdateDuration,
+    @JsonKey(name: 'CacheSize') int? cacheSize,
     @JsonKey(name: 'ImageSavingConvention')
-    ServerConfigurationImageSavingConvention imageSavingConvention,
-    @JsonKey(name: 'MetadataOptions') List<MetadataOptions> metadataOptions,
+    ServerConfigurationImageSavingConvention? imageSavingConvention,
+    @JsonKey(name: 'MetadataOptions') List<MetadataOptions>? metadataOptions,
     @JsonKey(name: 'SkipDeserializationForBasicTypes')
-    bool skipDeserializationForBasicTypes,
-    @JsonKey(name: 'ServerName') String serverName,
-    @JsonKey(name: 'UICulture') String uiCulture,
-    @JsonKey(name: 'SaveMetadataHidden') bool saveMetadataHidden,
-    @JsonKey(name: 'ContentTypes') List<NameValuePair> contentTypes,
-    @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-    @JsonKey(name: 'EnableFolderView') bool enableFolderView,
+    bool? skipDeserializationForBasicTypes,
+    @JsonKey(name: 'ServerName') String? serverName,
+    @JsonKey(name: 'UICulture') String? uiCulture,
+    @JsonKey(name: 'SaveMetadataHidden') bool? saveMetadataHidden,
+    @JsonKey(name: 'ContentTypes') List<NameValuePair>? contentTypes,
+    @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+    @JsonKey(name: 'EnableFolderView') bool? enableFolderView,
     @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-    bool enableGroupingMoviesIntoCollections,
-    @JsonKey(name: 'EnableLegacyAuthorization') bool enableLegacyAuthorization,
+    bool? enableGroupingMoviesIntoCollections,
+    @JsonKey(name: 'EnableLegacyAuthorization') bool? enableLegacyAuthorization,
     @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-    bool displaySpecialsWithinSeasons,
-    @JsonKey(name: 'CodecsUsed') List<String> codecsUsed,
+    bool? displaySpecialsWithinSeasons,
+    @JsonKey(name: 'CodecsUsed') List<String>? codecsUsed,
     @JsonKey(name: 'PluginRepositories')
-    List<RepositoryInfo> pluginRepositories,
+    List<RepositoryInfo>? pluginRepositories,
     @JsonKey(name: 'EnableExternalContentInSuggestions')
-    bool enableExternalContentInSuggestions,
-    @JsonKey(name: 'ImageExtractionTimeoutMs') int imageExtractionTimeoutMs,
+    bool? enableExternalContentInSuggestions,
+    @JsonKey(name: 'ImageExtractionTimeoutMs') int? imageExtractionTimeoutMs,
     @JsonKey(name: 'PathSubstitutions')
-    List<PathSubstitution> pathSubstitutions,
-    @JsonKey(name: 'EnableSlowResponseWarning') bool enableSlowResponseWarning,
-    @JsonKey(name: 'SlowResponseThresholdMs') int slowResponseThresholdMs,
-    @JsonKey(name: 'CorsHosts') List<String> corsHosts,
+    List<PathSubstitution>? pathSubstitutions,
+    @JsonKey(name: 'EnableSlowResponseWarning') bool? enableSlowResponseWarning,
+    @JsonKey(name: 'SlowResponseThresholdMs') int? slowResponseThresholdMs,
+    @JsonKey(name: 'CorsHosts') List<String>? corsHosts,
     @JsonKey(name: 'ActivityLogRetentionDays') int? activityLogRetentionDays,
     @JsonKey(name: 'LibraryScanFanoutConcurrency')
-    int libraryScanFanoutConcurrency,
+    int? libraryScanFanoutConcurrency,
     @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-    int libraryMetadataRefreshConcurrency,
-    @JsonKey(name: 'AllowClientLogUpload') bool allowClientLogUpload,
-    @JsonKey(name: 'DummyChapterDuration') int dummyChapterDuration,
+    int? libraryMetadataRefreshConcurrency,
+    @JsonKey(name: 'AllowClientLogUpload') bool? allowClientLogUpload,
+    @JsonKey(name: 'DummyChapterDuration') int? dummyChapterDuration,
     @JsonKey(name: 'ChapterImageResolution')
-    ServerConfigurationChapterImageResolution chapterImageResolution,
-    @JsonKey(name: 'ParallelImageEncodingLimit') int parallelImageEncodingLimit,
+    ServerConfigurationChapterImageResolution? chapterImageResolution,
+    @JsonKey(name: 'ParallelImageEncodingLimit')
+    int? parallelImageEncodingLimit,
     @JsonKey(name: 'CastReceiverApplications')
-    List<CastReceiverApplication> castReceiverApplications,
-    @JsonKey(name: 'TrickplayOptions') TrickplayOptions trickplayOptions,
+    List<CastReceiverApplication>? castReceiverApplications,
+    @JsonKey(name: 'TrickplayOptions') TrickplayOptions? trickplayOptions,
     @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-    bool enableGroupingShowsIntoCollections,
+    bool? enableGroupingShowsIntoCollections,
   });
 
-  $TrickplayOptionsCopyWith<$Res> get trickplayOptions;
+  $TrickplayOptionsCopyWith<$Res>? get trickplayOptions;
 }
 
 /// @nodoc
@@ -598,73 +599,73 @@ class _$ServerConfigurationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? maxResumePct = null,
-    Object? isStartupWizardCompleted = null,
+    Object? maxResumePct = freezed,
+    Object? isStartupWizardCompleted = freezed,
     Object? cachePath = freezed,
     Object? previousVersion = freezed,
     Object? previousVersionStr = freezed,
-    Object? enableMetrics = null,
-    Object? enableNormalizedItemByNameIds = null,
-    Object? isPortAuthorized = null,
-    Object? quickConnectAvailable = null,
-    Object? enableCaseSensitiveItemIds = null,
-    Object? disableLiveTvChannelUserDataName = null,
-    Object? metadataPath = null,
-    Object? preferredMetadataLanguage = null,
-    Object? metadataCountryCode = null,
-    Object? sortReplaceCharacters = null,
-    Object? sortRemoveCharacters = null,
-    Object? sortRemoveWords = null,
-    Object? minResumePct = null,
-    Object? logFileRetentionDays = null,
-    Object? minResumeDurationSeconds = null,
-    Object? minAudiobookResume = null,
-    Object? maxAudiobookResume = null,
-    Object? inactiveSessionThreshold = null,
-    Object? libraryMonitorDelay = null,
-    Object? libraryUpdateDuration = null,
-    Object? cacheSize = null,
-    Object? imageSavingConvention = null,
-    Object? metadataOptions = null,
-    Object? skipDeserializationForBasicTypes = null,
-    Object? serverName = null,
-    Object? uiCulture = null,
-    Object? saveMetadataHidden = null,
-    Object? contentTypes = null,
-    Object? remoteClientBitrateLimit = null,
-    Object? enableFolderView = null,
-    Object? enableGroupingMoviesIntoCollections = null,
-    Object? enableLegacyAuthorization = null,
-    Object? displaySpecialsWithinSeasons = null,
-    Object? codecsUsed = null,
-    Object? pluginRepositories = null,
-    Object? enableExternalContentInSuggestions = null,
-    Object? imageExtractionTimeoutMs = null,
-    Object? pathSubstitutions = null,
-    Object? enableSlowResponseWarning = null,
-    Object? slowResponseThresholdMs = null,
-    Object? corsHosts = null,
+    Object? enableMetrics = freezed,
+    Object? enableNormalizedItemByNameIds = freezed,
+    Object? isPortAuthorized = freezed,
+    Object? quickConnectAvailable = freezed,
+    Object? enableCaseSensitiveItemIds = freezed,
+    Object? disableLiveTvChannelUserDataName = freezed,
+    Object? metadataPath = freezed,
+    Object? preferredMetadataLanguage = freezed,
+    Object? metadataCountryCode = freezed,
+    Object? sortReplaceCharacters = freezed,
+    Object? sortRemoveCharacters = freezed,
+    Object? sortRemoveWords = freezed,
+    Object? minResumePct = freezed,
+    Object? logFileRetentionDays = freezed,
+    Object? minResumeDurationSeconds = freezed,
+    Object? minAudiobookResume = freezed,
+    Object? maxAudiobookResume = freezed,
+    Object? inactiveSessionThreshold = freezed,
+    Object? libraryMonitorDelay = freezed,
+    Object? libraryUpdateDuration = freezed,
+    Object? cacheSize = freezed,
+    Object? imageSavingConvention = freezed,
+    Object? metadataOptions = freezed,
+    Object? skipDeserializationForBasicTypes = freezed,
+    Object? serverName = freezed,
+    Object? uiCulture = freezed,
+    Object? saveMetadataHidden = freezed,
+    Object? contentTypes = freezed,
+    Object? remoteClientBitrateLimit = freezed,
+    Object? enableFolderView = freezed,
+    Object? enableGroupingMoviesIntoCollections = freezed,
+    Object? enableLegacyAuthorization = freezed,
+    Object? displaySpecialsWithinSeasons = freezed,
+    Object? codecsUsed = freezed,
+    Object? pluginRepositories = freezed,
+    Object? enableExternalContentInSuggestions = freezed,
+    Object? imageExtractionTimeoutMs = freezed,
+    Object? pathSubstitutions = freezed,
+    Object? enableSlowResponseWarning = freezed,
+    Object? slowResponseThresholdMs = freezed,
+    Object? corsHosts = freezed,
     Object? activityLogRetentionDays = freezed,
-    Object? libraryScanFanoutConcurrency = null,
-    Object? libraryMetadataRefreshConcurrency = null,
-    Object? allowClientLogUpload = null,
-    Object? dummyChapterDuration = null,
-    Object? chapterImageResolution = null,
-    Object? parallelImageEncodingLimit = null,
-    Object? castReceiverApplications = null,
-    Object? trickplayOptions = null,
-    Object? enableGroupingShowsIntoCollections = null,
+    Object? libraryScanFanoutConcurrency = freezed,
+    Object? libraryMetadataRefreshConcurrency = freezed,
+    Object? allowClientLogUpload = freezed,
+    Object? dummyChapterDuration = freezed,
+    Object? chapterImageResolution = freezed,
+    Object? parallelImageEncodingLimit = freezed,
+    Object? castReceiverApplications = freezed,
+    Object? trickplayOptions = freezed,
+    Object? enableGroupingShowsIntoCollections = freezed,
   }) {
     return _then(
       _self.copyWith(
-        maxResumePct: null == maxResumePct
+        maxResumePct: freezed == maxResumePct
             ? _self.maxResumePct
             : maxResumePct // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isStartupWizardCompleted: null == isStartupWizardCompleted
+                  as int?,
+        isStartupWizardCompleted: freezed == isStartupWizardCompleted
             ? _self.isStartupWizardCompleted
             : isStartupWizardCompleted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         cachePath: freezed == cachePath
             ? _self.cachePath
             : cachePath // ignore: cast_nullable_to_non_nullable
@@ -677,216 +678,216 @@ class _$ServerConfigurationCopyWithImpl<$Res>
             ? _self.previousVersionStr
             : previousVersionStr // ignore: cast_nullable_to_non_nullable
                   as String?,
-        enableMetrics: null == enableMetrics
+        enableMetrics: freezed == enableMetrics
             ? _self.enableMetrics
             : enableMetrics // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableNormalizedItemByNameIds: null == enableNormalizedItemByNameIds
+                  as bool?,
+        enableNormalizedItemByNameIds: freezed == enableNormalizedItemByNameIds
             ? _self.enableNormalizedItemByNameIds
             : enableNormalizedItemByNameIds // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isPortAuthorized: null == isPortAuthorized
+                  as bool?,
+        isPortAuthorized: freezed == isPortAuthorized
             ? _self.isPortAuthorized
             : isPortAuthorized // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        quickConnectAvailable: null == quickConnectAvailable
+                  as bool?,
+        quickConnectAvailable: freezed == quickConnectAvailable
             ? _self.quickConnectAvailable
             : quickConnectAvailable // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableCaseSensitiveItemIds: null == enableCaseSensitiveItemIds
+                  as bool?,
+        enableCaseSensitiveItemIds: freezed == enableCaseSensitiveItemIds
             ? _self.enableCaseSensitiveItemIds
             : enableCaseSensitiveItemIds // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         disableLiveTvChannelUserDataName:
-            null == disableLiveTvChannelUserDataName
+            freezed == disableLiveTvChannelUserDataName
             ? _self.disableLiveTvChannelUserDataName
             : disableLiveTvChannelUserDataName // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        metadataPath: null == metadataPath
+                  as bool?,
+        metadataPath: freezed == metadataPath
             ? _self.metadataPath
             : metadataPath // ignore: cast_nullable_to_non_nullable
-                  as String,
-        preferredMetadataLanguage: null == preferredMetadataLanguage
+                  as String?,
+        preferredMetadataLanguage: freezed == preferredMetadataLanguage
             ? _self.preferredMetadataLanguage
             : preferredMetadataLanguage // ignore: cast_nullable_to_non_nullable
-                  as String,
-        metadataCountryCode: null == metadataCountryCode
+                  as String?,
+        metadataCountryCode: freezed == metadataCountryCode
             ? _self.metadataCountryCode
             : metadataCountryCode // ignore: cast_nullable_to_non_nullable
-                  as String,
-        sortReplaceCharacters: null == sortReplaceCharacters
+                  as String?,
+        sortReplaceCharacters: freezed == sortReplaceCharacters
             ? _self.sortReplaceCharacters
             : sortReplaceCharacters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        sortRemoveCharacters: null == sortRemoveCharacters
+                  as List<String>?,
+        sortRemoveCharacters: freezed == sortRemoveCharacters
             ? _self.sortRemoveCharacters
             : sortRemoveCharacters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        sortRemoveWords: null == sortRemoveWords
+                  as List<String>?,
+        sortRemoveWords: freezed == sortRemoveWords
             ? _self.sortRemoveWords
             : sortRemoveWords // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        minResumePct: null == minResumePct
+                  as List<String>?,
+        minResumePct: freezed == minResumePct
             ? _self.minResumePct
             : minResumePct // ignore: cast_nullable_to_non_nullable
-                  as int,
-        logFileRetentionDays: null == logFileRetentionDays
+                  as int?,
+        logFileRetentionDays: freezed == logFileRetentionDays
             ? _self.logFileRetentionDays
             : logFileRetentionDays // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minResumeDurationSeconds: null == minResumeDurationSeconds
+                  as int?,
+        minResumeDurationSeconds: freezed == minResumeDurationSeconds
             ? _self.minResumeDurationSeconds
             : minResumeDurationSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minAudiobookResume: null == minAudiobookResume
+                  as int?,
+        minAudiobookResume: freezed == minAudiobookResume
             ? _self.minAudiobookResume
             : minAudiobookResume // ignore: cast_nullable_to_non_nullable
-                  as int,
-        maxAudiobookResume: null == maxAudiobookResume
+                  as int?,
+        maxAudiobookResume: freezed == maxAudiobookResume
             ? _self.maxAudiobookResume
             : maxAudiobookResume // ignore: cast_nullable_to_non_nullable
-                  as int,
-        inactiveSessionThreshold: null == inactiveSessionThreshold
+                  as int?,
+        inactiveSessionThreshold: freezed == inactiveSessionThreshold
             ? _self.inactiveSessionThreshold
             : inactiveSessionThreshold // ignore: cast_nullable_to_non_nullable
-                  as int,
-        libraryMonitorDelay: null == libraryMonitorDelay
+                  as int?,
+        libraryMonitorDelay: freezed == libraryMonitorDelay
             ? _self.libraryMonitorDelay
             : libraryMonitorDelay // ignore: cast_nullable_to_non_nullable
-                  as int,
-        libraryUpdateDuration: null == libraryUpdateDuration
+                  as int?,
+        libraryUpdateDuration: freezed == libraryUpdateDuration
             ? _self.libraryUpdateDuration
             : libraryUpdateDuration // ignore: cast_nullable_to_non_nullable
-                  as int,
-        cacheSize: null == cacheSize
+                  as int?,
+        cacheSize: freezed == cacheSize
             ? _self.cacheSize
             : cacheSize // ignore: cast_nullable_to_non_nullable
-                  as int,
-        imageSavingConvention: null == imageSavingConvention
+                  as int?,
+        imageSavingConvention: freezed == imageSavingConvention
             ? _self.imageSavingConvention
             : imageSavingConvention // ignore: cast_nullable_to_non_nullable
-                  as ServerConfigurationImageSavingConvention,
-        metadataOptions: null == metadataOptions
+                  as ServerConfigurationImageSavingConvention?,
+        metadataOptions: freezed == metadataOptions
             ? _self.metadataOptions
             : metadataOptions // ignore: cast_nullable_to_non_nullable
-                  as List<MetadataOptions>,
+                  as List<MetadataOptions>?,
         skipDeserializationForBasicTypes:
-            null == skipDeserializationForBasicTypes
+            freezed == skipDeserializationForBasicTypes
             ? _self.skipDeserializationForBasicTypes
             : skipDeserializationForBasicTypes // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        serverName: null == serverName
+                  as bool?,
+        serverName: freezed == serverName
             ? _self.serverName
             : serverName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        uiCulture: null == uiCulture
+                  as String?,
+        uiCulture: freezed == uiCulture
             ? _self.uiCulture
             : uiCulture // ignore: cast_nullable_to_non_nullable
-                  as String,
-        saveMetadataHidden: null == saveMetadataHidden
+                  as String?,
+        saveMetadataHidden: freezed == saveMetadataHidden
             ? _self.saveMetadataHidden
             : saveMetadataHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        contentTypes: null == contentTypes
+                  as bool?,
+        contentTypes: freezed == contentTypes
             ? _self.contentTypes
             : contentTypes // ignore: cast_nullable_to_non_nullable
-                  as List<NameValuePair>,
-        remoteClientBitrateLimit: null == remoteClientBitrateLimit
+                  as List<NameValuePair>?,
+        remoteClientBitrateLimit: freezed == remoteClientBitrateLimit
             ? _self.remoteClientBitrateLimit
             : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enableFolderView: null == enableFolderView
+                  as int?,
+        enableFolderView: freezed == enableFolderView
             ? _self.enableFolderView
             : enableFolderView // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         enableGroupingMoviesIntoCollections:
-            null == enableGroupingMoviesIntoCollections
+            freezed == enableGroupingMoviesIntoCollections
             ? _self.enableGroupingMoviesIntoCollections
             : enableGroupingMoviesIntoCollections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLegacyAuthorization: null == enableLegacyAuthorization
+                  as bool?,
+        enableLegacyAuthorization: freezed == enableLegacyAuthorization
             ? _self.enableLegacyAuthorization
             : enableLegacyAuthorization // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        displaySpecialsWithinSeasons: null == displaySpecialsWithinSeasons
+                  as bool?,
+        displaySpecialsWithinSeasons: freezed == displaySpecialsWithinSeasons
             ? _self.displaySpecialsWithinSeasons
             : displaySpecialsWithinSeasons // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        codecsUsed: null == codecsUsed
+                  as bool?,
+        codecsUsed: freezed == codecsUsed
             ? _self.codecsUsed
             : codecsUsed // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        pluginRepositories: null == pluginRepositories
+                  as List<String>?,
+        pluginRepositories: freezed == pluginRepositories
             ? _self.pluginRepositories
             : pluginRepositories // ignore: cast_nullable_to_non_nullable
-                  as List<RepositoryInfo>,
+                  as List<RepositoryInfo>?,
         enableExternalContentInSuggestions:
-            null == enableExternalContentInSuggestions
+            freezed == enableExternalContentInSuggestions
             ? _self.enableExternalContentInSuggestions
             : enableExternalContentInSuggestions // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        imageExtractionTimeoutMs: null == imageExtractionTimeoutMs
+                  as bool?,
+        imageExtractionTimeoutMs: freezed == imageExtractionTimeoutMs
             ? _self.imageExtractionTimeoutMs
             : imageExtractionTimeoutMs // ignore: cast_nullable_to_non_nullable
-                  as int,
-        pathSubstitutions: null == pathSubstitutions
+                  as int?,
+        pathSubstitutions: freezed == pathSubstitutions
             ? _self.pathSubstitutions
             : pathSubstitutions // ignore: cast_nullable_to_non_nullable
-                  as List<PathSubstitution>,
-        enableSlowResponseWarning: null == enableSlowResponseWarning
+                  as List<PathSubstitution>?,
+        enableSlowResponseWarning: freezed == enableSlowResponseWarning
             ? _self.enableSlowResponseWarning
             : enableSlowResponseWarning // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        slowResponseThresholdMs: null == slowResponseThresholdMs
+                  as bool?,
+        slowResponseThresholdMs: freezed == slowResponseThresholdMs
             ? _self.slowResponseThresholdMs
             : slowResponseThresholdMs // ignore: cast_nullable_to_non_nullable
-                  as int,
-        corsHosts: null == corsHosts
+                  as int?,
+        corsHosts: freezed == corsHosts
             ? _self.corsHosts
             : corsHosts // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         activityLogRetentionDays: freezed == activityLogRetentionDays
             ? _self.activityLogRetentionDays
             : activityLogRetentionDays // ignore: cast_nullable_to_non_nullable
                   as int?,
-        libraryScanFanoutConcurrency: null == libraryScanFanoutConcurrency
+        libraryScanFanoutConcurrency: freezed == libraryScanFanoutConcurrency
             ? _self.libraryScanFanoutConcurrency
             : libraryScanFanoutConcurrency // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
         libraryMetadataRefreshConcurrency:
-            null == libraryMetadataRefreshConcurrency
+            freezed == libraryMetadataRefreshConcurrency
             ? _self.libraryMetadataRefreshConcurrency
             : libraryMetadataRefreshConcurrency // ignore: cast_nullable_to_non_nullable
-                  as int,
-        allowClientLogUpload: null == allowClientLogUpload
+                  as int?,
+        allowClientLogUpload: freezed == allowClientLogUpload
             ? _self.allowClientLogUpload
             : allowClientLogUpload // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        dummyChapterDuration: null == dummyChapterDuration
+                  as bool?,
+        dummyChapterDuration: freezed == dummyChapterDuration
             ? _self.dummyChapterDuration
             : dummyChapterDuration // ignore: cast_nullable_to_non_nullable
-                  as int,
-        chapterImageResolution: null == chapterImageResolution
+                  as int?,
+        chapterImageResolution: freezed == chapterImageResolution
             ? _self.chapterImageResolution
             : chapterImageResolution // ignore: cast_nullable_to_non_nullable
-                  as ServerConfigurationChapterImageResolution,
-        parallelImageEncodingLimit: null == parallelImageEncodingLimit
+                  as ServerConfigurationChapterImageResolution?,
+        parallelImageEncodingLimit: freezed == parallelImageEncodingLimit
             ? _self.parallelImageEncodingLimit
             : parallelImageEncodingLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        castReceiverApplications: null == castReceiverApplications
+                  as int?,
+        castReceiverApplications: freezed == castReceiverApplications
             ? _self.castReceiverApplications
             : castReceiverApplications // ignore: cast_nullable_to_non_nullable
-                  as List<CastReceiverApplication>,
-        trickplayOptions: null == trickplayOptions
+                  as List<CastReceiverApplication>?,
+        trickplayOptions: freezed == trickplayOptions
             ? _self.trickplayOptions
             : trickplayOptions // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptions,
+                  as TrickplayOptions?,
         enableGroupingShowsIntoCollections:
-            null == enableGroupingShowsIntoCollections
+            freezed == enableGroupingShowsIntoCollections
             ? _self.enableGroupingShowsIntoCollections
             : enableGroupingShowsIntoCollections // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -895,8 +896,12 @@ class _$ServerConfigurationCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TrickplayOptionsCopyWith<$Res> get trickplayOptions {
-    return $TrickplayOptionsCopyWith<$Res>(_self.trickplayOptions, (value) {
+  $TrickplayOptionsCopyWith<$Res>? get trickplayOptions {
+    if (_self.trickplayOptions == null) {
+      return null;
+    }
+
+    return $TrickplayOptionsCopyWith<$Res>(_self.trickplayOptions!, (value) {
       return _then(_self.copyWith(trickplayOptions: value));
     });
   }
@@ -996,82 +1001,82 @@ extension ServerConfigurationPatterns on ServerConfiguration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MaxResumePct') int maxResumePct,
-      @JsonKey(name: 'IsStartupWizardCompleted') bool isStartupWizardCompleted,
+      @JsonKey(name: 'MaxResumePct') int? maxResumePct,
+      @JsonKey(name: 'IsStartupWizardCompleted') bool? isStartupWizardCompleted,
       @JsonKey(name: 'CachePath') String? cachePath,
       @JsonKey(name: 'PreviousVersion') String? previousVersion,
       @JsonKey(name: 'PreviousVersionStr') String? previousVersionStr,
-      @JsonKey(name: 'EnableMetrics') bool enableMetrics,
+      @JsonKey(name: 'EnableMetrics') bool? enableMetrics,
       @JsonKey(name: 'EnableNormalizedItemByNameIds')
-      bool enableNormalizedItemByNameIds,
-      @JsonKey(name: 'IsPortAuthorized') bool isPortAuthorized,
-      @JsonKey(name: 'QuickConnectAvailable') bool quickConnectAvailable,
+      bool? enableNormalizedItemByNameIds,
+      @JsonKey(name: 'IsPortAuthorized') bool? isPortAuthorized,
+      @JsonKey(name: 'QuickConnectAvailable') bool? quickConnectAvailable,
       @JsonKey(name: 'EnableCaseSensitiveItemIds')
-      bool enableCaseSensitiveItemIds,
+      bool? enableCaseSensitiveItemIds,
       @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-      bool disableLiveTvChannelUserDataName,
-      @JsonKey(name: 'MetadataPath') String metadataPath,
+      bool? disableLiveTvChannelUserDataName,
+      @JsonKey(name: 'MetadataPath') String? metadataPath,
       @JsonKey(name: 'PreferredMetadataLanguage')
-      String preferredMetadataLanguage,
-      @JsonKey(name: 'MetadataCountryCode') String metadataCountryCode,
+      String? preferredMetadataLanguage,
+      @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
       @JsonKey(name: 'SortReplaceCharacters')
-      List<String> sortReplaceCharacters,
-      @JsonKey(name: 'SortRemoveCharacters') List<String> sortRemoveCharacters,
-      @JsonKey(name: 'SortRemoveWords') List<String> sortRemoveWords,
-      @JsonKey(name: 'MinResumePct') int minResumePct,
-      @JsonKey(name: 'LogFileRetentionDays') int logFileRetentionDays,
-      @JsonKey(name: 'MinResumeDurationSeconds') int minResumeDurationSeconds,
-      @JsonKey(name: 'MinAudiobookResume') int minAudiobookResume,
-      @JsonKey(name: 'MaxAudiobookResume') int maxAudiobookResume,
-      @JsonKey(name: 'InactiveSessionThreshold') int inactiveSessionThreshold,
-      @JsonKey(name: 'LibraryMonitorDelay') int libraryMonitorDelay,
-      @JsonKey(name: 'LibraryUpdateDuration') int libraryUpdateDuration,
-      @JsonKey(name: 'CacheSize') int cacheSize,
+      List<String>? sortReplaceCharacters,
+      @JsonKey(name: 'SortRemoveCharacters') List<String>? sortRemoveCharacters,
+      @JsonKey(name: 'SortRemoveWords') List<String>? sortRemoveWords,
+      @JsonKey(name: 'MinResumePct') int? minResumePct,
+      @JsonKey(name: 'LogFileRetentionDays') int? logFileRetentionDays,
+      @JsonKey(name: 'MinResumeDurationSeconds') int? minResumeDurationSeconds,
+      @JsonKey(name: 'MinAudiobookResume') int? minAudiobookResume,
+      @JsonKey(name: 'MaxAudiobookResume') int? maxAudiobookResume,
+      @JsonKey(name: 'InactiveSessionThreshold') int? inactiveSessionThreshold,
+      @JsonKey(name: 'LibraryMonitorDelay') int? libraryMonitorDelay,
+      @JsonKey(name: 'LibraryUpdateDuration') int? libraryUpdateDuration,
+      @JsonKey(name: 'CacheSize') int? cacheSize,
       @JsonKey(name: 'ImageSavingConvention')
-      ServerConfigurationImageSavingConvention imageSavingConvention,
-      @JsonKey(name: 'MetadataOptions') List<MetadataOptions> metadataOptions,
+      ServerConfigurationImageSavingConvention? imageSavingConvention,
+      @JsonKey(name: 'MetadataOptions') List<MetadataOptions>? metadataOptions,
       @JsonKey(name: 'SkipDeserializationForBasicTypes')
-      bool skipDeserializationForBasicTypes,
-      @JsonKey(name: 'ServerName') String serverName,
-      @JsonKey(name: 'UICulture') String uiCulture,
-      @JsonKey(name: 'SaveMetadataHidden') bool saveMetadataHidden,
-      @JsonKey(name: 'ContentTypes') List<NameValuePair> contentTypes,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'EnableFolderView') bool enableFolderView,
+      bool? skipDeserializationForBasicTypes,
+      @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'UICulture') String? uiCulture,
+      @JsonKey(name: 'SaveMetadataHidden') bool? saveMetadataHidden,
+      @JsonKey(name: 'ContentTypes') List<NameValuePair>? contentTypes,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'EnableFolderView') bool? enableFolderView,
       @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-      bool enableGroupingMoviesIntoCollections,
+      bool? enableGroupingMoviesIntoCollections,
       @JsonKey(name: 'EnableLegacyAuthorization')
-      bool enableLegacyAuthorization,
+      bool? enableLegacyAuthorization,
       @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-      bool displaySpecialsWithinSeasons,
-      @JsonKey(name: 'CodecsUsed') List<String> codecsUsed,
+      bool? displaySpecialsWithinSeasons,
+      @JsonKey(name: 'CodecsUsed') List<String>? codecsUsed,
       @JsonKey(name: 'PluginRepositories')
-      List<RepositoryInfo> pluginRepositories,
+      List<RepositoryInfo>? pluginRepositories,
       @JsonKey(name: 'EnableExternalContentInSuggestions')
-      bool enableExternalContentInSuggestions,
-      @JsonKey(name: 'ImageExtractionTimeoutMs') int imageExtractionTimeoutMs,
+      bool? enableExternalContentInSuggestions,
+      @JsonKey(name: 'ImageExtractionTimeoutMs') int? imageExtractionTimeoutMs,
       @JsonKey(name: 'PathSubstitutions')
-      List<PathSubstitution> pathSubstitutions,
+      List<PathSubstitution>? pathSubstitutions,
       @JsonKey(name: 'EnableSlowResponseWarning')
-      bool enableSlowResponseWarning,
-      @JsonKey(name: 'SlowResponseThresholdMs') int slowResponseThresholdMs,
-      @JsonKey(name: 'CorsHosts') List<String> corsHosts,
+      bool? enableSlowResponseWarning,
+      @JsonKey(name: 'SlowResponseThresholdMs') int? slowResponseThresholdMs,
+      @JsonKey(name: 'CorsHosts') List<String>? corsHosts,
       @JsonKey(name: 'ActivityLogRetentionDays') int? activityLogRetentionDays,
       @JsonKey(name: 'LibraryScanFanoutConcurrency')
-      int libraryScanFanoutConcurrency,
+      int? libraryScanFanoutConcurrency,
       @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-      int libraryMetadataRefreshConcurrency,
-      @JsonKey(name: 'AllowClientLogUpload') bool allowClientLogUpload,
-      @JsonKey(name: 'DummyChapterDuration') int dummyChapterDuration,
+      int? libraryMetadataRefreshConcurrency,
+      @JsonKey(name: 'AllowClientLogUpload') bool? allowClientLogUpload,
+      @JsonKey(name: 'DummyChapterDuration') int? dummyChapterDuration,
       @JsonKey(name: 'ChapterImageResolution')
-      ServerConfigurationChapterImageResolution chapterImageResolution,
+      ServerConfigurationChapterImageResolution? chapterImageResolution,
       @JsonKey(name: 'ParallelImageEncodingLimit')
-      int parallelImageEncodingLimit,
+      int? parallelImageEncodingLimit,
       @JsonKey(name: 'CastReceiverApplications')
-      List<CastReceiverApplication> castReceiverApplications,
-      @JsonKey(name: 'TrickplayOptions') TrickplayOptions trickplayOptions,
+      List<CastReceiverApplication>? castReceiverApplications,
+      @JsonKey(name: 'TrickplayOptions') TrickplayOptions? trickplayOptions,
       @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-      bool enableGroupingShowsIntoCollections,
+      bool? enableGroupingShowsIntoCollections,
     )?
     $default, {
     required TResult orElse(),
@@ -1158,82 +1163,82 @@ extension ServerConfigurationPatterns on ServerConfiguration {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MaxResumePct') int maxResumePct,
-      @JsonKey(name: 'IsStartupWizardCompleted') bool isStartupWizardCompleted,
+      @JsonKey(name: 'MaxResumePct') int? maxResumePct,
+      @JsonKey(name: 'IsStartupWizardCompleted') bool? isStartupWizardCompleted,
       @JsonKey(name: 'CachePath') String? cachePath,
       @JsonKey(name: 'PreviousVersion') String? previousVersion,
       @JsonKey(name: 'PreviousVersionStr') String? previousVersionStr,
-      @JsonKey(name: 'EnableMetrics') bool enableMetrics,
+      @JsonKey(name: 'EnableMetrics') bool? enableMetrics,
       @JsonKey(name: 'EnableNormalizedItemByNameIds')
-      bool enableNormalizedItemByNameIds,
-      @JsonKey(name: 'IsPortAuthorized') bool isPortAuthorized,
-      @JsonKey(name: 'QuickConnectAvailable') bool quickConnectAvailable,
+      bool? enableNormalizedItemByNameIds,
+      @JsonKey(name: 'IsPortAuthorized') bool? isPortAuthorized,
+      @JsonKey(name: 'QuickConnectAvailable') bool? quickConnectAvailable,
       @JsonKey(name: 'EnableCaseSensitiveItemIds')
-      bool enableCaseSensitiveItemIds,
+      bool? enableCaseSensitiveItemIds,
       @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-      bool disableLiveTvChannelUserDataName,
-      @JsonKey(name: 'MetadataPath') String metadataPath,
+      bool? disableLiveTvChannelUserDataName,
+      @JsonKey(name: 'MetadataPath') String? metadataPath,
       @JsonKey(name: 'PreferredMetadataLanguage')
-      String preferredMetadataLanguage,
-      @JsonKey(name: 'MetadataCountryCode') String metadataCountryCode,
+      String? preferredMetadataLanguage,
+      @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
       @JsonKey(name: 'SortReplaceCharacters')
-      List<String> sortReplaceCharacters,
-      @JsonKey(name: 'SortRemoveCharacters') List<String> sortRemoveCharacters,
-      @JsonKey(name: 'SortRemoveWords') List<String> sortRemoveWords,
-      @JsonKey(name: 'MinResumePct') int minResumePct,
-      @JsonKey(name: 'LogFileRetentionDays') int logFileRetentionDays,
-      @JsonKey(name: 'MinResumeDurationSeconds') int minResumeDurationSeconds,
-      @JsonKey(name: 'MinAudiobookResume') int minAudiobookResume,
-      @JsonKey(name: 'MaxAudiobookResume') int maxAudiobookResume,
-      @JsonKey(name: 'InactiveSessionThreshold') int inactiveSessionThreshold,
-      @JsonKey(name: 'LibraryMonitorDelay') int libraryMonitorDelay,
-      @JsonKey(name: 'LibraryUpdateDuration') int libraryUpdateDuration,
-      @JsonKey(name: 'CacheSize') int cacheSize,
+      List<String>? sortReplaceCharacters,
+      @JsonKey(name: 'SortRemoveCharacters') List<String>? sortRemoveCharacters,
+      @JsonKey(name: 'SortRemoveWords') List<String>? sortRemoveWords,
+      @JsonKey(name: 'MinResumePct') int? minResumePct,
+      @JsonKey(name: 'LogFileRetentionDays') int? logFileRetentionDays,
+      @JsonKey(name: 'MinResumeDurationSeconds') int? minResumeDurationSeconds,
+      @JsonKey(name: 'MinAudiobookResume') int? minAudiobookResume,
+      @JsonKey(name: 'MaxAudiobookResume') int? maxAudiobookResume,
+      @JsonKey(name: 'InactiveSessionThreshold') int? inactiveSessionThreshold,
+      @JsonKey(name: 'LibraryMonitorDelay') int? libraryMonitorDelay,
+      @JsonKey(name: 'LibraryUpdateDuration') int? libraryUpdateDuration,
+      @JsonKey(name: 'CacheSize') int? cacheSize,
       @JsonKey(name: 'ImageSavingConvention')
-      ServerConfigurationImageSavingConvention imageSavingConvention,
-      @JsonKey(name: 'MetadataOptions') List<MetadataOptions> metadataOptions,
+      ServerConfigurationImageSavingConvention? imageSavingConvention,
+      @JsonKey(name: 'MetadataOptions') List<MetadataOptions>? metadataOptions,
       @JsonKey(name: 'SkipDeserializationForBasicTypes')
-      bool skipDeserializationForBasicTypes,
-      @JsonKey(name: 'ServerName') String serverName,
-      @JsonKey(name: 'UICulture') String uiCulture,
-      @JsonKey(name: 'SaveMetadataHidden') bool saveMetadataHidden,
-      @JsonKey(name: 'ContentTypes') List<NameValuePair> contentTypes,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'EnableFolderView') bool enableFolderView,
+      bool? skipDeserializationForBasicTypes,
+      @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'UICulture') String? uiCulture,
+      @JsonKey(name: 'SaveMetadataHidden') bool? saveMetadataHidden,
+      @JsonKey(name: 'ContentTypes') List<NameValuePair>? contentTypes,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'EnableFolderView') bool? enableFolderView,
       @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-      bool enableGroupingMoviesIntoCollections,
+      bool? enableGroupingMoviesIntoCollections,
       @JsonKey(name: 'EnableLegacyAuthorization')
-      bool enableLegacyAuthorization,
+      bool? enableLegacyAuthorization,
       @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-      bool displaySpecialsWithinSeasons,
-      @JsonKey(name: 'CodecsUsed') List<String> codecsUsed,
+      bool? displaySpecialsWithinSeasons,
+      @JsonKey(name: 'CodecsUsed') List<String>? codecsUsed,
       @JsonKey(name: 'PluginRepositories')
-      List<RepositoryInfo> pluginRepositories,
+      List<RepositoryInfo>? pluginRepositories,
       @JsonKey(name: 'EnableExternalContentInSuggestions')
-      bool enableExternalContentInSuggestions,
-      @JsonKey(name: 'ImageExtractionTimeoutMs') int imageExtractionTimeoutMs,
+      bool? enableExternalContentInSuggestions,
+      @JsonKey(name: 'ImageExtractionTimeoutMs') int? imageExtractionTimeoutMs,
       @JsonKey(name: 'PathSubstitutions')
-      List<PathSubstitution> pathSubstitutions,
+      List<PathSubstitution>? pathSubstitutions,
       @JsonKey(name: 'EnableSlowResponseWarning')
-      bool enableSlowResponseWarning,
-      @JsonKey(name: 'SlowResponseThresholdMs') int slowResponseThresholdMs,
-      @JsonKey(name: 'CorsHosts') List<String> corsHosts,
+      bool? enableSlowResponseWarning,
+      @JsonKey(name: 'SlowResponseThresholdMs') int? slowResponseThresholdMs,
+      @JsonKey(name: 'CorsHosts') List<String>? corsHosts,
       @JsonKey(name: 'ActivityLogRetentionDays') int? activityLogRetentionDays,
       @JsonKey(name: 'LibraryScanFanoutConcurrency')
-      int libraryScanFanoutConcurrency,
+      int? libraryScanFanoutConcurrency,
       @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-      int libraryMetadataRefreshConcurrency,
-      @JsonKey(name: 'AllowClientLogUpload') bool allowClientLogUpload,
-      @JsonKey(name: 'DummyChapterDuration') int dummyChapterDuration,
+      int? libraryMetadataRefreshConcurrency,
+      @JsonKey(name: 'AllowClientLogUpload') bool? allowClientLogUpload,
+      @JsonKey(name: 'DummyChapterDuration') int? dummyChapterDuration,
       @JsonKey(name: 'ChapterImageResolution')
-      ServerConfigurationChapterImageResolution chapterImageResolution,
+      ServerConfigurationChapterImageResolution? chapterImageResolution,
       @JsonKey(name: 'ParallelImageEncodingLimit')
-      int parallelImageEncodingLimit,
+      int? parallelImageEncodingLimit,
       @JsonKey(name: 'CastReceiverApplications')
-      List<CastReceiverApplication> castReceiverApplications,
-      @JsonKey(name: 'TrickplayOptions') TrickplayOptions trickplayOptions,
+      List<CastReceiverApplication>? castReceiverApplications,
+      @JsonKey(name: 'TrickplayOptions') TrickplayOptions? trickplayOptions,
       @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-      bool enableGroupingShowsIntoCollections,
+      bool? enableGroupingShowsIntoCollections,
     )
     $default,
   ) {
@@ -1318,82 +1323,82 @@ extension ServerConfigurationPatterns on ServerConfiguration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MaxResumePct') int maxResumePct,
-      @JsonKey(name: 'IsStartupWizardCompleted') bool isStartupWizardCompleted,
+      @JsonKey(name: 'MaxResumePct') int? maxResumePct,
+      @JsonKey(name: 'IsStartupWizardCompleted') bool? isStartupWizardCompleted,
       @JsonKey(name: 'CachePath') String? cachePath,
       @JsonKey(name: 'PreviousVersion') String? previousVersion,
       @JsonKey(name: 'PreviousVersionStr') String? previousVersionStr,
-      @JsonKey(name: 'EnableMetrics') bool enableMetrics,
+      @JsonKey(name: 'EnableMetrics') bool? enableMetrics,
       @JsonKey(name: 'EnableNormalizedItemByNameIds')
-      bool enableNormalizedItemByNameIds,
-      @JsonKey(name: 'IsPortAuthorized') bool isPortAuthorized,
-      @JsonKey(name: 'QuickConnectAvailable') bool quickConnectAvailable,
+      bool? enableNormalizedItemByNameIds,
+      @JsonKey(name: 'IsPortAuthorized') bool? isPortAuthorized,
+      @JsonKey(name: 'QuickConnectAvailable') bool? quickConnectAvailable,
       @JsonKey(name: 'EnableCaseSensitiveItemIds')
-      bool enableCaseSensitiveItemIds,
+      bool? enableCaseSensitiveItemIds,
       @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-      bool disableLiveTvChannelUserDataName,
-      @JsonKey(name: 'MetadataPath') String metadataPath,
+      bool? disableLiveTvChannelUserDataName,
+      @JsonKey(name: 'MetadataPath') String? metadataPath,
       @JsonKey(name: 'PreferredMetadataLanguage')
-      String preferredMetadataLanguage,
-      @JsonKey(name: 'MetadataCountryCode') String metadataCountryCode,
+      String? preferredMetadataLanguage,
+      @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
       @JsonKey(name: 'SortReplaceCharacters')
-      List<String> sortReplaceCharacters,
-      @JsonKey(name: 'SortRemoveCharacters') List<String> sortRemoveCharacters,
-      @JsonKey(name: 'SortRemoveWords') List<String> sortRemoveWords,
-      @JsonKey(name: 'MinResumePct') int minResumePct,
-      @JsonKey(name: 'LogFileRetentionDays') int logFileRetentionDays,
-      @JsonKey(name: 'MinResumeDurationSeconds') int minResumeDurationSeconds,
-      @JsonKey(name: 'MinAudiobookResume') int minAudiobookResume,
-      @JsonKey(name: 'MaxAudiobookResume') int maxAudiobookResume,
-      @JsonKey(name: 'InactiveSessionThreshold') int inactiveSessionThreshold,
-      @JsonKey(name: 'LibraryMonitorDelay') int libraryMonitorDelay,
-      @JsonKey(name: 'LibraryUpdateDuration') int libraryUpdateDuration,
-      @JsonKey(name: 'CacheSize') int cacheSize,
+      List<String>? sortReplaceCharacters,
+      @JsonKey(name: 'SortRemoveCharacters') List<String>? sortRemoveCharacters,
+      @JsonKey(name: 'SortRemoveWords') List<String>? sortRemoveWords,
+      @JsonKey(name: 'MinResumePct') int? minResumePct,
+      @JsonKey(name: 'LogFileRetentionDays') int? logFileRetentionDays,
+      @JsonKey(name: 'MinResumeDurationSeconds') int? minResumeDurationSeconds,
+      @JsonKey(name: 'MinAudiobookResume') int? minAudiobookResume,
+      @JsonKey(name: 'MaxAudiobookResume') int? maxAudiobookResume,
+      @JsonKey(name: 'InactiveSessionThreshold') int? inactiveSessionThreshold,
+      @JsonKey(name: 'LibraryMonitorDelay') int? libraryMonitorDelay,
+      @JsonKey(name: 'LibraryUpdateDuration') int? libraryUpdateDuration,
+      @JsonKey(name: 'CacheSize') int? cacheSize,
       @JsonKey(name: 'ImageSavingConvention')
-      ServerConfigurationImageSavingConvention imageSavingConvention,
-      @JsonKey(name: 'MetadataOptions') List<MetadataOptions> metadataOptions,
+      ServerConfigurationImageSavingConvention? imageSavingConvention,
+      @JsonKey(name: 'MetadataOptions') List<MetadataOptions>? metadataOptions,
       @JsonKey(name: 'SkipDeserializationForBasicTypes')
-      bool skipDeserializationForBasicTypes,
-      @JsonKey(name: 'ServerName') String serverName,
-      @JsonKey(name: 'UICulture') String uiCulture,
-      @JsonKey(name: 'SaveMetadataHidden') bool saveMetadataHidden,
-      @JsonKey(name: 'ContentTypes') List<NameValuePair> contentTypes,
-      @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-      @JsonKey(name: 'EnableFolderView') bool enableFolderView,
+      bool? skipDeserializationForBasicTypes,
+      @JsonKey(name: 'ServerName') String? serverName,
+      @JsonKey(name: 'UICulture') String? uiCulture,
+      @JsonKey(name: 'SaveMetadataHidden') bool? saveMetadataHidden,
+      @JsonKey(name: 'ContentTypes') List<NameValuePair>? contentTypes,
+      @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+      @JsonKey(name: 'EnableFolderView') bool? enableFolderView,
       @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-      bool enableGroupingMoviesIntoCollections,
+      bool? enableGroupingMoviesIntoCollections,
       @JsonKey(name: 'EnableLegacyAuthorization')
-      bool enableLegacyAuthorization,
+      bool? enableLegacyAuthorization,
       @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-      bool displaySpecialsWithinSeasons,
-      @JsonKey(name: 'CodecsUsed') List<String> codecsUsed,
+      bool? displaySpecialsWithinSeasons,
+      @JsonKey(name: 'CodecsUsed') List<String>? codecsUsed,
       @JsonKey(name: 'PluginRepositories')
-      List<RepositoryInfo> pluginRepositories,
+      List<RepositoryInfo>? pluginRepositories,
       @JsonKey(name: 'EnableExternalContentInSuggestions')
-      bool enableExternalContentInSuggestions,
-      @JsonKey(name: 'ImageExtractionTimeoutMs') int imageExtractionTimeoutMs,
+      bool? enableExternalContentInSuggestions,
+      @JsonKey(name: 'ImageExtractionTimeoutMs') int? imageExtractionTimeoutMs,
       @JsonKey(name: 'PathSubstitutions')
-      List<PathSubstitution> pathSubstitutions,
+      List<PathSubstitution>? pathSubstitutions,
       @JsonKey(name: 'EnableSlowResponseWarning')
-      bool enableSlowResponseWarning,
-      @JsonKey(name: 'SlowResponseThresholdMs') int slowResponseThresholdMs,
-      @JsonKey(name: 'CorsHosts') List<String> corsHosts,
+      bool? enableSlowResponseWarning,
+      @JsonKey(name: 'SlowResponseThresholdMs') int? slowResponseThresholdMs,
+      @JsonKey(name: 'CorsHosts') List<String>? corsHosts,
       @JsonKey(name: 'ActivityLogRetentionDays') int? activityLogRetentionDays,
       @JsonKey(name: 'LibraryScanFanoutConcurrency')
-      int libraryScanFanoutConcurrency,
+      int? libraryScanFanoutConcurrency,
       @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-      int libraryMetadataRefreshConcurrency,
-      @JsonKey(name: 'AllowClientLogUpload') bool allowClientLogUpload,
-      @JsonKey(name: 'DummyChapterDuration') int dummyChapterDuration,
+      int? libraryMetadataRefreshConcurrency,
+      @JsonKey(name: 'AllowClientLogUpload') bool? allowClientLogUpload,
+      @JsonKey(name: 'DummyChapterDuration') int? dummyChapterDuration,
       @JsonKey(name: 'ChapterImageResolution')
-      ServerConfigurationChapterImageResolution chapterImageResolution,
+      ServerConfigurationChapterImageResolution? chapterImageResolution,
       @JsonKey(name: 'ParallelImageEncodingLimit')
-      int parallelImageEncodingLimit,
+      int? parallelImageEncodingLimit,
       @JsonKey(name: 'CastReceiverApplications')
-      List<CastReceiverApplication> castReceiverApplications,
-      @JsonKey(name: 'TrickplayOptions') TrickplayOptions trickplayOptions,
+      List<CastReceiverApplication>? castReceiverApplications,
+      @JsonKey(name: 'TrickplayOptions') TrickplayOptions? trickplayOptions,
       @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-      bool enableGroupingShowsIntoCollections,
+      bool? enableGroupingShowsIntoCollections,
     )?
     $default,
   ) {
@@ -1468,92 +1473,79 @@ extension ServerConfigurationPatterns on ServerConfiguration {
 @JsonSerializable()
 class _ServerConfiguration implements ServerConfiguration {
   const _ServerConfiguration({
-    @JsonKey(name: 'MaxResumePct') required this.maxResumePct,
-    @JsonKey(name: 'IsStartupWizardCompleted')
-    required this.isStartupWizardCompleted,
-    @JsonKey(name: 'CachePath') required this.cachePath,
-    @JsonKey(name: 'PreviousVersion') required this.previousVersion,
-    @JsonKey(name: 'PreviousVersionStr') required this.previousVersionStr,
-    @JsonKey(name: 'EnableMetrics') required this.enableMetrics,
+    @JsonKey(name: 'MaxResumePct') this.maxResumePct,
+    @JsonKey(name: 'IsStartupWizardCompleted') this.isStartupWizardCompleted,
+    @JsonKey(name: 'CachePath') this.cachePath,
+    @JsonKey(name: 'PreviousVersion') this.previousVersion,
+    @JsonKey(name: 'PreviousVersionStr') this.previousVersionStr,
+    @JsonKey(name: 'EnableMetrics') this.enableMetrics,
     @JsonKey(name: 'EnableNormalizedItemByNameIds')
-    required this.enableNormalizedItemByNameIds,
-    @JsonKey(name: 'IsPortAuthorized') required this.isPortAuthorized,
-    @JsonKey(name: 'QuickConnectAvailable') required this.quickConnectAvailable,
+    this.enableNormalizedItemByNameIds,
+    @JsonKey(name: 'IsPortAuthorized') this.isPortAuthorized,
+    @JsonKey(name: 'QuickConnectAvailable') this.quickConnectAvailable,
     @JsonKey(name: 'EnableCaseSensitiveItemIds')
-    required this.enableCaseSensitiveItemIds,
+    this.enableCaseSensitiveItemIds,
     @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-    required this.disableLiveTvChannelUserDataName,
-    @JsonKey(name: 'MetadataPath') required this.metadataPath,
-    @JsonKey(name: 'PreferredMetadataLanguage')
-    required this.preferredMetadataLanguage,
-    @JsonKey(name: 'MetadataCountryCode') required this.metadataCountryCode,
+    this.disableLiveTvChannelUserDataName,
+    @JsonKey(name: 'MetadataPath') this.metadataPath,
+    @JsonKey(name: 'PreferredMetadataLanguage') this.preferredMetadataLanguage,
+    @JsonKey(name: 'MetadataCountryCode') this.metadataCountryCode,
     @JsonKey(name: 'SortReplaceCharacters')
-    required final List<String> sortReplaceCharacters,
+    final List<String>? sortReplaceCharacters,
     @JsonKey(name: 'SortRemoveCharacters')
-    required final List<String> sortRemoveCharacters,
-    @JsonKey(name: 'SortRemoveWords')
-    required final List<String> sortRemoveWords,
-    @JsonKey(name: 'MinResumePct') required this.minResumePct,
-    @JsonKey(name: 'LogFileRetentionDays') required this.logFileRetentionDays,
-    @JsonKey(name: 'MinResumeDurationSeconds')
-    required this.minResumeDurationSeconds,
-    @JsonKey(name: 'MinAudiobookResume') required this.minAudiobookResume,
-    @JsonKey(name: 'MaxAudiobookResume') required this.maxAudiobookResume,
-    @JsonKey(name: 'InactiveSessionThreshold')
-    required this.inactiveSessionThreshold,
-    @JsonKey(name: 'LibraryMonitorDelay') required this.libraryMonitorDelay,
-    @JsonKey(name: 'LibraryUpdateDuration') required this.libraryUpdateDuration,
-    @JsonKey(name: 'CacheSize') required this.cacheSize,
-    @JsonKey(name: 'ImageSavingConvention') required this.imageSavingConvention,
+    final List<String>? sortRemoveCharacters,
+    @JsonKey(name: 'SortRemoveWords') final List<String>? sortRemoveWords,
+    @JsonKey(name: 'MinResumePct') this.minResumePct,
+    @JsonKey(name: 'LogFileRetentionDays') this.logFileRetentionDays,
+    @JsonKey(name: 'MinResumeDurationSeconds') this.minResumeDurationSeconds,
+    @JsonKey(name: 'MinAudiobookResume') this.minAudiobookResume,
+    @JsonKey(name: 'MaxAudiobookResume') this.maxAudiobookResume,
+    @JsonKey(name: 'InactiveSessionThreshold') this.inactiveSessionThreshold,
+    @JsonKey(name: 'LibraryMonitorDelay') this.libraryMonitorDelay,
+    @JsonKey(name: 'LibraryUpdateDuration') this.libraryUpdateDuration,
+    @JsonKey(name: 'CacheSize') this.cacheSize,
+    @JsonKey(name: 'ImageSavingConvention') this.imageSavingConvention,
     @JsonKey(name: 'MetadataOptions')
-    required final List<MetadataOptions> metadataOptions,
+    final List<MetadataOptions>? metadataOptions,
     @JsonKey(name: 'SkipDeserializationForBasicTypes')
-    required this.skipDeserializationForBasicTypes,
-    @JsonKey(name: 'ServerName') required this.serverName,
-    @JsonKey(name: 'UICulture') required this.uiCulture,
-    @JsonKey(name: 'SaveMetadataHidden') required this.saveMetadataHidden,
-    @JsonKey(name: 'ContentTypes')
-    required final List<NameValuePair> contentTypes,
-    @JsonKey(name: 'RemoteClientBitrateLimit')
-    required this.remoteClientBitrateLimit,
-    @JsonKey(name: 'EnableFolderView') required this.enableFolderView,
+    this.skipDeserializationForBasicTypes,
+    @JsonKey(name: 'ServerName') this.serverName,
+    @JsonKey(name: 'UICulture') this.uiCulture,
+    @JsonKey(name: 'SaveMetadataHidden') this.saveMetadataHidden,
+    @JsonKey(name: 'ContentTypes') final List<NameValuePair>? contentTypes,
+    @JsonKey(name: 'RemoteClientBitrateLimit') this.remoteClientBitrateLimit,
+    @JsonKey(name: 'EnableFolderView') this.enableFolderView,
     @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-    required this.enableGroupingMoviesIntoCollections,
-    @JsonKey(name: 'EnableLegacyAuthorization')
-    required this.enableLegacyAuthorization,
+    this.enableGroupingMoviesIntoCollections,
+    @JsonKey(name: 'EnableLegacyAuthorization') this.enableLegacyAuthorization,
     @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-    required this.displaySpecialsWithinSeasons,
-    @JsonKey(name: 'CodecsUsed') required final List<String> codecsUsed,
+    this.displaySpecialsWithinSeasons,
+    @JsonKey(name: 'CodecsUsed') final List<String>? codecsUsed,
     @JsonKey(name: 'PluginRepositories')
-    required final List<RepositoryInfo> pluginRepositories,
+    final List<RepositoryInfo>? pluginRepositories,
     @JsonKey(name: 'EnableExternalContentInSuggestions')
-    required this.enableExternalContentInSuggestions,
-    @JsonKey(name: 'ImageExtractionTimeoutMs')
-    required this.imageExtractionTimeoutMs,
+    this.enableExternalContentInSuggestions,
+    @JsonKey(name: 'ImageExtractionTimeoutMs') this.imageExtractionTimeoutMs,
     @JsonKey(name: 'PathSubstitutions')
-    required final List<PathSubstitution> pathSubstitutions,
-    @JsonKey(name: 'EnableSlowResponseWarning')
-    required this.enableSlowResponseWarning,
-    @JsonKey(name: 'SlowResponseThresholdMs')
-    required this.slowResponseThresholdMs,
-    @JsonKey(name: 'CorsHosts') required final List<String> corsHosts,
-    @JsonKey(name: 'ActivityLogRetentionDays')
-    required this.activityLogRetentionDays,
+    final List<PathSubstitution>? pathSubstitutions,
+    @JsonKey(name: 'EnableSlowResponseWarning') this.enableSlowResponseWarning,
+    @JsonKey(name: 'SlowResponseThresholdMs') this.slowResponseThresholdMs,
+    @JsonKey(name: 'CorsHosts') final List<String>? corsHosts,
+    @JsonKey(name: 'ActivityLogRetentionDays') this.activityLogRetentionDays,
     @JsonKey(name: 'LibraryScanFanoutConcurrency')
-    required this.libraryScanFanoutConcurrency,
+    this.libraryScanFanoutConcurrency,
     @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-    required this.libraryMetadataRefreshConcurrency,
-    @JsonKey(name: 'AllowClientLogUpload') required this.allowClientLogUpload,
-    @JsonKey(name: 'DummyChapterDuration') required this.dummyChapterDuration,
-    @JsonKey(name: 'ChapterImageResolution')
-    required this.chapterImageResolution,
+    this.libraryMetadataRefreshConcurrency,
+    @JsonKey(name: 'AllowClientLogUpload') this.allowClientLogUpload,
+    @JsonKey(name: 'DummyChapterDuration') this.dummyChapterDuration,
+    @JsonKey(name: 'ChapterImageResolution') this.chapterImageResolution,
     @JsonKey(name: 'ParallelImageEncodingLimit')
-    required this.parallelImageEncodingLimit,
+    this.parallelImageEncodingLimit,
     @JsonKey(name: 'CastReceiverApplications')
-    required final List<CastReceiverApplication> castReceiverApplications,
-    @JsonKey(name: 'TrickplayOptions') required this.trickplayOptions,
+    final List<CastReceiverApplication>? castReceiverApplications,
+    @JsonKey(name: 'TrickplayOptions') this.trickplayOptions,
     @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-    required this.enableGroupingShowsIntoCollections,
+    this.enableGroupingShowsIntoCollections,
   }) : _sortReplaceCharacters = sortReplaceCharacters,
        _sortRemoveCharacters = sortRemoveCharacters,
        _sortRemoveWords = sortRemoveWords,
@@ -1570,12 +1562,12 @@ class _ServerConfiguration implements ServerConfiguration {
   /// Gets or sets the maximum percentage of an item that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
   @override
   @JsonKey(name: 'MaxResumePct')
-  final int maxResumePct;
+  final int? maxResumePct;
 
   /// Gets or sets a value indicating whether this instance is first run.
   @override
   @JsonKey(name: 'IsStartupWizardCompleted')
-  final bool isStartupWizardCompleted;
+  final bool? isStartupWizardCompleted;
 
   /// Gets or sets the cache path.
   @override
@@ -1597,113 +1589,119 @@ class _ServerConfiguration implements ServerConfiguration {
   /// Gets or sets a value indicating whether to enable prometheus metrics exporting.
   @override
   @JsonKey(name: 'EnableMetrics')
-  final bool enableMetrics;
+  final bool? enableMetrics;
   @override
   @JsonKey(name: 'EnableNormalizedItemByNameIds')
-  final bool enableNormalizedItemByNameIds;
+  final bool? enableNormalizedItemByNameIds;
 
   /// Gets or sets a value indicating whether this instance is port authorized.
   @override
   @JsonKey(name: 'IsPortAuthorized')
-  final bool isPortAuthorized;
+  final bool? isPortAuthorized;
 
   /// Gets or sets a value indicating whether quick connect is available for use on this server.
   @override
   @JsonKey(name: 'QuickConnectAvailable')
-  final bool quickConnectAvailable;
+  final bool? quickConnectAvailable;
 
   /// Gets or sets a value indicating whether [enable case-sensitive item ids].
   @override
   @JsonKey(name: 'EnableCaseSensitiveItemIds')
-  final bool enableCaseSensitiveItemIds;
+  final bool? enableCaseSensitiveItemIds;
   @override
   @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-  final bool disableLiveTvChannelUserDataName;
+  final bool? disableLiveTvChannelUserDataName;
 
   /// Gets or sets the metadata path.
   @override
   @JsonKey(name: 'MetadataPath')
-  final String metadataPath;
+  final String? metadataPath;
 
   /// Gets or sets the preferred metadata language.
   @override
   @JsonKey(name: 'PreferredMetadataLanguage')
-  final String preferredMetadataLanguage;
+  final String? preferredMetadataLanguage;
 
   /// Gets or sets the metadata country code.
   @override
   @JsonKey(name: 'MetadataCountryCode')
-  final String metadataCountryCode;
+  final String? metadataCountryCode;
 
   /// Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
-  final List<String> _sortReplaceCharacters;
+  final List<String>? _sortReplaceCharacters;
 
   /// Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
   @override
   @JsonKey(name: 'SortReplaceCharacters')
-  List<String> get sortReplaceCharacters {
+  List<String>? get sortReplaceCharacters {
+    final value = _sortReplaceCharacters;
+    if (value == null) return null;
     if (_sortReplaceCharacters is EqualUnmodifiableListView)
       return _sortReplaceCharacters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sortReplaceCharacters);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets characters to be removed from strings to create a sort name.
-  final List<String> _sortRemoveCharacters;
+  final List<String>? _sortRemoveCharacters;
 
   /// Gets or sets characters to be removed from strings to create a sort name.
   @override
   @JsonKey(name: 'SortRemoveCharacters')
-  List<String> get sortRemoveCharacters {
+  List<String>? get sortRemoveCharacters {
+    final value = _sortRemoveCharacters;
+    if (value == null) return null;
     if (_sortRemoveCharacters is EqualUnmodifiableListView)
       return _sortRemoveCharacters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sortRemoveCharacters);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets words to be removed from strings to create a sort name.
-  final List<String> _sortRemoveWords;
+  final List<String>? _sortRemoveWords;
 
   /// Gets or sets words to be removed from strings to create a sort name.
   @override
   @JsonKey(name: 'SortRemoveWords')
-  List<String> get sortRemoveWords {
+  List<String>? get sortRemoveWords {
+    final value = _sortRemoveWords;
+    if (value == null) return null;
     if (_sortRemoveWords is EqualUnmodifiableListView) return _sortRemoveWords;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sortRemoveWords);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the minimum percentage of an item that must be played in order for playstate to be updated.
   @override
   @JsonKey(name: 'MinResumePct')
-  final int minResumePct;
+  final int? minResumePct;
 
   /// Gets or sets the number of days we should retain log files.
   @override
   @JsonKey(name: 'LogFileRetentionDays')
-  final int logFileRetentionDays;
+  final int? logFileRetentionDays;
 
   /// Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates..
   @override
   @JsonKey(name: 'MinResumeDurationSeconds')
-  final int minResumeDurationSeconds;
+  final int? minResumeDurationSeconds;
 
   /// Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated.
   @override
   @JsonKey(name: 'MinAudiobookResume')
-  final int minAudiobookResume;
+  final int? minAudiobookResume;
 
   /// Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
   @override
   @JsonKey(name: 'MaxAudiobookResume')
-  final int maxAudiobookResume;
+  final int? maxAudiobookResume;
 
   /// Gets or sets the threshold in minutes after a inactive session gets closed automatically.
   ///
   /// If set to 0 the check for inactive sessions gets disabled.
   @override
   @JsonKey(name: 'InactiveSessionThreshold')
-  final int inactiveSessionThreshold;
+  final int? inactiveSessionThreshold;
 
   /// Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed.
   ///
@@ -1712,124 +1710,136 @@ class _ServerConfiguration implements ServerConfiguration {
   /// different directories and files.
   @override
   @JsonKey(name: 'LibraryMonitorDelay')
-  final int libraryMonitorDelay;
+  final int? libraryMonitorDelay;
 
   /// Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
   @override
   @JsonKey(name: 'LibraryUpdateDuration')
-  final int libraryUpdateDuration;
+  final int? libraryUpdateDuration;
 
   /// Gets or sets the maximum amount of items to cache.
   @override
   @JsonKey(name: 'CacheSize')
-  final int cacheSize;
+  final int? cacheSize;
 
   /// Gets or sets the image saving convention.
   @override
   @JsonKey(name: 'ImageSavingConvention')
-  final ServerConfigurationImageSavingConvention imageSavingConvention;
-  final List<MetadataOptions> _metadataOptions;
+  final ServerConfigurationImageSavingConvention? imageSavingConvention;
+  final List<MetadataOptions>? _metadataOptions;
   @override
   @JsonKey(name: 'MetadataOptions')
-  List<MetadataOptions> get metadataOptions {
+  List<MetadataOptions>? get metadataOptions {
+    final value = _metadataOptions;
+    if (value == null) return null;
     if (_metadataOptions is EqualUnmodifiableListView) return _metadataOptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_metadataOptions);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'SkipDeserializationForBasicTypes')
-  final bool skipDeserializationForBasicTypes;
+  final bool? skipDeserializationForBasicTypes;
   @override
   @JsonKey(name: 'ServerName')
-  final String serverName;
+  final String? serverName;
   @override
   @JsonKey(name: 'UICulture')
-  final String uiCulture;
+  final String? uiCulture;
   @override
   @JsonKey(name: 'SaveMetadataHidden')
-  final bool saveMetadataHidden;
-  final List<NameValuePair> _contentTypes;
+  final bool? saveMetadataHidden;
+  final List<NameValuePair>? _contentTypes;
   @override
   @JsonKey(name: 'ContentTypes')
-  List<NameValuePair> get contentTypes {
+  List<NameValuePair>? get contentTypes {
+    final value = _contentTypes;
+    if (value == null) return null;
     if (_contentTypes is EqualUnmodifiableListView) return _contentTypes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_contentTypes);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'RemoteClientBitrateLimit')
-  final int remoteClientBitrateLimit;
+  final int? remoteClientBitrateLimit;
   @override
   @JsonKey(name: 'EnableFolderView')
-  final bool enableFolderView;
+  final bool? enableFolderView;
   @override
   @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-  final bool enableGroupingMoviesIntoCollections;
+  final bool? enableGroupingMoviesIntoCollections;
 
   /// Gets or sets a value indicating whether old authorization methods are allowed.
   @override
   @JsonKey(name: 'EnableLegacyAuthorization')
-  final bool enableLegacyAuthorization;
+  final bool? enableLegacyAuthorization;
   @override
   @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-  final bool displaySpecialsWithinSeasons;
-  final List<String> _codecsUsed;
+  final bool? displaySpecialsWithinSeasons;
+  final List<String>? _codecsUsed;
   @override
   @JsonKey(name: 'CodecsUsed')
-  List<String> get codecsUsed {
+  List<String>? get codecsUsed {
+    final value = _codecsUsed;
+    if (value == null) return null;
     if (_codecsUsed is EqualUnmodifiableListView) return _codecsUsed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_codecsUsed);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<RepositoryInfo> _pluginRepositories;
+  final List<RepositoryInfo>? _pluginRepositories;
   @override
   @JsonKey(name: 'PluginRepositories')
-  List<RepositoryInfo> get pluginRepositories {
+  List<RepositoryInfo>? get pluginRepositories {
+    final value = _pluginRepositories;
+    if (value == null) return null;
     if (_pluginRepositories is EqualUnmodifiableListView)
       return _pluginRepositories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_pluginRepositories);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: 'EnableExternalContentInSuggestions')
-  final bool enableExternalContentInSuggestions;
+  final bool? enableExternalContentInSuggestions;
   @override
   @JsonKey(name: 'ImageExtractionTimeoutMs')
-  final int imageExtractionTimeoutMs;
-  final List<PathSubstitution> _pathSubstitutions;
+  final int? imageExtractionTimeoutMs;
+  final List<PathSubstitution>? _pathSubstitutions;
   @override
   @JsonKey(name: 'PathSubstitutions')
-  List<PathSubstitution> get pathSubstitutions {
+  List<PathSubstitution>? get pathSubstitutions {
+    final value = _pathSubstitutions;
+    if (value == null) return null;
     if (_pathSubstitutions is EqualUnmodifiableListView)
       return _pathSubstitutions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_pathSubstitutions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets a value indicating whether slow server responses should be logged as a warning.
   @override
   @JsonKey(name: 'EnableSlowResponseWarning')
-  final bool enableSlowResponseWarning;
+  final bool? enableSlowResponseWarning;
 
   /// Gets or sets the threshold for the slow response time warning in ms.
   @override
   @JsonKey(name: 'SlowResponseThresholdMs')
-  final int slowResponseThresholdMs;
+  final int? slowResponseThresholdMs;
 
   /// Gets or sets the cors hosts.
-  final List<String> _corsHosts;
+  final List<String>? _corsHosts;
 
   /// Gets or sets the cors hosts.
   @override
   @JsonKey(name: 'CorsHosts')
-  List<String> get corsHosts {
+  List<String>? get corsHosts {
+    final value = _corsHosts;
+    if (value == null) return null;
     if (_corsHosts is EqualUnmodifiableListView) return _corsHosts;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_corsHosts);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the number of days we should retain activity logs.
@@ -1840,53 +1850,55 @@ class _ServerConfiguration implements ServerConfiguration {
   /// Gets or sets the how the library scan fans out.
   @override
   @JsonKey(name: 'LibraryScanFanoutConcurrency')
-  final int libraryScanFanoutConcurrency;
+  final int? libraryScanFanoutConcurrency;
 
   /// Gets or sets the how many metadata refreshes can run concurrently.
   @override
   @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-  final int libraryMetadataRefreshConcurrency;
+  final int? libraryMetadataRefreshConcurrency;
 
   /// Gets or sets a value indicating whether clients should be allowed to upload logs.
   @override
   @JsonKey(name: 'AllowClientLogUpload')
-  final bool allowClientLogUpload;
+  final bool? allowClientLogUpload;
 
   /// Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation altogether.
   @override
   @JsonKey(name: 'DummyChapterDuration')
-  final int dummyChapterDuration;
+  final int? dummyChapterDuration;
 
   /// Gets or sets the chapter image resolution.
   @override
   @JsonKey(name: 'ChapterImageResolution')
-  final ServerConfigurationChapterImageResolution chapterImageResolution;
+  final ServerConfigurationChapterImageResolution? chapterImageResolution;
 
   /// Gets or sets the limit for parallel image encoding.
   @override
   @JsonKey(name: 'ParallelImageEncodingLimit')
-  final int parallelImageEncodingLimit;
+  final int? parallelImageEncodingLimit;
 
   /// Gets or sets the list of cast receiver applications.
-  final List<CastReceiverApplication> _castReceiverApplications;
+  final List<CastReceiverApplication>? _castReceiverApplications;
 
   /// Gets or sets the list of cast receiver applications.
   @override
   @JsonKey(name: 'CastReceiverApplications')
-  List<CastReceiverApplication> get castReceiverApplications {
+  List<CastReceiverApplication>? get castReceiverApplications {
+    final value = _castReceiverApplications;
+    if (value == null) return null;
     if (_castReceiverApplications is EqualUnmodifiableListView)
       return _castReceiverApplications;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_castReceiverApplications);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the trickplay options.
   @override
   @JsonKey(name: 'TrickplayOptions')
-  final TrickplayOptions trickplayOptions;
+  final TrickplayOptions? trickplayOptions;
   @override
   @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-  final bool enableGroupingShowsIntoCollections;
+  final bool? enableGroupingShowsIntoCollections;
 
   /// Create a copy of ServerConfiguration
   /// with the given fields replaced by the non-null parameter values.
@@ -2195,82 +2207,83 @@ abstract mixin class _$ServerConfigurationCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MaxResumePct') int maxResumePct,
-    @JsonKey(name: 'IsStartupWizardCompleted') bool isStartupWizardCompleted,
+    @JsonKey(name: 'MaxResumePct') int? maxResumePct,
+    @JsonKey(name: 'IsStartupWizardCompleted') bool? isStartupWizardCompleted,
     @JsonKey(name: 'CachePath') String? cachePath,
     @JsonKey(name: 'PreviousVersion') String? previousVersion,
     @JsonKey(name: 'PreviousVersionStr') String? previousVersionStr,
-    @JsonKey(name: 'EnableMetrics') bool enableMetrics,
+    @JsonKey(name: 'EnableMetrics') bool? enableMetrics,
     @JsonKey(name: 'EnableNormalizedItemByNameIds')
-    bool enableNormalizedItemByNameIds,
-    @JsonKey(name: 'IsPortAuthorized') bool isPortAuthorized,
-    @JsonKey(name: 'QuickConnectAvailable') bool quickConnectAvailable,
+    bool? enableNormalizedItemByNameIds,
+    @JsonKey(name: 'IsPortAuthorized') bool? isPortAuthorized,
+    @JsonKey(name: 'QuickConnectAvailable') bool? quickConnectAvailable,
     @JsonKey(name: 'EnableCaseSensitiveItemIds')
-    bool enableCaseSensitiveItemIds,
+    bool? enableCaseSensitiveItemIds,
     @JsonKey(name: 'DisableLiveTvChannelUserDataName')
-    bool disableLiveTvChannelUserDataName,
-    @JsonKey(name: 'MetadataPath') String metadataPath,
+    bool? disableLiveTvChannelUserDataName,
+    @JsonKey(name: 'MetadataPath') String? metadataPath,
     @JsonKey(name: 'PreferredMetadataLanguage')
-    String preferredMetadataLanguage,
-    @JsonKey(name: 'MetadataCountryCode') String metadataCountryCode,
-    @JsonKey(name: 'SortReplaceCharacters') List<String> sortReplaceCharacters,
-    @JsonKey(name: 'SortRemoveCharacters') List<String> sortRemoveCharacters,
-    @JsonKey(name: 'SortRemoveWords') List<String> sortRemoveWords,
-    @JsonKey(name: 'MinResumePct') int minResumePct,
-    @JsonKey(name: 'LogFileRetentionDays') int logFileRetentionDays,
-    @JsonKey(name: 'MinResumeDurationSeconds') int minResumeDurationSeconds,
-    @JsonKey(name: 'MinAudiobookResume') int minAudiobookResume,
-    @JsonKey(name: 'MaxAudiobookResume') int maxAudiobookResume,
-    @JsonKey(name: 'InactiveSessionThreshold') int inactiveSessionThreshold,
-    @JsonKey(name: 'LibraryMonitorDelay') int libraryMonitorDelay,
-    @JsonKey(name: 'LibraryUpdateDuration') int libraryUpdateDuration,
-    @JsonKey(name: 'CacheSize') int cacheSize,
+    String? preferredMetadataLanguage,
+    @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
+    @JsonKey(name: 'SortReplaceCharacters') List<String>? sortReplaceCharacters,
+    @JsonKey(name: 'SortRemoveCharacters') List<String>? sortRemoveCharacters,
+    @JsonKey(name: 'SortRemoveWords') List<String>? sortRemoveWords,
+    @JsonKey(name: 'MinResumePct') int? minResumePct,
+    @JsonKey(name: 'LogFileRetentionDays') int? logFileRetentionDays,
+    @JsonKey(name: 'MinResumeDurationSeconds') int? minResumeDurationSeconds,
+    @JsonKey(name: 'MinAudiobookResume') int? minAudiobookResume,
+    @JsonKey(name: 'MaxAudiobookResume') int? maxAudiobookResume,
+    @JsonKey(name: 'InactiveSessionThreshold') int? inactiveSessionThreshold,
+    @JsonKey(name: 'LibraryMonitorDelay') int? libraryMonitorDelay,
+    @JsonKey(name: 'LibraryUpdateDuration') int? libraryUpdateDuration,
+    @JsonKey(name: 'CacheSize') int? cacheSize,
     @JsonKey(name: 'ImageSavingConvention')
-    ServerConfigurationImageSavingConvention imageSavingConvention,
-    @JsonKey(name: 'MetadataOptions') List<MetadataOptions> metadataOptions,
+    ServerConfigurationImageSavingConvention? imageSavingConvention,
+    @JsonKey(name: 'MetadataOptions') List<MetadataOptions>? metadataOptions,
     @JsonKey(name: 'SkipDeserializationForBasicTypes')
-    bool skipDeserializationForBasicTypes,
-    @JsonKey(name: 'ServerName') String serverName,
-    @JsonKey(name: 'UICulture') String uiCulture,
-    @JsonKey(name: 'SaveMetadataHidden') bool saveMetadataHidden,
-    @JsonKey(name: 'ContentTypes') List<NameValuePair> contentTypes,
-    @JsonKey(name: 'RemoteClientBitrateLimit') int remoteClientBitrateLimit,
-    @JsonKey(name: 'EnableFolderView') bool enableFolderView,
+    bool? skipDeserializationForBasicTypes,
+    @JsonKey(name: 'ServerName') String? serverName,
+    @JsonKey(name: 'UICulture') String? uiCulture,
+    @JsonKey(name: 'SaveMetadataHidden') bool? saveMetadataHidden,
+    @JsonKey(name: 'ContentTypes') List<NameValuePair>? contentTypes,
+    @JsonKey(name: 'RemoteClientBitrateLimit') int? remoteClientBitrateLimit,
+    @JsonKey(name: 'EnableFolderView') bool? enableFolderView,
     @JsonKey(name: 'EnableGroupingMoviesIntoCollections')
-    bool enableGroupingMoviesIntoCollections,
-    @JsonKey(name: 'EnableLegacyAuthorization') bool enableLegacyAuthorization,
+    bool? enableGroupingMoviesIntoCollections,
+    @JsonKey(name: 'EnableLegacyAuthorization') bool? enableLegacyAuthorization,
     @JsonKey(name: 'DisplaySpecialsWithinSeasons')
-    bool displaySpecialsWithinSeasons,
-    @JsonKey(name: 'CodecsUsed') List<String> codecsUsed,
+    bool? displaySpecialsWithinSeasons,
+    @JsonKey(name: 'CodecsUsed') List<String>? codecsUsed,
     @JsonKey(name: 'PluginRepositories')
-    List<RepositoryInfo> pluginRepositories,
+    List<RepositoryInfo>? pluginRepositories,
     @JsonKey(name: 'EnableExternalContentInSuggestions')
-    bool enableExternalContentInSuggestions,
-    @JsonKey(name: 'ImageExtractionTimeoutMs') int imageExtractionTimeoutMs,
+    bool? enableExternalContentInSuggestions,
+    @JsonKey(name: 'ImageExtractionTimeoutMs') int? imageExtractionTimeoutMs,
     @JsonKey(name: 'PathSubstitutions')
-    List<PathSubstitution> pathSubstitutions,
-    @JsonKey(name: 'EnableSlowResponseWarning') bool enableSlowResponseWarning,
-    @JsonKey(name: 'SlowResponseThresholdMs') int slowResponseThresholdMs,
-    @JsonKey(name: 'CorsHosts') List<String> corsHosts,
+    List<PathSubstitution>? pathSubstitutions,
+    @JsonKey(name: 'EnableSlowResponseWarning') bool? enableSlowResponseWarning,
+    @JsonKey(name: 'SlowResponseThresholdMs') int? slowResponseThresholdMs,
+    @JsonKey(name: 'CorsHosts') List<String>? corsHosts,
     @JsonKey(name: 'ActivityLogRetentionDays') int? activityLogRetentionDays,
     @JsonKey(name: 'LibraryScanFanoutConcurrency')
-    int libraryScanFanoutConcurrency,
+    int? libraryScanFanoutConcurrency,
     @JsonKey(name: 'LibraryMetadataRefreshConcurrency')
-    int libraryMetadataRefreshConcurrency,
-    @JsonKey(name: 'AllowClientLogUpload') bool allowClientLogUpload,
-    @JsonKey(name: 'DummyChapterDuration') int dummyChapterDuration,
+    int? libraryMetadataRefreshConcurrency,
+    @JsonKey(name: 'AllowClientLogUpload') bool? allowClientLogUpload,
+    @JsonKey(name: 'DummyChapterDuration') int? dummyChapterDuration,
     @JsonKey(name: 'ChapterImageResolution')
-    ServerConfigurationChapterImageResolution chapterImageResolution,
-    @JsonKey(name: 'ParallelImageEncodingLimit') int parallelImageEncodingLimit,
+    ServerConfigurationChapterImageResolution? chapterImageResolution,
+    @JsonKey(name: 'ParallelImageEncodingLimit')
+    int? parallelImageEncodingLimit,
     @JsonKey(name: 'CastReceiverApplications')
-    List<CastReceiverApplication> castReceiverApplications,
-    @JsonKey(name: 'TrickplayOptions') TrickplayOptions trickplayOptions,
+    List<CastReceiverApplication>? castReceiverApplications,
+    @JsonKey(name: 'TrickplayOptions') TrickplayOptions? trickplayOptions,
     @JsonKey(name: 'EnableGroupingShowsIntoCollections')
-    bool enableGroupingShowsIntoCollections,
+    bool? enableGroupingShowsIntoCollections,
   });
 
   @override
-  $TrickplayOptionsCopyWith<$Res> get trickplayOptions;
+  $TrickplayOptionsCopyWith<$Res>? get trickplayOptions;
 }
 
 /// @nodoc
@@ -2286,73 +2299,73 @@ class __$ServerConfigurationCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? maxResumePct = null,
-    Object? isStartupWizardCompleted = null,
+    Object? maxResumePct = freezed,
+    Object? isStartupWizardCompleted = freezed,
     Object? cachePath = freezed,
     Object? previousVersion = freezed,
     Object? previousVersionStr = freezed,
-    Object? enableMetrics = null,
-    Object? enableNormalizedItemByNameIds = null,
-    Object? isPortAuthorized = null,
-    Object? quickConnectAvailable = null,
-    Object? enableCaseSensitiveItemIds = null,
-    Object? disableLiveTvChannelUserDataName = null,
-    Object? metadataPath = null,
-    Object? preferredMetadataLanguage = null,
-    Object? metadataCountryCode = null,
-    Object? sortReplaceCharacters = null,
-    Object? sortRemoveCharacters = null,
-    Object? sortRemoveWords = null,
-    Object? minResumePct = null,
-    Object? logFileRetentionDays = null,
-    Object? minResumeDurationSeconds = null,
-    Object? minAudiobookResume = null,
-    Object? maxAudiobookResume = null,
-    Object? inactiveSessionThreshold = null,
-    Object? libraryMonitorDelay = null,
-    Object? libraryUpdateDuration = null,
-    Object? cacheSize = null,
-    Object? imageSavingConvention = null,
-    Object? metadataOptions = null,
-    Object? skipDeserializationForBasicTypes = null,
-    Object? serverName = null,
-    Object? uiCulture = null,
-    Object? saveMetadataHidden = null,
-    Object? contentTypes = null,
-    Object? remoteClientBitrateLimit = null,
-    Object? enableFolderView = null,
-    Object? enableGroupingMoviesIntoCollections = null,
-    Object? enableLegacyAuthorization = null,
-    Object? displaySpecialsWithinSeasons = null,
-    Object? codecsUsed = null,
-    Object? pluginRepositories = null,
-    Object? enableExternalContentInSuggestions = null,
-    Object? imageExtractionTimeoutMs = null,
-    Object? pathSubstitutions = null,
-    Object? enableSlowResponseWarning = null,
-    Object? slowResponseThresholdMs = null,
-    Object? corsHosts = null,
+    Object? enableMetrics = freezed,
+    Object? enableNormalizedItemByNameIds = freezed,
+    Object? isPortAuthorized = freezed,
+    Object? quickConnectAvailable = freezed,
+    Object? enableCaseSensitiveItemIds = freezed,
+    Object? disableLiveTvChannelUserDataName = freezed,
+    Object? metadataPath = freezed,
+    Object? preferredMetadataLanguage = freezed,
+    Object? metadataCountryCode = freezed,
+    Object? sortReplaceCharacters = freezed,
+    Object? sortRemoveCharacters = freezed,
+    Object? sortRemoveWords = freezed,
+    Object? minResumePct = freezed,
+    Object? logFileRetentionDays = freezed,
+    Object? minResumeDurationSeconds = freezed,
+    Object? minAudiobookResume = freezed,
+    Object? maxAudiobookResume = freezed,
+    Object? inactiveSessionThreshold = freezed,
+    Object? libraryMonitorDelay = freezed,
+    Object? libraryUpdateDuration = freezed,
+    Object? cacheSize = freezed,
+    Object? imageSavingConvention = freezed,
+    Object? metadataOptions = freezed,
+    Object? skipDeserializationForBasicTypes = freezed,
+    Object? serverName = freezed,
+    Object? uiCulture = freezed,
+    Object? saveMetadataHidden = freezed,
+    Object? contentTypes = freezed,
+    Object? remoteClientBitrateLimit = freezed,
+    Object? enableFolderView = freezed,
+    Object? enableGroupingMoviesIntoCollections = freezed,
+    Object? enableLegacyAuthorization = freezed,
+    Object? displaySpecialsWithinSeasons = freezed,
+    Object? codecsUsed = freezed,
+    Object? pluginRepositories = freezed,
+    Object? enableExternalContentInSuggestions = freezed,
+    Object? imageExtractionTimeoutMs = freezed,
+    Object? pathSubstitutions = freezed,
+    Object? enableSlowResponseWarning = freezed,
+    Object? slowResponseThresholdMs = freezed,
+    Object? corsHosts = freezed,
     Object? activityLogRetentionDays = freezed,
-    Object? libraryScanFanoutConcurrency = null,
-    Object? libraryMetadataRefreshConcurrency = null,
-    Object? allowClientLogUpload = null,
-    Object? dummyChapterDuration = null,
-    Object? chapterImageResolution = null,
-    Object? parallelImageEncodingLimit = null,
-    Object? castReceiverApplications = null,
-    Object? trickplayOptions = null,
-    Object? enableGroupingShowsIntoCollections = null,
+    Object? libraryScanFanoutConcurrency = freezed,
+    Object? libraryMetadataRefreshConcurrency = freezed,
+    Object? allowClientLogUpload = freezed,
+    Object? dummyChapterDuration = freezed,
+    Object? chapterImageResolution = freezed,
+    Object? parallelImageEncodingLimit = freezed,
+    Object? castReceiverApplications = freezed,
+    Object? trickplayOptions = freezed,
+    Object? enableGroupingShowsIntoCollections = freezed,
   }) {
     return _then(
       _ServerConfiguration(
-        maxResumePct: null == maxResumePct
+        maxResumePct: freezed == maxResumePct
             ? _self.maxResumePct
             : maxResumePct // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isStartupWizardCompleted: null == isStartupWizardCompleted
+                  as int?,
+        isStartupWizardCompleted: freezed == isStartupWizardCompleted
             ? _self.isStartupWizardCompleted
             : isStartupWizardCompleted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         cachePath: freezed == cachePath
             ? _self.cachePath
             : cachePath // ignore: cast_nullable_to_non_nullable
@@ -2365,216 +2378,216 @@ class __$ServerConfigurationCopyWithImpl<$Res>
             ? _self.previousVersionStr
             : previousVersionStr // ignore: cast_nullable_to_non_nullable
                   as String?,
-        enableMetrics: null == enableMetrics
+        enableMetrics: freezed == enableMetrics
             ? _self.enableMetrics
             : enableMetrics // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableNormalizedItemByNameIds: null == enableNormalizedItemByNameIds
+                  as bool?,
+        enableNormalizedItemByNameIds: freezed == enableNormalizedItemByNameIds
             ? _self.enableNormalizedItemByNameIds
             : enableNormalizedItemByNameIds // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isPortAuthorized: null == isPortAuthorized
+                  as bool?,
+        isPortAuthorized: freezed == isPortAuthorized
             ? _self.isPortAuthorized
             : isPortAuthorized // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        quickConnectAvailable: null == quickConnectAvailable
+                  as bool?,
+        quickConnectAvailable: freezed == quickConnectAvailable
             ? _self.quickConnectAvailable
             : quickConnectAvailable // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableCaseSensitiveItemIds: null == enableCaseSensitiveItemIds
+                  as bool?,
+        enableCaseSensitiveItemIds: freezed == enableCaseSensitiveItemIds
             ? _self.enableCaseSensitiveItemIds
             : enableCaseSensitiveItemIds // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         disableLiveTvChannelUserDataName:
-            null == disableLiveTvChannelUserDataName
+            freezed == disableLiveTvChannelUserDataName
             ? _self.disableLiveTvChannelUserDataName
             : disableLiveTvChannelUserDataName // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        metadataPath: null == metadataPath
+                  as bool?,
+        metadataPath: freezed == metadataPath
             ? _self.metadataPath
             : metadataPath // ignore: cast_nullable_to_non_nullable
-                  as String,
-        preferredMetadataLanguage: null == preferredMetadataLanguage
+                  as String?,
+        preferredMetadataLanguage: freezed == preferredMetadataLanguage
             ? _self.preferredMetadataLanguage
             : preferredMetadataLanguage // ignore: cast_nullable_to_non_nullable
-                  as String,
-        metadataCountryCode: null == metadataCountryCode
+                  as String?,
+        metadataCountryCode: freezed == metadataCountryCode
             ? _self.metadataCountryCode
             : metadataCountryCode // ignore: cast_nullable_to_non_nullable
-                  as String,
-        sortReplaceCharacters: null == sortReplaceCharacters
+                  as String?,
+        sortReplaceCharacters: freezed == sortReplaceCharacters
             ? _self._sortReplaceCharacters
             : sortReplaceCharacters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        sortRemoveCharacters: null == sortRemoveCharacters
+                  as List<String>?,
+        sortRemoveCharacters: freezed == sortRemoveCharacters
             ? _self._sortRemoveCharacters
             : sortRemoveCharacters // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        sortRemoveWords: null == sortRemoveWords
+                  as List<String>?,
+        sortRemoveWords: freezed == sortRemoveWords
             ? _self._sortRemoveWords
             : sortRemoveWords // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        minResumePct: null == minResumePct
+                  as List<String>?,
+        minResumePct: freezed == minResumePct
             ? _self.minResumePct
             : minResumePct // ignore: cast_nullable_to_non_nullable
-                  as int,
-        logFileRetentionDays: null == logFileRetentionDays
+                  as int?,
+        logFileRetentionDays: freezed == logFileRetentionDays
             ? _self.logFileRetentionDays
             : logFileRetentionDays // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minResumeDurationSeconds: null == minResumeDurationSeconds
+                  as int?,
+        minResumeDurationSeconds: freezed == minResumeDurationSeconds
             ? _self.minResumeDurationSeconds
             : minResumeDurationSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        minAudiobookResume: null == minAudiobookResume
+                  as int?,
+        minAudiobookResume: freezed == minAudiobookResume
             ? _self.minAudiobookResume
             : minAudiobookResume // ignore: cast_nullable_to_non_nullable
-                  as int,
-        maxAudiobookResume: null == maxAudiobookResume
+                  as int?,
+        maxAudiobookResume: freezed == maxAudiobookResume
             ? _self.maxAudiobookResume
             : maxAudiobookResume // ignore: cast_nullable_to_non_nullable
-                  as int,
-        inactiveSessionThreshold: null == inactiveSessionThreshold
+                  as int?,
+        inactiveSessionThreshold: freezed == inactiveSessionThreshold
             ? _self.inactiveSessionThreshold
             : inactiveSessionThreshold // ignore: cast_nullable_to_non_nullable
-                  as int,
-        libraryMonitorDelay: null == libraryMonitorDelay
+                  as int?,
+        libraryMonitorDelay: freezed == libraryMonitorDelay
             ? _self.libraryMonitorDelay
             : libraryMonitorDelay // ignore: cast_nullable_to_non_nullable
-                  as int,
-        libraryUpdateDuration: null == libraryUpdateDuration
+                  as int?,
+        libraryUpdateDuration: freezed == libraryUpdateDuration
             ? _self.libraryUpdateDuration
             : libraryUpdateDuration // ignore: cast_nullable_to_non_nullable
-                  as int,
-        cacheSize: null == cacheSize
+                  as int?,
+        cacheSize: freezed == cacheSize
             ? _self.cacheSize
             : cacheSize // ignore: cast_nullable_to_non_nullable
-                  as int,
-        imageSavingConvention: null == imageSavingConvention
+                  as int?,
+        imageSavingConvention: freezed == imageSavingConvention
             ? _self.imageSavingConvention
             : imageSavingConvention // ignore: cast_nullable_to_non_nullable
-                  as ServerConfigurationImageSavingConvention,
-        metadataOptions: null == metadataOptions
+                  as ServerConfigurationImageSavingConvention?,
+        metadataOptions: freezed == metadataOptions
             ? _self._metadataOptions
             : metadataOptions // ignore: cast_nullable_to_non_nullable
-                  as List<MetadataOptions>,
+                  as List<MetadataOptions>?,
         skipDeserializationForBasicTypes:
-            null == skipDeserializationForBasicTypes
+            freezed == skipDeserializationForBasicTypes
             ? _self.skipDeserializationForBasicTypes
             : skipDeserializationForBasicTypes // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        serverName: null == serverName
+                  as bool?,
+        serverName: freezed == serverName
             ? _self.serverName
             : serverName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        uiCulture: null == uiCulture
+                  as String?,
+        uiCulture: freezed == uiCulture
             ? _self.uiCulture
             : uiCulture // ignore: cast_nullable_to_non_nullable
-                  as String,
-        saveMetadataHidden: null == saveMetadataHidden
+                  as String?,
+        saveMetadataHidden: freezed == saveMetadataHidden
             ? _self.saveMetadataHidden
             : saveMetadataHidden // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        contentTypes: null == contentTypes
+                  as bool?,
+        contentTypes: freezed == contentTypes
             ? _self._contentTypes
             : contentTypes // ignore: cast_nullable_to_non_nullable
-                  as List<NameValuePair>,
-        remoteClientBitrateLimit: null == remoteClientBitrateLimit
+                  as List<NameValuePair>?,
+        remoteClientBitrateLimit: freezed == remoteClientBitrateLimit
             ? _self.remoteClientBitrateLimit
             : remoteClientBitrateLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        enableFolderView: null == enableFolderView
+                  as int?,
+        enableFolderView: freezed == enableFolderView
             ? _self.enableFolderView
             : enableFolderView // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         enableGroupingMoviesIntoCollections:
-            null == enableGroupingMoviesIntoCollections
+            freezed == enableGroupingMoviesIntoCollections
             ? _self.enableGroupingMoviesIntoCollections
             : enableGroupingMoviesIntoCollections // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enableLegacyAuthorization: null == enableLegacyAuthorization
+                  as bool?,
+        enableLegacyAuthorization: freezed == enableLegacyAuthorization
             ? _self.enableLegacyAuthorization
             : enableLegacyAuthorization // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        displaySpecialsWithinSeasons: null == displaySpecialsWithinSeasons
+                  as bool?,
+        displaySpecialsWithinSeasons: freezed == displaySpecialsWithinSeasons
             ? _self.displaySpecialsWithinSeasons
             : displaySpecialsWithinSeasons // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        codecsUsed: null == codecsUsed
+                  as bool?,
+        codecsUsed: freezed == codecsUsed
             ? _self._codecsUsed
             : codecsUsed // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        pluginRepositories: null == pluginRepositories
+                  as List<String>?,
+        pluginRepositories: freezed == pluginRepositories
             ? _self._pluginRepositories
             : pluginRepositories // ignore: cast_nullable_to_non_nullable
-                  as List<RepositoryInfo>,
+                  as List<RepositoryInfo>?,
         enableExternalContentInSuggestions:
-            null == enableExternalContentInSuggestions
+            freezed == enableExternalContentInSuggestions
             ? _self.enableExternalContentInSuggestions
             : enableExternalContentInSuggestions // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        imageExtractionTimeoutMs: null == imageExtractionTimeoutMs
+                  as bool?,
+        imageExtractionTimeoutMs: freezed == imageExtractionTimeoutMs
             ? _self.imageExtractionTimeoutMs
             : imageExtractionTimeoutMs // ignore: cast_nullable_to_non_nullable
-                  as int,
-        pathSubstitutions: null == pathSubstitutions
+                  as int?,
+        pathSubstitutions: freezed == pathSubstitutions
             ? _self._pathSubstitutions
             : pathSubstitutions // ignore: cast_nullable_to_non_nullable
-                  as List<PathSubstitution>,
-        enableSlowResponseWarning: null == enableSlowResponseWarning
+                  as List<PathSubstitution>?,
+        enableSlowResponseWarning: freezed == enableSlowResponseWarning
             ? _self.enableSlowResponseWarning
             : enableSlowResponseWarning // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        slowResponseThresholdMs: null == slowResponseThresholdMs
+                  as bool?,
+        slowResponseThresholdMs: freezed == slowResponseThresholdMs
             ? _self.slowResponseThresholdMs
             : slowResponseThresholdMs // ignore: cast_nullable_to_non_nullable
-                  as int,
-        corsHosts: null == corsHosts
+                  as int?,
+        corsHosts: freezed == corsHosts
             ? _self._corsHosts
             : corsHosts // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         activityLogRetentionDays: freezed == activityLogRetentionDays
             ? _self.activityLogRetentionDays
             : activityLogRetentionDays // ignore: cast_nullable_to_non_nullable
                   as int?,
-        libraryScanFanoutConcurrency: null == libraryScanFanoutConcurrency
+        libraryScanFanoutConcurrency: freezed == libraryScanFanoutConcurrency
             ? _self.libraryScanFanoutConcurrency
             : libraryScanFanoutConcurrency // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
         libraryMetadataRefreshConcurrency:
-            null == libraryMetadataRefreshConcurrency
+            freezed == libraryMetadataRefreshConcurrency
             ? _self.libraryMetadataRefreshConcurrency
             : libraryMetadataRefreshConcurrency // ignore: cast_nullable_to_non_nullable
-                  as int,
-        allowClientLogUpload: null == allowClientLogUpload
+                  as int?,
+        allowClientLogUpload: freezed == allowClientLogUpload
             ? _self.allowClientLogUpload
             : allowClientLogUpload // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        dummyChapterDuration: null == dummyChapterDuration
+                  as bool?,
+        dummyChapterDuration: freezed == dummyChapterDuration
             ? _self.dummyChapterDuration
             : dummyChapterDuration // ignore: cast_nullable_to_non_nullable
-                  as int,
-        chapterImageResolution: null == chapterImageResolution
+                  as int?,
+        chapterImageResolution: freezed == chapterImageResolution
             ? _self.chapterImageResolution
             : chapterImageResolution // ignore: cast_nullable_to_non_nullable
-                  as ServerConfigurationChapterImageResolution,
-        parallelImageEncodingLimit: null == parallelImageEncodingLimit
+                  as ServerConfigurationChapterImageResolution?,
+        parallelImageEncodingLimit: freezed == parallelImageEncodingLimit
             ? _self.parallelImageEncodingLimit
             : parallelImageEncodingLimit // ignore: cast_nullable_to_non_nullable
-                  as int,
-        castReceiverApplications: null == castReceiverApplications
+                  as int?,
+        castReceiverApplications: freezed == castReceiverApplications
             ? _self._castReceiverApplications
             : castReceiverApplications // ignore: cast_nullable_to_non_nullable
-                  as List<CastReceiverApplication>,
-        trickplayOptions: null == trickplayOptions
+                  as List<CastReceiverApplication>?,
+        trickplayOptions: freezed == trickplayOptions
             ? _self.trickplayOptions
             : trickplayOptions // ignore: cast_nullable_to_non_nullable
-                  as TrickplayOptions,
+                  as TrickplayOptions?,
         enableGroupingShowsIntoCollections:
-            null == enableGroupingShowsIntoCollections
+            freezed == enableGroupingShowsIntoCollections
             ? _self.enableGroupingShowsIntoCollections
             : enableGroupingShowsIntoCollections // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -2583,8 +2596,12 @@ class __$ServerConfigurationCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TrickplayOptionsCopyWith<$Res> get trickplayOptions {
-    return $TrickplayOptionsCopyWith<$Res>(_self.trickplayOptions, (value) {
+  $TrickplayOptionsCopyWith<$Res>? get trickplayOptions {
+    if (_self.trickplayOptions == null) {
+      return null;
+    }
+
+    return $TrickplayOptionsCopyWith<$Res>(_self.trickplayOptions!, (value) {
       return _then(_self.copyWith(trickplayOptions: value));
     });
   }

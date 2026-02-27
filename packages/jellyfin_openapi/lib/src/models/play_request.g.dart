@@ -11,11 +11,11 @@ _PlayRequest _$PlayRequestFromJson(Map<String, dynamic> json) => _PlayRequest(
       ?.map((e) => e as String)
       .toList(),
   startPositionTicks: (json['StartPositionTicks'] as num?)?.toInt(),
-  playCommand: $enumDecode(
+  playCommand: $enumDecodeNullable(
     _$PlayRequestPlayCommandEnumMap,
     json['PlayCommand'],
   ),
-  controllingUserId: json['ControllingUserId'] as String,
+  controllingUserId: json['ControllingUserId'] as String?,
   subtitleStreamIndex: (json['SubtitleStreamIndex'] as num?)?.toInt(),
   audioStreamIndex: (json['AudioStreamIndex'] as num?)?.toInt(),
   mediaSourceId: json['MediaSourceId'] as String?,
@@ -26,8 +26,8 @@ Map<String, dynamic> _$PlayRequestToJson(_PlayRequest instance) =>
     <String, dynamic>{
       'ItemIds': ?instance.itemIds,
       'StartPositionTicks': ?instance.startPositionTicks,
-      'PlayCommand': instance.playCommand.toJson(),
-      'ControllingUserId': instance.controllingUserId,
+      'PlayCommand': ?instance.playCommand?.toJson(),
+      'ControllingUserId': ?instance.controllingUserId,
       'SubtitleStreamIndex': ?instance.subtitleStreamIndex,
       'AudioStreamIndex': ?instance.audioStreamIndex,
       'MediaSourceId': ?instance.mediaSourceId,

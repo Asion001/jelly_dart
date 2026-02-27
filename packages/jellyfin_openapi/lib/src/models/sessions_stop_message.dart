@@ -18,6 +18,7 @@ abstract class SessionsStopMessage with _$SessionsStopMessage {
     @Default(SessionsStopMessageMessageType.sessionsStop)
     SessionsStopMessageMessageType messageType,
   }) = _SessionsStopMessage;
-  
-  factory SessionsStopMessage.fromJson(Map<String, Object?> json) => _$SessionsStopMessageFromJson(json);
+
+  factory SessionsStopMessage.fromJson(Map<String, Object?> json) =>
+      _$SessionsStopMessageFromJson(json);
 }

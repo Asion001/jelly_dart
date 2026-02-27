@@ -8,8 +8,11 @@ part of 'base_item_person.dart';
 
 _BaseItemPerson _$BaseItemPersonFromJson(Map<String, dynamic> json) =>
     _BaseItemPerson(
+      type:
+          $enumDecodeNullable(_$BaseItemPersonTypeEnumMap, json['Type']) ??
+          BaseItemPersonType.unknown,
       name: json['Name'] as String?,
-      id: json['Id'] as String,
+      id: json['Id'] as String?,
       role: json['Role'] as String?,
       primaryImageTag: json['PrimaryImageTag'] as String?,
       imageBlurHashes: json['ImageBlurHashes'] == null
@@ -17,19 +20,16 @@ _BaseItemPerson _$BaseItemPersonFromJson(Map<String, dynamic> json) =>
           : ImageBlurHashes2.fromJson(
               json['ImageBlurHashes'] as Map<String, dynamic>,
             ),
-      type:
-          $enumDecodeNullable(_$BaseItemPersonTypeEnumMap, json['Type']) ??
-          BaseItemPersonType.unknown,
     );
 
 Map<String, dynamic> _$BaseItemPersonToJson(_BaseItemPerson instance) =>
     <String, dynamic>{
+      'Type': instance.type.toJson(),
       'Name': ?instance.name,
-      'Id': instance.id,
+      'Id': ?instance.id,
       'Role': ?instance.role,
       'PrimaryImageTag': ?instance.primaryImageTag,
       'ImageBlurHashes': ?instance.imageBlurHashes?.toJson(),
-      'Type': instance.type.toJson(),
     };
 
 const _$BaseItemPersonTypeEnumMap = {

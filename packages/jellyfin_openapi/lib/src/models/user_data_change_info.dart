@@ -14,13 +14,12 @@ part 'user_data_change_info.g.dart';
 abstract class UserDataChangeInfo with _$UserDataChangeInfo {
   const factory UserDataChangeInfo({
     /// Gets or sets the user id.
-    @JsonKey(name: 'UserId')
-    String? userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets the user data list.
-    @JsonKey(name: 'UserDataList')
-    List<UserItemDataDto>? userDataList,
+    @JsonKey(name: 'UserDataList') List<UserItemDataDto>? userDataList,
   }) = _UserDataChangeInfo;
-  
-  factory UserDataChangeInfo.fromJson(Map<String, Object?> json) => _$UserDataChangeInfoFromJson(json);
+
+  factory UserDataChangeInfo.fromJson(Map<String, Object?> json) =>
+      _$UserDataChangeInfoFromJson(json);
 }

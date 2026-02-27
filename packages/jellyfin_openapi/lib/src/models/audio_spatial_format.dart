@@ -12,7 +12,8 @@ enum AudioSpatialFormat {
   @JsonValue('DolbyAtmos')
   dolbyAtmos('DolbyAtmos'),
   @JsonValue('DTSX')
-  dtsx('DTSX');
+  dtsx('DTSX')
+  ;
 
   const AudioSpatialFormat(this.json);
 
@@ -20,8 +21,10 @@ enum AudioSpatialFormat {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

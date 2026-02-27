@@ -14,74 +14,65 @@ part 'playback_info_dto.g.dart';
 abstract class PlaybackInfoDto with _$PlaybackInfoDto {
   const factory PlaybackInfoDto({
     /// Gets or sets the playback userId.
-    @JsonKey(name: 'UserId')
-    required String? userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets the max streaming bitrate.
-    @JsonKey(name: 'MaxStreamingBitrate')
-    required int? maxStreamingBitrate,
+    @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
 
     /// Gets or sets the start time in ticks.
-    @JsonKey(name: 'StartTimeTicks')
-    required int? startTimeTicks,
+    @JsonKey(name: 'StartTimeTicks') int? startTimeTicks,
 
     /// Gets or sets the audio stream index.
-    @JsonKey(name: 'AudioStreamIndex')
-    required int? audioStreamIndex,
+    @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
 
     /// Gets or sets the subtitle stream index.
-    @JsonKey(name: 'SubtitleStreamIndex')
-    required int? subtitleStreamIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
 
     /// Gets or sets the max audio channels.
-    @JsonKey(name: 'MaxAudioChannels')
-    required int? maxAudioChannels,
+    @JsonKey(name: 'MaxAudioChannels') int? maxAudioChannels,
 
     /// Gets or sets the media source id.
-    @JsonKey(name: 'MediaSourceId')
-    required String? mediaSourceId,
+    @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
 
     /// Gets or sets the live stream id.
-    @JsonKey(name: 'LiveStreamId')
-    required String? liveStreamId,
+    @JsonKey(name: 'LiveStreamId') String? liveStreamId,
 
-    /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.    ///
-    /// <br />.    ///
-    /// Specifically, it defines the supported <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles">containers</see> and.    ///
-    /// <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles">codecs</see> (video and/or audio, including codec profiles and levels).    ///
-    /// the device is able to direct play (without transcoding or remuxing),.    ///
+    /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.
+    ///
+    /// <br />.
+    ///
+    /// Specifically, it defines the supported <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles">containers</see> and.
+    ///
+    /// <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles">codecs</see> (video and/or audio, including codec profiles and levels).
+    ///
+    /// the device is able to direct play (without transcoding or remuxing),.
+    ///
     /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
-    @JsonKey(name: 'DeviceProfile')
-    required DeviceProfile deviceProfile,
+    @JsonKey(name: 'DeviceProfile') DeviceProfile? deviceProfile,
 
     /// Gets or sets a value indicating whether to enable direct play.
-    @JsonKey(name: 'EnableDirectPlay')
-    required bool? enableDirectPlay,
+    @JsonKey(name: 'EnableDirectPlay') bool? enableDirectPlay,
 
     /// Gets or sets a value indicating whether to enable direct stream.
-    @JsonKey(name: 'EnableDirectStream')
-    required bool? enableDirectStream,
+    @JsonKey(name: 'EnableDirectStream') bool? enableDirectStream,
 
     /// Gets or sets a value indicating whether to enable transcoding.
-    @JsonKey(name: 'EnableTranscoding')
-    required bool? enableTranscoding,
+    @JsonKey(name: 'EnableTranscoding') bool? enableTranscoding,
 
     /// Gets or sets a value indicating whether to enable video stream copy.
-    @JsonKey(name: 'AllowVideoStreamCopy')
-    required bool? allowVideoStreamCopy,
+    @JsonKey(name: 'AllowVideoStreamCopy') bool? allowVideoStreamCopy,
 
     /// Gets or sets a value indicating whether to allow audio stream copy.
-    @JsonKey(name: 'AllowAudioStreamCopy')
-    required bool? allowAudioStreamCopy,
+    @JsonKey(name: 'AllowAudioStreamCopy') bool? allowAudioStreamCopy,
 
     /// Gets or sets a value indicating whether to auto open the live stream.
-    @JsonKey(name: 'AutoOpenLiveStream')
-    required bool? autoOpenLiveStream,
+    @JsonKey(name: 'AutoOpenLiveStream') bool? autoOpenLiveStream,
 
     /// Gets or sets a value indicating whether always burn in subtitles when transcoding.
     @JsonKey(name: 'AlwaysBurnInSubtitleWhenTranscoding')
-    required bool? alwaysBurnInSubtitleWhenTranscoding,
+    bool? alwaysBurnInSubtitleWhenTranscoding,
   }) = _PlaybackInfoDto;
-  
-  factory PlaybackInfoDto.fromJson(Map<String, Object?> json) => _$PlaybackInfoDtoFromJson(json);
+
+  factory PlaybackInfoDto.fromJson(Map<String, Object?> json) =>
+      _$PlaybackInfoDtoFromJson(json);
 }

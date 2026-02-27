@@ -21,11 +21,13 @@ _OpenLiveStreamDto _$OpenLiveStreamDtoFromJson(Map<String, dynamic> json) =>
       enableDirectStream: json['EnableDirectStream'] as bool?,
       alwaysBurnInSubtitleWhenTranscoding:
           json['AlwaysBurnInSubtitleWhenTranscoding'] as bool?,
-      deviceProfile: DeviceProfile.fromJson(
-        json['DeviceProfile'] as Map<String, dynamic>,
-      ),
-      directPlayProtocols: (json['DirectPlayProtocols'] as List<dynamic>)
-          .map((e) => $enumDecode(_$MediaProtocolEnumMap, e))
+      deviceProfile: json['DeviceProfile'] == null
+          ? null
+          : DeviceProfile.fromJson(
+              json['DeviceProfile'] as Map<String, dynamic>,
+            ),
+      directPlayProtocols: (json['DirectPlayProtocols'] as List<dynamic>?)
+          ?.map((e) => $enumDecode(_$MediaProtocolEnumMap, e))
           .toList(),
     );
 
@@ -44,9 +46,9 @@ Map<String, dynamic> _$OpenLiveStreamDtoToJson(_OpenLiveStreamDto instance) =>
       'EnableDirectStream': ?instance.enableDirectStream,
       'AlwaysBurnInSubtitleWhenTranscoding':
           ?instance.alwaysBurnInSubtitleWhenTranscoding,
-      'DeviceProfile': instance.deviceProfile.toJson(),
-      'DirectPlayProtocols': instance.directPlayProtocols
-          .map((e) => e.toJson())
+      'DeviceProfile': ?instance.deviceProfile?.toJson(),
+      'DirectPlayProtocols': ?instance.directPlayProtocols
+          ?.map((e) => e.toJson())
           .toList(),
     };
 

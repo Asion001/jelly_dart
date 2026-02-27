@@ -16,9 +16,11 @@ _PlaybackInfoDto _$PlaybackInfoDtoFromJson(Map<String, dynamic> json) =>
       maxAudioChannels: (json['MaxAudioChannels'] as num?)?.toInt(),
       mediaSourceId: json['MediaSourceId'] as String?,
       liveStreamId: json['LiveStreamId'] as String?,
-      deviceProfile: DeviceProfile.fromJson(
-        json['DeviceProfile'] as Map<String, dynamic>,
-      ),
+      deviceProfile: json['DeviceProfile'] == null
+          ? null
+          : DeviceProfile.fromJson(
+              json['DeviceProfile'] as Map<String, dynamic>,
+            ),
       enableDirectPlay: json['EnableDirectPlay'] as bool?,
       enableDirectStream: json['EnableDirectStream'] as bool?,
       enableTranscoding: json['EnableTranscoding'] as bool?,
@@ -39,7 +41,7 @@ Map<String, dynamic> _$PlaybackInfoDtoToJson(_PlaybackInfoDto instance) =>
       'MaxAudioChannels': ?instance.maxAudioChannels,
       'MediaSourceId': ?instance.mediaSourceId,
       'LiveStreamId': ?instance.liveStreamId,
-      'DeviceProfile': instance.deviceProfile.toJson(),
+      'DeviceProfile': ?instance.deviceProfile?.toJson(),
       'EnableDirectPlay': ?instance.enableDirectPlay,
       'EnableDirectStream': ?instance.enableDirectStream,
       'EnableTranscoding': ?instance.enableTranscoding,

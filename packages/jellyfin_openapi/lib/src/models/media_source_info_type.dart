@@ -12,7 +12,8 @@ enum MediaSourceInfoType {
   @JsonValue('Grouping')
   grouping('Grouping'),
   @JsonValue('Placeholder')
-  placeholder('Placeholder');
+  placeholder('Placeholder')
+  ;
 
   const MediaSourceInfoType(this.json);
 
@@ -20,8 +21,10 @@ enum MediaSourceInfoType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

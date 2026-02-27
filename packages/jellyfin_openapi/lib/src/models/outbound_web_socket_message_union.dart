@@ -80,299 +80,248 @@ part 'outbound_web_socket_message_union.freezed.dart';
 part 'outbound_web_socket_message_union.g.dart';
 
 @Freezed(unionKey: 'MessageType')
-sealed class OutboundWebSocketMessageUnion with _$OutboundWebSocketMessageUnion {
+sealed class OutboundWebSocketMessageUnion
+    with _$OutboundWebSocketMessageUnion {
   @FreezedUnionValue('ActivityLogEntry')
   const factory OutboundWebSocketMessageUnion.activityLogEntry({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required List<ActivityLogEntry>? data,
+    @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionActivityLogEntry;
 
   @FreezedUnionValue('ForceKeepAlive')
   const factory OutboundWebSocketMessageUnion.forceKeepAlive({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required int data,
+    @JsonKey(name: 'Data') int? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionForceKeepAlive;
 
   @FreezedUnionValue('GeneralCommand')
   const factory OutboundWebSocketMessageUnion.generalCommand({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required GeneralCommand data,
+    @JsonKey(name: 'Data') GeneralCommand? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionGeneralCommand;
 
   @FreezedUnionValue('LibraryChanged')
   const factory OutboundWebSocketMessageUnion.libraryChanged({
     /// Class LibraryUpdateInfo.
-    @JsonKey(name: 'Data')
-    required LibraryUpdateInfo data,
+    @JsonKey(name: 'Data') LibraryUpdateInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionLibraryChanged;
 
   @FreezedUnionValue('KeepAlive')
   const factory OutboundWebSocketMessageUnion.keepAlive({
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionKeepAlive;
 
   @FreezedUnionValue('Play')
   const factory OutboundWebSocketMessageUnion.play({
     /// Class PlayRequest.
-    @JsonKey(name: 'Data')
-    required PlayRequest data,
+    @JsonKey(name: 'Data') PlayRequest? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPlay;
 
   @FreezedUnionValue('Playstate')
   const factory OutboundWebSocketMessageUnion.playstate({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required PlaystateRequest data,
+    @JsonKey(name: 'Data') PlaystateRequest? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPlaystate;
 
   @FreezedUnionValue('PackageInstallationCancelled')
   const factory OutboundWebSocketMessageUnion.packageInstallationCancelled({
     /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
+    @JsonKey(name: 'Data') InstallationInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPackageInstallationCancelled;
 
   @FreezedUnionValue('PackageInstallationCompleted')
   const factory OutboundWebSocketMessageUnion.packageInstallationCompleted({
     /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
+    @JsonKey(name: 'Data') InstallationInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPackageInstallationCompleted;
 
   @FreezedUnionValue('PackageInstallationFailed')
   const factory OutboundWebSocketMessageUnion.packageInstallationFailed({
     /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
+    @JsonKey(name: 'Data') InstallationInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPackageInstallationFailed;
 
   @FreezedUnionValue('PackageInstalling')
   const factory OutboundWebSocketMessageUnion.packageInstalling({
     /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
+    @JsonKey(name: 'Data') InstallationInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPackageInstalling;
 
   @FreezedUnionValue('PackageUninstalled')
   const factory OutboundWebSocketMessageUnion.packageUninstalled({
     /// This is a serializable stub class that is used by the api to provide information about installed plugins.
-    @JsonKey(name: 'Data')
-    required PluginInfo data,
+    @JsonKey(name: 'Data') PluginInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionPackageUninstalled;
 
   @FreezedUnionValue('RefreshProgress')
   const factory OutboundWebSocketMessageUnion.refreshProgress({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required Map<String, String?>? data,
+    @JsonKey(name: 'Data') Map<String, String?>? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionRefreshProgress;
 
   @FreezedUnionValue('RestartRequired')
   const factory OutboundWebSocketMessageUnion.restartRequired({
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionRestartRequired;
 
   @FreezedUnionValue('ScheduledTaskEnded')
   const factory OutboundWebSocketMessageUnion.scheduledTaskEnded({
     /// Class TaskExecutionInfo.
-    @JsonKey(name: 'Data')
-    required TaskResult data,
+    @JsonKey(name: 'Data') TaskResult? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionScheduledTaskEnded;
 
   @FreezedUnionValue('ScheduledTasksInfo')
   const factory OutboundWebSocketMessageUnion.scheduledTasksInfo({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required List<TaskInfo>? data,
+    @JsonKey(name: 'Data') List<TaskInfo>? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionScheduledTasksInfo;
 
   @FreezedUnionValue('SeriesTimerCancelled')
   const factory OutboundWebSocketMessageUnion.seriesTimerCancelled({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionSeriesTimerCancelled;
 
   @FreezedUnionValue('SeriesTimerCreated')
   const factory OutboundWebSocketMessageUnion.seriesTimerCreated({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionSeriesTimerCreated;
 
   @FreezedUnionValue('ServerRestarting')
   const factory OutboundWebSocketMessageUnion.serverRestarting({
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionServerRestarting;
 
   @FreezedUnionValue('ServerShuttingDown')
   const factory OutboundWebSocketMessageUnion.serverShuttingDown({
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionServerShuttingDown;
 
   @FreezedUnionValue('Sessions')
   const factory OutboundWebSocketMessageUnion.sessions({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required List<SessionInfoDto>? data,
+    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionSessions;
 
   @FreezedUnionValue('SyncPlayCommand')
   const factory OutboundWebSocketMessageUnion.syncPlayCommand({
     /// Class SendCommand.
-    @JsonKey(name: 'Data')
-    required SendCommand data,
+    @JsonKey(name: 'Data') SendCommand? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionSyncPlayCommand;
 
   @FreezedUnionValue('TimerCancelled')
   const factory OutboundWebSocketMessageUnion.timerCancelled({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionTimerCancelled;
 
   @FreezedUnionValue('TimerCreated')
   const factory OutboundWebSocketMessageUnion.timerCreated({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionTimerCreated;
 
   @FreezedUnionValue('UserDataChanged')
   const factory OutboundWebSocketMessageUnion.userDataChanged({
     /// Class UserDataChangeInfo.
-    @JsonKey(name: 'Data')
-    required UserDataChangeInfo data,
+    @JsonKey(name: 'Data') UserDataChangeInfo? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionUserDataChanged;
 
   @FreezedUnionValue('UserDeleted')
   const factory OutboundWebSocketMessageUnion.userDeleted({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String data,
+    @JsonKey(name: 'Data') String? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionUserDeleted;
 
   @FreezedUnionValue('UserUpdated')
   const factory OutboundWebSocketMessageUnion.userUpdated({
     /// Class UserDto.
-    @JsonKey(name: 'Data')
-    required UserDto data,
+    @JsonKey(name: 'Data') UserDto? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionUserUpdated;
 
   @FreezedUnionValue('SyncPlayGroupUpdate')
   const factory OutboundWebSocketMessageUnion.syncPlayGroupUpdate({
     /// Group update data
-    @JsonKey(name: 'Data')
-    required GroupUpdate data,
+    @JsonKey(name: 'Data') GroupUpdate? data,
 
     /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = OutboundWebSocketMessageUnionSyncPlayGroupUpdate;
 
-  
-  factory OutboundWebSocketMessageUnion.fromJson(Map<String, Object?> json) => _$OutboundWebSocketMessageUnionFromJson(json);
+  factory OutboundWebSocketMessageUnion.fromJson(Map<String, Object?> json) =>
+      _$OutboundWebSocketMessageUnionFromJson(json);
 }

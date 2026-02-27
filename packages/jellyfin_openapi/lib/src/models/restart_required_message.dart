@@ -13,15 +13,15 @@ part 'restart_required_message.g.dart';
 @Freezed()
 abstract class RestartRequiredMessage with _$RestartRequiredMessage {
   const factory RestartRequiredMessage({
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(RestartRequiredMessageMessageType.restartRequired)
     RestartRequiredMessageMessageType messageType,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _RestartRequiredMessage;
-  
-  factory RestartRequiredMessage.fromJson(Map<String, Object?> json) => _$RestartRequiredMessageFromJson(json);
+
+  factory RestartRequiredMessage.fromJson(Map<String, Object?> json) =>
+      _$RestartRequiredMessageFromJson(json);
 }

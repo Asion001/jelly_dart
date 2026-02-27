@@ -12,13 +12,12 @@ part 'custom_database_option.g.dart';
 abstract class CustomDatabaseOption with _$CustomDatabaseOption {
   const factory CustomDatabaseOption({
     /// Gets or sets the key of the value.
-    @JsonKey(name: 'Key')
-    String? key,
+    @JsonKey(name: 'Key') String? key,
 
     /// Gets or sets the value.
-    @JsonKey(name: 'Value')
-    String? value,
+    @JsonKey(name: 'Value') String? value,
   }) = _CustomDatabaseOption;
-  
-  factory CustomDatabaseOption.fromJson(Map<String, Object?> json) => _$CustomDatabaseOptionFromJson(json);
+
+  factory CustomDatabaseOption.fromJson(Map<String, Object?> json) =>
+      _$CustomDatabaseOptionFromJson(json);
 }

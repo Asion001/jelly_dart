@@ -8,22 +8,24 @@ part of 'timer_created_message.dart';
 
 _TimerCreatedMessage _$TimerCreatedMessageFromJson(Map<String, dynamic> json) =>
     _TimerCreatedMessage(
-      data: TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
-      messageId: json['MessageId'] as String,
       messageType:
           $enumDecodeNullable(
             _$TimerCreatedMessageMessageTypeEnumMap,
             json['MessageType'],
           ) ??
           TimerCreatedMessageMessageType.timerCreated,
+      data: json['Data'] == null
+          ? null
+          : TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
+      messageId: json['MessageId'] as String?,
     );
 
 Map<String, dynamic> _$TimerCreatedMessageToJson(
   _TimerCreatedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$TimerCreatedMessageMessageTypeEnumMap = {

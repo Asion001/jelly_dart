@@ -14,17 +14,15 @@ part 'playlist_dto.g.dart';
 abstract class PlaylistDto with _$PlaylistDto {
   const factory PlaylistDto({
     /// Gets or sets a value indicating whether the playlist is publicly readable.
-    @JsonKey(name: 'OpenAccess')
-    bool? openAccess,
+    @JsonKey(name: 'OpenAccess') bool? openAccess,
 
     /// Gets or sets the share permissions.
-    @JsonKey(name: 'Shares')
-    List<PlaylistUserPermissions>? shares,
+    @JsonKey(name: 'Shares') List<PlaylistUserPermissions>? shares,
 
     /// Gets or sets the item ids.
-    @JsonKey(name: 'ItemIds')
-    List<String>? itemIds,
+    @JsonKey(name: 'ItemIds') List<String>? itemIds,
   }) = _PlaylistDto;
-  
-  factory PlaylistDto.fromJson(Map<String, Object?> json) => _$PlaylistDtoFromJson(json);
+
+  factory PlaylistDto.fromJson(Map<String, Object?> json) =>
+      _$PlaylistDtoFromJson(json);
 }

@@ -14,19 +14,18 @@ part 'series_timer_created_message.g.dart';
 @Freezed()
 abstract class SeriesTimerCreatedMessage with _$SeriesTimerCreatedMessage {
   const factory SeriesTimerCreatedMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required TimerEventInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(SeriesTimerCreatedMessageMessageType.seriesTimerCreated)
     SeriesTimerCreatedMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') TimerEventInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _SeriesTimerCreatedMessage;
-  
-  factory SeriesTimerCreatedMessage.fromJson(Map<String, Object?> json) => _$SeriesTimerCreatedMessageFromJson(json);
+
+  factory SeriesTimerCreatedMessage.fromJson(Map<String, Object?> json) =>
+      _$SeriesTimerCreatedMessageFromJson(json);
 }

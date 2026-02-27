@@ -13,15 +13,13 @@ part 'playstate_request.g.dart';
 abstract class PlaystateRequest with _$PlaystateRequest {
   const factory PlaystateRequest({
     /// Enum PlaystateCommand.
-    @JsonKey(name: 'Command')
-    required PlaystateRequestCommand command,
-    @JsonKey(name: 'SeekPositionTicks')
-    required int? seekPositionTicks,
+    @JsonKey(name: 'Command') PlaystateRequestCommand? command,
+    @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
 
     /// Gets or sets the controlling user identifier.
-    @JsonKey(name: 'ControllingUserId')
-    required String? controllingUserId,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
   }) = _PlaystateRequest;
-  
-  factory PlaystateRequest.fromJson(Map<String, Object?> json) => _$PlaystateRequestFromJson(json);
+
+  factory PlaystateRequest.fromJson(Map<String, Object?> json) =>
+      _$PlaystateRequestFromJson(json);
 }

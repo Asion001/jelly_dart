@@ -11,20 +11,20 @@ _RecommendationDto _$RecommendationDtoFromJson(Map<String, dynamic> json) =>
       items: (json['Items'] as List<dynamic>?)
           ?.map((e) => BaseItemDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      recommendationType: $enumDecode(
+      recommendationType: $enumDecodeNullable(
         _$RecommendationDtoRecommendationTypeEnumMap,
         json['RecommendationType'],
       ),
       baselineItemName: json['BaselineItemName'] as String?,
-      categoryId: json['CategoryId'] as String,
+      categoryId: json['CategoryId'] as String?,
     );
 
 Map<String, dynamic> _$RecommendationDtoToJson(_RecommendationDto instance) =>
     <String, dynamic>{
       'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-      'RecommendationType': instance.recommendationType.toJson(),
+      'RecommendationType': ?instance.recommendationType?.toJson(),
       'BaselineItemName': ?instance.baselineItemName,
-      'CategoryId': instance.categoryId,
+      'CategoryId': ?instance.categoryId,
     };
 
 const _$RecommendationDtoRecommendationTypeEnumMap = {

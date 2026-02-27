@@ -15,54 +15,46 @@ part 'trickplay_options.g.dart';
 abstract class TrickplayOptions with _$TrickplayOptions {
   const factory TrickplayOptions({
     /// Gets or sets a value indicating whether or not to use HW acceleration.
-    @JsonKey(name: 'EnableHwAcceleration')
-    required bool enableHwAcceleration,
+    @JsonKey(name: 'EnableHwAcceleration') bool? enableHwAcceleration,
 
     /// Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
-    @JsonKey(name: 'EnableHwEncoding')
-    required bool enableHwEncoding,
+    @JsonKey(name: 'EnableHwEncoding') bool? enableHwEncoding,
 
-    /// Gets or sets a value indicating whether to only extract key frames.    ///
+    /// Gets or sets a value indicating whether to only extract key frames.
+    ///
     /// Significantly faster, but is not compatible with all decoders and/or video files.
     @JsonKey(name: 'EnableKeyFrameOnlyExtraction')
-    required bool enableKeyFrameOnlyExtraction,
+    bool? enableKeyFrameOnlyExtraction,
 
     /// Gets or sets the behavior used by trickplay provider on library scan/update.
-    @JsonKey(name: 'ScanBehavior')
-    required TrickplayOptionsScanBehavior scanBehavior,
+    @JsonKey(name: 'ScanBehavior') TrickplayOptionsScanBehavior? scanBehavior,
 
     /// Gets or sets the process priority for the ffmpeg process.
     @JsonKey(name: 'ProcessPriority')
-    required TrickplayOptionsProcessPriority processPriority,
+    TrickplayOptionsProcessPriority? processPriority,
 
     /// Gets or sets the interval, in ms, between each new trickplay image.
-    @JsonKey(name: 'Interval')
-    required int interval,
+    @JsonKey(name: 'Interval') int? interval,
 
     /// Gets or sets the target width resolutions, in px, to generates preview images for.
-    @JsonKey(name: 'WidthResolutions')
-    required List<int> widthResolutions,
+    @JsonKey(name: 'WidthResolutions') List<int>? widthResolutions,
 
     /// Gets or sets number of tile images to allow in X dimension.
-    @JsonKey(name: 'TileWidth')
-    required int tileWidth,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
 
     /// Gets or sets number of tile images to allow in Y dimension.
-    @JsonKey(name: 'TileHeight')
-    required int tileHeight,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
 
     /// Gets or sets the ffmpeg output quality level.
-    @JsonKey(name: 'Qscale')
-    required int qscale,
+    @JsonKey(name: 'Qscale') int? qscale,
 
     /// Gets or sets the jpeg quality to use for image tiles.
-    @JsonKey(name: 'JpegQuality')
-    required int jpegQuality,
+    @JsonKey(name: 'JpegQuality') int? jpegQuality,
 
     /// Gets or sets the number of threads to be used by ffmpeg.
-    @JsonKey(name: 'ProcessThreads')
-    required int processThreads,
+    @JsonKey(name: 'ProcessThreads') int? processThreads,
   }) = _TrickplayOptions;
-  
-  factory TrickplayOptions.fromJson(Map<String, Object?> json) => _$TrickplayOptionsFromJson(json);
+
+  factory TrickplayOptions.fromJson(Map<String, Object?> json) =>
+      _$TrickplayOptionsFromJson(json);
 }

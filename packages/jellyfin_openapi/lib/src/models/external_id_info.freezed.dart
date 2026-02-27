@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$ExternalIdInfo {
   /// Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc).
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets the unique key for this id. This key should be unique across all providers.
   @JsonKey(name: 'Key')
-  String get key;
+  String? get key;
 
   /// Gets or sets the specific media type for this id. This is used to distinguish between the different.
   ///
@@ -72,8 +72,8 @@ abstract mixin class $ExternalIdInfoCopyWith<$Res> {
   ) = _$ExternalIdInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Key') String key,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Key') String? key,
     @JsonKey(name: 'Type') ExternalIdInfoType? type,
   });
 }
@@ -90,17 +90,21 @@ class _$ExternalIdInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? name = null, Object? key = null, Object? type = freezed}) {
+  $Res call({
+    Object? name = freezed,
+    Object? key = freezed,
+    Object? type = freezed,
+  }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        key: null == key
+                  as String?,
+        key: freezed == key
             ? _self.key
             : key // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
@@ -204,8 +208,8 @@ extension ExternalIdInfoPatterns on ExternalIdInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Key') String key,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Type') ExternalIdInfoType? type,
     )?
     $default, {
@@ -236,8 +240,8 @@ extension ExternalIdInfoPatterns on ExternalIdInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Key') String key,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Type') ExternalIdInfoType? type,
     )
     $default,
@@ -266,8 +270,8 @@ extension ExternalIdInfoPatterns on ExternalIdInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Key') String key,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Key') String? key,
       @JsonKey(name: 'Type') ExternalIdInfoType? type,
     )?
     $default,
@@ -286,9 +290,9 @@ extension ExternalIdInfoPatterns on ExternalIdInfo {
 @JsonSerializable()
 class _ExternalIdInfo implements ExternalIdInfo {
   const _ExternalIdInfo({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Key') required this.key,
-    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Key') this.key,
+    @JsonKey(name: 'Type') this.type,
   });
   factory _ExternalIdInfo.fromJson(Map<String, dynamic> json) =>
       _$ExternalIdInfoFromJson(json);
@@ -296,12 +300,12 @@ class _ExternalIdInfo implements ExternalIdInfo {
   /// Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc).
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets the unique key for this id. This key should be unique across all providers.
   @override
   @JsonKey(name: 'Key')
-  final String key;
+  final String? key;
 
   /// Gets or sets the specific media type for this id. This is used to distinguish between the different.
   ///
@@ -357,8 +361,8 @@ abstract mixin class _$ExternalIdInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Key') String key,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Key') String? key,
     @JsonKey(name: 'Type') ExternalIdInfoType? type,
   });
 }
@@ -375,17 +379,21 @@ class __$ExternalIdInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? name = null, Object? key = null, Object? type = freezed}) {
+  $Res call({
+    Object? name = freezed,
+    Object? key = freezed,
+    Object? type = freezed,
+  }) {
     return _then(
       _ExternalIdInfo(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        key: null == key
+                  as String?,
+        key: freezed == key
             ? _self.key
             : key // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable

@@ -8,19 +8,21 @@ part of 'sync_play_state_update.dart';
 
 _SyncPlayStateUpdate _$SyncPlayStateUpdateFromJson(Map<String, dynamic> json) =>
     _SyncPlayStateUpdate(
-      groupId: json['GroupId'] as String,
-      data: GroupStateUpdate.fromJson(json['Data'] as Map<String, dynamic>),
       type:
           $enumDecodeNullable(_$SyncPlayStateUpdateTypeEnumMap, json['Type']) ??
           SyncPlayStateUpdateType.stateUpdate,
+      groupId: json['GroupId'] as String?,
+      data: json['Data'] == null
+          ? null
+          : GroupStateUpdate.fromJson(json['Data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SyncPlayStateUpdateToJson(
   _SyncPlayStateUpdate instance,
 ) => <String, dynamic>{
-  'GroupId': instance.groupId,
-  'Data': instance.data.toJson(),
   'Type': instance.type.toJson(),
+  'GroupId': ?instance.groupId,
+  'Data': ?instance.data?.toJson(),
 };
 
 const _$SyncPlayStateUpdateTypeEnumMap = {

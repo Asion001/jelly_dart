@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$PlaybackProgressInfo {
   /// Gets or sets a value indicating whether this instance can seek.
   @JsonKey(name: 'CanSeek')
-  bool get canSeek;
+  bool? get canSeek;
 
   /// Gets or sets the item.
   @JsonKey(name: 'Item')
-  BaseItemDto get item;
+  BaseItemDto? get item;
 
   /// Gets or sets the item identifier.
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the session id.
   @JsonKey(name: 'SessionId')
@@ -43,11 +43,11 @@ mixin _$PlaybackProgressInfo {
 
   /// Gets or sets a value indicating whether this instance is paused.
   @JsonKey(name: 'IsPaused')
-  bool get isPaused;
+  bool? get isPaused;
 
   /// Gets or sets a value indicating whether this instance is muted.
   @JsonKey(name: 'IsMuted')
-  bool get isMuted;
+  bool? get isMuted;
 
   /// Gets or sets the position ticks.
   @JsonKey(name: 'PositionTicks')
@@ -65,7 +65,7 @@ mixin _$PlaybackProgressInfo {
 
   /// Gets or sets the play method.
   @JsonKey(name: 'PlayMethod')
-  PlaybackProgressInfoPlayMethod get playMethod;
+  PlaybackProgressInfoPlayMethod? get playMethod;
 
   /// Gets or sets the live stream identifier.
   @JsonKey(name: 'LiveStreamId')
@@ -77,11 +77,11 @@ mixin _$PlaybackProgressInfo {
 
   /// Gets or sets the repeat mode.
   @JsonKey(name: 'RepeatMode')
-  PlaybackProgressInfoRepeatMode get repeatMode;
+  PlaybackProgressInfoRepeatMode? get repeatMode;
 
   /// Gets or sets the playback order.
   @JsonKey(name: 'PlaybackOrder')
-  PlaybackProgressInfoPlaybackOrder get playbackOrder;
+  PlaybackProgressInfoPlaybackOrder? get playbackOrder;
   @JsonKey(name: 'NowPlayingQueue')
   List<QueueItem>? get nowPlayingQueue;
   @JsonKey(name: 'PlaylistItemId')
@@ -188,31 +188,31 @@ abstract mixin class $PlaybackProgressInfoCopyWith<$Res> {
   ) = _$PlaybackProgressInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'CanSeek') bool canSeek,
-    @JsonKey(name: 'Item') BaseItemDto item,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'CanSeek') bool? canSeek,
+    @JsonKey(name: 'Item') BaseItemDto? item,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SessionId') String? sessionId,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
-    @JsonKey(name: 'IsPaused') bool isPaused,
-    @JsonKey(name: 'IsMuted') bool isMuted,
+    @JsonKey(name: 'IsPaused') bool? isPaused,
+    @JsonKey(name: 'IsMuted') bool? isMuted,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
     @JsonKey(name: 'PlaybackStartTimeTicks') int? playbackStartTimeTicks,
     @JsonKey(name: 'VolumeLevel') int? volumeLevel,
     @JsonKey(name: 'Brightness') int? brightness,
     @JsonKey(name: 'AspectRatio') String? aspectRatio,
-    @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod playMethod,
+    @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod? playMethod,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
-    @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode repeatMode,
+    @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode? repeatMode,
     @JsonKey(name: 'PlaybackOrder')
-    PlaybackProgressInfoPlaybackOrder playbackOrder,
+    PlaybackProgressInfoPlaybackOrder? playbackOrder,
     @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   });
 
-  $BaseItemDtoCopyWith<$Res> get item;
+  $BaseItemDtoCopyWith<$Res>? get item;
 }
 
 /// @nodoc
@@ -228,42 +228,42 @@ class _$PlaybackProgressInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? canSeek = null,
-    Object? item = null,
-    Object? itemId = null,
+    Object? canSeek = freezed,
+    Object? item = freezed,
+    Object? itemId = freezed,
     Object? sessionId = freezed,
     Object? mediaSourceId = freezed,
     Object? audioStreamIndex = freezed,
     Object? subtitleStreamIndex = freezed,
-    Object? isPaused = null,
-    Object? isMuted = null,
+    Object? isPaused = freezed,
+    Object? isMuted = freezed,
     Object? positionTicks = freezed,
     Object? playbackStartTimeTicks = freezed,
     Object? volumeLevel = freezed,
     Object? brightness = freezed,
     Object? aspectRatio = freezed,
-    Object? playMethod = null,
+    Object? playMethod = freezed,
     Object? liveStreamId = freezed,
     Object? playSessionId = freezed,
-    Object? repeatMode = null,
-    Object? playbackOrder = null,
+    Object? repeatMode = freezed,
+    Object? playbackOrder = freezed,
     Object? nowPlayingQueue = freezed,
     Object? playlistItemId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        canSeek: null == canSeek
+        canSeek: freezed == canSeek
             ? _self.canSeek
             : canSeek // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        item: null == item
+                  as bool?,
+        item: freezed == item
             ? _self.item
             : item // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
-        itemId: null == itemId
+                  as BaseItemDto?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         sessionId: freezed == sessionId
             ? _self.sessionId
             : sessionId // ignore: cast_nullable_to_non_nullable
@@ -280,14 +280,14 @@ class _$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable
                   as int?,
-        isPaused: null == isPaused
+        isPaused: freezed == isPaused
             ? _self.isPaused
             : isPaused // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isMuted: null == isMuted
+                  as bool?,
+        isMuted: freezed == isMuted
             ? _self.isMuted
             : isMuted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         positionTicks: freezed == positionTicks
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
@@ -308,10 +308,10 @@ class _$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.aspectRatio
             : aspectRatio // ignore: cast_nullable_to_non_nullable
                   as String?,
-        playMethod: null == playMethod
+        playMethod: freezed == playMethod
             ? _self.playMethod
             : playMethod // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoPlayMethod,
+                  as PlaybackProgressInfoPlayMethod?,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
@@ -320,14 +320,14 @@ class _$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        repeatMode: null == repeatMode
+        repeatMode: freezed == repeatMode
             ? _self.repeatMode
             : repeatMode // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoRepeatMode,
-        playbackOrder: null == playbackOrder
+                  as PlaybackProgressInfoRepeatMode?,
+        playbackOrder: freezed == playbackOrder
             ? _self.playbackOrder
             : playbackOrder // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoPlaybackOrder,
+                  as PlaybackProgressInfoPlaybackOrder?,
         nowPlayingQueue: freezed == nowPlayingQueue
             ? _self.nowPlayingQueue
             : nowPlayingQueue // ignore: cast_nullable_to_non_nullable
@@ -344,8 +344,12 @@ class _$PlaybackProgressInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get item {
-    return $BaseItemDtoCopyWith<$Res>(_self.item, (value) {
+  $BaseItemDtoCopyWith<$Res>? get item {
+    if (_self.item == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.item!, (value) {
       return _then(_self.copyWith(item: value));
     });
   }
@@ -445,26 +449,26 @@ extension PlaybackProgressInfoPatterns on PlaybackProgressInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'PlaybackStartTimeTicks') int? playbackStartTimeTicks,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'Brightness') int? brightness,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod playMethod,
+      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod? playMethod,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlaybackProgressInfoPlaybackOrder playbackOrder,
+      PlaybackProgressInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )?
@@ -518,26 +522,26 @@ extension PlaybackProgressInfoPatterns on PlaybackProgressInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'PlaybackStartTimeTicks') int? playbackStartTimeTicks,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'Brightness') int? brightness,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod playMethod,
+      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod? playMethod,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlaybackProgressInfoPlaybackOrder playbackOrder,
+      PlaybackProgressInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )
@@ -589,26 +593,26 @@ extension PlaybackProgressInfoPatterns on PlaybackProgressInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'CanSeek') bool canSeek,
-      @JsonKey(name: 'Item') BaseItemDto item,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'CanSeek') bool? canSeek,
+      @JsonKey(name: 'Item') BaseItemDto? item,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SessionId') String? sessionId,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
-      @JsonKey(name: 'IsPaused') bool isPaused,
-      @JsonKey(name: 'IsMuted') bool isMuted,
+      @JsonKey(name: 'IsPaused') bool? isPaused,
+      @JsonKey(name: 'IsMuted') bool? isMuted,
       @JsonKey(name: 'PositionTicks') int? positionTicks,
       @JsonKey(name: 'PlaybackStartTimeTicks') int? playbackStartTimeTicks,
       @JsonKey(name: 'VolumeLevel') int? volumeLevel,
       @JsonKey(name: 'Brightness') int? brightness,
       @JsonKey(name: 'AspectRatio') String? aspectRatio,
-      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod playMethod,
+      @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod? playMethod,
       @JsonKey(name: 'LiveStreamId') String? liveStreamId,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
-      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode repeatMode,
+      @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode? repeatMode,
       @JsonKey(name: 'PlaybackOrder')
-      PlaybackProgressInfoPlaybackOrder playbackOrder,
+      PlaybackProgressInfoPlaybackOrder? playbackOrder,
       @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
       @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
     )?
@@ -650,29 +654,27 @@ extension PlaybackProgressInfoPatterns on PlaybackProgressInfo {
 @JsonSerializable()
 class _PlaybackProgressInfo implements PlaybackProgressInfo {
   const _PlaybackProgressInfo({
-    @JsonKey(name: 'CanSeek') required this.canSeek,
-    @JsonKey(name: 'Item') required this.item,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'SessionId') required this.sessionId,
-    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
-    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
-    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
-    @JsonKey(name: 'IsPaused') required this.isPaused,
-    @JsonKey(name: 'IsMuted') required this.isMuted,
-    @JsonKey(name: 'PositionTicks') required this.positionTicks,
-    @JsonKey(name: 'PlaybackStartTimeTicks')
-    required this.playbackStartTimeTicks,
-    @JsonKey(name: 'VolumeLevel') required this.volumeLevel,
-    @JsonKey(name: 'Brightness') required this.brightness,
-    @JsonKey(name: 'AspectRatio') required this.aspectRatio,
-    @JsonKey(name: 'PlayMethod') required this.playMethod,
-    @JsonKey(name: 'LiveStreamId') required this.liveStreamId,
-    @JsonKey(name: 'PlaySessionId') required this.playSessionId,
-    @JsonKey(name: 'RepeatMode') required this.repeatMode,
-    @JsonKey(name: 'PlaybackOrder') required this.playbackOrder,
-    @JsonKey(name: 'NowPlayingQueue')
-    required final List<QueueItem>? nowPlayingQueue,
-    @JsonKey(name: 'PlaylistItemId') required this.playlistItemId,
+    @JsonKey(name: 'CanSeek') this.canSeek,
+    @JsonKey(name: 'Item') this.item,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'SessionId') this.sessionId,
+    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
+    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
+    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
+    @JsonKey(name: 'IsPaused') this.isPaused,
+    @JsonKey(name: 'IsMuted') this.isMuted,
+    @JsonKey(name: 'PositionTicks') this.positionTicks,
+    @JsonKey(name: 'PlaybackStartTimeTicks') this.playbackStartTimeTicks,
+    @JsonKey(name: 'VolumeLevel') this.volumeLevel,
+    @JsonKey(name: 'Brightness') this.brightness,
+    @JsonKey(name: 'AspectRatio') this.aspectRatio,
+    @JsonKey(name: 'PlayMethod') this.playMethod,
+    @JsonKey(name: 'LiveStreamId') this.liveStreamId,
+    @JsonKey(name: 'PlaySessionId') this.playSessionId,
+    @JsonKey(name: 'RepeatMode') this.repeatMode,
+    @JsonKey(name: 'PlaybackOrder') this.playbackOrder,
+    @JsonKey(name: 'NowPlayingQueue') final List<QueueItem>? nowPlayingQueue,
+    @JsonKey(name: 'PlaylistItemId') this.playlistItemId,
   }) : _nowPlayingQueue = nowPlayingQueue;
   factory _PlaybackProgressInfo.fromJson(Map<String, dynamic> json) =>
       _$PlaybackProgressInfoFromJson(json);
@@ -680,17 +682,17 @@ class _PlaybackProgressInfo implements PlaybackProgressInfo {
   /// Gets or sets a value indicating whether this instance can seek.
   @override
   @JsonKey(name: 'CanSeek')
-  final bool canSeek;
+  final bool? canSeek;
 
   /// Gets or sets the item.
   @override
   @JsonKey(name: 'Item')
-  final BaseItemDto item;
+  final BaseItemDto? item;
 
   /// Gets or sets the item identifier.
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the session id.
   @override
@@ -715,12 +717,12 @@ class _PlaybackProgressInfo implements PlaybackProgressInfo {
   /// Gets or sets a value indicating whether this instance is paused.
   @override
   @JsonKey(name: 'IsPaused')
-  final bool isPaused;
+  final bool? isPaused;
 
   /// Gets or sets a value indicating whether this instance is muted.
   @override
   @JsonKey(name: 'IsMuted')
-  final bool isMuted;
+  final bool? isMuted;
 
   /// Gets or sets the position ticks.
   @override
@@ -744,7 +746,7 @@ class _PlaybackProgressInfo implements PlaybackProgressInfo {
   /// Gets or sets the play method.
   @override
   @JsonKey(name: 'PlayMethod')
-  final PlaybackProgressInfoPlayMethod playMethod;
+  final PlaybackProgressInfoPlayMethod? playMethod;
 
   /// Gets or sets the live stream identifier.
   @override
@@ -759,12 +761,12 @@ class _PlaybackProgressInfo implements PlaybackProgressInfo {
   /// Gets or sets the repeat mode.
   @override
   @JsonKey(name: 'RepeatMode')
-  final PlaybackProgressInfoRepeatMode repeatMode;
+  final PlaybackProgressInfoRepeatMode? repeatMode;
 
   /// Gets or sets the playback order.
   @override
   @JsonKey(name: 'PlaybackOrder')
-  final PlaybackProgressInfoPlaybackOrder playbackOrder;
+  final PlaybackProgressInfoPlaybackOrder? playbackOrder;
   final List<QueueItem>? _nowPlayingQueue;
   @override
   @JsonKey(name: 'NowPlayingQueue')
@@ -886,32 +888,32 @@ abstract mixin class _$PlaybackProgressInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'CanSeek') bool canSeek,
-    @JsonKey(name: 'Item') BaseItemDto item,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'CanSeek') bool? canSeek,
+    @JsonKey(name: 'Item') BaseItemDto? item,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SessionId') String? sessionId,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
-    @JsonKey(name: 'IsPaused') bool isPaused,
-    @JsonKey(name: 'IsMuted') bool isMuted,
+    @JsonKey(name: 'IsPaused') bool? isPaused,
+    @JsonKey(name: 'IsMuted') bool? isMuted,
     @JsonKey(name: 'PositionTicks') int? positionTicks,
     @JsonKey(name: 'PlaybackStartTimeTicks') int? playbackStartTimeTicks,
     @JsonKey(name: 'VolumeLevel') int? volumeLevel,
     @JsonKey(name: 'Brightness') int? brightness,
     @JsonKey(name: 'AspectRatio') String? aspectRatio,
-    @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod playMethod,
+    @JsonKey(name: 'PlayMethod') PlaybackProgressInfoPlayMethod? playMethod,
     @JsonKey(name: 'LiveStreamId') String? liveStreamId,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
-    @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode repeatMode,
+    @JsonKey(name: 'RepeatMode') PlaybackProgressInfoRepeatMode? repeatMode,
     @JsonKey(name: 'PlaybackOrder')
-    PlaybackProgressInfoPlaybackOrder playbackOrder,
+    PlaybackProgressInfoPlaybackOrder? playbackOrder,
     @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
     @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   });
 
   @override
-  $BaseItemDtoCopyWith<$Res> get item;
+  $BaseItemDtoCopyWith<$Res>? get item;
 }
 
 /// @nodoc
@@ -927,42 +929,42 @@ class __$PlaybackProgressInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? canSeek = null,
-    Object? item = null,
-    Object? itemId = null,
+    Object? canSeek = freezed,
+    Object? item = freezed,
+    Object? itemId = freezed,
     Object? sessionId = freezed,
     Object? mediaSourceId = freezed,
     Object? audioStreamIndex = freezed,
     Object? subtitleStreamIndex = freezed,
-    Object? isPaused = null,
-    Object? isMuted = null,
+    Object? isPaused = freezed,
+    Object? isMuted = freezed,
     Object? positionTicks = freezed,
     Object? playbackStartTimeTicks = freezed,
     Object? volumeLevel = freezed,
     Object? brightness = freezed,
     Object? aspectRatio = freezed,
-    Object? playMethod = null,
+    Object? playMethod = freezed,
     Object? liveStreamId = freezed,
     Object? playSessionId = freezed,
-    Object? repeatMode = null,
-    Object? playbackOrder = null,
+    Object? repeatMode = freezed,
+    Object? playbackOrder = freezed,
     Object? nowPlayingQueue = freezed,
     Object? playlistItemId = freezed,
   }) {
     return _then(
       _PlaybackProgressInfo(
-        canSeek: null == canSeek
+        canSeek: freezed == canSeek
             ? _self.canSeek
             : canSeek // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        item: null == item
+                  as bool?,
+        item: freezed == item
             ? _self.item
             : item // ignore: cast_nullable_to_non_nullable
-                  as BaseItemDto,
-        itemId: null == itemId
+                  as BaseItemDto?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         sessionId: freezed == sessionId
             ? _self.sessionId
             : sessionId // ignore: cast_nullable_to_non_nullable
@@ -979,14 +981,14 @@ class __$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable
                   as int?,
-        isPaused: null == isPaused
+        isPaused: freezed == isPaused
             ? _self.isPaused
             : isPaused // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isMuted: null == isMuted
+                  as bool?,
+        isMuted: freezed == isMuted
             ? _self.isMuted
             : isMuted // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         positionTicks: freezed == positionTicks
             ? _self.positionTicks
             : positionTicks // ignore: cast_nullable_to_non_nullable
@@ -1007,10 +1009,10 @@ class __$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.aspectRatio
             : aspectRatio // ignore: cast_nullable_to_non_nullable
                   as String?,
-        playMethod: null == playMethod
+        playMethod: freezed == playMethod
             ? _self.playMethod
             : playMethod // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoPlayMethod,
+                  as PlaybackProgressInfoPlayMethod?,
         liveStreamId: freezed == liveStreamId
             ? _self.liveStreamId
             : liveStreamId // ignore: cast_nullable_to_non_nullable
@@ -1019,14 +1021,14 @@ class __$PlaybackProgressInfoCopyWithImpl<$Res>
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        repeatMode: null == repeatMode
+        repeatMode: freezed == repeatMode
             ? _self.repeatMode
             : repeatMode // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoRepeatMode,
-        playbackOrder: null == playbackOrder
+                  as PlaybackProgressInfoRepeatMode?,
+        playbackOrder: freezed == playbackOrder
             ? _self.playbackOrder
             : playbackOrder // ignore: cast_nullable_to_non_nullable
-                  as PlaybackProgressInfoPlaybackOrder,
+                  as PlaybackProgressInfoPlaybackOrder?,
         nowPlayingQueue: freezed == nowPlayingQueue
             ? _self._nowPlayingQueue
             : nowPlayingQueue // ignore: cast_nullable_to_non_nullable
@@ -1043,8 +1045,12 @@ class __$PlaybackProgressInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseItemDtoCopyWith<$Res> get item {
-    return $BaseItemDtoCopyWith<$Res>(_self.item, (value) {
+  $BaseItemDtoCopyWith<$Res>? get item {
+    if (_self.item == null) {
+      return null;
+    }
+
+    return $BaseItemDtoCopyWith<$Res>(_self.item!, (value) {
       return _then(_self.copyWith(item: value));
     });
   }

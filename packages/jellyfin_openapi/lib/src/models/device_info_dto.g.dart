@@ -19,9 +19,11 @@ _DeviceInfoDto _$DeviceInfoDtoFromJson(Map<String, dynamic> json) =>
       dateLastActivity: json['DateLastActivity'] == null
           ? null
           : DateTime.parse(json['DateLastActivity'] as String),
-      capabilities: ClientCapabilitiesDto.fromJson(
-        json['Capabilities'] as Map<String, dynamic>,
-      ),
+      capabilities: json['Capabilities'] == null
+          ? null
+          : ClientCapabilitiesDto.fromJson(
+              json['Capabilities'] as Map<String, dynamic>,
+            ),
       iconUrl: json['IconUrl'] as String?,
     );
 
@@ -36,6 +38,6 @@ Map<String, dynamic> _$DeviceInfoDtoToJson(_DeviceInfoDto instance) =>
       'AppVersion': ?instance.appVersion,
       'LastUserId': ?instance.lastUserId,
       'DateLastActivity': ?instance.dateLastActivity?.toIso8601String(),
-      'Capabilities': instance.capabilities.toJson(),
+      'Capabilities': ?instance.capabilities?.toJson(),
       'IconUrl': ?instance.iconUrl,
     };

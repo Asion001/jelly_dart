@@ -14,9 +14,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieInfoRemoteSearchQuery {
   @JsonKey(name: 'SearchInfo')
-  MovieInfo get searchInfo;
+  MovieInfo? get searchInfo;
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the provider name to search within if set.
   @JsonKey(name: 'SearchProviderName')
@@ -24,7 +24,7 @@ mixin _$MovieInfoRemoteSearchQuery {
 
   /// Gets or sets a value indicating whether disabled providers should be included.
   @JsonKey(name: 'IncludeDisabledProviders')
-  bool get includeDisabledProviders;
+  bool? get includeDisabledProviders;
 
   /// Create a copy of MovieInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -81,13 +81,13 @@ abstract mixin class $MovieInfoRemoteSearchQueryCopyWith<$Res> {
   ) = _$MovieInfoRemoteSearchQueryCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') MovieInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') MovieInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
-  $MovieInfoCopyWith<$Res> get searchInfo;
+  $MovieInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -103,29 +103,29 @@ class _$MovieInfoRemoteSearchQueryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _self.copyWith(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as MovieInfo,
-        itemId: null == itemId
+                  as MovieInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -134,8 +134,12 @@ class _$MovieInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MovieInfoCopyWith<$Res> get searchInfo {
-    return $MovieInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $MovieInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $MovieInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }
@@ -235,10 +239,10 @@ extension MovieInfoRemoteSearchQueryPatterns on MovieInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') MovieInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') MovieInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default, {
     required TResult orElse(),
@@ -273,10 +277,10 @@ extension MovieInfoRemoteSearchQueryPatterns on MovieInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') MovieInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') MovieInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )
     $default,
   ) {
@@ -309,10 +313,10 @@ extension MovieInfoRemoteSearchQueryPatterns on MovieInfoRemoteSearchQuery {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'SearchInfo') MovieInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') MovieInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default,
   ) {
@@ -335,21 +339,20 @@ extension MovieInfoRemoteSearchQueryPatterns on MovieInfoRemoteSearchQuery {
 @JsonSerializable()
 class _MovieInfoRemoteSearchQuery implements MovieInfoRemoteSearchQuery {
   const _MovieInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo') required this.searchInfo,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'SearchProviderName') required this.searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required this.includeDisabledProviders,
+    @JsonKey(name: 'SearchInfo') this.searchInfo,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'SearchProviderName') this.searchProviderName,
+    @JsonKey(name: 'IncludeDisabledProviders') this.includeDisabledProviders,
   });
   factory _MovieInfoRemoteSearchQuery.fromJson(Map<String, dynamic> json) =>
       _$MovieInfoRemoteSearchQueryFromJson(json);
 
   @override
   @JsonKey(name: 'SearchInfo')
-  final MovieInfo searchInfo;
+  final MovieInfo? searchInfo;
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the provider name to search within if set.
   @override
@@ -359,7 +362,7 @@ class _MovieInfoRemoteSearchQuery implements MovieInfoRemoteSearchQuery {
   /// Gets or sets a value indicating whether disabled providers should be included.
   @override
   @JsonKey(name: 'IncludeDisabledProviders')
-  final bool includeDisabledProviders;
+  final bool? includeDisabledProviders;
 
   /// Create a copy of MovieInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -421,14 +424,14 @@ abstract mixin class _$MovieInfoRemoteSearchQueryCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') MovieInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') MovieInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
   @override
-  $MovieInfoCopyWith<$Res> get searchInfo;
+  $MovieInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -444,29 +447,29 @@ class __$MovieInfoRemoteSearchQueryCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _MovieInfoRemoteSearchQuery(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as MovieInfo,
-        itemId: null == itemId
+                  as MovieInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -475,8 +478,12 @@ class __$MovieInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MovieInfoCopyWith<$Res> get searchInfo {
-    return $MovieInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $MovieInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $MovieInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }

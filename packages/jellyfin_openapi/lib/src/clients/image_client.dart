@@ -148,7 +148,8 @@ abstract class ImageClient {
     @DioOptions() RequestOptions? options,
   });
 
-  /// Uploads a custom splashscreen.  ///
+  /// Uploads a custom splashscreen.
+  ///
   /// The body is expected to the image contents base64 encoded.
   @POST('/Branding/Splashscreen')
   Future<void> uploadCustomSplashscreen({
@@ -729,7 +730,9 @@ abstract class ImageClient {
   /// [foregroundLayer] - Optional. Apply a foreground layer on top of the image.
   ///
   /// [imageIndex] - Image index.
-  @GET('/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}')
+  @GET(
+    '/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}',
+  )
   @DioResponseType(ResponseType.stream)
   Stream<String> getItemImage2({
     @Path('itemId') required String itemId,
@@ -787,7 +790,9 @@ abstract class ImageClient {
   /// [foregroundLayer] - Optional. Apply a foreground layer on top of the image.
   ///
   /// [imageIndex] - Image index.
-  @HEAD('/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}')
+  @HEAD(
+    '/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}',
+  )
   @DioResponseType(ResponseType.stream)
   Stream<String> headItemImage2({
     @Path('itemId') required String itemId,

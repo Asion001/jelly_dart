@@ -14,25 +14,21 @@ part 'backup_manifest_dto.g.dart';
 abstract class BackupManifestDto with _$BackupManifestDto {
   const factory BackupManifestDto({
     /// Gets or sets the jellyfin version this backup was created with.
-    @JsonKey(name: 'ServerVersion')
-    required String serverVersion,
+    @JsonKey(name: 'ServerVersion') String? serverVersion,
 
     /// Gets or sets the backup engine version this backup was created with.
-    @JsonKey(name: 'BackupEngineVersion')
-    required String backupEngineVersion,
+    @JsonKey(name: 'BackupEngineVersion') String? backupEngineVersion,
 
     /// Gets or sets the date this backup was created with.
-    @JsonKey(name: 'DateCreated')
-    required DateTime dateCreated,
+    @JsonKey(name: 'DateCreated') DateTime? dateCreated,
 
     /// Gets or sets the path to the backup on the system.
-    @JsonKey(name: 'Path')
-    required String path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets or sets the contents of the backup archive.
-    @JsonKey(name: 'Options')
-    required BackupOptionsDto options,
+    @JsonKey(name: 'Options') BackupOptionsDto? options,
   }) = _BackupManifestDto;
-  
-  factory BackupManifestDto.fromJson(Map<String, Object?> json) => _$BackupManifestDtoFromJson(json);
+
+  factory BackupManifestDto.fromJson(Map<String, Object?> json) =>
+      _$BackupManifestDtoFromJson(json);
 }

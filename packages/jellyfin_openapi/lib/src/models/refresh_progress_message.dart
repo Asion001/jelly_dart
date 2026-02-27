@@ -13,19 +13,18 @@ part 'refresh_progress_message.g.dart';
 @Freezed()
 abstract class RefreshProgressMessage with _$RefreshProgressMessage {
   const factory RefreshProgressMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required Map<String, String?>? data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(RefreshProgressMessageMessageType.refreshProgress)
     RefreshProgressMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') Map<String, String?>? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _RefreshProgressMessage;
-  
-  factory RefreshProgressMessage.fromJson(Map<String, Object?> json) => _$RefreshProgressMessageFromJson(json);
+
+  factory RefreshProgressMessage.fromJson(Map<String, Object?> json) =>
+      _$RefreshProgressMessageFromJson(json);
 }

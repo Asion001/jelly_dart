@@ -4,7 +4,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-/// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are "NoLock", "Pessimistic", "Optimistic".///
+/// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are "NoLock", "Pessimistic", "Optimistic".
+///
 /// Defaults to "NoLock".
 @JsonEnum()
 enum DatabaseConfigurationOptionsLockingBehavior {
@@ -13,7 +14,8 @@ enum DatabaseConfigurationOptionsLockingBehavior {
   @JsonValue('Pessimistic')
   pessimistic('Pessimistic'),
   @JsonValue('Optimistic')
-  optimistic('Optimistic');
+  optimistic('Optimistic')
+  ;
 
   const DatabaseConfigurationOptionsLockingBehavior(this.json);
 
@@ -21,8 +23,10 @@ enum DatabaseConfigurationOptionsLockingBehavior {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

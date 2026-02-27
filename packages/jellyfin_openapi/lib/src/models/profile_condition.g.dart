@@ -6,21 +6,26 @@ part of 'profile_condition.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ProfileCondition _$ProfileConditionFromJson(
-  Map<String, dynamic> json,
-) => _ProfileCondition(
-  condition: $enumDecode(_$ProfileConditionConditionEnumMap, json['Condition']),
-  property: $enumDecode(_$ProfileConditionPropertyEnumMap, json['Property']),
-  value: json['Value'] as String?,
-  isRequired: json['IsRequired'] as bool,
-);
+_ProfileCondition _$ProfileConditionFromJson(Map<String, dynamic> json) =>
+    _ProfileCondition(
+      condition: $enumDecodeNullable(
+        _$ProfileConditionConditionEnumMap,
+        json['Condition'],
+      ),
+      property: $enumDecodeNullable(
+        _$ProfileConditionPropertyEnumMap,
+        json['Property'],
+      ),
+      value: json['Value'] as String?,
+      isRequired: json['IsRequired'] as bool?,
+    );
 
 Map<String, dynamic> _$ProfileConditionToJson(_ProfileCondition instance) =>
     <String, dynamic>{
-      'Condition': instance.condition.toJson(),
-      'Property': instance.property.toJson(),
+      'Condition': ?instance.condition?.toJson(),
+      'Property': ?instance.property?.toJson(),
       'Value': ?instance.value,
-      'IsRequired': instance.isRequired,
+      'IsRequired': ?instance.isRequired,
     };
 
 const _$ProfileConditionConditionEnumMap = {

@@ -9,24 +9,24 @@ part of 'activity_log_entry_message.dart';
 _ActivityLogEntryMessage _$ActivityLogEntryMessageFromJson(
   Map<String, dynamic> json,
 ) => _ActivityLogEntryMessage(
-  data: (json['Data'] as List<dynamic>?)
-      ?.map((e) => ActivityLogEntry.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$ActivityLogEntryMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ActivityLogEntryMessageMessageType.activityLogEntry,
+  data: (json['Data'] as List<dynamic>?)
+      ?.map((e) => ActivityLogEntry.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$ActivityLogEntryMessageToJson(
   _ActivityLogEntryMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data?.map((e) => e.toJson()).toList(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.map((e) => e.toJson()).toList(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$ActivityLogEntryMessageMessageTypeEnumMap = {

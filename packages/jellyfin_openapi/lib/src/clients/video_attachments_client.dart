@@ -11,7 +11,8 @@ part 'video_attachments_client.g.dart';
 
 @RestApi()
 abstract class VideoAttachmentsClient {
-  factory VideoAttachmentsClient(Dio dio, {String? baseUrl}) = _VideoAttachmentsClient;
+  factory VideoAttachmentsClient(Dio dio, {String? baseUrl}) =
+      _VideoAttachmentsClient;
 
   /// Get video attachment.
   ///

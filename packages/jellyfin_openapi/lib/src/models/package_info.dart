@@ -28,7 +28,8 @@ abstract class PackageInfo with _$PackageInfo {
     /// Gets or sets the category.
     String? category,
 
-    /// Gets or sets the guid of the assembly associated with this plugin.    ///
+    /// Gets or sets the guid of the assembly associated with this plugin.
+    ///
     /// This is used to identify the proper item for automatic updates.
     String? guid,
 
@@ -38,6 +39,7 @@ abstract class PackageInfo with _$PackageInfo {
     /// Gets or sets the image url for the package.
     String? imageUrl,
   }) = _PackageInfo;
-  
-  factory PackageInfo.fromJson(Map<String, Object?> json) => _$PackageInfoFromJson(json);
+
+  factory PackageInfo.fromJson(Map<String, Object?> json) =>
+      _$PackageInfoFromJson(json);
 }

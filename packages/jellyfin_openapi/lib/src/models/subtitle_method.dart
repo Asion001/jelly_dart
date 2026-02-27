@@ -10,13 +10,15 @@ enum SubtitleMethod {
   encode('Encode'),
   @JsonValue('Embed')
   embed('Embed'),
+
   /// The name has been replaced because it contains a keyword. Original name: `External`.
   @JsonValue('External')
   valueExternal('External'),
   @JsonValue('Hls')
   hls('Hls'),
   @JsonValue('Drop')
-  drop('Drop');
+  drop('Drop')
+  ;
 
   const SubtitleMethod(this.json);
 
@@ -24,8 +26,10 @@ enum SubtitleMethod {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

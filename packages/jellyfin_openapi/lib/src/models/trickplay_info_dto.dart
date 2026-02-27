@@ -12,33 +12,27 @@ part 'trickplay_info_dto.g.dart';
 abstract class TrickplayInfoDto with _$TrickplayInfoDto {
   const factory TrickplayInfoDto({
     /// Gets the width of an individual thumbnail.
-    @JsonKey(name: 'Width')
-    int? width,
+    @JsonKey(name: 'Width') int? width,
 
     /// Gets the height of an individual thumbnail.
-    @JsonKey(name: 'Height')
-    int? height,
+    @JsonKey(name: 'Height') int? height,
 
     /// Gets the amount of thumbnails per row.
-    @JsonKey(name: 'TileWidth')
-    int? tileWidth,
+    @JsonKey(name: 'TileWidth') int? tileWidth,
 
     /// Gets the amount of thumbnails per column.
-    @JsonKey(name: 'TileHeight')
-    int? tileHeight,
+    @JsonKey(name: 'TileHeight') int? tileHeight,
 
     /// Gets the total amount of non-black thumbnails.
-    @JsonKey(name: 'ThumbnailCount')
-    int? thumbnailCount,
+    @JsonKey(name: 'ThumbnailCount') int? thumbnailCount,
 
     /// Gets the interval in milliseconds between each trickplay thumbnail.
-    @JsonKey(name: 'Interval')
-    int? interval,
+    @JsonKey(name: 'Interval') int? interval,
 
     /// Gets the peak bandwidth usage in bits per second.
-    @JsonKey(name: 'Bandwidth')
-    int? bandwidth,
+    @JsonKey(name: 'Bandwidth') int? bandwidth,
   }) = _TrickplayInfoDto;
-  
-  factory TrickplayInfoDto.fromJson(Map<String, Object?> json) => _$TrickplayInfoDtoFromJson(json);
+
+  factory TrickplayInfoDto.fromJson(Map<String, Object?> json) =>
+      _$TrickplayInfoDtoFromJson(json);
 }

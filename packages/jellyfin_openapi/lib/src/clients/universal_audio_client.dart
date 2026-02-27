@@ -13,7 +13,8 @@ part 'universal_audio_client.g.dart';
 
 @RestApi()
 abstract class UniversalAudioClient {
-  factory UniversalAudioClient(Dio dio, {String? baseUrl}) = _UniversalAudioClient;
+  factory UniversalAudioClient(Dio dio, {String? baseUrl}) =
+      _UniversalAudioClient;
 
   /// Gets an audio stream.
   ///

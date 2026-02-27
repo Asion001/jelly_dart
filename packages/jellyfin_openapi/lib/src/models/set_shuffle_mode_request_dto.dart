@@ -14,9 +14,9 @@ part 'set_shuffle_mode_request_dto.g.dart';
 abstract class SetShuffleModeRequestDto with _$SetShuffleModeRequestDto {
   const factory SetShuffleModeRequestDto({
     /// Enum GroupShuffleMode.
-    @JsonKey(name: 'Mode')
-    required SetShuffleModeRequestDtoMode mode,
+    @JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode,
   }) = _SetShuffleModeRequestDto;
-  
-  factory SetShuffleModeRequestDto.fromJson(Map<String, Object?> json) => _$SetShuffleModeRequestDtoFromJson(json);
+
+  factory SetShuffleModeRequestDto.fromJson(Map<String, Object?> json) =>
+      _$SetShuffleModeRequestDtoFromJson(json);
 }

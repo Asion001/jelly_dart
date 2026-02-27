@@ -31,7 +31,8 @@ enum LibraryContentType {
   @JsonValue('playlists')
   playlists('playlists'),
   @JsonValue('folders')
-  folders('folders');
+  folders('folders')
+  ;
 
   const LibraryContentType(this.json);
 
@@ -39,8 +40,10 @@ enum LibraryContentType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

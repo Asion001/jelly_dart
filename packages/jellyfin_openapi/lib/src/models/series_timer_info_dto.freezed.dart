@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$SeriesTimerInfoDto {
   /// Gets or sets the start date of the recording, in UTC.
   @JsonKey(name: 'StartDate')
-  DateTime get startDate;
+  DateTime? get startDate;
   @JsonKey(name: 'Type')
   String? get type;
 
@@ -29,7 +29,7 @@ mixin _$SeriesTimerInfoDto {
 
   /// Gets or sets the channel id of the recording.
   @JsonKey(name: 'ChannelId')
-  String get channelId;
+  String? get channelId;
 
   /// Gets or sets the external channel identifier.
   @JsonKey(name: 'ExternalChannelId')
@@ -63,7 +63,7 @@ mixin _$SeriesTimerInfoDto {
 
   /// Gets or sets the end date of the recording, in UTC.
   @JsonKey(name: 'EndDate')
-  DateTime get endDate;
+  DateTime? get endDate;
 
   /// Gets or sets the name of the service.
   @JsonKey(name: 'ServiceName')
@@ -71,19 +71,19 @@ mixin _$SeriesTimerInfoDto {
 
   /// Gets or sets the priority.
   @JsonKey(name: 'Priority')
-  int get priority;
+  int? get priority;
 
   /// Gets or sets the pre padding seconds.
   @JsonKey(name: 'PrePaddingSeconds')
-  int get prePaddingSeconds;
+  int? get prePaddingSeconds;
 
   /// Gets or sets the post padding seconds.
   @JsonKey(name: 'PostPaddingSeconds')
-  int get postPaddingSeconds;
+  int? get postPaddingSeconds;
 
   /// Gets or sets a value indicating whether this instance is pre padding required.
   @JsonKey(name: 'IsPrePaddingRequired')
-  bool get isPrePaddingRequired;
+  bool? get isPrePaddingRequired;
 
   /// Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
   @JsonKey(name: 'ParentBackdropItemId')
@@ -95,7 +95,7 @@ mixin _$SeriesTimerInfoDto {
 
   /// Gets or sets a value indicating whether this instance is post padding required.
   @JsonKey(name: 'IsPostPaddingRequired')
-  bool get isPostPaddingRequired;
+  bool? get isPostPaddingRequired;
 
   /// Gets or sets the parent primary image tag.
   @JsonKey(name: 'ParentPrimaryImageTag')
@@ -103,19 +103,19 @@ mixin _$SeriesTimerInfoDto {
 
   /// Gets or sets a value indicating whether [record any time].
   @JsonKey(name: 'RecordAnyTime')
-  bool get recordAnyTime;
+  bool? get recordAnyTime;
   @JsonKey(name: 'SkipEpisodesInLibrary')
-  bool get skipEpisodesInLibrary;
+  bool? get skipEpisodesInLibrary;
 
   /// Gets or sets a value indicating whether [record any channel].
   @JsonKey(name: 'RecordAnyChannel')
-  bool get recordAnyChannel;
+  bool? get recordAnyChannel;
   @JsonKey(name: 'KeepUpTo')
-  int get keepUpTo;
+  int? get keepUpTo;
 
   /// Gets or sets a value indicating whether [record new only].
   @JsonKey(name: 'RecordNewOnly')
-  bool get recordNewOnly;
+  bool? get recordNewOnly;
 
   /// Gets or sets the days.
   @JsonKey(name: 'Days')
@@ -141,7 +141,7 @@ mixin _$SeriesTimerInfoDto {
   @JsonKey(name: 'ParentPrimaryImageItemId')
   String? get parentPrimaryImageItemId;
   @JsonKey(name: 'KeepUntil')
-  SeriesTimerInfoDtoKeepUntil get keepUntil;
+  SeriesTimerInfoDtoKeepUntil? get keepUntil;
 
   /// Create a copy of SeriesTimerInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -287,11 +287,11 @@ abstract mixin class $SeriesTimerInfoDtoCopyWith<$Res> {
   ) = _$SeriesTimerInfoDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'StartDate') DateTime startDate,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
     @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ExternalId') String? externalId,
-    @JsonKey(name: 'ChannelId') String channelId,
+    @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -300,29 +300,29 @@ abstract mixin class $SeriesTimerInfoDtoCopyWith<$Res> {
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
     @JsonKey(name: 'Id') String? id,
-    @JsonKey(name: 'EndDate') DateTime endDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'ServiceName') String? serviceName,
-    @JsonKey(name: 'Priority') int priority,
-    @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+    @JsonKey(name: 'Priority') int? priority,
+    @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
     @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
+    @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
     @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
-    @JsonKey(name: 'RecordAnyTime') bool recordAnyTime,
-    @JsonKey(name: 'SkipEpisodesInLibrary') bool skipEpisodesInLibrary,
-    @JsonKey(name: 'RecordAnyChannel') bool recordAnyChannel,
-    @JsonKey(name: 'KeepUpTo') int keepUpTo,
-    @JsonKey(name: 'RecordNewOnly') bool recordNewOnly,
+    @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+    @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
+    @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+    @JsonKey(name: 'KeepUpTo') int? keepUpTo,
+    @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
     @JsonKey(name: 'Days') List<DayOfWeek>? days,
     @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
     @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
     @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
     @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
     @JsonKey(name: 'ParentPrimaryImageItemId') String? parentPrimaryImageItemId,
-    @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil keepUntil,
+    @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
   });
 }
 
@@ -339,11 +339,11 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startDate = null,
+    Object? startDate = freezed,
     Object? type = freezed,
     Object? serverId = freezed,
     Object? externalId = freezed,
-    Object? channelId = null,
+    Object? channelId = freezed,
     Object? externalChannelId = freezed,
     Object? channelName = freezed,
     Object? channelPrimaryImageTag = freezed,
@@ -352,35 +352,35 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? overview = freezed,
     Object? id = freezed,
-    Object? endDate = null,
+    Object? endDate = freezed,
     Object? serviceName = freezed,
-    Object? priority = null,
-    Object? prePaddingSeconds = null,
-    Object? postPaddingSeconds = null,
-    Object? isPrePaddingRequired = null,
+    Object? priority = freezed,
+    Object? prePaddingSeconds = freezed,
+    Object? postPaddingSeconds = freezed,
+    Object? isPrePaddingRequired = freezed,
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
-    Object? isPostPaddingRequired = null,
+    Object? isPostPaddingRequired = freezed,
     Object? parentPrimaryImageTag = freezed,
-    Object? recordAnyTime = null,
-    Object? skipEpisodesInLibrary = null,
-    Object? recordAnyChannel = null,
-    Object? keepUpTo = null,
-    Object? recordNewOnly = null,
+    Object? recordAnyTime = freezed,
+    Object? skipEpisodesInLibrary = freezed,
+    Object? recordAnyChannel = freezed,
+    Object? keepUpTo = freezed,
+    Object? recordNewOnly = freezed,
     Object? days = freezed,
     Object? dayPattern = freezed,
     Object? imageTags = freezed,
     Object? parentThumbItemId = freezed,
     Object? parentThumbImageTag = freezed,
     Object? parentPrimaryImageItemId = freezed,
-    Object? keepUntil = null,
+    Object? keepUntil = freezed,
   }) {
     return _then(
       _self.copyWith(
-        startDate: null == startDate
+        startDate: freezed == startDate
             ? _self.startDate
             : startDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
@@ -393,10 +393,10 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.externalId
             : externalId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        channelId: null == channelId
+        channelId: freezed == channelId
             ? _self.channelId
             : channelId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         externalChannelId: freezed == externalChannelId
             ? _self.externalChannelId
             : externalChannelId // ignore: cast_nullable_to_non_nullable
@@ -429,30 +429,30 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String?,
-        endDate: null == endDate
+        endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         serviceName: freezed == serviceName
             ? _self.serviceName
             : serviceName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        priority: null == priority
+        priority: freezed == priority
             ? _self.priority
             : priority // ignore: cast_nullable_to_non_nullable
-                  as int,
-        prePaddingSeconds: null == prePaddingSeconds
+                  as int?,
+        prePaddingSeconds: freezed == prePaddingSeconds
             ? _self.prePaddingSeconds
             : prePaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        postPaddingSeconds: null == postPaddingSeconds
+                  as int?,
+        postPaddingSeconds: freezed == postPaddingSeconds
             ? _self.postPaddingSeconds
             : postPaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isPrePaddingRequired: null == isPrePaddingRequired
+                  as int?,
+        isPrePaddingRequired: freezed == isPrePaddingRequired
             ? _self.isPrePaddingRequired
             : isPrePaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentBackdropItemId: freezed == parentBackdropItemId
             ? _self.parentBackdropItemId
             : parentBackdropItemId // ignore: cast_nullable_to_non_nullable
@@ -461,34 +461,34 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.parentBackdropImageTags
             : parentBackdropImageTags // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        isPostPaddingRequired: null == isPostPaddingRequired
+        isPostPaddingRequired: freezed == isPostPaddingRequired
             ? _self.isPostPaddingRequired
             : isPostPaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentPrimaryImageTag: freezed == parentPrimaryImageTag
             ? _self.parentPrimaryImageTag
             : parentPrimaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        recordAnyTime: null == recordAnyTime
+        recordAnyTime: freezed == recordAnyTime
             ? _self.recordAnyTime
             : recordAnyTime // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        skipEpisodesInLibrary: null == skipEpisodesInLibrary
+                  as bool?,
+        skipEpisodesInLibrary: freezed == skipEpisodesInLibrary
             ? _self.skipEpisodesInLibrary
             : skipEpisodesInLibrary // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        recordAnyChannel: null == recordAnyChannel
+                  as bool?,
+        recordAnyChannel: freezed == recordAnyChannel
             ? _self.recordAnyChannel
             : recordAnyChannel // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        keepUpTo: null == keepUpTo
+                  as bool?,
+        keepUpTo: freezed == keepUpTo
             ? _self.keepUpTo
             : keepUpTo // ignore: cast_nullable_to_non_nullable
-                  as int,
-        recordNewOnly: null == recordNewOnly
+                  as int?,
+        recordNewOnly: freezed == recordNewOnly
             ? _self.recordNewOnly
             : recordNewOnly // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         days: freezed == days
             ? _self.days
             : days // ignore: cast_nullable_to_non_nullable
@@ -513,10 +513,10 @@ class _$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.parentPrimaryImageItemId
             : parentPrimaryImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        keepUntil: null == keepUntil
+        keepUntil: freezed == keepUntil
             ? _self.keepUntil
             : keepUntil // ignore: cast_nullable_to_non_nullable
-                  as SeriesTimerInfoDtoKeepUntil,
+                  as SeriesTimerInfoDtoKeepUntil?,
       ),
     );
   }
@@ -616,11 +616,11 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartDate') DateTime startDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -629,22 +629,22 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
-      @JsonKey(name: 'RecordAnyTime') bool recordAnyTime,
-      @JsonKey(name: 'SkipEpisodesInLibrary') bool skipEpisodesInLibrary,
-      @JsonKey(name: 'RecordAnyChannel') bool recordAnyChannel,
-      @JsonKey(name: 'KeepUpTo') int keepUpTo,
-      @JsonKey(name: 'RecordNewOnly') bool recordNewOnly,
+      @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+      @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
+      @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+      @JsonKey(name: 'KeepUpTo') int? keepUpTo,
+      @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
       @JsonKey(name: 'Days') List<DayOfWeek>? days,
       @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
       @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
@@ -652,7 +652,7 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
-      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil keepUntil,
+      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
     )?
     $default, {
     required TResult orElse(),
@@ -718,11 +718,11 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'StartDate') DateTime startDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -731,22 +731,22 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
-      @JsonKey(name: 'RecordAnyTime') bool recordAnyTime,
-      @JsonKey(name: 'SkipEpisodesInLibrary') bool skipEpisodesInLibrary,
-      @JsonKey(name: 'RecordAnyChannel') bool recordAnyChannel,
-      @JsonKey(name: 'KeepUpTo') int keepUpTo,
-      @JsonKey(name: 'RecordNewOnly') bool recordNewOnly,
+      @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+      @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
+      @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+      @JsonKey(name: 'KeepUpTo') int? keepUpTo,
+      @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
       @JsonKey(name: 'Days') List<DayOfWeek>? days,
       @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
       @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
@@ -754,7 +754,7 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
-      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil keepUntil,
+      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
     )
     $default,
   ) {
@@ -818,11 +818,11 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'StartDate') DateTime startDate,
+      @JsonKey(name: 'StartDate') DateTime? startDate,
       @JsonKey(name: 'Type') String? type,
       @JsonKey(name: 'ServerId') String? serverId,
       @JsonKey(name: 'ExternalId') String? externalId,
-      @JsonKey(name: 'ChannelId') String channelId,
+      @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -831,22 +831,22 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Overview') String? overview,
       @JsonKey(name: 'Id') String? id,
-      @JsonKey(name: 'EndDate') DateTime endDate,
+      @JsonKey(name: 'EndDate') DateTime? endDate,
       @JsonKey(name: 'ServiceName') String? serviceName,
-      @JsonKey(name: 'Priority') int priority,
-      @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-      @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-      @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+      @JsonKey(name: 'Priority') int? priority,
+      @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+      @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+      @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
       @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
       @JsonKey(name: 'ParentBackdropImageTags')
       List<String>? parentBackdropImageTags,
-      @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
+      @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
       @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
-      @JsonKey(name: 'RecordAnyTime') bool recordAnyTime,
-      @JsonKey(name: 'SkipEpisodesInLibrary') bool skipEpisodesInLibrary,
-      @JsonKey(name: 'RecordAnyChannel') bool recordAnyChannel,
-      @JsonKey(name: 'KeepUpTo') int keepUpTo,
-      @JsonKey(name: 'RecordNewOnly') bool recordNewOnly,
+      @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+      @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
+      @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+      @JsonKey(name: 'KeepUpTo') int? keepUpTo,
+      @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
       @JsonKey(name: 'Days') List<DayOfWeek>? days,
       @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
       @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
@@ -854,7 +854,7 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
       @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
       @JsonKey(name: 'ParentPrimaryImageItemId')
       String? parentPrimaryImageItemId,
-      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil keepUntil,
+      @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
     )?
     $default,
   ) {
@@ -908,44 +908,42 @@ extension SeriesTimerInfoDtoPatterns on SeriesTimerInfoDto {
 @JsonSerializable()
 class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   const _SeriesTimerInfoDto({
-    @JsonKey(name: 'StartDate') required this.startDate,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'ServerId') required this.serverId,
-    @JsonKey(name: 'ExternalId') required this.externalId,
-    @JsonKey(name: 'ChannelId') required this.channelId,
-    @JsonKey(name: 'ExternalChannelId') required this.externalChannelId,
-    @JsonKey(name: 'ChannelName') required this.channelName,
-    @JsonKey(name: 'ChannelPrimaryImageTag')
-    required this.channelPrimaryImageTag,
-    @JsonKey(name: 'ProgramId') required this.programId,
-    @JsonKey(name: 'ExternalProgramId') required this.externalProgramId,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Overview') required this.overview,
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'EndDate') required this.endDate,
-    @JsonKey(name: 'ServiceName') required this.serviceName,
-    @JsonKey(name: 'Priority') required this.priority,
-    @JsonKey(name: 'PrePaddingSeconds') required this.prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') required this.postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') required this.isPrePaddingRequired,
-    @JsonKey(name: 'ParentBackdropItemId') required this.parentBackdropItemId,
+    @JsonKey(name: 'StartDate') this.startDate,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'ServerId') this.serverId,
+    @JsonKey(name: 'ExternalId') this.externalId,
+    @JsonKey(name: 'ChannelId') this.channelId,
+    @JsonKey(name: 'ExternalChannelId') this.externalChannelId,
+    @JsonKey(name: 'ChannelName') this.channelName,
+    @JsonKey(name: 'ChannelPrimaryImageTag') this.channelPrimaryImageTag,
+    @JsonKey(name: 'ProgramId') this.programId,
+    @JsonKey(name: 'ExternalProgramId') this.externalProgramId,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Overview') this.overview,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'EndDate') this.endDate,
+    @JsonKey(name: 'ServiceName') this.serviceName,
+    @JsonKey(name: 'Priority') this.priority,
+    @JsonKey(name: 'PrePaddingSeconds') this.prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') this.postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') this.isPrePaddingRequired,
+    @JsonKey(name: 'ParentBackdropItemId') this.parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
-    required final List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') required this.isPostPaddingRequired,
-    @JsonKey(name: 'ParentPrimaryImageTag') required this.parentPrimaryImageTag,
-    @JsonKey(name: 'RecordAnyTime') required this.recordAnyTime,
-    @JsonKey(name: 'SkipEpisodesInLibrary') required this.skipEpisodesInLibrary,
-    @JsonKey(name: 'RecordAnyChannel') required this.recordAnyChannel,
-    @JsonKey(name: 'KeepUpTo') required this.keepUpTo,
-    @JsonKey(name: 'RecordNewOnly') required this.recordNewOnly,
-    @JsonKey(name: 'Days') required final List<DayOfWeek>? days,
-    @JsonKey(name: 'DayPattern') required this.dayPattern,
-    @JsonKey(name: 'ImageTags') required final Map<String, String>? imageTags,
-    @JsonKey(name: 'ParentThumbItemId') required this.parentThumbItemId,
-    @JsonKey(name: 'ParentThumbImageTag') required this.parentThumbImageTag,
-    @JsonKey(name: 'ParentPrimaryImageItemId')
-    required this.parentPrimaryImageItemId,
-    @JsonKey(name: 'KeepUntil') required this.keepUntil,
+    final List<String>? parentBackdropImageTags,
+    @JsonKey(name: 'IsPostPaddingRequired') this.isPostPaddingRequired,
+    @JsonKey(name: 'ParentPrimaryImageTag') this.parentPrimaryImageTag,
+    @JsonKey(name: 'RecordAnyTime') this.recordAnyTime,
+    @JsonKey(name: 'SkipEpisodesInLibrary') this.skipEpisodesInLibrary,
+    @JsonKey(name: 'RecordAnyChannel') this.recordAnyChannel,
+    @JsonKey(name: 'KeepUpTo') this.keepUpTo,
+    @JsonKey(name: 'RecordNewOnly') this.recordNewOnly,
+    @JsonKey(name: 'Days') final List<DayOfWeek>? days,
+    @JsonKey(name: 'DayPattern') this.dayPattern,
+    @JsonKey(name: 'ImageTags') final Map<String, String>? imageTags,
+    @JsonKey(name: 'ParentThumbItemId') this.parentThumbItemId,
+    @JsonKey(name: 'ParentThumbImageTag') this.parentThumbImageTag,
+    @JsonKey(name: 'ParentPrimaryImageItemId') this.parentPrimaryImageItemId,
+    @JsonKey(name: 'KeepUntil') this.keepUntil,
   }) : _parentBackdropImageTags = parentBackdropImageTags,
        _days = days,
        _imageTags = imageTags;
@@ -955,7 +953,7 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets the start date of the recording, in UTC.
   @override
   @JsonKey(name: 'StartDate')
-  final DateTime startDate;
+  final DateTime? startDate;
   @override
   @JsonKey(name: 'Type')
   final String? type;
@@ -973,7 +971,7 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets the channel id of the recording.
   @override
   @JsonKey(name: 'ChannelId')
-  final String channelId;
+  final String? channelId;
 
   /// Gets or sets the external channel identifier.
   @override
@@ -1016,7 +1014,7 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets the end date of the recording, in UTC.
   @override
   @JsonKey(name: 'EndDate')
-  final DateTime endDate;
+  final DateTime? endDate;
 
   /// Gets or sets the name of the service.
   @override
@@ -1026,22 +1024,22 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets the priority.
   @override
   @JsonKey(name: 'Priority')
-  final int priority;
+  final int? priority;
 
   /// Gets or sets the pre padding seconds.
   @override
   @JsonKey(name: 'PrePaddingSeconds')
-  final int prePaddingSeconds;
+  final int? prePaddingSeconds;
 
   /// Gets or sets the post padding seconds.
   @override
   @JsonKey(name: 'PostPaddingSeconds')
-  final int postPaddingSeconds;
+  final int? postPaddingSeconds;
 
   /// Gets or sets a value indicating whether this instance is pre padding required.
   @override
   @JsonKey(name: 'IsPrePaddingRequired')
-  final bool isPrePaddingRequired;
+  final bool? isPrePaddingRequired;
 
   /// Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
   @override
@@ -1066,7 +1064,7 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets a value indicating whether this instance is post padding required.
   @override
   @JsonKey(name: 'IsPostPaddingRequired')
-  final bool isPostPaddingRequired;
+  final bool? isPostPaddingRequired;
 
   /// Gets or sets the parent primary image tag.
   @override
@@ -1076,23 +1074,23 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   /// Gets or sets a value indicating whether [record any time].
   @override
   @JsonKey(name: 'RecordAnyTime')
-  final bool recordAnyTime;
+  final bool? recordAnyTime;
   @override
   @JsonKey(name: 'SkipEpisodesInLibrary')
-  final bool skipEpisodesInLibrary;
+  final bool? skipEpisodesInLibrary;
 
   /// Gets or sets a value indicating whether [record any channel].
   @override
   @JsonKey(name: 'RecordAnyChannel')
-  final bool recordAnyChannel;
+  final bool? recordAnyChannel;
   @override
   @JsonKey(name: 'KeepUpTo')
-  final int keepUpTo;
+  final int? keepUpTo;
 
   /// Gets or sets a value indicating whether [record new only].
   @override
   @JsonKey(name: 'RecordNewOnly')
-  final bool recordNewOnly;
+  final bool? recordNewOnly;
 
   /// Gets or sets the days.
   final List<DayOfWeek>? _days;
@@ -1143,7 +1141,7 @@ class _SeriesTimerInfoDto implements SeriesTimerInfoDto {
   final String? parentPrimaryImageItemId;
   @override
   @JsonKey(name: 'KeepUntil')
-  final SeriesTimerInfoDtoKeepUntil keepUntil;
+  final SeriesTimerInfoDtoKeepUntil? keepUntil;
 
   /// Create a copy of SeriesTimerInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -1294,11 +1292,11 @@ abstract mixin class _$SeriesTimerInfoDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'StartDate') DateTime startDate,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
     @JsonKey(name: 'Type') String? type,
     @JsonKey(name: 'ServerId') String? serverId,
     @JsonKey(name: 'ExternalId') String? externalId,
-    @JsonKey(name: 'ChannelId') String channelId,
+    @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ExternalChannelId') String? externalChannelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'ChannelPrimaryImageTag') String? channelPrimaryImageTag,
@@ -1307,29 +1305,29 @@ abstract mixin class _$SeriesTimerInfoDtoCopyWith<$Res>
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Overview') String? overview,
     @JsonKey(name: 'Id') String? id,
-    @JsonKey(name: 'EndDate') DateTime endDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
     @JsonKey(name: 'ServiceName') String? serviceName,
-    @JsonKey(name: 'Priority') int priority,
-    @JsonKey(name: 'PrePaddingSeconds') int prePaddingSeconds,
-    @JsonKey(name: 'PostPaddingSeconds') int postPaddingSeconds,
-    @JsonKey(name: 'IsPrePaddingRequired') bool isPrePaddingRequired,
+    @JsonKey(name: 'Priority') int? priority,
+    @JsonKey(name: 'PrePaddingSeconds') int? prePaddingSeconds,
+    @JsonKey(name: 'PostPaddingSeconds') int? postPaddingSeconds,
+    @JsonKey(name: 'IsPrePaddingRequired') bool? isPrePaddingRequired,
     @JsonKey(name: 'ParentBackdropItemId') String? parentBackdropItemId,
     @JsonKey(name: 'ParentBackdropImageTags')
     List<String>? parentBackdropImageTags,
-    @JsonKey(name: 'IsPostPaddingRequired') bool isPostPaddingRequired,
+    @JsonKey(name: 'IsPostPaddingRequired') bool? isPostPaddingRequired,
     @JsonKey(name: 'ParentPrimaryImageTag') String? parentPrimaryImageTag,
-    @JsonKey(name: 'RecordAnyTime') bool recordAnyTime,
-    @JsonKey(name: 'SkipEpisodesInLibrary') bool skipEpisodesInLibrary,
-    @JsonKey(name: 'RecordAnyChannel') bool recordAnyChannel,
-    @JsonKey(name: 'KeepUpTo') int keepUpTo,
-    @JsonKey(name: 'RecordNewOnly') bool recordNewOnly,
+    @JsonKey(name: 'RecordAnyTime') bool? recordAnyTime,
+    @JsonKey(name: 'SkipEpisodesInLibrary') bool? skipEpisodesInLibrary,
+    @JsonKey(name: 'RecordAnyChannel') bool? recordAnyChannel,
+    @JsonKey(name: 'KeepUpTo') int? keepUpTo,
+    @JsonKey(name: 'RecordNewOnly') bool? recordNewOnly,
     @JsonKey(name: 'Days') List<DayOfWeek>? days,
     @JsonKey(name: 'DayPattern') SeriesTimerInfoDtoDayPattern? dayPattern,
     @JsonKey(name: 'ImageTags') Map<String, String>? imageTags,
     @JsonKey(name: 'ParentThumbItemId') String? parentThumbItemId,
     @JsonKey(name: 'ParentThumbImageTag') String? parentThumbImageTag,
     @JsonKey(name: 'ParentPrimaryImageItemId') String? parentPrimaryImageItemId,
-    @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil keepUntil,
+    @JsonKey(name: 'KeepUntil') SeriesTimerInfoDtoKeepUntil? keepUntil,
   });
 }
 
@@ -1346,11 +1344,11 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? startDate = null,
+    Object? startDate = freezed,
     Object? type = freezed,
     Object? serverId = freezed,
     Object? externalId = freezed,
-    Object? channelId = null,
+    Object? channelId = freezed,
     Object? externalChannelId = freezed,
     Object? channelName = freezed,
     Object? channelPrimaryImageTag = freezed,
@@ -1359,35 +1357,35 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? overview = freezed,
     Object? id = freezed,
-    Object? endDate = null,
+    Object? endDate = freezed,
     Object? serviceName = freezed,
-    Object? priority = null,
-    Object? prePaddingSeconds = null,
-    Object? postPaddingSeconds = null,
-    Object? isPrePaddingRequired = null,
+    Object? priority = freezed,
+    Object? prePaddingSeconds = freezed,
+    Object? postPaddingSeconds = freezed,
+    Object? isPrePaddingRequired = freezed,
     Object? parentBackdropItemId = freezed,
     Object? parentBackdropImageTags = freezed,
-    Object? isPostPaddingRequired = null,
+    Object? isPostPaddingRequired = freezed,
     Object? parentPrimaryImageTag = freezed,
-    Object? recordAnyTime = null,
-    Object? skipEpisodesInLibrary = null,
-    Object? recordAnyChannel = null,
-    Object? keepUpTo = null,
-    Object? recordNewOnly = null,
+    Object? recordAnyTime = freezed,
+    Object? skipEpisodesInLibrary = freezed,
+    Object? recordAnyChannel = freezed,
+    Object? keepUpTo = freezed,
+    Object? recordNewOnly = freezed,
     Object? days = freezed,
     Object? dayPattern = freezed,
     Object? imageTags = freezed,
     Object? parentThumbItemId = freezed,
     Object? parentThumbImageTag = freezed,
     Object? parentPrimaryImageItemId = freezed,
-    Object? keepUntil = null,
+    Object? keepUntil = freezed,
   }) {
     return _then(
       _SeriesTimerInfoDto(
-        startDate: null == startDate
+        startDate: freezed == startDate
             ? _self.startDate
             : startDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
@@ -1400,10 +1398,10 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.externalId
             : externalId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        channelId: null == channelId
+        channelId: freezed == channelId
             ? _self.channelId
             : channelId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         externalChannelId: freezed == externalChannelId
             ? _self.externalChannelId
             : externalChannelId // ignore: cast_nullable_to_non_nullable
@@ -1436,30 +1434,30 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
                   as String?,
-        endDate: null == endDate
+        endDate: freezed == endDate
             ? _self.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
         serviceName: freezed == serviceName
             ? _self.serviceName
             : serviceName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        priority: null == priority
+        priority: freezed == priority
             ? _self.priority
             : priority // ignore: cast_nullable_to_non_nullable
-                  as int,
-        prePaddingSeconds: null == prePaddingSeconds
+                  as int?,
+        prePaddingSeconds: freezed == prePaddingSeconds
             ? _self.prePaddingSeconds
             : prePaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        postPaddingSeconds: null == postPaddingSeconds
+                  as int?,
+        postPaddingSeconds: freezed == postPaddingSeconds
             ? _self.postPaddingSeconds
             : postPaddingSeconds // ignore: cast_nullable_to_non_nullable
-                  as int,
-        isPrePaddingRequired: null == isPrePaddingRequired
+                  as int?,
+        isPrePaddingRequired: freezed == isPrePaddingRequired
             ? _self.isPrePaddingRequired
             : isPrePaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentBackdropItemId: freezed == parentBackdropItemId
             ? _self.parentBackdropItemId
             : parentBackdropItemId // ignore: cast_nullable_to_non_nullable
@@ -1468,34 +1466,34 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self._parentBackdropImageTags
             : parentBackdropImageTags // ignore: cast_nullable_to_non_nullable
                   as List<String>?,
-        isPostPaddingRequired: null == isPostPaddingRequired
+        isPostPaddingRequired: freezed == isPostPaddingRequired
             ? _self.isPostPaddingRequired
             : isPostPaddingRequired // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         parentPrimaryImageTag: freezed == parentPrimaryImageTag
             ? _self.parentPrimaryImageTag
             : parentPrimaryImageTag // ignore: cast_nullable_to_non_nullable
                   as String?,
-        recordAnyTime: null == recordAnyTime
+        recordAnyTime: freezed == recordAnyTime
             ? _self.recordAnyTime
             : recordAnyTime // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        skipEpisodesInLibrary: null == skipEpisodesInLibrary
+                  as bool?,
+        skipEpisodesInLibrary: freezed == skipEpisodesInLibrary
             ? _self.skipEpisodesInLibrary
             : skipEpisodesInLibrary // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        recordAnyChannel: null == recordAnyChannel
+                  as bool?,
+        recordAnyChannel: freezed == recordAnyChannel
             ? _self.recordAnyChannel
             : recordAnyChannel // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        keepUpTo: null == keepUpTo
+                  as bool?,
+        keepUpTo: freezed == keepUpTo
             ? _self.keepUpTo
             : keepUpTo // ignore: cast_nullable_to_non_nullable
-                  as int,
-        recordNewOnly: null == recordNewOnly
+                  as int?,
+        recordNewOnly: freezed == recordNewOnly
             ? _self.recordNewOnly
             : recordNewOnly // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
         days: freezed == days
             ? _self._days
             : days // ignore: cast_nullable_to_non_nullable
@@ -1520,10 +1518,10 @@ class __$SeriesTimerInfoDtoCopyWithImpl<$Res>
             ? _self.parentPrimaryImageItemId
             : parentPrimaryImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        keepUntil: null == keepUntil
+        keepUntil: freezed == keepUntil
             ? _self.keepUntil
             : keepUntil // ignore: cast_nullable_to_non_nullable
-                  as SeriesTimerInfoDtoKeepUntil,
+                  as SeriesTimerInfoDtoKeepUntil?,
       ),
     );
   }

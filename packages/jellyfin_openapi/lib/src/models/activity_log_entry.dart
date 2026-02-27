@@ -14,46 +14,38 @@ part 'activity_log_entry.g.dart';
 abstract class ActivityLogEntry with _$ActivityLogEntry {
   const factory ActivityLogEntry({
     /// Gets or sets the identifier.
-    @JsonKey(name: 'Id')
-    required int id,
+    @JsonKey(name: 'Id') int? id,
 
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the overview.
-    @JsonKey(name: 'Overview')
-    required String? overview,
+    @JsonKey(name: 'Overview') String? overview,
 
     /// Gets or sets the short overview.
-    @JsonKey(name: 'ShortOverview')
-    required String? shortOverview,
+    @JsonKey(name: 'ShortOverview') String? shortOverview,
 
     /// Gets or sets the type.
-    @JsonKey(name: 'Type')
-    required String type,
+    @JsonKey(name: 'Type') String? type,
 
     /// Gets or sets the item identifier.
-    @JsonKey(name: 'ItemId')
-    required String? itemId,
+    @JsonKey(name: 'ItemId') String? itemId,
 
     /// Gets or sets the date.
-    @JsonKey(name: 'Date')
-    required DateTime date,
+    @JsonKey(name: 'Date') DateTime? date,
 
     /// Gets or sets the user identifier.
-    @JsonKey(name: 'UserId')
-    required String userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets the user primary image tag.
     @JsonKey(name: 'UserPrimaryImageTag')
     @Deprecated('This is marked as deprecated')
-    required String? userPrimaryImageTag,
+    String? userPrimaryImageTag,
 
     /// Gets or sets the log severity.
-    @JsonKey(name: 'Severity')
-    required ActivityLogEntrySeverity severity,
+    @JsonKey(name: 'Severity') ActivityLogEntrySeverity? severity,
   }) = _ActivityLogEntry;
-  
-  factory ActivityLogEntry.fromJson(Map<String, Object?> json) => _$ActivityLogEntryFromJson(json);
+
+  factory ActivityLogEntry.fromJson(Map<String, Object?> json) =>
+      _$ActivityLogEntryFromJson(json);
 }

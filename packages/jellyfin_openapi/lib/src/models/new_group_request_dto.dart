@@ -12,9 +12,9 @@ part 'new_group_request_dto.g.dart';
 abstract class NewGroupRequestDto with _$NewGroupRequestDto {
   const factory NewGroupRequestDto({
     /// Gets or sets the group name.
-    @JsonKey(name: 'GroupName')
-    String? groupName,
+    @JsonKey(name: 'GroupName') String? groupName,
   }) = _NewGroupRequestDto;
-  
-  factory NewGroupRequestDto.fromJson(Map<String, Object?> json) => _$NewGroupRequestDtoFromJson(json);
+
+  factory NewGroupRequestDto.fromJson(Map<String, Object?> json) =>
+      _$NewGroupRequestDtoFromJson(json);
 }

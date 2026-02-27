@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$InstallationInfo {
   /// Gets or sets the Id.
   @JsonKey(name: 'Guid')
-  String get guid;
+  String? get guid;
 
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
@@ -39,7 +39,7 @@ mixin _$InstallationInfo {
 
   /// Gets or sets package information for the installation.
   @JsonKey(name: 'PackageInfo')
-  PackageInfo get packageInfo;
+  PackageInfo? get packageInfo;
 
   /// Create a copy of InstallationInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -99,16 +99,16 @@ abstract mixin class $InstallationInfoCopyWith<$Res> {
   ) = _$InstallationInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Guid') String guid,
+    @JsonKey(name: 'Guid') String? guid,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Version') String? version,
     @JsonKey(name: 'Changelog') String? changelog,
     @JsonKey(name: 'SourceUrl') String? sourceUrl,
     @JsonKey(name: 'Checksum') String? checksum,
-    @JsonKey(name: 'PackageInfo') PackageInfo packageInfo,
+    @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
   });
 
-  $PackageInfoCopyWith<$Res> get packageInfo;
+  $PackageInfoCopyWith<$Res>? get packageInfo;
 }
 
 /// @nodoc
@@ -124,20 +124,20 @@ class _$InstallationInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? guid = null,
+    Object? guid = freezed,
     Object? name = freezed,
     Object? version = freezed,
     Object? changelog = freezed,
     Object? sourceUrl = freezed,
     Object? checksum = freezed,
-    Object? packageInfo = null,
+    Object? packageInfo = freezed,
   }) {
     return _then(
       _self.copyWith(
-        guid: null == guid
+        guid: freezed == guid
             ? _self.guid
             : guid // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -158,10 +158,10 @@ class _$InstallationInfoCopyWithImpl<$Res>
             ? _self.checksum
             : checksum // ignore: cast_nullable_to_non_nullable
                   as String?,
-        packageInfo: null == packageInfo
+        packageInfo: freezed == packageInfo
             ? _self.packageInfo
             : packageInfo // ignore: cast_nullable_to_non_nullable
-                  as PackageInfo,
+                  as PackageInfo?,
       ),
     );
   }
@@ -170,8 +170,12 @@ class _$InstallationInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PackageInfoCopyWith<$Res> get packageInfo {
-    return $PackageInfoCopyWith<$Res>(_self.packageInfo, (value) {
+  $PackageInfoCopyWith<$Res>? get packageInfo {
+    if (_self.packageInfo == null) {
+      return null;
+    }
+
+    return $PackageInfoCopyWith<$Res>(_self.packageInfo!, (value) {
       return _then(_self.copyWith(packageInfo: value));
     });
   }
@@ -271,13 +275,13 @@ extension InstallationInfoPatterns on InstallationInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Guid') String guid,
+      @JsonKey(name: 'Guid') String? guid,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'Changelog') String? changelog,
       @JsonKey(name: 'SourceUrl') String? sourceUrl,
       @JsonKey(name: 'Checksum') String? checksum,
-      @JsonKey(name: 'PackageInfo') PackageInfo packageInfo,
+      @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
     )?
     $default, {
     required TResult orElse(),
@@ -315,13 +319,13 @@ extension InstallationInfoPatterns on InstallationInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Guid') String guid,
+      @JsonKey(name: 'Guid') String? guid,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'Changelog') String? changelog,
       @JsonKey(name: 'SourceUrl') String? sourceUrl,
       @JsonKey(name: 'Checksum') String? checksum,
-      @JsonKey(name: 'PackageInfo') PackageInfo packageInfo,
+      @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
     )
     $default,
   ) {
@@ -357,13 +361,13 @@ extension InstallationInfoPatterns on InstallationInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Guid') String guid,
+      @JsonKey(name: 'Guid') String? guid,
       @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'Changelog') String? changelog,
       @JsonKey(name: 'SourceUrl') String? sourceUrl,
       @JsonKey(name: 'Checksum') String? checksum,
-      @JsonKey(name: 'PackageInfo') PackageInfo packageInfo,
+      @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
     )?
     $default,
   ) {
@@ -389,13 +393,13 @@ extension InstallationInfoPatterns on InstallationInfo {
 @JsonSerializable()
 class _InstallationInfo implements InstallationInfo {
   const _InstallationInfo({
-    @JsonKey(name: 'Guid') required this.guid,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Version') required this.version,
-    @JsonKey(name: 'Changelog') required this.changelog,
-    @JsonKey(name: 'SourceUrl') required this.sourceUrl,
-    @JsonKey(name: 'Checksum') required this.checksum,
-    @JsonKey(name: 'PackageInfo') required this.packageInfo,
+    @JsonKey(name: 'Guid') this.guid,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Version') this.version,
+    @JsonKey(name: 'Changelog') this.changelog,
+    @JsonKey(name: 'SourceUrl') this.sourceUrl,
+    @JsonKey(name: 'Checksum') this.checksum,
+    @JsonKey(name: 'PackageInfo') this.packageInfo,
   });
   factory _InstallationInfo.fromJson(Map<String, dynamic> json) =>
       _$InstallationInfoFromJson(json);
@@ -403,7 +407,7 @@ class _InstallationInfo implements InstallationInfo {
   /// Gets or sets the Id.
   @override
   @JsonKey(name: 'Guid')
-  final String guid;
+  final String? guid;
 
   /// Gets or sets the name.
   @override
@@ -433,7 +437,7 @@ class _InstallationInfo implements InstallationInfo {
   /// Gets or sets package information for the installation.
   @override
   @JsonKey(name: 'PackageInfo')
-  final PackageInfo packageInfo;
+  final PackageInfo? packageInfo;
 
   /// Create a copy of InstallationInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -495,17 +499,17 @@ abstract mixin class _$InstallationInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Guid') String guid,
+    @JsonKey(name: 'Guid') String? guid,
     @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'Version') String? version,
     @JsonKey(name: 'Changelog') String? changelog,
     @JsonKey(name: 'SourceUrl') String? sourceUrl,
     @JsonKey(name: 'Checksum') String? checksum,
-    @JsonKey(name: 'PackageInfo') PackageInfo packageInfo,
+    @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
   });
 
   @override
-  $PackageInfoCopyWith<$Res> get packageInfo;
+  $PackageInfoCopyWith<$Res>? get packageInfo;
 }
 
 /// @nodoc
@@ -521,20 +525,20 @@ class __$InstallationInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? guid = null,
+    Object? guid = freezed,
     Object? name = freezed,
     Object? version = freezed,
     Object? changelog = freezed,
     Object? sourceUrl = freezed,
     Object? checksum = freezed,
-    Object? packageInfo = null,
+    Object? packageInfo = freezed,
   }) {
     return _then(
       _InstallationInfo(
-        guid: null == guid
+        guid: freezed == guid
             ? _self.guid
             : guid // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
@@ -555,10 +559,10 @@ class __$InstallationInfoCopyWithImpl<$Res>
             ? _self.checksum
             : checksum // ignore: cast_nullable_to_non_nullable
                   as String?,
-        packageInfo: null == packageInfo
+        packageInfo: freezed == packageInfo
             ? _self.packageInfo
             : packageInfo // ignore: cast_nullable_to_non_nullable
-                  as PackageInfo,
+                  as PackageInfo?,
       ),
     );
   }
@@ -567,8 +571,12 @@ class __$InstallationInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PackageInfoCopyWith<$Res> get packageInfo {
-    return $PackageInfoCopyWith<$Res>(_self.packageInfo, (value) {
+  $PackageInfoCopyWith<$Res>? get packageInfo {
+    if (_self.packageInfo == null) {
+      return null;
+    }
+
+    return $PackageInfoCopyWith<$Res>(_self.packageInfo!, (value) {
       return _then(_self.copyWith(packageInfo: value));
     });
   }

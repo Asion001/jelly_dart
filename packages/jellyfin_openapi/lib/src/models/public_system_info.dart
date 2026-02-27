@@ -11,20 +11,16 @@ part 'public_system_info.g.dart';
 abstract class PublicSystemInfo with _$PublicSystemInfo {
   const factory PublicSystemInfo({
     /// Gets or sets the local address.
-    @JsonKey(name: 'LocalAddress')
-    String? localAddress,
+    @JsonKey(name: 'LocalAddress') String? localAddress,
 
     /// Gets or sets the name of the server.
-    @JsonKey(name: 'ServerName')
-    String? serverName,
+    @JsonKey(name: 'ServerName') String? serverName,
 
     /// Gets or sets the server version.
-    @JsonKey(name: 'Version')
-    String? version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets or sets the product name. This is the AssemblyProduct name.
-    @JsonKey(name: 'ProductName')
-    String? productName,
+    @JsonKey(name: 'ProductName') String? productName,
 
     /// Gets or sets the operating system.
     @JsonKey(name: 'OperatingSystem')
@@ -32,13 +28,12 @@ abstract class PublicSystemInfo with _$PublicSystemInfo {
     String? operatingSystem,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets a value indicating whether the startup wizard is completed.
-    @JsonKey(name: 'StartupWizardCompleted')
-    bool? startupWizardCompleted,
+    @JsonKey(name: 'StartupWizardCompleted') bool? startupWizardCompleted,
   }) = _PublicSystemInfo;
-  
-  factory PublicSystemInfo.fromJson(Map<String, Object?> json) => _$PublicSystemInfoFromJson(json);
+
+  factory PublicSystemInfo.fromJson(Map<String, Object?> json) =>
+      _$PublicSystemInfoFromJson(json);
 }

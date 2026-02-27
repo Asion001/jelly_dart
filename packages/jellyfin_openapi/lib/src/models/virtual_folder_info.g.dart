@@ -16,9 +16,11 @@ _VirtualFolderInfo _$VirtualFolderInfoFromJson(Map<String, dynamic> json) =>
         _$VirtualFolderInfoCollectionTypeEnumMap,
         json['CollectionType'],
       ),
-      libraryOptions: LibraryOptions.fromJson(
-        json['LibraryOptions'] as Map<String, dynamic>,
-      ),
+      libraryOptions: json['LibraryOptions'] == null
+          ? null
+          : LibraryOptions.fromJson(
+              json['LibraryOptions'] as Map<String, dynamic>,
+            ),
       itemId: json['ItemId'] as String?,
       primaryImageItemId: json['PrimaryImageItemId'] as String?,
       refreshProgress: (json['RefreshProgress'] as num?)?.toDouble(),
@@ -30,7 +32,7 @@ Map<String, dynamic> _$VirtualFolderInfoToJson(_VirtualFolderInfo instance) =>
       'Name': ?instance.name,
       'Locations': ?instance.locations,
       'CollectionType': ?instance.collectionType?.toJson(),
-      'LibraryOptions': instance.libraryOptions.toJson(),
+      'LibraryOptions': ?instance.libraryOptions?.toJson(),
       'ItemId': ?instance.itemId,
       'PrimaryImageItemId': ?instance.primaryImageItemId,
       'RefreshProgress': ?instance.refreshProgress,

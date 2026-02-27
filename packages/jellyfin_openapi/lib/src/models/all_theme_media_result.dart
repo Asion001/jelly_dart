@@ -13,17 +13,16 @@ part 'all_theme_media_result.g.dart';
 abstract class AllThemeMediaResult with _$AllThemeMediaResult {
   const factory AllThemeMediaResult({
     /// Class ThemeMediaResult.
-    @JsonKey(name: 'ThemeVideosResult')
-    required ThemeMediaResult themeVideosResult,
+    @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
 
     /// Class ThemeMediaResult.
-    @JsonKey(name: 'ThemeSongsResult')
-    required ThemeMediaResult themeSongsResult,
+    @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
 
     /// Class ThemeMediaResult.
     @JsonKey(name: 'SoundtrackSongsResult')
-    required ThemeMediaResult soundtrackSongsResult,
+    ThemeMediaResult? soundtrackSongsResult,
   }) = _AllThemeMediaResult;
-  
-  factory AllThemeMediaResult.fromJson(Map<String, Object?> json) => _$AllThemeMediaResultFromJson(json);
+
+  factory AllThemeMediaResult.fromJson(Map<String, Object?> json) =>
+      _$AllThemeMediaResultFromJson(json);
 }

@@ -14,13 +14,12 @@ part 'queue_request_dto.g.dart';
 abstract class QueueRequestDto with _$QueueRequestDto {
   const factory QueueRequestDto({
     /// Gets or sets the items to enqueue.
-    @JsonKey(name: 'ItemIds')
-    required List<String> itemIds,
+    @JsonKey(name: 'ItemIds') List<String>? itemIds,
 
     /// Enum GroupQueueMode.
-    @JsonKey(name: 'Mode')
-    required QueueRequestDtoMode mode,
+    @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
   }) = _QueueRequestDto;
-  
-  factory QueueRequestDto.fromJson(Map<String, Object?> json) => _$QueueRequestDtoFromJson(json);
+
+  factory QueueRequestDto.fromJson(Map<String, Object?> json) =>
+      _$QueueRequestDtoFromJson(json);
 }

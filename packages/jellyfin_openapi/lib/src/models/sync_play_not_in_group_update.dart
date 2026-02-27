@@ -12,19 +12,18 @@ part 'sync_play_not_in_group_update.g.dart';
 @Freezed()
 abstract class SyncPlayNotInGroupUpdate with _$SyncPlayNotInGroupUpdate {
   const factory SyncPlayNotInGroupUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required String data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayNotInGroupUpdateType.notInGroup)
     SyncPlayNotInGroupUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') String? data,
   }) = _SyncPlayNotInGroupUpdate;
-  
-  factory SyncPlayNotInGroupUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayNotInGroupUpdateFromJson(json);
+
+  factory SyncPlayNotInGroupUpdate.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayNotInGroupUpdateFromJson(json);
 }

@@ -12,13 +12,12 @@ part 'authenticate_user_by_name.g.dart';
 abstract class AuthenticateUserByName with _$AuthenticateUserByName {
   const factory AuthenticateUserByName({
     /// Gets or sets the username.
-    @JsonKey(name: 'Username')
-    String? username,
+    @JsonKey(name: 'Username') String? username,
 
     /// Gets or sets the plain text password.
-    @JsonKey(name: 'Pw')
-    String? pw,
+    @JsonKey(name: 'Pw') String? pw,
   }) = _AuthenticateUserByName;
-  
-  factory AuthenticateUserByName.fromJson(Map<String, Object?> json) => _$AuthenticateUserByNameFromJson(json);
+
+  factory AuthenticateUserByName.fromJson(Map<String, Object?> json) =>
+      _$AuthenticateUserByNameFromJson(json);
 }

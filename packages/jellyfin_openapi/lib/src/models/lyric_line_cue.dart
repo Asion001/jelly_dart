@@ -12,21 +12,18 @@ part 'lyric_line_cue.g.dart';
 abstract class LyricLineCue with _$LyricLineCue {
   const factory LyricLineCue({
     /// Gets the start character index of the cue.
-    @JsonKey(name: 'Position')
-    int? position,
+    @JsonKey(name: 'Position') int? position,
 
     /// Gets the end character index of the cue.
-    @JsonKey(name: 'EndPosition')
-    int? endPosition,
+    @JsonKey(name: 'EndPosition') int? endPosition,
 
     /// Gets the timestamp the lyric is synced to in ticks.
-    @JsonKey(name: 'Start')
-    int? start,
+    @JsonKey(name: 'Start') int? start,
 
     /// Gets the end timestamp the lyric is synced to in ticks.
-    @JsonKey(name: 'End')
-    int? end,
+    @JsonKey(name: 'End') int? end,
   }) = _LyricLineCue;
-  
-  factory LyricLineCue.fromJson(Map<String, Object?> json) => _$LyricLineCueFromJson(json);
+
+  factory LyricLineCue.fromJson(Map<String, Object?> json) =>
+      _$LyricLineCueFromJson(json);
 }

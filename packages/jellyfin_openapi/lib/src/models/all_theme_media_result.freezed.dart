@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$AllThemeMediaResult {
   /// Class ThemeMediaResult.
   @JsonKey(name: 'ThemeVideosResult')
-  ThemeMediaResult get themeVideosResult;
+  ThemeMediaResult? get themeVideosResult;
 
   /// Class ThemeMediaResult.
   @JsonKey(name: 'ThemeSongsResult')
-  ThemeMediaResult get themeSongsResult;
+  ThemeMediaResult? get themeSongsResult;
 
   /// Class ThemeMediaResult.
   @JsonKey(name: 'SoundtrackSongsResult')
-  ThemeMediaResult get soundtrackSongsResult;
+  ThemeMediaResult? get soundtrackSongsResult;
 
   /// Create a copy of AllThemeMediaResult
   /// with the given fields replaced by the non-null parameter values.
@@ -74,15 +74,15 @@ abstract mixin class $AllThemeMediaResultCopyWith<$Res> {
   ) = _$AllThemeMediaResultCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult themeVideosResult,
-    @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult themeSongsResult,
+    @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
+    @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
     @JsonKey(name: 'SoundtrackSongsResult')
-    ThemeMediaResult soundtrackSongsResult,
+    ThemeMediaResult? soundtrackSongsResult,
   });
 
-  $ThemeMediaResultCopyWith<$Res> get themeVideosResult;
-  $ThemeMediaResultCopyWith<$Res> get themeSongsResult;
-  $ThemeMediaResultCopyWith<$Res> get soundtrackSongsResult;
+  $ThemeMediaResultCopyWith<$Res>? get themeVideosResult;
+  $ThemeMediaResultCopyWith<$Res>? get themeSongsResult;
+  $ThemeMediaResultCopyWith<$Res>? get soundtrackSongsResult;
 }
 
 /// @nodoc
@@ -98,24 +98,24 @@ class _$AllThemeMediaResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? themeVideosResult = null,
-    Object? themeSongsResult = null,
-    Object? soundtrackSongsResult = null,
+    Object? themeVideosResult = freezed,
+    Object? themeSongsResult = freezed,
+    Object? soundtrackSongsResult = freezed,
   }) {
     return _then(
       _self.copyWith(
-        themeVideosResult: null == themeVideosResult
+        themeVideosResult: freezed == themeVideosResult
             ? _self.themeVideosResult
             : themeVideosResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
-        themeSongsResult: null == themeSongsResult
+                  as ThemeMediaResult?,
+        themeSongsResult: freezed == themeSongsResult
             ? _self.themeSongsResult
             : themeSongsResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
-        soundtrackSongsResult: null == soundtrackSongsResult
+                  as ThemeMediaResult?,
+        soundtrackSongsResult: freezed == soundtrackSongsResult
             ? _self.soundtrackSongsResult
             : soundtrackSongsResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
+                  as ThemeMediaResult?,
       ),
     );
   }
@@ -124,8 +124,12 @@ class _$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get themeVideosResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.themeVideosResult, (value) {
+  $ThemeMediaResultCopyWith<$Res>? get themeVideosResult {
+    if (_self.themeVideosResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.themeVideosResult!, (value) {
       return _then(_self.copyWith(themeVideosResult: value));
     });
   }
@@ -134,8 +138,12 @@ class _$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get themeSongsResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.themeSongsResult, (value) {
+  $ThemeMediaResultCopyWith<$Res>? get themeSongsResult {
+    if (_self.themeSongsResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.themeSongsResult!, (value) {
       return _then(_self.copyWith(themeSongsResult: value));
     });
   }
@@ -144,8 +152,12 @@ class _$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get soundtrackSongsResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.soundtrackSongsResult, (
+  $ThemeMediaResultCopyWith<$Res>? get soundtrackSongsResult {
+    if (_self.soundtrackSongsResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.soundtrackSongsResult!, (
       value,
     ) {
       return _then(_self.copyWith(soundtrackSongsResult: value));
@@ -247,10 +259,10 @@ extension AllThemeMediaResultPatterns on AllThemeMediaResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult themeVideosResult,
-      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult themeSongsResult,
+      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
+      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
       @JsonKey(name: 'SoundtrackSongsResult')
-      ThemeMediaResult soundtrackSongsResult,
+      ThemeMediaResult? soundtrackSongsResult,
     )?
     $default, {
     required TResult orElse(),
@@ -284,10 +296,10 @@ extension AllThemeMediaResultPatterns on AllThemeMediaResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult themeVideosResult,
-      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult themeSongsResult,
+      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
+      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
       @JsonKey(name: 'SoundtrackSongsResult')
-      ThemeMediaResult soundtrackSongsResult,
+      ThemeMediaResult? soundtrackSongsResult,
     )
     $default,
   ) {
@@ -319,10 +331,10 @@ extension AllThemeMediaResultPatterns on AllThemeMediaResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult themeVideosResult,
-      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult themeSongsResult,
+      @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
+      @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
       @JsonKey(name: 'SoundtrackSongsResult')
-      ThemeMediaResult soundtrackSongsResult,
+      ThemeMediaResult? soundtrackSongsResult,
     )?
     $default,
   ) {
@@ -344,9 +356,9 @@ extension AllThemeMediaResultPatterns on AllThemeMediaResult {
 @JsonSerializable()
 class _AllThemeMediaResult implements AllThemeMediaResult {
   const _AllThemeMediaResult({
-    @JsonKey(name: 'ThemeVideosResult') required this.themeVideosResult,
-    @JsonKey(name: 'ThemeSongsResult') required this.themeSongsResult,
-    @JsonKey(name: 'SoundtrackSongsResult') required this.soundtrackSongsResult,
+    @JsonKey(name: 'ThemeVideosResult') this.themeVideosResult,
+    @JsonKey(name: 'ThemeSongsResult') this.themeSongsResult,
+    @JsonKey(name: 'SoundtrackSongsResult') this.soundtrackSongsResult,
   });
   factory _AllThemeMediaResult.fromJson(Map<String, dynamic> json) =>
       _$AllThemeMediaResultFromJson(json);
@@ -354,17 +366,17 @@ class _AllThemeMediaResult implements AllThemeMediaResult {
   /// Class ThemeMediaResult.
   @override
   @JsonKey(name: 'ThemeVideosResult')
-  final ThemeMediaResult themeVideosResult;
+  final ThemeMediaResult? themeVideosResult;
 
   /// Class ThemeMediaResult.
   @override
   @JsonKey(name: 'ThemeSongsResult')
-  final ThemeMediaResult themeSongsResult;
+  final ThemeMediaResult? themeSongsResult;
 
   /// Class ThemeMediaResult.
   @override
   @JsonKey(name: 'SoundtrackSongsResult')
-  final ThemeMediaResult soundtrackSongsResult;
+  final ThemeMediaResult? soundtrackSongsResult;
 
   /// Create a copy of AllThemeMediaResult
   /// with the given fields replaced by the non-null parameter values.
@@ -420,18 +432,18 @@ abstract mixin class _$AllThemeMediaResultCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult themeVideosResult,
-    @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult themeSongsResult,
+    @JsonKey(name: 'ThemeVideosResult') ThemeMediaResult? themeVideosResult,
+    @JsonKey(name: 'ThemeSongsResult') ThemeMediaResult? themeSongsResult,
     @JsonKey(name: 'SoundtrackSongsResult')
-    ThemeMediaResult soundtrackSongsResult,
+    ThemeMediaResult? soundtrackSongsResult,
   });
 
   @override
-  $ThemeMediaResultCopyWith<$Res> get themeVideosResult;
+  $ThemeMediaResultCopyWith<$Res>? get themeVideosResult;
   @override
-  $ThemeMediaResultCopyWith<$Res> get themeSongsResult;
+  $ThemeMediaResultCopyWith<$Res>? get themeSongsResult;
   @override
-  $ThemeMediaResultCopyWith<$Res> get soundtrackSongsResult;
+  $ThemeMediaResultCopyWith<$Res>? get soundtrackSongsResult;
 }
 
 /// @nodoc
@@ -447,24 +459,24 @@ class __$AllThemeMediaResultCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? themeVideosResult = null,
-    Object? themeSongsResult = null,
-    Object? soundtrackSongsResult = null,
+    Object? themeVideosResult = freezed,
+    Object? themeSongsResult = freezed,
+    Object? soundtrackSongsResult = freezed,
   }) {
     return _then(
       _AllThemeMediaResult(
-        themeVideosResult: null == themeVideosResult
+        themeVideosResult: freezed == themeVideosResult
             ? _self.themeVideosResult
             : themeVideosResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
-        themeSongsResult: null == themeSongsResult
+                  as ThemeMediaResult?,
+        themeSongsResult: freezed == themeSongsResult
             ? _self.themeSongsResult
             : themeSongsResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
-        soundtrackSongsResult: null == soundtrackSongsResult
+                  as ThemeMediaResult?,
+        soundtrackSongsResult: freezed == soundtrackSongsResult
             ? _self.soundtrackSongsResult
             : soundtrackSongsResult // ignore: cast_nullable_to_non_nullable
-                  as ThemeMediaResult,
+                  as ThemeMediaResult?,
       ),
     );
   }
@@ -473,8 +485,12 @@ class __$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get themeVideosResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.themeVideosResult, (value) {
+  $ThemeMediaResultCopyWith<$Res>? get themeVideosResult {
+    if (_self.themeVideosResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.themeVideosResult!, (value) {
       return _then(_self.copyWith(themeVideosResult: value));
     });
   }
@@ -483,8 +499,12 @@ class __$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get themeSongsResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.themeSongsResult, (value) {
+  $ThemeMediaResultCopyWith<$Res>? get themeSongsResult {
+    if (_self.themeSongsResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.themeSongsResult!, (value) {
       return _then(_self.copyWith(themeSongsResult: value));
     });
   }
@@ -493,8 +513,12 @@ class __$AllThemeMediaResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemeMediaResultCopyWith<$Res> get soundtrackSongsResult {
-    return $ThemeMediaResultCopyWith<$Res>(_self.soundtrackSongsResult, (
+  $ThemeMediaResultCopyWith<$Res>? get soundtrackSongsResult {
+    if (_self.soundtrackSongsResult == null) {
+      return null;
+    }
+
+    return $ThemeMediaResultCopyWith<$Res>(_self.soundtrackSongsResult!, (
       value,
     ) {
       return _then(_self.copyWith(soundtrackSongsResult: value));

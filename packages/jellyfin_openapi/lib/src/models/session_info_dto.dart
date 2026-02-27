@@ -21,121 +21,95 @@ part 'session_info_dto.g.dart';
 abstract class SessionInfoDto with _$SessionInfoDto {
   const factory SessionInfoDto({
     /// Gets or sets the play state.
-    @JsonKey(name: 'PlayState')
-    required PlayerStateInfo playState,
+    @JsonKey(name: 'PlayState') PlayerStateInfo? playState,
 
     /// Gets or sets the additional users.
-    @JsonKey(name: 'AdditionalUsers')
-    required List<SessionUserInfo>? additionalUsers,
+    @JsonKey(name: 'AdditionalUsers') List<SessionUserInfo>? additionalUsers,
 
     /// Gets or sets the client capabilities.
-    @JsonKey(name: 'Capabilities')
-    required ClientCapabilitiesDto capabilities,
+    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
 
     /// Gets or sets the remote end point.
-    @JsonKey(name: 'RemoteEndPoint')
-    required String? remoteEndPoint,
+    @JsonKey(name: 'RemoteEndPoint') String? remoteEndPoint,
 
     /// Gets or sets the playable media types.
-    @JsonKey(name: 'PlayableMediaTypes')
-    required List<MediaType> playableMediaTypes,
+    @JsonKey(name: 'PlayableMediaTypes') List<MediaType>? playableMediaTypes,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    required String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the user id.
-    @JsonKey(name: 'UserId')
-    required String userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets the username.
-    @JsonKey(name: 'UserName')
-    required String? userName,
+    @JsonKey(name: 'UserName') String? userName,
 
     /// Gets or sets the type of the client.
-    @JsonKey(name: 'Client')
-    required String? client,
+    @JsonKey(name: 'Client') String? client,
 
     /// Gets or sets the last activity date.
-    @JsonKey(name: 'LastActivityDate')
-    required DateTime lastActivityDate,
+    @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
 
     /// Gets or sets the last playback check in.
-    @JsonKey(name: 'LastPlaybackCheckIn')
-    required DateTime lastPlaybackCheckIn,
+    @JsonKey(name: 'LastPlaybackCheckIn') DateTime? lastPlaybackCheckIn,
 
     /// Gets or sets the last paused date.
-    @JsonKey(name: 'LastPausedDate')
-    required DateTime? lastPausedDate,
+    @JsonKey(name: 'LastPausedDate') DateTime? lastPausedDate,
 
     /// Gets or sets the name of the device.
-    @JsonKey(name: 'DeviceName')
-    required String? deviceName,
+    @JsonKey(name: 'DeviceName') String? deviceName,
 
     /// Gets or sets the type of the device.
-    @JsonKey(name: 'DeviceType')
-    required String? deviceType,
+    @JsonKey(name: 'DeviceType') String? deviceType,
 
     /// Gets or sets the now playing item.
-    @JsonKey(name: 'NowPlayingItem')
-    required BaseItemDto nowPlayingItem,
+    @JsonKey(name: 'NowPlayingItem') BaseItemDto? nowPlayingItem,
 
     /// Gets or sets the now viewing item.
-    @JsonKey(name: 'NowViewingItem')
-    required BaseItemDto nowViewingItem,
+    @JsonKey(name: 'NowViewingItem') BaseItemDto? nowViewingItem,
 
     /// Gets or sets the device id.
-    @JsonKey(name: 'DeviceId')
-    required String? deviceId,
+    @JsonKey(name: 'DeviceId') String? deviceId,
 
     /// Gets or sets the application version.
-    @JsonKey(name: 'ApplicationVersion')
-    required String? applicationVersion,
+    @JsonKey(name: 'ApplicationVersion') String? applicationVersion,
 
     /// Gets or sets the transcoding info.
-    @JsonKey(name: 'TranscodingInfo')
-    required TranscodingInfo transcodingInfo,
+    @JsonKey(name: 'TranscodingInfo') TranscodingInfo? transcodingInfo,
 
     /// Gets or sets a value indicating whether this session is active.
-    @JsonKey(name: 'IsActive')
-    required bool isActive,
+    @JsonKey(name: 'IsActive') bool? isActive,
 
     /// Gets or sets a value indicating whether the session supports media control.
-    @JsonKey(name: 'SupportsMediaControl')
-    required bool supportsMediaControl,
+    @JsonKey(name: 'SupportsMediaControl') bool? supportsMediaControl,
 
     /// Gets or sets a value indicating whether the session supports remote control.
-    @JsonKey(name: 'SupportsRemoteControl')
-    required bool supportsRemoteControl,
+    @JsonKey(name: 'SupportsRemoteControl') bool? supportsRemoteControl,
 
     /// Gets or sets the now playing queue.
-    @JsonKey(name: 'NowPlayingQueue')
-    required List<QueueItem>? nowPlayingQueue,
+    @JsonKey(name: 'NowPlayingQueue') List<QueueItem>? nowPlayingQueue,
 
     /// Gets or sets the now playing queue full items.
     @JsonKey(name: 'NowPlayingQueueFullItems')
-    required List<BaseItemDto>? nowPlayingQueueFullItems,
+    List<BaseItemDto>? nowPlayingQueueFullItems,
 
     /// Gets or sets a value indicating whether the session has a custom device name.
-    @JsonKey(name: 'HasCustomDeviceName')
-    required bool hasCustomDeviceName,
+    @JsonKey(name: 'HasCustomDeviceName') bool? hasCustomDeviceName,
 
     /// Gets or sets the playlist item id.
-    @JsonKey(name: 'PlaylistItemId')
-    required String? playlistItemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
 
     /// Gets or sets the server id.
-    @JsonKey(name: 'ServerId')
-    required String? serverId,
+    @JsonKey(name: 'ServerId') String? serverId,
 
     /// Gets or sets the user primary image tag.
-    @JsonKey(name: 'UserPrimaryImageTag')
-    required String? userPrimaryImageTag,
+    @JsonKey(name: 'UserPrimaryImageTag') String? userPrimaryImageTag,
 
     /// Gets or sets the supported commands.
     @JsonKey(name: 'SupportedCommands')
-    required List<GeneralCommandType> supportedCommands,
+    List<GeneralCommandType>? supportedCommands,
   }) = _SessionInfoDto;
-  
-  factory SessionInfoDto.fromJson(Map<String, Object?> json) => _$SessionInfoDtoFromJson(json);
+
+  factory SessionInfoDto.fromJson(Map<String, Object?> json) =>
+      _$SessionInfoDtoFromJson(json);
 }

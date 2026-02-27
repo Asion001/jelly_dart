@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserDeletedMessage {
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  String get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   UserDeletedMessageMessageType get messageType;
+
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  String? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of UserDeletedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,20 +43,20 @@ mixin _$UserDeletedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserDeletedMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'UserDeletedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'UserDeletedMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -68,9 +68,9 @@ abstract mixin class $UserDeletedMessageCopyWith<$Res> {
   ) = _$UserDeletedMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') String data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') UserDeletedMessageMessageType messageType,
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -87,24 +87,24 @@ class _$UserDeletedMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as UserDeletedMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -204,9 +204,9 @@ extension UserDeletedMessagePatterns on UserDeletedMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') String data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') UserDeletedMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -214,7 +214,7 @@ extension UserDeletedMessagePatterns on UserDeletedMessage {
     final _that = this;
     switch (_that) {
       case _UserDeletedMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -236,16 +236,16 @@ extension UserDeletedMessagePatterns on UserDeletedMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') String data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') UserDeletedMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _UserDeletedMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -266,16 +266,16 @@ extension UserDeletedMessagePatterns on UserDeletedMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') String data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType') UserDeletedMessageMessageType messageType,
+      @JsonKey(name: 'Data') String? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _UserDeletedMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -286,28 +286,28 @@ extension UserDeletedMessagePatterns on UserDeletedMessage {
 @JsonSerializable()
 class _UserDeletedMessage implements UserDeletedMessage {
   const _UserDeletedMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = UserDeletedMessageMessageType.userDeleted,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _UserDeletedMessage.fromJson(Map<String, dynamic> json) =>
       _$UserDeletedMessageFromJson(json);
-
-  /// Gets or sets the data.
-  @override
-  @JsonKey(name: 'Data')
-  final String data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final UserDeletedMessageMessageType messageType;
+
+  /// Gets or sets the data.
+  @override
+  @JsonKey(name: 'Data')
+  final String? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of UserDeletedMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -327,20 +327,20 @@ class _UserDeletedMessage implements UserDeletedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserDeletedMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'UserDeletedMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'UserDeletedMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -354,9 +354,9 @@ abstract mixin class _$UserDeletedMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') String data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') UserDeletedMessageMessageType messageType,
+    @JsonKey(name: 'Data') String? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -373,24 +373,24 @@ class __$UserDeletedMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _UserDeletedMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as String,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as UserDeletedMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

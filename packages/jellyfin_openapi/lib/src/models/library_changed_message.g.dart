@@ -9,22 +9,24 @@ part of 'library_changed_message.dart';
 _LibraryChangedMessage _$LibraryChangedMessageFromJson(
   Map<String, dynamic> json,
 ) => _LibraryChangedMessage(
-  data: LibraryUpdateInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$LibraryChangedMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       LibraryChangedMessageMessageType.libraryChanged,
+  data: json['Data'] == null
+      ? null
+      : LibraryUpdateInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$LibraryChangedMessageToJson(
   _LibraryChangedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$LibraryChangedMessageMessageTypeEnumMap = {

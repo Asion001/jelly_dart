@@ -9,8 +9,8 @@ part of 'playback_info_response.dart';
 _PlaybackInfoResponse _$PlaybackInfoResponseFromJson(
   Map<String, dynamic> json,
 ) => _PlaybackInfoResponse(
-  mediaSources: (json['MediaSources'] as List<dynamic>)
-      .map((e) => MediaSourceInfo.fromJson(e as Map<String, dynamic>))
+  mediaSources: (json['MediaSources'] as List<dynamic>?)
+      ?.map((e) => MediaSourceInfo.fromJson(e as Map<String, dynamic>))
       .toList(),
   playSessionId: json['PlaySessionId'] as String?,
   errorCode: $enumDecodeNullable(
@@ -22,7 +22,7 @@ _PlaybackInfoResponse _$PlaybackInfoResponseFromJson(
 Map<String, dynamic> _$PlaybackInfoResponseToJson(
   _PlaybackInfoResponse instance,
 ) => <String, dynamic>{
-  'MediaSources': instance.mediaSources.map((e) => e.toJson()).toList(),
+  'MediaSources': ?instance.mediaSources?.map((e) => e.toJson()).toList(),
   'PlaySessionId': ?instance.playSessionId,
   'ErrorCode': ?instance.errorCode?.toJson(),
 };

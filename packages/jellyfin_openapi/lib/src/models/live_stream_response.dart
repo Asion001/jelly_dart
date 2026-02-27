@@ -12,9 +12,9 @@ part 'live_stream_response.g.dart';
 @Freezed()
 abstract class LiveStreamResponse with _$LiveStreamResponse {
   const factory LiveStreamResponse({
-    @JsonKey(name: 'MediaSource')
-    required MediaSourceInfo mediaSource,
+    @JsonKey(name: 'MediaSource') MediaSourceInfo? mediaSource,
   }) = _LiveStreamResponse;
-  
-  factory LiveStreamResponse.fromJson(Map<String, Object?> json) => _$LiveStreamResponseFromJson(json);
+
+  factory LiveStreamResponse.fromJson(Map<String, Object?> json) =>
+      _$LiveStreamResponseFromJson(json);
 }

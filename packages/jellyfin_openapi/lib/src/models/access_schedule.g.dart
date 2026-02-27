@@ -8,23 +8,23 @@ part of 'access_schedule.dart';
 
 _AccessSchedule _$AccessScheduleFromJson(Map<String, dynamic> json) =>
     _AccessSchedule(
-      id: (json['Id'] as num).toInt(),
-      userId: json['UserId'] as String,
-      dayOfWeek: $enumDecode(
+      id: (json['Id'] as num?)?.toInt(),
+      userId: json['UserId'] as String?,
+      dayOfWeek: $enumDecodeNullable(
         _$AccessScheduleDayOfWeekEnumMap,
         json['DayOfWeek'],
       ),
-      startHour: (json['StartHour'] as num).toDouble(),
-      endHour: (json['EndHour'] as num).toDouble(),
+      startHour: (json['StartHour'] as num?)?.toDouble(),
+      endHour: (json['EndHour'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$AccessScheduleToJson(_AccessSchedule instance) =>
     <String, dynamic>{
-      'Id': instance.id,
-      'UserId': instance.userId,
-      'DayOfWeek': instance.dayOfWeek.toJson(),
-      'StartHour': instance.startHour,
-      'EndHour': instance.endHour,
+      'Id': ?instance.id,
+      'UserId': ?instance.userId,
+      'DayOfWeek': ?instance.dayOfWeek?.toJson(),
+      'StartHour': ?instance.startHour,
+      'EndHour': ?instance.endHour,
     };
 
 const _$AccessScheduleDayOfWeekEnumMap = {

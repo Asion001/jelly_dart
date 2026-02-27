@@ -21,104 +21,68 @@ part 'media_source_info.g.dart';
 @Freezed()
 abstract class MediaSourceInfo with _$MediaSourceInfo {
   const factory MediaSourceInfo({
-    @JsonKey(name: 'GenPtsInput')
-    required bool genPtsInput,
-    @JsonKey(name: 'Id')
-    required String? id,
-    @JsonKey(name: 'Path')
-    required String? path,
-    @JsonKey(name: 'EncoderPath')
-    required String? encoderPath,
+    @JsonKey(name: 'GenPtsInput') bool? genPtsInput,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'EncoderPath') String? encoderPath,
     @JsonKey(name: 'EncoderProtocol')
-    required MediaSourceInfoEncoderProtocol? encoderProtocol,
-    @JsonKey(name: 'Type')
-    required MediaSourceInfoType type,
-    @JsonKey(name: 'Container')
-    required String? container,
-    @JsonKey(name: 'Size')
-    required int? size,
-    @JsonKey(name: 'Name')
-    required String? name,
+    MediaSourceInfoEncoderProtocol? encoderProtocol,
+    @JsonKey(name: 'Type') MediaSourceInfoType? type,
+    @JsonKey(name: 'Container') String? container,
+    @JsonKey(name: 'Size') int? size,
+    @JsonKey(name: 'Name') String? name,
 
-    /// Gets or sets a value indicating whether the media is remote.    ///
+    /// Gets or sets a value indicating whether the media is remote.
+    ///
     /// Differentiate internet url vs local network.
-    @JsonKey(name: 'IsRemote')
-    required bool isRemote,
-    @JsonKey(name: 'ETag')
-    required String? eTag,
-    @JsonKey(name: 'RunTimeTicks')
-    required int? runTimeTicks,
-    @JsonKey(name: 'ReadAtNativeFramerate')
-    required bool readAtNativeFramerate,
-    @JsonKey(name: 'IgnoreDts')
-    required bool ignoreDts,
-    @JsonKey(name: 'IgnoreIndex')
-    required bool ignoreIndex,
-    @JsonKey(name: 'Protocol')
-    required MediaSourceInfoProtocol protocol,
-    @JsonKey(name: 'SupportsTranscoding')
-    required bool supportsTranscoding,
-    @JsonKey(name: 'SupportsDirectStream')
-    required bool supportsDirectStream,
-    @JsonKey(name: 'SupportsDirectPlay')
-    required bool supportsDirectPlay,
-    @JsonKey(name: 'IsInfiniteStream')
-    required bool isInfiniteStream,
+    @JsonKey(name: 'IsRemote') bool? isRemote,
+    @JsonKey(name: 'ETag') String? eTag,
+    @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
+    @JsonKey(name: 'ReadAtNativeFramerate') bool? readAtNativeFramerate,
+    @JsonKey(name: 'IgnoreDts') bool? ignoreDts,
+    @JsonKey(name: 'IgnoreIndex') bool? ignoreIndex,
+    @JsonKey(name: 'Protocol') MediaSourceInfoProtocol? protocol,
+    @JsonKey(name: 'SupportsTranscoding') bool? supportsTranscoding,
+    @JsonKey(name: 'SupportsDirectStream') bool? supportsDirectStream,
+    @JsonKey(name: 'SupportsDirectPlay') bool? supportsDirectPlay,
+    @JsonKey(name: 'IsInfiniteStream') bool? isInfiniteStream,
     @JsonKey(name: 'DefaultSubtitleStreamIndex')
-    required int? defaultSubtitleStreamIndex,
-    @JsonKey(name: 'RequiresOpening')
-    required bool requiresOpening,
-    @JsonKey(name: 'OpenToken')
-    required String? openToken,
-    @JsonKey(name: 'RequiresClosing')
-    required bool requiresClosing,
-    @JsonKey(name: 'LiveStreamId')
-    required String? liveStreamId,
-    @JsonKey(name: 'BufferMs')
-    required int? bufferMs,
-    @JsonKey(name: 'RequiresLooping')
-    required bool requiresLooping,
-    @JsonKey(name: 'SupportsProbing')
-    required bool supportsProbing,
-    @JsonKey(name: 'VideoType')
-    required MediaSourceInfoVideoType? videoType,
-    @JsonKey(name: 'HasSegments')
-    required bool hasSegments,
-    @JsonKey(name: 'Video3DFormat')
-    required MediaSourceInfoVideo3DFormat? video3DFormat,
-    @JsonKey(name: 'MediaStreams')
-    required List<MediaStream>? mediaStreams,
-    @JsonKey(name: 'MediaAttachments')
-    required List<MediaAttachment>? mediaAttachments,
-    @JsonKey(name: 'Formats')
-    required List<String>? formats,
-    @JsonKey(name: 'Bitrate')
-    required int? bitrate,
+    int? defaultSubtitleStreamIndex,
+    @JsonKey(name: 'RequiresOpening') bool? requiresOpening,
+    @JsonKey(name: 'OpenToken') String? openToken,
+    @JsonKey(name: 'RequiresClosing') bool? requiresClosing,
+    @JsonKey(name: 'LiveStreamId') String? liveStreamId,
+    @JsonKey(name: 'BufferMs') int? bufferMs,
+    @JsonKey(name: 'RequiresLooping') bool? requiresLooping,
+    @JsonKey(name: 'SupportsProbing') bool? supportsProbing,
+    @JsonKey(name: 'VideoType') MediaSourceInfoVideoType? videoType,
+    @JsonKey(name: 'HasSegments') bool? hasSegments,
+    @JsonKey(name: 'Video3DFormat') MediaSourceInfoVideo3DFormat? video3DFormat,
+    @JsonKey(name: 'MediaStreams') List<MediaStream>? mediaStreams,
+    @JsonKey(name: 'MediaAttachments') List<MediaAttachment>? mediaAttachments,
+    @JsonKey(name: 'Formats') List<String>? formats,
+    @JsonKey(name: 'Bitrate') int? bitrate,
     @JsonKey(name: 'FallbackMaxStreamingBitrate')
-    required int? fallbackMaxStreamingBitrate,
-    @JsonKey(name: 'Timestamp')
-    required MediaSourceInfoTimestamp? timestamp,
+    int? fallbackMaxStreamingBitrate,
+    @JsonKey(name: 'Timestamp') MediaSourceInfoTimestamp? timestamp,
     @JsonKey(name: 'RequiredHttpHeaders')
-    required Map<String, String?>? requiredHttpHeaders,
-    @JsonKey(name: 'TranscodingUrl')
-    required String? transcodingUrl,
+    Map<String, String?>? requiredHttpHeaders,
+    @JsonKey(name: 'TranscodingUrl') String? transcodingUrl,
 
-    /// Media streaming protocol.    ///
+    /// Media streaming protocol.
+    ///
     /// Lowercase for backwards compatibility.
     @JsonKey(name: 'TranscodingSubProtocol')
-    required MediaSourceInfoTranscodingSubProtocol transcodingSubProtocol,
-    @JsonKey(name: 'TranscodingContainer')
-    required String? transcodingContainer,
-    @JsonKey(name: 'AnalyzeDurationMs')
-    required int? analyzeDurationMs,
-    @JsonKey(name: 'DefaultAudioStreamIndex')
-    required int? defaultAudioStreamIndex,
-    @JsonKey(name: 'IsoType')
-    required MediaSourceInfoIsoType? isoType,
+    MediaSourceInfoTranscodingSubProtocol? transcodingSubProtocol,
+    @JsonKey(name: 'TranscodingContainer') String? transcodingContainer,
+    @JsonKey(name: 'AnalyzeDurationMs') int? analyzeDurationMs,
+    @JsonKey(name: 'DefaultAudioStreamIndex') int? defaultAudioStreamIndex,
+    @JsonKey(name: 'IsoType') MediaSourceInfoIsoType? isoType,
     @JsonKey(name: 'UseMostCompatibleTranscodingProfile')
     @Default(false)
     bool useMostCompatibleTranscodingProfile,
   }) = _MediaSourceInfo;
-  
-  factory MediaSourceInfo.fromJson(Map<String, Object?> json) => _$MediaSourceInfoFromJson(json);
+
+  factory MediaSourceInfo.fromJson(Map<String, Object?> json) =>
+      _$MediaSourceInfoFromJson(json);
 }

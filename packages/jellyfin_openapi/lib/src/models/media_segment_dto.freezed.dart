@@ -13,25 +13,25 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MediaSegmentDto {
-  /// Gets or sets the id of the media segment.
-  @JsonKey(name: 'Id')
-  String get id;
-
-  /// Gets or sets the id of the associated item.
-  @JsonKey(name: 'ItemId')
-  String get itemId;
-
-  /// Gets or sets the start of the segment.
-  @JsonKey(name: 'StartTicks')
-  int get startTicks;
-
-  /// Gets or sets the end of the segment.
-  @JsonKey(name: 'EndTicks')
-  int get endTicks;
-
   /// Gets or sets the type of content this segment defines.
   @JsonKey(name: 'Type')
   MediaSegmentDtoType get type;
+
+  /// Gets or sets the id of the media segment.
+  @JsonKey(name: 'Id')
+  String? get id;
+
+  /// Gets or sets the id of the associated item.
+  @JsonKey(name: 'ItemId')
+  String? get itemId;
+
+  /// Gets or sets the start of the segment.
+  @JsonKey(name: 'StartTicks')
+  int? get startTicks;
+
+  /// Gets or sets the end of the segment.
+  @JsonKey(name: 'EndTicks')
+  int? get endTicks;
 
   /// Create a copy of MediaSegmentDto
   /// with the given fields replaced by the non-null parameter values.
@@ -51,23 +51,23 @@ mixin _$MediaSegmentDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MediaSegmentDto &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.itemId, itemId) || other.itemId == itemId) &&
             (identical(other.startTicks, startTicks) ||
                 other.startTicks == startTicks) &&
             (identical(other.endTicks, endTicks) ||
-                other.endTicks == endTicks) &&
-            (identical(other.type, type) || other.type == type));
+                other.endTicks == endTicks));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, itemId, startTicks, endTicks, type);
+      Object.hash(runtimeType, type, id, itemId, startTicks, endTicks);
 
   @override
   String toString() {
-    return 'MediaSegmentDto(id: $id, itemId: $itemId, startTicks: $startTicks, endTicks: $endTicks, type: $type)';
+    return 'MediaSegmentDto(type: $type, id: $id, itemId: $itemId, startTicks: $startTicks, endTicks: $endTicks)';
   }
 }
 
@@ -79,11 +79,11 @@ abstract mixin class $MediaSegmentDtoCopyWith<$Res> {
   ) = _$MediaSegmentDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'ItemId') String itemId,
-    @JsonKey(name: 'StartTicks') int startTicks,
-    @JsonKey(name: 'EndTicks') int endTicks,
     @JsonKey(name: 'Type') MediaSegmentDtoType type,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'ItemId') String? itemId,
+    @JsonKey(name: 'StartTicks') int? startTicks,
+    @JsonKey(name: 'EndTicks') int? endTicks,
   });
 }
 
@@ -100,34 +100,34 @@ class _$MediaSegmentDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? itemId = null,
-    Object? startTicks = null,
-    Object? endTicks = null,
     Object? type = null,
+    Object? id = freezed,
+    Object? itemId = freezed,
+    Object? startTicks = freezed,
+    Object? endTicks = freezed,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        itemId: null == itemId
-            ? _self.itemId
-            : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        startTicks: null == startTicks
-            ? _self.startTicks
-            : startTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
-        endTicks: null == endTicks
-            ? _self.endTicks
-            : endTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as MediaSegmentDtoType,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        itemId: freezed == itemId
+            ? _self.itemId
+            : itemId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        startTicks: freezed == startTicks
+            ? _self.startTicks
+            : startTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        endTicks: freezed == endTicks
+            ? _self.endTicks
+            : endTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
       ),
     );
   }
@@ -227,11 +227,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'StartTicks') int startTicks,
-      @JsonKey(name: 'EndTicks') int endTicks,
       @JsonKey(name: 'Type') MediaSegmentDtoType type,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'StartTicks') int? startTicks,
+      @JsonKey(name: 'EndTicks') int? endTicks,
     )?
     $default, {
     required TResult orElse(),
@@ -240,11 +240,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
     switch (_that) {
       case _MediaSegmentDto() when $default != null:
         return $default(
+          _that.type,
           _that.id,
           _that.itemId,
           _that.startTicks,
           _that.endTicks,
-          _that.type,
         );
       case _:
         return orElse();
@@ -267,11 +267,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'StartTicks') int startTicks,
-      @JsonKey(name: 'EndTicks') int endTicks,
       @JsonKey(name: 'Type') MediaSegmentDtoType type,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'StartTicks') int? startTicks,
+      @JsonKey(name: 'EndTicks') int? endTicks,
     )
     $default,
   ) {
@@ -279,11 +279,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
     switch (_that) {
       case _MediaSegmentDto():
         return $default(
+          _that.type,
           _that.id,
           _that.itemId,
           _that.startTicks,
           _that.endTicks,
-          _that.type,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -305,11 +305,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ItemId') String itemId,
-      @JsonKey(name: 'StartTicks') int startTicks,
-      @JsonKey(name: 'EndTicks') int endTicks,
       @JsonKey(name: 'Type') MediaSegmentDtoType type,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ItemId') String? itemId,
+      @JsonKey(name: 'StartTicks') int? startTicks,
+      @JsonKey(name: 'EndTicks') int? endTicks,
     )?
     $default,
   ) {
@@ -317,11 +317,11 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
     switch (_that) {
       case _MediaSegmentDto() when $default != null:
         return $default(
+          _that.type,
           _that.id,
           _that.itemId,
           _that.startTicks,
           _that.endTicks,
-          _that.type,
         );
       case _:
         return null;
@@ -333,39 +333,39 @@ extension MediaSegmentDtoPatterns on MediaSegmentDto {
 @JsonSerializable()
 class _MediaSegmentDto implements MediaSegmentDto {
   const _MediaSegmentDto({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'StartTicks') required this.startTicks,
-    @JsonKey(name: 'EndTicks') required this.endTicks,
     @JsonKey(name: 'Type') this.type = MediaSegmentDtoType.unknown,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'StartTicks') this.startTicks,
+    @JsonKey(name: 'EndTicks') this.endTicks,
   });
   factory _MediaSegmentDto.fromJson(Map<String, dynamic> json) =>
       _$MediaSegmentDtoFromJson(json);
-
-  /// Gets or sets the id of the media segment.
-  @override
-  @JsonKey(name: 'Id')
-  final String id;
-
-  /// Gets or sets the id of the associated item.
-  @override
-  @JsonKey(name: 'ItemId')
-  final String itemId;
-
-  /// Gets or sets the start of the segment.
-  @override
-  @JsonKey(name: 'StartTicks')
-  final int startTicks;
-
-  /// Gets or sets the end of the segment.
-  @override
-  @JsonKey(name: 'EndTicks')
-  final int endTicks;
 
   /// Gets or sets the type of content this segment defines.
   @override
   @JsonKey(name: 'Type')
   final MediaSegmentDtoType type;
+
+  /// Gets or sets the id of the media segment.
+  @override
+  @JsonKey(name: 'Id')
+  final String? id;
+
+  /// Gets or sets the id of the associated item.
+  @override
+  @JsonKey(name: 'ItemId')
+  final String? itemId;
+
+  /// Gets or sets the start of the segment.
+  @override
+  @JsonKey(name: 'StartTicks')
+  final int? startTicks;
+
+  /// Gets or sets the end of the segment.
+  @override
+  @JsonKey(name: 'EndTicks')
+  final int? endTicks;
 
   /// Create a copy of MediaSegmentDto
   /// with the given fields replaced by the non-null parameter values.
@@ -385,23 +385,23 @@ class _MediaSegmentDto implements MediaSegmentDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MediaSegmentDto &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.itemId, itemId) || other.itemId == itemId) &&
             (identical(other.startTicks, startTicks) ||
                 other.startTicks == startTicks) &&
             (identical(other.endTicks, endTicks) ||
-                other.endTicks == endTicks) &&
-            (identical(other.type, type) || other.type == type));
+                other.endTicks == endTicks));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, itemId, startTicks, endTicks, type);
+      Object.hash(runtimeType, type, id, itemId, startTicks, endTicks);
 
   @override
   String toString() {
-    return 'MediaSegmentDto(id: $id, itemId: $itemId, startTicks: $startTicks, endTicks: $endTicks, type: $type)';
+    return 'MediaSegmentDto(type: $type, id: $id, itemId: $itemId, startTicks: $startTicks, endTicks: $endTicks)';
   }
 }
 
@@ -415,11 +415,11 @@ abstract mixin class _$MediaSegmentDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'ItemId') String itemId,
-    @JsonKey(name: 'StartTicks') int startTicks,
-    @JsonKey(name: 'EndTicks') int endTicks,
     @JsonKey(name: 'Type') MediaSegmentDtoType type,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'ItemId') String? itemId,
+    @JsonKey(name: 'StartTicks') int? startTicks,
+    @JsonKey(name: 'EndTicks') int? endTicks,
   });
 }
 
@@ -436,34 +436,34 @@ class __$MediaSegmentDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? itemId = null,
-    Object? startTicks = null,
-    Object? endTicks = null,
     Object? type = null,
+    Object? id = freezed,
+    Object? itemId = freezed,
+    Object? startTicks = freezed,
+    Object? endTicks = freezed,
   }) {
     return _then(
       _MediaSegmentDto(
-        id: null == id
-            ? _self.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        itemId: null == itemId
-            ? _self.itemId
-            : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        startTicks: null == startTicks
-            ? _self.startTicks
-            : startTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
-        endTicks: null == endTicks
-            ? _self.endTicks
-            : endTicks // ignore: cast_nullable_to_non_nullable
-                  as int,
         type: null == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
                   as MediaSegmentDtoType,
+        id: freezed == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        itemId: freezed == itemId
+            ? _self.itemId
+            : itemId // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        startTicks: freezed == startTicks
+            ? _self.startTicks
+            : startTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        endTicks: freezed == endTicks
+            ? _self.endTicks
+            : endTicks // ignore: cast_nullable_to_non_nullable
+                  as int?,
       ),
     );
   }

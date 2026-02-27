@@ -7,16 +7,16 @@ part of 'image_option.dart';
 // **************************************************************************
 
 _ImageOption _$ImageOptionFromJson(Map<String, dynamic> json) => _ImageOption(
-  type: $enumDecode(_$ImageOptionTypeEnumMap, json['Type']),
-  limit: (json['Limit'] as num).toInt(),
-  minWidth: (json['MinWidth'] as num).toInt(),
+  type: $enumDecodeNullable(_$ImageOptionTypeEnumMap, json['Type']),
+  limit: (json['Limit'] as num?)?.toInt(),
+  minWidth: (json['MinWidth'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$ImageOptionToJson(_ImageOption instance) =>
     <String, dynamic>{
-      'Type': instance.type.toJson(),
-      'Limit': instance.limit,
-      'MinWidth': instance.minWidth,
+      'Type': ?instance.type?.toJson(),
+      'Limit': ?instance.limit,
+      'MinWidth': ?instance.minWidth,
     };
 
 const _$ImageOptionTypeEnumMap = {

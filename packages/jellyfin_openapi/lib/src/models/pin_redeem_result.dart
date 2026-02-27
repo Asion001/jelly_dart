@@ -11,13 +11,12 @@ part 'pin_redeem_result.g.dart';
 abstract class PinRedeemResult with _$PinRedeemResult {
   const factory PinRedeemResult({
     /// Gets or sets a value indicating whether this MediaBrowser.Model.Users.PinRedeemResult is success.
-    @JsonKey(name: 'Success')
-    bool? success,
+    @JsonKey(name: 'Success') bool? success,
 
     /// Gets or sets the users reset.
-    @JsonKey(name: 'UsersReset')
-    List<String>? usersReset,
+    @JsonKey(name: 'UsersReset') List<String>? usersReset,
   }) = _PinRedeemResult;
-  
-  factory PinRedeemResult.fromJson(Map<String, Object?> json) => _$PinRedeemResultFromJson(json);
+
+  factory PinRedeemResult.fromJson(Map<String, Object?> json) =>
+      _$PinRedeemResultFromJson(json);
 }

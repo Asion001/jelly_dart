@@ -9,22 +9,22 @@ part of 'sync_play_not_in_group_update.dart';
 _SyncPlayNotInGroupUpdate _$SyncPlayNotInGroupUpdateFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayNotInGroupUpdate(
-  groupId: json['GroupId'] as String,
-  data: json['Data'] as String,
   type:
       $enumDecodeNullable(
         _$SyncPlayNotInGroupUpdateTypeEnumMap,
         json['Type'],
       ) ??
       SyncPlayNotInGroupUpdateType.notInGroup,
+  groupId: json['GroupId'] as String?,
+  data: json['Data'] as String?,
 );
 
 Map<String, dynamic> _$SyncPlayNotInGroupUpdateToJson(
   _SyncPlayNotInGroupUpdate instance,
 ) => <String, dynamic>{
-  'GroupId': instance.groupId,
-  'Data': instance.data,
   'Type': instance.type.toJson(),
+  'GroupId': ?instance.groupId,
+  'Data': ?instance.data,
 };
 
 const _$SyncPlayNotInGroupUpdateTypeEnumMap = {

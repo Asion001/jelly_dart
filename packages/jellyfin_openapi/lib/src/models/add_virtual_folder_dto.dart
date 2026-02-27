@@ -14,9 +14,9 @@ part 'add_virtual_folder_dto.g.dart';
 abstract class AddVirtualFolderDto with _$AddVirtualFolderDto {
   const factory AddVirtualFolderDto({
     /// Gets or sets library options.
-    @JsonKey(name: 'LibraryOptions')
-    required LibraryOptions libraryOptions,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
   }) = _AddVirtualFolderDto;
-  
-  factory AddVirtualFolderDto.fromJson(Map<String, Object?> json) => _$AddVirtualFolderDtoFromJson(json);
+
+  factory AddVirtualFolderDto.fromJson(Map<String, Object?> json) =>
+      _$AddVirtualFolderDtoFromJson(json);
 }

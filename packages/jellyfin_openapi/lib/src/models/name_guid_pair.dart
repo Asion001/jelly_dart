@@ -10,11 +10,10 @@ part 'name_guid_pair.g.dart';
 @Freezed()
 abstract class NameGuidPair with _$NameGuidPair {
   const factory NameGuidPair({
-    @JsonKey(name: 'Name')
-    String? name,
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Id') String? id,
   }) = _NameGuidPair;
-  
-  factory NameGuidPair.fromJson(Map<String, Object?> json) => _$NameGuidPairFromJson(json);
+
+  factory NameGuidPair.fromJson(Map<String, Object?> json) =>
+      _$NameGuidPairFromJson(json);
 }

@@ -19,7 +19,8 @@ enum MediaSourceInfoProtocol {
   @JsonValue('Rtp')
   rtp('Rtp'),
   @JsonValue('Ftp')
-  ftp('Ftp');
+  ftp('Ftp')
+  ;
 
   const MediaSourceInfoProtocol(this.json);
 
@@ -27,8 +28,10 @@ enum MediaSourceInfoProtocol {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

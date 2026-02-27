@@ -12,25 +12,21 @@ part 'upload_subtitle_dto.g.dart';
 abstract class UploadSubtitleDto with _$UploadSubtitleDto {
   const factory UploadSubtitleDto({
     /// Gets or sets the subtitle language.
-    @JsonKey(name: 'Language')
-    required String language,
+    @JsonKey(name: 'Language') required String language,
 
     /// Gets or sets the subtitle format.
-    @JsonKey(name: 'Format')
-    required String format,
+    @JsonKey(name: 'Format') required String format,
 
     /// Gets or sets a value indicating whether the subtitle is forced.
-    @JsonKey(name: 'IsForced')
-    required bool isForced,
+    @JsonKey(name: 'IsForced') required bool isForced,
 
     /// Gets or sets a value indicating whether the subtitle is for hearing impaired.
-    @JsonKey(name: 'IsHearingImpaired')
-    required bool isHearingImpaired,
+    @JsonKey(name: 'IsHearingImpaired') required bool isHearingImpaired,
 
     /// Gets or sets the subtitle data.
-    @JsonKey(name: 'Data')
-    required String data,
+    @JsonKey(name: 'Data') required String data,
   }) = _UploadSubtitleDto;
-  
-  factory UploadSubtitleDto.fromJson(Map<String, Object?> json) => _$UploadSubtitleDtoFromJson(json);
+
+  factory UploadSubtitleDto.fromJson(Map<String, Object?> json) =>
+      _$UploadSubtitleDtoFromJson(json);
 }

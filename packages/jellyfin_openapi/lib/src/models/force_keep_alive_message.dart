@@ -13,19 +13,18 @@ part 'force_keep_alive_message.g.dart';
 @Freezed()
 abstract class ForceKeepAliveMessage with _$ForceKeepAliveMessage {
   const factory ForceKeepAliveMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required int data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ForceKeepAliveMessageMessageType.forceKeepAlive)
     ForceKeepAliveMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') int? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _ForceKeepAliveMessage;
-  
-  factory ForceKeepAliveMessage.fromJson(Map<String, Object?> json) => _$ForceKeepAliveMessageFromJson(json);
+
+  factory ForceKeepAliveMessage.fromJson(Map<String, Object?> json) =>
+      _$ForceKeepAliveMessageFromJson(json);
 }

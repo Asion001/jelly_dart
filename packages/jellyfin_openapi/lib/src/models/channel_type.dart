@@ -10,7 +10,8 @@ enum ChannelType {
   @JsonValue('TV')
   tv('TV'),
   @JsonValue('Radio')
-  radio('Radio');
+  radio('Radio')
+  ;
 
   const ChannelType(this.json);
 
@@ -18,8 +19,10 @@ enum ChannelType {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

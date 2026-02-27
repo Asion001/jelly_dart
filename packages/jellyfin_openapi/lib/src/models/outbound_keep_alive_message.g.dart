@@ -9,20 +9,20 @@ part of 'outbound_keep_alive_message.dart';
 _OutboundKeepAliveMessage _$OutboundKeepAliveMessageFromJson(
   Map<String, dynamic> json,
 ) => _OutboundKeepAliveMessage(
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$OutboundKeepAliveMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       OutboundKeepAliveMessageMessageType.keepAlive,
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$OutboundKeepAliveMessageToJson(
   _OutboundKeepAliveMessage instance,
 ) => <String, dynamic>{
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$OutboundKeepAliveMessageMessageTypeEnumMap = {

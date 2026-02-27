@@ -15,23 +15,23 @@ T _$identity<T>(T value) => value;
 mixin _$GroupInfoDto {
   /// Gets the group identifier.
   @JsonKey(name: 'GroupId')
-  String get groupId;
+  String? get groupId;
 
   /// Gets the group name.
   @JsonKey(name: 'GroupName')
-  String get groupName;
+  String? get groupName;
 
   /// Gets the group state.
   @JsonKey(name: 'State')
-  GroupInfoDtoState get state;
+  GroupInfoDtoState? get state;
 
   /// Gets the participants.
   @JsonKey(name: 'Participants')
-  List<String> get participants;
+  List<String>? get participants;
 
   /// Gets the date when this DTO has been created.
   @JsonKey(name: 'LastUpdatedAt')
-  DateTime get lastUpdatedAt;
+  DateTime? get lastUpdatedAt;
 
   /// Create a copy of GroupInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -88,11 +88,11 @@ abstract mixin class $GroupInfoDtoCopyWith<$Res> {
   ) = _$GroupInfoDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'GroupName') String groupName,
-    @JsonKey(name: 'State') GroupInfoDtoState state,
-    @JsonKey(name: 'Participants') List<String> participants,
-    @JsonKey(name: 'LastUpdatedAt') DateTime lastUpdatedAt,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'GroupName') String? groupName,
+    @JsonKey(name: 'State') GroupInfoDtoState? state,
+    @JsonKey(name: 'Participants') List<String>? participants,
+    @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
   });
 }
 
@@ -108,34 +108,34 @@ class _$GroupInfoDtoCopyWithImpl<$Res> implements $GroupInfoDtoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groupId = null,
-    Object? groupName = null,
-    Object? state = null,
-    Object? participants = null,
-    Object? lastUpdatedAt = null,
+    Object? groupId = freezed,
+    Object? groupName = freezed,
+    Object? state = freezed,
+    Object? participants = freezed,
+    Object? lastUpdatedAt = freezed,
   }) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        groupName: null == groupName
+                  as String?,
+        groupName: freezed == groupName
             ? _self.groupName
             : groupName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        state: null == state
+                  as String?,
+        state: freezed == state
             ? _self.state
             : state // ignore: cast_nullable_to_non_nullable
-                  as GroupInfoDtoState,
-        participants: null == participants
+                  as GroupInfoDtoState?,
+        participants: freezed == participants
             ? _self.participants
             : participants // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        lastUpdatedAt: null == lastUpdatedAt
+                  as List<String>?,
+        lastUpdatedAt: freezed == lastUpdatedAt
             ? _self.lastUpdatedAt
             : lastUpdatedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
       ),
     );
   }
@@ -235,11 +235,11 @@ extension GroupInfoDtoPatterns on GroupInfoDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'GroupName') String groupName,
-      @JsonKey(name: 'State') GroupInfoDtoState state,
-      @JsonKey(name: 'Participants') List<String> participants,
-      @JsonKey(name: 'LastUpdatedAt') DateTime lastUpdatedAt,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'GroupName') String? groupName,
+      @JsonKey(name: 'State') GroupInfoDtoState? state,
+      @JsonKey(name: 'Participants') List<String>? participants,
+      @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
     )?
     $default, {
     required TResult orElse(),
@@ -275,11 +275,11 @@ extension GroupInfoDtoPatterns on GroupInfoDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'GroupName') String groupName,
-      @JsonKey(name: 'State') GroupInfoDtoState state,
-      @JsonKey(name: 'Participants') List<String> participants,
-      @JsonKey(name: 'LastUpdatedAt') DateTime lastUpdatedAt,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'GroupName') String? groupName,
+      @JsonKey(name: 'State') GroupInfoDtoState? state,
+      @JsonKey(name: 'Participants') List<String>? participants,
+      @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
     )
     $default,
   ) {
@@ -313,11 +313,11 @@ extension GroupInfoDtoPatterns on GroupInfoDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'GroupName') String groupName,
-      @JsonKey(name: 'State') GroupInfoDtoState state,
-      @JsonKey(name: 'Participants') List<String> participants,
-      @JsonKey(name: 'LastUpdatedAt') DateTime lastUpdatedAt,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'GroupName') String? groupName,
+      @JsonKey(name: 'State') GroupInfoDtoState? state,
+      @JsonKey(name: 'Participants') List<String>? participants,
+      @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
     )?
     $default,
   ) {
@@ -341,11 +341,11 @@ extension GroupInfoDtoPatterns on GroupInfoDto {
 @JsonSerializable()
 class _GroupInfoDto implements GroupInfoDto {
   const _GroupInfoDto({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'GroupName') required this.groupName,
-    @JsonKey(name: 'State') required this.state,
-    @JsonKey(name: 'Participants') required final List<String> participants,
-    @JsonKey(name: 'LastUpdatedAt') required this.lastUpdatedAt,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'GroupName') this.groupName,
+    @JsonKey(name: 'State') this.state,
+    @JsonKey(name: 'Participants') final List<String>? participants,
+    @JsonKey(name: 'LastUpdatedAt') this.lastUpdatedAt,
   }) : _participants = participants;
   factory _GroupInfoDto.fromJson(Map<String, dynamic> json) =>
       _$GroupInfoDtoFromJson(json);
@@ -353,34 +353,36 @@ class _GroupInfoDto implements GroupInfoDto {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the group name.
   @override
   @JsonKey(name: 'GroupName')
-  final String groupName;
+  final String? groupName;
 
   /// Gets the group state.
   @override
   @JsonKey(name: 'State')
-  final GroupInfoDtoState state;
+  final GroupInfoDtoState? state;
 
   /// Gets the participants.
-  final List<String> _participants;
+  final List<String>? _participants;
 
   /// Gets the participants.
   @override
   @JsonKey(name: 'Participants')
-  List<String> get participants {
+  List<String>? get participants {
+    final value = _participants;
+    if (value == null) return null;
     if (_participants is EqualUnmodifiableListView) return _participants;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_participants);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets the date when this DTO has been created.
   @override
   @JsonKey(name: 'LastUpdatedAt')
-  final DateTime lastUpdatedAt;
+  final DateTime? lastUpdatedAt;
 
   /// Create a copy of GroupInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -439,11 +441,11 @@ abstract mixin class _$GroupInfoDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'GroupName') String groupName,
-    @JsonKey(name: 'State') GroupInfoDtoState state,
-    @JsonKey(name: 'Participants') List<String> participants,
-    @JsonKey(name: 'LastUpdatedAt') DateTime lastUpdatedAt,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'GroupName') String? groupName,
+    @JsonKey(name: 'State') GroupInfoDtoState? state,
+    @JsonKey(name: 'Participants') List<String>? participants,
+    @JsonKey(name: 'LastUpdatedAt') DateTime? lastUpdatedAt,
   });
 }
 
@@ -460,34 +462,34 @@ class __$GroupInfoDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? groupId = null,
-    Object? groupName = null,
-    Object? state = null,
-    Object? participants = null,
-    Object? lastUpdatedAt = null,
+    Object? groupId = freezed,
+    Object? groupName = freezed,
+    Object? state = freezed,
+    Object? participants = freezed,
+    Object? lastUpdatedAt = freezed,
   }) {
     return _then(
       _GroupInfoDto(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        groupName: null == groupName
+                  as String?,
+        groupName: freezed == groupName
             ? _self.groupName
             : groupName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        state: null == state
+                  as String?,
+        state: freezed == state
             ? _self.state
             : state // ignore: cast_nullable_to_non_nullable
-                  as GroupInfoDtoState,
-        participants: null == participants
+                  as GroupInfoDtoState?,
+        participants: freezed == participants
             ? _self._participants
             : participants // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        lastUpdatedAt: null == lastUpdatedAt
+                  as List<String>?,
+        lastUpdatedAt: freezed == lastUpdatedAt
             ? _self.lastUpdatedAt
             : lastUpdatedAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
+                  as DateTime?,
       ),
     );
   }

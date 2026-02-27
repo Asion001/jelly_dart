@@ -12,21 +12,25 @@ part 'plugin_installation_cancelled_message.g.dart';
 
 /// Plugin installation cancelled message.
 @Freezed()
-abstract class PluginInstallationCancelledMessage with _$PluginInstallationCancelledMessage {
+abstract class PluginInstallationCancelledMessage
+    with _$PluginInstallationCancelledMessage {
   const factory PluginInstallationCancelledMessage({
-    /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
-    @Default(PluginInstallationCancelledMessageMessageType.packageInstallationCancelled)
+    @Default(
+      PluginInstallationCancelledMessageMessageType
+          .packageInstallationCancelled,
+    )
     PluginInstallationCancelledMessageMessageType messageType,
+
+    /// Class InstallationInfo.
+    @JsonKey(name: 'Data') InstallationInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _PluginInstallationCancelledMessage;
-  
-  factory PluginInstallationCancelledMessage.fromJson(Map<String, Object?> json) => _$PluginInstallationCancelledMessageFromJson(json);
+
+  factory PluginInstallationCancelledMessage.fromJson(
+    Map<String, Object?> json,
+  ) => _$PluginInstallationCancelledMessageFromJson(json);
 }

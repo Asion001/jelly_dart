@@ -15,17 +15,17 @@ T _$identity<T>(T value) => value;
 mixin _$DatabaseConfigurationOptions {
   /// Gets or Sets the type of database jellyfin should use.
   @JsonKey(name: 'DatabaseType')
-  String get databaseType;
+  String? get databaseType;
 
   /// Gets or sets the options required to use a custom database provider.
   @JsonKey(name: 'CustomProviderOptions')
-  CustomDatabaseOptions get customProviderOptions;
+  CustomDatabaseOptions? get customProviderOptions;
 
   /// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are "NoLock", "Pessimistic", "Optimistic".
   ///
   /// Defaults to "NoLock".
   @JsonKey(name: 'LockingBehavior')
-  DatabaseConfigurationOptionsLockingBehavior get lockingBehavior;
+  DatabaseConfigurationOptionsLockingBehavior? get lockingBehavior;
 
   /// Create a copy of DatabaseConfigurationOptions
   /// with the given fields replaced by the non-null parameter values.
@@ -77,14 +77,14 @@ abstract mixin class $DatabaseConfigurationOptionsCopyWith<$Res> {
   ) = _$DatabaseConfigurationOptionsCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'DatabaseType') String databaseType,
+    @JsonKey(name: 'DatabaseType') String? databaseType,
     @JsonKey(name: 'CustomProviderOptions')
-    CustomDatabaseOptions customProviderOptions,
+    CustomDatabaseOptions? customProviderOptions,
     @JsonKey(name: 'LockingBehavior')
-    DatabaseConfigurationOptionsLockingBehavior lockingBehavior,
+    DatabaseConfigurationOptionsLockingBehavior? lockingBehavior,
   });
 
-  $CustomDatabaseOptionsCopyWith<$Res> get customProviderOptions;
+  $CustomDatabaseOptionsCopyWith<$Res>? get customProviderOptions;
 }
 
 /// @nodoc
@@ -100,24 +100,24 @@ class _$DatabaseConfigurationOptionsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? databaseType = null,
-    Object? customProviderOptions = null,
-    Object? lockingBehavior = null,
+    Object? databaseType = freezed,
+    Object? customProviderOptions = freezed,
+    Object? lockingBehavior = freezed,
   }) {
     return _then(
       _self.copyWith(
-        databaseType: null == databaseType
+        databaseType: freezed == databaseType
             ? _self.databaseType
             : databaseType // ignore: cast_nullable_to_non_nullable
-                  as String,
-        customProviderOptions: null == customProviderOptions
+                  as String?,
+        customProviderOptions: freezed == customProviderOptions
             ? _self.customProviderOptions
             : customProviderOptions // ignore: cast_nullable_to_non_nullable
-                  as CustomDatabaseOptions,
-        lockingBehavior: null == lockingBehavior
+                  as CustomDatabaseOptions?,
+        lockingBehavior: freezed == lockingBehavior
             ? _self.lockingBehavior
             : lockingBehavior // ignore: cast_nullable_to_non_nullable
-                  as DatabaseConfigurationOptionsLockingBehavior,
+                  as DatabaseConfigurationOptionsLockingBehavior?,
       ),
     );
   }
@@ -126,8 +126,12 @@ class _$DatabaseConfigurationOptionsCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CustomDatabaseOptionsCopyWith<$Res> get customProviderOptions {
-    return $CustomDatabaseOptionsCopyWith<$Res>(_self.customProviderOptions, (
+  $CustomDatabaseOptionsCopyWith<$Res>? get customProviderOptions {
+    if (_self.customProviderOptions == null) {
+      return null;
+    }
+
+    return $CustomDatabaseOptionsCopyWith<$Res>(_self.customProviderOptions!, (
       value,
     ) {
       return _then(_self.copyWith(customProviderOptions: value));
@@ -229,11 +233,11 @@ extension DatabaseConfigurationOptionsPatterns on DatabaseConfigurationOptions {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'DatabaseType') String databaseType,
+      @JsonKey(name: 'DatabaseType') String? databaseType,
       @JsonKey(name: 'CustomProviderOptions')
-      CustomDatabaseOptions customProviderOptions,
+      CustomDatabaseOptions? customProviderOptions,
       @JsonKey(name: 'LockingBehavior')
-      DatabaseConfigurationOptionsLockingBehavior lockingBehavior,
+      DatabaseConfigurationOptionsLockingBehavior? lockingBehavior,
     )?
     $default, {
     required TResult orElse(),
@@ -267,11 +271,11 @@ extension DatabaseConfigurationOptionsPatterns on DatabaseConfigurationOptions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'DatabaseType') String databaseType,
+      @JsonKey(name: 'DatabaseType') String? databaseType,
       @JsonKey(name: 'CustomProviderOptions')
-      CustomDatabaseOptions customProviderOptions,
+      CustomDatabaseOptions? customProviderOptions,
       @JsonKey(name: 'LockingBehavior')
-      DatabaseConfigurationOptionsLockingBehavior lockingBehavior,
+      DatabaseConfigurationOptionsLockingBehavior? lockingBehavior,
     )
     $default,
   ) {
@@ -303,11 +307,11 @@ extension DatabaseConfigurationOptionsPatterns on DatabaseConfigurationOptions {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'DatabaseType') String databaseType,
+      @JsonKey(name: 'DatabaseType') String? databaseType,
       @JsonKey(name: 'CustomProviderOptions')
-      CustomDatabaseOptions customProviderOptions,
+      CustomDatabaseOptions? customProviderOptions,
       @JsonKey(name: 'LockingBehavior')
-      DatabaseConfigurationOptionsLockingBehavior lockingBehavior,
+      DatabaseConfigurationOptionsLockingBehavior? lockingBehavior,
     )?
     $default,
   ) {
@@ -329,9 +333,9 @@ extension DatabaseConfigurationOptionsPatterns on DatabaseConfigurationOptions {
 @JsonSerializable()
 class _DatabaseConfigurationOptions implements DatabaseConfigurationOptions {
   const _DatabaseConfigurationOptions({
-    @JsonKey(name: 'DatabaseType') required this.databaseType,
-    @JsonKey(name: 'CustomProviderOptions') required this.customProviderOptions,
-    @JsonKey(name: 'LockingBehavior') required this.lockingBehavior,
+    @JsonKey(name: 'DatabaseType') this.databaseType,
+    @JsonKey(name: 'CustomProviderOptions') this.customProviderOptions,
+    @JsonKey(name: 'LockingBehavior') this.lockingBehavior,
   });
   factory _DatabaseConfigurationOptions.fromJson(Map<String, dynamic> json) =>
       _$DatabaseConfigurationOptionsFromJson(json);
@@ -339,19 +343,19 @@ class _DatabaseConfigurationOptions implements DatabaseConfigurationOptions {
   /// Gets or Sets the type of database jellyfin should use.
   @override
   @JsonKey(name: 'DatabaseType')
-  final String databaseType;
+  final String? databaseType;
 
   /// Gets or sets the options required to use a custom database provider.
   @override
   @JsonKey(name: 'CustomProviderOptions')
-  final CustomDatabaseOptions customProviderOptions;
+  final CustomDatabaseOptions? customProviderOptions;
 
   /// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are "NoLock", "Pessimistic", "Optimistic".
   ///
   /// Defaults to "NoLock".
   @override
   @JsonKey(name: 'LockingBehavior')
-  final DatabaseConfigurationOptionsLockingBehavior lockingBehavior;
+  final DatabaseConfigurationOptionsLockingBehavior? lockingBehavior;
 
   /// Create a copy of DatabaseConfigurationOptions
   /// with the given fields replaced by the non-null parameter values.
@@ -407,15 +411,15 @@ abstract mixin class _$DatabaseConfigurationOptionsCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'DatabaseType') String databaseType,
+    @JsonKey(name: 'DatabaseType') String? databaseType,
     @JsonKey(name: 'CustomProviderOptions')
-    CustomDatabaseOptions customProviderOptions,
+    CustomDatabaseOptions? customProviderOptions,
     @JsonKey(name: 'LockingBehavior')
-    DatabaseConfigurationOptionsLockingBehavior lockingBehavior,
+    DatabaseConfigurationOptionsLockingBehavior? lockingBehavior,
   });
 
   @override
-  $CustomDatabaseOptionsCopyWith<$Res> get customProviderOptions;
+  $CustomDatabaseOptionsCopyWith<$Res>? get customProviderOptions;
 }
 
 /// @nodoc
@@ -431,24 +435,24 @@ class __$DatabaseConfigurationOptionsCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? databaseType = null,
-    Object? customProviderOptions = null,
-    Object? lockingBehavior = null,
+    Object? databaseType = freezed,
+    Object? customProviderOptions = freezed,
+    Object? lockingBehavior = freezed,
   }) {
     return _then(
       _DatabaseConfigurationOptions(
-        databaseType: null == databaseType
+        databaseType: freezed == databaseType
             ? _self.databaseType
             : databaseType // ignore: cast_nullable_to_non_nullable
-                  as String,
-        customProviderOptions: null == customProviderOptions
+                  as String?,
+        customProviderOptions: freezed == customProviderOptions
             ? _self.customProviderOptions
             : customProviderOptions // ignore: cast_nullable_to_non_nullable
-                  as CustomDatabaseOptions,
-        lockingBehavior: null == lockingBehavior
+                  as CustomDatabaseOptions?,
+        lockingBehavior: freezed == lockingBehavior
             ? _self.lockingBehavior
             : lockingBehavior // ignore: cast_nullable_to_non_nullable
-                  as DatabaseConfigurationOptionsLockingBehavior,
+                  as DatabaseConfigurationOptionsLockingBehavior?,
       ),
     );
   }
@@ -457,8 +461,12 @@ class __$DatabaseConfigurationOptionsCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CustomDatabaseOptionsCopyWith<$Res> get customProviderOptions {
-    return $CustomDatabaseOptionsCopyWith<$Res>(_self.customProviderOptions, (
+  $CustomDatabaseOptionsCopyWith<$Res>? get customProviderOptions {
+    if (_self.customProviderOptions == null) {
+      return null;
+    }
+
+    return $CustomDatabaseOptionsCopyWith<$Res>(_self.customProviderOptions!, (
       value,
     ) {
       return _then(_self.copyWith(customProviderOptions: value));

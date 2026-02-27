@@ -10,13 +10,11 @@ part 'message_command.g.dart';
 @Freezed()
 abstract class MessageCommand with _$MessageCommand {
   const factory MessageCommand({
-    @JsonKey(name: 'Text')
-    required String text,
-    @JsonKey(name: 'Header')
-    String? header,
-    @JsonKey(name: 'TimeoutMs')
-    int? timeoutMs,
+    @JsonKey(name: 'Text') required String text,
+    @JsonKey(name: 'Header') String? header,
+    @JsonKey(name: 'TimeoutMs') int? timeoutMs,
   }) = _MessageCommand;
-  
-  factory MessageCommand.fromJson(Map<String, Object?> json) => _$MessageCommandFromJson(json);
+
+  factory MessageCommand.fromJson(Map<String, Object?> json) =>
+      _$MessageCommandFromJson(json);
 }

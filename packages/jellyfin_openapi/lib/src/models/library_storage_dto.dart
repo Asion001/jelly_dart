@@ -14,17 +14,15 @@ part 'library_storage_dto.g.dart';
 abstract class LibraryStorageDto with _$LibraryStorageDto {
   const factory LibraryStorageDto({
     /// Gets or sets the Library Id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the name of the library.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the storage informations about the folders used in a library.
-    @JsonKey(name: 'Folders')
-    List<FolderStorageDto>? folders,
+    @JsonKey(name: 'Folders') List<FolderStorageDto>? folders,
   }) = _LibraryStorageDto;
-  
-  factory LibraryStorageDto.fromJson(Map<String, Object?> json) => _$LibraryStorageDtoFromJson(json);
+
+  factory LibraryStorageDto.fromJson(Map<String, Object?> json) =>
+      _$LibraryStorageDtoFromJson(json);
 }

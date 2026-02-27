@@ -12,21 +12,25 @@ part 'plugin_installation_completed_message.g.dart';
 
 /// Plugin installation completed message.
 @Freezed()
-abstract class PluginInstallationCompletedMessage with _$PluginInstallationCompletedMessage {
+abstract class PluginInstallationCompletedMessage
+    with _$PluginInstallationCompletedMessage {
   const factory PluginInstallationCompletedMessage({
-    /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
-    @Default(PluginInstallationCompletedMessageMessageType.packageInstallationCompleted)
+    @Default(
+      PluginInstallationCompletedMessageMessageType
+          .packageInstallationCompleted,
+    )
     PluginInstallationCompletedMessageMessageType messageType,
+
+    /// Class InstallationInfo.
+    @JsonKey(name: 'Data') InstallationInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _PluginInstallationCompletedMessage;
-  
-  factory PluginInstallationCompletedMessage.fromJson(Map<String, Object?> json) => _$PluginInstallationCompletedMessageFromJson(json);
+
+  factory PluginInstallationCompletedMessage.fromJson(
+    Map<String, Object?> json,
+  ) => _$PluginInstallationCompletedMessageFromJson(json);
 }

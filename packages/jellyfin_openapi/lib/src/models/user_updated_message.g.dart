@@ -8,21 +8,23 @@ part of 'user_updated_message.dart';
 
 _UserUpdatedMessage _$UserUpdatedMessageFromJson(Map<String, dynamic> json) =>
     _UserUpdatedMessage(
-      data: UserDto.fromJson(json['Data'] as Map<String, dynamic>),
-      messageId: json['MessageId'] as String,
       messageType:
           $enumDecodeNullable(
             _$UserUpdatedMessageMessageTypeEnumMap,
             json['MessageType'],
           ) ??
           UserUpdatedMessageMessageType.userUpdated,
+      data: json['Data'] == null
+          ? null
+          : UserDto.fromJson(json['Data'] as Map<String, dynamic>),
+      messageId: json['MessageId'] as String?,
     );
 
 Map<String, dynamic> _$UserUpdatedMessageToJson(_UserUpdatedMessage instance) =>
     <String, dynamic>{
-      'Data': instance.data.toJson(),
-      'MessageId': instance.messageId,
       'MessageType': instance.messageType.toJson(),
+      'Data': ?instance.data?.toJson(),
+      'MessageId': ?instance.messageId,
     };
 
 const _$UserUpdatedMessageMessageTypeEnumMap = {

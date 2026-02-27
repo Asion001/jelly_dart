@@ -15,57 +15,46 @@ part 'transcoding_info.g.dart';
 abstract class TranscodingInfo with _$TranscodingInfo {
   const factory TranscodingInfo({
     /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'AudioCodec')
-    required String? audioCodec,
+    @JsonKey(name: 'AudioCodec') String? audioCodec,
 
     /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'VideoCodec')
-    required String? videoCodec,
+    @JsonKey(name: 'VideoCodec') String? videoCodec,
 
     /// Gets or sets the thread count used for encoding.
-    @JsonKey(name: 'Container')
-    required String? container,
+    @JsonKey(name: 'Container') String? container,
 
     /// Gets or sets a value indicating whether the video is passed through.
-    @JsonKey(name: 'IsVideoDirect')
-    required bool isVideoDirect,
+    @JsonKey(name: 'IsVideoDirect') bool? isVideoDirect,
 
     /// Gets or sets a value indicating whether the audio is passed through.
-    @JsonKey(name: 'IsAudioDirect')
-    required bool isAudioDirect,
+    @JsonKey(name: 'IsAudioDirect') bool? isAudioDirect,
 
     /// Gets or sets the bitrate.
-    @JsonKey(name: 'Bitrate')
-    required int? bitrate,
+    @JsonKey(name: 'Bitrate') int? bitrate,
 
     /// Gets or sets the framerate.
-    @JsonKey(name: 'Framerate')
-    required double? framerate,
+    @JsonKey(name: 'Framerate') double? framerate,
 
     /// Gets or sets the completion percentage.
-    @JsonKey(name: 'CompletionPercentage')
-    required double? completionPercentage,
+    @JsonKey(name: 'CompletionPercentage') double? completionPercentage,
 
     /// Gets or sets the video width.
-    @JsonKey(name: 'Width')
-    required int? width,
+    @JsonKey(name: 'Width') int? width,
 
     /// Gets or sets the video height.
-    @JsonKey(name: 'Height')
-    required int? height,
+    @JsonKey(name: 'Height') int? height,
 
     /// Gets or sets the audio channels.
-    @JsonKey(name: 'AudioChannels')
-    required int? audioChannels,
+    @JsonKey(name: 'AudioChannels') int? audioChannels,
 
     /// Gets or sets the hardware acceleration type.
     @JsonKey(name: 'HardwareAccelerationType')
-    required TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
+    TranscodingInfoHardwareAccelerationType? hardwareAccelerationType,
 
     /// Gets or sets the transcode reasons.
-    @JsonKey(name: 'TranscodeReasons')
-    required List<TranscodeReason> transcodeReasons,
+    @JsonKey(name: 'TranscodeReasons') List<TranscodeReason>? transcodeReasons,
   }) = _TranscodingInfo;
-  
-  factory TranscodingInfo.fromJson(Map<String, Object?> json) => _$TranscodingInfoFromJson(json);
+
+  factory TranscodingInfo.fromJson(Map<String, Object?> json) =>
+      _$TranscodingInfoFromJson(json);
 }

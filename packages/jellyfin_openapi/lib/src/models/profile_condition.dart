@@ -13,15 +13,12 @@ part 'profile_condition.g.dart';
 @Freezed()
 abstract class ProfileCondition with _$ProfileCondition {
   const factory ProfileCondition({
-    @JsonKey(name: 'Condition')
-    required ProfileConditionCondition condition,
-    @JsonKey(name: 'Property')
-    required ProfileConditionProperty property,
-    @JsonKey(name: 'Value')
-    required String? value,
-    @JsonKey(name: 'IsRequired')
-    required bool isRequired,
+    @JsonKey(name: 'Condition') ProfileConditionCondition? condition,
+    @JsonKey(name: 'Property') ProfileConditionProperty? property,
+    @JsonKey(name: 'Value') String? value,
+    @JsonKey(name: 'IsRequired') bool? isRequired,
   }) = _ProfileCondition;
-  
-  factory ProfileCondition.fromJson(Map<String, Object?> json) => _$ProfileConditionFromJson(json);
+
+  factory ProfileCondition.fromJson(Map<String, Object?> json) =>
+      _$ProfileConditionFromJson(json);
 }

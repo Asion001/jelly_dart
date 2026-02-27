@@ -66,7 +66,8 @@ enum SortBy {
   @JsonValue('ParentIndexNumber')
   parentIndexNumber('ParentIndexNumber'),
   @JsonValue('IndexNumber')
-  indexNumber('IndexNumber');
+  indexNumber('IndexNumber')
+  ;
 
   const SortBy(this.json);
 
@@ -74,8 +75,10 @@ enum SortBy {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

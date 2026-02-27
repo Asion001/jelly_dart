@@ -12,21 +12,18 @@ part 'server_discovery_info.g.dart';
 abstract class ServerDiscoveryInfo with _$ServerDiscoveryInfo {
   const factory ServerDiscoveryInfo({
     /// Gets the address.
-    @JsonKey(name: 'Address')
-    String? address,
+    @JsonKey(name: 'Address') String? address,
 
     /// Gets the server identifier.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets the endpoint address.
-    @JsonKey(name: 'EndpointAddress')
-    String? endpointAddress,
+    @JsonKey(name: 'EndpointAddress') String? endpointAddress,
   }) = _ServerDiscoveryInfo;
-  
-  factory ServerDiscoveryInfo.fromJson(Map<String, Object?> json) => _$ServerDiscoveryInfoFromJson(json);
+
+  factory ServerDiscoveryInfo.fromJson(Map<String, Object?> json) =>
+      _$ServerDiscoveryInfoFromJson(json);
 }

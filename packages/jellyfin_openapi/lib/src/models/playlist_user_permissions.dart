@@ -12,13 +12,12 @@ part 'playlist_user_permissions.g.dart';
 abstract class PlaylistUserPermissions with _$PlaylistUserPermissions {
   const factory PlaylistUserPermissions({
     /// Gets or sets the user id.
-    @JsonKey(name: 'UserId')
-    String? userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets a value indicating whether the user has edit permissions.
-    @JsonKey(name: 'CanEdit')
-    bool? canEdit,
+    @JsonKey(name: 'CanEdit') bool? canEdit,
   }) = _PlaylistUserPermissions;
-  
-  factory PlaylistUserPermissions.fromJson(Map<String, Object?> json) => _$PlaylistUserPermissionsFromJson(json);
+
+  factory PlaylistUserPermissions.fromJson(Map<String, Object?> json) =>
+      _$PlaylistUserPermissionsFromJson(json);
 }

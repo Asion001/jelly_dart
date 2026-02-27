@@ -9,8 +9,6 @@ part of 'plugin_installation_completed_message.dart';
 _PluginInstallationCompletedMessage
 _$PluginInstallationCompletedMessageFromJson(Map<String, dynamic> json) =>
     _PluginInstallationCompletedMessage(
-      data: InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
-      messageId: json['MessageId'] as String,
       messageType:
           $enumDecodeNullable(
             _$PluginInstallationCompletedMessageMessageTypeEnumMap,
@@ -18,14 +16,18 @@ _$PluginInstallationCompletedMessageFromJson(Map<String, dynamic> json) =>
           ) ??
           PluginInstallationCompletedMessageMessageType
               .packageInstallationCompleted,
+      data: json['Data'] == null
+          ? null
+          : InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
+      messageId: json['MessageId'] as String?,
     );
 
 Map<String, dynamic> _$PluginInstallationCompletedMessageToJson(
   _PluginInstallationCompletedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$PluginInstallationCompletedMessageMessageTypeEnumMap = {

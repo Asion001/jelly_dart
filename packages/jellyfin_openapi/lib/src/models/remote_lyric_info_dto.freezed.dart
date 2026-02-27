@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$RemoteLyricInfoDto {
   /// Gets or sets the id for the lyric.
   @JsonKey(name: 'Id')
-  String get id;
+  String? get id;
 
   /// Gets the provider name.
   @JsonKey(name: 'ProviderName')
-  String get providerName;
+  String? get providerName;
 
   /// Gets the lyrics.
   @JsonKey(name: 'Lyrics')
-  LyricDto get lyrics;
+  LyricDto? get lyrics;
 
   /// Create a copy of RemoteLyricInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -67,12 +67,12 @@ abstract mixin class $RemoteLyricInfoDtoCopyWith<$Res> {
   ) = _$RemoteLyricInfoDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'ProviderName') String providerName,
-    @JsonKey(name: 'Lyrics') LyricDto lyrics,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'ProviderName') String? providerName,
+    @JsonKey(name: 'Lyrics') LyricDto? lyrics,
   });
 
-  $LyricDtoCopyWith<$Res> get lyrics;
+  $LyricDtoCopyWith<$Res>? get lyrics;
 }
 
 /// @nodoc
@@ -88,24 +88,24 @@ class _$RemoteLyricInfoDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? providerName = null,
-    Object? lyrics = null,
+    Object? id = freezed,
+    Object? providerName = freezed,
+    Object? lyrics = freezed,
   }) {
     return _then(
       _self.copyWith(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        providerName: null == providerName
+                  as String?,
+        providerName: freezed == providerName
             ? _self.providerName
             : providerName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        lyrics: null == lyrics
+                  as String?,
+        lyrics: freezed == lyrics
             ? _self.lyrics
             : lyrics // ignore: cast_nullable_to_non_nullable
-                  as LyricDto,
+                  as LyricDto?,
       ),
     );
   }
@@ -114,8 +114,12 @@ class _$RemoteLyricInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LyricDtoCopyWith<$Res> get lyrics {
-    return $LyricDtoCopyWith<$Res>(_self.lyrics, (value) {
+  $LyricDtoCopyWith<$Res>? get lyrics {
+    if (_self.lyrics == null) {
+      return null;
+    }
+
+    return $LyricDtoCopyWith<$Res>(_self.lyrics!, (value) {
       return _then(_self.copyWith(lyrics: value));
     });
   }
@@ -215,9 +219,9 @@ extension RemoteLyricInfoDtoPatterns on RemoteLyricInfoDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ProviderName') String providerName,
-      @JsonKey(name: 'Lyrics') LyricDto lyrics,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ProviderName') String? providerName,
+      @JsonKey(name: 'Lyrics') LyricDto? lyrics,
     )?
     $default, {
     required TResult orElse(),
@@ -247,9 +251,9 @@ extension RemoteLyricInfoDtoPatterns on RemoteLyricInfoDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ProviderName') String providerName,
-      @JsonKey(name: 'Lyrics') LyricDto lyrics,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ProviderName') String? providerName,
+      @JsonKey(name: 'Lyrics') LyricDto? lyrics,
     )
     $default,
   ) {
@@ -277,9 +281,9 @@ extension RemoteLyricInfoDtoPatterns on RemoteLyricInfoDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'ProviderName') String providerName,
-      @JsonKey(name: 'Lyrics') LyricDto lyrics,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'ProviderName') String? providerName,
+      @JsonKey(name: 'Lyrics') LyricDto? lyrics,
     )?
     $default,
   ) {
@@ -297,9 +301,9 @@ extension RemoteLyricInfoDtoPatterns on RemoteLyricInfoDto {
 @JsonSerializable()
 class _RemoteLyricInfoDto implements RemoteLyricInfoDto {
   const _RemoteLyricInfoDto({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'ProviderName') required this.providerName,
-    @JsonKey(name: 'Lyrics') required this.lyrics,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'ProviderName') this.providerName,
+    @JsonKey(name: 'Lyrics') this.lyrics,
   });
   factory _RemoteLyricInfoDto.fromJson(Map<String, dynamic> json) =>
       _$RemoteLyricInfoDtoFromJson(json);
@@ -307,17 +311,17 @@ class _RemoteLyricInfoDto implements RemoteLyricInfoDto {
   /// Gets or sets the id for the lyric.
   @override
   @JsonKey(name: 'Id')
-  final String id;
+  final String? id;
 
   /// Gets the provider name.
   @override
   @JsonKey(name: 'ProviderName')
-  final String providerName;
+  final String? providerName;
 
   /// Gets the lyrics.
   @override
   @JsonKey(name: 'Lyrics')
-  final LyricDto lyrics;
+  final LyricDto? lyrics;
 
   /// Create a copy of RemoteLyricInfoDto
   /// with the given fields replaced by the non-null parameter values.
@@ -363,13 +367,13 @@ abstract mixin class _$RemoteLyricInfoDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'ProviderName') String providerName,
-    @JsonKey(name: 'Lyrics') LyricDto lyrics,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'ProviderName') String? providerName,
+    @JsonKey(name: 'Lyrics') LyricDto? lyrics,
   });
 
   @override
-  $LyricDtoCopyWith<$Res> get lyrics;
+  $LyricDtoCopyWith<$Res>? get lyrics;
 }
 
 /// @nodoc
@@ -385,24 +389,24 @@ class __$RemoteLyricInfoDtoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? providerName = null,
-    Object? lyrics = null,
+    Object? id = freezed,
+    Object? providerName = freezed,
+    Object? lyrics = freezed,
   }) {
     return _then(
       _RemoteLyricInfoDto(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        providerName: null == providerName
+                  as String?,
+        providerName: freezed == providerName
             ? _self.providerName
             : providerName // ignore: cast_nullable_to_non_nullable
-                  as String,
-        lyrics: null == lyrics
+                  as String?,
+        lyrics: freezed == lyrics
             ? _self.lyrics
             : lyrics // ignore: cast_nullable_to_non_nullable
-                  as LyricDto,
+                  as LyricDto?,
       ),
     );
   }
@@ -411,8 +415,12 @@ class __$RemoteLyricInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LyricDtoCopyWith<$Res> get lyrics {
-    return $LyricDtoCopyWith<$Res>(_self.lyrics, (value) {
+  $LyricDtoCopyWith<$Res>? get lyrics {
+    if (_self.lyrics == null) {
+      return null;
+    }
+
+    return $LyricDtoCopyWith<$Res>(_self.lyrics!, (value) {
       return _then(_self.copyWith(lyrics: value));
     });
   }

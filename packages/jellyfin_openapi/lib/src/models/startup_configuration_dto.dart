@@ -12,21 +12,19 @@ part 'startup_configuration_dto.g.dart';
 abstract class StartupConfigurationDto with _$StartupConfigurationDto {
   const factory StartupConfigurationDto({
     /// Gets or sets the server name.
-    @JsonKey(name: 'ServerName')
-    String? serverName,
+    @JsonKey(name: 'ServerName') String? serverName,
 
     /// Gets or sets UI language culture.
-    @JsonKey(name: 'UICulture')
-    String? uiCulture,
+    @JsonKey(name: 'UICulture') String? uiCulture,
 
     /// Gets or sets the metadata country code.
-    @JsonKey(name: 'MetadataCountryCode')
-    String? metadataCountryCode,
+    @JsonKey(name: 'MetadataCountryCode') String? metadataCountryCode,
 
     /// Gets or sets the preferred language for the metadata.
     @JsonKey(name: 'PreferredMetadataLanguage')
     String? preferredMetadataLanguage,
   }) = _StartupConfigurationDto;
-  
-  factory StartupConfigurationDto.fromJson(Map<String, Object?> json) => _$StartupConfigurationDtoFromJson(json);
+
+  factory StartupConfigurationDto.fromJson(Map<String, Object?> json) =>
+      _$StartupConfigurationDtoFromJson(json);
 }

@@ -10,15 +10,12 @@ part 'tuner_channel_mapping.g.dart';
 @Freezed()
 abstract class TunerChannelMapping with _$TunerChannelMapping {
   const factory TunerChannelMapping({
-    @JsonKey(name: 'Name')
-    String? name,
-    @JsonKey(name: 'ProviderChannelName')
-    String? providerChannelName,
-    @JsonKey(name: 'ProviderChannelId')
-    String? providerChannelId,
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'ProviderChannelName') String? providerChannelName,
+    @JsonKey(name: 'ProviderChannelId') String? providerChannelId,
+    @JsonKey(name: 'Id') String? id,
   }) = _TunerChannelMapping;
-  
-  factory TunerChannelMapping.fromJson(Map<String, Object?> json) => _$TunerChannelMappingFromJson(json);
+
+  factory TunerChannelMapping.fromJson(Map<String, Object?> json) =>
+      _$TunerChannelMappingFromJson(json);
 }

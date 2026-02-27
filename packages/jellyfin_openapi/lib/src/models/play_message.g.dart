@@ -7,21 +7,23 @@ part of 'play_message.dart';
 // **************************************************************************
 
 _PlayMessage _$PlayMessageFromJson(Map<String, dynamic> json) => _PlayMessage(
-  data: PlayRequest.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$PlayMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       PlayMessageMessageType.play,
+  data: json['Data'] == null
+      ? null
+      : PlayRequest.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$PlayMessageToJson(_PlayMessage instance) =>
     <String, dynamic>{
-      'Data': instance.data.toJson(),
-      'MessageId': instance.messageId,
       'MessageType': instance.messageType.toJson(),
+      'Data': ?instance.data?.toJson(),
+      'MessageId': ?instance.messageId,
     };
 
 const _$PlayMessageMessageTypeEnumMap = {

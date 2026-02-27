@@ -15,63 +15,52 @@ part 'user_dto.g.dart';
 abstract class UserDto with _$UserDto {
   const factory UserDto({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the server identifier.
-    @JsonKey(name: 'ServerId')
-    required String? serverId,
+    @JsonKey(name: 'ServerId') String? serverId,
 
-    /// Gets or sets the name of the server.    ///
+    /// Gets or sets the name of the server.
+    ///
     /// This is not used by the server and is for client-side usage only.
-    @JsonKey(name: 'ServerName')
-    required String? serverName,
+    @JsonKey(name: 'ServerName') String? serverName,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    required String id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the primary image tag.
-    @JsonKey(name: 'PrimaryImageTag')
-    required String? primaryImageTag,
+    @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
 
     /// Gets or sets a value indicating whether this instance has password.
-    @JsonKey(name: 'HasPassword')
-    required bool hasPassword,
+    @JsonKey(name: 'HasPassword') bool? hasPassword,
 
     /// Gets or sets a value indicating whether this instance has configured password.
-    @JsonKey(name: 'HasConfiguredPassword')
-    required bool hasConfiguredPassword,
+    @JsonKey(name: 'HasConfiguredPassword') bool? hasConfiguredPassword,
 
     /// Gets or sets a value indicating whether this instance has configured easy password.
     @JsonKey(name: 'HasConfiguredEasyPassword')
     @Deprecated('This is marked as deprecated')
-    required bool hasConfiguredEasyPassword,
+    bool? hasConfiguredEasyPassword,
 
     /// Gets or sets whether async login is enabled or not.
-    @JsonKey(name: 'EnableAutoLogin')
-    required bool? enableAutoLogin,
+    @JsonKey(name: 'EnableAutoLogin') bool? enableAutoLogin,
 
     /// Gets or sets the last login date.
-    @JsonKey(name: 'LastLoginDate')
-    required DateTime? lastLoginDate,
+    @JsonKey(name: 'LastLoginDate') DateTime? lastLoginDate,
 
     /// Gets or sets the last activity date.
-    @JsonKey(name: 'LastActivityDate')
-    required DateTime? lastActivityDate,
+    @JsonKey(name: 'LastActivityDate') DateTime? lastActivityDate,
 
     /// Gets or sets the configuration.
-    @JsonKey(name: 'Configuration')
-    required UserConfiguration configuration,
+    @JsonKey(name: 'Configuration') UserConfiguration? configuration,
 
     /// Gets or sets the policy.
-    @JsonKey(name: 'Policy')
-    required UserPolicy policy,
+    @JsonKey(name: 'Policy') UserPolicy? policy,
 
     /// Gets or sets the primary image aspect ratio.
-    @JsonKey(name: 'PrimaryImageAspectRatio')
-    required double? primaryImageAspectRatio,
+    @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
   }) = _UserDto;
-  
-  factory UserDto.fromJson(Map<String, Object?> json) => _$UserDtoFromJson(json);
+
+  factory UserDto.fromJson(Map<String, Object?> json) =>
+      _$UserDtoFromJson(json);
 }

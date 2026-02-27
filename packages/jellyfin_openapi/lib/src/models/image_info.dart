@@ -14,37 +14,30 @@ part 'image_info.g.dart';
 abstract class ImageInfo with _$ImageInfo {
   const factory ImageInfo({
     /// Gets or sets the type of the image.
-    @JsonKey(name: 'ImageType')
-    required ImageInfoImageType imageType,
+    @JsonKey(name: 'ImageType') ImageInfoImageType? imageType,
 
     /// Gets or sets the index of the image.
-    @JsonKey(name: 'ImageIndex')
-    required int? imageIndex,
+    @JsonKey(name: 'ImageIndex') int? imageIndex,
 
     /// Gets or sets the image tag.
-    @JsonKey(name: 'ImageTag')
-    required String? imageTag,
+    @JsonKey(name: 'ImageTag') String? imageTag,
 
     /// Gets or sets the path.
-    @JsonKey(name: 'Path')
-    required String? path,
+    @JsonKey(name: 'Path') String? path,
 
     /// Gets or sets the blurhash.
-    @JsonKey(name: 'BlurHash')
-    required String? blurHash,
+    @JsonKey(name: 'BlurHash') String? blurHash,
 
     /// Gets or sets the height.
-    @JsonKey(name: 'Height')
-    required int? height,
+    @JsonKey(name: 'Height') int? height,
 
     /// Gets or sets the width.
-    @JsonKey(name: 'Width')
-    required int? width,
+    @JsonKey(name: 'Width') int? width,
 
     /// Gets or sets the size.
-    @JsonKey(name: 'Size')
-    required int size,
+    @JsonKey(name: 'Size') int? size,
   }) = _ImageInfo;
-  
-  factory ImageInfo.fromJson(Map<String, Object?> json) => _$ImageInfoFromJson(json);
+
+  factory ImageInfo.fromJson(Map<String, Object?> json) =>
+      _$ImageInfoFromJson(json);
 }

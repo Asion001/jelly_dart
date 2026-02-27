@@ -14,19 +14,18 @@ part 'general_command_message.g.dart';
 @Freezed()
 abstract class GeneralCommandMessage with _$GeneralCommandMessage {
   const factory GeneralCommandMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required GeneralCommand data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(GeneralCommandMessageMessageType.generalCommand)
     GeneralCommandMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') GeneralCommand? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _GeneralCommandMessage;
-  
-  factory GeneralCommandMessage.fromJson(Map<String, Object?> json) => _$GeneralCommandMessageFromJson(json);
+
+  factory GeneralCommandMessage.fromJson(Map<String, Object?> json) =>
+      _$GeneralCommandMessageFromJson(json);
 }

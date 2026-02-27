@@ -11,21 +11,18 @@ part 'log_file.g.dart';
 abstract class LogFile with _$LogFile {
   const factory LogFile({
     /// Gets or sets the date created.
-    @JsonKey(name: 'DateCreated')
-    DateTime? dateCreated,
+    @JsonKey(name: 'DateCreated') DateTime? dateCreated,
 
     /// Gets or sets the date modified.
-    @JsonKey(name: 'DateModified')
-    DateTime? dateModified,
+    @JsonKey(name: 'DateModified') DateTime? dateModified,
 
     /// Gets or sets the size.
-    @JsonKey(name: 'Size')
-    int? size,
+    @JsonKey(name: 'Size') int? size,
 
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
   }) = _LogFile;
-  
-  factory LogFile.fromJson(Map<String, Object?> json) => _$LogFileFromJson(json);
+
+  factory LogFile.fromJson(Map<String, Object?> json) =>
+      _$LogFileFromJson(json);
 }

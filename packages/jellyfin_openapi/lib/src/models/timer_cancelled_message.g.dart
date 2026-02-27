@@ -9,22 +9,24 @@ part of 'timer_cancelled_message.dart';
 _TimerCancelledMessage _$TimerCancelledMessageFromJson(
   Map<String, dynamic> json,
 ) => _TimerCancelledMessage(
-  data: TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$TimerCancelledMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       TimerCancelledMessageMessageType.timerCancelled,
+  data: json['Data'] == null
+      ? null
+      : TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$TimerCancelledMessageToJson(
   _TimerCancelledMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$TimerCancelledMessageMessageTypeEnumMap = {

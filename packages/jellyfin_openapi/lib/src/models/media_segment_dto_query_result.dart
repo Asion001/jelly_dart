@@ -14,17 +14,15 @@ part 'media_segment_dto_query_result.g.dart';
 abstract class MediaSegmentDtoQueryResult with _$MediaSegmentDtoQueryResult {
   const factory MediaSegmentDtoQueryResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<MediaSegmentDto>? items,
+    @JsonKey(name: 'Items') List<MediaSegmentDto>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
   }) = _MediaSegmentDtoQueryResult;
-  
-  factory MediaSegmentDtoQueryResult.fromJson(Map<String, Object?> json) => _$MediaSegmentDtoQueryResultFromJson(json);
+
+  factory MediaSegmentDtoQueryResult.fromJson(Map<String, Object?> json) =>
+      _$MediaSegmentDtoQueryResultFromJson(json);
 }

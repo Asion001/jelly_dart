@@ -14,7 +14,8 @@ enum EmbeddedSubtitleOptions {
   @JsonValue('AllowImage')
   allowImage('AllowImage'),
   @JsonValue('AllowNone')
-  allowNone('AllowNone');
+  allowNone('AllowNone')
+  ;
 
   const EmbeddedSubtitleOptions(this.json);
 
@@ -22,8 +23,10 @@ enum EmbeddedSubtitleOptions {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

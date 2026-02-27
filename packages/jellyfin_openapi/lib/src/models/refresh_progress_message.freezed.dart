@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$RefreshProgressMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  RefreshProgressMessageMessageType get messageType;
+
   /// Gets or sets the data.
   @JsonKey(name: 'Data')
   Map<String, String?>? get data;
 
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
-  String get messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @JsonKey(name: 'MessageType')
-  RefreshProgressMessageMessageType get messageType;
+  String? get messageId;
 
   /// Create a copy of RefreshProgressMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,25 +43,25 @@ mixin _$RefreshProgressMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is RefreshProgressMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'RefreshProgressMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'RefreshProgressMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -73,9 +73,9 @@ abstract mixin class $RefreshProgressMessageCopyWith<$Res> {
   ) = _$RefreshProgressMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') Map<String, String?>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') RefreshProgressMessageMessageType messageType,
+    @JsonKey(name: 'Data') Map<String, String?>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -92,24 +92,24 @@ class _$RefreshProgressMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as RefreshProgressMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String?>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -209,10 +209,10 @@ extension RefreshProgressMessagePatterns on RefreshProgressMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') Map<String, String?>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       RefreshProgressMessageMessageType messageType,
+      @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -220,7 +220,7 @@ extension RefreshProgressMessagePatterns on RefreshProgressMessage {
     final _that = this;
     switch (_that) {
       case _RefreshProgressMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -242,17 +242,17 @@ extension RefreshProgressMessagePatterns on RefreshProgressMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') Map<String, String?>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       RefreshProgressMessageMessageType messageType,
+      @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _RefreshProgressMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -273,17 +273,17 @@ extension RefreshProgressMessagePatterns on RefreshProgressMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') Map<String, String?>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       RefreshProgressMessageMessageType messageType,
+      @JsonKey(name: 'Data') Map<String, String?>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _RefreshProgressMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -294,13 +294,18 @@ extension RefreshProgressMessagePatterns on RefreshProgressMessage {
 @JsonSerializable()
 class _RefreshProgressMessage implements RefreshProgressMessage {
   const _RefreshProgressMessage({
-    @JsonKey(name: 'Data') required final Map<String, String?>? data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = RefreshProgressMessageMessageType.refreshProgress,
+    @JsonKey(name: 'Data') final Map<String, String?>? data,
+    @JsonKey(name: 'MessageId') this.messageId,
   }) : _data = data;
   factory _RefreshProgressMessage.fromJson(Map<String, dynamic> json) =>
       _$RefreshProgressMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final RefreshProgressMessageMessageType messageType;
 
   /// Gets or sets the data.
   final Map<String, String?>? _data;
@@ -319,12 +324,7 @@ class _RefreshProgressMessage implements RefreshProgressMessage {
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
-  final String messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @override
-  @JsonKey(name: 'MessageType')
-  final RefreshProgressMessageMessageType messageType;
+  final String? messageId;
 
   /// Create a copy of RefreshProgressMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -347,25 +347,25 @@ class _RefreshProgressMessage implements RefreshProgressMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RefreshProgressMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(_data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'RefreshProgressMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'RefreshProgressMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -379,9 +379,9 @@ abstract mixin class _$RefreshProgressMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') Map<String, String?>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType') RefreshProgressMessageMessageType messageType,
+    @JsonKey(name: 'Data') Map<String, String?>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -398,24 +398,24 @@ class __$RefreshProgressMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _RefreshProgressMessage(
-        data: freezed == data
-            ? _self._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as RefreshProgressMessageMessageType,
+        data: freezed == data
+            ? _self._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String?>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

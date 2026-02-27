@@ -10,17 +10,14 @@ part 'xbmc_metadata_options.g.dart';
 @Freezed()
 abstract class XbmcMetadataOptions with _$XbmcMetadataOptions {
   const factory XbmcMetadataOptions({
-    @JsonKey(name: 'UserId')
-    String? userId,
-    @JsonKey(name: 'ReleaseDateFormat')
-    String? releaseDateFormat,
-    @JsonKey(name: 'SaveImagePathsInNfo')
-    bool? saveImagePathsInNfo,
-    @JsonKey(name: 'EnablePathSubstitution')
-    bool? enablePathSubstitution,
+    @JsonKey(name: 'UserId') String? userId,
+    @JsonKey(name: 'ReleaseDateFormat') String? releaseDateFormat,
+    @JsonKey(name: 'SaveImagePathsInNfo') bool? saveImagePathsInNfo,
+    @JsonKey(name: 'EnablePathSubstitution') bool? enablePathSubstitution,
     @JsonKey(name: 'EnableExtraThumbsDuplication')
     bool? enableExtraThumbsDuplication,
   }) = _XbmcMetadataOptions;
-  
-  factory XbmcMetadataOptions.fromJson(Map<String, Object?> json) => _$XbmcMetadataOptionsFromJson(json);
+
+  factory XbmcMetadataOptions.fromJson(Map<String, Object?> json) =>
+      _$XbmcMetadataOptionsFromJson(json);
 }

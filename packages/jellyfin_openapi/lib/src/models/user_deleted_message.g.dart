@@ -8,21 +8,21 @@ part of 'user_deleted_message.dart';
 
 _UserDeletedMessage _$UserDeletedMessageFromJson(Map<String, dynamic> json) =>
     _UserDeletedMessage(
-      data: json['Data'] as String,
-      messageId: json['MessageId'] as String,
       messageType:
           $enumDecodeNullable(
             _$UserDeletedMessageMessageTypeEnumMap,
             json['MessageType'],
           ) ??
           UserDeletedMessageMessageType.userDeleted,
+      data: json['Data'] as String?,
+      messageId: json['MessageId'] as String?,
     );
 
 Map<String, dynamic> _$UserDeletedMessageToJson(_UserDeletedMessage instance) =>
     <String, dynamic>{
-      'Data': instance.data,
-      'MessageId': instance.messageId,
       'MessageType': instance.messageType.toJson(),
+      'Data': ?instance.data,
+      'MessageId': ?instance.messageId,
     };
 
 const _$UserDeletedMessageMessageTypeEnumMap = {

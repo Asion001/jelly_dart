@@ -10,11 +10,10 @@ part 'end_point_info.g.dart';
 @Freezed()
 abstract class EndPointInfo with _$EndPointInfo {
   const factory EndPointInfo({
-    @JsonKey(name: 'IsLocal')
-    bool? isLocal,
-    @JsonKey(name: 'IsInNetwork')
-    bool? isInNetwork,
+    @JsonKey(name: 'IsLocal') bool? isLocal,
+    @JsonKey(name: 'IsInNetwork') bool? isInNetwork,
   }) = _EndPointInfo;
-  
-  factory EndPointInfo.fromJson(Map<String, Object?> json) => _$EndPointInfoFromJson(json);
+
+  factory EndPointInfo.fromJson(Map<String, Object?> json) =>
+      _$EndPointInfoFromJson(json);
 }

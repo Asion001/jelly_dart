@@ -8,14 +8,17 @@ part of 'group_state_update.dart';
 
 _GroupStateUpdate _$GroupStateUpdateFromJson(Map<String, dynamic> json) =>
     _GroupStateUpdate(
-      state: $enumDecode(_$GroupStateUpdateStateEnumMap, json['State']),
-      reason: $enumDecode(_$GroupStateUpdateReasonEnumMap, json['Reason']),
+      state: $enumDecodeNullable(_$GroupStateUpdateStateEnumMap, json['State']),
+      reason: $enumDecodeNullable(
+        _$GroupStateUpdateReasonEnumMap,
+        json['Reason'],
+      ),
     );
 
 Map<String, dynamic> _$GroupStateUpdateToJson(_GroupStateUpdate instance) =>
     <String, dynamic>{
-      'State': instance.state.toJson(),
-      'Reason': instance.reason.toJson(),
+      'State': ?instance.state?.toJson(),
+      'Reason': ?instance.reason?.toJson(),
     };
 
 const _$GroupStateUpdateStateEnumMap = {

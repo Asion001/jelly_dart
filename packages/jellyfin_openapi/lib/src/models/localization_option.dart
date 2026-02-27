@@ -10,11 +10,10 @@ part 'localization_option.g.dart';
 @Freezed()
 abstract class LocalizationOption with _$LocalizationOption {
   const factory LocalizationOption({
-    @JsonKey(name: 'Name')
-    String? name,
-    @JsonKey(name: 'Value')
-    String? value,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Value') String? value,
   }) = _LocalizationOption;
-  
-  factory LocalizationOption.fromJson(Map<String, Object?> json) => _$LocalizationOptionFromJson(json);
+
+  factory LocalizationOption.fromJson(Map<String, Object?> json) =>
+      _$LocalizationOptionFromJson(json);
 }

@@ -9,20 +9,20 @@ part of 'activity_log_entry_start_message.dart';
 _ActivityLogEntryStartMessage _$ActivityLogEntryStartMessageFromJson(
   Map<String, dynamic> json,
 ) => _ActivityLogEntryStartMessage(
-  data: json['Data'] as String?,
   messageType:
       $enumDecodeNullable(
         _$ActivityLogEntryStartMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ActivityLogEntryStartMessageMessageType.activityLogEntryStart,
+  data: json['Data'] as String?,
 );
 
 Map<String, dynamic> _$ActivityLogEntryStartMessageToJson(
   _ActivityLogEntryStartMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data,
 };
 
 const _$ActivityLogEntryStartMessageMessageTypeEnumMap = {

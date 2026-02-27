@@ -12,16 +12,13 @@ part 'culture_dto.g.dart';
 abstract class CultureDto with _$CultureDto {
   const factory CultureDto({
     /// Gets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets the display name.
-    @JsonKey(name: 'DisplayName')
-    String? displayName,
+    @JsonKey(name: 'DisplayName') String? displayName,
 
     /// Gets the name of the two letter ISO language.
-    @JsonKey(name: 'TwoLetterISOLanguageName')
-    String? twoLetterIsoLanguageName,
+    @JsonKey(name: 'TwoLetterISOLanguageName') String? twoLetterIsoLanguageName,
 
     /// Gets the name of the three letter ISO language.
     @JsonKey(name: 'ThreeLetterISOLanguageName')
@@ -29,6 +26,7 @@ abstract class CultureDto with _$CultureDto {
     @JsonKey(name: 'ThreeLetterISOLanguageNames')
     List<String>? threeLetterIsoLanguageNames,
   }) = _CultureDto;
-  
-  factory CultureDto.fromJson(Map<String, Object?> json) => _$CultureDtoFromJson(json);
+
+  factory CultureDto.fromJson(Map<String, Object?> json) =>
+      _$CultureDtoFromJson(json);
 }

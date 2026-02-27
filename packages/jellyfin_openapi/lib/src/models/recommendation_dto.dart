@@ -13,15 +13,13 @@ part 'recommendation_dto.g.dart';
 @Freezed()
 abstract class RecommendationDto with _$RecommendationDto {
   const factory RecommendationDto({
-    @JsonKey(name: 'Items')
-    required List<BaseItemDto>? items,
+    @JsonKey(name: 'Items') List<BaseItemDto>? items,
     @JsonKey(name: 'RecommendationType')
-    required RecommendationDtoRecommendationType recommendationType,
-    @JsonKey(name: 'BaselineItemName')
-    required String? baselineItemName,
-    @JsonKey(name: 'CategoryId')
-    required String categoryId,
+    RecommendationDtoRecommendationType? recommendationType,
+    @JsonKey(name: 'BaselineItemName') String? baselineItemName,
+    @JsonKey(name: 'CategoryId') String? categoryId,
   }) = _RecommendationDto;
-  
-  factory RecommendationDto.fromJson(Map<String, Object?> json) => _$RecommendationDtoFromJson(json);
+
+  factory RecommendationDto.fromJson(Map<String, Object?> json) =>
+      _$RecommendationDtoFromJson(json);
 }

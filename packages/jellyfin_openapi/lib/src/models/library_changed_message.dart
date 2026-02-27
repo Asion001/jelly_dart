@@ -14,19 +14,18 @@ part 'library_changed_message.g.dart';
 @Freezed()
 abstract class LibraryChangedMessage with _$LibraryChangedMessage {
   const factory LibraryChangedMessage({
-    /// Class LibraryUpdateInfo.
-    @JsonKey(name: 'Data')
-    required LibraryUpdateInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(LibraryChangedMessageMessageType.libraryChanged)
     LibraryChangedMessageMessageType messageType,
+
+    /// Class LibraryUpdateInfo.
+    @JsonKey(name: 'Data') LibraryUpdateInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _LibraryChangedMessage;
-  
-  factory LibraryChangedMessage.fromJson(Map<String, Object?> json) => _$LibraryChangedMessageFromJson(json);
+
+  factory LibraryChangedMessage.fromJson(Map<String, Object?> json) =>
+      _$LibraryChangedMessageFromJson(json);
 }

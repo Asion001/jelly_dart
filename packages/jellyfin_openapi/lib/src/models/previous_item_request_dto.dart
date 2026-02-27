@@ -12,9 +12,9 @@ part 'previous_item_request_dto.g.dart';
 abstract class PreviousItemRequestDto with _$PreviousItemRequestDto {
   const factory PreviousItemRequestDto({
     /// Gets or sets the playing item identifier.
-    @JsonKey(name: 'PlaylistItemId')
-    String? playlistItemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
   }) = _PreviousItemRequestDto;
-  
-  factory PreviousItemRequestDto.fromJson(Map<String, Object?> json) => _$PreviousItemRequestDtoFromJson(json);
+
+  factory PreviousItemRequestDto.fromJson(Map<String, Object?> json) =>
+      _$PreviousItemRequestDtoFromJson(json);
 }

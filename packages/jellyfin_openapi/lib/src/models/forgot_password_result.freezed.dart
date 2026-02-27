@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$ForgotPasswordResult {
   /// Gets or sets the action.
   @JsonKey(name: 'Action')
-  ForgotPasswordResultAction get action;
+  ForgotPasswordResultAction? get action;
 
   /// Gets or sets the pin file.
   @JsonKey(name: 'PinFile')
@@ -68,7 +68,7 @@ abstract mixin class $ForgotPasswordResultCopyWith<$Res> {
   ) = _$ForgotPasswordResultCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Action') ForgotPasswordResultAction action,
+    @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
     @JsonKey(name: 'PinFile') String? pinFile,
     @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
   });
@@ -87,16 +87,16 @@ class _$ForgotPasswordResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? action = null,
+    Object? action = freezed,
     Object? pinFile = freezed,
     Object? pinExpirationDate = freezed,
   }) {
     return _then(
       _self.copyWith(
-        action: null == action
+        action: freezed == action
             ? _self.action
             : action // ignore: cast_nullable_to_non_nullable
-                  as ForgotPasswordResultAction,
+                  as ForgotPasswordResultAction?,
         pinFile: freezed == pinFile
             ? _self.pinFile
             : pinFile // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ extension ForgotPasswordResultPatterns on ForgotPasswordResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Action') ForgotPasswordResultAction action,
+      @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
       @JsonKey(name: 'PinFile') String? pinFile,
       @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
     )?
@@ -236,7 +236,7 @@ extension ForgotPasswordResultPatterns on ForgotPasswordResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Action') ForgotPasswordResultAction action,
+      @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
       @JsonKey(name: 'PinFile') String? pinFile,
       @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
     )
@@ -266,7 +266,7 @@ extension ForgotPasswordResultPatterns on ForgotPasswordResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Action') ForgotPasswordResultAction action,
+      @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
       @JsonKey(name: 'PinFile') String? pinFile,
       @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
     )?
@@ -286,9 +286,9 @@ extension ForgotPasswordResultPatterns on ForgotPasswordResult {
 @JsonSerializable()
 class _ForgotPasswordResult implements ForgotPasswordResult {
   const _ForgotPasswordResult({
-    @JsonKey(name: 'Action') required this.action,
-    @JsonKey(name: 'PinFile') required this.pinFile,
-    @JsonKey(name: 'PinExpirationDate') required this.pinExpirationDate,
+    @JsonKey(name: 'Action') this.action,
+    @JsonKey(name: 'PinFile') this.pinFile,
+    @JsonKey(name: 'PinExpirationDate') this.pinExpirationDate,
   });
   factory _ForgotPasswordResult.fromJson(Map<String, dynamic> json) =>
       _$ForgotPasswordResultFromJson(json);
@@ -296,7 +296,7 @@ class _ForgotPasswordResult implements ForgotPasswordResult {
   /// Gets or sets the action.
   @override
   @JsonKey(name: 'Action')
-  final ForgotPasswordResultAction action;
+  final ForgotPasswordResultAction? action;
 
   /// Gets or sets the pin file.
   @override
@@ -356,7 +356,7 @@ abstract mixin class _$ForgotPasswordResultCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Action') ForgotPasswordResultAction action,
+    @JsonKey(name: 'Action') ForgotPasswordResultAction? action,
     @JsonKey(name: 'PinFile') String? pinFile,
     @JsonKey(name: 'PinExpirationDate') DateTime? pinExpirationDate,
   });
@@ -375,16 +375,16 @@ class __$ForgotPasswordResultCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? action = null,
+    Object? action = freezed,
     Object? pinFile = freezed,
     Object? pinExpirationDate = freezed,
   }) {
     return _then(
       _ForgotPasswordResult(
-        action: null == action
+        action: freezed == action
             ? _self.action
             : action // ignore: cast_nullable_to_non_nullable
-                  as ForgotPasswordResultAction,
+                  as ForgotPasswordResultAction?,
         pinFile: freezed == pinFile
             ? _self.pinFile
             : pinFile // ignore: cast_nullable_to_non_nullable

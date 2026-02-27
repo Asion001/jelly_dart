@@ -9,22 +9,24 @@ part of 'series_timer_created_message.dart';
 _SeriesTimerCreatedMessage _$SeriesTimerCreatedMessageFromJson(
   Map<String, dynamic> json,
 ) => _SeriesTimerCreatedMessage(
-  data: TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$SeriesTimerCreatedMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       SeriesTimerCreatedMessageMessageType.seriesTimerCreated,
+  data: json['Data'] == null
+      ? null
+      : TimerEventInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$SeriesTimerCreatedMessageToJson(
   _SeriesTimerCreatedMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$SeriesTimerCreatedMessageMessageTypeEnumMap = {

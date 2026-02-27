@@ -22,9 +22,11 @@ _RemoteSearchResult _$RemoteSearchResultFromJson(Map<String, dynamic> json) =>
       imageUrl: json['ImageUrl'] as String?,
       searchProviderName: json['SearchProviderName'] as String?,
       overview: json['Overview'] as String?,
-      albumArtist: RemoteSearchResult.fromJson(
-        json['AlbumArtist'] as Map<String, dynamic>,
-      ),
+      albumArtist: json['AlbumArtist'] == null
+          ? null
+          : RemoteSearchResult.fromJson(
+              json['AlbumArtist'] as Map<String, dynamic>,
+            ),
       artists: (json['Artists'] as List<dynamic>?)
           ?.map((e) => RemoteSearchResult.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -42,6 +44,6 @@ Map<String, dynamic> _$RemoteSearchResultToJson(_RemoteSearchResult instance) =>
       'ImageUrl': ?instance.imageUrl,
       'SearchProviderName': ?instance.searchProviderName,
       'Overview': ?instance.overview,
-      'AlbumArtist': instance.albumArtist.toJson(),
+      'AlbumArtist': ?instance.albumArtist?.toJson(),
       'Artists': ?instance.artists?.map((e) => e.toJson()).toList(),
     };

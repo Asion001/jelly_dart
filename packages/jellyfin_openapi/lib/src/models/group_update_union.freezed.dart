@@ -45,11 +45,11 @@ GroupUpdateUnion _$GroupUpdateUnionFromJson(Map<String, dynamic> json) {
 mixin _$GroupUpdateUnion {
   /// Gets the group identifier.
   @JsonKey(name: 'GroupId')
-  String get groupId;
+  String? get groupId;
 
   /// Gets the update data.
   @JsonKey(name: 'Data')
-  Object get data;
+  Object? get data;
 
   /// Create a copy of GroupUpdateUnion
   /// with the given fields replaced by the non-null parameter values.
@@ -94,7 +94,7 @@ abstract mixin class $GroupUpdateUnionCopyWith<$Res> {
     $Res Function(GroupUpdateUnion) _then,
   ) = _$GroupUpdateUnionCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'GroupId') String groupId});
+  $Res call({@JsonKey(name: 'GroupId') String? groupId});
 }
 
 /// @nodoc
@@ -109,13 +109,13 @@ class _$GroupUpdateUnionCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? groupId = null}) {
+  $Res call({Object? groupId = freezed}) {
     return _then(
       _self.copyWith(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -293,48 +293,48 @@ extension GroupUpdateUnionPatterns on GroupUpdateUnion {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     groupDoesNotExist,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupInfoDto? data,
     )?
     groupJoined,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     groupLeft,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     libraryAccessDenied,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     notInGroup,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') PlayQueueUpdate? data,
     )?
     playQueue,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )?
     stateUpdate,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     userJoined,
     TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     userLeft,
     required TResult orElse(),
@@ -381,48 +381,48 @@ extension GroupUpdateUnionPatterns on GroupUpdateUnion {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     groupDoesNotExist,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupInfoDto? data,
     )
     groupJoined,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     groupLeft,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     libraryAccessDenied,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     notInGroup,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') PlayQueueUpdate? data,
     )
     playQueue,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )
     stateUpdate,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     userJoined,
     required TResult Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )
     userLeft,
   }) {
@@ -464,48 +464,48 @@ extension GroupUpdateUnionPatterns on GroupUpdateUnion {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     groupDoesNotExist,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupInfoDto data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupInfoDto? data,
     )?
     groupJoined,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     groupLeft,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     libraryAccessDenied,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     notInGroup,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') PlayQueueUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') PlayQueueUpdate? data,
     )?
     playQueue,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') GroupStateUpdate data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') GroupStateUpdate? data,
     )?
     stateUpdate,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     userJoined,
     TResult? Function(
-      @JsonKey(name: 'GroupId') String groupId,
-      @JsonKey(name: 'Data') String data,
+      @JsonKey(name: 'GroupId') String? groupId,
+      @JsonKey(name: 'Data') String? data,
     )?
     userLeft,
   }) {
@@ -540,8 +540,8 @@ extension GroupUpdateUnionPatterns on GroupUpdateUnion {
 @JsonSerializable()
 class GroupUpdateUnionGroupDoesNotExist implements GroupUpdateUnion {
   const GroupUpdateUnionGroupDoesNotExist({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'GroupDoesNotExist';
   factory GroupUpdateUnionGroupDoesNotExist.fromJson(
@@ -551,12 +551,12 @@ class GroupUpdateUnionGroupDoesNotExist implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -606,8 +606,8 @@ abstract mixin class $GroupUpdateUnionGroupDoesNotExistCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -623,17 +623,17 @@ class _$GroupUpdateUnionGroupDoesNotExistCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionGroupDoesNotExist(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -643,8 +643,8 @@ class _$GroupUpdateUnionGroupDoesNotExistCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionGroupJoined implements GroupUpdateUnion {
   const GroupUpdateUnionGroupJoined({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'GroupJoined';
   factory GroupUpdateUnionGroupJoined.fromJson(Map<String, dynamic> json) =>
@@ -653,12 +653,12 @@ class GroupUpdateUnionGroupJoined implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final GroupInfoDto data;
+  final GroupInfoDto? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -709,11 +709,11 @@ abstract mixin class $GroupUpdateUnionGroupJoinedCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') GroupInfoDto data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') GroupInfoDto? data,
   });
 
-  $GroupInfoDtoCopyWith<$Res> get data;
+  $GroupInfoDtoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -728,17 +728,17 @@ class _$GroupUpdateUnionGroupJoinedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionGroupJoined(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as GroupInfoDto,
+                  as GroupInfoDto?,
       ),
     );
   }
@@ -747,8 +747,12 @@ class _$GroupUpdateUnionGroupJoinedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GroupInfoDtoCopyWith<$Res> get data {
-    return $GroupInfoDtoCopyWith<$Res>(_self.data, (value) {
+  $GroupInfoDtoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $GroupInfoDtoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -758,8 +762,8 @@ class _$GroupUpdateUnionGroupJoinedCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionGroupLeft implements GroupUpdateUnion {
   const GroupUpdateUnionGroupLeft({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'GroupLeft';
   factory GroupUpdateUnionGroupLeft.fromJson(Map<String, dynamic> json) =>
@@ -768,12 +772,12 @@ class GroupUpdateUnionGroupLeft implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -823,8 +827,8 @@ abstract mixin class $GroupUpdateUnionGroupLeftCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -840,17 +844,17 @@ class _$GroupUpdateUnionGroupLeftCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionGroupLeft(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -860,8 +864,8 @@ class _$GroupUpdateUnionGroupLeftCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionLibraryAccessDenied implements GroupUpdateUnion {
   const GroupUpdateUnionLibraryAccessDenied({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'LibraryAccessDenied';
   factory GroupUpdateUnionLibraryAccessDenied.fromJson(
@@ -871,12 +875,12 @@ class GroupUpdateUnionLibraryAccessDenied implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -928,8 +932,8 @@ abstract mixin class $GroupUpdateUnionLibraryAccessDeniedCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -945,17 +949,17 @@ class _$GroupUpdateUnionLibraryAccessDeniedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionLibraryAccessDenied(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -965,8 +969,8 @@ class _$GroupUpdateUnionLibraryAccessDeniedCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionNotInGroup implements GroupUpdateUnion {
   const GroupUpdateUnionNotInGroup({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'NotInGroup';
   factory GroupUpdateUnionNotInGroup.fromJson(Map<String, dynamic> json) =>
@@ -975,12 +979,12 @@ class GroupUpdateUnionNotInGroup implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -1031,8 +1035,8 @@ abstract mixin class $GroupUpdateUnionNotInGroupCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -1048,17 +1052,17 @@ class _$GroupUpdateUnionNotInGroupCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionNotInGroup(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -1068,8 +1072,8 @@ class _$GroupUpdateUnionNotInGroupCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionPlayQueue implements GroupUpdateUnion {
   const GroupUpdateUnionPlayQueue({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'PlayQueue';
   factory GroupUpdateUnionPlayQueue.fromJson(Map<String, dynamic> json) =>
@@ -1078,12 +1082,12 @@ class GroupUpdateUnionPlayQueue implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final PlayQueueUpdate data;
+  final PlayQueueUpdate? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -1133,11 +1137,11 @@ abstract mixin class $GroupUpdateUnionPlayQueueCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') PlayQueueUpdate data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') PlayQueueUpdate? data,
   });
 
-  $PlayQueueUpdateCopyWith<$Res> get data;
+  $PlayQueueUpdateCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -1152,17 +1156,17 @@ class _$GroupUpdateUnionPlayQueueCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionPlayQueue(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as PlayQueueUpdate,
+                  as PlayQueueUpdate?,
       ),
     );
   }
@@ -1171,8 +1175,12 @@ class _$GroupUpdateUnionPlayQueueCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayQueueUpdateCopyWith<$Res> get data {
-    return $PlayQueueUpdateCopyWith<$Res>(_self.data, (value) {
+  $PlayQueueUpdateCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $PlayQueueUpdateCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -1182,8 +1190,8 @@ class _$GroupUpdateUnionPlayQueueCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionStateUpdate implements GroupUpdateUnion {
   const GroupUpdateUnionStateUpdate({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'StateUpdate';
   factory GroupUpdateUnionStateUpdate.fromJson(Map<String, dynamic> json) =>
@@ -1192,12 +1200,12 @@ class GroupUpdateUnionStateUpdate implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final GroupStateUpdate data;
+  final GroupStateUpdate? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -1248,11 +1256,11 @@ abstract mixin class $GroupUpdateUnionStateUpdateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') GroupStateUpdate data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') GroupStateUpdate? data,
   });
 
-  $GroupStateUpdateCopyWith<$Res> get data;
+  $GroupStateUpdateCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -1267,17 +1275,17 @@ class _$GroupUpdateUnionStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionStateUpdate(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdate,
+                  as GroupStateUpdate?,
       ),
     );
   }
@@ -1286,8 +1294,12 @@ class _$GroupUpdateUnionStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GroupStateUpdateCopyWith<$Res> get data {
-    return $GroupStateUpdateCopyWith<$Res>(_self.data, (value) {
+  $GroupStateUpdateCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $GroupStateUpdateCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -1297,8 +1309,8 @@ class _$GroupUpdateUnionStateUpdateCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionUserJoined implements GroupUpdateUnion {
   const GroupUpdateUnionUserJoined({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'UserJoined';
   factory GroupUpdateUnionUserJoined.fromJson(Map<String, dynamic> json) =>
@@ -1307,12 +1319,12 @@ class GroupUpdateUnionUserJoined implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -1363,8 +1375,8 @@ abstract mixin class $GroupUpdateUnionUserJoinedCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -1380,17 +1392,17 @@ class _$GroupUpdateUnionUserJoinedCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionUserJoined(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }
@@ -1400,8 +1412,8 @@ class _$GroupUpdateUnionUserJoinedCopyWithImpl<$Res>
 @JsonSerializable()
 class GroupUpdateUnionUserLeft implements GroupUpdateUnion {
   const GroupUpdateUnionUserLeft({
-    @JsonKey(name: 'GroupId') required this.groupId,
-    @JsonKey(name: 'Data') required this.data,
+    @JsonKey(name: 'GroupId') this.groupId,
+    @JsonKey(name: 'Data') this.data,
     final String? $type,
   }) : $type = $type ?? 'UserLeft';
   factory GroupUpdateUnionUserLeft.fromJson(Map<String, dynamic> json) =>
@@ -1410,12 +1422,12 @@ class GroupUpdateUnionUserLeft implements GroupUpdateUnion {
   /// Gets the group identifier.
   @override
   @JsonKey(name: 'GroupId')
-  final String groupId;
+  final String? groupId;
 
   /// Gets the update data.
   @override
   @JsonKey(name: 'Data')
-  final String data;
+  final String? data;
 
   @JsonKey(name: 'Type')
   final String $type;
@@ -1465,8 +1477,8 @@ abstract mixin class $GroupUpdateUnionUserLeftCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'GroupId') String groupId,
-    @JsonKey(name: 'Data') String data,
+    @JsonKey(name: 'GroupId') String? groupId,
+    @JsonKey(name: 'Data') String? data,
   });
 }
 
@@ -1482,17 +1494,17 @@ class _$GroupUpdateUnionUserLeftCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? groupId = null, Object? data = null}) {
+  $Res call({Object? groupId = freezed, Object? data = freezed}) {
     return _then(
       GroupUpdateUnionUserLeft(
-        groupId: null == groupId
+        groupId: freezed == groupId
             ? _self.groupId
             : groupId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: null == data
+                  as String?,
+        data: freezed == data
             ? _self.data
             : data // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
       ),
     );
   }

@@ -15,7 +15,8 @@ enum MediaType {
   @JsonValue('Photo')
   photo('Photo'),
   @JsonValue('Book')
-  book('Book');
+  book('Book')
+  ;
 
   const MediaType(this.json);
 
@@ -23,8 +24,10 @@ enum MediaType {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

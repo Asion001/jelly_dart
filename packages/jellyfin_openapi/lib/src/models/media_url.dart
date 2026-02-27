@@ -10,11 +10,10 @@ part 'media_url.g.dart';
 @Freezed()
 abstract class MediaUrl with _$MediaUrl {
   const factory MediaUrl({
-    @JsonKey(name: 'Url')
-    String? url,
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Url') String? url,
+    @JsonKey(name: 'Name') String? name,
   }) = _MediaUrl;
-  
-  factory MediaUrl.fromJson(Map<String, Object?> json) => _$MediaUrlFromJson(json);
+
+  factory MediaUrl.fromJson(Map<String, Object?> json) =>
+      _$MediaUrlFromJson(json);
 }

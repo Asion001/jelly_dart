@@ -15,8 +15,7 @@ abstract class VersionInfo with _$VersionInfo {
     String? version,
 
     /// Gets the version as a System.Version.
-    @JsonKey(name: 'VersionNumber')
-    String? versionNumber,
+    @JsonKey(name: 'VersionNumber') String? versionNumber,
 
     /// Gets or sets the changelog for this version.
     String? changelog,
@@ -39,6 +38,7 @@ abstract class VersionInfo with _$VersionInfo {
     /// Gets or sets the repository url.
     String? repositoryUrl,
   }) = _VersionInfo;
-  
-  factory VersionInfo.fromJson(Map<String, Object?> json) => _$VersionInfoFromJson(json);
+
+  factory VersionInfo.fromJson(Map<String, Object?> json) =>
+      _$VersionInfoFromJson(json);
 }

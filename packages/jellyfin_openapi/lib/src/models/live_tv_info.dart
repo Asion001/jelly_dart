@@ -13,17 +13,15 @@ part 'live_tv_info.g.dart';
 abstract class LiveTvInfo with _$LiveTvInfo {
   const factory LiveTvInfo({
     /// Gets or sets the services.
-    @JsonKey(name: 'Services')
-    List<LiveTvServiceInfo>? services,
+    @JsonKey(name: 'Services') List<LiveTvServiceInfo>? services,
 
     /// Gets or sets a value indicating whether this instance is enabled.
-    @JsonKey(name: 'IsEnabled')
-    bool? isEnabled,
+    @JsonKey(name: 'IsEnabled') bool? isEnabled,
 
     /// Gets or sets the enabled users.
-    @JsonKey(name: 'EnabledUsers')
-    List<String>? enabledUsers,
+    @JsonKey(name: 'EnabledUsers') List<String>? enabledUsers,
   }) = _LiveTvInfo;
-  
-  factory LiveTvInfo.fromJson(Map<String, Object?> json) => _$LiveTvInfoFromJson(json);
+
+  factory LiveTvInfo.fromJson(Map<String, Object?> json) =>
+      _$LiveTvInfoFromJson(json);
 }

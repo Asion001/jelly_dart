@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$QueueRequestDto {
   /// Gets or sets the items to enqueue.
   @JsonKey(name: 'ItemIds')
-  List<String> get itemIds;
+  List<String>? get itemIds;
 
   /// Enum GroupQueueMode.
   @JsonKey(name: 'Mode')
-  QueueRequestDtoMode get mode;
+  QueueRequestDtoMode? get mode;
 
   /// Create a copy of QueueRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -65,8 +65,8 @@ abstract mixin class $QueueRequestDtoCopyWith<$Res> {
   ) = _$QueueRequestDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'ItemIds') List<String> itemIds,
-    @JsonKey(name: 'Mode') QueueRequestDtoMode mode,
+    @JsonKey(name: 'ItemIds') List<String>? itemIds,
+    @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
   });
 }
 
@@ -82,17 +82,17 @@ class _$QueueRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? itemIds = null, Object? mode = null}) {
+  $Res call({Object? itemIds = freezed, Object? mode = freezed}) {
     return _then(
       _self.copyWith(
-        itemIds: null == itemIds
+        itemIds: freezed == itemIds
             ? _self.itemIds
             : itemIds // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        mode: null == mode
+                  as List<String>?,
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as QueueRequestDtoMode,
+                  as QueueRequestDtoMode?,
       ),
     );
   }
@@ -192,8 +192,8 @@ extension QueueRequestDtoPatterns on QueueRequestDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ItemIds') List<String> itemIds,
-      @JsonKey(name: 'Mode') QueueRequestDtoMode mode,
+      @JsonKey(name: 'ItemIds') List<String>? itemIds,
+      @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
     )?
     $default, {
     required TResult orElse(),
@@ -223,8 +223,8 @@ extension QueueRequestDtoPatterns on QueueRequestDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'ItemIds') List<String> itemIds,
-      @JsonKey(name: 'Mode') QueueRequestDtoMode mode,
+      @JsonKey(name: 'ItemIds') List<String>? itemIds,
+      @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
     )
     $default,
   ) {
@@ -252,8 +252,8 @@ extension QueueRequestDtoPatterns on QueueRequestDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'ItemIds') List<String> itemIds,
-      @JsonKey(name: 'Mode') QueueRequestDtoMode mode,
+      @JsonKey(name: 'ItemIds') List<String>? itemIds,
+      @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
     )?
     $default,
   ) {
@@ -271,28 +271,30 @@ extension QueueRequestDtoPatterns on QueueRequestDto {
 @JsonSerializable()
 class _QueueRequestDto implements QueueRequestDto {
   const _QueueRequestDto({
-    @JsonKey(name: 'ItemIds') required final List<String> itemIds,
-    @JsonKey(name: 'Mode') required this.mode,
+    @JsonKey(name: 'ItemIds') final List<String>? itemIds,
+    @JsonKey(name: 'Mode') this.mode,
   }) : _itemIds = itemIds;
   factory _QueueRequestDto.fromJson(Map<String, dynamic> json) =>
       _$QueueRequestDtoFromJson(json);
 
   /// Gets or sets the items to enqueue.
-  final List<String> _itemIds;
+  final List<String>? _itemIds;
 
   /// Gets or sets the items to enqueue.
   @override
   @JsonKey(name: 'ItemIds')
-  List<String> get itemIds {
+  List<String>? get itemIds {
+    final value = _itemIds;
+    if (value == null) return null;
     if (_itemIds is EqualUnmodifiableListView) return _itemIds;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_itemIds);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Enum GroupQueueMode.
   @override
   @JsonKey(name: 'Mode')
-  final QueueRequestDtoMode mode;
+  final QueueRequestDtoMode? mode;
 
   /// Create a copy of QueueRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -340,8 +342,8 @@ abstract mixin class _$QueueRequestDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'ItemIds') List<String> itemIds,
-    @JsonKey(name: 'Mode') QueueRequestDtoMode mode,
+    @JsonKey(name: 'ItemIds') List<String>? itemIds,
+    @JsonKey(name: 'Mode') QueueRequestDtoMode? mode,
   });
 }
 
@@ -357,17 +359,17 @@ class __$QueueRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? itemIds = null, Object? mode = null}) {
+  $Res call({Object? itemIds = freezed, Object? mode = freezed}) {
     return _then(
       _QueueRequestDto(
-        itemIds: null == itemIds
+        itemIds: freezed == itemIds
             ? _self._itemIds
             : itemIds // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
-        mode: null == mode
+                  as List<String>?,
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as QueueRequestDtoMode,
+                  as QueueRequestDtoMode?,
       ),
     );
   }

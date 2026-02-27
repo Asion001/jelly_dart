@@ -9,7 +9,10 @@ part of 'forgot_password_result.dart';
 _ForgotPasswordResult _$ForgotPasswordResultFromJson(
   Map<String, dynamic> json,
 ) => _ForgotPasswordResult(
-  action: $enumDecode(_$ForgotPasswordResultActionEnumMap, json['Action']),
+  action: $enumDecodeNullable(
+    _$ForgotPasswordResultActionEnumMap,
+    json['Action'],
+  ),
   pinFile: json['PinFile'] as String?,
   pinExpirationDate: json['PinExpirationDate'] == null
       ? null
@@ -19,7 +22,7 @@ _ForgotPasswordResult _$ForgotPasswordResultFromJson(
 Map<String, dynamic> _$ForgotPasswordResultToJson(
   _ForgotPasswordResult instance,
 ) => <String, dynamic>{
-  'Action': instance.action.toJson(),
+  'Action': ?instance.action?.toJson(),
   'PinFile': ?instance.pinFile,
   'PinExpirationDate': ?instance.pinExpirationDate?.toIso8601String(),
 };

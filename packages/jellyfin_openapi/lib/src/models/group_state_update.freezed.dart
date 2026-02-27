@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$GroupStateUpdate {
   /// Gets the state of the group.
   @JsonKey(name: 'State')
-  GroupStateUpdateState get state;
+  GroupStateUpdateState? get state;
 
   /// Gets the reason of the state change.
   @JsonKey(name: 'Reason')
-  GroupStateUpdateReason get reason;
+  GroupStateUpdateReason? get reason;
 
   /// Create a copy of GroupStateUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -61,8 +61,8 @@ abstract mixin class $GroupStateUpdateCopyWith<$Res> {
   ) = _$GroupStateUpdateCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'State') GroupStateUpdateState state,
-    @JsonKey(name: 'Reason') GroupStateUpdateReason reason,
+    @JsonKey(name: 'State') GroupStateUpdateState? state,
+    @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
   });
 }
 
@@ -78,17 +78,17 @@ class _$GroupStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? state = null, Object? reason = null}) {
+  $Res call({Object? state = freezed, Object? reason = freezed}) {
     return _then(
       _self.copyWith(
-        state: null == state
+        state: freezed == state
             ? _self.state
             : state // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdateState,
-        reason: null == reason
+                  as GroupStateUpdateState?,
+        reason: freezed == reason
             ? _self.reason
             : reason // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdateReason,
+                  as GroupStateUpdateReason?,
       ),
     );
   }
@@ -188,8 +188,8 @@ extension GroupStateUpdatePatterns on GroupStateUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'State') GroupStateUpdateState state,
-      @JsonKey(name: 'Reason') GroupStateUpdateReason reason,
+      @JsonKey(name: 'State') GroupStateUpdateState? state,
+      @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
     )?
     $default, {
     required TResult orElse(),
@@ -219,8 +219,8 @@ extension GroupStateUpdatePatterns on GroupStateUpdate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'State') GroupStateUpdateState state,
-      @JsonKey(name: 'Reason') GroupStateUpdateReason reason,
+      @JsonKey(name: 'State') GroupStateUpdateState? state,
+      @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
     )
     $default,
   ) {
@@ -248,8 +248,8 @@ extension GroupStateUpdatePatterns on GroupStateUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'State') GroupStateUpdateState state,
-      @JsonKey(name: 'Reason') GroupStateUpdateReason reason,
+      @JsonKey(name: 'State') GroupStateUpdateState? state,
+      @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
     )?
     $default,
   ) {
@@ -267,8 +267,8 @@ extension GroupStateUpdatePatterns on GroupStateUpdate {
 @JsonSerializable()
 class _GroupStateUpdate implements GroupStateUpdate {
   const _GroupStateUpdate({
-    @JsonKey(name: 'State') required this.state,
-    @JsonKey(name: 'Reason') required this.reason,
+    @JsonKey(name: 'State') this.state,
+    @JsonKey(name: 'Reason') this.reason,
   });
   factory _GroupStateUpdate.fromJson(Map<String, dynamic> json) =>
       _$GroupStateUpdateFromJson(json);
@@ -276,12 +276,12 @@ class _GroupStateUpdate implements GroupStateUpdate {
   /// Gets the state of the group.
   @override
   @JsonKey(name: 'State')
-  final GroupStateUpdateState state;
+  final GroupStateUpdateState? state;
 
   /// Gets the reason of the state change.
   @override
   @JsonKey(name: 'Reason')
-  final GroupStateUpdateReason reason;
+  final GroupStateUpdateReason? reason;
 
   /// Create a copy of GroupStateUpdate
   /// with the given fields replaced by the non-null parameter values.
@@ -325,8 +325,8 @@ abstract mixin class _$GroupStateUpdateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'State') GroupStateUpdateState state,
-    @JsonKey(name: 'Reason') GroupStateUpdateReason reason,
+    @JsonKey(name: 'State') GroupStateUpdateState? state,
+    @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
   });
 }
 
@@ -342,17 +342,17 @@ class __$GroupStateUpdateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? state = null, Object? reason = null}) {
+  $Res call({Object? state = freezed, Object? reason = freezed}) {
     return _then(
       _GroupStateUpdate(
-        state: null == state
+        state: freezed == state
             ? _self.state
             : state // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdateState,
-        reason: null == reason
+                  as GroupStateUpdateState?,
+        reason: freezed == reason
             ? _self.reason
             : reason // ignore: cast_nullable_to_non_nullable
-                  as GroupStateUpdateReason,
+                  as GroupStateUpdateReason?,
       ),
     );
   }

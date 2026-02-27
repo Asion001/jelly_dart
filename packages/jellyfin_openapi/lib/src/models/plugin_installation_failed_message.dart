@@ -12,21 +12,23 @@ part 'plugin_installation_failed_message.g.dart';
 
 /// Plugin installation failed message.
 @Freezed()
-abstract class PluginInstallationFailedMessage with _$PluginInstallationFailedMessage {
+abstract class PluginInstallationFailedMessage
+    with _$PluginInstallationFailedMessage {
   const factory PluginInstallationFailedMessage({
-    /// Class InstallationInfo.
-    @JsonKey(name: 'Data')
-    required InstallationInfo data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
-    @Default(PluginInstallationFailedMessageMessageType.packageInstallationFailed)
+    @Default(
+      PluginInstallationFailedMessageMessageType.packageInstallationFailed,
+    )
     PluginInstallationFailedMessageMessageType messageType,
+
+    /// Class InstallationInfo.
+    @JsonKey(name: 'Data') InstallationInfo? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _PluginInstallationFailedMessage;
-  
-  factory PluginInstallationFailedMessage.fromJson(Map<String, Object?> json) => _$PluginInstallationFailedMessageFromJson(json);
+
+  factory PluginInstallationFailedMessage.fromJson(Map<String, Object?> json) =>
+      _$PluginInstallationFailedMessageFromJson(json);
 }

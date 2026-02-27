@@ -9,22 +9,24 @@ part of 'plugin_installing_message.dart';
 _PluginInstallingMessage _$PluginInstallingMessageFromJson(
   Map<String, dynamic> json,
 ) => _PluginInstallingMessage(
-  data: InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$PluginInstallingMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       PluginInstallingMessageMessageType.packageInstalling,
+  data: json['Data'] == null
+      ? null
+      : InstallationInfo.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$PluginInstallingMessageToJson(
   _PluginInstallingMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$PluginInstallingMessageMessageTypeEnumMap = {

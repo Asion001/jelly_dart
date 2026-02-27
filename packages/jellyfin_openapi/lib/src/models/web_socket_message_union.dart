@@ -12,11 +12,12 @@ part 'web_socket_message_union.g.dart';
 @Freezed()
 sealed class WebSocketMessageUnion with _$WebSocketMessageUnion {
   @JsonSerializable()
-  const factory WebSocketMessageUnion.inboundWebSocketMessage() = WebSocketMessageUnionInboundWebSocketMessage;
-  
+  const factory WebSocketMessageUnion.inboundWebSocketMessage() =
+      WebSocketMessageUnionInboundWebSocketMessage;
+
   @JsonSerializable()
-  const factory WebSocketMessageUnion.outboundWebSocketMessage() = WebSocketMessageUnionOutboundWebSocketMessage;
-  
+  const factory WebSocketMessageUnion.outboundWebSocketMessage() =
+      WebSocketMessageUnionOutboundWebSocketMessage;
 
   factory WebSocketMessageUnion.fromJson(Map<String, Object?> json) =>
       // TODO: No discriminator in OpenAPI spec - you must implement this manually.
@@ -32,5 +33,4 @@ sealed class WebSocketMessageUnion with _$WebSocketMessageUnion {
       // IMPORTANT: Keep the => arrow syntax. Converting to a { } body will cause
       // freezed to skip generating toJson/fromJson for this class.
       throw UnimplementedError();
-
 }

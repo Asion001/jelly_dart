@@ -14,19 +14,18 @@ part 'sessions_message.g.dart';
 @Freezed()
 abstract class SessionsMessage with _$SessionsMessage {
   const factory SessionsMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required List<SessionInfoDto>? data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(SessionsMessageMessageType.sessions)
     SessionsMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') List<SessionInfoDto>? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _SessionsMessage;
-  
-  factory SessionsMessage.fromJson(Map<String, Object?> json) => _$SessionsMessageFromJson(json);
+
+  factory SessionsMessage.fromJson(Map<String, Object?> json) =>
+      _$SessionsMessageFromJson(json);
 }

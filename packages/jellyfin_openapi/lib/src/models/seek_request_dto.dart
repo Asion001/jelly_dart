@@ -12,9 +12,9 @@ part 'seek_request_dto.g.dart';
 abstract class SeekRequestDto with _$SeekRequestDto {
   const factory SeekRequestDto({
     /// Gets or sets the position ticks.
-    @JsonKey(name: 'PositionTicks')
-    int? positionTicks,
+    @JsonKey(name: 'PositionTicks') int? positionTicks,
   }) = _SeekRequestDto;
-  
-  factory SeekRequestDto.fromJson(Map<String, Object?> json) => _$SeekRequestDtoFromJson(json);
+
+  factory SeekRequestDto.fromJson(Map<String, Object?> json) =>
+      _$SeekRequestDtoFromJson(json);
 }

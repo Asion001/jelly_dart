@@ -14,33 +14,27 @@ part 'installation_info.g.dart';
 abstract class InstallationInfo with _$InstallationInfo {
   const factory InstallationInfo({
     /// Gets or sets the Id.
-    @JsonKey(name: 'Guid')
-    required String guid,
+    @JsonKey(name: 'Guid') String? guid,
 
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the version.
-    @JsonKey(name: 'Version')
-    required String? version,
+    @JsonKey(name: 'Version') String? version,
 
     /// Gets or sets the changelog for this version.
-    @JsonKey(name: 'Changelog')
-    required String? changelog,
+    @JsonKey(name: 'Changelog') String? changelog,
 
     /// Gets or sets the source URL.
-    @JsonKey(name: 'SourceUrl')
-    required String? sourceUrl,
+    @JsonKey(name: 'SourceUrl') String? sourceUrl,
 
     /// Gets or sets a checksum for the binary.
-    @JsonKey(name: 'Checksum')
-    required String? checksum,
+    @JsonKey(name: 'Checksum') String? checksum,
 
     /// Gets or sets package information for the installation.
-    @JsonKey(name: 'PackageInfo')
-    required PackageInfo packageInfo,
+    @JsonKey(name: 'PackageInfo') PackageInfo? packageInfo,
   }) = _InstallationInfo;
-  
-  factory InstallationInfo.fromJson(Map<String, Object?> json) => _$InstallationInfoFromJson(json);
+
+  factory InstallationInfo.fromJson(Map<String, Object?> json) =>
+      _$InstallationInfoFromJson(json);
 }

@@ -15,45 +15,36 @@ part 'remote_image_info.g.dart';
 abstract class RemoteImageInfo with _$RemoteImageInfo {
   const factory RemoteImageInfo({
     /// Gets or sets the name of the provider.
-    @JsonKey(name: 'ProviderName')
-    required String? providerName,
+    @JsonKey(name: 'ProviderName') String? providerName,
 
     /// Gets or sets the URL.
-    @JsonKey(name: 'Url')
-    required String? url,
+    @JsonKey(name: 'Url') String? url,
 
     /// Gets or sets a url used for previewing a smaller version.
-    @JsonKey(name: 'ThumbnailUrl')
-    required String? thumbnailUrl,
+    @JsonKey(name: 'ThumbnailUrl') String? thumbnailUrl,
 
     /// Gets or sets the height.
-    @JsonKey(name: 'Height')
-    required int? height,
+    @JsonKey(name: 'Height') int? height,
 
     /// Gets or sets the width.
-    @JsonKey(name: 'Width')
-    required int? width,
+    @JsonKey(name: 'Width') int? width,
 
     /// Gets or sets the community rating.
-    @JsonKey(name: 'CommunityRating')
-    required double? communityRating,
+    @JsonKey(name: 'CommunityRating') double? communityRating,
 
     /// Gets or sets the vote count.
-    @JsonKey(name: 'VoteCount')
-    required int? voteCount,
+    @JsonKey(name: 'VoteCount') int? voteCount,
 
     /// Gets or sets the language.
-    @JsonKey(name: 'Language')
-    required String? language,
+    @JsonKey(name: 'Language') String? language,
 
     /// Gets or sets the type.
-    @JsonKey(name: 'Type')
-    required RemoteImageInfoType type,
+    @JsonKey(name: 'Type') RemoteImageInfoType? type,
 
     /// Gets or sets the type of the rating.
-    @JsonKey(name: 'RatingType')
-    required RemoteImageInfoRatingType ratingType,
+    @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
   }) = _RemoteImageInfo;
-  
-  factory RemoteImageInfo.fromJson(Map<String, Object?> json) => _$RemoteImageInfoFromJson(json);
+
+  factory RemoteImageInfo.fromJson(Map<String, Object?> json) =>
+      _$RemoteImageInfoFromJson(json);
 }

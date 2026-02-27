@@ -14,17 +14,15 @@ part 'remote_image_result.g.dart';
 abstract class RemoteImageResult with _$RemoteImageResult {
   const factory RemoteImageResult({
     /// Gets or sets the images.
-    @JsonKey(name: 'Images')
-    List<RemoteImageInfo>? images,
+    @JsonKey(name: 'Images') List<RemoteImageInfo>? images,
 
     /// Gets or sets the total record count.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the providers.
-    @JsonKey(name: 'Providers')
-    List<String>? providers,
+    @JsonKey(name: 'Providers') List<String>? providers,
   }) = _RemoteImageResult;
-  
-  factory RemoteImageResult.fromJson(Map<String, Object?> json) => _$RemoteImageResultFromJson(json);
+
+  factory RemoteImageResult.fromJson(Map<String, Object?> json) =>
+      _$RemoteImageResultFromJson(json);
 }

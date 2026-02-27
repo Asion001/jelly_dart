@@ -13,15 +13,15 @@ part 'outbound_keep_alive_message.g.dart';
 @Freezed()
 abstract class OutboundKeepAliveMessage with _$OutboundKeepAliveMessage {
   const factory OutboundKeepAliveMessage({
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(OutboundKeepAliveMessageMessageType.keepAlive)
     OutboundKeepAliveMessageMessageType messageType,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _OutboundKeepAliveMessage;
-  
-  factory OutboundKeepAliveMessage.fromJson(Map<String, Object?> json) => _$OutboundKeepAliveMessageFromJson(json);
+
+  factory OutboundKeepAliveMessage.fromJson(Map<String, Object?> json) =>
+      _$OutboundKeepAliveMessageFromJson(json);
 }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$SetShuffleModeRequestDto {
   /// Enum GroupShuffleMode.
   @JsonKey(name: 'Mode')
-  SetShuffleModeRequestDtoMode get mode;
+  SetShuffleModeRequestDtoMode? get mode;
 
   /// Create a copy of SetShuffleModeRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -55,7 +55,7 @@ abstract mixin class $SetShuffleModeRequestDtoCopyWith<$Res> {
     $Res Function(SetShuffleModeRequestDto) _then,
   ) = _$SetShuffleModeRequestDtoCopyWithImpl;
   @useResult
-  $Res call({@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode mode});
+  $Res call({@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode});
 }
 
 /// @nodoc
@@ -70,13 +70,13 @@ class _$SetShuffleModeRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? mode = null}) {
+  $Res call({Object? mode = freezed}) {
     return _then(
       _self.copyWith(
-        mode: null == mode
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as SetShuffleModeRequestDtoMode,
+                  as SetShuffleModeRequestDtoMode?,
       ),
     );
   }
@@ -175,7 +175,7 @@ extension SetShuffleModeRequestDtoPatterns on SetShuffleModeRequestDto {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode mode)?
+    TResult Function(@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode)?
     $default, {
     required TResult orElse(),
   }) {
@@ -203,7 +203,7 @@ extension SetShuffleModeRequestDtoPatterns on SetShuffleModeRequestDto {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode mode)
+    TResult Function(@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode)
     $default,
   ) {
     final _that = this;
@@ -229,7 +229,9 @@ extension SetShuffleModeRequestDtoPatterns on SetShuffleModeRequestDto {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode mode)?
+    TResult? Function(
+      @JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode,
+    )?
     $default,
   ) {
     final _that = this;
@@ -245,14 +247,14 @@ extension SetShuffleModeRequestDtoPatterns on SetShuffleModeRequestDto {
 /// @nodoc
 @JsonSerializable()
 class _SetShuffleModeRequestDto implements SetShuffleModeRequestDto {
-  const _SetShuffleModeRequestDto({@JsonKey(name: 'Mode') required this.mode});
+  const _SetShuffleModeRequestDto({@JsonKey(name: 'Mode') this.mode});
   factory _SetShuffleModeRequestDto.fromJson(Map<String, dynamic> json) =>
       _$SetShuffleModeRequestDtoFromJson(json);
 
   /// Enum GroupShuffleMode.
   @override
   @JsonKey(name: 'Mode')
-  final SetShuffleModeRequestDtoMode mode;
+  final SetShuffleModeRequestDtoMode? mode;
 
   /// Create a copy of SetShuffleModeRequestDto
   /// with the given fields replaced by the non-null parameter values.
@@ -297,7 +299,7 @@ abstract mixin class _$SetShuffleModeRequestDtoCopyWith<$Res>
   ) = __$SetShuffleModeRequestDtoCopyWithImpl;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode mode});
+  $Res call({@JsonKey(name: 'Mode') SetShuffleModeRequestDtoMode? mode});
 }
 
 /// @nodoc
@@ -312,13 +314,13 @@ class __$SetShuffleModeRequestDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? mode = null}) {
+  $Res call({Object? mode = freezed}) {
     return _then(
       _SetShuffleModeRequestDto(
-        mode: null == mode
+        mode: freezed == mode
             ? _self.mode
             : mode // ignore: cast_nullable_to_non_nullable
-                  as SetShuffleModeRequestDtoMode,
+                  as SetShuffleModeRequestDtoMode?,
       ),
     );
   }

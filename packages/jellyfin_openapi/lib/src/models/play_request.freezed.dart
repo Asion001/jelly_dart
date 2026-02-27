@@ -23,11 +23,11 @@ mixin _$PlayRequest {
 
   /// Gets or sets the play command.
   @JsonKey(name: 'PlayCommand')
-  PlayRequestPlayCommand get playCommand;
+  PlayRequestPlayCommand? get playCommand;
 
   /// Gets or sets the controlling user identifier.
   @JsonKey(name: 'ControllingUserId')
-  String get controllingUserId;
+  String? get controllingUserId;
   @JsonKey(name: 'SubtitleStreamIndex')
   int? get subtitleStreamIndex;
   @JsonKey(name: 'AudioStreamIndex')
@@ -99,8 +99,8 @@ abstract mixin class $PlayRequestCopyWith<$Res> {
   $Res call({
     @JsonKey(name: 'ItemIds') List<String>? itemIds,
     @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
-    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
+    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand? playCommand,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -122,8 +122,8 @@ class _$PlayRequestCopyWithImpl<$Res> implements $PlayRequestCopyWith<$Res> {
   $Res call({
     Object? itemIds = freezed,
     Object? startPositionTicks = freezed,
-    Object? playCommand = null,
-    Object? controllingUserId = null,
+    Object? playCommand = freezed,
+    Object? controllingUserId = freezed,
     Object? subtitleStreamIndex = freezed,
     Object? audioStreamIndex = freezed,
     Object? mediaSourceId = freezed,
@@ -139,14 +139,14 @@ class _$PlayRequestCopyWithImpl<$Res> implements $PlayRequestCopyWith<$Res> {
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        playCommand: null == playCommand
+        playCommand: freezed == playCommand
             ? _self.playCommand
             : playCommand // ignore: cast_nullable_to_non_nullable
-                  as PlayRequestPlayCommand,
-        controllingUserId: null == controllingUserId
+                  as PlayRequestPlayCommand?,
+        controllingUserId: freezed == controllingUserId
             ? _self.controllingUserId
             : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         subtitleStreamIndex: freezed == subtitleStreamIndex
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable
@@ -264,8 +264,8 @@ extension PlayRequestPatterns on PlayRequest {
     TResult Function(
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand? playCommand,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -310,8 +310,8 @@ extension PlayRequestPatterns on PlayRequest {
     TResult Function(
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand? playCommand,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -354,8 +354,8 @@ extension PlayRequestPatterns on PlayRequest {
     TResult? Function(
       @JsonKey(name: 'ItemIds') List<String>? itemIds,
       @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
-      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
+      @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand? playCommand,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
       @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
       @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
       @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -386,14 +386,14 @@ extension PlayRequestPatterns on PlayRequest {
 @JsonSerializable()
 class _PlayRequest implements PlayRequest {
   const _PlayRequest({
-    @JsonKey(name: 'ItemIds') required final List<String>? itemIds,
-    @JsonKey(name: 'StartPositionTicks') required this.startPositionTicks,
-    @JsonKey(name: 'PlayCommand') required this.playCommand,
-    @JsonKey(name: 'ControllingUserId') required this.controllingUserId,
-    @JsonKey(name: 'SubtitleStreamIndex') required this.subtitleStreamIndex,
-    @JsonKey(name: 'AudioStreamIndex') required this.audioStreamIndex,
-    @JsonKey(name: 'MediaSourceId') required this.mediaSourceId,
-    @JsonKey(name: 'StartIndex') required this.startIndex,
+    @JsonKey(name: 'ItemIds') final List<String>? itemIds,
+    @JsonKey(name: 'StartPositionTicks') this.startPositionTicks,
+    @JsonKey(name: 'PlayCommand') this.playCommand,
+    @JsonKey(name: 'ControllingUserId') this.controllingUserId,
+    @JsonKey(name: 'SubtitleStreamIndex') this.subtitleStreamIndex,
+    @JsonKey(name: 'AudioStreamIndex') this.audioStreamIndex,
+    @JsonKey(name: 'MediaSourceId') this.mediaSourceId,
+    @JsonKey(name: 'StartIndex') this.startIndex,
   }) : _itemIds = itemIds;
   factory _PlayRequest.fromJson(Map<String, dynamic> json) =>
       _$PlayRequestFromJson(json);
@@ -420,12 +420,12 @@ class _PlayRequest implements PlayRequest {
   /// Gets or sets the play command.
   @override
   @JsonKey(name: 'PlayCommand')
-  final PlayRequestPlayCommand playCommand;
+  final PlayRequestPlayCommand? playCommand;
 
   /// Gets or sets the controlling user identifier.
   @override
   @JsonKey(name: 'ControllingUserId')
-  final String controllingUserId;
+  final String? controllingUserId;
   @override
   @JsonKey(name: 'SubtitleStreamIndex')
   final int? subtitleStreamIndex;
@@ -506,8 +506,8 @@ abstract mixin class _$PlayRequestCopyWith<$Res>
   $Res call({
     @JsonKey(name: 'ItemIds') List<String>? itemIds,
     @JsonKey(name: 'StartPositionTicks') int? startPositionTicks,
-    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand playCommand,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
+    @JsonKey(name: 'PlayCommand') PlayRequestPlayCommand? playCommand,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
     @JsonKey(name: 'SubtitleStreamIndex') int? subtitleStreamIndex,
     @JsonKey(name: 'AudioStreamIndex') int? audioStreamIndex,
     @JsonKey(name: 'MediaSourceId') String? mediaSourceId,
@@ -529,8 +529,8 @@ class __$PlayRequestCopyWithImpl<$Res> implements _$PlayRequestCopyWith<$Res> {
   $Res call({
     Object? itemIds = freezed,
     Object? startPositionTicks = freezed,
-    Object? playCommand = null,
-    Object? controllingUserId = null,
+    Object? playCommand = freezed,
+    Object? controllingUserId = freezed,
     Object? subtitleStreamIndex = freezed,
     Object? audioStreamIndex = freezed,
     Object? mediaSourceId = freezed,
@@ -546,14 +546,14 @@ class __$PlayRequestCopyWithImpl<$Res> implements _$PlayRequestCopyWith<$Res> {
             ? _self.startPositionTicks
             : startPositionTicks // ignore: cast_nullable_to_non_nullable
                   as int?,
-        playCommand: null == playCommand
+        playCommand: freezed == playCommand
             ? _self.playCommand
             : playCommand // ignore: cast_nullable_to_non_nullable
-                  as PlayRequestPlayCommand,
-        controllingUserId: null == controllingUserId
+                  as PlayRequestPlayCommand?,
+        controllingUserId: freezed == controllingUserId
             ? _self.controllingUserId
             : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         subtitleStreamIndex: freezed == subtitleStreamIndex
             ? _self.subtitleStreamIndex
             : subtitleStreamIndex // ignore: cast_nullable_to_non_nullable

@@ -30,8 +30,10 @@ abstract class ItemRefreshClient {
   @POST('/Items/{itemId}/Refresh')
   Future<void> refreshItem({
     @Path('itemId') required String itemId,
-    @Query('metadataRefreshMode') MetadataRefreshMode? metadataRefreshMode = MetadataRefreshMode.none,
-    @Query('imageRefreshMode') ImageRefreshMode? imageRefreshMode = ImageRefreshMode.none,
+    @Query('metadataRefreshMode')
+    MetadataRefreshMode? metadataRefreshMode = MetadataRefreshMode.none,
+    @Query('imageRefreshMode')
+    ImageRefreshMode? imageRefreshMode = ImageRefreshMode.none,
     @Query('replaceAllMetadata') bool? replaceAllMetadata = false,
     @Query('replaceAllImages') bool? replaceAllImages = false,
     @Query('regenerateTrickplay') bool? regenerateTrickplay = false,

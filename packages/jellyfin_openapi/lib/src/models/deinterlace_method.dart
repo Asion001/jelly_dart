@@ -10,7 +10,8 @@ enum DeinterlaceMethod {
   @JsonValue('yadif')
   yadif('yadif'),
   @JsonValue('bwdif')
-  bwdif('bwdif');
+  bwdif('bwdif')
+  ;
 
   const DeinterlaceMethod(this.json);
 
@@ -18,8 +19,10 @@ enum DeinterlaceMethod {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

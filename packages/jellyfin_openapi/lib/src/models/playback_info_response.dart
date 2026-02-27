@@ -15,17 +15,15 @@ part 'playback_info_response.g.dart';
 abstract class PlaybackInfoResponse with _$PlaybackInfoResponse {
   const factory PlaybackInfoResponse({
     /// Gets or sets the media sources.
-    @JsonKey(name: 'MediaSources')
-    required List<MediaSourceInfo> mediaSources,
+    @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
 
     /// Gets or sets the play session identifier.
-    @JsonKey(name: 'PlaySessionId')
-    required String? playSessionId,
+    @JsonKey(name: 'PlaySessionId') String? playSessionId,
 
     /// Gets or sets the error code.
-    @JsonKey(name: 'ErrorCode')
-    required PlaybackInfoResponseErrorCode? errorCode,
+    @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
   }) = _PlaybackInfoResponse;
-  
-  factory PlaybackInfoResponse.fromJson(Map<String, Object?> json) => _$PlaybackInfoResponseFromJson(json);
+
+  factory PlaybackInfoResponse.fromJson(Map<String, Object?> json) =>
+      _$PlaybackInfoResponseFromJson(json);
 }

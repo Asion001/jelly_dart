@@ -27,36 +27,37 @@ sealed class InboundWebSocketMessageUnion with _$InboundWebSocketMessageUnion {
   @FreezedUnionValue('ActivityLogEntryStart')
   const factory InboundWebSocketMessageUnion.activityLogEntryStart({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String? data,
+    @JsonKey(name: 'Data') String? data,
   }) = InboundWebSocketMessageUnionActivityLogEntryStart;
 
   @FreezedUnionValue('ActivityLogEntryStop')
-  const factory InboundWebSocketMessageUnion.activityLogEntryStop() = InboundWebSocketMessageUnionActivityLogEntryStop;
+  const factory InboundWebSocketMessageUnion.activityLogEntryStop() =
+      InboundWebSocketMessageUnionActivityLogEntryStop;
 
   @FreezedUnionValue('KeepAlive')
-  const factory InboundWebSocketMessageUnion.keepAlive() = InboundWebSocketMessageUnionKeepAlive;
+  const factory InboundWebSocketMessageUnion.keepAlive() =
+      InboundWebSocketMessageUnionKeepAlive;
 
   @FreezedUnionValue('ScheduledTasksInfoStart')
   const factory InboundWebSocketMessageUnion.scheduledTasksInfoStart({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String? data,
+    @JsonKey(name: 'Data') String? data,
   }) = InboundWebSocketMessageUnionScheduledTasksInfoStart;
 
   @FreezedUnionValue('ScheduledTasksInfoStop')
-  const factory InboundWebSocketMessageUnion.scheduledTasksInfoStop() = InboundWebSocketMessageUnionScheduledTasksInfoStop;
+  const factory InboundWebSocketMessageUnion.scheduledTasksInfoStop() =
+      InboundWebSocketMessageUnionScheduledTasksInfoStop;
 
   @FreezedUnionValue('SessionsStart')
   const factory InboundWebSocketMessageUnion.sessionsStart({
     /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String? data,
+    @JsonKey(name: 'Data') String? data,
   }) = InboundWebSocketMessageUnionSessionsStart;
 
   @FreezedUnionValue('SessionsStop')
-  const factory InboundWebSocketMessageUnion.sessionsStop() = InboundWebSocketMessageUnionSessionsStop;
+  const factory InboundWebSocketMessageUnion.sessionsStop() =
+      InboundWebSocketMessageUnionSessionsStop;
 
-  
-  factory InboundWebSocketMessageUnion.fromJson(Map<String, Object?> json) => _$InboundWebSocketMessageUnionFromJson(json);
+  factory InboundWebSocketMessageUnion.fromJson(Map<String, Object?> json) =>
+      _$InboundWebSocketMessageUnionFromJson(json);
 }

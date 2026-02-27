@@ -14,19 +14,18 @@ part 'activity_log_entry_message.g.dart';
 @Freezed()
 abstract class ActivityLogEntryMessage with _$ActivityLogEntryMessage {
   const factory ActivityLogEntryMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required List<ActivityLogEntry>? data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ActivityLogEntryMessageMessageType.activityLogEntry)
     ActivityLogEntryMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') List<ActivityLogEntry>? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _ActivityLogEntryMessage;
-  
-  factory ActivityLogEntryMessage.fromJson(Map<String, Object?> json) => _$ActivityLogEntryMessageFromJson(json);
+
+  factory ActivityLogEntryMessage.fromJson(Map<String, Object?> json) =>
+      _$ActivityLogEntryMessageFromJson(json);
 }

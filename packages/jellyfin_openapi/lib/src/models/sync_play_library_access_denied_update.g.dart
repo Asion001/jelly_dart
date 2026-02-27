@@ -9,22 +9,22 @@ part of 'sync_play_library_access_denied_update.dart';
 _SyncPlayLibraryAccessDeniedUpdate _$SyncPlayLibraryAccessDeniedUpdateFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayLibraryAccessDeniedUpdate(
-  groupId: json['GroupId'] as String,
-  data: json['Data'] as String,
   type:
       $enumDecodeNullable(
         _$SyncPlayLibraryAccessDeniedUpdateTypeEnumMap,
         json['Type'],
       ) ??
       SyncPlayLibraryAccessDeniedUpdateType.libraryAccessDenied,
+  groupId: json['GroupId'] as String?,
+  data: json['Data'] as String?,
 );
 
 Map<String, dynamic> _$SyncPlayLibraryAccessDeniedUpdateToJson(
   _SyncPlayLibraryAccessDeniedUpdate instance,
 ) => <String, dynamic>{
-  'GroupId': instance.groupId,
-  'Data': instance.data,
   'Type': instance.type.toJson(),
+  'GroupId': ?instance.groupId,
+  'Data': ?instance.data,
 };
 
 const _$SyncPlayLibraryAccessDeniedUpdateTypeEnumMap = {

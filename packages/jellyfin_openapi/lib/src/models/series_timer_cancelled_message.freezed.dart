@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SeriesTimerCancelledMessage {
-  /// Gets or sets the data.
-  @JsonKey(name: 'Data')
-  TimerEventInfo get data;
-
-  /// Gets or sets the message id.
-  @JsonKey(name: 'MessageId')
-  String get messageId;
-
   /// The different kinds of messages that are used in the WebSocket api.
   @JsonKey(name: 'MessageType')
   SeriesTimerCancelledMessageMessageType get messageType;
+
+  /// Gets or sets the data.
+  @JsonKey(name: 'Data')
+  TimerEventInfo? get data;
+
+  /// Gets or sets the message id.
+  @JsonKey(name: 'MessageId')
+  String? get messageId;
 
   /// Create a copy of SeriesTimerCancelledMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -44,20 +44,20 @@ mixin _$SeriesTimerCancelledMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SeriesTimerCancelledMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'SeriesTimerCancelledMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SeriesTimerCancelledMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -69,13 +69,13 @@ abstract mixin class $SeriesTimerCancelledMessageCopyWith<$Res> {
   ) = _$SeriesTimerCancelledMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') TimerEventInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     SeriesTimerCancelledMessageMessageType messageType,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
-  $TimerEventInfoCopyWith<$Res> get data;
+  $TimerEventInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -91,24 +91,24 @@ class _$SeriesTimerCancelledMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SeriesTimerCancelledMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -117,8 +117,12 @@ class _$SeriesTimerCancelledMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res> get data {
-    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
+  $TimerEventInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }
@@ -218,10 +222,10 @@ extension SeriesTimerCancelledMessagePatterns on SeriesTimerCancelledMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') TimerEventInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SeriesTimerCancelledMessageMessageType messageType,
+      @JsonKey(name: 'Data') TimerEventInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -229,7 +233,7 @@ extension SeriesTimerCancelledMessagePatterns on SeriesTimerCancelledMessage {
     final _that = this;
     switch (_that) {
       case _SeriesTimerCancelledMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -251,17 +255,17 @@ extension SeriesTimerCancelledMessagePatterns on SeriesTimerCancelledMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') TimerEventInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SeriesTimerCancelledMessageMessageType messageType,
+      @JsonKey(name: 'Data') TimerEventInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SeriesTimerCancelledMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -282,17 +286,17 @@ extension SeriesTimerCancelledMessagePatterns on SeriesTimerCancelledMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') TimerEventInfo data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       SeriesTimerCancelledMessageMessageType messageType,
+      @JsonKey(name: 'Data') TimerEventInfo? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _SeriesTimerCancelledMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -303,29 +307,29 @@ extension SeriesTimerCancelledMessagePatterns on SeriesTimerCancelledMessage {
 @JsonSerializable()
 class _SeriesTimerCancelledMessage implements SeriesTimerCancelledMessage {
   const _SeriesTimerCancelledMessage({
-    @JsonKey(name: 'Data') required this.data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType =
         SeriesTimerCancelledMessageMessageType.seriesTimerCancelled,
+    @JsonKey(name: 'Data') this.data,
+    @JsonKey(name: 'MessageId') this.messageId,
   });
   factory _SeriesTimerCancelledMessage.fromJson(Map<String, dynamic> json) =>
       _$SeriesTimerCancelledMessageFromJson(json);
-
-  /// Gets or sets the data.
-  @override
-  @JsonKey(name: 'Data')
-  final TimerEventInfo data;
-
-  /// Gets or sets the message id.
-  @override
-  @JsonKey(name: 'MessageId')
-  final String messageId;
 
   /// The different kinds of messages that are used in the WebSocket api.
   @override
   @JsonKey(name: 'MessageType')
   final SeriesTimerCancelledMessageMessageType messageType;
+
+  /// Gets or sets the data.
+  @override
+  @JsonKey(name: 'Data')
+  final TimerEventInfo? data;
+
+  /// Gets or sets the message id.
+  @override
+  @JsonKey(name: 'MessageId')
+  final String? messageId;
 
   /// Create a copy of SeriesTimerCancelledMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -349,20 +353,20 @@ class _SeriesTimerCancelledMessage implements SeriesTimerCancelledMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SeriesTimerCancelledMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data, messageId, messageType);
+  int get hashCode => Object.hash(runtimeType, messageType, data, messageId);
 
   @override
   String toString() {
-    return 'SeriesTimerCancelledMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'SeriesTimerCancelledMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -376,14 +380,14 @@ abstract mixin class _$SeriesTimerCancelledMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') TimerEventInfo data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     SeriesTimerCancelledMessageMessageType messageType,
+    @JsonKey(name: 'Data') TimerEventInfo? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 
   @override
-  $TimerEventInfoCopyWith<$Res> get data;
+  $TimerEventInfoCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -399,24 +403,24 @@ class __$SeriesTimerCancelledMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = null,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _SeriesTimerCancelledMessage(
-        data: null == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as TimerEventInfo,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as SeriesTimerCancelledMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as TimerEventInfo?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -425,8 +429,12 @@ class __$SeriesTimerCancelledMessageCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TimerEventInfoCopyWith<$Res> get data {
-    return $TimerEventInfoCopyWith<$Res>(_self.data, (value) {
+  $TimerEventInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $TimerEventInfoCopyWith<$Res>(_self.data!, (value) {
       return _then(_self.copyWith(data: value));
     });
   }

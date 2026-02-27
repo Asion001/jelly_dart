@@ -12,49 +12,39 @@ part 'update_user_item_data_dto.g.dart';
 abstract class UpdateUserItemDataDto with _$UpdateUserItemDataDto {
   const factory UpdateUserItemDataDto({
     /// Gets or sets the rating.
-    @JsonKey(name: 'Rating')
-    double? rating,
+    @JsonKey(name: 'Rating') double? rating,
 
     /// Gets or sets the played percentage.
-    @JsonKey(name: 'PlayedPercentage')
-    double? playedPercentage,
+    @JsonKey(name: 'PlayedPercentage') double? playedPercentage,
 
     /// Gets or sets the unplayed item count.
-    @JsonKey(name: 'UnplayedItemCount')
-    int? unplayedItemCount,
+    @JsonKey(name: 'UnplayedItemCount') int? unplayedItemCount,
 
     /// Gets or sets the playback position ticks.
-    @JsonKey(name: 'PlaybackPositionTicks')
-    int? playbackPositionTicks,
+    @JsonKey(name: 'PlaybackPositionTicks') int? playbackPositionTicks,
 
     /// Gets or sets the play count.
-    @JsonKey(name: 'PlayCount')
-    int? playCount,
+    @JsonKey(name: 'PlayCount') int? playCount,
 
     /// Gets or sets a value indicating whether this instance is favorite.
-    @JsonKey(name: 'IsFavorite')
-    bool? isFavorite,
+    @JsonKey(name: 'IsFavorite') bool? isFavorite,
 
     /// Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UpdateUserItemDataDto is likes.
-    @JsonKey(name: 'Likes')
-    bool? likes,
+    @JsonKey(name: 'Likes') bool? likes,
 
     /// Gets or sets the last played date.
-    @JsonKey(name: 'LastPlayedDate')
-    DateTime? lastPlayedDate,
+    @JsonKey(name: 'LastPlayedDate') DateTime? lastPlayedDate,
 
     /// Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UserItemDataDto is played.
-    @JsonKey(name: 'Played')
-    bool? played,
+    @JsonKey(name: 'Played') bool? played,
 
     /// Gets or sets the key.
-    @JsonKey(name: 'Key')
-    String? key,
+    @JsonKey(name: 'Key') String? key,
 
     /// Gets or sets the item identifier.
-    @JsonKey(name: 'ItemId')
-    String? itemId,
+    @JsonKey(name: 'ItemId') String? itemId,
   }) = _UpdateUserItemDataDto;
-  
-  factory UpdateUserItemDataDto.fromJson(Map<String, Object?> json) => _$UpdateUserItemDataDtoFromJson(json);
+
+  factory UpdateUserItemDataDto.fromJson(Map<String, Object?> json) =>
+      _$UpdateUserItemDataDtoFromJson(json);
 }

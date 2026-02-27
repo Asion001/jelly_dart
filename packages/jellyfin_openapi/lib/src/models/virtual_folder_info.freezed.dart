@@ -25,7 +25,7 @@ mixin _$VirtualFolderInfo {
   @JsonKey(name: 'CollectionType')
   VirtualFolderInfoCollectionType? get collectionType;
   @JsonKey(name: 'LibraryOptions')
-  LibraryOptions get libraryOptions;
+  LibraryOptions? get libraryOptions;
 
   /// Gets or sets the item identifier.
   @JsonKey(name: 'ItemId')
@@ -104,14 +104,14 @@ abstract mixin class $VirtualFolderInfoCopyWith<$Res> {
     @JsonKey(name: 'Locations') List<String>? locations,
     @JsonKey(name: 'CollectionType')
     VirtualFolderInfoCollectionType? collectionType,
-    @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
     @JsonKey(name: 'RefreshProgress') double? refreshProgress,
     @JsonKey(name: 'RefreshStatus') String? refreshStatus,
   });
 
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class _$VirtualFolderInfoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? locations = freezed,
     Object? collectionType = freezed,
-    Object? libraryOptions = null,
+    Object? libraryOptions = freezed,
     Object? itemId = freezed,
     Object? primaryImageItemId = freezed,
     Object? refreshProgress = freezed,
@@ -150,10 +150,10 @@ class _$VirtualFolderInfoCopyWithImpl<$Res>
             ? _self.collectionType
             : collectionType // ignore: cast_nullable_to_non_nullable
                   as VirtualFolderInfoCollectionType?,
-        libraryOptions: null == libraryOptions
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
         itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
@@ -178,8 +178,12 @@ class _$VirtualFolderInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }
@@ -283,7 +287,7 @@ extension VirtualFolderInfoPatterns on VirtualFolderInfo {
       @JsonKey(name: 'Locations') List<String>? locations,
       @JsonKey(name: 'CollectionType')
       VirtualFolderInfoCollectionType? collectionType,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
       @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
       @JsonKey(name: 'RefreshProgress') double? refreshProgress,
@@ -330,7 +334,7 @@ extension VirtualFolderInfoPatterns on VirtualFolderInfo {
       @JsonKey(name: 'Locations') List<String>? locations,
       @JsonKey(name: 'CollectionType')
       VirtualFolderInfoCollectionType? collectionType,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
       @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
       @JsonKey(name: 'RefreshProgress') double? refreshProgress,
@@ -375,7 +379,7 @@ extension VirtualFolderInfoPatterns on VirtualFolderInfo {
       @JsonKey(name: 'Locations') List<String>? locations,
       @JsonKey(name: 'CollectionType')
       VirtualFolderInfoCollectionType? collectionType,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
       @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
       @JsonKey(name: 'RefreshProgress') double? refreshProgress,
@@ -406,14 +410,14 @@ extension VirtualFolderInfoPatterns on VirtualFolderInfo {
 @JsonSerializable()
 class _VirtualFolderInfo implements VirtualFolderInfo {
   const _VirtualFolderInfo({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Locations') required final List<String>? locations,
-    @JsonKey(name: 'CollectionType') required this.collectionType,
-    @JsonKey(name: 'LibraryOptions') required this.libraryOptions,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'PrimaryImageItemId') required this.primaryImageItemId,
-    @JsonKey(name: 'RefreshProgress') required this.refreshProgress,
-    @JsonKey(name: 'RefreshStatus') required this.refreshStatus,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Locations') final List<String>? locations,
+    @JsonKey(name: 'CollectionType') this.collectionType,
+    @JsonKey(name: 'LibraryOptions') this.libraryOptions,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'PrimaryImageItemId') this.primaryImageItemId,
+    @JsonKey(name: 'RefreshProgress') this.refreshProgress,
+    @JsonKey(name: 'RefreshStatus') this.refreshStatus,
   }) : _locations = locations;
   factory _VirtualFolderInfo.fromJson(Map<String, dynamic> json) =>
       _$VirtualFolderInfoFromJson(json);
@@ -443,7 +447,7 @@ class _VirtualFolderInfo implements VirtualFolderInfo {
   final VirtualFolderInfoCollectionType? collectionType;
   @override
   @JsonKey(name: 'LibraryOptions')
-  final LibraryOptions libraryOptions;
+  final LibraryOptions? libraryOptions;
 
   /// Gets or sets the item identifier.
   @override
@@ -531,7 +535,7 @@ abstract mixin class _$VirtualFolderInfoCopyWith<$Res>
     @JsonKey(name: 'Locations') List<String>? locations,
     @JsonKey(name: 'CollectionType')
     VirtualFolderInfoCollectionType? collectionType,
-    @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
     @JsonKey(name: 'RefreshProgress') double? refreshProgress,
@@ -539,7 +543,7 @@ abstract mixin class _$VirtualFolderInfoCopyWith<$Res>
   });
 
   @override
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -558,7 +562,7 @@ class __$VirtualFolderInfoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? locations = freezed,
     Object? collectionType = freezed,
-    Object? libraryOptions = null,
+    Object? libraryOptions = freezed,
     Object? itemId = freezed,
     Object? primaryImageItemId = freezed,
     Object? refreshProgress = freezed,
@@ -578,10 +582,10 @@ class __$VirtualFolderInfoCopyWithImpl<$Res>
             ? _self.collectionType
             : collectionType // ignore: cast_nullable_to_non_nullable
                   as VirtualFolderInfoCollectionType?,
-        libraryOptions: null == libraryOptions
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
         itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
@@ -606,8 +610,12 @@ class __$VirtualFolderInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }

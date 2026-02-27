@@ -14,19 +14,18 @@ part 'sync_play_command_message.g.dart';
 @Freezed()
 abstract class SyncPlayCommandMessage with _$SyncPlayCommandMessage {
   const factory SyncPlayCommandMessage({
-    /// Class SendCommand.
-    @JsonKey(name: 'Data')
-    required SendCommand data,
-
-    /// Gets or sets the message id.
-    @JsonKey(name: 'MessageId')
-    required String messageId,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(SyncPlayCommandMessageMessageType.syncPlayCommand)
     SyncPlayCommandMessageMessageType messageType,
+
+    /// Class SendCommand.
+    @JsonKey(name: 'Data') SendCommand? data,
+
+    /// Gets or sets the message id.
+    @JsonKey(name: 'MessageId') String? messageId,
   }) = _SyncPlayCommandMessage;
-  
-  factory SyncPlayCommandMessage.fromJson(Map<String, Object?> json) => _$SyncPlayCommandMessageFromJson(json);
+
+  factory SyncPlayCommandMessage.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayCommandMessageFromJson(json);
 }

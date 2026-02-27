@@ -14,37 +14,30 @@ part 'task_result.g.dart';
 abstract class TaskResult with _$TaskResult {
   const factory TaskResult({
     /// Gets or sets the start time UTC.
-    @JsonKey(name: 'StartTimeUtc')
-    required DateTime startTimeUtc,
+    @JsonKey(name: 'StartTimeUtc') DateTime? startTimeUtc,
 
     /// Gets or sets the end time UTC.
-    @JsonKey(name: 'EndTimeUtc')
-    required DateTime endTimeUtc,
+    @JsonKey(name: 'EndTimeUtc') DateTime? endTimeUtc,
 
     /// Gets or sets the status.
-    @JsonKey(name: 'Status')
-    required TaskResultStatus status,
+    @JsonKey(name: 'Status') TaskResultStatus? status,
 
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the key.
-    @JsonKey(name: 'Key')
-    required String? key,
+    @JsonKey(name: 'Key') String? key,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    required String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the error message.
-    @JsonKey(name: 'ErrorMessage')
-    required String? errorMessage,
+    @JsonKey(name: 'ErrorMessage') String? errorMessage,
 
     /// Gets or sets the long error message.
-    @JsonKey(name: 'LongErrorMessage')
-    required String? longErrorMessage,
+    @JsonKey(name: 'LongErrorMessage') String? longErrorMessage,
   }) = _TaskResult;
-  
-  factory TaskResult.fromJson(Map<String, Object?> json) => _$TaskResultFromJson(json);
+
+  factory TaskResult.fromJson(Map<String, Object?> json) =>
+      _$TaskResultFromJson(json);
 }

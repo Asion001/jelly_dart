@@ -15,21 +15,18 @@ part 'container_profile.g.dart';
 abstract class ContainerProfile with _$ContainerProfile {
   const factory ContainerProfile({
     /// Gets or sets the MediaBrowser.Model.Dlna.DlnaProfileType which this container must meet.
-    @JsonKey(name: 'Type')
-    required ContainerProfileType type,
+    @JsonKey(name: 'Type') ContainerProfileType? type,
 
     /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
-    @JsonKey(name: 'Conditions')
-    required List<ProfileCondition> conditions,
+    @JsonKey(name: 'Conditions') List<ProfileCondition>? conditions,
 
     /// Gets or sets the container(s) which this container must meet.
-    @JsonKey(name: 'Container')
-    required String? container,
+    @JsonKey(name: 'Container') String? container,
 
     /// Gets or sets the sub container(s) which this container must meet.
-    @JsonKey(name: 'SubContainer')
-    required String? subContainer,
+    @JsonKey(name: 'SubContainer') String? subContainer,
   }) = _ContainerProfile;
-  
-  factory ContainerProfile.fromJson(Map<String, Object?> json) => _$ContainerProfileFromJson(json);
+
+  factory ContainerProfile.fromJson(Map<String, Object?> json) =>
+      _$ContainerProfileFromJson(json);
 }

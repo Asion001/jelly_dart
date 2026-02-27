@@ -12,29 +12,23 @@ part 'library_update_info.g.dart';
 abstract class LibraryUpdateInfo with _$LibraryUpdateInfo {
   const factory LibraryUpdateInfo({
     /// Gets or sets the folders added to.
-    @JsonKey(name: 'FoldersAddedTo')
-    List<String>? foldersAddedTo,
+    @JsonKey(name: 'FoldersAddedTo') List<String>? foldersAddedTo,
 
     /// Gets or sets the folders removed from.
-    @JsonKey(name: 'FoldersRemovedFrom')
-    List<String>? foldersRemovedFrom,
+    @JsonKey(name: 'FoldersRemovedFrom') List<String>? foldersRemovedFrom,
 
     /// Gets or sets the items added.
-    @JsonKey(name: 'ItemsAdded')
-    List<String>? itemsAdded,
+    @JsonKey(name: 'ItemsAdded') List<String>? itemsAdded,
 
     /// Gets or sets the items removed.
-    @JsonKey(name: 'ItemsRemoved')
-    List<String>? itemsRemoved,
+    @JsonKey(name: 'ItemsRemoved') List<String>? itemsRemoved,
 
     /// Gets or sets the items updated.
-    @JsonKey(name: 'ItemsUpdated')
-    List<String>? itemsUpdated,
-    @JsonKey(name: 'CollectionFolders')
-    List<String>? collectionFolders,
-    @JsonKey(name: 'IsEmpty')
-    bool? isEmpty,
+    @JsonKey(name: 'ItemsUpdated') List<String>? itemsUpdated,
+    @JsonKey(name: 'CollectionFolders') List<String>? collectionFolders,
+    @JsonKey(name: 'IsEmpty') bool? isEmpty,
   }) = _LibraryUpdateInfo;
-  
-  factory LibraryUpdateInfo.fromJson(Map<String, Object?> json) => _$LibraryUpdateInfoFromJson(json);
+
+  factory LibraryUpdateInfo.fromJson(Map<String, Object?> json) =>
+      _$LibraryUpdateInfoFromJson(json);
 }

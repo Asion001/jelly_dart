@@ -15,13 +15,12 @@ part 'group_state_update.g.dart';
 abstract class GroupStateUpdate with _$GroupStateUpdate {
   const factory GroupStateUpdate({
     /// Gets the state of the group.
-    @JsonKey(name: 'State')
-    required GroupStateUpdateState state,
+    @JsonKey(name: 'State') GroupStateUpdateState? state,
 
     /// Gets the reason of the state change.
-    @JsonKey(name: 'Reason')
-    required GroupStateUpdateReason reason,
+    @JsonKey(name: 'Reason') GroupStateUpdateReason? reason,
   }) = _GroupStateUpdate;
-  
-  factory GroupStateUpdate.fromJson(Map<String, Object?> json) => _$GroupStateUpdateFromJson(json);
+
+  factory GroupStateUpdate.fromJson(Map<String, Object?> json) =>
+      _$GroupStateUpdateFromJson(json);
 }

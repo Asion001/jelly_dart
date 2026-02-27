@@ -12,13 +12,12 @@ part 'create_user_by_name.g.dart';
 abstract class CreateUserByName with _$CreateUserByName {
   const factory CreateUserByName({
     /// Gets or sets the username.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') required String name,
 
     /// Gets or sets the password.
-    @JsonKey(name: 'Password')
-    String? password,
+    @JsonKey(name: 'Password') String? password,
   }) = _CreateUserByName;
-  
-  factory CreateUserByName.fromJson(Map<String, Object?> json) => _$CreateUserByNameFromJson(json);
+
+  factory CreateUserByName.fromJson(Map<String, Object?> json) =>
+      _$CreateUserByNameFromJson(json);
 }

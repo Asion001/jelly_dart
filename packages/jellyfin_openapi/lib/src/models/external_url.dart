@@ -11,13 +11,12 @@ part 'external_url.g.dart';
 abstract class ExternalUrl with _$ExternalUrl {
   const factory ExternalUrl({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the type of the item.
-    @JsonKey(name: 'Url')
-    String? url,
+    @JsonKey(name: 'Url') String? url,
   }) = _ExternalUrl;
-  
-  factory ExternalUrl.fromJson(Map<String, Object?> json) => _$ExternalUrlFromJson(json);
+
+  factory ExternalUrl.fromJson(Map<String, Object?> json) =>
+      _$ExternalUrlFromJson(json);
 }

@@ -9,11 +9,13 @@ part of 'database_configuration_options.dart';
 _DatabaseConfigurationOptions _$DatabaseConfigurationOptionsFromJson(
   Map<String, dynamic> json,
 ) => _DatabaseConfigurationOptions(
-  databaseType: json['DatabaseType'] as String,
-  customProviderOptions: CustomDatabaseOptions.fromJson(
-    json['CustomProviderOptions'] as Map<String, dynamic>,
-  ),
-  lockingBehavior: $enumDecode(
+  databaseType: json['DatabaseType'] as String?,
+  customProviderOptions: json['CustomProviderOptions'] == null
+      ? null
+      : CustomDatabaseOptions.fromJson(
+          json['CustomProviderOptions'] as Map<String, dynamic>,
+        ),
+  lockingBehavior: $enumDecodeNullable(
     _$DatabaseConfigurationOptionsLockingBehaviorEnumMap,
     json['LockingBehavior'],
   ),
@@ -22,9 +24,9 @@ _DatabaseConfigurationOptions _$DatabaseConfigurationOptionsFromJson(
 Map<String, dynamic> _$DatabaseConfigurationOptionsToJson(
   _DatabaseConfigurationOptions instance,
 ) => <String, dynamic>{
-  'DatabaseType': instance.databaseType,
-  'CustomProviderOptions': instance.customProviderOptions.toJson(),
-  'LockingBehavior': instance.lockingBehavior.toJson(),
+  'DatabaseType': ?instance.databaseType,
+  'CustomProviderOptions': ?instance.customProviderOptions?.toJson(),
+  'LockingBehavior': ?instance.lockingBehavior?.toJson(),
 };
 
 const _$DatabaseConfigurationOptionsLockingBehaviorEnumMap = {

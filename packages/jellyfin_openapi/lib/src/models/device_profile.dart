@@ -13,38 +13,38 @@ import 'transcoding_profile.dart';
 part 'device_profile.freezed.dart';
 part 'device_profile.g.dart';
 
-/// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.///
-/// <br />.///
-/// Specifically, it defines the supported <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles">containers</see> and.///
-/// <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles">codecs</see> (video and/or audio, including codec profiles and levels).///
-/// the device is able to direct play (without transcoding or remuxing),.///
+/// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.
+///
+/// <br />.
+///
+/// Specifically, it defines the supported <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles">containers</see> and.
+///
+/// <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles">codecs</see> (video and/or audio, including codec profiles and levels).
+///
+/// the device is able to direct play (without transcoding or remuxing),.
+///
 /// as well as which <see cref="P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles">containers/codecs to transcode to</see> in case it isn't.
 @Freezed()
 abstract class DeviceProfile with _$DeviceProfile {
   const factory DeviceProfile({
     /// Gets or sets the name of this device profile. User profiles must have a unique name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the unique internal identifier.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the maximum allowed bitrate for all streamed content.
-    @JsonKey(name: 'MaxStreamingBitrate')
-    int? maxStreamingBitrate,
+    @JsonKey(name: 'MaxStreamingBitrate') int? maxStreamingBitrate,
 
     /// Gets or sets the maximum allowed bitrate for statically streamed content (= direct played files).
-    @JsonKey(name: 'MaxStaticBitrate')
-    int? maxStaticBitrate,
+    @JsonKey(name: 'MaxStaticBitrate') int? maxStaticBitrate,
 
     /// Gets or sets the maximum allowed bitrate for transcoded music streams.
     @JsonKey(name: 'MusicStreamingTranscodingBitrate')
     int? musicStreamingTranscodingBitrate,
 
     /// Gets or sets the maximum allowed bitrate for statically streamed (= direct played) music files.
-    @JsonKey(name: 'MaxStaticMusicBitrate')
-    int? maxStaticMusicBitrate,
+    @JsonKey(name: 'MaxStaticMusicBitrate') int? maxStaticMusicBitrate,
 
     /// Gets or sets the direct play profiles.
     @JsonKey(name: 'DirectPlayProfiles')
@@ -59,13 +59,12 @@ abstract class DeviceProfile with _$DeviceProfile {
     List<ContainerProfile>? containerProfiles,
 
     /// Gets or sets the codec profiles.
-    @JsonKey(name: 'CodecProfiles')
-    List<CodecProfile>? codecProfiles,
+    @JsonKey(name: 'CodecProfiles') List<CodecProfile>? codecProfiles,
 
     /// Gets or sets the subtitle profiles.
-    @JsonKey(name: 'SubtitleProfiles')
-    List<SubtitleProfile>? subtitleProfiles,
+    @JsonKey(name: 'SubtitleProfiles') List<SubtitleProfile>? subtitleProfiles,
   }) = _DeviceProfile;
-  
-  factory DeviceProfile.fromJson(Map<String, Object?> json) => _$DeviceProfileFromJson(json);
+
+  factory DeviceProfile.fromJson(Map<String, Object?> json) =>
+      _$DeviceProfileFromJson(json);
 }

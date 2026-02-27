@@ -10,9 +10,9 @@ part 'playlist_creation_result.g.dart';
 @Freezed()
 abstract class PlaylistCreationResult with _$PlaylistCreationResult {
   const factory PlaylistCreationResult({
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
   }) = _PlaylistCreationResult;
-  
-  factory PlaylistCreationResult.fromJson(Map<String, Object?> json) => _$PlaylistCreationResultFromJson(json);
+
+  factory PlaylistCreationResult.fromJson(Map<String, Object?> json) =>
+      _$PlaylistCreationResultFromJson(json);
 }

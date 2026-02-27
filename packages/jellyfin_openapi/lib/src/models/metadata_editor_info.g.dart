@@ -8,39 +8,39 @@ part of 'metadata_editor_info.dart';
 
 _MetadataEditorInfo _$MetadataEditorInfoFromJson(Map<String, dynamic> json) =>
     _MetadataEditorInfo(
-      parentalRatingOptions: (json['ParentalRatingOptions'] as List<dynamic>)
-          .map((e) => ParentalRating.fromJson(e as Map<String, dynamic>))
+      parentalRatingOptions: (json['ParentalRatingOptions'] as List<dynamic>?)
+          ?.map((e) => ParentalRating.fromJson(e as Map<String, dynamic>))
           .toList(),
-      countries: (json['Countries'] as List<dynamic>)
-          .map((e) => CountryInfo.fromJson(e as Map<String, dynamic>))
+      countries: (json['Countries'] as List<dynamic>?)
+          ?.map((e) => CountryInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
-      cultures: (json['Cultures'] as List<dynamic>)
-          .map((e) => CultureDto.fromJson(e as Map<String, dynamic>))
+      cultures: (json['Cultures'] as List<dynamic>?)
+          ?.map((e) => CultureDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      externalIdInfos: (json['ExternalIdInfos'] as List<dynamic>)
-          .map((e) => ExternalIdInfo.fromJson(e as Map<String, dynamic>))
+      externalIdInfos: (json['ExternalIdInfos'] as List<dynamic>?)
+          ?.map((e) => ExternalIdInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
       contentType: $enumDecodeNullable(
         _$MetadataEditorInfoContentTypeEnumMap,
         json['ContentType'],
       ),
-      contentTypeOptions: (json['ContentTypeOptions'] as List<dynamic>)
-          .map((e) => NameValuePair.fromJson(e as Map<String, dynamic>))
+      contentTypeOptions: (json['ContentTypeOptions'] as List<dynamic>?)
+          ?.map((e) => NameValuePair.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$MetadataEditorInfoToJson(
   _MetadataEditorInfo instance,
 ) => <String, dynamic>{
-  'ParentalRatingOptions': instance.parentalRatingOptions
-      .map((e) => e.toJson())
+  'ParentalRatingOptions': ?instance.parentalRatingOptions
+      ?.map((e) => e.toJson())
       .toList(),
-  'Countries': instance.countries.map((e) => e.toJson()).toList(),
-  'Cultures': instance.cultures.map((e) => e.toJson()).toList(),
-  'ExternalIdInfos': instance.externalIdInfos.map((e) => e.toJson()).toList(),
+  'Countries': ?instance.countries?.map((e) => e.toJson()).toList(),
+  'Cultures': ?instance.cultures?.map((e) => e.toJson()).toList(),
+  'ExternalIdInfos': ?instance.externalIdInfos?.map((e) => e.toJson()).toList(),
   'ContentType': ?instance.contentType?.toJson(),
-  'ContentTypeOptions': instance.contentTypeOptions
-      .map((e) => e.toJson())
+  'ContentTypeOptions': ?instance.contentTypeOptions
+      ?.map((e) => e.toJson())
       .toList(),
 };
 

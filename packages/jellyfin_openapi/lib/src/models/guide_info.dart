@@ -11,13 +11,12 @@ part 'guide_info.g.dart';
 abstract class GuideInfo with _$GuideInfo {
   const factory GuideInfo({
     /// Gets or sets the start date.
-    @JsonKey(name: 'StartDate')
-    DateTime? startDate,
+    @JsonKey(name: 'StartDate') DateTime? startDate,
 
     /// Gets or sets the end date.
-    @JsonKey(name: 'EndDate')
-    DateTime? endDate,
+    @JsonKey(name: 'EndDate') DateTime? endDate,
   }) = _GuideInfo;
-  
-  factory GuideInfo.fromJson(Map<String, Object?> json) => _$GuideInfoFromJson(json);
+
+  factory GuideInfo.fromJson(Map<String, Object?> json) =>
+      _$GuideInfoFromJson(json);
 }

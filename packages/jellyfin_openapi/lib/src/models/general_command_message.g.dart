@@ -9,22 +9,24 @@ part of 'general_command_message.dart';
 _GeneralCommandMessage _$GeneralCommandMessageFromJson(
   Map<String, dynamic> json,
 ) => _GeneralCommandMessage(
-  data: GeneralCommand.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$GeneralCommandMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       GeneralCommandMessageMessageType.generalCommand,
+  data: json['Data'] == null
+      ? null
+      : GeneralCommand.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$GeneralCommandMessageToJson(
   _GeneralCommandMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$GeneralCommandMessageMessageTypeEnumMap = {

@@ -13,19 +13,18 @@ part 'sync_play_state_update.g.dart';
 @Freezed()
 abstract class SyncPlayStateUpdate with _$SyncPlayStateUpdate {
   const factory SyncPlayStateUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required GroupStateUpdate data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayStateUpdateType.stateUpdate)
     SyncPlayStateUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') GroupStateUpdate? data,
   }) = _SyncPlayStateUpdate;
-  
-  factory SyncPlayStateUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayStateUpdateFromJson(json);
+
+  factory SyncPlayStateUpdate.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayStateUpdateFromJson(json);
 }

@@ -15,19 +15,19 @@ T _$identity<T>(T value) => value;
 mixin _$MetadataEditorInfo {
   /// Gets or sets the parental rating options.
   @JsonKey(name: 'ParentalRatingOptions')
-  List<ParentalRating> get parentalRatingOptions;
+  List<ParentalRating>? get parentalRatingOptions;
 
   /// Gets or sets the countries.
   @JsonKey(name: 'Countries')
-  List<CountryInfo> get countries;
+  List<CountryInfo>? get countries;
 
   /// Gets or sets the cultures.
   @JsonKey(name: 'Cultures')
-  List<CultureDto> get cultures;
+  List<CultureDto>? get cultures;
 
   /// Gets or sets the external id infos.
   @JsonKey(name: 'ExternalIdInfos')
-  List<ExternalIdInfo> get externalIdInfos;
+  List<ExternalIdInfo>? get externalIdInfos;
 
   /// Gets or sets the content type.
   @JsonKey(name: 'ContentType')
@@ -35,7 +35,7 @@ mixin _$MetadataEditorInfo {
 
   /// Gets or sets the content type options.
   @JsonKey(name: 'ContentTypeOptions')
-  List<NameValuePair> get contentTypeOptions;
+  List<NameValuePair>? get contentTypeOptions;
 
   /// Create a copy of MetadataEditorInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -100,12 +100,13 @@ abstract mixin class $MetadataEditorInfoCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'ParentalRatingOptions')
-    List<ParentalRating> parentalRatingOptions,
-    @JsonKey(name: 'Countries') List<CountryInfo> countries,
-    @JsonKey(name: 'Cultures') List<CultureDto> cultures,
-    @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo> externalIdInfos,
+    List<ParentalRating>? parentalRatingOptions,
+    @JsonKey(name: 'Countries') List<CountryInfo>? countries,
+    @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
+    @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
     @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
-    @JsonKey(name: 'ContentTypeOptions') List<NameValuePair> contentTypeOptions,
+    @JsonKey(name: 'ContentTypeOptions')
+    List<NameValuePair>? contentTypeOptions,
   });
 }
 
@@ -122,39 +123,39 @@ class _$MetadataEditorInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? parentalRatingOptions = null,
-    Object? countries = null,
-    Object? cultures = null,
-    Object? externalIdInfos = null,
+    Object? parentalRatingOptions = freezed,
+    Object? countries = freezed,
+    Object? cultures = freezed,
+    Object? externalIdInfos = freezed,
     Object? contentType = freezed,
-    Object? contentTypeOptions = null,
+    Object? contentTypeOptions = freezed,
   }) {
     return _then(
       _self.copyWith(
-        parentalRatingOptions: null == parentalRatingOptions
+        parentalRatingOptions: freezed == parentalRatingOptions
             ? _self.parentalRatingOptions
             : parentalRatingOptions // ignore: cast_nullable_to_non_nullable
-                  as List<ParentalRating>,
-        countries: null == countries
+                  as List<ParentalRating>?,
+        countries: freezed == countries
             ? _self.countries
             : countries // ignore: cast_nullable_to_non_nullable
-                  as List<CountryInfo>,
-        cultures: null == cultures
+                  as List<CountryInfo>?,
+        cultures: freezed == cultures
             ? _self.cultures
             : cultures // ignore: cast_nullable_to_non_nullable
-                  as List<CultureDto>,
-        externalIdInfos: null == externalIdInfos
+                  as List<CultureDto>?,
+        externalIdInfos: freezed == externalIdInfos
             ? _self.externalIdInfos
             : externalIdInfos // ignore: cast_nullable_to_non_nullable
-                  as List<ExternalIdInfo>,
+                  as List<ExternalIdInfo>?,
         contentType: freezed == contentType
             ? _self.contentType
             : contentType // ignore: cast_nullable_to_non_nullable
                   as MetadataEditorInfoContentType?,
-        contentTypeOptions: null == contentTypeOptions
+        contentTypeOptions: freezed == contentTypeOptions
             ? _self.contentTypeOptions
             : contentTypeOptions // ignore: cast_nullable_to_non_nullable
-                  as List<NameValuePair>,
+                  as List<NameValuePair>?,
       ),
     );
   }
@@ -255,13 +256,13 @@ extension MetadataEditorInfoPatterns on MetadataEditorInfo {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'ParentalRatingOptions')
-      List<ParentalRating> parentalRatingOptions,
-      @JsonKey(name: 'Countries') List<CountryInfo> countries,
-      @JsonKey(name: 'Cultures') List<CultureDto> cultures,
-      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo> externalIdInfos,
+      List<ParentalRating>? parentalRatingOptions,
+      @JsonKey(name: 'Countries') List<CountryInfo>? countries,
+      @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
+      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
       @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
       @JsonKey(name: 'ContentTypeOptions')
-      List<NameValuePair> contentTypeOptions,
+      List<NameValuePair>? contentTypeOptions,
     )?
     $default, {
     required TResult orElse(),
@@ -299,13 +300,13 @@ extension MetadataEditorInfoPatterns on MetadataEditorInfo {
   TResult when<TResult extends Object?>(
     TResult Function(
       @JsonKey(name: 'ParentalRatingOptions')
-      List<ParentalRating> parentalRatingOptions,
-      @JsonKey(name: 'Countries') List<CountryInfo> countries,
-      @JsonKey(name: 'Cultures') List<CultureDto> cultures,
-      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo> externalIdInfos,
+      List<ParentalRating>? parentalRatingOptions,
+      @JsonKey(name: 'Countries') List<CountryInfo>? countries,
+      @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
+      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
       @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
       @JsonKey(name: 'ContentTypeOptions')
-      List<NameValuePair> contentTypeOptions,
+      List<NameValuePair>? contentTypeOptions,
     )
     $default,
   ) {
@@ -341,13 +342,13 @@ extension MetadataEditorInfoPatterns on MetadataEditorInfo {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
       @JsonKey(name: 'ParentalRatingOptions')
-      List<ParentalRating> parentalRatingOptions,
-      @JsonKey(name: 'Countries') List<CountryInfo> countries,
-      @JsonKey(name: 'Cultures') List<CultureDto> cultures,
-      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo> externalIdInfos,
+      List<ParentalRating>? parentalRatingOptions,
+      @JsonKey(name: 'Countries') List<CountryInfo>? countries,
+      @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
+      @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
       @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
       @JsonKey(name: 'ContentTypeOptions')
-      List<NameValuePair> contentTypeOptions,
+      List<NameValuePair>? contentTypeOptions,
     )?
     $default,
   ) {
@@ -373,14 +374,14 @@ extension MetadataEditorInfoPatterns on MetadataEditorInfo {
 class _MetadataEditorInfo implements MetadataEditorInfo {
   const _MetadataEditorInfo({
     @JsonKey(name: 'ParentalRatingOptions')
-    required final List<ParentalRating> parentalRatingOptions,
-    @JsonKey(name: 'Countries') required final List<CountryInfo> countries,
-    @JsonKey(name: 'Cultures') required final List<CultureDto> cultures,
+    final List<ParentalRating>? parentalRatingOptions,
+    @JsonKey(name: 'Countries') final List<CountryInfo>? countries,
+    @JsonKey(name: 'Cultures') final List<CultureDto>? cultures,
     @JsonKey(name: 'ExternalIdInfos')
-    required final List<ExternalIdInfo> externalIdInfos,
-    @JsonKey(name: 'ContentType') required this.contentType,
+    final List<ExternalIdInfo>? externalIdInfos,
+    @JsonKey(name: 'ContentType') this.contentType,
     @JsonKey(name: 'ContentTypeOptions')
-    required final List<NameValuePair> contentTypeOptions,
+    final List<NameValuePair>? contentTypeOptions,
   }) : _parentalRatingOptions = parentalRatingOptions,
        _countries = countries,
        _cultures = cultures,
@@ -390,52 +391,60 @@ class _MetadataEditorInfo implements MetadataEditorInfo {
       _$MetadataEditorInfoFromJson(json);
 
   /// Gets or sets the parental rating options.
-  final List<ParentalRating> _parentalRatingOptions;
+  final List<ParentalRating>? _parentalRatingOptions;
 
   /// Gets or sets the parental rating options.
   @override
   @JsonKey(name: 'ParentalRatingOptions')
-  List<ParentalRating> get parentalRatingOptions {
+  List<ParentalRating>? get parentalRatingOptions {
+    final value = _parentalRatingOptions;
+    if (value == null) return null;
     if (_parentalRatingOptions is EqualUnmodifiableListView)
       return _parentalRatingOptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_parentalRatingOptions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the countries.
-  final List<CountryInfo> _countries;
+  final List<CountryInfo>? _countries;
 
   /// Gets or sets the countries.
   @override
   @JsonKey(name: 'Countries')
-  List<CountryInfo> get countries {
+  List<CountryInfo>? get countries {
+    final value = _countries;
+    if (value == null) return null;
     if (_countries is EqualUnmodifiableListView) return _countries;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_countries);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the cultures.
-  final List<CultureDto> _cultures;
+  final List<CultureDto>? _cultures;
 
   /// Gets or sets the cultures.
   @override
   @JsonKey(name: 'Cultures')
-  List<CultureDto> get cultures {
+  List<CultureDto>? get cultures {
+    final value = _cultures;
+    if (value == null) return null;
     if (_cultures is EqualUnmodifiableListView) return _cultures;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cultures);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the external id infos.
-  final List<ExternalIdInfo> _externalIdInfos;
+  final List<ExternalIdInfo>? _externalIdInfos;
 
   /// Gets or sets the external id infos.
   @override
   @JsonKey(name: 'ExternalIdInfos')
-  List<ExternalIdInfo> get externalIdInfos {
+  List<ExternalIdInfo>? get externalIdInfos {
+    final value = _externalIdInfos;
+    if (value == null) return null;
     if (_externalIdInfos is EqualUnmodifiableListView) return _externalIdInfos;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_externalIdInfos);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the content type.
@@ -444,16 +453,18 @@ class _MetadataEditorInfo implements MetadataEditorInfo {
   final MetadataEditorInfoContentType? contentType;
 
   /// Gets or sets the content type options.
-  final List<NameValuePair> _contentTypeOptions;
+  final List<NameValuePair>? _contentTypeOptions;
 
   /// Gets or sets the content type options.
   @override
   @JsonKey(name: 'ContentTypeOptions')
-  List<NameValuePair> get contentTypeOptions {
+  List<NameValuePair>? get contentTypeOptions {
+    final value = _contentTypeOptions;
+    if (value == null) return null;
     if (_contentTypeOptions is EqualUnmodifiableListView)
       return _contentTypeOptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_contentTypeOptions);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Create a copy of MetadataEditorInfo
@@ -524,12 +535,13 @@ abstract mixin class _$MetadataEditorInfoCopyWith<$Res>
   @useResult
   $Res call({
     @JsonKey(name: 'ParentalRatingOptions')
-    List<ParentalRating> parentalRatingOptions,
-    @JsonKey(name: 'Countries') List<CountryInfo> countries,
-    @JsonKey(name: 'Cultures') List<CultureDto> cultures,
-    @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo> externalIdInfos,
+    List<ParentalRating>? parentalRatingOptions,
+    @JsonKey(name: 'Countries') List<CountryInfo>? countries,
+    @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
+    @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
     @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
-    @JsonKey(name: 'ContentTypeOptions') List<NameValuePair> contentTypeOptions,
+    @JsonKey(name: 'ContentTypeOptions')
+    List<NameValuePair>? contentTypeOptions,
   });
 }
 
@@ -546,39 +558,39 @@ class __$MetadataEditorInfoCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? parentalRatingOptions = null,
-    Object? countries = null,
-    Object? cultures = null,
-    Object? externalIdInfos = null,
+    Object? parentalRatingOptions = freezed,
+    Object? countries = freezed,
+    Object? cultures = freezed,
+    Object? externalIdInfos = freezed,
     Object? contentType = freezed,
-    Object? contentTypeOptions = null,
+    Object? contentTypeOptions = freezed,
   }) {
     return _then(
       _MetadataEditorInfo(
-        parentalRatingOptions: null == parentalRatingOptions
+        parentalRatingOptions: freezed == parentalRatingOptions
             ? _self._parentalRatingOptions
             : parentalRatingOptions // ignore: cast_nullable_to_non_nullable
-                  as List<ParentalRating>,
-        countries: null == countries
+                  as List<ParentalRating>?,
+        countries: freezed == countries
             ? _self._countries
             : countries // ignore: cast_nullable_to_non_nullable
-                  as List<CountryInfo>,
-        cultures: null == cultures
+                  as List<CountryInfo>?,
+        cultures: freezed == cultures
             ? _self._cultures
             : cultures // ignore: cast_nullable_to_non_nullable
-                  as List<CultureDto>,
-        externalIdInfos: null == externalIdInfos
+                  as List<CultureDto>?,
+        externalIdInfos: freezed == externalIdInfos
             ? _self._externalIdInfos
             : externalIdInfos // ignore: cast_nullable_to_non_nullable
-                  as List<ExternalIdInfo>,
+                  as List<ExternalIdInfo>?,
         contentType: freezed == contentType
             ? _self.contentType
             : contentType // ignore: cast_nullable_to_non_nullable
                   as MetadataEditorInfoContentType?,
-        contentTypeOptions: null == contentTypeOptions
+        contentTypeOptions: freezed == contentTypeOptions
             ? _self._contentTypeOptions
             : contentTypeOptions // ignore: cast_nullable_to_non_nullable
-                  as List<NameValuePair>,
+                  as List<NameValuePair>?,
       ),
     );
   }

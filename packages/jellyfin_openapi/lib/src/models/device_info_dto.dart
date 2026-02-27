@@ -14,49 +14,39 @@ part 'device_info_dto.g.dart';
 abstract class DeviceInfoDto with _$DeviceInfoDto {
   const factory DeviceInfoDto({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the custom name.
-    @JsonKey(name: 'CustomName')
-    required String? customName,
+    @JsonKey(name: 'CustomName') String? customName,
 
     /// Gets or sets the access token.
-    @JsonKey(name: 'AccessToken')
-    required String? accessToken,
+    @JsonKey(name: 'AccessToken') String? accessToken,
 
     /// Gets or sets the identifier.
-    @JsonKey(name: 'Id')
-    required String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the last name of the user.
-    @JsonKey(name: 'LastUserName')
-    required String? lastUserName,
+    @JsonKey(name: 'LastUserName') String? lastUserName,
 
     /// Gets or sets the name of the application.
-    @JsonKey(name: 'AppName')
-    required String? appName,
+    @JsonKey(name: 'AppName') String? appName,
 
     /// Gets or sets the application version.
-    @JsonKey(name: 'AppVersion')
-    required String? appVersion,
+    @JsonKey(name: 'AppVersion') String? appVersion,
 
     /// Gets or sets the last user identifier.
-    @JsonKey(name: 'LastUserId')
-    required String? lastUserId,
+    @JsonKey(name: 'LastUserId') String? lastUserId,
 
     /// Gets or sets the date last modified.
-    @JsonKey(name: 'DateLastActivity')
-    required DateTime? dateLastActivity,
+    @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
 
     /// Gets or sets the capabilities.
-    @JsonKey(name: 'Capabilities')
-    required ClientCapabilitiesDto capabilities,
+    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
 
     /// Gets or sets the icon URL.
-    @JsonKey(name: 'IconUrl')
-    required String? iconUrl,
+    @JsonKey(name: 'IconUrl') String? iconUrl,
   }) = _DeviceInfoDto;
-  
-  factory DeviceInfoDto.fromJson(Map<String, Object?> json) => _$DeviceInfoDtoFromJson(json);
+
+  factory DeviceInfoDto.fromJson(Map<String, Object?> json) =>
+      _$DeviceInfoDtoFromJson(json);
 }

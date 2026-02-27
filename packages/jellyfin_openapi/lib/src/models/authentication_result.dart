@@ -15,21 +15,18 @@ part 'authentication_result.g.dart';
 abstract class AuthenticationResult with _$AuthenticationResult {
   const factory AuthenticationResult({
     /// Class UserDto.
-    @JsonKey(name: 'User')
-    required UserDto user,
+    @JsonKey(name: 'User') UserDto? user,
 
     /// Session info DTO.
-    @JsonKey(name: 'SessionInfo')
-    required SessionInfoDto sessionInfo,
+    @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
 
     /// Gets or sets the access token.
-    @JsonKey(name: 'AccessToken')
-    required String? accessToken,
+    @JsonKey(name: 'AccessToken') String? accessToken,
 
     /// Gets or sets the server id.
-    @JsonKey(name: 'ServerId')
-    required String? serverId,
+    @JsonKey(name: 'ServerId') String? serverId,
   }) = _AuthenticationResult;
-  
-  factory AuthenticationResult.fromJson(Map<String, Object?> json) => _$AuthenticationResultFromJson(json);
+
+  factory AuthenticationResult.fromJson(Map<String, Object?> json) =>
+      _$AuthenticationResultFromJson(json);
 }

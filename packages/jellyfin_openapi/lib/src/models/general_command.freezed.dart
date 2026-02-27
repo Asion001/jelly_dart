@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$GeneralCommand {
   /// This exists simply to identify a set of known commands.
   @JsonKey(name: 'Name')
-  GeneralCommandName get name;
+  GeneralCommandName? get name;
   @JsonKey(name: 'ControllingUserId')
-  String get controllingUserId;
+  String? get controllingUserId;
   @JsonKey(name: 'Arguments')
-  Map<String, String?> get arguments;
+  Map<String, String?>? get arguments;
 
   /// Create a copy of GeneralCommand
   /// with the given fields replaced by the non-null parameter values.
@@ -68,9 +68,9 @@ abstract mixin class $GeneralCommandCopyWith<$Res> {
   ) = _$GeneralCommandCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') GeneralCommandName name,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
-    @JsonKey(name: 'Arguments') Map<String, String?> arguments,
+    @JsonKey(name: 'Name') GeneralCommandName? name,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+    @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
   });
 }
 
@@ -87,24 +87,24 @@ class _$GeneralCommandCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? controllingUserId = null,
-    Object? arguments = null,
+    Object? name = freezed,
+    Object? controllingUserId = freezed,
+    Object? arguments = freezed,
   }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as GeneralCommandName,
-        controllingUserId: null == controllingUserId
+                  as GeneralCommandName?,
+        controllingUserId: freezed == controllingUserId
             ? _self.controllingUserId
             : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        arguments: null == arguments
+                  as String?,
+        arguments: freezed == arguments
             ? _self.arguments
             : arguments // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>,
+                  as Map<String, String?>?,
       ),
     );
   }
@@ -204,9 +204,9 @@ extension GeneralCommandPatterns on GeneralCommand {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') GeneralCommandName name,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
-      @JsonKey(name: 'Arguments') Map<String, String?> arguments,
+      @JsonKey(name: 'Name') GeneralCommandName? name,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+      @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
     )?
     $default, {
     required TResult orElse(),
@@ -236,9 +236,9 @@ extension GeneralCommandPatterns on GeneralCommand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') GeneralCommandName name,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
-      @JsonKey(name: 'Arguments') Map<String, String?> arguments,
+      @JsonKey(name: 'Name') GeneralCommandName? name,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+      @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
     )
     $default,
   ) {
@@ -266,9 +266,9 @@ extension GeneralCommandPatterns on GeneralCommand {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') GeneralCommandName name,
-      @JsonKey(name: 'ControllingUserId') String controllingUserId,
-      @JsonKey(name: 'Arguments') Map<String, String?> arguments,
+      @JsonKey(name: 'Name') GeneralCommandName? name,
+      @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+      @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
     )?
     $default,
   ) {
@@ -286,9 +286,9 @@ extension GeneralCommandPatterns on GeneralCommand {
 @JsonSerializable()
 class _GeneralCommand implements GeneralCommand {
   const _GeneralCommand({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'ControllingUserId') required this.controllingUserId,
-    @JsonKey(name: 'Arguments') required final Map<String, String?> arguments,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'ControllingUserId') this.controllingUserId,
+    @JsonKey(name: 'Arguments') final Map<String, String?>? arguments,
   }) : _arguments = arguments;
   factory _GeneralCommand.fromJson(Map<String, dynamic> json) =>
       _$GeneralCommandFromJson(json);
@@ -296,17 +296,19 @@ class _GeneralCommand implements GeneralCommand {
   /// This exists simply to identify a set of known commands.
   @override
   @JsonKey(name: 'Name')
-  final GeneralCommandName name;
+  final GeneralCommandName? name;
   @override
   @JsonKey(name: 'ControllingUserId')
-  final String controllingUserId;
-  final Map<String, String?> _arguments;
+  final String? controllingUserId;
+  final Map<String, String?>? _arguments;
   @override
   @JsonKey(name: 'Arguments')
-  Map<String, String?> get arguments {
+  Map<String, String?>? get arguments {
+    final value = _arguments;
+    if (value == null) return null;
     if (_arguments is EqualUnmodifiableMapView) return _arguments;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_arguments);
+    return EqualUnmodifiableMapView(value);
   }
 
   /// Create a copy of GeneralCommand
@@ -361,9 +363,9 @@ abstract mixin class _$GeneralCommandCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') GeneralCommandName name,
-    @JsonKey(name: 'ControllingUserId') String controllingUserId,
-    @JsonKey(name: 'Arguments') Map<String, String?> arguments,
+    @JsonKey(name: 'Name') GeneralCommandName? name,
+    @JsonKey(name: 'ControllingUserId') String? controllingUserId,
+    @JsonKey(name: 'Arguments') Map<String, String?>? arguments,
   });
 }
 
@@ -380,24 +382,24 @@ class __$GeneralCommandCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? name = null,
-    Object? controllingUserId = null,
-    Object? arguments = null,
+    Object? name = freezed,
+    Object? controllingUserId = freezed,
+    Object? arguments = freezed,
   }) {
     return _then(
       _GeneralCommand(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as GeneralCommandName,
-        controllingUserId: null == controllingUserId
+                  as GeneralCommandName?,
+        controllingUserId: freezed == controllingUserId
             ? _self.controllingUserId
             : controllingUserId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        arguments: null == arguments
+                  as String?,
+        arguments: freezed == arguments
             ? _self._arguments
             : arguments // ignore: cast_nullable_to_non_nullable
-                  as Map<String, String?>,
+                  as Map<String, String?>?,
       ),
     );
   }

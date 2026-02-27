@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$PlaybackInfoResponse {
   /// Gets or sets the media sources.
   @JsonKey(name: 'MediaSources')
-  List<MediaSourceInfo> get mediaSources;
+  List<MediaSourceInfo>? get mediaSources;
 
   /// Gets or sets the play session identifier.
   @JsonKey(name: 'PlaySessionId')
@@ -76,7 +76,7 @@ abstract mixin class $PlaybackInfoResponseCopyWith<$Res> {
   ) = _$PlaybackInfoResponseCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'MediaSources') List<MediaSourceInfo> mediaSources,
+    @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
     @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
   });
@@ -95,16 +95,16 @@ class _$PlaybackInfoResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mediaSources = null,
+    Object? mediaSources = freezed,
     Object? playSessionId = freezed,
     Object? errorCode = freezed,
   }) {
     return _then(
       _self.copyWith(
-        mediaSources: null == mediaSources
+        mediaSources: freezed == mediaSources
             ? _self.mediaSources
             : mediaSources // ignore: cast_nullable_to_non_nullable
-                  as List<MediaSourceInfo>,
+                  as List<MediaSourceInfo>?,
         playSessionId: freezed == playSessionId
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable
@@ -212,7 +212,7 @@ extension PlaybackInfoResponsePatterns on PlaybackInfoResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MediaSources') List<MediaSourceInfo> mediaSources,
+      @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
       @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
     )?
@@ -248,7 +248,7 @@ extension PlaybackInfoResponsePatterns on PlaybackInfoResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'MediaSources') List<MediaSourceInfo> mediaSources,
+      @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
       @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
     )
@@ -282,7 +282,7 @@ extension PlaybackInfoResponsePatterns on PlaybackInfoResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'MediaSources') List<MediaSourceInfo> mediaSources,
+      @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
       @JsonKey(name: 'PlaySessionId') String? playSessionId,
       @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
     )?
@@ -306,24 +306,25 @@ extension PlaybackInfoResponsePatterns on PlaybackInfoResponse {
 @JsonSerializable()
 class _PlaybackInfoResponse implements PlaybackInfoResponse {
   const _PlaybackInfoResponse({
-    @JsonKey(name: 'MediaSources')
-    required final List<MediaSourceInfo> mediaSources,
-    @JsonKey(name: 'PlaySessionId') required this.playSessionId,
-    @JsonKey(name: 'ErrorCode') required this.errorCode,
+    @JsonKey(name: 'MediaSources') final List<MediaSourceInfo>? mediaSources,
+    @JsonKey(name: 'PlaySessionId') this.playSessionId,
+    @JsonKey(name: 'ErrorCode') this.errorCode,
   }) : _mediaSources = mediaSources;
   factory _PlaybackInfoResponse.fromJson(Map<String, dynamic> json) =>
       _$PlaybackInfoResponseFromJson(json);
 
   /// Gets or sets the media sources.
-  final List<MediaSourceInfo> _mediaSources;
+  final List<MediaSourceInfo>? _mediaSources;
 
   /// Gets or sets the media sources.
   @override
   @JsonKey(name: 'MediaSources')
-  List<MediaSourceInfo> get mediaSources {
+  List<MediaSourceInfo>? get mediaSources {
+    final value = _mediaSources;
+    if (value == null) return null;
     if (_mediaSources is EqualUnmodifiableListView) return _mediaSources;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_mediaSources);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the play session identifier.
@@ -392,7 +393,7 @@ abstract mixin class _$PlaybackInfoResponseCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'MediaSources') List<MediaSourceInfo> mediaSources,
+    @JsonKey(name: 'MediaSources') List<MediaSourceInfo>? mediaSources,
     @JsonKey(name: 'PlaySessionId') String? playSessionId,
     @JsonKey(name: 'ErrorCode') PlaybackInfoResponseErrorCode? errorCode,
   });
@@ -411,16 +412,16 @@ class __$PlaybackInfoResponseCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? mediaSources = null,
+    Object? mediaSources = freezed,
     Object? playSessionId = freezed,
     Object? errorCode = freezed,
   }) {
     return _then(
       _PlaybackInfoResponse(
-        mediaSources: null == mediaSources
+        mediaSources: freezed == mediaSources
             ? _self._mediaSources
             : mediaSources // ignore: cast_nullable_to_non_nullable
-                  as List<MediaSourceInfo>,
+                  as List<MediaSourceInfo>?,
         playSessionId: freezed == playSessionId
             ? _self.playSessionId
             : playSessionId // ignore: cast_nullable_to_non_nullable

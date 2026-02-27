@@ -9,22 +9,24 @@ part of 'sync_play_group_update_message.dart';
 _SyncPlayGroupUpdateMessage _$SyncPlayGroupUpdateMessageFromJson(
   Map<String, dynamic> json,
 ) => _SyncPlayGroupUpdateMessage(
-  data: GroupUpdateUnion.fromJson(json['Data'] as Map<String, dynamic>),
-  messageId: json['MessageId'] as String,
   messageType:
       $enumDecodeNullable(
         _$SyncPlayGroupUpdateMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       SyncPlayGroupUpdateMessageMessageType.syncPlayGroupUpdate,
+  data: json['Data'] == null
+      ? null
+      : GroupUpdateUnion.fromJson(json['Data'] as Map<String, dynamic>),
+  messageId: json['MessageId'] as String?,
 );
 
 Map<String, dynamic> _$SyncPlayGroupUpdateMessageToJson(
   _SyncPlayGroupUpdateMessage instance,
 ) => <String, dynamic>{
-  'Data': instance.data.toJson(),
-  'MessageId': instance.messageId,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data?.toJson(),
+  'MessageId': ?instance.messageId,
 };
 
 const _$SyncPlayGroupUpdateMessageMessageTypeEnumMap = {

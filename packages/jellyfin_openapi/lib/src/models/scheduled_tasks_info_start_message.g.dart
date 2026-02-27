@@ -9,20 +9,20 @@ part of 'scheduled_tasks_info_start_message.dart';
 _ScheduledTasksInfoStartMessage _$ScheduledTasksInfoStartMessageFromJson(
   Map<String, dynamic> json,
 ) => _ScheduledTasksInfoStartMessage(
-  data: json['Data'] as String?,
   messageType:
       $enumDecodeNullable(
         _$ScheduledTasksInfoStartMessageMessageTypeEnumMap,
         json['MessageType'],
       ) ??
       ScheduledTasksInfoStartMessageMessageType.scheduledTasksInfoStart,
+  data: json['Data'] as String?,
 );
 
 Map<String, dynamic> _$ScheduledTasksInfoStartMessageToJson(
   _ScheduledTasksInfoStartMessage instance,
 ) => <String, dynamic>{
-  'Data': ?instance.data,
   'MessageType': instance.messageType.toJson(),
+  'Data': ?instance.data,
 };
 
 const _$ScheduledTasksInfoStartMessageMessageTypeEnumMap = {

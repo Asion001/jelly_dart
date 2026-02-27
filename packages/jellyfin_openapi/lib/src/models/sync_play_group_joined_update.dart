@@ -13,19 +13,18 @@ part 'sync_play_group_joined_update.g.dart';
 @Freezed()
 abstract class SyncPlayGroupJoinedUpdate with _$SyncPlayGroupJoinedUpdate {
   const factory SyncPlayGroupJoinedUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required GroupInfoDto data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayGroupJoinedUpdateType.groupJoined)
     SyncPlayGroupJoinedUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') GroupInfoDto? data,
   }) = _SyncPlayGroupJoinedUpdate;
-  
-  factory SyncPlayGroupJoinedUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayGroupJoinedUpdateFromJson(json);
+
+  factory SyncPlayGroupJoinedUpdate.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayGroupJoinedUpdateFromJson(json);
 }

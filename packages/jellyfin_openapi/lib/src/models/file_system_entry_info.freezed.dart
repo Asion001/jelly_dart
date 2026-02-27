@@ -15,15 +15,15 @@ T _$identity<T>(T value) => value;
 mixin _$FileSystemEntryInfo {
   /// Gets the name.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets the path.
   @JsonKey(name: 'Path')
-  String get path;
+  String? get path;
 
   /// Gets the type.
   @JsonKey(name: 'Type')
-  FileSystemEntryInfoType get type;
+  FileSystemEntryInfoType? get type;
 
   /// Create a copy of FileSystemEntryInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -66,9 +66,9 @@ abstract mixin class $FileSystemEntryInfoCopyWith<$Res> {
   ) = _$FileSystemEntryInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Path') String path,
-    @JsonKey(name: 'Type') FileSystemEntryInfoType type,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
   });
 }
 
@@ -84,21 +84,25 @@ class _$FileSystemEntryInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? name = null, Object? path = null, Object? type = null}) {
+  $Res call({
+    Object? name = freezed,
+    Object? path = freezed,
+    Object? type = freezed,
+  }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        path: null == path
+                  as String?,
+        path: freezed == path
             ? _self.path
             : path // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
+                  as String?,
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as FileSystemEntryInfoType,
+                  as FileSystemEntryInfoType?,
       ),
     );
   }
@@ -198,9 +202,9 @@ extension FileSystemEntryInfoPatterns on FileSystemEntryInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Type') FileSystemEntryInfoType type,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
     )?
     $default, {
     required TResult orElse(),
@@ -230,9 +234,9 @@ extension FileSystemEntryInfoPatterns on FileSystemEntryInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Type') FileSystemEntryInfoType type,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
     )
     $default,
   ) {
@@ -260,9 +264,9 @@ extension FileSystemEntryInfoPatterns on FileSystemEntryInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Path') String path,
-      @JsonKey(name: 'Type') FileSystemEntryInfoType type,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Path') String? path,
+      @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
     )?
     $default,
   ) {
@@ -280,9 +284,9 @@ extension FileSystemEntryInfoPatterns on FileSystemEntryInfo {
 @JsonSerializable()
 class _FileSystemEntryInfo implements FileSystemEntryInfo {
   const _FileSystemEntryInfo({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Path') required this.path,
-    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Path') this.path,
+    @JsonKey(name: 'Type') this.type,
   });
   factory _FileSystemEntryInfo.fromJson(Map<String, dynamic> json) =>
       _$FileSystemEntryInfoFromJson(json);
@@ -290,17 +294,17 @@ class _FileSystemEntryInfo implements FileSystemEntryInfo {
   /// Gets the name.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets the path.
   @override
   @JsonKey(name: 'Path')
-  final String path;
+  final String? path;
 
   /// Gets the type.
   @override
   @JsonKey(name: 'Type')
-  final FileSystemEntryInfoType type;
+  final FileSystemEntryInfoType? type;
 
   /// Create a copy of FileSystemEntryInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -348,9 +352,9 @@ abstract mixin class _$FileSystemEntryInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Path') String path,
-    @JsonKey(name: 'Type') FileSystemEntryInfoType type,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Path') String? path,
+    @JsonKey(name: 'Type') FileSystemEntryInfoType? type,
   });
 }
 
@@ -366,21 +370,25 @@ class __$FileSystemEntryInfoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? name = null, Object? path = null, Object? type = null}) {
+  $Res call({
+    Object? name = freezed,
+    Object? path = freezed,
+    Object? type = freezed,
+  }) {
     return _then(
       _FileSystemEntryInfo(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        path: null == path
+                  as String?,
+        path: freezed == path
             ? _self.path
             : path // ignore: cast_nullable_to_non_nullable
-                  as String,
-        type: null == type
+                  as String?,
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as FileSystemEntryInfoType,
+                  as FileSystemEntryInfoType?,
       ),
     );
   }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$PlaystateRequest {
   /// Enum PlaystateCommand.
   @JsonKey(name: 'Command')
-  PlaystateRequestCommand get command;
+  PlaystateRequestCommand? get command;
   @JsonKey(name: 'SeekPositionTicks')
   int? get seekPositionTicks;
 
@@ -67,7 +67,7 @@ abstract mixin class $PlaystateRequestCopyWith<$Res> {
   ) = _$PlaystateRequestCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Command') PlaystateRequestCommand command,
+    @JsonKey(name: 'Command') PlaystateRequestCommand? command,
     @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
     @JsonKey(name: 'ControllingUserId') String? controllingUserId,
   });
@@ -86,16 +86,16 @@ class _$PlaystateRequestCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? command = null,
+    Object? command = freezed,
     Object? seekPositionTicks = freezed,
     Object? controllingUserId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        command: null == command
+        command: freezed == command
             ? _self.command
             : command // ignore: cast_nullable_to_non_nullable
-                  as PlaystateRequestCommand,
+                  as PlaystateRequestCommand?,
         seekPositionTicks: freezed == seekPositionTicks
             ? _self.seekPositionTicks
             : seekPositionTicks // ignore: cast_nullable_to_non_nullable
@@ -203,7 +203,7 @@ extension PlaystateRequestPatterns on PlaystateRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Command') PlaystateRequestCommand command,
+      @JsonKey(name: 'Command') PlaystateRequestCommand? command,
       @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
       @JsonKey(name: 'ControllingUserId') String? controllingUserId,
     )?
@@ -239,7 +239,7 @@ extension PlaystateRequestPatterns on PlaystateRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Command') PlaystateRequestCommand command,
+      @JsonKey(name: 'Command') PlaystateRequestCommand? command,
       @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
       @JsonKey(name: 'ControllingUserId') String? controllingUserId,
     )
@@ -273,7 +273,7 @@ extension PlaystateRequestPatterns on PlaystateRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Command') PlaystateRequestCommand command,
+      @JsonKey(name: 'Command') PlaystateRequestCommand? command,
       @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
       @JsonKey(name: 'ControllingUserId') String? controllingUserId,
     )?
@@ -297,9 +297,9 @@ extension PlaystateRequestPatterns on PlaystateRequest {
 @JsonSerializable()
 class _PlaystateRequest implements PlaystateRequest {
   const _PlaystateRequest({
-    @JsonKey(name: 'Command') required this.command,
-    @JsonKey(name: 'SeekPositionTicks') required this.seekPositionTicks,
-    @JsonKey(name: 'ControllingUserId') required this.controllingUserId,
+    @JsonKey(name: 'Command') this.command,
+    @JsonKey(name: 'SeekPositionTicks') this.seekPositionTicks,
+    @JsonKey(name: 'ControllingUserId') this.controllingUserId,
   });
   factory _PlaystateRequest.fromJson(Map<String, dynamic> json) =>
       _$PlaystateRequestFromJson(json);
@@ -307,7 +307,7 @@ class _PlaystateRequest implements PlaystateRequest {
   /// Enum PlaystateCommand.
   @override
   @JsonKey(name: 'Command')
-  final PlaystateRequestCommand command;
+  final PlaystateRequestCommand? command;
   @override
   @JsonKey(name: 'SeekPositionTicks')
   final int? seekPositionTicks;
@@ -363,7 +363,7 @@ abstract mixin class _$PlaystateRequestCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Command') PlaystateRequestCommand command,
+    @JsonKey(name: 'Command') PlaystateRequestCommand? command,
     @JsonKey(name: 'SeekPositionTicks') int? seekPositionTicks,
     @JsonKey(name: 'ControllingUserId') String? controllingUserId,
   });
@@ -382,16 +382,16 @@ class __$PlaystateRequestCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? command = null,
+    Object? command = freezed,
     Object? seekPositionTicks = freezed,
     Object? controllingUserId = freezed,
   }) {
     return _then(
       _PlaystateRequest(
-        command: null == command
+        command: freezed == command
             ? _self.command
             : command // ignore: cast_nullable_to_non_nullable
-                  as PlaystateRequestCommand,
+                  as PlaystateRequestCommand?,
         seekPositionTicks: freezed == seekPositionTicks
             ? _self.seekPositionTicks
             : seekPositionTicks // ignore: cast_nullable_to_non_nullable

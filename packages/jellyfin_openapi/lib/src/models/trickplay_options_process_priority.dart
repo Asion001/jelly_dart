@@ -18,7 +18,8 @@ enum TrickplayOptionsProcessPriority {
   @JsonValue('BelowNormal')
   belowNormal('BelowNormal'),
   @JsonValue('AboveNormal')
-  aboveNormal('AboveNormal');
+  aboveNormal('AboveNormal')
+  ;
 
   const TrickplayOptionsProcessPriority(this.json);
 
@@ -26,8 +27,10 @@ enum TrickplayOptionsProcessPriority {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

@@ -12,13 +12,12 @@ part 'special_view_option_dto.g.dart';
 abstract class SpecialViewOptionDto with _$SpecialViewOptionDto {
   const factory SpecialViewOptionDto({
     /// Gets or sets view option name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets view option id.
-    @JsonKey(name: 'Id')
-    String? id,
+    @JsonKey(name: 'Id') String? id,
   }) = _SpecialViewOptionDto;
-  
-  factory SpecialViewOptionDto.fromJson(Map<String, Object?> json) => _$SpecialViewOptionDtoFromJson(json);
+
+  factory SpecialViewOptionDto.fromJson(Map<String, Object?> json) =>
+      _$SpecialViewOptionDtoFromJson(json);
 }

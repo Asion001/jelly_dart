@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$PluginInfo {
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets the version.
   @JsonKey(name: 'Version')
-  String get version;
+  String? get version;
 
   /// Gets or sets the name of the configuration file.
   @JsonKey(name: 'ConfigurationFileName')
@@ -27,23 +27,23 @@ mixin _$PluginInfo {
 
   /// Gets or sets the description.
   @JsonKey(name: 'Description')
-  String get description;
+  String? get description;
 
   /// Gets or sets the unique id.
   @JsonKey(name: 'Id')
-  String get id;
+  String? get id;
 
   /// Gets or sets a value indicating whether the plugin can be uninstalled.
   @JsonKey(name: 'CanUninstall')
-  bool get canUninstall;
+  bool? get canUninstall;
 
   /// Gets or sets a value indicating whether this plugin has a valid image.
   @JsonKey(name: 'HasImage')
-  bool get hasImage;
+  bool? get hasImage;
 
   /// Gets or sets a value indicating the status of the plugin.
   @JsonKey(name: 'Status')
-  PluginInfoStatus get status;
+  PluginInfoStatus? get status;
 
   /// Create a copy of PluginInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -102,14 +102,14 @@ abstract mixin class $PluginInfoCopyWith<$Res> {
   ) = _$PluginInfoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Version') String version,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Version') String? version,
     @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
-    @JsonKey(name: 'Description') String description,
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'CanUninstall') bool canUninstall,
-    @JsonKey(name: 'HasImage') bool hasImage,
-    @JsonKey(name: 'Status') PluginInfoStatus status,
+    @JsonKey(name: 'Description') String? description,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'CanUninstall') bool? canUninstall,
+    @JsonKey(name: 'HasImage') bool? hasImage,
+    @JsonKey(name: 'Status') PluginInfoStatus? status,
   });
 }
 
@@ -125,49 +125,49 @@ class _$PluginInfoCopyWithImpl<$Res> implements $PluginInfoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? version = null,
+    Object? name = freezed,
+    Object? version = freezed,
     Object? configurationFileName = freezed,
-    Object? description = null,
-    Object? id = null,
-    Object? canUninstall = null,
-    Object? hasImage = null,
-    Object? status = null,
+    Object? description = freezed,
+    Object? id = freezed,
+    Object? canUninstall = freezed,
+    Object? hasImage = freezed,
+    Object? status = freezed,
   }) {
     return _then(
       _self.copyWith(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        version: null == version
+                  as String?,
+        version: freezed == version
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         configurationFileName: freezed == configurationFileName
             ? _self.configurationFileName
             : configurationFileName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        description: null == description
+        description: freezed == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        id: null == id
+                  as String?,
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        canUninstall: null == canUninstall
+                  as String?,
+        canUninstall: freezed == canUninstall
             ? _self.canUninstall
             : canUninstall // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasImage: null == hasImage
+                  as bool?,
+        hasImage: freezed == hasImage
             ? _self.hasImage
             : hasImage // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        status: null == status
+                  as bool?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as PluginInfoStatus,
+                  as PluginInfoStatus?,
       ),
     );
   }
@@ -267,14 +267,14 @@ extension PluginInfoPatterns on PluginInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
-      @JsonKey(name: 'Description') String description,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'CanUninstall') bool canUninstall,
-      @JsonKey(name: 'HasImage') bool hasImage,
-      @JsonKey(name: 'Status') PluginInfoStatus status,
+      @JsonKey(name: 'Description') String? description,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'CanUninstall') bool? canUninstall,
+      @JsonKey(name: 'HasImage') bool? hasImage,
+      @JsonKey(name: 'Status') PluginInfoStatus? status,
     )?
     $default, {
     required TResult orElse(),
@@ -313,14 +313,14 @@ extension PluginInfoPatterns on PluginInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
-      @JsonKey(name: 'Description') String description,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'CanUninstall') bool canUninstall,
-      @JsonKey(name: 'HasImage') bool hasImage,
-      @JsonKey(name: 'Status') PluginInfoStatus status,
+      @JsonKey(name: 'Description') String? description,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'CanUninstall') bool? canUninstall,
+      @JsonKey(name: 'HasImage') bool? hasImage,
+      @JsonKey(name: 'Status') PluginInfoStatus? status,
     )
     $default,
   ) {
@@ -357,14 +357,14 @@ extension PluginInfoPatterns on PluginInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Name') String name,
-      @JsonKey(name: 'Version') String version,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Version') String? version,
       @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
-      @JsonKey(name: 'Description') String description,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'CanUninstall') bool canUninstall,
-      @JsonKey(name: 'HasImage') bool hasImage,
-      @JsonKey(name: 'Status') PluginInfoStatus status,
+      @JsonKey(name: 'Description') String? description,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'CanUninstall') bool? canUninstall,
+      @JsonKey(name: 'HasImage') bool? hasImage,
+      @JsonKey(name: 'Status') PluginInfoStatus? status,
     )?
     $default,
   ) {
@@ -391,14 +391,14 @@ extension PluginInfoPatterns on PluginInfo {
 @JsonSerializable()
 class _PluginInfo implements PluginInfo {
   const _PluginInfo({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'Version') required this.version,
-    @JsonKey(name: 'ConfigurationFileName') required this.configurationFileName,
-    @JsonKey(name: 'Description') required this.description,
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'CanUninstall') required this.canUninstall,
-    @JsonKey(name: 'HasImage') required this.hasImage,
-    @JsonKey(name: 'Status') required this.status,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'Version') this.version,
+    @JsonKey(name: 'ConfigurationFileName') this.configurationFileName,
+    @JsonKey(name: 'Description') this.description,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'CanUninstall') this.canUninstall,
+    @JsonKey(name: 'HasImage') this.hasImage,
+    @JsonKey(name: 'Status') this.status,
   });
   factory _PluginInfo.fromJson(Map<String, dynamic> json) =>
       _$PluginInfoFromJson(json);
@@ -406,12 +406,12 @@ class _PluginInfo implements PluginInfo {
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets the version.
   @override
   @JsonKey(name: 'Version')
-  final String version;
+  final String? version;
 
   /// Gets or sets the name of the configuration file.
   @override
@@ -421,27 +421,27 @@ class _PluginInfo implements PluginInfo {
   /// Gets or sets the description.
   @override
   @JsonKey(name: 'Description')
-  final String description;
+  final String? description;
 
   /// Gets or sets the unique id.
   @override
   @JsonKey(name: 'Id')
-  final String id;
+  final String? id;
 
   /// Gets or sets a value indicating whether the plugin can be uninstalled.
   @override
   @JsonKey(name: 'CanUninstall')
-  final bool canUninstall;
+  final bool? canUninstall;
 
   /// Gets or sets a value indicating whether this plugin has a valid image.
   @override
   @JsonKey(name: 'HasImage')
-  final bool hasImage;
+  final bool? hasImage;
 
   /// Gets or sets a value indicating the status of the plugin.
   @override
   @JsonKey(name: 'Status')
-  final PluginInfoStatus status;
+  final PluginInfoStatus? status;
 
   /// Create a copy of PluginInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -505,14 +505,14 @@ abstract mixin class _$PluginInfoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Name') String name,
-    @JsonKey(name: 'Version') String version,
+    @JsonKey(name: 'Name') String? name,
+    @JsonKey(name: 'Version') String? version,
     @JsonKey(name: 'ConfigurationFileName') String? configurationFileName,
-    @JsonKey(name: 'Description') String description,
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'CanUninstall') bool canUninstall,
-    @JsonKey(name: 'HasImage') bool hasImage,
-    @JsonKey(name: 'Status') PluginInfoStatus status,
+    @JsonKey(name: 'Description') String? description,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'CanUninstall') bool? canUninstall,
+    @JsonKey(name: 'HasImage') bool? hasImage,
+    @JsonKey(name: 'Status') PluginInfoStatus? status,
   });
 }
 
@@ -528,49 +528,49 @@ class __$PluginInfoCopyWithImpl<$Res> implements _$PluginInfoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? name = null,
-    Object? version = null,
+    Object? name = freezed,
+    Object? version = freezed,
     Object? configurationFileName = freezed,
-    Object? description = null,
-    Object? id = null,
-    Object? canUninstall = null,
-    Object? hasImage = null,
-    Object? status = null,
+    Object? description = freezed,
+    Object? id = freezed,
+    Object? canUninstall = freezed,
+    Object? hasImage = freezed,
+    Object? status = freezed,
   }) {
     return _then(
       _PluginInfo(
-        name: null == name
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        version: null == version
+                  as String?,
+        version: freezed == version
             ? _self.version
             : version // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         configurationFileName: freezed == configurationFileName
             ? _self.configurationFileName
             : configurationFileName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        description: null == description
+        description: freezed == description
             ? _self.description
             : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-        id: null == id
+                  as String?,
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        canUninstall: null == canUninstall
+                  as String?,
+        canUninstall: freezed == canUninstall
             ? _self.canUninstall
             : canUninstall // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        hasImage: null == hasImage
+                  as bool?,
+        hasImage: freezed == hasImage
             ? _self.hasImage
             : hasImage // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        status: null == status
+                  as bool?,
+        status: freezed == status
             ? _self.status
             : status // ignore: cast_nullable_to_non_nullable
-                  as PluginInfoStatus,
+                  as PluginInfoStatus?,
       ),
     );
   }

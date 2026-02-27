@@ -12,19 +12,18 @@ part 'sync_play_user_left_update.g.dart';
 @Freezed()
 abstract class SyncPlayUserLeftUpdate with _$SyncPlayUserLeftUpdate {
   const factory SyncPlayUserLeftUpdate({
-    /// Gets the group identifier.
-    @JsonKey(name: 'GroupId')
-    required String groupId,
-
-    /// Gets the update data.
-    @JsonKey(name: 'Data')
-    required String data,
-
     /// Enum GroupUpdateType.
     @JsonKey(name: 'Type')
     @Default(SyncPlayUserLeftUpdateType.userLeft)
     SyncPlayUserLeftUpdateType type,
+
+    /// Gets the group identifier.
+    @JsonKey(name: 'GroupId') String? groupId,
+
+    /// Gets the update data.
+    @JsonKey(name: 'Data') String? data,
   }) = _SyncPlayUserLeftUpdate;
-  
-  factory SyncPlayUserLeftUpdate.fromJson(Map<String, Object?> json) => _$SyncPlayUserLeftUpdateFromJson(json);
+
+  factory SyncPlayUserLeftUpdate.fromJson(Map<String, Object?> json) =>
+      _$SyncPlayUserLeftUpdateFromJson(json);
 }

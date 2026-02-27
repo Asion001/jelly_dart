@@ -15,31 +15,25 @@ part 'virtual_folder_info.g.dart';
 abstract class VirtualFolderInfo with _$VirtualFolderInfo {
   const factory VirtualFolderInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the locations.
-    @JsonKey(name: 'Locations')
-    required List<String>? locations,
+    @JsonKey(name: 'Locations') List<String>? locations,
 
     /// Gets or sets the type of the collection.
     @JsonKey(name: 'CollectionType')
-    required VirtualFolderInfoCollectionType? collectionType,
-    @JsonKey(name: 'LibraryOptions')
-    required LibraryOptions libraryOptions,
+    VirtualFolderInfoCollectionType? collectionType,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
 
     /// Gets or sets the item identifier.
-    @JsonKey(name: 'ItemId')
-    required String? itemId,
+    @JsonKey(name: 'ItemId') String? itemId,
 
     /// Gets or sets the primary image item identifier.
-    @JsonKey(name: 'PrimaryImageItemId')
-    required String? primaryImageItemId,
-    @JsonKey(name: 'RefreshProgress')
-    required double? refreshProgress,
-    @JsonKey(name: 'RefreshStatus')
-    required String? refreshStatus,
+    @JsonKey(name: 'PrimaryImageItemId') String? primaryImageItemId,
+    @JsonKey(name: 'RefreshProgress') double? refreshProgress,
+    @JsonKey(name: 'RefreshStatus') String? refreshStatus,
   }) = _VirtualFolderInfo;
-  
-  factory VirtualFolderInfo.fromJson(Map<String, Object?> json) => _$VirtualFolderInfoFromJson(json);
+
+  factory VirtualFolderInfo.fromJson(Map<String, Object?> json) =>
+      _$VirtualFolderInfoFromJson(json);
 }

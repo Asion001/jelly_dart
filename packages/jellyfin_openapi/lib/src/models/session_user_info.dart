@@ -12,13 +12,12 @@ part 'session_user_info.g.dart';
 abstract class SessionUserInfo with _$SessionUserInfo {
   const factory SessionUserInfo({
     /// Gets or sets the user identifier.
-    @JsonKey(name: 'UserId')
-    String? userId,
+    @JsonKey(name: 'UserId') String? userId,
 
     /// Gets or sets the name of the user.
-    @JsonKey(name: 'UserName')
-    String? userName,
+    @JsonKey(name: 'UserName') String? userName,
   }) = _SessionUserInfo;
-  
-  factory SessionUserInfo.fromJson(Map<String, Object?> json) => _$SessionUserInfoFromJson(json);
+
+  factory SessionUserInfo.fromJson(Map<String, Object?> json) =>
+      _$SessionUserInfoFromJson(json);
 }

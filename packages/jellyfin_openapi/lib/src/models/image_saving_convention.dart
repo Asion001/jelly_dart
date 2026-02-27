@@ -9,7 +9,8 @@ enum ImageSavingConvention {
   @JsonValue('Legacy')
   legacy('Legacy'),
   @JsonValue('Compatible')
-  compatible('Compatible');
+  compatible('Compatible')
+  ;
 
   const ImageSavingConvention(this.json);
 
@@ -17,8 +18,10 @@ enum ImageSavingConvention {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

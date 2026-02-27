@@ -12,17 +12,15 @@ part 'device_options_dto.g.dart';
 abstract class DeviceOptionsDto with _$DeviceOptionsDto {
   const factory DeviceOptionsDto({
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    int? id,
+    @JsonKey(name: 'Id') int? id,
 
     /// Gets or sets the device id.
-    @JsonKey(name: 'DeviceId')
-    String? deviceId,
+    @JsonKey(name: 'DeviceId') String? deviceId,
 
     /// Gets or sets the custom name.
-    @JsonKey(name: 'CustomName')
-    String? customName,
+    @JsonKey(name: 'CustomName') String? customName,
   }) = _DeviceOptionsDto;
-  
-  factory DeviceOptionsDto.fromJson(Map<String, Object?> json) => _$DeviceOptionsDtoFromJson(json);
+
+  factory DeviceOptionsDto.fromJson(Map<String, Object?> json) =>
+      _$DeviceOptionsDtoFromJson(json);
 }

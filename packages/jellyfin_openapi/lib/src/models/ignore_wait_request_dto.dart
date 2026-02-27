@@ -12,9 +12,9 @@ part 'ignore_wait_request_dto.g.dart';
 abstract class IgnoreWaitRequestDto with _$IgnoreWaitRequestDto {
   const factory IgnoreWaitRequestDto({
     /// Gets or sets a value indicating whether the client should be ignored.
-    @JsonKey(name: 'IgnoreWait')
-    bool? ignoreWait,
+    @JsonKey(name: 'IgnoreWait') bool? ignoreWait,
   }) = _IgnoreWaitRequestDto;
-  
-  factory IgnoreWaitRequestDto.fromJson(Map<String, Object?> json) => _$IgnoreWaitRequestDtoFromJson(json);
+
+  factory IgnoreWaitRequestDto.fromJson(Map<String, Object?> json) =>
+      _$IgnoreWaitRequestDtoFromJson(json);
 }

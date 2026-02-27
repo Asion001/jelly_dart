@@ -16,45 +16,37 @@ part 'task_info.g.dart';
 abstract class TaskInfo with _$TaskInfo {
   const factory TaskInfo({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the state of the task.
-    @JsonKey(name: 'State')
-    required TaskInfoState state,
+    @JsonKey(name: 'State') TaskInfoState? state,
 
     /// Gets or sets the progress.
     @JsonKey(name: 'CurrentProgressPercentage')
-    required double? currentProgressPercentage,
+    double? currentProgressPercentage,
 
     /// Gets or sets the id.
-    @JsonKey(name: 'Id')
-    required String? id,
+    @JsonKey(name: 'Id') String? id,
 
     /// Gets or sets the last execution result.
-    @JsonKey(name: 'LastExecutionResult')
-    required TaskResult lastExecutionResult,
+    @JsonKey(name: 'LastExecutionResult') TaskResult? lastExecutionResult,
 
     /// Gets or sets the triggers.
-    @JsonKey(name: 'Triggers')
-    required List<TaskTriggerInfo>? triggers,
+    @JsonKey(name: 'Triggers') List<TaskTriggerInfo>? triggers,
 
     /// Gets or sets the description.
-    @JsonKey(name: 'Description')
-    required String? description,
+    @JsonKey(name: 'Description') String? description,
 
     /// Gets or sets the category.
-    @JsonKey(name: 'Category')
-    required String? category,
+    @JsonKey(name: 'Category') String? category,
 
     /// Gets or sets a value indicating whether this instance is hidden.
-    @JsonKey(name: 'IsHidden')
-    required bool isHidden,
+    @JsonKey(name: 'IsHidden') bool? isHidden,
 
     /// Gets or sets the key.
-    @JsonKey(name: 'Key')
-    required String? key,
+    @JsonKey(name: 'Key') String? key,
   }) = _TaskInfo;
-  
-  factory TaskInfo.fromJson(Map<String, Object?> json) => _$TaskInfoFromJson(json);
+
+  factory TaskInfo.fromJson(Map<String, Object?> json) =>
+      _$TaskInfoFromJson(json);
 }

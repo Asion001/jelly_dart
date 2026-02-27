@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$AuthenticationResult {
   /// Class UserDto.
   @JsonKey(name: 'User')
-  UserDto get user;
+  UserDto? get user;
 
   /// Session info DTO.
   @JsonKey(name: 'SessionInfo')
-  SessionInfoDto get sessionInfo;
+  SessionInfoDto? get sessionInfo;
 
   /// Gets or sets the access token.
   @JsonKey(name: 'AccessToken')
@@ -75,14 +75,14 @@ abstract mixin class $AuthenticationResultCopyWith<$Res> {
   ) = _$AuthenticationResultCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'User') UserDto user,
-    @JsonKey(name: 'SessionInfo') SessionInfoDto sessionInfo,
+    @JsonKey(name: 'User') UserDto? user,
+    @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
     @JsonKey(name: 'AccessToken') String? accessToken,
     @JsonKey(name: 'ServerId') String? serverId,
   });
 
-  $UserDtoCopyWith<$Res> get user;
-  $SessionInfoDtoCopyWith<$Res> get sessionInfo;
+  $UserDtoCopyWith<$Res>? get user;
+  $SessionInfoDtoCopyWith<$Res>? get sessionInfo;
 }
 
 /// @nodoc
@@ -98,21 +98,21 @@ class _$AuthenticationResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
-    Object? sessionInfo = null,
+    Object? user = freezed,
+    Object? sessionInfo = freezed,
     Object? accessToken = freezed,
     Object? serverId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        user: null == user
+        user: freezed == user
             ? _self.user
             : user // ignore: cast_nullable_to_non_nullable
-                  as UserDto,
-        sessionInfo: null == sessionInfo
+                  as UserDto?,
+        sessionInfo: freezed == sessionInfo
             ? _self.sessionInfo
             : sessionInfo // ignore: cast_nullable_to_non_nullable
-                  as SessionInfoDto,
+                  as SessionInfoDto?,
         accessToken: freezed == accessToken
             ? _self.accessToken
             : accessToken // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,12 @@ class _$AuthenticationResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDtoCopyWith<$Res> get user {
-    return $UserDtoCopyWith<$Res>(_self.user, (value) {
+  $UserDtoCopyWith<$Res>? get user {
+    if (_self.user == null) {
+      return null;
+    }
+
+    return $UserDtoCopyWith<$Res>(_self.user!, (value) {
       return _then(_self.copyWith(user: value));
     });
   }
@@ -139,8 +143,12 @@ class _$AuthenticationResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SessionInfoDtoCopyWith<$Res> get sessionInfo {
-    return $SessionInfoDtoCopyWith<$Res>(_self.sessionInfo, (value) {
+  $SessionInfoDtoCopyWith<$Res>? get sessionInfo {
+    if (_self.sessionInfo == null) {
+      return null;
+    }
+
+    return $SessionInfoDtoCopyWith<$Res>(_self.sessionInfo!, (value) {
       return _then(_self.copyWith(sessionInfo: value));
     });
   }
@@ -240,8 +248,8 @@ extension AuthenticationResultPatterns on AuthenticationResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'User') UserDto user,
-      @JsonKey(name: 'SessionInfo') SessionInfoDto sessionInfo,
+      @JsonKey(name: 'User') UserDto? user,
+      @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
       @JsonKey(name: 'AccessToken') String? accessToken,
       @JsonKey(name: 'ServerId') String? serverId,
     )?
@@ -278,8 +286,8 @@ extension AuthenticationResultPatterns on AuthenticationResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'User') UserDto user,
-      @JsonKey(name: 'SessionInfo') SessionInfoDto sessionInfo,
+      @JsonKey(name: 'User') UserDto? user,
+      @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
       @JsonKey(name: 'AccessToken') String? accessToken,
       @JsonKey(name: 'ServerId') String? serverId,
     )
@@ -314,8 +322,8 @@ extension AuthenticationResultPatterns on AuthenticationResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'User') UserDto user,
-      @JsonKey(name: 'SessionInfo') SessionInfoDto sessionInfo,
+      @JsonKey(name: 'User') UserDto? user,
+      @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
       @JsonKey(name: 'AccessToken') String? accessToken,
       @JsonKey(name: 'ServerId') String? serverId,
     )?
@@ -340,10 +348,10 @@ extension AuthenticationResultPatterns on AuthenticationResult {
 @JsonSerializable()
 class _AuthenticationResult implements AuthenticationResult {
   const _AuthenticationResult({
-    @JsonKey(name: 'User') required this.user,
-    @JsonKey(name: 'SessionInfo') required this.sessionInfo,
-    @JsonKey(name: 'AccessToken') required this.accessToken,
-    @JsonKey(name: 'ServerId') required this.serverId,
+    @JsonKey(name: 'User') this.user,
+    @JsonKey(name: 'SessionInfo') this.sessionInfo,
+    @JsonKey(name: 'AccessToken') this.accessToken,
+    @JsonKey(name: 'ServerId') this.serverId,
   });
   factory _AuthenticationResult.fromJson(Map<String, dynamic> json) =>
       _$AuthenticationResultFromJson(json);
@@ -351,12 +359,12 @@ class _AuthenticationResult implements AuthenticationResult {
   /// Class UserDto.
   @override
   @JsonKey(name: 'User')
-  final UserDto user;
+  final UserDto? user;
 
   /// Session info DTO.
   @override
   @JsonKey(name: 'SessionInfo')
-  final SessionInfoDto sessionInfo;
+  final SessionInfoDto? sessionInfo;
 
   /// Gets or sets the access token.
   @override
@@ -419,16 +427,16 @@ abstract mixin class _$AuthenticationResultCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'User') UserDto user,
-    @JsonKey(name: 'SessionInfo') SessionInfoDto sessionInfo,
+    @JsonKey(name: 'User') UserDto? user,
+    @JsonKey(name: 'SessionInfo') SessionInfoDto? sessionInfo,
     @JsonKey(name: 'AccessToken') String? accessToken,
     @JsonKey(name: 'ServerId') String? serverId,
   });
 
   @override
-  $UserDtoCopyWith<$Res> get user;
+  $UserDtoCopyWith<$Res>? get user;
   @override
-  $SessionInfoDtoCopyWith<$Res> get sessionInfo;
+  $SessionInfoDtoCopyWith<$Res>? get sessionInfo;
 }
 
 /// @nodoc
@@ -444,21 +452,21 @@ class __$AuthenticationResultCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? user = null,
-    Object? sessionInfo = null,
+    Object? user = freezed,
+    Object? sessionInfo = freezed,
     Object? accessToken = freezed,
     Object? serverId = freezed,
   }) {
     return _then(
       _AuthenticationResult(
-        user: null == user
+        user: freezed == user
             ? _self.user
             : user // ignore: cast_nullable_to_non_nullable
-                  as UserDto,
-        sessionInfo: null == sessionInfo
+                  as UserDto?,
+        sessionInfo: freezed == sessionInfo
             ? _self.sessionInfo
             : sessionInfo // ignore: cast_nullable_to_non_nullable
-                  as SessionInfoDto,
+                  as SessionInfoDto?,
         accessToken: freezed == accessToken
             ? _self.accessToken
             : accessToken // ignore: cast_nullable_to_non_nullable
@@ -475,8 +483,12 @@ class __$AuthenticationResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserDtoCopyWith<$Res> get user {
-    return $UserDtoCopyWith<$Res>(_self.user, (value) {
+  $UserDtoCopyWith<$Res>? get user {
+    if (_self.user == null) {
+      return null;
+    }
+
+    return $UserDtoCopyWith<$Res>(_self.user!, (value) {
       return _then(_self.copyWith(user: value));
     });
   }
@@ -485,8 +497,12 @@ class __$AuthenticationResultCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SessionInfoDtoCopyWith<$Res> get sessionInfo {
-    return $SessionInfoDtoCopyWith<$Res>(_self.sessionInfo, (value) {
+  $SessionInfoDtoCopyWith<$Res>? get sessionInfo {
+    if (_self.sessionInfo == null) {
+      return null;
+    }
+
+    return $SessionInfoDtoCopyWith<$Res>(_self.sessionInfo!, (value) {
       return _then(_self.copyWith(sessionInfo: value));
     });
   }

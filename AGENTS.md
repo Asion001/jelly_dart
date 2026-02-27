@@ -95,6 +95,7 @@ Build order (from build.yaml):
 
 General:
 
+- Always check and use latest versions of packages by checking pub.dev or using the CLI.
 - Follow `very_good_analysis` and `puro dart format` output.
 - Keep public APIs small and focused; prefer pure Dart for reusable libs.
 - Avoid UI or platform-specific dependencies in core packages.

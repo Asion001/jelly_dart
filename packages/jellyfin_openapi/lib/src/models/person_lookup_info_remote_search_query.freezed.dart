@@ -14,9 +14,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PersonLookupInfoRemoteSearchQuery {
   @JsonKey(name: 'SearchInfo')
-  PersonLookupInfo get searchInfo;
+  PersonLookupInfo? get searchInfo;
   @JsonKey(name: 'ItemId')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the provider name to search within if set.
   @JsonKey(name: 'SearchProviderName')
@@ -24,7 +24,7 @@ mixin _$PersonLookupInfoRemoteSearchQuery {
 
   /// Gets or sets a value indicating whether disabled providers should be included.
   @JsonKey(name: 'IncludeDisabledProviders')
-  bool get includeDisabledProviders;
+  bool? get includeDisabledProviders;
 
   /// Create a copy of PersonLookupInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -80,13 +80,13 @@ abstract mixin class $PersonLookupInfoRemoteSearchQueryCopyWith<$Res> {
   ) = _$PersonLookupInfoRemoteSearchQueryCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') PersonLookupInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') PersonLookupInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
-  $PersonLookupInfoCopyWith<$Res> get searchInfo;
+  $PersonLookupInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -102,29 +102,29 @@ class _$PersonLookupInfoRemoteSearchQueryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _self.copyWith(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as PersonLookupInfo,
-        itemId: null == itemId
+                  as PersonLookupInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -133,8 +133,12 @@ class _$PersonLookupInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PersonLookupInfoCopyWith<$Res> get searchInfo {
-    return $PersonLookupInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $PersonLookupInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $PersonLookupInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }
@@ -235,10 +239,10 @@ extension PersonLookupInfoRemoteSearchQueryPatterns
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') PersonLookupInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') PersonLookupInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default, {
     required TResult orElse(),
@@ -273,10 +277,10 @@ extension PersonLookupInfoRemoteSearchQueryPatterns
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'SearchInfo') PersonLookupInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') PersonLookupInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )
     $default,
   ) {
@@ -309,10 +313,10 @@ extension PersonLookupInfoRemoteSearchQueryPatterns
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'SearchInfo') PersonLookupInfo searchInfo,
-      @JsonKey(name: 'ItemId') String itemId,
+      @JsonKey(name: 'SearchInfo') PersonLookupInfo? searchInfo,
+      @JsonKey(name: 'ItemId') String? itemId,
       @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-      @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+      @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
     )?
     $default,
   ) {
@@ -336,11 +340,10 @@ extension PersonLookupInfoRemoteSearchQueryPatterns
 class _PersonLookupInfoRemoteSearchQuery
     implements PersonLookupInfoRemoteSearchQuery {
   const _PersonLookupInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo') required this.searchInfo,
-    @JsonKey(name: 'ItemId') required this.itemId,
-    @JsonKey(name: 'SearchProviderName') required this.searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required this.includeDisabledProviders,
+    @JsonKey(name: 'SearchInfo') this.searchInfo,
+    @JsonKey(name: 'ItemId') this.itemId,
+    @JsonKey(name: 'SearchProviderName') this.searchProviderName,
+    @JsonKey(name: 'IncludeDisabledProviders') this.includeDisabledProviders,
   });
   factory _PersonLookupInfoRemoteSearchQuery.fromJson(
     Map<String, dynamic> json,
@@ -348,10 +351,10 @@ class _PersonLookupInfoRemoteSearchQuery
 
   @override
   @JsonKey(name: 'SearchInfo')
-  final PersonLookupInfo searchInfo;
+  final PersonLookupInfo? searchInfo;
   @override
   @JsonKey(name: 'ItemId')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the provider name to search within if set.
   @override
@@ -361,7 +364,7 @@ class _PersonLookupInfoRemoteSearchQuery
   /// Gets or sets a value indicating whether disabled providers should be included.
   @override
   @JsonKey(name: 'IncludeDisabledProviders')
-  final bool includeDisabledProviders;
+  final bool? includeDisabledProviders;
 
   /// Create a copy of PersonLookupInfoRemoteSearchQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -424,14 +427,14 @@ abstract mixin class _$PersonLookupInfoRemoteSearchQueryCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'SearchInfo') PersonLookupInfo searchInfo,
-    @JsonKey(name: 'ItemId') String itemId,
+    @JsonKey(name: 'SearchInfo') PersonLookupInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
     @JsonKey(name: 'SearchProviderName') String? searchProviderName,
-    @JsonKey(name: 'IncludeDisabledProviders') bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   });
 
   @override
-  $PersonLookupInfoCopyWith<$Res> get searchInfo;
+  $PersonLookupInfoCopyWith<$Res>? get searchInfo;
 }
 
 /// @nodoc
@@ -447,29 +450,29 @@ class __$PersonLookupInfoRemoteSearchQueryCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? searchInfo = null,
-    Object? itemId = null,
+    Object? searchInfo = freezed,
+    Object? itemId = freezed,
     Object? searchProviderName = freezed,
-    Object? includeDisabledProviders = null,
+    Object? includeDisabledProviders = freezed,
   }) {
     return _then(
       _PersonLookupInfoRemoteSearchQuery(
-        searchInfo: null == searchInfo
+        searchInfo: freezed == searchInfo
             ? _self.searchInfo
             : searchInfo // ignore: cast_nullable_to_non_nullable
-                  as PersonLookupInfo,
-        itemId: null == itemId
+                  as PersonLookupInfo?,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         searchProviderName: freezed == searchProviderName
             ? _self.searchProviderName
             : searchProviderName // ignore: cast_nullable_to_non_nullable
                   as String?,
-        includeDisabledProviders: null == includeDisabledProviders
+        includeDisabledProviders: freezed == includeDisabledProviders
             ? _self.includeDisabledProviders
             : includeDisabledProviders // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                  as bool?,
       ),
     );
   }
@@ -478,8 +481,12 @@ class __$PersonLookupInfoRemoteSearchQueryCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PersonLookupInfoCopyWith<$Res> get searchInfo {
-    return $PersonLookupInfoCopyWith<$Res>(_self.searchInfo, (value) {
+  $PersonLookupInfoCopyWith<$Res>? get searchInfo {
+    if (_self.searchInfo == null) {
+      return null;
+    }
+
+    return $PersonLookupInfoCopyWith<$Res>(_self.searchInfo!, (value) {
       return _then(_self.copyWith(searchInfo: value));
     });
   }

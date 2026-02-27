@@ -20,28 +20,25 @@ abstract class MetadataEditorInfo with _$MetadataEditorInfo {
   const factory MetadataEditorInfo({
     /// Gets or sets the parental rating options.
     @JsonKey(name: 'ParentalRatingOptions')
-    required List<ParentalRating> parentalRatingOptions,
+    List<ParentalRating>? parentalRatingOptions,
 
     /// Gets or sets the countries.
-    @JsonKey(name: 'Countries')
-    required List<CountryInfo> countries,
+    @JsonKey(name: 'Countries') List<CountryInfo>? countries,
 
     /// Gets or sets the cultures.
-    @JsonKey(name: 'Cultures')
-    required List<CultureDto> cultures,
+    @JsonKey(name: 'Cultures') List<CultureDto>? cultures,
 
     /// Gets or sets the external id infos.
-    @JsonKey(name: 'ExternalIdInfos')
-    required List<ExternalIdInfo> externalIdInfos,
+    @JsonKey(name: 'ExternalIdInfos') List<ExternalIdInfo>? externalIdInfos,
 
     /// Gets or sets the content type.
-    @JsonKey(name: 'ContentType')
-    required MetadataEditorInfoContentType? contentType,
+    @JsonKey(name: 'ContentType') MetadataEditorInfoContentType? contentType,
 
     /// Gets or sets the content type options.
     @JsonKey(name: 'ContentTypeOptions')
-    required List<NameValuePair> contentTypeOptions,
+    List<NameValuePair>? contentTypeOptions,
   }) = _MetadataEditorInfo;
-  
-  factory MetadataEditorInfo.fromJson(Map<String, Object?> json) => _$MetadataEditorInfoFromJson(json);
+
+  factory MetadataEditorInfo.fromJson(Map<String, Object?> json) =>
+      _$MetadataEditorInfoFromJson(json);
 }

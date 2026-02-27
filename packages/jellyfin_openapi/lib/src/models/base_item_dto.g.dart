@@ -10,7 +10,7 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   isHd: json['IsHD'] as bool?,
   originalTitle: json['OriginalTitle'] as String?,
   serverId: json['ServerId'] as String?,
-  id: json['Id'] as String,
+  id: json['Id'] as String?,
   etag: json['Etag'] as String?,
   sourceType: json['SourceType'] as String?,
   playlistItemId: json['PlaylistItemId'] as String?,
@@ -88,7 +88,7 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   name: json['Name'] as String?,
   isFolder: json['IsFolder'] as bool?,
   parentId: json['ParentId'] as String?,
-  type: $enumDecode(_$BaseItemDtoTypeEnumMap, json['Type']),
+  type: $enumDecodeNullable(_$BaseItemDtoTypeEnumMap, json['Type']),
   people: (json['People'] as List<dynamic>?)
       ?.map((e) => BaseItemPerson.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -104,7 +104,9 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
       ?.map((e) => e as String)
       .toList(),
   localTrailerCount: (json['LocalTrailerCount'] as num?)?.toInt(),
-  userData: UserItemDataDto.fromJson(json['UserData'] as Map<String, dynamic>),
+  userData: json['UserData'] == null
+      ? null
+      : UserItemDataDto.fromJson(json['UserData'] as Map<String, dynamic>),
   recursiveItemCount: (json['RecursiveItemCount'] as num?)?.toInt(),
   childCount: (json['ChildCount'] as num?)?.toInt(),
   seriesName: json['SeriesName'] as String?,
@@ -170,9 +172,9 @@ _BaseItemDto _$BaseItemDtoFromJson(Map<String, dynamic> json) => _BaseItemDto(
   seriesStudio: json['SeriesStudio'] as String?,
   parentThumbItemId: json['ParentThumbItemId'] as String?,
   parentThumbImageTag: json['ParentThumbImageTag'] as String?,
-  currentProgram: BaseItemDto.fromJson(
-    json['CurrentProgram'] as Map<String, dynamic>,
-  ),
+  currentProgram: json['CurrentProgram'] == null
+      ? null
+      : BaseItemDto.fromJson(json['CurrentProgram'] as Map<String, dynamic>),
   parentPrimaryImageTag: json['ParentPrimaryImageTag'] as String?,
   chapters: (json['Chapters'] as List<dynamic>?)
       ?.map((e) => ChapterInfo.fromJson(e as Map<String, dynamic>))
@@ -259,7 +261,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'IsHD': ?instance.isHd,
   'OriginalTitle': ?instance.originalTitle,
   'ServerId': ?instance.serverId,
-  'Id': instance.id,
+  'Id': ?instance.id,
   'Etag': ?instance.etag,
   'SourceType': ?instance.sourceType,
   'PlaylistItemId': ?instance.playlistItemId,
@@ -310,7 +312,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'Name': ?instance.name,
   'IsFolder': ?instance.isFolder,
   'ParentId': ?instance.parentId,
-  'Type': instance.type.toJson(),
+  'Type': ?instance.type?.toJson(),
   'People': ?instance.people?.map((e) => e.toJson()).toList(),
   'Studios': ?instance.studios?.map((e) => e.toJson()).toList(),
   'GenreItems': ?instance.genreItems?.map((e) => e.toJson()).toList(),
@@ -318,7 +320,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'ParentBackdropItemId': ?instance.parentBackdropItemId,
   'ParentBackdropImageTags': ?instance.parentBackdropImageTags,
   'LocalTrailerCount': ?instance.localTrailerCount,
-  'UserData': instance.userData.toJson(),
+  'UserData': ?instance.userData?.toJson(),
   'RecursiveItemCount': ?instance.recursiveItemCount,
   'ChildCount': ?instance.childCount,
   'SeriesName': ?instance.seriesName,
@@ -357,7 +359,7 @@ Map<String, dynamic> _$BaseItemDtoToJson(
   'SeriesStudio': ?instance.seriesStudio,
   'ParentThumbItemId': ?instance.parentThumbItemId,
   'ParentThumbImageTag': ?instance.parentThumbImageTag,
-  'CurrentProgram': instance.currentProgram.toJson(),
+  'CurrentProgram': ?instance.currentProgram?.toJson(),
   'ParentPrimaryImageTag': ?instance.parentPrimaryImageTag,
   'Chapters': ?instance.chapters?.map((e) => e.toJson()).toList(),
   'Trickplay': ?instance.trickplay?.map(

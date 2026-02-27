@@ -13,18 +13,22 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SearchHint {
+  /// Gets or sets the type of the media.
+  @JsonKey(name: 'MediaType')
+  SearchHintMediaType get mediaType;
+
   /// Gets or sets the item id.
   @JsonKey(name: 'ItemId')
   @Deprecated('This is marked as deprecated')
-  String get itemId;
+  String? get itemId;
 
   /// Gets or sets the item id.
   @JsonKey(name: 'Id')
-  String get id;
+  String? get id;
 
   /// Gets or sets the name.
   @JsonKey(name: 'Name')
-  String get name;
+  String? get name;
 
   /// Gets or sets the matched term.
   @JsonKey(name: 'MatchedTerm')
@@ -64,7 +68,7 @@ mixin _$SearchHint {
 
   /// Gets or sets the type.
   @JsonKey(name: 'Type')
-  SearchHintType get type;
+  SearchHintType? get type;
 
   /// Gets or sets a value indicating whether this instance is folder.
   @JsonKey(name: 'IsFolder')
@@ -104,7 +108,7 @@ mixin _$SearchHint {
 
   /// Gets or sets the artists.
   @JsonKey(name: 'Artists')
-  List<String> get artists;
+  List<String>? get artists;
 
   /// Gets or sets the song count.
   @JsonKey(name: 'SongCount')
@@ -126,10 +130,6 @@ mixin _$SearchHint {
   @JsonKey(name: 'PrimaryImageAspectRatio')
   double? get primaryImageAspectRatio;
 
-  /// Gets or sets the type of the media.
-  @JsonKey(name: 'MediaType')
-  SearchHintMediaType get mediaType;
-
   /// Create a copy of SearchHint
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -145,6 +145,8 @@ mixin _$SearchHint {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SearchHint &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
             (identical(other.itemId, itemId) || other.itemId == itemId) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
@@ -193,15 +195,14 @@ mixin _$SearchHint {
                   other.primaryImageAspectRatio,
                   primaryImageAspectRatio,
                 ) ||
-                other.primaryImageAspectRatio == primaryImageAspectRatio) &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType));
+                other.primaryImageAspectRatio == primaryImageAspectRatio));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
+    mediaType,
     itemId,
     id,
     name,
@@ -230,12 +231,11 @@ mixin _$SearchHint {
     channelId,
     channelName,
     primaryImageAspectRatio,
-    mediaType,
   ]);
 
   @override
   String toString() {
-    return 'SearchHint(itemId: $itemId, id: $id, name: $name, matchedTerm: $matchedTerm, indexNumber: $indexNumber, productionYear: $productionYear, parentIndexNumber: $parentIndexNumber, primaryImageTag: $primaryImageTag, thumbImageTag: $thumbImageTag, thumbImageItemId: $thumbImageItemId, backdropImageTag: $backdropImageTag, backdropImageItemId: $backdropImageItemId, type: $type, isFolder: $isFolder, runTimeTicks: $runTimeTicks, startDate: $startDate, endDate: $endDate, series: $series, status: $status, album: $album, albumId: $albumId, albumArtist: $albumArtist, artists: $artists, songCount: $songCount, episodeCount: $episodeCount, channelId: $channelId, channelName: $channelName, primaryImageAspectRatio: $primaryImageAspectRatio, mediaType: $mediaType)';
+    return 'SearchHint(mediaType: $mediaType, itemId: $itemId, id: $id, name: $name, matchedTerm: $matchedTerm, indexNumber: $indexNumber, productionYear: $productionYear, parentIndexNumber: $parentIndexNumber, primaryImageTag: $primaryImageTag, thumbImageTag: $thumbImageTag, thumbImageItemId: $thumbImageItemId, backdropImageTag: $backdropImageTag, backdropImageItemId: $backdropImageItemId, type: $type, isFolder: $isFolder, runTimeTicks: $runTimeTicks, startDate: $startDate, endDate: $endDate, series: $series, status: $status, album: $album, albumId: $albumId, albumArtist: $albumArtist, artists: $artists, songCount: $songCount, episodeCount: $episodeCount, channelId: $channelId, channelName: $channelName, primaryImageAspectRatio: $primaryImageAspectRatio)';
   }
 }
 
@@ -247,11 +247,12 @@ abstract mixin class $SearchHintCopyWith<$Res> {
   ) = _$SearchHintCopyWithImpl;
   @useResult
   $Res call({
+    @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
     @JsonKey(name: 'ItemId')
     @Deprecated('This is marked as deprecated')
-    String itemId,
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Name') String name,
+    String? itemId,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'MatchedTerm') String? matchedTerm,
     @JsonKey(name: 'IndexNumber') int? indexNumber,
     @JsonKey(name: 'ProductionYear') int? productionYear,
@@ -261,7 +262,7 @@ abstract mixin class $SearchHintCopyWith<$Res> {
     @JsonKey(name: 'ThumbImageItemId') String? thumbImageItemId,
     @JsonKey(name: 'BackdropImageTag') String? backdropImageTag,
     @JsonKey(name: 'BackdropImageItemId') String? backdropImageItemId,
-    @JsonKey(name: 'Type') SearchHintType type,
+    @JsonKey(name: 'Type') SearchHintType? type,
     @JsonKey(name: 'IsFolder') bool? isFolder,
     @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'StartDate') DateTime? startDate,
@@ -271,13 +272,12 @@ abstract mixin class $SearchHintCopyWith<$Res> {
     @JsonKey(name: 'Album') String? album,
     @JsonKey(name: 'AlbumId') String? albumId,
     @JsonKey(name: 'AlbumArtist') String? albumArtist,
-    @JsonKey(name: 'Artists') List<String> artists,
+    @JsonKey(name: 'Artists') List<String>? artists,
     @JsonKey(name: 'SongCount') int? songCount,
     @JsonKey(name: 'EpisodeCount') int? episodeCount,
     @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
-    @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
   });
 }
 
@@ -293,9 +293,10 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? itemId = null,
-    Object? id = null,
-    Object? name = null,
+    Object? mediaType = null,
+    Object? itemId = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? matchedTerm = freezed,
     Object? indexNumber = freezed,
     Object? productionYear = freezed,
@@ -305,7 +306,7 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
     Object? thumbImageItemId = freezed,
     Object? backdropImageTag = freezed,
     Object? backdropImageItemId = freezed,
-    Object? type = null,
+    Object? type = freezed,
     Object? isFolder = freezed,
     Object? runTimeTicks = freezed,
     Object? startDate = freezed,
@@ -315,28 +316,31 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
     Object? album = freezed,
     Object? albumId = freezed,
     Object? albumArtist = freezed,
-    Object? artists = null,
+    Object? artists = freezed,
     Object? songCount = freezed,
     Object? episodeCount = freezed,
     Object? channelId = freezed,
     Object? channelName = freezed,
     Object? primaryImageAspectRatio = freezed,
-    Object? mediaType = null,
   }) {
     return _then(
       _self.copyWith(
-        itemId: null == itemId
+        mediaType: null == mediaType
+            ? _self.mediaType
+            : mediaType // ignore: cast_nullable_to_non_nullable
+                  as SearchHintMediaType,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        id: null == id
+                  as String?,
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
+                  as String?,
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         matchedTerm: freezed == matchedTerm
             ? _self.matchedTerm
             : matchedTerm // ignore: cast_nullable_to_non_nullable
@@ -373,10 +377,10 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
             ? _self.backdropImageItemId
             : backdropImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as SearchHintType,
+                  as SearchHintType?,
         isFolder: freezed == isFolder
             ? _self.isFolder
             : isFolder // ignore: cast_nullable_to_non_nullable
@@ -413,10 +417,10 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
             ? _self.albumArtist
             : albumArtist // ignore: cast_nullable_to_non_nullable
                   as String?,
-        artists: null == artists
+        artists: freezed == artists
             ? _self.artists
             : artists // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         songCount: freezed == songCount
             ? _self.songCount
             : songCount // ignore: cast_nullable_to_non_nullable
@@ -437,10 +441,6 @@ class _$SearchHintCopyWithImpl<$Res> implements $SearchHintCopyWith<$Res> {
             ? _self.primaryImageAspectRatio
             : primaryImageAspectRatio // ignore: cast_nullable_to_non_nullable
                   as double?,
-        mediaType: null == mediaType
-            ? _self.mediaType
-            : mediaType // ignore: cast_nullable_to_non_nullable
-                  as SearchHintMediaType,
       ),
     );
   }
@@ -540,11 +540,12 @@ extension SearchHintPatterns on SearchHint {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
       @JsonKey(name: 'ItemId')
       @Deprecated('This is marked as deprecated')
-      String itemId,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Name') String name,
+      String? itemId,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'MatchedTerm') String? matchedTerm,
       @JsonKey(name: 'IndexNumber') int? indexNumber,
       @JsonKey(name: 'ProductionYear') int? productionYear,
@@ -554,7 +555,7 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'ThumbImageItemId') String? thumbImageItemId,
       @JsonKey(name: 'BackdropImageTag') String? backdropImageTag,
       @JsonKey(name: 'BackdropImageItemId') String? backdropImageItemId,
-      @JsonKey(name: 'Type') SearchHintType type,
+      @JsonKey(name: 'Type') SearchHintType? type,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'StartDate') DateTime? startDate,
@@ -564,13 +565,12 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'Album') String? album,
       @JsonKey(name: 'AlbumId') String? albumId,
       @JsonKey(name: 'AlbumArtist') String? albumArtist,
-      @JsonKey(name: 'Artists') List<String> artists,
+      @JsonKey(name: 'Artists') List<String>? artists,
       @JsonKey(name: 'SongCount') int? songCount,
       @JsonKey(name: 'EpisodeCount') int? episodeCount,
       @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
-      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
     )?
     $default, {
     required TResult orElse(),
@@ -579,6 +579,7 @@ extension SearchHintPatterns on SearchHint {
     switch (_that) {
       case _SearchHint() when $default != null:
         return $default(
+          _that.mediaType,
           _that.itemId,
           _that.id,
           _that.name,
@@ -607,7 +608,6 @@ extension SearchHintPatterns on SearchHint {
           _that.channelId,
           _that.channelName,
           _that.primaryImageAspectRatio,
-          _that.mediaType,
         );
       case _:
         return orElse();
@@ -630,11 +630,12 @@ extension SearchHintPatterns on SearchHint {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
       @JsonKey(name: 'ItemId')
       @Deprecated('This is marked as deprecated')
-      String itemId,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Name') String name,
+      String? itemId,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'MatchedTerm') String? matchedTerm,
       @JsonKey(name: 'IndexNumber') int? indexNumber,
       @JsonKey(name: 'ProductionYear') int? productionYear,
@@ -644,7 +645,7 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'ThumbImageItemId') String? thumbImageItemId,
       @JsonKey(name: 'BackdropImageTag') String? backdropImageTag,
       @JsonKey(name: 'BackdropImageItemId') String? backdropImageItemId,
-      @JsonKey(name: 'Type') SearchHintType type,
+      @JsonKey(name: 'Type') SearchHintType? type,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'StartDate') DateTime? startDate,
@@ -654,13 +655,12 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'Album') String? album,
       @JsonKey(name: 'AlbumId') String? albumId,
       @JsonKey(name: 'AlbumArtist') String? albumArtist,
-      @JsonKey(name: 'Artists') List<String> artists,
+      @JsonKey(name: 'Artists') List<String>? artists,
       @JsonKey(name: 'SongCount') int? songCount,
       @JsonKey(name: 'EpisodeCount') int? episodeCount,
       @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
-      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
     )
     $default,
   ) {
@@ -668,6 +668,7 @@ extension SearchHintPatterns on SearchHint {
     switch (_that) {
       case _SearchHint():
         return $default(
+          _that.mediaType,
           _that.itemId,
           _that.id,
           _that.name,
@@ -696,7 +697,6 @@ extension SearchHintPatterns on SearchHint {
           _that.channelId,
           _that.channelName,
           _that.primaryImageAspectRatio,
-          _that.mediaType,
         );
       case _:
         throw StateError('Unexpected subclass');
@@ -718,11 +718,12 @@ extension SearchHintPatterns on SearchHint {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
       @JsonKey(name: 'ItemId')
       @Deprecated('This is marked as deprecated')
-      String itemId,
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'Name') String name,
+      String? itemId,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'Name') String? name,
       @JsonKey(name: 'MatchedTerm') String? matchedTerm,
       @JsonKey(name: 'IndexNumber') int? indexNumber,
       @JsonKey(name: 'ProductionYear') int? productionYear,
@@ -732,7 +733,7 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'ThumbImageItemId') String? thumbImageItemId,
       @JsonKey(name: 'BackdropImageTag') String? backdropImageTag,
       @JsonKey(name: 'BackdropImageItemId') String? backdropImageItemId,
-      @JsonKey(name: 'Type') SearchHintType type,
+      @JsonKey(name: 'Type') SearchHintType? type,
       @JsonKey(name: 'IsFolder') bool? isFolder,
       @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
       @JsonKey(name: 'StartDate') DateTime? startDate,
@@ -742,13 +743,12 @@ extension SearchHintPatterns on SearchHint {
       @JsonKey(name: 'Album') String? album,
       @JsonKey(name: 'AlbumId') String? albumId,
       @JsonKey(name: 'AlbumArtist') String? albumArtist,
-      @JsonKey(name: 'Artists') List<String> artists,
+      @JsonKey(name: 'Artists') List<String>? artists,
       @JsonKey(name: 'SongCount') int? songCount,
       @JsonKey(name: 'EpisodeCount') int? episodeCount,
       @JsonKey(name: 'ChannelId') String? channelId,
       @JsonKey(name: 'ChannelName') String? channelName,
       @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
-      @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
     )?
     $default,
   ) {
@@ -756,6 +756,7 @@ extension SearchHintPatterns on SearchHint {
     switch (_that) {
       case _SearchHint() when $default != null:
         return $default(
+          _that.mediaType,
           _that.itemId,
           _that.id,
           _that.name,
@@ -784,7 +785,6 @@ extension SearchHintPatterns on SearchHint {
           _that.channelId,
           _that.channelName,
           _that.primaryImageAspectRatio,
-          _that.mediaType,
         );
       case _:
         return null;
@@ -796,57 +796,61 @@ extension SearchHintPatterns on SearchHint {
 @JsonSerializable()
 class _SearchHint implements SearchHint {
   const _SearchHint({
+    @JsonKey(name: 'MediaType') this.mediaType = SearchHintMediaType.unknown,
     @JsonKey(name: 'ItemId')
     @Deprecated('This is marked as deprecated')
-    required this.itemId,
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'MatchedTerm') required this.matchedTerm,
-    @JsonKey(name: 'IndexNumber') required this.indexNumber,
-    @JsonKey(name: 'ProductionYear') required this.productionYear,
-    @JsonKey(name: 'ParentIndexNumber') required this.parentIndexNumber,
-    @JsonKey(name: 'PrimaryImageTag') required this.primaryImageTag,
-    @JsonKey(name: 'ThumbImageTag') required this.thumbImageTag,
-    @JsonKey(name: 'ThumbImageItemId') required this.thumbImageItemId,
-    @JsonKey(name: 'BackdropImageTag') required this.backdropImageTag,
-    @JsonKey(name: 'BackdropImageItemId') required this.backdropImageItemId,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'IsFolder') required this.isFolder,
-    @JsonKey(name: 'RunTimeTicks') required this.runTimeTicks,
-    @JsonKey(name: 'StartDate') required this.startDate,
-    @JsonKey(name: 'EndDate') required this.endDate,
-    @JsonKey(name: 'Series') required this.series,
-    @JsonKey(name: 'Status') required this.status,
-    @JsonKey(name: 'Album') required this.album,
-    @JsonKey(name: 'AlbumId') required this.albumId,
-    @JsonKey(name: 'AlbumArtist') required this.albumArtist,
-    @JsonKey(name: 'Artists') required final List<String> artists,
-    @JsonKey(name: 'SongCount') required this.songCount,
-    @JsonKey(name: 'EpisodeCount') required this.episodeCount,
-    @JsonKey(name: 'ChannelId') required this.channelId,
-    @JsonKey(name: 'ChannelName') required this.channelName,
-    @JsonKey(name: 'PrimaryImageAspectRatio')
-    required this.primaryImageAspectRatio,
-    @JsonKey(name: 'MediaType') this.mediaType = SearchHintMediaType.unknown,
+    this.itemId,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'MatchedTerm') this.matchedTerm,
+    @JsonKey(name: 'IndexNumber') this.indexNumber,
+    @JsonKey(name: 'ProductionYear') this.productionYear,
+    @JsonKey(name: 'ParentIndexNumber') this.parentIndexNumber,
+    @JsonKey(name: 'PrimaryImageTag') this.primaryImageTag,
+    @JsonKey(name: 'ThumbImageTag') this.thumbImageTag,
+    @JsonKey(name: 'ThumbImageItemId') this.thumbImageItemId,
+    @JsonKey(name: 'BackdropImageTag') this.backdropImageTag,
+    @JsonKey(name: 'BackdropImageItemId') this.backdropImageItemId,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'IsFolder') this.isFolder,
+    @JsonKey(name: 'RunTimeTicks') this.runTimeTicks,
+    @JsonKey(name: 'StartDate') this.startDate,
+    @JsonKey(name: 'EndDate') this.endDate,
+    @JsonKey(name: 'Series') this.series,
+    @JsonKey(name: 'Status') this.status,
+    @JsonKey(name: 'Album') this.album,
+    @JsonKey(name: 'AlbumId') this.albumId,
+    @JsonKey(name: 'AlbumArtist') this.albumArtist,
+    @JsonKey(name: 'Artists') final List<String>? artists,
+    @JsonKey(name: 'SongCount') this.songCount,
+    @JsonKey(name: 'EpisodeCount') this.episodeCount,
+    @JsonKey(name: 'ChannelId') this.channelId,
+    @JsonKey(name: 'ChannelName') this.channelName,
+    @JsonKey(name: 'PrimaryImageAspectRatio') this.primaryImageAspectRatio,
   }) : _artists = artists;
   factory _SearchHint.fromJson(Map<String, dynamic> json) =>
       _$SearchHintFromJson(json);
+
+  /// Gets or sets the type of the media.
+  @override
+  @JsonKey(name: 'MediaType')
+  final SearchHintMediaType mediaType;
 
   /// Gets or sets the item id.
   @override
   @JsonKey(name: 'ItemId')
   @Deprecated('This is marked as deprecated')
-  final String itemId;
+  final String? itemId;
 
   /// Gets or sets the item id.
   @override
   @JsonKey(name: 'Id')
-  final String id;
+  final String? id;
 
   /// Gets or sets the name.
   @override
   @JsonKey(name: 'Name')
-  final String name;
+  final String? name;
 
   /// Gets or sets the matched term.
   @override
@@ -896,7 +900,7 @@ class _SearchHint implements SearchHint {
   /// Gets or sets the type.
   @override
   @JsonKey(name: 'Type')
-  final SearchHintType type;
+  final SearchHintType? type;
 
   /// Gets or sets a value indicating whether this instance is folder.
   @override
@@ -944,15 +948,17 @@ class _SearchHint implements SearchHint {
   final String? albumArtist;
 
   /// Gets or sets the artists.
-  final List<String> _artists;
+  final List<String>? _artists;
 
   /// Gets or sets the artists.
   @override
   @JsonKey(name: 'Artists')
-  List<String> get artists {
+  List<String>? get artists {
+    final value = _artists;
+    if (value == null) return null;
     if (_artists is EqualUnmodifiableListView) return _artists;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_artists);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Gets or sets the song count.
@@ -980,11 +986,6 @@ class _SearchHint implements SearchHint {
   @JsonKey(name: 'PrimaryImageAspectRatio')
   final double? primaryImageAspectRatio;
 
-  /// Gets or sets the type of the media.
-  @override
-  @JsonKey(name: 'MediaType')
-  final SearchHintMediaType mediaType;
-
   /// Create a copy of SearchHint
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -1003,6 +1004,8 @@ class _SearchHint implements SearchHint {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SearchHint &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
             (identical(other.itemId, itemId) || other.itemId == itemId) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
@@ -1051,15 +1054,14 @@ class _SearchHint implements SearchHint {
                   other.primaryImageAspectRatio,
                   primaryImageAspectRatio,
                 ) ||
-                other.primaryImageAspectRatio == primaryImageAspectRatio) &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType));
+                other.primaryImageAspectRatio == primaryImageAspectRatio));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
+    mediaType,
     itemId,
     id,
     name,
@@ -1088,12 +1090,11 @@ class _SearchHint implements SearchHint {
     channelId,
     channelName,
     primaryImageAspectRatio,
-    mediaType,
   ]);
 
   @override
   String toString() {
-    return 'SearchHint(itemId: $itemId, id: $id, name: $name, matchedTerm: $matchedTerm, indexNumber: $indexNumber, productionYear: $productionYear, parentIndexNumber: $parentIndexNumber, primaryImageTag: $primaryImageTag, thumbImageTag: $thumbImageTag, thumbImageItemId: $thumbImageItemId, backdropImageTag: $backdropImageTag, backdropImageItemId: $backdropImageItemId, type: $type, isFolder: $isFolder, runTimeTicks: $runTimeTicks, startDate: $startDate, endDate: $endDate, series: $series, status: $status, album: $album, albumId: $albumId, albumArtist: $albumArtist, artists: $artists, songCount: $songCount, episodeCount: $episodeCount, channelId: $channelId, channelName: $channelName, primaryImageAspectRatio: $primaryImageAspectRatio, mediaType: $mediaType)';
+    return 'SearchHint(mediaType: $mediaType, itemId: $itemId, id: $id, name: $name, matchedTerm: $matchedTerm, indexNumber: $indexNumber, productionYear: $productionYear, parentIndexNumber: $parentIndexNumber, primaryImageTag: $primaryImageTag, thumbImageTag: $thumbImageTag, thumbImageItemId: $thumbImageItemId, backdropImageTag: $backdropImageTag, backdropImageItemId: $backdropImageItemId, type: $type, isFolder: $isFolder, runTimeTicks: $runTimeTicks, startDate: $startDate, endDate: $endDate, series: $series, status: $status, album: $album, albumId: $albumId, albumArtist: $albumArtist, artists: $artists, songCount: $songCount, episodeCount: $episodeCount, channelId: $channelId, channelName: $channelName, primaryImageAspectRatio: $primaryImageAspectRatio)';
   }
 }
 
@@ -1107,11 +1108,12 @@ abstract mixin class _$SearchHintCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
     @JsonKey(name: 'ItemId')
     @Deprecated('This is marked as deprecated')
-    String itemId,
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'Name') String name,
+    String? itemId,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'Name') String? name,
     @JsonKey(name: 'MatchedTerm') String? matchedTerm,
     @JsonKey(name: 'IndexNumber') int? indexNumber,
     @JsonKey(name: 'ProductionYear') int? productionYear,
@@ -1121,7 +1123,7 @@ abstract mixin class _$SearchHintCopyWith<$Res>
     @JsonKey(name: 'ThumbImageItemId') String? thumbImageItemId,
     @JsonKey(name: 'BackdropImageTag') String? backdropImageTag,
     @JsonKey(name: 'BackdropImageItemId') String? backdropImageItemId,
-    @JsonKey(name: 'Type') SearchHintType type,
+    @JsonKey(name: 'Type') SearchHintType? type,
     @JsonKey(name: 'IsFolder') bool? isFolder,
     @JsonKey(name: 'RunTimeTicks') int? runTimeTicks,
     @JsonKey(name: 'StartDate') DateTime? startDate,
@@ -1131,13 +1133,12 @@ abstract mixin class _$SearchHintCopyWith<$Res>
     @JsonKey(name: 'Album') String? album,
     @JsonKey(name: 'AlbumId') String? albumId,
     @JsonKey(name: 'AlbumArtist') String? albumArtist,
-    @JsonKey(name: 'Artists') List<String> artists,
+    @JsonKey(name: 'Artists') List<String>? artists,
     @JsonKey(name: 'SongCount') int? songCount,
     @JsonKey(name: 'EpisodeCount') int? episodeCount,
     @JsonKey(name: 'ChannelId') String? channelId,
     @JsonKey(name: 'ChannelName') String? channelName,
     @JsonKey(name: 'PrimaryImageAspectRatio') double? primaryImageAspectRatio,
-    @JsonKey(name: 'MediaType') SearchHintMediaType mediaType,
   });
 }
 
@@ -1153,9 +1154,10 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? itemId = null,
-    Object? id = null,
-    Object? name = null,
+    Object? mediaType = null,
+    Object? itemId = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? matchedTerm = freezed,
     Object? indexNumber = freezed,
     Object? productionYear = freezed,
@@ -1165,7 +1167,7 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
     Object? thumbImageItemId = freezed,
     Object? backdropImageTag = freezed,
     Object? backdropImageItemId = freezed,
-    Object? type = null,
+    Object? type = freezed,
     Object? isFolder = freezed,
     Object? runTimeTicks = freezed,
     Object? startDate = freezed,
@@ -1175,28 +1177,31 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
     Object? album = freezed,
     Object? albumId = freezed,
     Object? albumArtist = freezed,
-    Object? artists = null,
+    Object? artists = freezed,
     Object? songCount = freezed,
     Object? episodeCount = freezed,
     Object? channelId = freezed,
     Object? channelName = freezed,
     Object? primaryImageAspectRatio = freezed,
-    Object? mediaType = null,
   }) {
     return _then(
       _SearchHint(
-        itemId: null == itemId
+        mediaType: null == mediaType
+            ? _self.mediaType
+            : mediaType // ignore: cast_nullable_to_non_nullable
+                  as SearchHintMediaType,
+        itemId: freezed == itemId
             ? _self.itemId
             : itemId // ignore: cast_nullable_to_non_nullable
-                  as String,
-        id: null == id
+                  as String?,
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
+                  as String?,
+        name: freezed == name
             ? _self.name
             : name // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         matchedTerm: freezed == matchedTerm
             ? _self.matchedTerm
             : matchedTerm // ignore: cast_nullable_to_non_nullable
@@ -1233,10 +1238,10 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
             ? _self.backdropImageItemId
             : backdropImageItemId // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as SearchHintType,
+                  as SearchHintType?,
         isFolder: freezed == isFolder
             ? _self.isFolder
             : isFolder // ignore: cast_nullable_to_non_nullable
@@ -1273,10 +1278,10 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
             ? _self.albumArtist
             : albumArtist // ignore: cast_nullable_to_non_nullable
                   as String?,
-        artists: null == artists
+        artists: freezed == artists
             ? _self._artists
             : artists // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                  as List<String>?,
         songCount: freezed == songCount
             ? _self.songCount
             : songCount // ignore: cast_nullable_to_non_nullable
@@ -1297,10 +1302,6 @@ class __$SearchHintCopyWithImpl<$Res> implements _$SearchHintCopyWith<$Res> {
             ? _self.primaryImageAspectRatio
             : primaryImageAspectRatio // ignore: cast_nullable_to_non_nullable
                   as double?,
-        mediaType: null == mediaType
-            ? _self.mediaType
-            : mediaType // ignore: cast_nullable_to_non_nullable
-                  as SearchHintMediaType,
       ),
     );
   }

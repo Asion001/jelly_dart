@@ -140,7 +140,8 @@ abstract class DynamicHlsClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -298,7 +299,8 @@ abstract class DynamicHlsClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -458,7 +460,8 @@ abstract class DynamicHlsClient {
     @Query('maxAudioBitDepth') int? maxAudioBitDepth,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -503,7 +506,8 @@ abstract class DynamicHlsClient {
     @Query('videoStreamIndex') int? videoStreamIndex,
     @Query('context') Context? context,
     @Query('maxRefFrames') int? maxRefFrames,
-    @Query('enableAdaptiveBitrateStreaming') bool? enableAdaptiveBitrateStreaming = false,
+    @Query('enableAdaptiveBitrateStreaming')
+    bool? enableAdaptiveBitrateStreaming = false,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
     @DioOptions() RequestOptions? options,
   });
@@ -619,7 +623,8 @@ abstract class DynamicHlsClient {
     @Query('maxAudioBitDepth') int? maxAudioBitDepth,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -664,7 +669,8 @@ abstract class DynamicHlsClient {
     @Query('videoStreamIndex') int? videoStreamIndex,
     @Query('context') Context? context,
     @Query('maxRefFrames') int? maxRefFrames,
-    @Query('enableAdaptiveBitrateStreaming') bool? enableAdaptiveBitrateStreaming = false,
+    @Query('enableAdaptiveBitrateStreaming')
+    bool? enableAdaptiveBitrateStreaming = false,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
     @DioOptions() RequestOptions? options,
   });
@@ -797,7 +803,8 @@ abstract class DynamicHlsClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -844,7 +851,8 @@ abstract class DynamicHlsClient {
     @Query('context') Context? context,
     @Query('subtitleStreamIndex') int? subtitleStreamIndex,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding = false,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     @DioOptions() RequestOptions? options,
   });
 
@@ -966,7 +974,8 @@ abstract class DynamicHlsClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -1014,7 +1023,8 @@ abstract class DynamicHlsClient {
     @Query('maxHeight') int? maxHeight,
     @Query('requireAvc') bool? requireAvc,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding = false,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     @DioOptions() RequestOptions? options,
   });
 
@@ -1131,7 +1141,8 @@ abstract class DynamicHlsClient {
     @Query('params') String? params,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -1178,7 +1189,8 @@ abstract class DynamicHlsClient {
     @Query('context') Context? context,
     @Query('subtitleMethod') SubtitleMethod? subtitleMethod,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding = false,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     @DioOptions() RequestOptions? options,
   });
 
@@ -1299,7 +1311,8 @@ abstract class DynamicHlsClient {
     @Query('maxAudioBitDepth') int? maxAudioBitDepth,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -1345,10 +1358,12 @@ abstract class DynamicHlsClient {
     @Query('videoStreamIndex') int? videoStreamIndex,
     @Query('context') Context? context,
     @Query('maxVideoBitDepth') int? maxVideoBitDepth,
-    @Query('enableAdaptiveBitrateStreaming') bool? enableAdaptiveBitrateStreaming = false,
+    @Query('enableAdaptiveBitrateStreaming')
+    bool? enableAdaptiveBitrateStreaming = false,
     @Query('enableTrickplay') bool? enableTrickplay = true,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding = false,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     @DioOptions() RequestOptions? options,
   });
 
@@ -1469,7 +1484,8 @@ abstract class DynamicHlsClient {
     @Query('maxAudioBitDepth') int? maxAudioBitDepth,
     @Query('tag') String? tag,
     @Deprecated('This is marked as deprecated')
-    @Query('deviceProfileId') String? deviceProfileId,
+    @Query('deviceProfileId')
+    String? deviceProfileId,
     @Query('playSessionId') String? playSessionId,
     @Query('segmentContainer') String? segmentContainer,
     @Query('segmentLength') int? segmentLength,
@@ -1515,10 +1531,12 @@ abstract class DynamicHlsClient {
     @Query('videoStreamIndex') int? videoStreamIndex,
     @Query('context') Context? context,
     @Query('maxVideoBitDepth') int? maxVideoBitDepth,
-    @Query('enableAdaptiveBitrateStreaming') bool? enableAdaptiveBitrateStreaming = false,
+    @Query('enableAdaptiveBitrateStreaming')
+    bool? enableAdaptiveBitrateStreaming = false,
     @Query('enableTrickplay') bool? enableTrickplay = true,
     @Query('enableAudioVbrEncoding') bool? enableAudioVbrEncoding = true,
-    @Query('alwaysBurnInSubtitleWhenTranscoding') bool? alwaysBurnInSubtitleWhenTranscoding = false,
+    @Query('alwaysBurnInSubtitleWhenTranscoding')
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     @DioOptions() RequestOptions? options,
   });
 }

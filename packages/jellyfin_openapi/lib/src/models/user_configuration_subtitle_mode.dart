@@ -17,7 +17,8 @@ enum UserConfigurationSubtitleMode {
   @JsonValue('None')
   none('None'),
   @JsonValue('Smart')
-  smart('Smart');
+  smart('Smart')
+  ;
 
   const UserConfigurationSubtitleMode(this.json);
 
@@ -25,8 +26,10 @@ enum UserConfigurationSubtitleMode {
   dynamic toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to dynamic. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to dynamic. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as dynamic;
   }

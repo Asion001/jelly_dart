@@ -12,21 +12,18 @@ part 'font_file.g.dart';
 abstract class FontFile with _$FontFile {
   const factory FontFile({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    String? name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the size.
-    @JsonKey(name: 'Size')
-    int? size,
+    @JsonKey(name: 'Size') int? size,
 
     /// Gets or sets the date created.
-    @JsonKey(name: 'DateCreated')
-    DateTime? dateCreated,
+    @JsonKey(name: 'DateCreated') DateTime? dateCreated,
 
     /// Gets or sets the date modified.
-    @JsonKey(name: 'DateModified')
-    DateTime? dateModified,
+    @JsonKey(name: 'DateModified') DateTime? dateModified,
   }) = _FontFile;
-  
-  factory FontFile.fromJson(Map<String, Object?> json) => _$FontFileFromJson(json);
+
+  factory FontFile.fromJson(Map<String, Object?> json) =>
+      _$FontFileFromJson(json);
 }

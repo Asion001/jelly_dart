@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 mixin _$UpdateLibraryOptionsDto {
   /// Gets or sets the library item id.
   @JsonKey(name: 'Id')
-  String get id;
+  String? get id;
 
   /// Gets or sets library options.
   @JsonKey(name: 'LibraryOptions')
-  LibraryOptions get libraryOptions;
+  LibraryOptions? get libraryOptions;
 
   /// Create a copy of UpdateLibraryOptionsDto
   /// with the given fields replaced by the non-null parameter values.
@@ -62,11 +62,11 @@ abstract mixin class $UpdateLibraryOptionsDtoCopyWith<$Res> {
   ) = _$UpdateLibraryOptionsDtoCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
   });
 
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -81,17 +81,17 @@ class _$UpdateLibraryOptionsDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? id = null, Object? libraryOptions = null}) {
+  $Res call({Object? id = freezed, Object? libraryOptions = freezed}) {
     return _then(
       _self.copyWith(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        libraryOptions: null == libraryOptions
+                  as String?,
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
       ),
     );
   }
@@ -100,8 +100,12 @@ class _$UpdateLibraryOptionsDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }
@@ -201,8 +205,8 @@ extension UpdateLibraryOptionsDtoPatterns on UpdateLibraryOptionsDto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )?
     $default, {
     required TResult orElse(),
@@ -232,8 +236,8 @@ extension UpdateLibraryOptionsDtoPatterns on UpdateLibraryOptionsDto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )
     $default,
   ) {
@@ -261,8 +265,8 @@ extension UpdateLibraryOptionsDtoPatterns on UpdateLibraryOptionsDto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Id') String id,
-      @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+      @JsonKey(name: 'Id') String? id,
+      @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
     )?
     $default,
   ) {
@@ -280,8 +284,8 @@ extension UpdateLibraryOptionsDtoPatterns on UpdateLibraryOptionsDto {
 @JsonSerializable()
 class _UpdateLibraryOptionsDto implements UpdateLibraryOptionsDto {
   const _UpdateLibraryOptionsDto({
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'LibraryOptions') required this.libraryOptions,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'LibraryOptions') this.libraryOptions,
   });
   factory _UpdateLibraryOptionsDto.fromJson(Map<String, dynamic> json) =>
       _$UpdateLibraryOptionsDtoFromJson(json);
@@ -289,12 +293,12 @@ class _UpdateLibraryOptionsDto implements UpdateLibraryOptionsDto {
   /// Gets or sets the library item id.
   @override
   @JsonKey(name: 'Id')
-  final String id;
+  final String? id;
 
   /// Gets or sets library options.
   @override
   @JsonKey(name: 'LibraryOptions')
-  final LibraryOptions libraryOptions;
+  final LibraryOptions? libraryOptions;
 
   /// Create a copy of UpdateLibraryOptionsDto
   /// with the given fields replaced by the non-null parameter values.
@@ -342,12 +346,12 @@ abstract mixin class _$UpdateLibraryOptionsDtoCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Id') String id,
-    @JsonKey(name: 'LibraryOptions') LibraryOptions libraryOptions,
+    @JsonKey(name: 'Id') String? id,
+    @JsonKey(name: 'LibraryOptions') LibraryOptions? libraryOptions,
   });
 
   @override
-  $LibraryOptionsCopyWith<$Res> get libraryOptions;
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions;
 }
 
 /// @nodoc
@@ -362,17 +366,17 @@ class __$UpdateLibraryOptionsDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? id = null, Object? libraryOptions = null}) {
+  $Res call({Object? id = freezed, Object? libraryOptions = freezed}) {
     return _then(
       _UpdateLibraryOptionsDto(
-        id: null == id
+        id: freezed == id
             ? _self.id
             : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        libraryOptions: null == libraryOptions
+                  as String?,
+        libraryOptions: freezed == libraryOptions
             ? _self.libraryOptions
             : libraryOptions // ignore: cast_nullable_to_non_nullable
-                  as LibraryOptions,
+                  as LibraryOptions?,
       ),
     );
   }
@@ -381,8 +385,12 @@ class __$UpdateLibraryOptionsDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LibraryOptionsCopyWith<$Res> get libraryOptions {
-    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions, (value) {
+  $LibraryOptionsCopyWith<$Res>? get libraryOptions {
+    if (_self.libraryOptions == null) {
+      return null;
+    }
+
+    return $LibraryOptionsCopyWith<$Res>(_self.libraryOptions!, (value) {
       return _then(_self.copyWith(libraryOptions: value));
     });
   }

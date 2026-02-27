@@ -14,17 +14,15 @@ part 'parental_rating.g.dart';
 abstract class ParentalRating with _$ParentalRating {
   const factory ParentalRating({
     /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String name,
+    @JsonKey(name: 'Name') String? name,
 
     /// Gets or sets the value.
-    @JsonKey(name: 'Value')
-    required int? value,
+    @JsonKey(name: 'Value') int? value,
 
     /// Gets or sets the rating score.
-    @JsonKey(name: 'RatingScore')
-    required ParentalRatingScore ratingScore,
+    @JsonKey(name: 'RatingScore') ParentalRatingScore? ratingScore,
   }) = _ParentalRating;
-  
-  factory ParentalRating.fromJson(Map<String, Object?> json) => _$ParentalRatingFromJson(json);
+
+  factory ParentalRating.fromJson(Map<String, Object?> json) =>
+      _$ParentalRatingFromJson(json);
 }

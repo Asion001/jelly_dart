@@ -12,13 +12,12 @@ part 'move_playlist_item_request_dto.g.dart';
 abstract class MovePlaylistItemRequestDto with _$MovePlaylistItemRequestDto {
   const factory MovePlaylistItemRequestDto({
     /// Gets or sets the playlist identifier of the item.
-    @JsonKey(name: 'PlaylistItemId')
-    String? playlistItemId,
+    @JsonKey(name: 'PlaylistItemId') String? playlistItemId,
 
     /// Gets or sets the new position.
-    @JsonKey(name: 'NewIndex')
-    int? newIndex,
+    @JsonKey(name: 'NewIndex') int? newIndex,
   }) = _MovePlaylistItemRequestDto;
-  
-  factory MovePlaylistItemRequestDto.fromJson(Map<String, Object?> json) => _$MovePlaylistItemRequestDtoFromJson(json);
+
+  factory MovePlaylistItemRequestDto.fromJson(Map<String, Object?> json) =>
+      _$MovePlaylistItemRequestDtoFromJson(json);
 }

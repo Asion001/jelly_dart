@@ -13,6 +13,7 @@ abstract class MetadataConfiguration with _$MetadataConfiguration {
     @JsonKey(name: 'UseFileCreationTimeForDateAdded')
     bool? useFileCreationTimeForDateAdded,
   }) = _MetadataConfiguration;
-  
-  factory MetadataConfiguration.fromJson(Map<String, Object?> json) => _$MetadataConfigurationFromJson(json);
+
+  factory MetadataConfiguration.fromJson(Map<String, Object?> json) =>
+      _$MetadataConfigurationFromJson(json);
 }

@@ -47,11 +47,11 @@ mixin _$RemoteImageInfo {
 
   /// Gets or sets the type.
   @JsonKey(name: 'Type')
-  RemoteImageInfoType get type;
+  RemoteImageInfoType? get type;
 
   /// Gets or sets the type of the rating.
   @JsonKey(name: 'RatingType')
-  RemoteImageInfoRatingType get ratingType;
+  RemoteImageInfoRatingType? get ratingType;
 
   /// Create a copy of RemoteImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -127,8 +127,8 @@ abstract mixin class $RemoteImageInfoCopyWith<$Res> {
     @JsonKey(name: 'CommunityRating') double? communityRating,
     @JsonKey(name: 'VoteCount') int? voteCount,
     @JsonKey(name: 'Language') String? language,
-    @JsonKey(name: 'Type') RemoteImageInfoType type,
-    @JsonKey(name: 'RatingType') RemoteImageInfoRatingType ratingType,
+    @JsonKey(name: 'Type') RemoteImageInfoType? type,
+    @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
   });
 }
 
@@ -153,8 +153,8 @@ class _$RemoteImageInfoCopyWithImpl<$Res>
     Object? communityRating = freezed,
     Object? voteCount = freezed,
     Object? language = freezed,
-    Object? type = null,
-    Object? ratingType = null,
+    Object? type = freezed,
+    Object? ratingType = freezed,
   }) {
     return _then(
       _self.copyWith(
@@ -190,14 +190,14 @@ class _$RemoteImageInfoCopyWithImpl<$Res>
             ? _self.language
             : language // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as RemoteImageInfoType,
-        ratingType: null == ratingType
+                  as RemoteImageInfoType?,
+        ratingType: freezed == ratingType
             ? _self.ratingType
             : ratingType // ignore: cast_nullable_to_non_nullable
-                  as RemoteImageInfoRatingType,
+                  as RemoteImageInfoRatingType?,
       ),
     );
   }
@@ -305,8 +305,8 @@ extension RemoteImageInfoPatterns on RemoteImageInfo {
       @JsonKey(name: 'CommunityRating') double? communityRating,
       @JsonKey(name: 'VoteCount') int? voteCount,
       @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'Type') RemoteImageInfoType type,
-      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType ratingType,
+      @JsonKey(name: 'Type') RemoteImageInfoType? type,
+      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
     )?
     $default, {
     required TResult orElse(),
@@ -355,8 +355,8 @@ extension RemoteImageInfoPatterns on RemoteImageInfo {
       @JsonKey(name: 'CommunityRating') double? communityRating,
       @JsonKey(name: 'VoteCount') int? voteCount,
       @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'Type') RemoteImageInfoType type,
-      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType ratingType,
+      @JsonKey(name: 'Type') RemoteImageInfoType? type,
+      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
     )
     $default,
   ) {
@@ -403,8 +403,8 @@ extension RemoteImageInfoPatterns on RemoteImageInfo {
       @JsonKey(name: 'CommunityRating') double? communityRating,
       @JsonKey(name: 'VoteCount') int? voteCount,
       @JsonKey(name: 'Language') String? language,
-      @JsonKey(name: 'Type') RemoteImageInfoType type,
-      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType ratingType,
+      @JsonKey(name: 'Type') RemoteImageInfoType? type,
+      @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
     )?
     $default,
   ) {
@@ -433,16 +433,16 @@ extension RemoteImageInfoPatterns on RemoteImageInfo {
 @JsonSerializable()
 class _RemoteImageInfo implements RemoteImageInfo {
   const _RemoteImageInfo({
-    @JsonKey(name: 'ProviderName') required this.providerName,
-    @JsonKey(name: 'Url') required this.url,
-    @JsonKey(name: 'ThumbnailUrl') required this.thumbnailUrl,
-    @JsonKey(name: 'Height') required this.height,
-    @JsonKey(name: 'Width') required this.width,
-    @JsonKey(name: 'CommunityRating') required this.communityRating,
-    @JsonKey(name: 'VoteCount') required this.voteCount,
-    @JsonKey(name: 'Language') required this.language,
-    @JsonKey(name: 'Type') required this.type,
-    @JsonKey(name: 'RatingType') required this.ratingType,
+    @JsonKey(name: 'ProviderName') this.providerName,
+    @JsonKey(name: 'Url') this.url,
+    @JsonKey(name: 'ThumbnailUrl') this.thumbnailUrl,
+    @JsonKey(name: 'Height') this.height,
+    @JsonKey(name: 'Width') this.width,
+    @JsonKey(name: 'CommunityRating') this.communityRating,
+    @JsonKey(name: 'VoteCount') this.voteCount,
+    @JsonKey(name: 'Language') this.language,
+    @JsonKey(name: 'Type') this.type,
+    @JsonKey(name: 'RatingType') this.ratingType,
   });
   factory _RemoteImageInfo.fromJson(Map<String, dynamic> json) =>
       _$RemoteImageInfoFromJson(json);
@@ -490,12 +490,12 @@ class _RemoteImageInfo implements RemoteImageInfo {
   /// Gets or sets the type.
   @override
   @JsonKey(name: 'Type')
-  final RemoteImageInfoType type;
+  final RemoteImageInfoType? type;
 
   /// Gets or sets the type of the rating.
   @override
   @JsonKey(name: 'RatingType')
-  final RemoteImageInfoRatingType ratingType;
+  final RemoteImageInfoRatingType? ratingType;
 
   /// Create a copy of RemoteImageInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -573,8 +573,8 @@ abstract mixin class _$RemoteImageInfoCopyWith<$Res>
     @JsonKey(name: 'CommunityRating') double? communityRating,
     @JsonKey(name: 'VoteCount') int? voteCount,
     @JsonKey(name: 'Language') String? language,
-    @JsonKey(name: 'Type') RemoteImageInfoType type,
-    @JsonKey(name: 'RatingType') RemoteImageInfoRatingType ratingType,
+    @JsonKey(name: 'Type') RemoteImageInfoType? type,
+    @JsonKey(name: 'RatingType') RemoteImageInfoRatingType? ratingType,
   });
 }
 
@@ -599,8 +599,8 @@ class __$RemoteImageInfoCopyWithImpl<$Res>
     Object? communityRating = freezed,
     Object? voteCount = freezed,
     Object? language = freezed,
-    Object? type = null,
-    Object? ratingType = null,
+    Object? type = freezed,
+    Object? ratingType = freezed,
   }) {
     return _then(
       _RemoteImageInfo(
@@ -636,14 +636,14 @@ class __$RemoteImageInfoCopyWithImpl<$Res>
             ? _self.language
             : language // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as RemoteImageInfoType,
-        ratingType: null == ratingType
+                  as RemoteImageInfoType?,
+        ratingType: freezed == ratingType
             ? _self.ratingType
             : ratingType // ignore: cast_nullable_to_non_nullable
-                  as RemoteImageInfoRatingType,
+                  as RemoteImageInfoRatingType?,
       ),
     );
   }

@@ -11,7 +11,8 @@ enum CodecType {
   @JsonValue('VideoAudio')
   videoAudio('VideoAudio'),
   @JsonValue('Audio')
-  audio('Audio');
+  audio('Audio')
+  ;
 
   const CodecType(this.json);
 
@@ -19,8 +20,10 @@ enum CodecType {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

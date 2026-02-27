@@ -10,21 +10,19 @@ part 'music_video_info_remote_search_query.freezed.dart';
 part 'music_video_info_remote_search_query.g.dart';
 
 @Freezed()
-abstract class MusicVideoInfoRemoteSearchQuery with _$MusicVideoInfoRemoteSearchQuery {
+abstract class MusicVideoInfoRemoteSearchQuery
+    with _$MusicVideoInfoRemoteSearchQuery {
   const factory MusicVideoInfoRemoteSearchQuery({
-    @JsonKey(name: 'SearchInfo')
-    required MusicVideoInfo searchInfo,
-    @JsonKey(name: 'ItemId')
-    required String itemId,
+    @JsonKey(name: 'SearchInfo') MusicVideoInfo? searchInfo,
+    @JsonKey(name: 'ItemId') String? itemId,
 
     /// Gets or sets the provider name to search within if set.
-    @JsonKey(name: 'SearchProviderName')
-    required String? searchProviderName,
+    @JsonKey(name: 'SearchProviderName') String? searchProviderName,
 
     /// Gets or sets a value indicating whether disabled providers should be included.
-    @JsonKey(name: 'IncludeDisabledProviders')
-    required bool includeDisabledProviders,
+    @JsonKey(name: 'IncludeDisabledProviders') bool? includeDisabledProviders,
   }) = _MusicVideoInfoRemoteSearchQuery;
-  
-  factory MusicVideoInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) => _$MusicVideoInfoRemoteSearchQueryFromJson(json);
+
+  factory MusicVideoInfoRemoteSearchQuery.fromJson(Map<String, Object?> json) =>
+      _$MusicVideoInfoRemoteSearchQueryFromJson(json);
 }

@@ -51,7 +51,7 @@ mixin _$DeviceInfoDto {
 
   /// Gets or sets the capabilities.
   @JsonKey(name: 'Capabilities')
-  ClientCapabilitiesDto get capabilities;
+  ClientCapabilitiesDto? get capabilities;
 
   /// Gets or sets the icon URL.
   @JsonKey(name: 'IconUrl')
@@ -135,11 +135,11 @@ abstract mixin class $DeviceInfoDtoCopyWith<$Res> {
     @JsonKey(name: 'AppVersion') String? appVersion,
     @JsonKey(name: 'LastUserId') String? lastUserId,
     @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
-    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto capabilities,
+    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
-  $ClientCapabilitiesDtoCopyWith<$Res> get capabilities;
+  $ClientCapabilitiesDtoCopyWith<$Res>? get capabilities;
 }
 
 /// @nodoc
@@ -164,7 +164,7 @@ class _$DeviceInfoDtoCopyWithImpl<$Res>
     Object? appVersion = freezed,
     Object? lastUserId = freezed,
     Object? dateLastActivity = freezed,
-    Object? capabilities = null,
+    Object? capabilities = freezed,
     Object? iconUrl = freezed,
   }) {
     return _then(
@@ -205,10 +205,10 @@ class _$DeviceInfoDtoCopyWithImpl<$Res>
             ? _self.dateLastActivity
             : dateLastActivity // ignore: cast_nullable_to_non_nullable
                   as DateTime?,
-        capabilities: null == capabilities
+        capabilities: freezed == capabilities
             ? _self.capabilities
             : capabilities // ignore: cast_nullable_to_non_nullable
-                  as ClientCapabilitiesDto,
+                  as ClientCapabilitiesDto?,
         iconUrl: freezed == iconUrl
             ? _self.iconUrl
             : iconUrl // ignore: cast_nullable_to_non_nullable
@@ -221,8 +221,12 @@ class _$DeviceInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ClientCapabilitiesDtoCopyWith<$Res> get capabilities {
-    return $ClientCapabilitiesDtoCopyWith<$Res>(_self.capabilities, (value) {
+  $ClientCapabilitiesDtoCopyWith<$Res>? get capabilities {
+    if (_self.capabilities == null) {
+      return null;
+    }
+
+    return $ClientCapabilitiesDtoCopyWith<$Res>(_self.capabilities!, (value) {
       return _then(_self.copyWith(capabilities: value));
     });
   }
@@ -331,7 +335,7 @@ extension DeviceInfoDtoPatterns on DeviceInfoDto {
       @JsonKey(name: 'AppVersion') String? appVersion,
       @JsonKey(name: 'LastUserId') String? lastUserId,
       @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
-      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto capabilities,
+      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
     $default, {
@@ -383,7 +387,7 @@ extension DeviceInfoDtoPatterns on DeviceInfoDto {
       @JsonKey(name: 'AppVersion') String? appVersion,
       @JsonKey(name: 'LastUserId') String? lastUserId,
       @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
-      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto capabilities,
+      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )
     $default,
@@ -433,7 +437,7 @@ extension DeviceInfoDtoPatterns on DeviceInfoDto {
       @JsonKey(name: 'AppVersion') String? appVersion,
       @JsonKey(name: 'LastUserId') String? lastUserId,
       @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
-      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto capabilities,
+      @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
       @JsonKey(name: 'IconUrl') String? iconUrl,
     )?
     $default,
@@ -464,17 +468,17 @@ extension DeviceInfoDtoPatterns on DeviceInfoDto {
 @JsonSerializable()
 class _DeviceInfoDto implements DeviceInfoDto {
   const _DeviceInfoDto({
-    @JsonKey(name: 'Name') required this.name,
-    @JsonKey(name: 'CustomName') required this.customName,
-    @JsonKey(name: 'AccessToken') required this.accessToken,
-    @JsonKey(name: 'Id') required this.id,
-    @JsonKey(name: 'LastUserName') required this.lastUserName,
-    @JsonKey(name: 'AppName') required this.appName,
-    @JsonKey(name: 'AppVersion') required this.appVersion,
-    @JsonKey(name: 'LastUserId') required this.lastUserId,
-    @JsonKey(name: 'DateLastActivity') required this.dateLastActivity,
-    @JsonKey(name: 'Capabilities') required this.capabilities,
-    @JsonKey(name: 'IconUrl') required this.iconUrl,
+    @JsonKey(name: 'Name') this.name,
+    @JsonKey(name: 'CustomName') this.customName,
+    @JsonKey(name: 'AccessToken') this.accessToken,
+    @JsonKey(name: 'Id') this.id,
+    @JsonKey(name: 'LastUserName') this.lastUserName,
+    @JsonKey(name: 'AppName') this.appName,
+    @JsonKey(name: 'AppVersion') this.appVersion,
+    @JsonKey(name: 'LastUserId') this.lastUserId,
+    @JsonKey(name: 'DateLastActivity') this.dateLastActivity,
+    @JsonKey(name: 'Capabilities') this.capabilities,
+    @JsonKey(name: 'IconUrl') this.iconUrl,
   });
   factory _DeviceInfoDto.fromJson(Map<String, dynamic> json) =>
       _$DeviceInfoDtoFromJson(json);
@@ -527,7 +531,7 @@ class _DeviceInfoDto implements DeviceInfoDto {
   /// Gets or sets the capabilities.
   @override
   @JsonKey(name: 'Capabilities')
-  final ClientCapabilitiesDto capabilities;
+  final ClientCapabilitiesDto? capabilities;
 
   /// Gets or sets the icon URL.
   @override
@@ -614,12 +618,12 @@ abstract mixin class _$DeviceInfoDtoCopyWith<$Res>
     @JsonKey(name: 'AppVersion') String? appVersion,
     @JsonKey(name: 'LastUserId') String? lastUserId,
     @JsonKey(name: 'DateLastActivity') DateTime? dateLastActivity,
-    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto capabilities,
+    @JsonKey(name: 'Capabilities') ClientCapabilitiesDto? capabilities,
     @JsonKey(name: 'IconUrl') String? iconUrl,
   });
 
   @override
-  $ClientCapabilitiesDtoCopyWith<$Res> get capabilities;
+  $ClientCapabilitiesDtoCopyWith<$Res>? get capabilities;
 }
 
 /// @nodoc
@@ -644,7 +648,7 @@ class __$DeviceInfoDtoCopyWithImpl<$Res>
     Object? appVersion = freezed,
     Object? lastUserId = freezed,
     Object? dateLastActivity = freezed,
-    Object? capabilities = null,
+    Object? capabilities = freezed,
     Object? iconUrl = freezed,
   }) {
     return _then(
@@ -685,10 +689,10 @@ class __$DeviceInfoDtoCopyWithImpl<$Res>
             ? _self.dateLastActivity
             : dateLastActivity // ignore: cast_nullable_to_non_nullable
                   as DateTime?,
-        capabilities: null == capabilities
+        capabilities: freezed == capabilities
             ? _self.capabilities
             : capabilities // ignore: cast_nullable_to_non_nullable
-                  as ClientCapabilitiesDto,
+                  as ClientCapabilitiesDto?,
         iconUrl: freezed == iconUrl
             ? _self.iconUrl
             : iconUrl // ignore: cast_nullable_to_non_nullable
@@ -701,8 +705,12 @@ class __$DeviceInfoDtoCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ClientCapabilitiesDtoCopyWith<$Res> get capabilities {
-    return $ClientCapabilitiesDtoCopyWith<$Res>(_self.capabilities, (value) {
+  $ClientCapabilitiesDtoCopyWith<$Res>? get capabilities {
+    if (_self.capabilities == null) {
+      return null;
+    }
+
+    return $ClientCapabilitiesDtoCopyWith<$Res>(_self.capabilities!, (value) {
       return _then(_self.copyWith(capabilities: value));
     });
   }

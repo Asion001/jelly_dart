@@ -19,7 +19,8 @@ enum LogLevel {
   @JsonValue('Critical')
   critical('Critical'),
   @JsonValue('None')
-  none('None');
+  none('None')
+  ;
 
   const LogLevel(this.json);
 
@@ -27,8 +28,10 @@ enum LogLevel {
   String toJson() {
     final value = json;
     if (value == null) {
-      throw StateError('Cannot convert enum value with null JSON representation to String. '
-          'This usually happens for \$unknown or @JsonValue(null) entries.');
+      throw StateError(
+        'Cannot convert enum value with null JSON representation to String. '
+        'This usually happens for \$unknown or @JsonValue(null) entries.',
+      );
     }
     return value as String;
   }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$DirectPlayProfile {
   /// Gets or sets the container.
   @JsonKey(name: 'Container')
-  String get container;
+  String? get container;
 
   /// Gets or sets the audio codec.
   @JsonKey(name: 'AudioCodec')
@@ -27,7 +27,7 @@ mixin _$DirectPlayProfile {
 
   /// Gets or sets the Dlna profile type.
   @JsonKey(name: 'Type')
-  DirectPlayProfileType get type;
+  DirectPlayProfileType? get type;
 
   /// Create a copy of DirectPlayProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -75,10 +75,10 @@ abstract mixin class $DirectPlayProfileCopyWith<$Res> {
   ) = _$DirectPlayProfileCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Container') String container,
+    @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'AudioCodec') String? audioCodec,
     @JsonKey(name: 'VideoCodec') String? videoCodec,
-    @JsonKey(name: 'Type') DirectPlayProfileType type,
+    @JsonKey(name: 'Type') DirectPlayProfileType? type,
   });
 }
 
@@ -95,17 +95,17 @@ class _$DirectPlayProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? container = null,
+    Object? container = freezed,
     Object? audioCodec = freezed,
     Object? videoCodec = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(
       _self.copyWith(
-        container: null == container
+        container: freezed == container
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         audioCodec: freezed == audioCodec
             ? _self.audioCodec
             : audioCodec // ignore: cast_nullable_to_non_nullable
@@ -114,10 +114,10 @@ class _$DirectPlayProfileCopyWithImpl<$Res>
             ? _self.videoCodec
             : videoCodec // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as DirectPlayProfileType,
+                  as DirectPlayProfileType?,
       ),
     );
   }
@@ -217,10 +217,10 @@ extension DirectPlayProfilePatterns on DirectPlayProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Container') String container,
+      @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
-      @JsonKey(name: 'Type') DirectPlayProfileType type,
+      @JsonKey(name: 'Type') DirectPlayProfileType? type,
     )?
     $default, {
     required TResult orElse(),
@@ -255,10 +255,10 @@ extension DirectPlayProfilePatterns on DirectPlayProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Container') String container,
+      @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
-      @JsonKey(name: 'Type') DirectPlayProfileType type,
+      @JsonKey(name: 'Type') DirectPlayProfileType? type,
     )
     $default,
   ) {
@@ -291,10 +291,10 @@ extension DirectPlayProfilePatterns on DirectPlayProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Container') String container,
+      @JsonKey(name: 'Container') String? container,
       @JsonKey(name: 'AudioCodec') String? audioCodec,
       @JsonKey(name: 'VideoCodec') String? videoCodec,
-      @JsonKey(name: 'Type') DirectPlayProfileType type,
+      @JsonKey(name: 'Type') DirectPlayProfileType? type,
     )?
     $default,
   ) {
@@ -317,10 +317,10 @@ extension DirectPlayProfilePatterns on DirectPlayProfile {
 @JsonSerializable()
 class _DirectPlayProfile implements DirectPlayProfile {
   const _DirectPlayProfile({
-    @JsonKey(name: 'Container') required this.container,
-    @JsonKey(name: 'AudioCodec') required this.audioCodec,
-    @JsonKey(name: 'VideoCodec') required this.videoCodec,
-    @JsonKey(name: 'Type') required this.type,
+    @JsonKey(name: 'Container') this.container,
+    @JsonKey(name: 'AudioCodec') this.audioCodec,
+    @JsonKey(name: 'VideoCodec') this.videoCodec,
+    @JsonKey(name: 'Type') this.type,
   });
   factory _DirectPlayProfile.fromJson(Map<String, dynamic> json) =>
       _$DirectPlayProfileFromJson(json);
@@ -328,7 +328,7 @@ class _DirectPlayProfile implements DirectPlayProfile {
   /// Gets or sets the container.
   @override
   @JsonKey(name: 'Container')
-  final String container;
+  final String? container;
 
   /// Gets or sets the audio codec.
   @override
@@ -343,7 +343,7 @@ class _DirectPlayProfile implements DirectPlayProfile {
   /// Gets or sets the Dlna profile type.
   @override
   @JsonKey(name: 'Type')
-  final DirectPlayProfileType type;
+  final DirectPlayProfileType? type;
 
   /// Create a copy of DirectPlayProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -393,10 +393,10 @@ abstract mixin class _$DirectPlayProfileCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Container') String container,
+    @JsonKey(name: 'Container') String? container,
     @JsonKey(name: 'AudioCodec') String? audioCodec,
     @JsonKey(name: 'VideoCodec') String? videoCodec,
-    @JsonKey(name: 'Type') DirectPlayProfileType type,
+    @JsonKey(name: 'Type') DirectPlayProfileType? type,
   });
 }
 
@@ -413,17 +413,17 @@ class __$DirectPlayProfileCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? container = null,
+    Object? container = freezed,
     Object? audioCodec = freezed,
     Object? videoCodec = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(
       _DirectPlayProfile(
-        container: null == container
+        container: freezed == container
             ? _self.container
             : container // ignore: cast_nullable_to_non_nullable
-                  as String,
+                  as String?,
         audioCodec: freezed == audioCodec
             ? _self.audioCodec
             : audioCodec // ignore: cast_nullable_to_non_nullable
@@ -432,10 +432,10 @@ class __$DirectPlayProfileCopyWithImpl<$Res>
             ? _self.videoCodec
             : videoCodec // ignore: cast_nullable_to_non_nullable
                   as String?,
-        type: null == type
+        type: freezed == type
             ? _self.type
             : type // ignore: cast_nullable_to_non_nullable
-                  as DirectPlayProfileType,
+                  as DirectPlayProfileType?,
       ),
     );
   }

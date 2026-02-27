@@ -15,7 +15,8 @@ part 'configuration_client.g.dart';
 
 @RestApi()
 abstract class ConfigurationClient {
-  factory ConfigurationClient(Dio dio, {String? baseUrl}) = _ConfigurationClient;
+  factory ConfigurationClient(Dio dio, {String? baseUrl}) =
+      _ConfigurationClient;
 
   /// Gets application configuration.
   @GET('/System/Configuration')
@@ -54,7 +55,8 @@ abstract class ConfigurationClient {
 
   /// Updates branding configuration.
   ///
-  /// [body] - The branding options DTO for API use.  ///
+  /// [body] - The branding options DTO for API use.
+  ///
   /// This DTO excludes SplashscreenLocation to prevent it from being updated via API.
   @POST('/System/Configuration/Branding')
   Future<void> updateBrandingConfiguration({

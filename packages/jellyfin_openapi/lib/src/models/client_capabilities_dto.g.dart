@@ -9,17 +9,17 @@ part of 'client_capabilities_dto.dart';
 _ClientCapabilitiesDto _$ClientCapabilitiesDtoFromJson(
   Map<String, dynamic> json,
 ) => _ClientCapabilitiesDto(
-  playableMediaTypes: (json['PlayableMediaTypes'] as List<dynamic>)
-      .map((e) => $enumDecode(_$MediaTypeEnumMap, e))
+  playableMediaTypes: (json['PlayableMediaTypes'] as List<dynamic>?)
+      ?.map((e) => $enumDecode(_$MediaTypeEnumMap, e))
       .toList(),
-  supportedCommands: (json['SupportedCommands'] as List<dynamic>)
-      .map((e) => $enumDecode(_$GeneralCommandTypeEnumMap, e))
+  supportedCommands: (json['SupportedCommands'] as List<dynamic>?)
+      ?.map((e) => $enumDecode(_$GeneralCommandTypeEnumMap, e))
       .toList(),
-  supportsMediaControl: json['SupportsMediaControl'] as bool,
-  supportsPersistentIdentifier: json['SupportsPersistentIdentifier'] as bool,
-  deviceProfile: DeviceProfile.fromJson(
-    json['DeviceProfile'] as Map<String, dynamic>,
-  ),
+  supportsMediaControl: json['SupportsMediaControl'] as bool?,
+  supportsPersistentIdentifier: json['SupportsPersistentIdentifier'] as bool?,
+  deviceProfile: json['DeviceProfile'] == null
+      ? null
+      : DeviceProfile.fromJson(json['DeviceProfile'] as Map<String, dynamic>),
   appStoreUrl: json['AppStoreUrl'] as String?,
   iconUrl: json['IconUrl'] as String?,
 );
@@ -27,15 +27,15 @@ _ClientCapabilitiesDto _$ClientCapabilitiesDtoFromJson(
 Map<String, dynamic> _$ClientCapabilitiesDtoToJson(
   _ClientCapabilitiesDto instance,
 ) => <String, dynamic>{
-  'PlayableMediaTypes': instance.playableMediaTypes
-      .map((e) => e.toJson())
+  'PlayableMediaTypes': ?instance.playableMediaTypes
+      ?.map((e) => e.toJson())
       .toList(),
-  'SupportedCommands': instance.supportedCommands
-      .map((e) => e.toJson())
+  'SupportedCommands': ?instance.supportedCommands
+      ?.map((e) => e.toJson())
       .toList(),
-  'SupportsMediaControl': instance.supportsMediaControl,
-  'SupportsPersistentIdentifier': instance.supportsPersistentIdentifier,
-  'DeviceProfile': instance.deviceProfile.toJson(),
+  'SupportsMediaControl': ?instance.supportsMediaControl,
+  'SupportsPersistentIdentifier': ?instance.supportsPersistentIdentifier,
+  'DeviceProfile': ?instance.deviceProfile?.toJson(),
   'AppStoreUrl': ?instance.appStoreUrl,
   'IconUrl': ?instance.iconUrl,
 };

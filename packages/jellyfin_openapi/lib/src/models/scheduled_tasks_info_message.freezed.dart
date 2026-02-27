@@ -13,17 +13,17 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ScheduledTasksInfoMessage {
+  /// The different kinds of messages that are used in the WebSocket api.
+  @JsonKey(name: 'MessageType')
+  ScheduledTasksInfoMessageMessageType get messageType;
+
   /// Gets or sets the data.
   @JsonKey(name: 'Data')
   List<TaskInfo>? get data;
 
   /// Gets or sets the message id.
   @JsonKey(name: 'MessageId')
-  String get messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @JsonKey(name: 'MessageType')
-  ScheduledTasksInfoMessageMessageType get messageType;
+  String? get messageId;
 
   /// Create a copy of ScheduledTasksInfoMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -43,25 +43,25 @@ mixin _$ScheduledTasksInfoMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ScheduledTasksInfoMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'ScheduledTasksInfoMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -73,10 +73,10 @@ abstract mixin class $ScheduledTasksInfoMessageCopyWith<$Res> {
   ) = _$ScheduledTasksInfoMessageCopyWithImpl;
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') List<TaskInfo>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     ScheduledTasksInfoMessageMessageType messageType,
+    @JsonKey(name: 'Data') List<TaskInfo>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -93,24 +93,24 @@ class _$ScheduledTasksInfoMessageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _self.copyWith(
-        data: freezed == data
-            ? _self.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<TaskInfo>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ScheduledTasksInfoMessageMessageType,
+        data: freezed == data
+            ? _self.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<TaskInfo>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -210,10 +210,10 @@ extension ScheduledTasksInfoMessagePatterns on ScheduledTasksInfoMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') List<TaskInfo>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ScheduledTasksInfoMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default, {
     required TResult orElse(),
@@ -221,7 +221,7 @@ extension ScheduledTasksInfoMessagePatterns on ScheduledTasksInfoMessage {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return orElse();
     }
@@ -243,17 +243,17 @@ extension ScheduledTasksInfoMessagePatterns on ScheduledTasksInfoMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-      @JsonKey(name: 'Data') List<TaskInfo>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ScheduledTasksInfoMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoMessage():
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -274,17 +274,17 @@ extension ScheduledTasksInfoMessagePatterns on ScheduledTasksInfoMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-      @JsonKey(name: 'Data') List<TaskInfo>? data,
-      @JsonKey(name: 'MessageId') String messageId,
       @JsonKey(name: 'MessageType')
       ScheduledTasksInfoMessageMessageType messageType,
+      @JsonKey(name: 'Data') List<TaskInfo>? data,
+      @JsonKey(name: 'MessageId') String? messageId,
     )?
     $default,
   ) {
     final _that = this;
     switch (_that) {
       case _ScheduledTasksInfoMessage() when $default != null:
-        return $default(_that.data, _that.messageId, _that.messageType);
+        return $default(_that.messageType, _that.data, _that.messageId);
       case _:
         return null;
     }
@@ -295,13 +295,18 @@ extension ScheduledTasksInfoMessagePatterns on ScheduledTasksInfoMessage {
 @JsonSerializable()
 class _ScheduledTasksInfoMessage implements ScheduledTasksInfoMessage {
   const _ScheduledTasksInfoMessage({
-    @JsonKey(name: 'Data') required final List<TaskInfo>? data,
-    @JsonKey(name: 'MessageId') required this.messageId,
     @JsonKey(name: 'MessageType')
     this.messageType = ScheduledTasksInfoMessageMessageType.scheduledTasksInfo,
+    @JsonKey(name: 'Data') final List<TaskInfo>? data,
+    @JsonKey(name: 'MessageId') this.messageId,
   }) : _data = data;
   factory _ScheduledTasksInfoMessage.fromJson(Map<String, dynamic> json) =>
       _$ScheduledTasksInfoMessageFromJson(json);
+
+  /// The different kinds of messages that are used in the WebSocket api.
+  @override
+  @JsonKey(name: 'MessageType')
+  final ScheduledTasksInfoMessageMessageType messageType;
 
   /// Gets or sets the data.
   final List<TaskInfo>? _data;
@@ -320,12 +325,7 @@ class _ScheduledTasksInfoMessage implements ScheduledTasksInfoMessage {
   /// Gets or sets the message id.
   @override
   @JsonKey(name: 'MessageId')
-  final String messageId;
-
-  /// The different kinds of messages that are used in the WebSocket api.
-  @override
-  @JsonKey(name: 'MessageType')
-  final ScheduledTasksInfoMessageMessageType messageType;
+  final String? messageId;
 
   /// Create a copy of ScheduledTasksInfoMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -349,25 +349,25 @@ class _ScheduledTasksInfoMessage implements ScheduledTasksInfoMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ScheduledTasksInfoMessage &&
+            (identical(other.messageType, messageType) ||
+                other.messageType == messageType) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId) &&
-            (identical(other.messageType, messageType) ||
-                other.messageType == messageType));
+                other.messageId == messageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    messageType,
     const DeepCollectionEquality().hash(_data),
     messageId,
-    messageType,
   );
 
   @override
   String toString() {
-    return 'ScheduledTasksInfoMessage(data: $data, messageId: $messageId, messageType: $messageType)';
+    return 'ScheduledTasksInfoMessage(messageType: $messageType, data: $data, messageId: $messageId)';
   }
 }
 
@@ -381,10 +381,10 @@ abstract mixin class _$ScheduledTasksInfoMessageCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'Data') List<TaskInfo>? data,
-    @JsonKey(name: 'MessageId') String messageId,
     @JsonKey(name: 'MessageType')
     ScheduledTasksInfoMessageMessageType messageType,
+    @JsonKey(name: 'Data') List<TaskInfo>? data,
+    @JsonKey(name: 'MessageId') String? messageId,
   });
 }
 
@@ -401,24 +401,24 @@ class __$ScheduledTasksInfoMessageCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? data = freezed,
-    Object? messageId = null,
     Object? messageType = null,
+    Object? data = freezed,
+    Object? messageId = freezed,
   }) {
     return _then(
       _ScheduledTasksInfoMessage(
-        data: freezed == data
-            ? _self._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as List<TaskInfo>?,
-        messageId: null == messageId
-            ? _self.messageId
-            : messageId // ignore: cast_nullable_to_non_nullable
-                  as String,
         messageType: null == messageType
             ? _self.messageType
             : messageType // ignore: cast_nullable_to_non_nullable
                   as ScheduledTasksInfoMessageMessageType,
+        data: freezed == data
+            ? _self._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<TaskInfo>?,
+        messageId: freezed == messageId
+            ? _self.messageId
+            : messageId // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

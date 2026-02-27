@@ -11,20 +11,19 @@ part 'authentication_info_query_result.g.dart';
 
 /// Query result container.
 @Freezed()
-abstract class AuthenticationInfoQueryResult with _$AuthenticationInfoQueryResult {
+abstract class AuthenticationInfoQueryResult
+    with _$AuthenticationInfoQueryResult {
   const factory AuthenticationInfoQueryResult({
     /// Gets or sets the items.
-    @JsonKey(name: 'Items')
-    List<AuthenticationInfo>? items,
+    @JsonKey(name: 'Items') List<AuthenticationInfo>? items,
 
     /// Gets or sets the total number of records available.
-    @JsonKey(name: 'TotalRecordCount')
-    int? totalRecordCount,
+    @JsonKey(name: 'TotalRecordCount') int? totalRecordCount,
 
     /// Gets or sets the index of the first record in Items.
-    @JsonKey(name: 'StartIndex')
-    int? startIndex,
+    @JsonKey(name: 'StartIndex') int? startIndex,
   }) = _AuthenticationInfoQueryResult;
-  
-  factory AuthenticationInfoQueryResult.fromJson(Map<String, Object?> json) => _$AuthenticationInfoQueryResultFromJson(json);
+
+  factory AuthenticationInfoQueryResult.fromJson(Map<String, Object?> json) =>
+      _$AuthenticationInfoQueryResultFromJson(json);
 }

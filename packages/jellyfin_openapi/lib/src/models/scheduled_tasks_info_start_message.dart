@@ -9,20 +9,22 @@ import 'scheduled_tasks_info_start_message_message_type.dart';
 part 'scheduled_tasks_info_start_message.freezed.dart';
 part 'scheduled_tasks_info_start_message.g.dart';
 
-/// Scheduled tasks info start message.///
+/// Scheduled tasks info start message.
+///
 /// Data is the timing data encoded as "$initialDelay,$interval" in ms.
 @Freezed()
-abstract class ScheduledTasksInfoStartMessage with _$ScheduledTasksInfoStartMessage {
+abstract class ScheduledTasksInfoStartMessage
+    with _$ScheduledTasksInfoStartMessage {
   const factory ScheduledTasksInfoStartMessage({
-    /// Gets or sets the data.
-    @JsonKey(name: 'Data')
-    required String? data,
-
     /// The different kinds of messages that are used in the WebSocket api.
     @JsonKey(name: 'MessageType')
     @Default(ScheduledTasksInfoStartMessageMessageType.scheduledTasksInfoStart)
     ScheduledTasksInfoStartMessageMessageType messageType,
+
+    /// Gets or sets the data.
+    @JsonKey(name: 'Data') String? data,
   }) = _ScheduledTasksInfoStartMessage;
-  
-  factory ScheduledTasksInfoStartMessage.fromJson(Map<String, Object?> json) => _$ScheduledTasksInfoStartMessageFromJson(json);
+
+  factory ScheduledTasksInfoStartMessage.fromJson(Map<String, Object?> json) =>
+      _$ScheduledTasksInfoStartMessageFromJson(json);
 }

@@ -14,31 +14,27 @@ part 'base_item_person.g.dart';
 @Freezed()
 abstract class BaseItemPerson with _$BaseItemPerson {
   const factory BaseItemPerson({
-    /// Gets or sets the name.
-    @JsonKey(name: 'Name')
-    required String? name,
-
-    /// Gets or sets the identifier.
-    @JsonKey(name: 'Id')
-    required String id,
-
-    /// Gets or sets the role.
-    @JsonKey(name: 'Role')
-    required String? role,
-
-    /// Gets or sets the primary image tag.
-    @JsonKey(name: 'PrimaryImageTag')
-    required String? primaryImageTag,
-
-    /// Gets or sets the primary image blurhash.
-    @JsonKey(name: 'ImageBlurHashes')
-    required ImageBlurHashes2? imageBlurHashes,
-
     /// Gets or sets the type.
     @JsonKey(name: 'Type')
     @Default(BaseItemPersonType.unknown)
     BaseItemPersonType type,
+
+    /// Gets or sets the name.
+    @JsonKey(name: 'Name') String? name,
+
+    /// Gets or sets the identifier.
+    @JsonKey(name: 'Id') String? id,
+
+    /// Gets or sets the role.
+    @JsonKey(name: 'Role') String? role,
+
+    /// Gets or sets the primary image tag.
+    @JsonKey(name: 'PrimaryImageTag') String? primaryImageTag,
+
+    /// Gets or sets the primary image blurhash.
+    @JsonKey(name: 'ImageBlurHashes') ImageBlurHashes2? imageBlurHashes,
   }) = _BaseItemPerson;
-  
-  factory BaseItemPerson.fromJson(Map<String, Object?> json) => _$BaseItemPersonFromJson(json);
+
+  factory BaseItemPerson.fromJson(Map<String, Object?> json) =>
+      _$BaseItemPersonFromJson(json);
 }

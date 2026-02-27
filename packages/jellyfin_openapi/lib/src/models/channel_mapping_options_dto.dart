@@ -16,21 +16,18 @@ part 'channel_mapping_options_dto.g.dart';
 abstract class ChannelMappingOptionsDto with _$ChannelMappingOptionsDto {
   const factory ChannelMappingOptionsDto({
     /// Gets or sets list of tuner channels.
-    @JsonKey(name: 'TunerChannels')
-    List<TunerChannelMapping>? tunerChannels,
+    @JsonKey(name: 'TunerChannels') List<TunerChannelMapping>? tunerChannels,
 
     /// Gets or sets list of provider channels.
-    @JsonKey(name: 'ProviderChannels')
-    List<NameIdPair>? providerChannels,
+    @JsonKey(name: 'ProviderChannels') List<NameIdPair>? providerChannels,
 
     /// Gets or sets list of mappings.
-    @JsonKey(name: 'Mappings')
-    List<NameValuePair>? mappings,
+    @JsonKey(name: 'Mappings') List<NameValuePair>? mappings,
 
     /// Gets or sets provider name.
-    @JsonKey(name: 'ProviderName')
-    String? providerName,
+    @JsonKey(name: 'ProviderName') String? providerName,
   }) = _ChannelMappingOptionsDto;
-  
-  factory ChannelMappingOptionsDto.fromJson(Map<String, Object?> json) => _$ChannelMappingOptionsDtoFromJson(json);
+
+  factory ChannelMappingOptionsDto.fromJson(Map<String, Object?> json) =>
+      _$ChannelMappingOptionsDtoFromJson(json);
 }

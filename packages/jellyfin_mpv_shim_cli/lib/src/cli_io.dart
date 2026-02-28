@@ -1,5 +1,6 @@
 abstract interface class CliProgress {
   void complete(String message);
+  void update(String message);
   void fail(String message);
 }
 

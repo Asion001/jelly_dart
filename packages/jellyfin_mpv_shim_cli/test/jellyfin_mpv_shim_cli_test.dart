@@ -240,4 +240,7 @@ class _FakeProgress implements CliProgress {
 
   @override
   void fail(String message) {}
+
+  @override
+  void update(String message) {}
 }

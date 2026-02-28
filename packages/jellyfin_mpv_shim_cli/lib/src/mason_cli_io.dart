@@ -62,4 +62,7 @@ class _MasonCliProgress implements CliProgress {
 
   @override
   void fail(String message) => _progress.fail(message);
+
+  @override
+  void update(String message) => _progress.update(message);
 }

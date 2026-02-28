@@ -1,0 +1,22 @@
+name: jellyfin_tui_player
+description: A TUI client for jellyfin
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.10.8
+
+# Add regular dependencies here.
+dependencies:
+  cli_completion: ^0.5.1
+  mason_logger: ^0.3.3
+  args: ^2.6.0
+  nocterm: ^0.5.1
+
+dev_dependencies:
+  test: ^1.30.0
+  build_runner: ^2.11.1
+  build_version: ^2.1.3
+  freezed: ^3.2.5
+  json_serializable: ^6.13.0
+  nocterm_lints: ^0.5.0

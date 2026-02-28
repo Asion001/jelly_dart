@@ -127,12 +127,9 @@ class JellyfinMpvBridge {
     OutboundWebSocketMessageUnion message,
   ) async {
     await message.mapOrNull(
-      play: (OutboundWebSocketMessageUnionPlay msg) =>
-          _handlePlayCommand(msg.data),
-      playstate: (OutboundWebSocketMessageUnionPlaystate msg) =>
-          _handlePlaystateCommand(msg.data),
-      generalCommand: (OutboundWebSocketMessageUnionGeneralCommand msg) =>
-          _handleGeneralCommand(msg.data),
+      play: (msg) => _handlePlayCommand(msg.data),
+      playstate: (msg) => _handlePlaystateCommand(msg.data),
+      generalCommand: (msg) => _handleGeneralCommand(msg.data),
     );
   }
 

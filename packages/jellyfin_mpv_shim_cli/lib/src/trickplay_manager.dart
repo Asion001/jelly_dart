@@ -67,15 +67,17 @@ class TrickplayManager {
     );
 
     // Process trickplay data asynchronously
-    unawaited(
-      _processTrickplay(
-        itemId: item.id,
-        mediaSourceId: mediaSourceId,
-        width: selectedWidth,
-        info: trickplayInfo,
-        mpvClient: mpvClient,
-      ),
-    );
+    if (item.id != null && mediaSourceId != null) {
+      unawaited(
+        _processTrickplay(
+          itemId: item.id!,
+          mediaSourceId: mediaSourceId,
+          width: selectedWidth,
+          info: trickplayInfo,
+          mpvClient: mpvClient,
+        ),
+      );
+    }
   }
 
   /// Setup trickplay from raw JSON data (avoids BaseItemDto parsing issues)

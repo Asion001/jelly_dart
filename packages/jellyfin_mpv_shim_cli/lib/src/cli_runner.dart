@@ -34,6 +34,10 @@ class JellyfinCliRunner {
         return;
       }
 
+      if (results['wait'] as bool) {
+        _io.prompt('Press Enter to continue...');
+      }
+
       _io.setVerbose(enabled: results['verbose'] as bool);
 
       final command = results.command;
@@ -82,6 +86,11 @@ class JellyfinCliRunner {
         abbr: 'v',
         negatable: false,
         help: 'Enable verbose logging.',
+      )
+      ..addFlag(
+        'wait',
+        negatable: false,
+        help: 'Wait for user input before starting (for debugging).',
       );
   }
 
@@ -268,8 +277,6 @@ class JellyfinCliRunner {
       _io
         ..success('Ready! Waiting for play commands from Jellyfin...')
         ..info('Press Ctrl+C to stop\n');
-
-      await Future<void>.delayed(const Duration(days: 365));
     } catch (error) {
       await bridge.dispose();
       throw CliRuntimeException('Error: $error', cause: error);

@@ -1,4 +1,4 @@
-include: package:nocterm_lints/analysis_options.yaml
+include: package:nocterm_lints/recommended.yaml
 
 plugins:
   nocterm_lints: ^0.5.0
